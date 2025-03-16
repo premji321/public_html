@@ -3,160 +3,271 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sarkari Result - सरकारी रिजल्ट</title>
+    <title>Orient Classes</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
-        header { background: #ff6600; color: white; text-align: center; padding: 15px; font-size: 24px; font-weight: bold; }
-        nav { background: #333; padding: 10px; text-align: center; }
-        nav a { color: white; text-decoration: none; margin: 0 15px; font-size: 18px; }
-        .container { width: 80%; margin: auto; padding: 20px; background: white; }
-        h2 { background: #ff6600; color: white; padding: 10px; }
-        
-        /* Grid layout for vacancies */
-        .vacancy-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            padding: 10px;
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
         }
-
-        .vacancy-item {
-            background: #fff;
-            border: 1px solid #ddd;
-            padding: 15px;
+        .header {
+            background: linear-gradient(90deg, #1E3C72, #2A5298);
+            color: white;
             text-align: center;
-            box-shadow: 5px 5px 10px lightsteelblue;
-            border-radius: 5px;
-        }
-
-        .vacancy-item a {
-            text-decoration: none;
-            color: black;
+            font-size: 32px;
+            padding: 20px;
             font-weight: bold;
-            display: block;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
         }
-
-        .vacancy-item:hover {
-            background: #ffcc99;
+        .navbar {
+            background: #FFD700;
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .dropdown {
+            position: relative;
+            
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            
+            position: absolute;
+            background-color: lightcyan;
+            min-width: 250px;
+            box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            z-index: 1;
+            border-radius: 10px;
+        }
+        .dropdown:hover .dropdown-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        .dropdown-content div {
+            background: none;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            text-align: center;
+        }
+        .dropdown-content div:hover {
+            background: blue;
+            color: white;
+        }
+        .navbar button {
+            background: white;
+            border: none;
+            padding: 12px 25px;
+            margin: 0 15px;
+            font-size: 18px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 25px;
+            transition: 0.3s;
+            box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.2);
+        }
+        .navbar button:hover {
+            background: #FFA500;
+            color: white;
+            transform: scale(1.1);
+        }
+        .content {
+            display: flex;
+            min-height: 600px;
+        }
+        .sidebar {
+            width: 20%;
+            background: #FDEDEC;
+            padding: 20px;
+        }
+        .main-content {
+            flex-grow: 1;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            margin: 20px;
+        }
+        .right-sidebar {
+            width: 10%;
+            background: linear-gradient(180deg, #2A5298, #1E3C72);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .right-sidebar button {
+            background: #FF69B4;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 20px;
+            transition: 0.3s;
+            box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.2);
+        }
+        .right-sidebar button:hover {
+            background: #FF1493;
+            transform: scale(1.1);
+        }
+        .subject-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 5px;
+            margin-top: 10px;
+        }
+        .subject-button {
+            background: #444;
+            color: darkslategray;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
             transition: 0.3s;
         }
-
-        footer { background: #333; color: white; text-align: center; padding: 10px; margin-top: 20px; }
+        .subject-button:hover {
+            background: #222;
+        }
     </style>
 </head>
 <body>
-
-    <header>
-        Sarkari Result - सरकारी रिजल्ट
-    </header>
-
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">Latest Jobs</a>
-        <a href="#">Admit Card</a>
-        <a href="#">Results</a>
-        <a href="#">Answer Key</a>
-    </nav>
-
-    <div class="container">
-        <h2>Latest Government Jobs</h2>
-        
-        <div class="vacancy-grid">
-            <div class="vacancy-item"><a href="#">UPSC IAS Recruitment 2024 - Apply Now</a></div>
-            <div class="vacancy-item"><a href="#">SSC GD Constable Vacancy 2024</a></div>
-            <div class="vacancy-item"><a href="#">Indian Railways 2024 Job Openings</a></div>
-            <div class="vacancy-item"><a href="#">IBPS PO Bank Exam 2024</a></div>
-            <div class="vacancy-item"><a href="#">UP Police SI Recruitment 2024</a></div>
-            <div class="vacancy-item"><a href="#">Delhi Metro DMRC Jobs 2024</a></div>
-        </div>
-        
-        <video width ="400" controls>
-            <source src ="jokes.mp4" type ="video/mp4"><!-- comment -->
-        </video>
-        <div class ="vacancy-grid">
-            <div class="vacancy-item">
-                <a href="jokes.mp4" download="jokes.mp4">download baketi joke video</a>
+    <div class="header">Orient Classes</div>
+    <div class="navbar">
+        <div class="dropdown">
+            <button>Study</button>
+            <div class="dropdown-content">
+                <div class="class-box">Class 6
+                    <div class="subject-list">
+                        <button class="subject-button">Maths</button>
+                        <button class="subject-button">Science</button>
+                        <button class="subject-button">Social Science</button>
+                        <button class="subject-button">English</button>
+                        <button class="subject-button">Hindi</button>
+                    </div>
+                </div>
+                <div class="class-box">Class 7
+                    <div class="subject-list">
+                        <button class="subject-button">Maths</button>
+                        <button class="subject-button">Science</button>
+                        <button class="subject-button">Social Science</button>
+                        <button class="subject-button">English</button>
+                        <button class="subject-button">Hindi</button>
+                    </div>
+                </div>
+                <div class="class-box">Class 8
+                    <div class="subject-list">
+                        <button class="subject-button">Maths</button>
+                        <button class="subject-button">Science</button>
+                        <button class="subject-button">Social Science</button>
+                        <button class="subject-button">English</button>
+                        <button class="subject-button">Hindi</button>
+                    </div>
+                </div>
+                <div class="class-box">Class 9
+                    <div class="subject-list">
+                        <button class="subject-button" onclick="showChapters('Maths')">Maths</button>
+                        <button class="subject-button" onclick="showChapters('Science')">Science</button>
+                        <button class="subject-button" onclick="showChapters('Social Science')">Social Science</button>
+                        <button class="subject-button" onclick="showChapters('English')">English</button>
+                        <button class="subject-button" onclick="showChapters('Hindi')">Hindi</button>
+                    </div>
+                </div>
+                <div class="class-box">Class 10
+                    <div class="subject-list">
+                        <button class="subject-button">Maths</button>
+                        <button class="subject-button">Science</button>
+                        <button class="subject-button">Social Science</button>
+                        <button class="subject-button">English</button>
+                        <button class="subject-button">Hindi</button>
+                    </div>
+                </div>
+                <div class="class-box">Class 11
+                    <div class="subject-list">
+                        <button class="subject-button">Physics</button>
+                        <button class="subject-button">Chemistry</button>
+                        <button class="subject-button">Maths</button>
+                        <button class="subject-button">Biology</button>
+                        <button class="subject-button">History</button>
+                        <button class="subject-button">Geography</button>
+                        <button class="subject-button">Political Science</button>
+                    </div>
+                </div>
+                <div class="class-box">Class 12
+                    <div class="subject-list">
+                        <button class="subject-button">Physics</button>
+                        <button class="subject-button">Chemistry</button>
+                        <button class="subject-button">Maths</button>
+                        <button class="subject-button">Biology</button>
+                        <button class="subject-button">History</button>
+                        <button class="subject-button">Geography</button>
+                        <button class="subject-button">Political Science</button>
+                    </div>
+                </div>
             </div>
-            <div class ="vacancy-item">
-                
-                <a href="css.pdf" download="css.pdf">Download PDF</a>
-            </div>
         </div>
-        <h1> hello ji </h1> 
-  
+        <button>Test</button>
+        <button>Download</button>
     </div>
+    <div class="content">
+        <div class="sidebar"></div>
+        <div class="main-content"></div>
+        <div class="right-sidebar">
+            <button>Download PDF</button>
+            <button>Attempt Test</button>
+        </div>
+    </div>
+    
+    
+    <script>
+    const chapters = {
+        'Maths': ['Real Numbers', 'Polynomials', 'Linear Equations', 'Quadratic Equations', 'Coordinate Geometry'],
+        'Science': ['Matter in Our Surroundings', 'Is Matter Around Us Pure', 'Atoms and Molecules', 'Structure of the Atom', 'Cell - The Unit of Life'],
+        'Social Science': ['India - Size and Location', 'Physical Features of India', 'Drainage', 'Climate', 'Natural Vegetation and Wildlife'],
+        'English': ['The Fun They Had', 'The Sound of Music', 'The Little Girl', 'A Truly Beautiful Mind', 'My Childhood'],
+        'Hindi': ['दो बैलों की कथा', 'ल्हासा की ओर', 'साँवले सपनों की यादें', 'नाना साहब की पुत्री देवी मैना', 'एक कुत्ता और एक मैना']
+    };
 
-    <footer>
-        &copy; 2024 Sarkari Result. All Rights Reserved.
-    </footer>
+    function showChapters(subject) {
+    console.log("Subject Clicked:", subject);  // Debugging
 
+    let sidebar = document.getElementById('sidebar');
+    sidebar.innerHTML = '';  // Sidebar को क्लियर करें
+    sidebar.style.display = 'block'; // Sidebar को दिखाएं
+
+    if (!chapters[subject]) {
+        console.log("No chapters found for:", subject);
+        return;
+    }
+
+    chapters[subject].forEach(chapter => {
+        let button = document.createElement('button');
+        button.className = 'chapter-button';
+        button.textContent = chapter;
+        sidebar.appendChild(button);
+    });
+
+    console.log("Chapters Added:", chapters[subject]); // Debugging
+}
+
+</script>
+
+    
 </body>
-</html>
-
-
-
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-.dropbtn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown-content a:hover {background-color: #f1f1f1}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-.dropdown:hover .dropbtn {
-  background-color: #3e8e41;
-}
-</style>
-</head>
-<body>
-
-<h2>Dropdown Menu</h2>
-<p>Move the mouse over the button to open the dropdown menu.</p>
-
-<div class="dropdown">
-  <button class="dropbtn">Dropdown</button>
-  <div class="dropdown-content">
-  <a href="#">Link 1</a>
-  <a href="#">Link 2</a>
-  <a href="#">Link 3</a>
-  </div>
-</div>
-
-<p><strong>Note:</strong> We use href="#" for test links. In a real web site this would be URLs.</p>
-
-</body>
-</html>
-
-
+</html> 
