@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orient Classes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: url('https://source.unsplash.com/1600x900/?education,classroom') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .sidebar {
+            width: 250px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            height: 100vh;
+            box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+            display: none;
+            overflow-y: auto;
+        }
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.6);
+        }
+        .header {
+            background: linear-gradient(90deg, #1E3C72, #2A5298);
+            color: white;
+            text-align: center;
+            font-size: 32px;
+            padding: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .navbar {
+            background: #FFD700;
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: lightcyan;
+            min-width: 300px;
+            box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            z-index: 1;
+            border-radius: 10px;
+        }
+        .dropdown:hover .dropdown-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+        .class-box {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .class-box:hover {
+            background: #FFA500;
+            color: white;
+        }
+        .subject-button {
+            background: #444;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .subject-button:hover {
+            background: #222;
+        }
+        .chapter-button {
+            display: block;
+            background: #007bff;
+            color: white;
+            padding: 10px;
+            margin: 5px 0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .chapter-button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar" id="sidebar"></div>
+    <div class="main-content">
+        <div class="header">Orient Classes</div>
+        <div class="navbar">
+            <div class="dropdown">
+                <button>Study</button>
+                <div class="dropdown-content">
+                    <div class="class-box">Class 9
+                        <div class="subject-list">
+                            <button class="subject-button" onclick="showChapters('Maths')">Maths</button>
+                            <button class="subject-button" onclick="showChapters('Science')">Science</button>
+                            <button class="subject-button" onclick="showChapters('Social Science')">Social Science</button>
+                            <button class="subject-button" onclick="showChapters('English')">English</button>
+                            <button class="subject-button" onclick="showChapters('Hindi')">Hindi</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button>Test</button>
+            <button>Download</button>
+        </div>
+        <div class="content">
+            <p style="padding: 20px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vehicula mauris vel enim volutpat, eu fermentum velit facilisis. Mauris consectetur scelerisque neque, at dictum augue aliquet eget. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+            <p style="padding: 20px;">Vivamus accumsan, libero ac pellentesque congue, ligula velit facilisis nisl, ac luctus ligula turpis in nisi. Etiam volutpat suscipit nunc, sed dapibus urna.</p>
+            <p style="padding: 20px;">Suspendisse lacinia erat ut dui mollis, sit amet pharetra mi consequat. Vestibulum consequat hendrerit nulla, non bibendum lectus aliquet vel.</p>
+        </div>
+    </div>
+
+    <script>
+        const chapters = {
+            'Maths': ['Real Numbers', 'Polynomials', 'Linear Equations', 'Quadratic Equations', 'Coordinate Geometry'],
+            'Science': ['Matter in Our Surroundings', 'Is Matter Around Us Pure', 'Atoms and Molecules', 'Structure of the Atom', 'Cell - The Unit of Life'],
+            'Social Science': ['India - Size and Location', 'Physical Features of India', 'Drainage', 'Climate', 'Natural Vegetation and Wildlife'],
+            'English': ['The Fun They Had', 'The Sound of Music', 'The Little Girl', 'A Truly Beautiful Mind', 'My Childhood'],
+            'Hindi': ['दो बैलों की कथा', 'ल्हासा की ओर', 'साँवले सपनों की यादें', 'नाना साहब की पुत्री देवी मैना', 'एक कुत्ता और एक मैना']
+        };
+        
+        function showChapters(subject) {
+            let sidebar = document.getElementById('sidebar');
+            sidebar.innerHTML = '';
+            sidebar.style.display = 'block';
+            chapters[subject].forEach(chapter => {
+                let button = document.createElement('button');
+                button.className = 'chapter-button';
+                button.textContent = chapter;
+                sidebar.appendChild(button);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orient Classes</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background: linear-gradient(90deg, #1E3C72, #2A5298);
+            color: white;
+            text-align: center;
+            font-size: 32px;
+            padding: 20px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .navbar {
+            background: #FFD700;
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .dropdown {
+            position: relative;
+            
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            
+            position: absolute;
+            background-color: lightcyan;
+            min-width: 250px;
+            box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            z-index: 1;
+            border-radius: 10px;
+        }
+        .dropdown:hover .dropdown-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        .dropdown-content div {
+            background: none;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            text-align: center;
+        }
+        .dropdown-content div:hover {
+            background: blue;
+            color: white;
+        }
+        .navbar button {
+            background: white;
+            border: none;
+            padding: 12px 25px;
+            margin: 0 15px;
+            font-size: 18px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 25px;
+            transition: 0.3s;
+            box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.2);
+        }
+        .navbar button:hover {
+            background: #FFA500;
+            color: white;
+            transform: scale(1.1);
+        }
+        .content {
+            display: flex;
+            min-height: 600px;
+        }
+        .sidebar {
+            width: 20%;
+            background: #FDEDEC;
+            padding: 20px;
+        }
+        
+        .sidebar ol li{
+            list-style: none;
+            
+        }
+        
+        .sidebar ol li a{
+            display: block;
+            text-decoration: none;
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: none;
+            background: #34495e;
+            color: white;
+            cursor: pointer;
+            text-align: left;
+        }
+        .sidebar ol li a:hover {
+            background: #1abc9c;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        .main-content {
+            flex-grow: 1;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            margin: 20px;
+        }
+        .right-sidebar {
+            width: 10%;
+            background: linear-gradient(180deg, #2A5298, #1E3C72);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .right-sidebar button {
+            background: #FF69B4;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 20px;
+            transition: 0.3s;
+            box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.2);
+        }
+        .right-sidebar button:hover {
+            background: #FF1493;
+            transform: scale(1.1);
+        }
+        .subject-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 5px;
+            margin-top: 10px;
+        }
+        .subject-button {
+            decoration : none;
+            box-shadow: 3px 3px 10px lightblue;
+            background: white;
+            color: darkslategray;
+            border: none;
+            padding: 18px 22px;
+            border-radius: 15px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            
+        }
+        .subject-button:hover {
+            background: orange;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">Orient Classes</div>
+    <div class="navbar">
+        <div class="dropdown">
+            <button>Study</button>
+            <div class="dropdown-content">
+                <div class="class-box">Class 6
+                    <div class="subject-list">
+                        <button class="subject-button" onclick="window.location.href='Math_6.html';">Math</button>
+                        <button class="subject-button" onclick="window.location.href='Physics_6.html';">Physics</button>
+                        <button class="subject-button" onclick="window.location.href='Chemistry_6.html';">Chemistry</button>
+                        <button class="subject-button" onclick="window.location.href='Biology_6.html';">Biology</button>
+                        <button class="subject-button" onclick="window.location.href='History_6.html';">History</button>
+                        <button class="subject-button" onclick="window.location.href='Geography_6.html';">Geography</button>
+                        <button class="subject-button" onclick="window.location.href='Civics_6.html';">Civics</button>
+                        
+                    </div>
+                </div>
+                <div class="class-box">Class 7
+                    <div class="subject-list">
+                        <button class="subject-button" onclick="window.location.href='Math_7.html';">Math</button>
+                        <button class="subject-button" onclick="window.location.href='Physics_7.html';">Physics</button>
+                        <button class="subject-button" onclick="window.location.href='Chemistry_7.html';">Chemistry</button>
+                        <button class="subject-button" onclick="window.location.href='Biology_7.html';">Biology</button>
+                        <button class="subject-button" onclick="window.location.href='History_7.html';">History</button>
+                        <button class="subject-button" onclick="window.location.href='Geography_7.html';">Geography</button>
+                        <button class="subject-button" onclick="window.location.href='Civics_7.html';">Civics</button>
+                        
+                        
+                    </div>
+                </div>
+                <div class="class-box">Class 8
+                    <div class="subject-list">
+                        <button class="subject-button" onclick="window.location.href='Math_8.html';">Math</button>
+                        <button class="subject-button" onclick="window.location.href='Physics_8.html';">Physics</button>
+                        <button class="subject-button" onclick="window.location.href='Chemistry_8.html';">Chemistry</button>
+                        <button class="subject-button" onclick="window.location.href='Biology_8.html';">Biology</button>
+                        <button class="subject-button" onclick="window.location.href='History_8.html';">History</button>
+                        <button class="subject-button" onclick="window.location.href='Geography_8.html';">Geography</button>
+                        <button class="subject-button" onclick="window.location.href='Civics_8.html';">Civics</button>
+                        
+                    </div>
+                </div>
+                <div class="class-box">Class 9
+                    <div class="subject-list">
+                        <button class="subject-button" onclick="window.location.href='Math_9.html';">Math</button>
+                        <button class="subject-button" onclick="window.location.href='Physics_9.html';">Physics</button>
+                        <button class="subject-button" onclick="window.location.href='Chemistry_9.html';">Chemistry</button>
+                        <button class="subject-button" onclick="window.location.href='Biology_9.html';">Biology</button>
+                        <button class="subject-button" onclick="window.location.href='History_9.html';">History</button>
+                        <button class="subject-button" onclick="window.location.href='Geography_9.html';">Geography</button>
+                        <button class="subject-button" onclick="window.location.href='Civics_9.html';">Civics</button>
+                        <button class="subject-button" onclick="window.location.href='Economy_9.html';">Economy</button>
+                        
+                    </div>
+                </div>
+                <div class="class-box">Class 10
+                    <div class="subject-list">
+                        <button class="subject-button" onclick="window.location.href='Math_10.html';">Math</button>
+                        <button class="subject-button" onclick="window.location.href='Physics_10.html';">Physics</button>
+                        <button class="subject-button" onclick="window.location.href='Chemistry_10.html';">Chemistry</button>
+                        <button class="subject-button" onclick="window.location.href='Biology_10.html';">Biology</button>
+                        <button class="subject-button" onclick="window.location.href='History_10.html';">History</button>
+                        <button class="subject-button" onclick="window.location.href='Geography_10.html';">Geography</button>
+                        <button class="subject-button" onclick="window.location.href='Civics_10.html';">Civics</button>
+                        <button class="subject-button" onclick="window.location.href='Economy_10.html';">Economy</button>
+                        
+                    </div>
+                </div>
+                <div class="class-box">Class 11
+                    <div class="subject-list">
+                        <button class="subject-button">Physics</button>
+                        <button class="subject-button">Chemistry</button>
+                        <button class="subject-button">Maths</button>
+                        <button class="subject-button">Biology</button>
+                        <button class="subject-button">History</button>
+                        <button class="subject-button">Geography</button>
+                        <button class="subject-button">Political Science</button>
+                    </div>
+                </div>
+                <div class="class-box">Class 12
+                    <div class="subject-list">
+                        <button class="subject-button">Physics</button>
+                        <button class="subject-button">Chemistry</button>
+                        <button class="subject-button">Maths</button>
+                        <button class="subject-button">Biology</button>
+                        <button class="subject-button">History</button>
+                        <button class="subject-button">Geography</button>
+                        <button class="subject-button">Political Science</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button>Test</button>
+        <button>Download</button>
+    </div>
+    <div class="content">
+        <div id="sidebar" class="sidebar">
+            <h3>Class 9 Geography Chapters</h3>
+            <ol>
+                <li><a href="India_Size_and_Location.html">1. India - Size and Location</a></li>
+                <li><a href="Physical_Features_of_India.html">2. Physical Features of India</a></li>
+                <li><a href="Drainage.html">3. Drainage</a></li>
+                <li><a href="Climate.html">4. Climate</a></li>
+                <li><a href="Natural_Vegetation_and_Wildlife.html">5. Natural Vegetation and Wildlife</a></li>
+                <li><a href="Population.html">6. Population</a></li>
+            </ol>
+        </div>
+        <div class="main-content"></div>
+        <div class="right-sidebar">
+            <button>Download PDF</button>
+            <button>Attempt Test</button>
+        </div>
+    </div>
+    
+    
+    
+    
+</body>
+</html> 
