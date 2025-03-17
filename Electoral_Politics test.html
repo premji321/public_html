@@ -1,0 +1,346 @@
+<!DOCTYPE HTML>
+ <html>
+ <head>
+	<title>Quiz</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="quiz.css">
+	 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+	 <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
+  
+         <style>
+             body
+  {
+  	font-family: 'Roboto Slab',serif;
+  	/*background-color: #6cf;*/
+  
+  	background-repeat: no-repeat;
+        background-image: url("pink background.jpg");
+        background: url('pink background.jpg') no-repeat center center fixed;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100vw;
+        margin: 0;
+        
+ /*	
+  	background-attachment: fixed;*/
+
+  }
+  .container
+  {
+  	height: 330px;
+  	width: 1000px;
+  	position: absolute;
+  	top: 50%;
+  	left: 50%;
+  	transform: translateX(-50%) translateY(-50%);
+  	background-color: rgba(255,255,255,0.6);
+  	padding: 20px;
+  	border: 1px solid #08038C;
+  	box-shadow: 0 0 8px 3px #fff;
+  }
+.title
+{
+	padding-top: 20px;
+	text-align: center;
+	font-size: 45px;
+	text-transform: uppercase;
+	color:#08038C;
+	/*font-weight: bold;*/
+}
+.question
+{
+	padding: 20px;
+	font-size: 22px;
+	background-color: #08038C;
+	border-radius: 20px;
+	margin: 10px 0 10px 0;
+	color: #f6f6f6;
+}
+.option
+{
+	width: 470px;
+	display: inline-block;
+	padding: 10px 0 10px 15px;
+	vertical-align: middle;
+	background-color: rgba(255,255,255,0.7);
+	margin: 10px 0 10px 10px;
+	color: #000000;
+	border-radius: 20px; 
+}
+.option:hover
+{
+	background:lightgreen;
+	color: #f6f6f6; 
+}
+.option:checked{
+    background:green;
+}
+.next-btn
+{
+	border:none;
+	outline: none;
+	background-color: rgba(255,25,255,0.5);
+	width: 100px;
+	height: 35px;
+	border-radius: 20px;
+	cursor: pointer;
+	float: right;
+	margin: 10px;
+}
+.next-btn:hover
+{
+background:red;
+color: #f6f6f6; 
+}
+.result
+{
+	height: 100px;
+	text-align: center;
+	font-size: 75px;
+}
+.option input:checked .option
+{
+background:yellow;
+color: #000; 
+}
+         </style>
+ </head>
+  <body>
+<div id="quizContainer" class="container">
+	<div class="title">Computer Quiz</div>
+	<div id="question" class="question"></div>
+	<label class="option"><input type="radio" name="option" value="1" /><span id="opt1"></span></label>
+	<label class="option"><input type="radio" name="option" value="2" /><span id="opt2"></span></label>
+	<label class="option"><input type="radio" name="option" value="3" /><span id="opt3"></span></label>
+	<label class="option"><input type="radio" name="option" value="4" /><span id="opt4"></span></label>
+	<button id="nextButton" class="next-btn" onclick="loadNextQuestion(questions);">Next Question</button>
+ </div>
+ <div id="result" class="container result" style="display: none;"></div>
+ <script charset="utf-8">
+     var questions = [
+    {
+        "question": "Why are elections necessary in a democracy?",
+        "option1": "It is the only way to form a government",
+        "option2": "It allows citizens to change the government",
+        "option3": "It benefits only the wealthy",
+        "option4": "It helps in making new laws",
+        "answer": "2"
+    },
+    {
+        "question": "Which body conducts elections in India?",
+        "option1": "Supreme Court",
+        "option2": "Parliament",
+        "option3": "Election Commission",
+        "option4": "President of India",
+        "answer": "3"
+    },
+    {
+        "question": "What is the term for elections held in all constituencies at the same time?",
+        "option1": "By-election",
+        "option2": "Mid-term election",
+        "option3": "General election",
+        "option4": "Local election",
+        "answer": "3"
+    },
+    {
+        "question": "Which of the following is NOT a feature of a free and fair election?",
+        "option1": "Secret ballot",
+        "option2": "Equal opportunity to contest",
+        "option3": "Only rich people can contest elections",
+        "option4": "Independent Election Commission",
+        "answer": "3"
+    },
+    {
+        "question": "Which of the following is NOT a function of the Election Commission?",
+        "option1": "Conducting elections",
+        "option2": "Deciding election dates",
+        "option3": "Making laws for elections",
+        "option4": "Monitoring election campaigns",
+        "answer": "3"
+    },
+    {
+        "question": "What is the minimum age to vote in India?",
+        "option1": "21 years",
+        "option2": "18 years",
+        "option3": "16 years",
+        "option4": "25 years",
+        "answer": "2"
+    },
+    {
+        "question": "What is a constituency?",
+        "option1": "An area from which voters elect a representative",
+        "option2": "A place where votes are counted",
+        "option3": "An area where politicians live",
+        "option4": "The office of the Election Commission",
+        "answer": "1"
+    },
+    {
+        "question": "What is NOT a part of the Model Code of Conduct?",
+        "option1": "No use of government resources for campaigning",
+        "option2": "No bribing or threatening voters",
+        "option3": "No holding elections in summer",
+        "option4": "No appealing for votes based on caste or religion",
+        "answer": "3"
+    },
+    {
+        "question": "Who can cast their vote in Indian elections?",
+        "option1": "Any Indian citizen above 18 years",
+        "option2": "Only educated citizens",
+        "option3": "Only taxpayers",
+        "option4": "Only government employees",
+        "answer": "1"
+    },
+    {
+        "question": "Which of the following statements is TRUE?",
+        "option1": "Elections in India are conducted by political parties",
+        "option2": "Every voter has multiple votes",
+        "option3": "Electronic Voting Machines (EVMs) are used for voting",
+        "option4": "Only people from cities can vote",
+        "answer": "3"
+    },
+    {
+        "question": "What happens in a by-election?",
+        "option1": "Election held when a seat becomes vacant before the next general election",
+        "option2": "Election held only for local bodies",
+        "option3": "Election held every five years",
+        "option4": "Election conducted by political parties",
+        "answer": "1"
+    },
+    {
+        "question": "Which of the following is NOT a reason for elections?",
+        "option1": "To choose representatives",
+        "option2": "To make laws",
+        "option3": "To change the government peacefully",
+        "option4": "To ensure political competition",
+        "answer": "2"
+    },
+    {
+        "question": "Which type of government is formed when no party gets a majority in elections?",
+        "option1": "Majority government",
+        "option2": "Coalition government",
+        "option3": "Presidential government",
+        "option4": "Monarchy",
+        "answer": "2"
+    },
+    {
+        "question": "Which of the following is NOT a requirement for contesting elections in India?",
+        "option1": "Being a citizen of India",
+        "option2": "Being a member of a political party",
+        "option3": "Meeting the age requirement",
+        "option4": "Not holding an office of profit",
+        "answer": "2"
+    },
+    {
+        "question": "Which of the following is NOT a challenge in conducting free and fair elections?",
+        "option1": "Money and muscle power",
+        "option2": "Use of electronic voting machines",
+        "option3": "Criminalization of politics",
+        "option4": "Vote buying",
+        "answer": "2"
+    },
+    {
+        "question": "Who appoints the Chief Election Commissioner of India?",
+        "option1": "Prime Minister",
+        "option2": "President",
+        "option3": "Parliament",
+        "option4": "Supreme Court",
+        "answer": "2"
+    },
+    {
+        "question": "What is the full form of NOTA?",
+        "option1": "None of the Above",
+        "option2": "National Organization for Transparent Administration",
+        "option3": "New Officers Training Academy",
+        "option4": "National Ombudsman for Transparent Elections",
+        "answer": "1"
+    },
+    {
+        "question": "Which of the following statements is INCORRECT about the Election Commission of India?",
+        "option1": "It is an independent body",
+        "option2": "It conducts elections in India",
+        "option3": "It is controlled by the ruling government",
+        "option4": "It ensures free and fair elections",
+        "answer": "3"
+    },
+    {
+        "question": "What is meant by ‘Secret Ballot’?",
+        "option1": "Voters cast their vote privately",
+        "option2": "Only government officials can vote",
+        "option3": "Votes are counted secretly",
+        "option4": "Voters have to tell their choice publicly",
+        "answer": "1"
+    },
+    {
+        "question": "How many Lok Sabha constituencies are there in India?",
+        "option1": "445",
+        "option2": "545",
+        "option3": "543",
+        "option4": "550",
+        "answer": "3"
+    }
+];
+
+
+
+
+var currentQuestion = 0;
+var score = 0;
+var totQuestions = questions.length;
+
+var container = document.getElementById('quizContainer');
+var questionEl = document.getElementById('question');
+var opt1 = document.getElementById('opt1');
+var opt2 = document.getElementById('opt2');
+var opt3 = document.getElementById('opt3');
+var opt4 = document.getElementById('opt4');
+var nextButton = document.getElementById('nextButton');
+var resultCont = document.getElementById('result');
+
+function loadQuestion (questionIndex) {
+	var q = questions[questionIndex];
+	questionEl.textContent = (questionIndex + 1) + '. ' + q.question;
+	opt1.textContent = q.option1;
+	opt2.textContent = q.option2;
+	opt3.textContent = q.option3;
+	opt4.textContent = q.option4;
+};
+
+function loadNextQuestion () 
+        {
+	var selectedOption = document.querySelector('input[type=radio]:checked');
+	if(!selectedOption)
+        {
+		alert('Please select your answer!');
+		return;
+	}
+	var answer = selectedOption.value;
+	if(questions[currentQuestion].answer == answer){
+		score =score+10;
+               
+	}
+	selectedOption.checked = false;
+	currentQuestion++;
+	if(currentQuestion == totQuestions - 1){
+		nextButton.textContent = 'Finish';
+	}
+	if(currentQuestion == totQuestions){
+		container.style.display = 'none';
+		resultCont.style.display = '';
+		resultCont.textContent = 'Your Score: ' + score;
+		return;
+	}
+	loadQuestion(currentQuestion);
+}
+
+loadQuestion(currentQuestion);
+
+
+</script>
+ 
+ 	
+ </body>
+ </html>
