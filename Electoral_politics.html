@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orient Classes</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background: linear-gradient(90deg, #1E3C72, #2A5298);
+            color: white;
+            text-align: center;
+            font-size: 32px;
+            padding: 20px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .navbar {
+            background: #FFD700;
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .dropdown {
+            position: relative;
+            
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            
+            position: absolute;
+            background-color: lightcyan;
+            min-width: 250px;
+            box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            z-index: 1;
+            border-radius: 10px;
+        }
+        .dropdown:hover .dropdown-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        .dropdown-content div {
+            background: none;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            text-align: center;
+        }
+        .dropdown-content div:hover {
+            background: blue;
+            color: white;
+        }
+        .navbar button {
+            background: white;
+            border: none;
+            padding: 12px 25px;
+            margin: 0 15px;
+            font-size: 18px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 25px;
+            transition: 0.3s;
+            box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.2);
+        }
+        .navbar button:hover {
+            background: #FFA500;
+            color: white;
+            transform: scale(1.1);
+        }
+        .content {
+            display: flex;
+            min-height: 600px;
+        }
+        .sidebar {
+            width: 20%;
+            min-width: 180px;
+            background: #FDEDEC;
+            padding: 20px;
+        }
+        
+        
+        .sidebar ol li{
+            list-style: none;
+        }
+        
+        .sidebar ol li a{
+            display: block;
+            text-decoration: none;
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: none;
+            background: #34495e;
+            color: white;
+            cursor: pointer;
+            text-align: left;
+        }
+        .sidebar ol li a:hover {
+            background: #1abc9c;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        .main-content {
+            flex-grow: 1;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            margin: 20px;
+        }
+        .right-sidebar {
+            width: 10%;
+            background: linear-gradient(180deg, #2A5298, #1E3C72);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .right-sidebar button {
+            background: #FF69B4;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 20px;
+            transition: 0.3s;
+            box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.2);
+        }
+        .right-sidebar button:hover {
+            background: #FF1493;
+            transform: scale(1.1);
+        }
+        .subject-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 5px;
+            margin-top: 10px;
+        }
+        .subject-button {
+            decoration : none;
+            box-shadow: 3px 3px 10px lightblue;
+            background: white;
+            color: darkslategray;
+            border: none;
+            padding: 18px 22px;
+            border-radius: 15px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            
+        }
+        .subject-button:hover {
+            background: orange;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">Orient Classes</div>
+    <div class="navbar">
+        <div class="dropdown">
+            <button>Study</button>
+            <div class="dropdown-content">
+                <div class="class-box">Class 6
+                    <div class="subject-list">
+                        <button class="subject-button" onclick="window.location.href='Math_6.html';">Math</button>
+                        <button class="subject-button" onclick="window.location.href='Physics_6.html';">Physics</button>
+                        <button class="subject-button" onclick="window.location.href='Chemistry_6.html';">Chemistry</button>
+                        <button class="subject-button" onclick="window.location.href='Biology_6.html';">Biology</button>
+                        <button class="subject-button" onclick="window.location.href='History_6.html';">History</button>
+                        <button class="subject-button" onclick="window.location.href='Geography_6.html';">Geography</button>
+                        <button class="subject-button" onclick="window.location.href='Civics_6.html';">Civics</button>
+                        
+                    </div>
+                </div>
+                <div class="class-box">Class 7
+                    <div class="subject-list">
+                        <button class="subject-button" onclick="window.location.href='Math_7.html';">Math</button>
+                        <button class="subject-button" onclick="window.location.href='Physics_7.html';">Physics</button>
+                        <button class="subject-button" onclick="window.location.href='Chemistry_7.html';">Chemistry</button>
+                        <button class="subject-button" onclick="window.location.href='Biology_7.html';">Biology</button>
+                        <button class="subject-button" onclick="window.location.href='History_7.html';">History</button>
+                        <button class="subject-button" onclick="window.location.href='Geography_7.html';">Geography</button>
+                        <button class="subject-button" onclick="window.location.href='Civics_7.html';">Civics</button>
+                        
+                        
+                    </div>
+                </div>
+                <div class="class-box">Class 8
+                    <div class="subject-list">
+                        <button class="subject-button" onclick="window.location.href='Math_8.html';">Math</button>
+                        <button class="subject-button" onclick="window.location.href='Physics_8.html';">Physics</button>
+                        <button class="subject-button" onclick="window.location.href='Chemistry_8.html';">Chemistry</button>
+                        <button class="subject-button" onclick="window.location.href='Biology_8.html';">Biology</button>
+                        <button class="subject-button" onclick="window.location.href='History_8.html';">History</button>
+                        <button class="subject-button" onclick="window.location.href='Geography_8.html';">Geography</button>
+                        <button class="subject-button" onclick="window.location.href='Civics_8.html';">Civics</button>
+                        
+                    </div>
+                </div>
+                <div class="class-box">Class 9
+                    <div class="subject-list">
+                        <button class="subject-button" onclick="window.location.href='Math_9.html';">Math</button>
+                        <button class="subject-button" onclick="window.location.href='Physics_9.html';">Physics</button>
+                        <button class="subject-button" onclick="window.location.href='Chemistry_9.html';">Chemistry</button>
+                        <button class="subject-button" onclick="window.location.href='Biology_9.html';">Biology</button>
+                        <button class="subject-button" onclick="window.location.href='History_9.html';">History</button>
+                        <button class="subject-button" onclick="window.location.href='Geography_9.html';">Geography</button>
+                        <button class="subject-button" onclick="window.location.href='Civics_9.html';">Civics</button>
+                        <button class="subject-button" onclick="window.location.href='Economy_9.html';">Economy</button>
+                        
+                    </div>
+                </div>
+                <div class="class-box">Class 10
+                    <div class="subject-list">
+                        <button class="subject-button" onclick="window.location.href='Math_10.html';">Math</button>
+                        <button class="subject-button" onclick="window.location.href='Physics_10.html';">Physics</button>
+                        <button class="subject-button" onclick="window.location.href='Chemistry_10.html';">Chemistry</button>
+                        <button class="subject-button" onclick="window.location.href='Biology_10.html';">Biology</button>
+                        <button class="subject-button" onclick="window.location.href='History_10.html';">History</button>
+                        <button class="subject-button" onclick="window.location.href='Geography_10.html';">Geography</button>
+                        <button class="subject-button" onclick="window.location.href='Civics_10.html';">Civics</button>
+                        <button class="subject-button" onclick="window.location.href='Economy_10.html';">Economy</button>
+                        
+                    </div>
+                </div>
+                <div class="class-box">Class 11
+                    <div class="subject-list">
+                        <button class="subject-button">Physics</button>
+                        <button class="subject-button">Chemistry</button>
+                        <button class="subject-button">Maths</button>
+                        <button class="subject-button">Biology</button>
+                        <button class="subject-button">History</button>
+                        <button class="subject-button">Geography</button>
+                        <button class="subject-button">Political Science</button>
+                    </div>
+                </div>
+                <div class="class-box">Class 12
+                    <div class="subject-list">
+                        <button class="subject-button">Physics</button>
+                        <button class="subject-button">Chemistry</button>
+                        <button class="subject-button">Maths</button>
+                        <button class="subject-button">Biology</button>
+                        <button class="subject-button">History</button>
+                        <button class="subject-button">Geography</button>
+                        <button class="subject-button">Political Science</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button>Test</button>
+        <button>Download</button>
+    </div>
+    <div class="content">
+        <div id="sidebar" class="sidebar">
+            <h3>Class 9 Civics Chapters</h3>
+            <ol>
+                <li><a href="Democracy_in_the_Contemporary_World.html">1. Democracy in the Contemporary World</a></li>
+                <li><a href="What_is_Democracy_Why_Democracy.html">2. What is Democracy? Why Democracy?</a></li>
+                <li><a href="Constitutional_Design.html">3. Constitutional Design</a></li>
+                <li><a href="Electoral_Politics.html">4. Electoral Politics</a></li>
+                <li><a href="Working_of_Institutions.html">5. Working of Institutions</a></li>
+                <li><a href="Democratic_Rights.html">6. Democratic Rights</a></li>
+            </ol>
+        </div>
+        <div class="main-content">
+            <h1>Electoral Politics</h1>
+            <h2>Index</h2>
+            <ul>
+                <li><strong>Why Election</strong>
+                    <ul>
+                        <li>Assembly election in Haryana</li>
+                        <li>Why do we need election</li>
+                        <li>What makes our election democratic</li>
+                        <li>Is it good for political competition? Discuss its merits and demerits.</li>
+                    </ul>
+                </li>
+                <li><strong>What is our system of election</strong>
+                    <ul>
+                        <li>Electoral constituency</li>
+                        <li>Reserved constituency
+                            <ul>
+                                <li>Definition</li>
+                                <li>Need</li>
+                                <li>Present condition</li>
+                            </ul>
+                        </li>
+                        <li>Voter's list</li>
+                        <li>Nomination of the candidates</li>
+                        <li>Election campaign
+                            <ul>
+                                <li>Definition</li>
+                                <li>When it starts</li>
+                                <li>Method</li>
+                                <li>Restriction</li>
+                                <li>Important slogans</li>
+                            </ul>
+                        </li>
+                        <li>Polling and counting of votes</li>
+                    </ul>
+                </li>
+                <li><strong>What makes our election democratic</strong>
+                    <ul>
+                        <li>Independent Election Commission</li>
+                        <li>Popular participation</li>
+                        <li>Acceptance of election outcomes</li>
+                    </ul>
+                </li>
+                <li><strong>Challenges in free and fair election</strong></li>
+            </ul>
+
+            <h2>What is the meaning of electoral politics?</h2>
+            <p>Electoral politics refers to the political activities, processes, and strategies associated with conducting elections and participation in the electoral system. It involves the ways in which political parties, candidates, and voters engage with the democratic process to choose representatives, form governments, and make policy decisions.</p>
+
+            <h2>Define Election</h2>
+            <p>An election is a process where people vote to choose leaders, make decisions, or approve policies. It allows citizens to participate in selecting representatives or deciding on important issues for the community or country.</p>
+
+            <h2>Types of Elections in India</h2>
+            <ul>
+                <li><strong>General Elections:</strong> Held every five years to elect members of the Lok Sabha and Vidhan Sabha.</li>
+                <li><strong>Mid-term Elections:</strong> Conducted if the Lok Sabha or Vidhan Sabha is dissolved before its full term.</li>
+                <li><strong>By-elections:</strong> Held to fill vacant seats due to resignation, death, or disqualification of an elected representative.</li>
+            </ul>
+
+            <h2>Story of Assembly Election in Haryana</h2>
+            <ul>
+                <li>In 1982, Haryana was led by the Congress Party under CM Bhajan Lal.</li>
+                <li>Chaudhary Devi Lal led the “Nyaya Yuddh” movement and formed the Lok Dal party.</li>
+                <li>In the 1987 Haryana Assembly elections, the ruling Congress Party was defeated, and Lok Dal won with a massive majority.</li>
+                <li>This election showcased voter power in bringing political change and highlighted the role of electoral competition.</li>
+            </ul>
+
+            <h2>Why Do We Need Elections?</h2>
+            <ul>
+                <li>Empower citizens to choose leaders.</li>
+                <li>Ensure accountability of leaders.</li>
+                <li>Maintain legitimacy of governance.</li>
+                <li>Promote peaceful transitions of power.</li>
+                <li>Foster reforms and address social issues.</li>
+                <li>Balance power and prevent autocracy.</li>
+                <li>Encourage citizen participation.</li>
+                <li>Ensure representation of all groups.</li>
+            </ul>
+
+            <h2>What Features Make an Election Democratic?</h2>
+            <ul>
+                <li><strong>Universal Suffrage:</strong> Every eligible citizen has the right to vote.</li>
+                <li><strong>Free and Fair Elections:</strong> No coercion or manipulation.</li>
+                <li><strong>Regular Elections:</strong> Held at set intervals for accountability.</li>
+                <li><strong>Secret Ballot:</strong> Ensures confidentiality in voting.</li>
+                <li><strong>Multiple Political Parties:</strong> Voters have diverse choices.</li>
+                <li><strong>Equal Representation:</strong> Every vote has equal weight.</li>
+                <li><strong>Transparency:</strong> The entire process is open and fair.</li>
+            </ul>
+            
+            <h1>Political Competition</h1>
+            <p>Political competition refers to the contest between political parties, candidates, or groups for power and influence in the government. It plays a vital role in democracy, but it has both merits and demerits.</p>
+
+            <h2>Merits of Political Competition</h2>
+            <ul>
+                <li><strong>Accountability:</strong> Leaders stay answerable to voters.</li>
+                <li><strong>Better Governance:</strong> Parties offer improved policies and reforms.</li>
+                <li><strong>Strengthens Democracy:</strong> Encourages diverse opinions and checks power.</li>
+                <li><strong>Increases Voter Engagement:</strong> Promotes higher turnout and informed citizens.</li>
+                <li><strong>Prevents Authoritarianism:</strong> Reduces risks of unchecked power.</li>
+            </ul>
+
+            <h2>Demerits of Political Competition</h2>
+            <ul>
+                <li><strong>Polarization:</strong> Can divide society and create conflict.</li>
+                <li><strong>Negative Campaigning:</strong> Focuses on attacking opponents rather than solutions.</li>
+                <li><strong>Short-Term Focus:</strong> Politicians may prioritize immediate gains over long-term solutions.</li>
+                <li><strong>Stability Issues:</strong> Excessive competition may lead to political instability or gridlock.</li>
+            </ul>
+
+            <h2>Electoral Constituencies</h2>
+            <p>Electoral constituencies are defined regions from which voters choose representatives to make decisions on their behalf in a legislature.</p>
+
+            <h2>Reserved Constituencies</h2>
+            <p>Reserved constituencies are electoral areas set aside for specific minority or marginalized groups to ensure they have representation in the legislature.</p>
+
+            <h3>Why is it important?</h3>
+            <ul>
+                <li>Ensure marginalized or underrepresented groups have political representation.</li>
+                <li>Prevent political exclusion of specific communities.</li>
+                <li>Help achieve more balanced and equitable governance.</li>
+                <li>Support social justice by giving all groups a voice in decision-making.</li>
+            </ul>
+
+            <h3>How many seats are reserved?</h3>
+            <p>In India, 84 seats are reserved for Scheduled Castes (SC) and 47 for Scheduled Tribes (ST) in the Lok Sabha (lower house of Parliament), along with additional reservations in state legislatures.</p>
+
+            <h2>Voter’s List</h2>
+            <p>A voter’s list, also known as an electoral roll, is an official record of individuals who are eligible to vote in an election. It includes the names, addresses, and other relevant details of registered voters within a specific constituency or region.</p>
+
+            <h2>Election Campaign</h2>
+            <p>An election campaign is a coordinated effort by political candidates, parties, or organizations to promote their agenda, persuade voters, and secure votes in an upcoming election.</p>
+            <p>It typically involves a series of activities like public speeches, debates, advertisements, rallies, and canvassing to raise awareness, highlight key issues, and appeal to the electorate.</p>
+
+            <h3>What restrictions are put on political parties during election campaigns?</h3>
+            <ul>
+                <li><strong>Campaign Finance Limits:</strong> Restrictions on fundraising and spending.</li>
+                <li><strong>Advertising Regulations:</strong> Limits on political ads and media time.</li>
+                <li><strong>Prohibition on Vote Buying:</strong> Illegal to exchange money or goods for votes.</li>
+                <li><strong>Use of Government Resources:</strong> Cannot use public funds or resources for campaigns.</li>
+                <li><strong>Campaigning Timeframe:</strong> Limited to a specific period before the election.</li>
+                <li><strong>False Information or Hate Speech:</strong> Prohibited from spreading misleading or harmful content.</li>
+                <li><strong>Public Spaces and Assembly:</strong> Regulations on rallies and noise levels.</li>
+                <li><strong>Voting Conduct:</strong> Must respect voter secrecy and fair voting practices.</li>
+            </ul>
+
+            <h2>Important Slogans Given by Political Parties</h2>
+            <ul>
+                <li><strong>"Garibi Hatao" (Remove Poverty)</strong> - Indian National Congress (Indira Gandhi, 1971 election)</li>
+                <li><strong>"Jai Jawan Jai Kisan" (Hail the Soldier, Hail the Farmer)</strong> - Indian National Congress (Lal Bahadur Shastri, 1960s, influential in the 1970s)</li>
+                <li><strong>"Save Democracy"</strong> - Indian National Congress (Indira Gandhi, 1977 election, post-Emergency)</li>
+            </ul>
+
+            <h2>Features that Make Elections in India Democratic</h2>
+            <ul>
+                <li><strong>Universal Adult Suffrage:</strong> Every citizen above 18 years has the right to vote.</li>
+                <li><strong>Free and Fair Elections:</strong> Conducted impartially by the Election Commission of India.</li>
+                <li><strong>Secret Ballot:</strong> Ensures voter confidentiality.</li>
+                <li><strong>Multiple Political Parties:</strong> Allows for diverse political representation.</li>
+                <li><strong>Independent Election Commission:</strong> Ensures elections are fair and unbiased.</li>
+            </ul>
+
+            <h2>Independence of the Election Commission in India</h2>
+            <ul>
+                <li><strong>Constitutional Protection:</strong> Established under Article 324.</li>
+                <li><strong>Secure Tenure:</strong> Election Commissioners can only be removed through parliamentary impeachment.</li>
+                <li><strong>Financial Autonomy:</strong> Budget allocated by Parliament, independent of government control.</li>
+                <li><strong>Power to Act Independently:</strong> Can make binding decisions on elections without interference.</li>
+                <li><strong>Independent Appointment Process:</strong> Chief Election Commissioner appointed by the President.</li>
+            </ul>
+
+            <h2>Challenges in Conducting Free and Fair Elections in India</h2>
+            <ul>
+                <li><strong>Electoral Fraud and Manipulation:</strong> Issues like vote buying, rigging, and result manipulation.</li>
+                <li><strong>Money and Muscle Power:</strong> Wealth and criminal influence distort the election process.</li>
+                <li><strong>Communal and Caste-based Politics:</strong> Leads to polarization and voter division.</li>
+                <li><strong>Political Violence and Intimidation:</strong> Prevents free voting in certain regions.</li>
+                <li><strong>Inaccurate Voter Lists:</strong> Errors in electoral rolls can disenfranchise voters.</li>
+            </ul>
+        </div>
+        <div class="right-sidebar">
+            <button>Download PDF</button>
+            <button onclick="location.href='Electoral politics.pdf'">Download PDF</button>
+            <button>Attempt Test</button>
+        </div>
+    </div>
+    
+    
+    
+    
+</body>
+</html> 
