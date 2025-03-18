@@ -10,108 +10,108 @@
   
          <style>
              body
-  {
-  	font-family: 'Roboto Slab',serif;
-  	/*background-color: #6cf;*/
-  
-  	background-repeat: no-repeat;
-        background-image: url("pink background.jpg");
-        background: url('pink background.jpg') no-repeat center center fixed;
-        background-size: cover;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        width: 100vw;
-        margin: 0;
-        
- /*	
-  	background-attachment: fixed;*/
+                {
+                      font-family: 'Roboto Slab',serif;
+                      /*background-color: #6cf;*/
 
-  }
-  .container
-  {
-  	height: 330px;
-  	width: 1000px;
-  	position: absolute;
-  	top: 50%;
-  	left: 50%;
-  	transform: translateX(-50%) translateY(-50%);
-  	background-color: rgba(255,255,255,0.6);
-  	padding: 20px;
-  	border: 1px solid #08038C;
-  	box-shadow: 0 0 8px 3px #fff;
-  }
-.title
-{
-	padding-top: 20px;
-	text-align: center;
-	font-size: 45px;
-	text-transform: uppercase;
-	color:#08038C;
-	/*font-weight: bold;*/
-}
-.question
-{
-	padding: 20px;
-	font-size: 22px;
-	background-color: #08038C;
-	border-radius: 20px;
-	margin: 10px 0 10px 0;
-	color: #f6f6f6;
-}
-.option
-{
-	width: 470px;
-	display: inline-block;
-	padding: 10px 0 10px 15px;
-	vertical-align: middle;
-	background-color: rgba(255,255,255,0.7);
-	margin: 10px 0 10px 10px;
-	color: #000000;
-	border-radius: 20px; 
-}
-.option:hover
-{
-	background:lightgreen;
-	color: #f6f6f6; 
-}
-.option:checked{
-    background:green;
-}
-.next-btn
-{
-	border:none;
-	outline: none;
-	background-color: rgba(255,25,255,0.5);
-	width: 100px;
-	height: 35px;
-	border-radius: 20px;
-	cursor: pointer;
-	float: right;
-	margin: 10px;
-}
-.next-btn:hover
-{
-background:red;
-color: #f6f6f6; 
-}
-.result
-{
-	height: 100px;
-	text-align: center;
-	font-size: 75px;
-}
-.option input:checked .option
-{
-background:yellow;
-color: #000; 
-}
+                      background-repeat: no-repeat;
+                      background-image: url("pink background.jpg");
+                      background: url('pink background.jpg') no-repeat center center fixed;
+                      background-size: cover;
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                      height: 100vh;
+                      width: 100vw;
+                      margin: 0;
+
+               /*	
+                      background-attachment: fixed;*/
+
+                }
+                .container
+                {
+                      height: 330px;
+                      width: 1000px;
+                      position: absolute;
+                      top: 50%;
+                      left: 50%;
+                      transform: translateX(-50%) translateY(-50%);
+                      background-color: rgba(255,255,255,0.6);
+                      padding: 20px;
+                      border: 1px solid #08038C;
+                      box-shadow: 0 0 8px 3px #fff;
+                }
+              .title
+              {
+                      padding-top: 20px;
+                      text-align: center;
+                      font-size: 45px;
+                      text-transform: uppercase;
+                      color:#08038C;
+                      /*font-weight: bold;*/
+              }
+              .question
+              {
+                      padding: 20px;
+                      font-size: 22px;
+                      background-color: #08038C;
+                      border-radius: 20px;
+                      margin: 10px 0 10px 0;
+                      color: #f6f6f6;
+              }
+              .option
+              {
+                      width: 470px;
+                      display: inline-block;
+                      padding: 10px 0 10px 15px;
+                      vertical-align: middle;
+                      background-color: rgba(255,255,255,0.7);
+                      margin: 10px 0 10px 10px;
+                      color: #000000;
+                      border-radius: 20px; 
+              }
+              .option:hover
+              {
+                      background:lightgreen;
+                      color: #f6f6f6; 
+              }
+              .option:checked{
+                  background:green;
+              }
+              .next-btn
+              {
+                      border:none;
+                      outline: none;
+                      background-color: rgba(255,25,255,0.5);
+                      width: 100px;
+                      height: 35px;
+                      border-radius: 20px;
+                      cursor: pointer;
+                      float: right;
+                      margin: 10px;
+              }
+              .next-btn:hover
+              {
+              background:red;
+              color: #f6f6f6; 
+              }
+              .result
+              {
+                      height: 100px;
+                      text-align: center;
+                      font-size: 75px;
+              }
+              .option input:checked .option
+              {
+              background:yellow;
+              color: #000; 
+              }
          </style>
  </head>
   <body>
 <div id="quizContainer" class="container">
-	<div class="title">Computer Quiz</div>
+	<div class="title">Electoral Politics Test</div>
 	<div id="question" class="question"></div>
 	<label class="option"><input type="radio" name="option" value="1" /><span id="opt1"></span></label>
 	<label class="option"><input type="radio" name="option" value="2" /><span id="opt2"></span></label>
