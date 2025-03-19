@@ -80,6 +80,41 @@
             color: white;
             transform: scale(1.1);
         }
+        header {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            max-width: 600px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            color: white;
+            background: #ff6600;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #cc5500;
+        }
+
         .content {
             display: flex;
             min-height: 600px;
@@ -270,14 +305,11 @@
         <button>Download</button>
     </div>
     <div class="content">
-        <div id="sidebar" class="sidebar">
-            
-        </div>
-        <div class="main-content"></div>
-        <div class="right-sidebar">
-            <button>Download PDF</button>
-            <button>Attempt Test</button>
-        </div>
+        <header>
+        <h1>Welcome to Orient Classes</h1>
+        <p>Your path to success begins here! Join us for expert guidance and quality education.</p>
+        <a href="home.html" class="btn">Explore Courses</a>
+    </header>
     </div>
     
 
