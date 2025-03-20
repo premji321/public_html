@@ -86,19 +86,30 @@
         .content {
             display: flex;
             min-height: 600px;
+            text-align: right;
+            justify-content: center;
         }
         .sidebar {
             width: 20%;
-            background: #FDEDEC;
-            padding: 20px;
+            background: red;
+            padding: 0px;
+            text-align: right;
+            justify-content: center;
         }
-        
+        .sidebar ol {
+            list-style: none;
+            text-align: left;
+            padding: -20px;
+            justify-content: right;
+            background: yellow;
+        }
         .sidebar ol li{
             list-style: none;
-            
+            text-align: left; justify-content: center;
         }
         
         .sidebar ol li a{
+            
             display: block;
             text-decoration: none;
             width: 100%;
@@ -277,6 +288,19 @@
     <div class="content">
         <div id="sidebar" class="sidebar">
             <h3>Class 9 Geography Chapters</h3>
+            <div class="subject-list">
+                <button class="subject-button" onclick="window.location.href='Math_10.html';">Math</button>
+                <button class="subject-button" onclick="window.location.href='Physics_10.html';">Physics</button>
+                <button class="subject-button" onclick="window.location.href='Chemistry_10.html';">Chemistry</button>
+                <button class="subject-button" onclick="window.location.href='Biology_10.html';">Biology</button>
+                <button class="subject-button" onclick="window.location.href='History_10.html';">History</button>
+                <button class="subject-button" onclick="window.location.href='Geography_10.html';">Geography</button>
+                <button class="subject-button" onclick="window.location.href='Civics_10.html';">Civics</button>
+                <button class="subject-button" onclick="window.location.href='Economy_10.html';">Economy</button>
+
+            </div>
+            
+            
             <ol>
                 <li><a href="Democracy_in_the_Contemporary_World.html">1. Democracy in the Contemporary World</a></li>
                 <li><a href="What_is_Democracy_Why_Democracy.html">2. What is Democracy? Why Democracy?</a></li>

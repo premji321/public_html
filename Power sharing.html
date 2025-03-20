@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orient Classes</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background: linear-gradient(90deg, #1E3C72, #2A5298);
+            color: white;
+            text-align: center;
+            font-size: 32px;
+            padding: 20px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .navbar {
+            background: #FFD700;
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: lightcyan;
+            min-width: 250px;
+            box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            z-index: 1;
+            border-radius: 10px;
+        }
+        .dropdown:hover .dropdown-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        .dropdown-content div {
+            background: none;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            text-align: center;
+        }
+        .dropdown-content div:hover {
+            background: blue;
+            color: white;
+        }
+        .navbar button {
+            background: white;
+            border: none;
+            padding: 12px 25px;
+            margin: 0 15px;
+            font-size: 18px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 25px;
+            transition: 0.3s;
+            box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.2);
+        }
+        .navbar button:hover {
+            background: #FFA500;
+            color: white;
+            transform: scale(1.1);
+        }
+        .content {
+            display: flex;
+            min-height: 600px;
+            text-align: left; /* Set text-align to left */
+            justify-content: left;
+        }
+        .sidebar {
+            width: 20%;
+            background:  #FDEDEC;;
+            padding: 0px;
+            text-align: left; /* Set text-align to left */
+        }
+        .sidebar ol {
+            list-style: none;
+            text-align: left;
+            padding: 0; /* Corrected padding */
+            background:  #FDEDEC;;
+        }
+        .sidebar ol li {
+            list-style: none;
+            text-align: left; 
+        }
+        .sidebar ol li a {
+            display: block;
+            text-decoration: none;
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: none;
+            background: #34495e;
+            color: white;
+            cursor: pointer;
+            text-align: left; /* Set text-align to left */
+        }
+        .sidebar ol li a:hover {
+            background: #1abc9c;
+        }
+        .main-content {
+            flex-grow: 1;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            margin: 20px;
+            text-align: left; /* Set text-align to left */
+        }
+        .right-sidebar {
+            width: 10%;
+            background: linear-gradient(180deg, #2A5298             , #1E3C72);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .right-sidebar button {
+            background: #FF69B4;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 20px;
+            transition: 0.3s;
+            box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.2);
+        }
+        .right-sidebar button:hover {
+            background: #FF1493;
+            transform: scale(1.1);
+        }
+        .subject-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 5px;
+            margin-top: 10px;
+        }
+        .subject-button {
+            box-shadow: 3px 3px 10px lightblue;
+            background: white;
+            color: darkslategray;
+            border: none;
+            padding: 18px 22px;
+            border-radius: 15px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .subject-button:hover {
+            background: orange;
+        }
+        ul, ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .section {
+            margin-bottom: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .question {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .answer {
+            margin-left: 20px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">Orient Classes</div>
+    <div class="navbar">
+        <div class="dropdown">
+            <button>Study</button>
+            <div class="dropdown-content">
+                <div class="class-box">Class 6
+                    <div class="subject-list">
+                        <button class="subject-button" onclick="window.location.href='Math_6.html';">Math</button>
+                        <button class="subject-button" onclick="window.location.href='Physics_6.html';">Physics</button>
+                        <button class="subject-button" onclick="window.location.href='Chemistry_6.html';">Chemistry</button>
+                        <button class="subject-button" onclick="window.location.href='Biology_6.html';">Biology</button>
+                        <button class="subject-button" onclick="window.location.href='History_6.html';">History</button>
+                        <button class="subject-button" onclick="window.location.href='Geography_6.html';">Geography</button>
+                        <button class="subject-button" onclick="window.location.href='Civics_6.html';">Civics</button>
+                    </div>
+                </div>
+                <div class="class-box">Class 7
+                    <div class="subject-list">
+                        <button class="subject-button" onclick="window.location.href='Math_7.html';">Math</button>
+                        <button class="subject-button" onclick="window.location.href='Physics_7.html';">Physics</button>
+                        <button class="subject-button" onclick="window.location.href='Chemistry_7.html';">Chemistry</button>
+                        <button class="subject-button" onclick="window.location.href='Biology_7.html';">Biology</button>
+                        <button class="subject-button" onclick="window.location.href='History_7.html';">History</button>
+                        <button class="subject-button" onclick="window.location.href='Geography_7.html';">Geography</button>
+                        <button class="subject-button" onclick="window.location.href='Civics_7.html';">Civics</button>
+                    </div>
+                </div>
+                <div class="class-box">Class 8
+                    <div class="subject-list">
+                        <button class="subject-button" onclick="window.location.href='Math_8.html';">Math</button>
+                        <button class="subject-button" onclick="window.location.href='Physics_8.html';">Physics</button>
+                        <button class="subject-button" onclick="window.location.href='Chemistry_8.html';">Chemistry</button>
+                        <button class="subject-button" onclick="window.location.href='Biology_8.html';">Biology</button>
+                        <button class="subject-button" onclick="window.location.href='History_8.html';">History</button>
+                        <button class="subject-button" onclick="window.location.href='Geography_8.html';">Geography</button>
+                        <button class="subject-button" onclick="window.location.href='Civics_8.html';">Civics</button>
+                    </div>
+                </div>
+                <div class="class-box">Class 9
+                    <div class="subject-list">
+                        <button class="subject-button" onclick="window.location.href='Math_9.html';">Math</button>
+                        <button class="subject-button" onclick="window.location.href='Physics_9.html';">Physics</button>
+                        <button class="subject-button" onclick="window.location.href='Chemistry_9.html';">Chemistry</button>
+                        <button class="subject-button" onclick="window.location.href='Biology_9.html';">Biology</button>
+                        <button class="subject-button" onclick="window.location.href='History_9.html';">History</button>
+                        <button class="subject-button" onclick="window.location.href='Geography_9.html';">Geography</button>
+                        <button class="subject-button" onclick="window.location.href='Civics_9.html';">Civics</button>
+                        <button class="subject-button" onclick="window.location.href='Economy_9.html';">Economy</button>
+                    </div>
+                </div>
+                <div class="class-box">Class 10
+                    <div class="subject-list">
+                        <button class="subject-button" onclick="window.location.href='Math_10.html';">Math</button>
+                        <button class="subject-button" onclick="window.location.href='Physics_10.html';">Physics</button>
+                        <button class="subject-button" onclick="window.location.href='Chemistry_10.html';">Chemistry</button>
+                        <button class="subject-button" onclick="window.location.href='Biology_10.html';">Biology</button>
+                        <button class="subject-button" onclick="window.location.href='History_10.html';">History</button>
+                        <button class="subject-button" onclick="window.location.href='Geography_10.html';">Geography</button>
+                        <button class="subject-button" onclick="window.location.href='Civics_10.html';">Civics</button>
+                        <button class="subject-button" onclick="window.location.href='Economy_10.html';">Economy</button>
+                    </div>
+                </div>
+                <div class="class-box">Class 11
+                    <div class="subject-list">
+                        <button class="subject-button">Physics</button>
+                        <button class="subject-button">Chemistry</button>
+                        <button class="subject-button">Maths</button>
+                        <button class="subject-button">Biology</button>
+                        <button class="subject-button">History</button>
+                        <button class="subject-button">Geography</button>
+                        <button class="subject-button">Political Science</button>
+                    </div>
+                </div>
+                <div class="class-box">Class 12
+                    <div class="subject-list">
+                        <button class="subject-button">Physics</button>
+                        <button class="subject-button">Chemistry</button>
+                        <button class="subject-button">Maths</button>
+                        <button class="subject-button">Biology</button>
+                        <button class="subject-button">History</button>
+                        <button class="subject-button">Geography</button>
+                        <button class="subject-button">Political Science</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button>Test</button>
+        <button>Download</button>
+    </div>
+    <div class="content">
+        <div id="sidebar" class="sidebar">
+            <h3>Class 9 Geography Chapters</h3>
+            <ol>
+                <li><a href="Power Sharing.html">1. Power Sharing</a></li>
+                <li><a href="Federalism.html">2. Federalism</a></li>
+                <li><a href="Gender_Religion_and_Caste.html">3. Gender, Religion, and Caste</a></li>
+                <li><a href="Political_Parties.html">4. Political Parties</a></li>
+                <li><a href="Outcomes_of_Democracy.html">5. Outcomes of Democracy</a></li>
+            </ol>
+        </div>
+        <div class="main-content">
+            <div class="section">
+                <h1>Power Sharing</h1>
+                <h2>Overview</h2>
+                <ul>
+                    <li>This chapter continues the study of democracy from the previous year.</li>
+                    <li>It emphasizes that power in a democracy is not concentrated in one organ of the government.</li>
+                    <li>Power-sharing among the legislature, executive, and judiciary is essential for a democratic system.</li>
+                    <li>The chapter begins with case studies of Belgium and Sri Lanka, showcasing different approaches to power-sharing.</li>
+                    <li>These stories highlight the importance of accommodating diverse groups in a democracy.</li>
+                    <li>General conclusions about the necessity of power-sharing are drawn from these cases.</li>
+                    <li>The next two chapters will explore various forms of power-sharing in detail.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Belgium and Sri Lanka</h2>
+                <h3>Belgium and Sri Lanka: Ethnic Composition and Conflicts</h3>
+                <p>This section compares the ethnic composition and power-sharing challenges faced by Belgium and Sri Lanka, highlighting the potential for conflict in both countries.</p>
+
+                <h3>Belgium: A Complex Ethnic Composition</h3>
+                <ul>
+                    <li><strong>Geography & Size:</strong>
+                        <ul>
+                            <li>Belgium is a small European country, smaller in area than the Indian state of Haryana.</li>
+                            <li>It shares borders with France, the Netherlands, Germany, and Luxembourg.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Population:</strong>
+                        <ul>
+                            <li>Belgium has a population of a little over one crore, which is about half the population of Haryana.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Ethnic Groups & Language Distribution:</strong>
+                        <ul>
+                            <li>59% of the population lives in the Flemish region and speaks Dutch.</li>
+                            <li>40% live in the Wallonia region and speak French.</li>
+                            <li>1% of Belgians speak German.</li>
+                            <li>Brussels, the capital city, presents a unique problem:
+                                <ul>
+                                    <li>80% of the population speaks French.</li>
+                                    <li>Only 20% speak Dutch.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><strong>Tensions Between Communities:</strong>
+                        <ul>
+                            <li>The French-speaking community was a minority in the country but was wealthier and more powerful.</li>
+                            <li>The Dutch-speaking majority resented this dominance because they got economic benefits and education much later.</li>
+                            <li>During the 1950s and 1960s, conflicts arose between the Dutch and French-speaking communities due to these inequalities.</li>
+                            <li>Brussels was the main area of conflict because, despite being the national majority, Dutch speakers were a minority in the capital.</li>
+                            <li>If the Dutch-speaking majority imposed their will, it could lead to further divisions and a possible partition of Belgium.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>Sri Lanka: Ethnic Diversity and Rising Tensions</h3>
+                <ul>
+                    <li><strong>Geography & Size:</strong>                 <ul>
+                    <li>Sri Lanka is an island nation located a few kilometers off the southern coast of Tamil Nadu, India.</li>
+                </ul>
+            </li>
+            <li><strong>Population:</strong>
+                <ul>
+                    <li>It has a population of about two crores, which is roughly equal to Haryana's population.</li>
+                </ul>
+            </li>
+            <li><strong>Ethnic Groups & Language Distribution:</strong>
+                <ul>
+                    <li>74% of the population are Sinhala-speakers (majority community).</li>
+                    <li>18% of the population are Tamil-speakers, divided into two sub-groups:
+                        <ul>
+                            <li>13% are Sri Lankan Tamils (native to Sri Lanka).</li>
+                            <li>5% are Indian Tamils, whose ancestors were brought from India as plantation workers during the colonial period.</li>
+                        </ul>
+                    </li>
+                    <li>7% of the population are Christians, who belong to both Sinhala and Tamil communities.</li>
+                </ul>
+            </li>
+            <li><strong>Religious Composition:</strong>
+                <ul>
+                    <li>Most Sinhala-speaking people are Buddhists.</li>
+                    <li>Most Tamils are Hindus or Muslims.</li>
+                </ul>
+            </li>
+            <li><strong>Ethnic Tensions:</strong>
+                <ul>
+                    <li>The Sinhala community formed an overwhelming majority and could easily dominate the Tamil-speaking population.</li>
+                    <li>The Sri Lankan Tamils were mostly concentrated in the north and east of the country, making them distinct from the rest of the population.</li>
+                    <li>The Sinhala majority had the power to impose its will on the entire country, leading to tensions and conflicts.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h3>Comparison and Possible Conflicts</h3>
+        <ul>
+            <li><strong>In Belgium:</strong>
+                <ul>
+                    <li>The Dutch-speaking community had a majority nationwide but was a minority in the capital, Brussels.</li>
+                    <li>If they had imposed their dominance, it could have led to conflicts and possibly the division of Belgium.</li>
+                    <li>The French-speaking minority, though powerful, faced resentment from the Dutch-speaking majority.</li>
+                </ul>
+            </li>
+            <li><strong>In Sri Lanka:</strong>
+                <ul>
+                    <li>The Sinhala majority had an even stronger control over the country.</li>
+                    <li>They had the power to impose laws and policies that marginalized Tamils.</li>
+                    <li>This could lead to severe ethnic conflicts, as the Tamils demanded equal rights and political representation.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Majoritarianism and Civil War in Sri Lanka</h2>
+        <ol>
+            <li><strong>Sri Lanka’s Independence and the Rise of Majoritarianism (1948):</strong>
+                <ul>
+                    <li>Sri Lanka became an independent nation in 1948 after gaining freedom from British rule.</li>
+                    <li>The Sinhala-speaking majority, which comprised 74% of the population, sought to establish dominance over the country’s governance.</li>
+                    <li>The Tamil minority (18%), particularly the Sri Lankan Tamils (13%), had been living in Sri Lanka for centuries and had significant contributions in administration, business, and education.</li>
+                </ul>
+            </li>
+            <li><strong>Introduction of Majoritarian Policies:</strong>
+                <ul>
+                    <li><strong>Definition of Majoritarianism:</strong> It refers to a system where the majority community imposes its will on minorities, disregarding their interests.</li>
+                    <li>Sinhala leaders introduced a series of discriminatory laws and policies to ensure Sinhala political and cultural supremacy.</li>
+                    <li><strong>Key Policies:</strong>
+                        <ol>
+                            <li><strong>Official Language Act, 1956:</strong>
+                                <ul>
+                                    <li>Sinhala was declared the only official language, completely ignoring Tamil.</li>
+                                    <li>This law made it difficult for Tamils to get government jobs as proficiency in Sinhala was required.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Education and Job Discrimination:</strong>
+                                <ul>
+                                    <li>Government introduced preferential policies that gave Sinhala applicants advantages in university admissions and public-sector jobs.</li>
+                                    <li>Tamil students had to score higher marks than Sinhala students to enter prestigious institutions.</li>
+                                </ul>
+                                                        </li>
+                            <li><strong>Religious Privileges for Buddhism:</strong>
+                                <ul>
+                                    <li>The Sri Lankan Constitution recognized Buddhism as the state religion, giving it special privileges and state protection.</li>
+                                    <li>This led to concerns among Tamils, who were primarily Hindus and Muslims, about their cultural identity and rights.</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </li>
+                </ul>
+            </li>
+            <li><strong>Growing Alienation Among Sri Lankan Tamils:</strong>
+                <ul>
+                    <li>Tamil leaders and political parties protested against these majoritarian policies but were ignored by the Sinhala-dominated government.</li>
+                    <li>The Tamils felt alienated and discriminated against in the political, economic, and social spheres.</li>
+                    <li>Their demands included:
+                        <ul>
+                            <li>Recognition of Tamil as an official language.</li>
+                            <li>Equal opportunities in education and employment.</li>
+                            <li>Autonomy for Tamil-majority regions in the north and east.</li>
+                        </ul>
+                    </li>
+                    <li>However, the government denied these demands repeatedly, increasing tensions between the Sinhala and Tamil communities.</li>
+                </ul>
+            </li>
+            <li><strong>Escalation of Conflict and the Civil War:</strong>
+                <ul>
+                    <li>By the 1970s and 1980s, Tamil political frustration led to radicalization.</li>
+                    <li>Tamil groups formed militant organizations demanding an independent Tamil Eelam (homeland) in the north and east of Sri Lanka.</li>
+                    <li>The Liberation Tigers of Tamil Eelam (LTTE), a separatist militant group, became the most dominant and launched violent attacks against government forces.</li>
+                    <li>The Sri Lankan government responded with military action, leading to widespread violence.</li>
+                </ul>
+            </li>
+            <li><strong>Consequences of the Civil War:</strong>
+                <ul>
+                    <li><strong>Humanitarian Crisis:</strong>
+                        <ul>
+                            <li>Thousands of civilians and soldiers from both communities were killed.</li>
+                            <li>Many Tamils fled the country, becoming refugees in India and other nations.</li>
+                            <li>Entire villages were destroyed, and infrastructure suffered severe damage.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Economic and Social Setback:</strong>
+                        <ul>
+                            <li>Sri Lanka, once known for its high literacy rate and good economic development, suffered massive economic and social losses.</li>
+                            <li>Tourism and foreign investment declined, leading to stagnant economic growth.</li>
+                        </ul>
+                    </li>
+                    <li><strong>End of the Civil War (2009):</strong>
+                        <ul>
+                            <li>The Sri Lankan government launched a final military offensive against the LTTE and defeated them in May 2009.</li>
+                            <li>The war ended, but ethnic tensions and demands for Tamil rights continue to affect Sri Lankan politics.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><strong>Lessons from the Conflict:</strong>
+                <ul>
+                    <li>Majoritarianism creates instability and conflicts in multi-ethnic societies.</li>
+                    <li>Power-sharing and inclusive policies are necessary for a stable democracy.</li>
+                    <li>Suppressing minority rights can lead to violent resistance and civil wars.</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <div class="section">
+        <h2>Conclusion</h2>
+        <p>The Sri Lankan conflict is a major example of how majoritarianism can cause long-term damage to a country. While the Sinhala leaders aimed for dominance, their refusal to accommodate Tamil demands led to civil war and massive destruction. This highlights the importance of power-sharing, respect for diversity, and equal opportunities for all communities in a democracy.</p>
+    </div>
+
+    <div class="section">
+        <h2>The Belgian Model of Power-Sharing</h2>
+        <p>Belgium, a small European country with a complex ethnic composition, faced linguistic and regional tensions due to its Dutch-speaking majority (59%) and French-speaking minority (40%). These tensions were especially severe in Brussels, where the French-speaking population was the majority, despite being a national minority. To maintain unity and prevent conflict, Belgium adopted an innovative power-sharing model through four constitutional amendments (1970–1993). This model ensured political stability and equal participation of all linguistic communities in governance.</p>
+    </div>
+
+    <div class="section"> 
+                <h3>Key Features of the Belgian Power-Sharing Model</h3>
+        <ol>
+            <li><strong>Equal Representation in the Central Government:</strong>
+                <ul>
+                    <li>The number of Dutch-speaking and French-speaking ministers in the central government is equal, preventing one community from dominating.</li>
+                    <li>Certain special laws require the support of both linguistic groups, ensuring collective decision-making and protection of minority interests.</li>
+                    <li>This prevents majoritarian rule, where one ethnic group could impose its will on others.</li>
+                </ul>
+            </li>
+            <li><strong>Federal Structure with Decentralization of Power:</strong>
+                <ul>
+                    <li>Belgium transitioned from a unitary state to a federal state by transferring central government powers to state governments.</li>
+                    <li>The state governments of the Flemish (Dutch-speaking) and Wallonia (French-speaking) regions were granted autonomy.</li>
+                    <li>Unlike in many other federations, the state governments in Belgium are not subordinate to the central government; they have independent authority over specific matters.</li>
+                    <li>This ensured regional autonomy and reduced ethnic tensions.</li>
+                </ul>
+            </li>
+            <li><strong>Special Government for Brussels:</strong>
+                <ul>
+                    <li>The capital, Brussels, posed a unique challenge as it had a French-speaking majority (80%) but was located in Dutch-majority Flanders.</li>
+                    <li>A separate government was created for Brussels, where both Dutch and French-speaking communities have equal representation, ensuring that neither group dominates.</li>
+                    <li>The French-speaking population accepted this arrangement because the Dutch-speaking community had already accepted equal representation in the central government.</li>
+                </ul>
+            </li>
+            <li><strong>Community Governments for Cultural Autonomy:</strong>
+                <ul>
+                    <li>Apart from regional governments, Belgium introduced community governments for each linguistic group, which were responsible for:
+                        <ul>
+                            <li>Education, cultural affairs, and language-related policies for their respective communities.</li>
+                            <li>Protecting the rights and identities of each linguistic group.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <div class="section">
+        <h3>Impact of the Belgian Power-Sharing Model</h3>
+        <ul>
+            <li>The model successfully resolved ethnic tensions and maintained Belgium’s political stability.</li>
+            <li>Unlike Sri Lanka, where majoritarian policies led to civil war, Belgium’s inclusive approach prevented conflicts.</li>
+            <li>It serves as an example of effective power-sharing in deeply divided societies, demonstrating how decentralization, equal representation, and cultural autonomy can promote national unity.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Conclusion</h2>
+        <p>The Belgian model is a unique and advanced form of power-sharing that ensures equal representation, regional autonomy, and cultural protection. It prevented ethnic conflict, ensured democratic governance, and strengthened national unity, making Belgium a model for multi-ethnic democracies worldwide.</p>
+    </div>
+
+    <div class="section">
+        <h2>What do we learn from these two stories</h2>
+        <ul>
+            <li><strong>Belgium's Approach:</strong> The leaders understood that unity could be maintained only by respecting all communities.</li>
+            <li><strong>Power Sharing in Belgium:</strong> They created a system where different linguistic and regional groups shared power fairly.</li>
+            <li><strong>Sri Lanka's Approach:</strong> The majority Sinhala community tried to dominate the Tamil minority instead of sharing power.</li>
+            <li><strong>Effect in Sri Lanka:</strong> This led to tensions, conflicts, and threats to national unity.</li>
+            <li><strong>Lesson Learned:</strong> A country remains united when all communities feel included, but forcing dominance can create divisions.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Why is Power Sharing Desirable?</h2>
+        <p>Power sharing is essential for the smooth functioning of a democracy and can be justified on two different grounds: Prudential Reasons and Moral Reasons.</p>
+        <h3>1. Prudential Reasons (Practical Benefits of Power Sharing)</h3>
+        <ul>
+            <li><strong>Reduces Social Conflicts:</strong> When different social groups feel included in decision-making, tensions between communities are minimized. Without power sharing, dominant groups may impose their will on others, leading to resentment and unrest.</li>
+                        <li><strong>Prevents Political Instability:</strong> Social conflicts often escalate into violence, protests, or even civil wars. Power sharing ensures that all groups feel represented, reducing the chances of instability.</li>
+            <li><strong>Ensures Long-term National Unity:</strong> While imposing majority rule might seem effective in the short term, it can weaken national unity in the long run. If minority groups feel excluded, they may resist, leading to division within the country.</li>
+            <li><strong>Avoids Tyranny of the Majority:</strong> If one group or community holds all the power, it can lead to the oppression of minorities. Such dominance not only harms minority groups but can also create long-term instability, ultimately affecting the majority itself.</li>
+        </ul>
+
+        <h3>2. Moral Reasons (Power Sharing as the Essence of Democracy)</h3>
+        <ul>
+            <li><strong>Reflects the Spirit of Democracy:</strong> Democracy is based on the idea that power should not be concentrated in a single authority but should be distributed among different groups and institutions.</li>
+            <li><strong>Ensures People’s Right to Participation:</strong> In a true democracy, citizens must have a say in governance. Power sharing ensures that different groups and individuals are consulted on matters that affect them.</li>
+            <li><strong>Creates a Legitimate Government:</strong> A government is considered legitimate when it is formed through public participation. When people feel involved in decision-making, they develop trust in the system, making governance more effective.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Conclusion</h2>
+        <ul>
+            <li>Prudential Reasons highlight the benefits of power sharing in maintaining peace, stability, and unity in a country.</li>
+            <li>Moral Reasons focus on power sharing as a core democratic value, ensuring fairness and public participation in governance.</li>
+        </ul>
+        <p>Thus, power sharing is not just a necessity for stability but also a fundamental principle of democracy.</p>
+    </div>
+
+    <div class="section">
+        <h2>Power Sharing: A Detailed Summary</h2>
+        <p>Power sharing is a fundamental principle of democracy that ensures political stability by distributing power among different institutions, levels of government, and social groups. It emerged as an alternative to the earlier notion that all government power should be centralized in one authority. Over time, democratic governance has established that power should be widely distributed to ensure inclusivity, prevent conflicts, and maintain stability.</p>
+    </div>
+
+    <div class="section">
+        <h2>Why Power Sharing is Important?</h2>
+        <ol>
+            <li><strong>Prevents Conflict & Ensures Stability:</strong>
+                <ul>
+                    <li>Power sharing helps reduce conflicts among different social groups.</li>
+                    <li>If one group dominates, others may feel marginalized, leading to social unrest and violence.</li>
+                    <li><strong>Example:</strong> Belgium successfully shared power among different linguistic groups, preventing tensions, while Sri Lanka’s refusal to share power led to civil war.</li>
+                </ul>
+            </li>
+            <li><strong>Promotes Democracy & Participation:</strong>
+                <ul>
+                    <li>Democracy is based on the idea that power should be shared among all citizens.</li>
+                    <li>People have a right to be consulted on how they should be governed.</li>
+                    <li>A government that includes different sections of society is more legitimate and accountable.</li>
+                </ul>
+            </li>
+            <li><strong>Prevents Tyranny of the Majority:</strong>
+                <ul>
+                    <li>If one group or party holds all power, it may suppress minorities.</li>
+                    <li>Over time, such oppression can weaken national unity.</li>
+                    <li>A fair power-sharing system ensures that all groups have a say in governance.</li>
+                </ul>
+            </li>
+            <li><strong>Enhances Efficiency in Governance:</strong>
+                <ul>
+                    <li>Decentralization ensures decisions are made at appropriate levels, making governance more effective.</li>
+                    <li>Local governments can address regional needs better than a centralized authority.</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <div class="section">
+        <h2>Forms of Power Sharing in Democracy</h2>
+        <ol>
+            <li><strong>Horizontal Power Sharing (Among Different Organs of Government):</strong>
+                <ul>
+                    <li>Power is divided among different government institutions—Legislature, Executive, and Judiciary.</li>
+                                        <li>These institutions function at the same level but have separate powers.</li>
+                    <li>System of Checks and Balances ensures no single organ becomes too powerful.</li>
+                    <p><strong>Example:</strong> The Executive (Government) enforces laws, but is accountable to the Legislature (Parliament). The Judiciary (Courts) checks whether the executive and legislature act according to the Constitution.</p>
+                </ul>
+            </li>
+            <li><strong>Vertical Power Sharing (Among Different Levels of Government):</strong>
+                <ul>
+                    <li>Power is divided across different levels of government: Central, State, and Local (Municipalities & Panchayats).</li>
+                    <li>This system is called federalism, where each level has specific powers.</li>
+                    <p><strong>Example:</strong> India: Central Government handles national security, foreign policy, and defense; State Governments handle education, police, and health; Local Governments manage local issues like water supply and sanitation.</p>
+                </ul>
+            </li>
+            <li><strong>Power Sharing Among Social Groups:</strong>
+                <ul>
+                    <li>Certain communities (religious, linguistic, or ethnic) may feel marginalized in a democracy.</li>
+                    <li>Special arrangements ensure these groups have a voice in governance.</li>
+                    <p><strong>Examples:</strong> Belgium: Established Community Government to represent Dutch, French, and German-speaking groups. India: Reserved Constituencies in legislatures for Scheduled Castes (SCs) and Scheduled Tribes (STs). Women’s Reservation ensures gender representation.</p>
+                </ul>
+            </li>
+            <li><strong>Power Sharing Among Political Parties and Pressure Groups:</strong>
+                <ul>
+                    <li>Democracy allows multiple political parties to contest elections, preventing one-party rule.</li>
+                    <li>Political competition ensures that power does not remain in the hands of one group.</li>
+                    <li><strong>Examples:</strong> India: Coalition governments at the Centre and States (e.g., United Progressive Alliance - UPA, National Democratic Alliance - NDA). Pressure Groups: Farmers, traders, industrialists, and workers influence policymaking through strikes, protests, and negotiations.</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <div class="section">
+        <h2>Key Takeaways</h2>
+        <ul>
+            <li>Power sharing strengthens democracy by preventing dominance of any one group.</li>
+            <li>It ensures representation for all sections of society, fostering national unity.</li>
+            <li>Different forms of power sharing—horizontal, vertical, social, and political—help create balanced governance.</li>
+            <li>Countries that ignore power sharing (e.g., Sri Lanka) face unrest, while those that adopt it (e.g., Belgium) maintain stability.</li>
+        </ul>
+        <p>Conclusion: Power sharing is not just a political necessity but also a moral principle of democracy. By ensuring diverse participation in governance, it makes democracy more inclusive, just, and effective.</p>
+    </div>
+
+    <div class="section">
+        <h2>Power-Sharing – Questions and Answers</h2>
+        <ol>
+            <li><strong>What are the different forms of power-sharing in modern democracies? Give an example of each of these.</strong>
+                <p>In modern democracies, power-sharing takes different forms to ensure fair governance and prevent the concentration of power. The four main forms of power-sharing are:</p>
+                <ul>
+                    <li><strong>Horizontal Power-Sharing:</strong> Power is shared among different organs of government, such as the Legislature, Executive, and Judiciary. This prevents any one organ from becoming too powerful. <strong>Example:</strong> In India, the Parliament (Legislature), the Prime Minister (Executive), and the Supreme Court (Judiciary) function independently.</li>
+                    <li><strong>Vertical Power-Sharing:</strong> Power is distributed among different levels of government, such as the central, state, and local governments. <strong>Example:</strong> India's federal structure, where powers are divided between the Union Government, State Governments, and Local Governments (Panchayati Raj).</li>
+                    <li><strong>Power Sharing Among Different Social Groups:</strong> Power is shared among social groups to ensure representation for minorities and weaker sections of society. <strong>Example:</strong> The reservation system in India, which provides Scheduled Castes (SCs), Scheduled Tribes (STs), and Other Backward Classes (OBCs) with political representation.</li>
+                                        <li><strong>Power Sharing Among Political Parties, Pressure Groups, and Movements:</strong> Power is shared among different political parties through coalition governments, and pressure groups also influence decision-making. <strong>Example:</strong> In India, coalition governments like the United Progressive Alliance (UPA) and the National Democratic Alliance (NDA) include multiple political parties working together in governance.</li>
+                </ul>
+            </li>
+            <li><strong>State one prudential reason and one moral reason for power-sharing with an example from the Indian context.</strong>
+                <ul>
+                    <li><strong>Prudential Reason:</strong> Power-sharing helps in reducing social conflict and political instability by ensuring that no single group dominates the system. <strong>Example:</strong> The formation of new states like Telangana in India helped address regional aspirations and maintain stability.</li>
+                    <li><strong>Moral Reason:</strong> Power-sharing upholds democratic principles by ensuring equal participation in governance. It gives every section of society a voice in decision-making. <strong>Example:</strong> Panchayati Raj in India empowers local self-governments, ensuring grassroots democracy and people's participation in governance.</li>
+                </ul>
+            </li>
+            <li><strong>After reading this chapter, three students drew different conclusions. Which of these do you agree with and why? Give your reasons in about 50 words.</strong>
+                <p><strong>Thomman:</strong> "Power-sharing is necessary only in societies which have religious, linguistic, or ethnic divisions."</p>
+                <p><strong>Mathayi:</strong> "Power-sharing is suitable only for big countries that have regional divisions."</p>
+                <p><strong>Ouseph:</strong> "Every society needs some form of power-sharing, even if it is small or does not have social divisions."</p>
+                <p><strong>Answer:</strong> I agree with Ouseph’s statement because power-sharing is essential in all societies, regardless of their size or diversity. Even homogeneous societies require power-sharing to prevent the concentration of power, ensure participation, and promote democratic values. It strengthens governance, increases accountability, and maintains political stability.</p>
+            </li>
+            <li><strong>The Mayor of Merchtem, a town near Brussels in Belgium, has defended a ban on speaking French in the town’s schools. He said that the ban would help all non-Dutch speakers integrate into this Flemish town. Do you think that this measure is in keeping with the spirit of Belgium’s power-sharing arrangements? Give your reasons in about 50 words.</strong>
+                <p><strong>Answer:</strong> No, the ban is against Belgium’s power-sharing principles. Belgium has adopted a system that ensures equal rights for Dutch-speaking, French-speaking, and German-speaking communities. Banning French in schools goes against this model by suppressing linguistic diversity rather than accommodating it. True integration should be based on inclusion, not exclusion.</p>
+            </li>
+            <li><strong>Read the following passage and pick out any one of the prudential reasons for power-sharing offered in this.</strong>
+                <p><strong>Passage:</strong> "We need to give more power to the panchayats to realise the dream of Mahatma Gandhi and the hopes of the makers of our Constitution. Panchayati Raj establishes true democracy. It restores power to the only place where power belongs in a democracy – in the hands of the people. Giving power to Panchayats is also a way to reduce corruption and increase administrative efficiency. When people participate in the planning and implementation of developmental schemes, they would naturally exercise greater control over these schemes. This would eliminate the corrupt middlemen. Thus, Panchayati Raj will strengthen the foundations of our democracy."</p>
+                <p><strong>Answer:</strong> The prudential reason for power-sharing in this passage is: "Giving power to Panchayats is also a way to reduce corruption and increase administrative efficiency." This highlights that decentralization of power makes governance more transparent and accountable, leading to reduced corruption and better implementation of schemes.</p>
+            </li>
+            <li><strong>Different arguments are usually put forth in favour of and against power-sharing. Identify those which are in favour of power-sharing and select the answer using the codes given below.</strong>
+                <ul>
+                    <li>1. Reduces conflict among different communities ✅</li>
+                    <li>2. Decreases the possibility of arbitrariness ✅</li>
+                    <li>3. Delays the decision-making process ❌ (against power-sharing)</li>
+                    <li>4. Accommodates diversities ✅</li>
+                    <li>5. Increases instability and divisiveness ❌ (against power-sharing)</li>
+                                        <li>6. Promotes people’s participation in government ✅</li>
+                </ul>
+                <p><strong>Correct Answer:</strong> 1, 2, 4, and 6.</p>
+            </li>
+            <li><strong>Consider the following statements about power-sharing arrangements in Belgium and Sri Lanka.</strong>
+                <ol>
+                    <li>In Belgium, the Dutch-speaking majority people tried to impose their domination on the minority French-speaking community. ❌ (Incorrect, as Belgium adopted power-sharing to prevent this.)</li>
+                    <li>In Sri Lanka, the policies of the government sought to ensure the dominance of the Sinhala-speaking majority. ✅</li>
+                    <li>The Tamils in Sri Lanka demanded a federal arrangement of power-sharing to protect their culture, language, and equality of opportunity in education and jobs. ✅</li>
+                    <li>The transformation of Belgium from a unitary government to a federal one prevented a possible division of the country on linguistic lines. ✅</li>
+                </ol>
+                <p><strong>Correct Answer:</strong> (d) 2, 3, and 4.</p>
+            </li>
+            <li><strong>Match List I (forms of power-sharing) with List II (forms of government) and select the correct answer using the codes given below in the lists.</strong>
+                <table>
+                    <tr>
+                        <th>List I (Forms of Power-Sharing)</th>
+                        <th>List II (Forms of Government)</th>
+                    </tr>
+                    <tr>
+                        <td>1. Power shared among different organs of government</td>
+                        <td>B. Separation of Powers</td>
+                    </tr>
+                    <tr>
+                        <td>2. Power shared among governments at different levels</td>
+                        <td>D. Federal Government</td>
+                    </tr>
+                    <tr>
+                        <td>3. Power shared by different social groups</td>
+                        <td>A. Community Government</td>
+                    </tr>
+                    <tr>
+                        <td>4. Power shared by two or more political parties</td>
+                        <td>C. Coalition Government</td>
+                    </tr>
+                </table>
+                <p><strong>Correct Answer:</strong> 1-B, 2-D, 3-A, 4-C.</p>
+            </li>
+            <li><strong>Consider the following two statements on power-sharing and select the answer using the codes given below.</strong>
+                <ul>
+                    <li>A) Power-sharing is good for democracy. ✅ (True)</li>
+                    <li>B) It helps to reduce the possibility of conflict between social groups. ✅ (True)</li>
+                </ul>
+                <p><strong>Correct Answer:</strong> Both statements are True.</p>
+            </li>
+        </ol>
+    </div>
+
+
+        </div>
+        <div class="right-sidebar">
+            <button onclick="location.href='POWER SHARING.pdf'">Download PDF</button>
+            <button>Attempt Test</button>
+        </div>
+    </div>
+</body>
+</html>
