@@ -1,346 +1,1260 @@
-<!DOCTYPE HTML>
- <html>
- <head>
-	<title>Quiz</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="quiz.css">
-	 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
-	 <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
-  
-         <style>
-             body
-                {
-                      font-family: 'Roboto Slab',serif;
-                      /*background-color: #6cf;*/
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-                      background-repeat: no-repeat;
-                      background-image: url("pink background.jpg");
-                      background: url('pink background.jpg') no-repeat center center fixed;
-                      background-size: cover;
-                      display: flex;
-                      justify-content: center;
-                      align-items: center;
-                      height: 100vh;
-                      width: 100vw;
-                      margin: 0;
+    <meta name="theme-color" content="#173b70">
+    <meta name="description" content="Electoral Politics MCQ Test - Orient Classes">
 
-               /*	
-                      background-attachment: fixed;*/
+    <title>Electoral Politics Test | Orient Classes</title>
 
-                }
-                .container
-                {
-                      height: 330px;
-                      width: 1000px;
-                      position: absolute;
-                      top: 50%;
-                      left: 50%;
-                      transform: translateX(-50%) translateY(-50%);
-                      background-color: rgba(255,255,255,0.6);
-                      padding: 20px;
-                      border: 1px solid #08038C;
-                      box-shadow: 0 0 8px 3px #fff;
-                }
-              .title
-              {
-                      padding-top: 20px;
-                      text-align: center;
-                      font-size: 45px;
-                      text-transform: uppercase;
-                      color:#08038C;
-                      /*font-weight: bold;*/
-              }
-              .question
-              {
-                      padding: 20px;
-                      font-size: 22px;
-                      background-color: #08038C;
-                      border-radius: 20px;
-                      margin: 10px 0 10px 0;
-                      color: #f6f6f6;
-              }
-              .option
-              {
-                      width: 470px;
-                      display: inline-block;
-                      padding: 10px 0 10px 15px;
-                      vertical-align: middle;
-                      background-color: rgba(255,255,255,0.7);
-                      margin: 10px 0 10px 10px;
-                      color: #000000;
-                      border-radius: 20px; 
-              }
-              .option:hover
-              {
-                      background:lightgreen;
-                      color: #f6f6f6; 
-              }
-              .option:checked{
-                  background:green;
-              }
-              .next-btn
-              {
-                      border:none;
-                      outline: none;
-                      background-color: rgba(255,25,255,0.5);
-                      width: 100px;
-                      height: 35px;
-                      border-radius: 20px;
-                      cursor: pointer;
-                      float: right;
-                      margin: 10px;
-              }
-              .next-btn:hover
-              {
-              background:red;
-              color: #f6f6f6; 
-              }
-              .result
-              {
-                      height: 100px;
-                      text-align: center;
-                      font-size: 75px;
-              }
-              .option input:checked .option
-              {
-              background:yellow;
-              color: #000; 
-              }
-         </style>
- </head>
-  <body>
-<div id="quizContainer" class="container">
-	<div class="title">Electoral Politics Test</div>
-	<div id="question" class="question"></div>
-	<label class="option"><input type="radio" name="option" value="1" /><span id="opt1"></span></label>
-	<label class="option"><input type="radio" name="option" value="2" /><span id="opt2"></span></label>
-	<label class="option"><input type="radio" name="option" value="3" /><span id="opt3"></span></label>
-	<label class="option"><input type="radio" name="option" value="4" /><span id="opt4"></span></label>
-	<button id="nextButton" class="next-btn" onclick="loadNextQuestion(questions);">Next Question</button>
- </div>
- <div id="result" class="container result" style="display: none;"></div>
- <script charset="utf-8">
-     var questions = [
+    <style>
+        :root {
+            --primary: #173b70;
+            --primary-light: #285ca8;
+            --accent: #ffc928;
+            --background: #f2f5fb;
+            --text: #25334a;
+            --muted: #68778d;
+            --success: #16834a;
+            --danger: #d93649;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            -webkit-text-size-adjust: 100%;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(circle at top right, #dbe9ff 0, transparent 35%),
+                linear-gradient(135deg, #f5f7fc, #eaf0fa);
+        }
+
+        button {
+            font: inherit;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .top-header {
+            background: linear-gradient(120deg, #122c53, #285ca8);
+            color: white;
+            padding: 20px 15px;
+            text-align: center;
+            box-shadow: 0 4px 18px rgba(15, 40, 80, 0.18);
+        }
+
+        .brand {
+            font-size: clamp(22px, 5vw, 30px);
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin: 0;
+        }
+
+        .brand-subtitle {
+            font-size: 13px;
+            margin-top: 7px;
+            opacity: 0.9;
+            letter-spacing: 1px;
+        }
+
+        .page {
+            width: 100%;
+            max-width: 850px;
+            margin: 25px auto;
+            padding: 0 15px 30px;
+        }
+
+        .quiz-card {
+            background: var(--white);
+            border: 1px solid #e2e9f4;
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 12px 35px rgba(27, 55, 95, 0.10);
+        }
+
+        .quiz-heading {
+            background: linear-gradient(120deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: 25px 22px;
+            text-align: center;
+        }
+
+        .quiz-heading h1 {
+            font-size: clamp(23px, 5vw, 32px);
+            line-height: 1.3;
+            margin: 0 0 10px;
+        }
+
+        .quiz-heading p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #e4edff;
+        }
+
+        .quiz-body {
+            padding: 24px;
+        }
+
+        .info-row {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
+            margin-bottom: 22px;
+        }
+
+        .info-box {
+            text-align: center;
+            padding: 13px 6px;
+            border-radius: 13px;
+            background: #f2f6ff;
+            border: 1px solid #e2eafa;
+        }
+
+        .info-label {
+            font-size: 12px;
+            color: var(--muted);
+            margin-bottom: 6px;
+        }
+
+        .info-value {
+            font-size: 17px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .progress-section {
+            margin-bottom: 23px;
+        }
+
+        .progress-text {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--muted);
+            margin-bottom: 9px;
+        }
+
+        .progress-track {
+            height: 9px;
+            border-radius: 20px;
+            background: #e7edf6;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            border-radius: inherit;
+            background: linear-gradient(90deg, #2875df, #35bd88);
+            transition: width 0.3s ease;
+        }
+
+        .question-number {
+            display: inline-block;
+            background: #eaf1ff;
+            color: var(--primary);
+            padding: 7px 12px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 800;
+            margin-bottom: 13px;
+        }
+
+        .question-text {
+            font-size: clamp(18px, 3vw, 22px);
+            font-weight: 700;
+            line-height: 1.6;
+            margin: 0 0 20px;
+            overflow-wrap: anywhere;
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .option {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            width: 100%;
+            padding: 15px;
+            background: #ffffff;
+            border: 1.5px solid #dce4f0;
+            border-radius: 13px;
+            cursor: pointer;
+            text-align: left;
+            color: var(--text);
+            transition: border-color 0.18s, background 0.18s, transform 0.18s;
+            min-height: 55px;
+        }
+
+        .option:hover {
+            border-color: #7198d9;
+            background: #f5f8ff;
+        }
+
+        .option:active {
+            transform: scale(0.99);
+        }
+
+        .option.selected {
+            border-color: #2d65b5;
+            background: #eaf2ff;
+        }
+
+        .option-letter {
+            flex: 0 0 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9px;
+            background: #edf1f7;
+            color: #44536b;
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+        .option.selected .option-letter {
+            background: var(--primary);
+            color: white;
+        }
+
+        .option-text {
+            flex: 1;
+            font-size: 15px;
+            line-height: 1.55;
+            padding-top: 4px;
+            overflow-wrap: anywhere;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .btn {
+            border: none;
+            border-radius: 12px;
+            min-height: 48px;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-weight: 800;
+            transition: 0.2s;
+        }
+
+        .btn:disabled {
+            opacity: 0.45;
+            cursor: not-allowed;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 5px 12px rgba(23, 59, 112, 0.18);
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            background: #285ca8;
+        }
+
+        .btn-secondary {
+            background: #edf1f7;
+            color: var(--primary);
+        }
+
+        .btn-secondary:hover:not(:disabled) {
+            background: #dce6f6;
+        }
+
+        .btn-finish {
+            background: #16834a;
+            color: white;
+        }
+
+        .warning {
+            color: var(--danger);
+            background: #fff0f1;
+            padding: 11px 13px;
+            border-radius: 9px;
+            font-size: 13px;
+            line-height: 1.5;
+            margin-top: 15px;
+            display: none;
+        }
+
+        .footer-note {
+            text-align: center;
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.7;
+            padding: 18px 8px 0;
+        }
+
+        /* RESULT SCREEN */
+
+        .result-screen {
+            display: none;
+        }
+
+        .result-top {
+            text-align: center;
+            padding: 25px 15px;
+            background: linear-gradient(120deg, #eaf2ff, #f6f9ff);
+            border-radius: 15px;
+            margin-bottom: 22px;
+        }
+
+        .result-icon {
+            font-size: 48px;
+            margin-bottom: 8px;
+        }
+
+        .result-top h2 {
+            color: var(--primary);
+            font-size: 28px;
+            margin: 0 0 10px;
+        }
+
+        .result-score {
+            font-size: clamp(30px, 7vw, 45px);
+            font-weight: 900;
+            color: var(--primary);
+            margin: 10px 0;
+        }
+
+        .result-message {
+            color: var(--muted);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .result-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
+            margin-bottom: 24px;
+        }
+
+        .result-box {
+            text-align: center;
+            padding: 15px 5px;
+            border-radius: 12px;
+            background: #f6f8fc;
+            border: 1px solid #e6ebf4;
+        }
+
+        .result-box strong {
+            display: block;
+            font-size: 23px;
+            margin-bottom: 6px;
+        }
+
+        .result-box span {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .correct-number {
+            color: var(--success);
+        }
+
+        .wrong-number {
+            color: var(--danger);
+        }
+
+        .review-title {
+            font-size: 22px;
+            color: var(--primary);
+            margin: 25px 0 15px;
+        }
+
+        .review-item {
+            border: 1px solid #e0e7f1;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 12px;
+        }
+
+        .review-question {
+            font-weight: 800;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .review-answer {
+            font-size: 14px;
+            line-height: 1.7;
+            margin: 5px 0;
+            overflow-wrap: anywhere;
+        }
+
+        .review-correct {
+            color: var(--success);
+        }
+
+        .review-wrong {
+            color: var(--danger);
+        }
+
+        .result-actions {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 25px;
+        }
+
+        /* SMALL MOBILE SCREENS */
+
+        @media (max-width: 480px) {
+            .top-header {
+                padding: 16px 10px;
+            }
+
+            .page {
+                margin: 14px auto;
+                padding: 0 10px 20px;
+            }
+
+            .quiz-card {
+                border-radius: 16px;
+            }
+
+            .quiz-heading {
+                padding: 21px 14px;
+            }
+
+            .quiz-body {
+                padding: 16px;
+            }
+
+            .info-row {
+                gap: 6px;
+            }
+
+            .info-box {
+                padding: 11px 3px;
+            }
+
+            .info-value {
+                font-size: 15px;
+            }
+
+            .info-label {
+                font-size: 11px;
+            }
+
+            .option {
+                padding: 12px 10px;
+                gap: 9px;
+            }
+
+            .option-letter {
+                flex-basis: 28px;
+                height: 28px;
+            }
+
+            .option-text {
+                font-size: 14px;
+            }
+
+            .navigation {
+                gap: 8px;
+            }
+
+            .btn {
+                padding: 12px;
+                font-size: 14px;
+            }
+
+            .result-grid {
+                gap: 6px;
+            }
+
+            .result-box strong {
+                font-size: 20px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="top-header">
+    <h1 class="brand">Orient Classes</h1>
+    <div class="brand-subtitle">LEARN • PRACTISE • SUCCEED</div>
+</header>
+
+<main class="page">
+
+    <section class="quiz-card" id="quizContainer">
+
+        <div class="quiz-heading">
+            <h1>Electoral Politics Test</h1>
+            <p>Class 9 Civics | Multiple Choice Questions</p>
+        </div>
+
+        <div class="quiz-body">
+
+            <div class="info-row">
+                <div class="info-box">
+                    <div class="info-label">TOTAL QUESTIONS</div>
+                    <div class="info-value" id="totalQuestions">20</div>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-label">MAXIMUM MARKS</div>
+                    <div class="info-value" id="maximumMarks">200</div>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-label">TIME LEFT</div>
+                    <div class="info-value" id="timer">20:00</div>
+                </div>
+            </div>
+
+            <div class="progress-section">
+                <div class="progress-text">
+                    <span id="progressLabel">Question 1 of 20</span>
+                    <span id="progressPercent">5% completed</span>
+                </div>
+
+                <div
+                    class="progress-track"
+                    role="progressbar"
+                    aria-label="Quiz progress"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    aria-valuenow="0"
+                    id="progressTrack">
+
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+
+            <div class="question-number" id="questionNumber">
+                QUESTION 01
+            </div>
+
+            <h2 class="question-text" id="question"></h2>
+
+            <div class="options" id="optionsContainer">
+
+                <button type="button" class="option" data-value="1">
+                    <span class="option-letter">A</span>
+                    <span class="option-text" id="opt1"></span>
+                </button>
+
+                <button type="button" class="option" data-value="2">
+                    <span class="option-letter">B</span>
+                    <span class="option-text" id="opt2"></span>
+                </button>
+
+                <button type="button" class="option" data-value="3">
+                    <span class="option-letter">C</span>
+                    <span class="option-text" id="opt3"></span>
+                </button>
+
+                <button type="button" class="option" data-value="4">
+                    <span class="option-letter">D</span>
+                    <span class="option-text" id="opt4"></span>
+                </button>
+
+            </div>
+
+            <div class="warning" id="warningMessage" role="alert">
+                Please select an answer before continuing.
+            </div>
+
+            <div class="navigation">
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    id="previousButton"
+                    disabled>
+                    ← Previous
+                </button>
+
+                <button
+                    type="button"
+                    class="btn btn-primary"
+                    id="nextButton">
+                    Next Question →
+                </button>
+            </div>
+
+            <div class="footer-note">
+                Select one answer for every question.<br>
+                Each correct answer carries 10 marks.
+            </div>
+
+        </div>
+    </section>
+
+    <!-- RESULT SCREEN -->
+
+    <section class="quiz-card result-screen" id="resultContainer">
+
+        <div class="quiz-heading">
+            <h1>Test Result</h1>
+            <p>Electoral Politics | Orient Classes</p>
+        </div>
+
+        <div class="quiz-body">
+
+            <div class="result-top">
+                <div class="result-icon" id="resultIcon">🏆</div>
+                <h2 id="resultHeading">Test Completed!</h2>
+                <div class="result-score" id="finalScore">0 / 200</div>
+                <p class="result-message" id="resultMessage"></p>
+            </div>
+
+            <div class="result-grid">
+
+                <div class="result-box">
+                    <strong class="correct-number" id="correctCount">0</strong>
+                    <span>Correct Answers</span>
+                </div>
+
+                <div class="result-box">
+                    <strong class="wrong-number" id="wrongCount">0</strong>
+                    <span>Wrong Answers</span>
+                </div>
+
+                <div class="result-box">
+                    <strong id="percentage">0%</strong>
+                    <span>Percentage</span>
+                </div>
+
+            </div>
+
+            <h3 class="review-title">Answer Review</h3>
+
+            <div id="reviewContainer"></div>
+
+            <div class="result-actions">
+                <button type="button" class="btn btn-primary" id="restartButton">
+                    ↻ Restart Test
+                </button>
+
+                <button type="button" class="btn btn-secondary" id="printButton">
+                    Print Result
+                </button>
+            </div>
+
+            <div class="footer-note">
+                Keep practising to improve your score!
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<script>
+"use strict";
+
+/* =====================================
+   QUIZ QUESTIONS
+===================================== */
+
+const questions = [
     {
-        "question": "Why are elections necessary in a democracy?",
-        "option1": "It is the only way to form a government",
-        "option2": "It allows citizens to change the government",
-        "option3": "It benefits only the wealthy",
-        "option4": "It helps in making new laws",
-        "answer": "2"
+        question: "Why are elections necessary in a democracy?",
+        option1: "It is the only way to form a government",
+        option2: "It allows citizens to change the government",
+        option3: "It benefits only the wealthy",
+        option4: "It helps in making new laws",
+        answer: "2"
     },
     {
-        "question": "Which body conducts elections in India?",
-        "option1": "Supreme Court",
-        "option2": "Parliament",
-        "option3": "Election Commission",
-        "option4": "President of India",
-        "answer": "3"
+        question: "Which body conducts elections to the Lok Sabha and State Legislative Assemblies in India?",
+        option1: "Supreme Court",
+        option2: "Parliament",
+        option3: "Election Commission of India",
+        option4: "President of India",
+        answer: "3"
     },
     {
-        "question": "What is the term for elections held in all constituencies at the same time?",
-        "option1": "By-election",
-        "option2": "Mid-term election",
-        "option3": "General election",
-        "option4": "Local election",
-        "answer": "3"
+        question: "What is the term for elections held in all constituencies of a legislature to elect its members?",
+        option1: "By-election",
+        option2: "Mid-term election",
+        option3: "General election",
+        option4: "Nomination",
+        answer: "3"
     },
     {
-        "question": "Which of the following is NOT a feature of a free and fair election?",
-        "option1": "Secret ballot",
-        "option2": "Equal opportunity to contest",
-        "option3": "Only rich people can contest elections",
-        "option4": "Independent Election Commission",
-        "answer": "3"
+        question: "Which of the following is NOT a feature of a free and fair election?",
+        option1: "Secret ballot",
+        option2: "A genuine opportunity to contest",
+        option3: "Only rich people can contest elections",
+        option4: "Independent election supervision",
+        answer: "3"
     },
     {
-        "question": "Which of the following is NOT a function of the Election Commission?",
-        "option1": "Conducting elections",
-        "option2": "Deciding election dates",
-        "option3": "Making laws for elections",
-        "option4": "Monitoring election campaigns",
-        "answer": "3"
+        question: "Which of the following is NOT a primary function of the Election Commission of India?",
+        option1: "Supervising elections within its jurisdiction",
+        option2: "Administering election procedures",
+        option3: "Making laws independently in place of Parliament",
+        option4: "Monitoring election campaigns under applicable rules",
+        answer: "3"
     },
     {
-        "question": "What is the minimum age to vote in India?",
-        "option1": "21 years",
-        "option2": "18 years",
-        "option3": "16 years",
-        "option4": "25 years",
-        "answer": "2"
+        question: "What is the minimum voting age in India?",
+        option1: "21 years",
+        option2: "18 years",
+        option3: "16 years",
+        option4: "25 years",
+        answer: "2"
     },
     {
-        "question": "What is a constituency?",
-        "option1": "An area from which voters elect a representative",
-        "option2": "A place where votes are counted",
-        "option3": "An area where politicians live",
-        "option4": "The office of the Election Commission",
-        "answer": "1"
+        question: "What is a constituency?",
+        option1: "An area from which voters elect a representative",
+        option2: "A place where votes are counted",
+        option3: "An area where politicians live",
+        option4: "The office of the Election Commission",
+        answer: "1"
     },
     {
-        "question": "What is NOT a part of the Model Code of Conduct?",
-        "option1": "No use of government resources for campaigning",
-        "option2": "No bribing or threatening voters",
-        "option3": "No holding elections in summer",
-        "option4": "No appealing for votes based on caste or religion",
-        "answer": "3"
+        question: "Which of the following is NOT a general rule of fair election campaigning?",
+        option1: "Government resources should not be misused for campaigning",
+        option2: "Voters should not be bribed or threatened",
+        option3: "Elections must never be held during summer",
+        option4: "Campaigns must follow applicable election rules",
+        answer: "3"
     },
     {
-        "question": "Who can cast their vote in Indian elections?",
-        "option1": "Any Indian citizen above 18 years",
-        "option2": "Only educated citizens",
-        "option3": "Only taxpayers",
-        "option4": "Only government employees",
-        "answer": "1"
+        question: "Who can register as a voter in Indian elections, subject to legal requirements?",
+        option1: "An eligible Indian citizen aged 18 or above",
+        option2: "Only educated citizens",
+        option3: "Only taxpayers",
+        option4: "Only government employees",
+        answer: "1"
     },
     {
-        "question": "Which of the following statements is TRUE?",
-        "option1": "Elections in India are conducted by political parties",
-        "option2": "Every voter has multiple votes",
-        "option3": "Electronic Voting Machines (EVMs) are used for voting",
-        "option4": "Only people from cities can vote",
-        "answer": "3"
+        question: "Which of the following statements is TRUE?",
+        option1: "Elections are conducted by political parties alone",
+        option2: "Every voter can cast unlimited votes in the same election",
+        option3: "Electronic Voting Machines are used in Indian elections",
+        option4: "Only people living in cities can vote",
+        answer: "3"
     },
     {
-        "question": "What happens in a by-election?",
-        "option1": "Election held when a seat becomes vacant before the next general election",
-        "option2": "Election held only for local bodies",
-        "option3": "Election held every five years",
-        "option4": "Election conducted by political parties",
-        "answer": "1"
+        question: "What happens in a by-election?",
+        option1: "An election is held to fill a seat that becomes vacant before the next regular election",
+        option2: "An election is held only for local bodies",
+        option3: "An election is held every five years in all constituencies",
+        option4: "An election is conducted by political parties without election authorities",
+        answer: "1"
     },
     {
-        "question": "Which of the following is NOT a reason for elections?",
-        "option1": "To choose representatives",
-        "option2": "To make laws",
-        "option3": "To change the government peacefully",
-        "option4": "To ensure political competition",
-        "answer": "2"
+        question: "Which of the following is NOT a direct purpose of holding elections?",
+        option1: "To choose representatives",
+        option2: "To allow citizens to choose and change their representatives",
+        option3: "To enable peaceful changes of government",
+        option4: "To ensure political competition",
+        answer: "4"
     },
     {
-        "question": "Which type of government is formed when no party gets a majority in elections?",
-        "option1": "Majority government",
-        "option2": "Coalition government",
-        "option3": "Presidential government",
-        "option4": "Monarchy",
-        "answer": "2"
+        question: "What type of government may be formed when no single party obtains a majority but parties agree to govern together?",
+        option1: "Majority government formed by one party",
+        option2: "Coalition government",
+        option3: "Monarchy",
+        option4: "Military government",
+        answer: "2"
     },
     {
-        "question": "Which of the following is NOT a requirement for contesting elections in India?",
-        "option1": "Being a citizen of India",
-        "option2": "Being a member of a political party",
-        "option3": "Meeting the age requirement",
-        "option4": "Not holding an office of profit",
-        "answer": "2"
+        question: "Which of the following is NOT a general requirement for contesting a Lok Sabha election?",
+        option1: "Meeting the citizenship requirement",
+        option2: "Being a member of a political party",
+        option3: "Meeting the applicable minimum age requirement",
+        option4: "Meeting the applicable legal qualifications",
+        answer: "2"
     },
     {
-        "question": "Which of the following is NOT a challenge in conducting free and fair elections?",
-        "option1": "Money and muscle power",
-        "option2": "Use of electronic voting machines",
-        "option3": "Criminalization of politics",
-        "option4": "Vote buying",
-        "answer": "2"
+        question: "Which of the following is a challenge to free and fair elections?",
+        option1: "Secret ballot",
+        option2: "Money and muscle power",
+        option3: "Independent election supervision",
+        option4: "Accurate electoral rolls",
+        answer: "2"
     },
     {
-        "question": "Who appoints the Chief Election Commissioner of India?",
-        "option1": "Prime Minister",
-        "option2": "President",
-        "option3": "Parliament",
-        "option4": "Supreme Court",
-        "answer": "2"
+        question: "Who formally appoints the Chief Election Commissioner of India?",
+        option1: "Prime Minister",
+        option2: "President of India",
+        option3: "Parliament acting alone",
+        option4: "Supreme Court",
+        answer: "2"
     },
     {
-        "question": "What is the full form of NOTA?",
-        "option1": "None of the Above",
-        "option2": "National Organization for Transparent Administration",
-        "option3": "New Officers Training Academy",
-        "option4": "National Ombudsman for Transparent Elections",
-        "answer": "1"
+        question: "What is the full form of NOTA?",
+        option1: "None of the Above",
+        option2: "National Organisation for Transparent Administration",
+        option3: "New Officers Training Academy",
+        option4: "National Ombudsman for Transparent Elections",
+        answer: "1"
     },
     {
-        "question": "Which of the following statements is INCORRECT about the Election Commission of India?",
-        "option1": "It is an independent body",
-        "option2": "It conducts elections in India",
-        "option3": "It is controlled by the ruling government",
-        "option4": "It ensures free and fair elections",
-        "answer": "3"
+        question: "Which statement about the Election Commission of India is INCORRECT?",
+        option1: "It is a constitutional body",
+        option2: "It supervises elections within its constitutional jurisdiction",
+        option3: "It is simply a department controlled by the ruling political party",
+        option4: "It has a role in ensuring free and fair elections",
+        answer: "3"
     },
     {
-        "question": "What is meant by ‘Secret Ballot’?",
-        "option1": "Voters cast their vote privately",
-        "option2": "Only government officials can vote",
-        "option3": "Votes are counted secretly",
-        "option4": "Voters have to tell their choice publicly",
-        "answer": "1"
+        question: "What is meant by a secret ballot?",
+        option1: "Voters cast their votes privately",
+        option2: "Only government officials can vote",
+        option3: "Votes are counted secretly without rules",
+        option4: "Voters must announce their choice publicly",
+        answer: "1"
     },
     {
-        "question": "How many Lok Sabha constituencies are there in India?",
-        "option1": "445",
-        "option2": "545",
-        "option3": "543",
-        "option4": "550",
-        "answer": "3"
+        question: "How many elected seats are there in the Lok Sabha?",
+        option1: "445",
+        option2: "545",
+        option3: "543",
+        option4: "550",
+        answer: "3"
     }
 ];
 
+/* =====================================
+   QUIZ SETTINGS AND STATE
+===================================== */
 
+const MARKS_PER_QUESTION = 10;
+const QUIZ_DURATION_SECONDS = 20 * 60;
 
+let currentQuestion = 0;
+let userAnswers = Array(questions.length).fill(null);
+let timeLeft = QUIZ_DURATION_SECONDS;
+let timerInterval = null;
+let quizFinished = false;
 
-var currentQuestion = 0;
-var score = 0;
-var totQuestions = questions.length;
+const quizContainer = document.getElementById("quizContainer");
+const resultContainer = document.getElementById("resultContainer");
 
-var container = document.getElementById('quizContainer');
-var questionEl = document.getElementById('question');
-var opt1 = document.getElementById('opt1');
-var opt2 = document.getElementById('opt2');
-var opt3 = document.getElementById('opt3');
-var opt4 = document.getElementById('opt4');
-var nextButton = document.getElementById('nextButton');
-var resultCont = document.getElementById('result');
+const questionEl = document.getElementById("question");
+const questionNumberEl = document.getElementById("questionNumber");
 
-function loadQuestion (questionIndex) {
-	var q = questions[questionIndex];
-	questionEl.textContent = (questionIndex + 1) + '. ' + q.question;
-	opt1.textContent = q.option1;
-	opt2.textContent = q.option2;
-	opt3.textContent = q.option3;
-	opt4.textContent = q.option4;
-};
+const optionButtons = Array.from(
+    document.querySelectorAll(".option")
+);
 
-function loadNextQuestion () 
-        {
-	var selectedOption = document.querySelector('input[type=radio]:checked');
-	if(!selectedOption)
-        {
-		alert('Please select your answer!');
-		return;
-	}
-	var answer = selectedOption.value;
-	if(questions[currentQuestion].answer == answer){
-		score =score+10;
-               
-	}
-	selectedOption.checked = false;
-	currentQuestion++;
-	if(currentQuestion == totQuestions - 1){
-		nextButton.textContent = 'Finish';
-	}
-	if(currentQuestion == totQuestions){
-		container.style.display = 'none';
-		resultCont.style.display = '';
-		resultCont.textContent = 'Your Score: ' + score;
-		return;
-	}
-	loadQuestion(currentQuestion);
+const progressFill = document.getElementById("progressFill");
+const progressTrack = document.getElementById("progressTrack");
+const progressLabel = document.getElementById("progressLabel");
+const progressPercent = document.getElementById("progressPercent");
+
+const previousButton = document.getElementById("previousButton");
+const nextButton = document.getElementById("nextButton");
+
+const warningMessage = document.getElementById("warningMessage");
+const timerEl = document.getElementById("timer");
+
+/* =====================================
+   LOAD QUESTION
+===================================== */
+
+function loadQuestion(index) {
+    if (index < 0 || index >= questions.length || quizFinished) {
+        return;
+    }
+
+    currentQuestion = index;
+
+    const q = questions[currentQuestion];
+
+    questionEl.textContent = q.question;
+
+    questionNumberEl.textContent =
+        "QUESTION " + String(currentQuestion + 1).padStart(2, "0");
+
+    document.getElementById("opt1").textContent = q.option1;
+    document.getElementById("opt2").textContent = q.option2;
+    document.getElementById("opt3").textContent = q.option3;
+    document.getElementById("opt4").textContent = q.option4;
+
+    optionButtons.forEach(function(button) {
+        const value = button.dataset.value;
+
+        button.classList.toggle(
+            "selected",
+            userAnswers[currentQuestion] === value
+        );
+
+        button.setAttribute(
+            "aria-pressed",
+            userAnswers[currentQuestion] === value ? "true" : "false"
+        );
+    });
+
+    const completed = userAnswers.filter(
+        answer => answer !== null
+    ).length;
+
+    const percent = Math.round(
+        ((currentQuestion + 1) / questions.length) * 100
+    );
+
+    progressLabel.textContent =
+        "Question " + (currentQuestion + 1) +
+        " of " + questions.length;
+
+    progressPercent.textContent = percent + "%";
+
+    progressFill.style.width = percent + "%";
+
+    progressTrack.setAttribute("aria-valuenow", percent);
+
+    previousButton.disabled = currentQuestion === 0;
+
+    nextButton.textContent =
+        currentQuestion === questions.length - 1
+            ? "Finish Test ✓"
+            : "Next Question →";
+
+    nextButton.classList.toggle(
+        "btn-finish",
+        currentQuestion === questions.length - 1
+    );
+
+    warningMessage.style.display = "none";
 }
 
-loadQuestion(currentQuestion);
+/* =====================================
+   SELECT ANSWER
+===================================== */
 
+optionButtons.forEach(function(button) {
+    button.addEventListener("click", function() {
+        if (quizFinished) {
+            return;
+        }
+
+        userAnswers[currentQuestion] = button.dataset.value;
+
+        optionButtons.forEach(function(option) {
+            const selected = option === button;
+
+            option.classList.toggle("selected", selected);
+
+            option.setAttribute(
+                "aria-pressed",
+                selected ? "true" : "false"
+            );
+        });
+
+        warningMessage.style.display = "none";
+    });
+});
+
+/* =====================================
+   NEXT QUESTION
+===================================== */
+
+nextButton.addEventListener("click", function() {
+    if (quizFinished) {
+        return;
+    }
+
+    if (userAnswers[currentQuestion] === null) {
+        warningMessage.textContent =
+            "Please select an answer before continuing.";
+
+        warningMessage.style.display = "block";
+        return;
+    }
+
+    if (currentQuestion === questions.length - 1) {
+        finishQuiz(false);
+        return;
+    }
+
+    loadQuestion(currentQuestion + 1);
+});
+
+/* =====================================
+   PREVIOUS QUESTION
+===================================== */
+
+previousButton.addEventListener("click", function() {
+    if (currentQuestion > 0 && !quizFinished) {
+        loadQuestion(currentQuestion - 1);
+    }
+});
+
+/* =====================================
+   TIMER
+===================================== */
+
+function updateTimer() {
+    const minutes = Math.floor(timeLeft / 60);
+    const seconds = timeLeft % 60;
+
+    timerEl.textContent =
+        String(minutes).padStart(2, "0") +
+        ":" +
+        String(seconds).padStart(2, "0");
+
+    if (timeLeft <= 60) {
+        timerEl.style.color = "#d93649";
+    }
+
+    if (timeLeft <= 0) {
+        finishQuiz(true);
+        return;
+    }
+
+    timeLeft--;
+}
+
+function startTimer() {
+    updateTimer();
+
+    timerInterval = setInterval(function() {
+        if (quizFinished) {
+            clearInterval(timerInterval);
+            return;
+        }
+
+        updateTimer();
+    }, 1000);
+}
+
+/* =====================================
+   FINISH QUIZ
+===================================== */
+
+function finishQuiz(timeExpired) {
+    if (quizFinished) {
+        return;
+    }
+
+    quizFinished = true;
+
+    clearInterval(timerInterval);
+
+    let correct = 0;
+
+    questions.forEach(function(q, index) {
+        if (userAnswers[index] === q.answer) {
+            correct++;
+        }
+    });
+
+    const wrong = questions.length - correct;
+    const score = correct * MARKS_PER_QUESTION;
+    const maximumMarks = questions.length * MARKS_PER_QUESTION;
+    const percentage = Math.round((score / maximumMarks) * 100);
+
+    quizContainer.style.display = "none";
+    resultContainer.style.display = "block";
+
+    document.getElementById("finalScore").textContent =
+        score + " / " + maximumMarks;
+
+    document.getElementById("correctCount").textContent = correct;
+    document.getElementById("wrongCount").textContent = wrong;
+    document.getElementById("percentage").textContent = percentage + "%";
+
+    const resultIcon = document.getElementById("resultIcon");
+    const resultHeading = document.getElementById("resultHeading");
+    const resultMessage = document.getElementById("resultMessage");
+
+    if (percentage >= 80) {
+        resultIcon.textContent = "🏆";
+        resultHeading.textContent = "Excellent Performance!";
+        resultMessage.textContent =
+            "Outstanding work! You have demonstrated a strong understanding of Electoral Politics.";
+    } else if (percentage >= 60) {
+        resultIcon.textContent = "🌟";
+        resultHeading.textContent = "Good Performance!";
+        resultMessage.textContent =
+            "Good job! Revise the questions you missed to improve further.";
+    } else if (percentage >= 40) {
+        resultIcon.textContent = "📚";
+        resultHeading.textContent = "Keep Practising!";
+        resultMessage.textContent =
+            "You are making progress. Review the chapter and try the test again.";
+    } else {
+        resultIcon.textContent = "💪";
+        resultHeading.textContent = "Practice Makes Progress!";
+        resultMessage.textContent =
+            "Read the chapter carefully, revise the key concepts and attempt the test again.";
+    }
+
+    if (timeExpired) {
+        resultMessage.textContent +=
+            " The time limit was reached, so your test has been submitted automatically.";
+    }
+
+    createAnswerReview();
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+/* =====================================
+   ANSWER REVIEW
+===================================== */
+
+function createAnswerReview() {
+    const reviewContainer = document.getElementById("reviewContainer");
+
+    reviewContainer.replaceChildren();
+
+    questions.forEach(function(q, index) {
+        const userAnswer = userAnswers[index];
+
+        const correctAnswerText = q["option" + q.answer];
+
+        const userAnswerText = userAnswer === null
+            ? "Not answered"
+            : q["option" + userAnswer];
+
+        const isCorrect = userAnswer === q.answer;
+
+        const item = document.createElement("div");
+        item.className = "review-item";
+
+        const question = document.createElement("div");
+        question.className = "review-question";
+        question.textContent = (index + 1) + ". " + q.question;
+
+        const yourAnswer = document.createElement("p");
+        yourAnswer.className = "review-answer " +
+            (isCorrect ? "review-correct" : "review-wrong");
+
+        yourAnswer.textContent = "Your answer: " + userAnswerText;
+
+        const correctAnswer = document.createElement("p");
+        correctAnswer.className = "review-answer review-correct";
+        correctAnswer.textContent = "Correct answer: " + correctAnswerText;
+
+        item.appendChild(question);
+        item.appendChild(yourAnswer);
+        item.appendChild(correctAnswer);
+
+        reviewContainer.appendChild(item);
+    });
+}
+
+/* =====================================
+   RESTART QUIZ
+===================================== */
+
+document.getElementById("restartButton").addEventListener("click", function() {
+    clearInterval(timerInterval);
+
+    currentQuestion = 0;
+    userAnswers = Array(questions.length).fill(null);
+    timeLeft = QUIZ_DURATION_SECONDS;
+    quizFinished = false;
+
+    timerEl.style.color = "";
+
+    resultContainer.style.display = "none";
+    quizContainer.style.display = "block";
+
+    loadQuestion(0);
+    startTimer();
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
+
+/* =====================================
+   PRINT RESULT
+===================================== */
+
+document.getElementById("printButton").addEventListener("click", function() {
+    window.print();
+});
+
+/* =====================================
+   INITIALIZE
+===================================== */
+
+document.getElementById("totalQuestions").textContent = questions.length;
+
+document.getElementById("maximumMarks").textContent =
+    questions.length * MARKS_PER_QUESTION;
+
+loadQuestion(0);
+startTimer();
 
 </script>
- 
- 	
- </body>
- </html>
+
+<style>
+    @media print {
+        body {
+            background: white !important;
+        }
+
+        .top-header,
+        .navigation,
+        .result-actions,
+        .footer-note {
+            display: none !important;
+        }
+
+        .page {
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .quiz-card {
+            border: none;
+            box-shadow: none;
+        }
+
+        .result-screen {
+            display: block !important;
+        }
+
+        #quizContainer {
+            display: none !important;
+        }
+    }
+</style>
+
+</body>
+</html>
