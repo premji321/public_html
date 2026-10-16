@@ -39,11 +39,218 @@
             padding: 15px 0;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
         }
-        .dropdown {
-            position: relative;
-            
-            display: inline-block;
-        }
+        /* ===== STUDY DROPDOWN: PREMIUM DESIGN ===== */
+
+.dropdown {
+    position: static;
+    display: inline-block;
+}
+
+/* Dropdown menu centered on the screen */
+.dropdown-content {
+    display: none;
+    position: absolute;
+
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: min(94vw, 1050px);
+    max-height: 75vh;
+    overflow-y: auto;
+
+    box-sizing: border-box;
+    padding: 24px;
+
+    background: linear-gradient(
+        135deg,
+        #f8fbff,
+        #eaf3ff,
+        #f5f0ff
+    );
+
+    border: 1px solid #d8e4f5;
+    border-radius: 20px;
+
+    box-shadow:
+        0 18px 45px rgba(20, 45, 90, 0.22),
+        0 4px 12px rgba(20, 45, 90, 0.10);
+
+    z-index: 1000;
+
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+
+    animation: studyMenuOpen 0.25s ease;
+}
+
+/* Show menu */
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
+    display: grid;
+}
+
+/* Smooth opening animation */
+@keyframes studyMenuOpen {
+    from {
+        opacity: 0;
+        margin-top: 10px;
+    }
+
+    to {
+        opacity: 1;
+        margin-top: 0;
+    }
+}
+
+/* Individual class cards */
+.dropdown-content .class-box {
+    box-sizing: border-box;
+
+    background: linear-gradient(
+        160deg,
+        #ffffff,
+        #f1f6ff
+    );
+
+    border: 1px solid #dce6f5;
+    border-radius: 16px;
+
+    padding: 15px 10px;
+
+    color: #20365f;
+    font-size: 16px;
+    font-weight: 800;
+    text-align: center;
+
+    box-shadow: 0 5px 15px rgba(31, 61, 110, 0.08);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+/* Class card hover effect */
+.dropdown-content .class-box:hover {
+    background: #ffffff;
+    border-color: #7ba7f7;
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 10px 22px rgba(31, 61, 110, 0.14);
+
+    color: #20365f;
+}
+
+/* Subjects inside each class */
+.subject-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+
+    margin-top: 14px;
+}
+
+/* Subject buttons */
+.subject-button {
+    background: #ffffff;
+    color: #29476f;
+
+    border: 1px solid #d9e5f5;
+    border-radius: 25px;
+
+    padding: 9px 13px;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow: 0 2px 5px rgba(30, 60, 100, 0.07);
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+/* Subject hover */
+.subject-button:hover {
+    background: linear-gradient(
+        135deg,
+        #2457d6,
+        #6941c6
+    );
+
+    color: #ffffff;
+    border-color: transparent;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 5px 12px rgba(55, 75, 180, 0.22);
+}
+
+/* Tablet screen */
+@media (max-width: 900px) {
+    .dropdown-content {
+        width: 94vw;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        padding: 15px;
+    }
+
+    .dropdown-content .class-box {
+        padding: 12px 6px;
+        font-size: 14px;
+    }
+
+    .subject-button {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+}
+
+/* Mobile screen */
+@media (max-width: 600px) {
+    .dropdown-content {
+        position: fixed;
+
+        top: 160px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        width: 96vw;
+        max-height: calc(100vh - 180px);
+
+        padding: 12px;
+
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+
+        border-radius: 16px;
+    }
+
+    .dropdown-content .class-box {
+        min-width: 0;
+        padding: 12px 5px;
+        border-radius: 12px;
+        font-size: 13px;
+    }
+
+    .subject-list {
+        gap: 6px;
+        margin-top: 10px;
+    }
+
+    .subject-button {
+        padding: 7px 9px;
+        font-size: 11px;
+        border-radius: 20px;
+    }
+}
         .dropdown-content {
             display: none;
             
