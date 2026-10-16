@@ -1,324 +1,1497 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orient Classes</title>
+    <meta name="theme-color" content="#173b70">
+    <meta name="description" content="Orient Classes - Class 9 Social Science updated syllabus, chapter notes, tests and downloads.">
+
+    <title>Class 9 Social Science | Orient Classes</title>
+
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
+        :root {
+            --primary: #173b70;
+            --primary-light: #285ca8;
+            --accent: #ffd447;
+            --background: #f3f6fb;
+            --text: #25334a;
+            --muted: #65748a;
+            --success: #16834a;
+            --white: #ffffff;
+            --border: #e1e8f2;
+            --shadow: 0 8px 25px rgba(20, 44, 80, 0.10);
         }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 85px;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.5;
+        }
+
+        button,
+        input {
+            font: inherit;
+        }
+
+        button,
+        a {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
         .header {
-            background: linear-gradient(90deg, #1E3C72, #2A5298);
+            background: linear-gradient(
+                110deg,
+                #122c53,
+                #2a5da6
+            );
+
             color: white;
             text-align: center;
-            font-size: 32px;
-            padding: 20px;
-            font-weight: bold;
-            letter-spacing: 2px;
+            padding: 22px 15px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: clamp(25px, 4vw, 35px);
+            letter-spacing: 1.5px;
             text-transform: uppercase;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
         }
+
+        .header p {
+            margin: 7px 0 0;
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            color: #e4edff;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
         .navbar {
-            background: #FFD700;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: var(--accent);
+
             display: flex;
+            align-items: center;
             justify-content: center;
-            padding: 15px 0;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            gap: 12px;
+
+            padding: 10px 15px;
+
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
         }
+
+        .nav-button,
+        .menu-toggle {
+            border: none;
+            background: white;
+            color: var(--primary);
+
+            font-size: 14px;
+            font-weight: bold;
+
+            padding: 11px 20px;
+            border-radius: 25px;
+
+            cursor: pointer;
+
+            box-shadow: 0 2px 7px rgba(0, 0, 0, 0.08);
+
+            transition: 0.2s;
+        }
+
+        .nav-button:hover,
+        .menu-toggle:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .menu-toggle {
+            display: none;
+        }
+
+        /* =========================
+           STUDY DROPDOWN
+        ========================= */
+
         .dropdown {
             position: relative;
-            
-            display: inline-block;
         }
-        .dropdown-content {
+
+        .dropdown-panel {
             display: none;
-            
+
             position: absolute;
-            background-color: lightcyan;
-            min-width: 250px;
-            box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.2);
-            padding: 10px;
-            z-index: 1;
-            border-radius: 10px;
-        }
-        .dropdown:hover .dropdown-content {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-        }
-        .dropdown-content div {
-            background: none;
-            padding: 10px;
-            border-radius: 5px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-            text-align: center;
-        }
-        .dropdown-content div:hover {
-            background: blue;
-            color: white;
-        }
-        .navbar button {
+            top: calc(100% + 10px);
+            left: 0;
+
+            width: min(850px, 94vw);
+            max-height: 75vh;
+            overflow-y: auto;
+
             background: white;
-            border: none;
-            padding: 12px 25px;
-            margin: 0 15px;
-            font-size: 18px;
-            cursor: pointer;
-            font-weight: bold;
-            border-radius: 25px;
-            transition: 0.3s;
-            box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.2);
+            padding: 16px;
+
+            border: 1px solid var(--border);
+            border-radius: 15px;
+
+            box-shadow: var(--shadow);
         }
-        .navbar button:hover {
-            background: #FFA500;
-            color: white;
-            transform: scale(1.1);
-        }
-        .content {
-            display: flex;
-            min-height: 600px;
-            text-align: right;
-            justify-content: center;
-        }
-        .sidebar {
-            width: 20%;
-            background: red;
-            padding: 0px;
-            text-align: right;
-            justify-content: center;
-        }
-        .sidebar ol {
-            list-style: none;
-            text-align: left;
-            padding: -20px;
-            justify-content: right;
-            background: yellow;
-        }
-        .sidebar ol li{
-            list-style: none;
-            text-align: left; justify-content: center;
-        }
-        
-        .sidebar ol li a{
-            
+
+        .dropdown.open .dropdown-panel {
             display: block;
-            text-decoration: none;
-            width: 100%;
-            padding: 10px;
-            margin: 5px 0;
-            border: none;
-            background: #34495e;
-            color: white;
-            cursor: pointer;
-            text-align: left;
         }
-        .sidebar ol li a:hover {
-            background: #1abc9c;
+
+        .class-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 12px;
         }
-        .content {
-            flex-grow: 1;
-            padding: 20px;
+
+        .class-box {
+            background: #f2f6ff;
+            border: 1px solid #e0e8f5;
+            border-radius: 12px;
+            padding: 12px;
         }
-        .main-content {
-            flex-grow: 1;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-            margin: 20px;
+
+        .class-box h3 {
+            margin: 0 0 10px;
+            color: var(--primary);
+            font-size: 15px;
         }
-        .right-sidebar {
-            width: 10%;
-            background: linear-gradient(180deg, #2A5298, #1E3C72);
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-        }
-        .right-sidebar button {
-            background: #FF69B4;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            margin: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            font-weight: bold;
-            border-radius: 20px;
-            transition: 0.3s;
-            box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.2);
-        }
-        .right-sidebar button:hover {
-            background: #FF1493;
-            transform: scale(1.1);
-        }
+
         .subject-list {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
-            gap: 5px;
-            margin-top: 10px;
+            gap: 7px;
         }
+
         .subject-button {
-            decoration : none;
-            box-shadow: 3px 3px 10px lightblue;
+            border: 1px solid #d6e0ef;
             background: white;
-            color: darkslategray;
-            border: none;
-            padding: 18px 22px;
-            border-radius: 15px;
-            font-size: 17px;
+            color: #33445d;
+
+            border-radius: 8px;
+            padding: 8px 10px;
+
+            font-size: 12px;
             font-weight: bold;
+
             cursor: pointer;
-            transition: 0.3s;
-            
+            transition: 0.2s;
         }
+
         .subject-button:hover {
-            background: orange;
+            background: #e4efff;
+            border-color: #7ba1d9;
+        }
+
+        /* =========================
+           MAIN LAYOUT
+        ========================= */
+
+        .layout {
+            display: grid;
+            grid-template-columns: 285px minmax(0, 1fr);
+            gap: 20px;
+
+            max-width: 1400px;
+            margin: 22px auto;
+            padding: 0 18px 35px;
+        }
+
+        /* =========================
+           LEFT SIDEBAR
+        ========================= */
+
+        .sidebar {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+
+            padding: 18px;
+
+            box-shadow: var(--shadow);
+
+            align-self: start;
+
+            position: sticky;
+            top: 78px;
+
+            max-height: calc(100vh - 95px);
+            overflow-y: auto;
+        }
+
+        .sidebar h2 {
+            font-size: 19px;
+            color: var(--primary);
+            margin: 0 0 5px;
+        }
+
+        .sidebar-description {
+            font-size: 12px;
+            color: var(--muted);
+            margin: 0 0 14px;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 11px 12px;
+
+            border: 1px solid #d6e0ef;
+            border-radius: 9px;
+
+            outline: none;
+            margin-bottom: 13px;
+
+            background: #fbfcff;
+        }
+
+        .search-box:focus {
+            border-color: var(--primary-light);
+            box-shadow: 0 0 0 3px rgba(40, 92, 168, 0.10);
+        }
+
+        .chapter-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            display: grid;
+            gap: 7px;
+        }
+
+        .chapter-list li {
+            margin: 0;
+            padding: 0;
+        }
+
+        .chapter-list a {
+            display: block;
+
+            text-decoration: none;
+
+            padding: 10px 11px;
+
+            background: #f4f7fc;
+            border: 1px solid #e4eaf4;
+            border-radius: 9px;
+
+            font-size: 13px;
+            line-height: 1.5;
+
+            transition: 0.2s;
+        }
+
+        .chapter-list a:hover,
+        .chapter-list a.active {
+            background: #e7f0ff;
+            border-color: #91b3e8;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .no-results {
+            display: none;
+            color: var(--muted);
+            font-size: 13px;
+            padding: 10px 0;
+        }
+
+        /* =========================
+           MAIN CONTENT
+        ========================= */
+
+        .main-content {
+            min-width: 0;
+
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+
+            padding: clamp(18px, 3vw, 30px);
+
+            box-shadow: var(--shadow);
+        }
+
+        /* =========================
+           HERO SECTION
+        ========================= */
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+
+            padding: 28px 23px;
+
+            border-radius: 15px;
+
+            background: linear-gradient(
+                125deg,
+                #173b70,
+                #2d68b8
+            );
+
+            color: white;
+        }
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+
+            width: 190px;
+            height: 190px;
+
+            border: 25px solid rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+
+            right: -55px;
+            top: -65px;
+
+            pointer-events: none;
+        }
+
+        .hero-eyebrow {
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            font-weight: bold;
+            color: #ffdf68;
+        }
+
+        .hero h2 {
+            font-size: clamp(25px, 4vw, 36px);
+            line-height: 1.25;
+            margin: 10px 0;
+        }
+
+        .hero p {
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 0;
+            color: #eaf1ff;
+            font-size: 14px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+
+            margin-top: 20px;
+
+            position: relative;
+            z-index: 1;
+        }
+
+        .action-link {
+            display: inline-block;
+
+            text-decoration: none;
+
+            background: var(--accent);
+            color: #243652;
+
+            font-weight: bold;
+            font-size: 13px;
+
+            padding: 11px 16px;
+            border-radius: 9px;
+
+            transition: 0.2s;
+        }
+
+        .action-link:hover {
+            transform: translateY(-2px);
+        }
+
+        .action-link.secondary {
+            background: white;
+            color: var(--primary);
+        }
+
+        /* =========================
+           SECTION TITLES
+        ========================= */
+
+        .section-title {
+            color: var(--primary);
+            font-size: 23px;
+            margin: 28px 0 8px;
+        }
+
+        .section-description {
+            color: var(--muted);
+            line-height: 1.7;
+            font-size: 13px;
+            margin: 0 0 17px;
+        }
+
+        /* =========================
+           CHAPTER CARDS
+        ========================= */
+
+        .chapter-cards {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .chapter-card {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+
+            border: 1px solid #e1e8f2;
+            border-radius: 13px;
+
+            padding: 16px;
+
+            background: white;
+
+            transition:
+                transform 0.2s,
+                box-shadow 0.2s,
+                border-color 0.2s;
+        }
+
+        .chapter-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(23, 59, 112, 0.10);
+            border-color: #b7cbea;
+        }
+
+        .subject-tag {
+            display: inline-block;
+
+            font-size: 10px;
+            font-weight: bold;
+            letter-spacing: 0.7px;
+            text-transform: uppercase;
+
+            color: #126f70;
+            background: #e5f7f4;
+
+            padding: 5px 8px;
+            border-radius: 6px;
+        }
+
+        .chapter-card h3 {
+            font-size: 16px;
+            line-height: 1.5;
+
+            margin: 11px 0 8px;
+
+            color: #263b5a;
+        }
+
+        .chapter-card p {
+            font-size: 12px;
+            color: var(--muted);
+            line-height: 1.7;
+
+            margin: 0 0 15px;
+
+            flex-grow: 1;
+        }
+
+        .chapter-link {
+            display: inline-block;
+
+            text-decoration: none;
+            color: var(--primary-light);
+
+            font-size: 13px;
+            font-weight: bold;
+
+            padding: 8px 0;
+        }
+
+        .chapter-link:hover {
+            text-decoration: underline;
+        }
+
+        /* =========================
+           QUICK LINKS
+        ========================= */
+
+        .quick-links {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .quick-card {
+            background: #f5f8ff;
+            border: 1px solid #e0e8f5;
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .quick-card .icon {
+            font-size: 25px;
+            margin-bottom: 7px;
+        }
+
+        .quick-card h3 {
+            font-size: 14px;
+            color: var(--primary);
+            margin: 0 0 7px;
+        }
+
+        .quick-card p {
+            font-size: 11px;
+            color: var(--muted);
+            line-height: 1.6;
+            margin: 0 0 10px;
+        }
+
+        .quick-card a {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--primary-light);
+            text-decoration: none;
+        }
+
+        /* =========================
+           NOTICE AND FOOTER
+        ========================= */
+
+        .notice {
+            margin-top: 23px;
+
+            padding: 14px 15px;
+
+            border-radius: 11px;
+
+            background: #fff8df;
+            border: 1px solid #f2df98;
+
+            color: #69531a;
+
+            font-size: 12px;
+            line-height: 1.8;
+        }
+
+        .footer {
+            text-align: center;
+            color: #6a778a;
+            font-size: 12px;
+            padding: 22px 12px;
+        }
+
+        /* =========================
+           TABLET
+        ========================= */
+
+        @media (max-width: 950px) {
+            .layout {
+                grid-template-columns: 245px minmax(0, 1fr);
+                gap: 14px;
+                padding: 0 12px 25px;
+            }
+
+            .class-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .chapter-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 650px) {
+            .header {
+                padding: 18px 10px;
+            }
+
+            .navbar {
+                justify-content: space-between;
+                gap: 7px;
+                padding: 9px;
+            }
+
+            .menu-toggle {
+                display: inline-block;
+                padding: 10px 12px;
+                font-size: 12px;
+            }
+
+            .nav-button {
+                padding: 10px 12px;
+                font-size: 12px;
+            }
+
+            .dropdown {
+                position: static;
+            }
+
+            .dropdown-panel {
+                position: fixed;
+                top: 115px;
+                left: 3vw;
+
+                width: 94vw;
+                max-height: calc(100vh - 140px);
+
+                overflow-y: auto;
+            }
+
+            .class-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 8px;
+            }
+
+            .class-box {
+                padding: 9px;
+            }
+
+            .layout {
+                display: flex;
+                flex-direction: column;
+
+                margin: 13px auto;
+                padding: 0 10px 25px;
+            }
+
+            .sidebar {
+                position: static;
+                max-height: none;
+                overflow: visible;
+                padding: 15px;
+            }
+
+            .chapter-list {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .main-content {
+                padding: 14px;
+            }
+
+            .hero {
+                padding: 22px 16px;
+            }
+
+            .quick-links {
+                grid-template-columns: 1fr;
+            }
+
+            .chapter-card {
+                padding: 14px;
+            }
+        }
+
+        @media (max-width: 390px) {
+            .chapter-list {
+                grid-template-columns: 1fr;
+            }
+
+            .class-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .menu-toggle {
+                padding: 9px;
+            }
+
+            .nav-button {
+                padding: 9px;
+            }
         }
     </style>
 </head>
+
 <body>
-    <div class="header">Orient Classes</div>
-    <div class="navbar">
-        <div class="dropdown">
-            <button>Study</button>
-            <div class="dropdown-content">
-                <div class="class-box">Class 6
+
+<!-- =========================
+     WEBSITE HEADER
+========================= -->
+
+<header class="header">
+    <h1>Orient Classes</h1>
+    <p>LEARN • PRACTISE • SUCCEED</p>
+</header>
+
+<!-- =========================
+     NAVIGATION BAR
+========================= -->
+
+<nav class="navbar" aria-label="Main navigation">
+
+    <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-expanded="false">
+        ☰ Study Chapters
+    </button>
+
+    <div class="dropdown" id="studyDropdown">
+
+        <button
+            class="nav-button"
+            id="studyButton"
+            type="button"
+            aria-expanded="false">
+            Study ▼
+        </button>
+
+        <div class="dropdown-panel" id="studyPanel">
+
+            <div class="class-grid">
+
+                <!-- CLASS 6 -->
+
+                <div class="class-box">
+                    <h3>Class 6</h3>
+
                     <div class="subject-list">
-                        <button class="subject-button" onclick="window.location.href='Math_6.html';">Math</button>
-                        <button class="subject-button" onclick="window.location.href='Physics_6.html';">Physics</button>
-                        <button class="subject-button" onclick="window.location.href='Chemistry_6.html';">Chemistry</button>
-                        <button class="subject-button" onclick="window.location.href='Biology_6.html';">Biology</button>
-                        <button class="subject-button" onclick="window.location.href='History_6.html';">History</button>
-                        <button class="subject-button" onclick="window.location.href='Geography_6.html';">Geography</button>
-                        <button class="subject-button" onclick="window.location.href='Civics_6.html';">Civics</button>
-                        
+                        <button class="subject-button" onclick="go('Math_6.html')">Math</button>
+                        <button class="subject-button" onclick="go('History_6.html')">History</button>
+                        <button class="subject-button" onclick="go('Geography_6.html')">Geography</button>
+                        <button class="subject-button" onclick="go('Civics_6.html')">Civics</button>
                     </div>
                 </div>
-                <div class="class-box">Class 7
+
+                <!-- CLASS 7 -->
+
+                <div class="class-box">
+                    <h3>Class 7</h3>
+
                     <div class="subject-list">
-                        <button class="subject-button" onclick="window.location.href='Math_7.html';">Math</button>
-                        <button class="subject-button" onclick="window.location.href='Physics_7.html';">Physics</button>
-                        <button class="subject-button" onclick="window.location.href='Chemistry_7.html';">Chemistry</button>
-                        <button class="subject-button" onclick="window.location.href='Biology_7.html';">Biology</button>
-                        <button class="subject-button" onclick="window.location.href='History_7.html';">History</button>
-                        <button class="subject-button" onclick="window.location.href='Geography_7.html';">Geography</button>
-                        <button class="subject-button" onclick="window.location.href='Civics_7.html';">Civics</button>
-                        
-                        
+                        <button class="subject-button" onclick="go('Math_7.html')">Math</button>
+                        <button class="subject-button" onclick="go('History_7.html')">History</button>
+                        <button class="subject-button" onclick="go('Geography_7.html')">Geography</button>
+                        <button class="subject-button" onclick="go('Civics_7.html')">Civics</button>
                     </div>
                 </div>
-                <div class="class-box">Class 8
+
+                <!-- CLASS 8 -->
+
+                <div class="class-box">
+                    <h3>Class 8</h3>
+
                     <div class="subject-list">
-                        <button class="subject-button" onclick="window.location.href='Math_8.html';">Math</button>
-                        <button class="subject-button" onclick="window.location.href='Physics_8.html';">Physics</button>
-                        <button class="subject-button" onclick="window.location.href='Chemistry_8.html';">Chemistry</button>
-                        <button class="subject-button" onclick="window.location.href='Biology_8.html';">Biology</button>
-                        <button class="subject-button" onclick="window.location.href='History_8.html';">History</button>
-                        <button class="subject-button" onclick="window.location.href='Geography_8.html';">Geography</button>
-                        <button class="subject-button" onclick="window.location.href='Civics_8.html';">Civics</button>
-                        
+                        <button class="subject-button" onclick="go('Math_8.html')">Math</button>
+                        <button class="subject-button" onclick="go('History_8.html')">History</button>
+                        <button class="subject-button" onclick="go('Geography_8.html')">Geography</button>
+                        <button class="subject-button" onclick="go('Civics_8.html')">Civics</button>
                     </div>
                 </div>
-                <div class="class-box">Class 9
+
+                <!-- CLASS 9 -->
+
+                <div class="class-box">
+                    <h3>Class 9</h3>
+
                     <div class="subject-list">
-                        <button class="subject-button" onclick="window.location.href='Math_9.html';">Math</button>
-                        <button class="subject-button" onclick="window.location.href='Physics_9.html';">Physics</button>
-                        <button class="subject-button" onclick="window.location.href='Chemistry_9.html';">Chemistry</button>
-                        <button class="subject-button" onclick="window.location.href='Biology_9.html';">Biology</button>
-                        <button class="subject-button" onclick="window.location.href='History_9.html';">History</button>
-                        <button class="subject-button" onclick="window.location.href='Geography_9.html';">Geography</button>
-                        <button class="subject-button" onclick="window.location.href='Civics_9.html';">Civics</button>
-                        <button class="subject-button" onclick="window.location.href='Economy_9.html';">Economy</button>
-                        
+                        <button class="subject-button" onclick="go('Math_9.html')">Math</button>
+                        <button class="subject-button" onclick="go('Science_9.html')">Science</button>
+                        <button class="subject-button" onclick="go('Class_9_Social_Science.html')">Social Science</button>
                     </div>
                 </div>
-                <div class="class-box">Class 10
+
+                <!-- CLASS 10 -->
+
+                <div class="class-box">
+                    <h3>Class 10</h3>
+
                     <div class="subject-list">
-                        <button class="subject-button" onclick="window.location.href='Math_10.html';">Math</button>
-                        <button class="subject-button" onclick="window.location.href='Physics_10.html';">Physics</button>
-                        <button class="subject-button" onclick="window.location.href='Chemistry_10.html';">Chemistry</button>
-                        <button class="subject-button" onclick="window.location.href='Biology_10.html';">Biology</button>
-                        <button class="subject-button" onclick="window.location.href='History_10.html';">History</button>
-                        <button class="subject-button" onclick="window.location.href='Geography_10.html';">Geography</button>
-                        <button class="subject-button" onclick="window.location.href='Civics_10.html';">Civics</button>
-                        <button class="subject-button" onclick="window.location.href='Economy_10.html';">Economy</button>
-                        
+                        <button class="subject-button" onclick="go('Math_10.html')">Math</button>
+                        <button class="subject-button" onclick="go('Science_10.html')">Science</button>
+                        <button class="subject-button" onclick="go('Social_Science_10.html')">Social Science</button>
                     </div>
                 </div>
-                <div class="class-box">Class 11
+
+                <!-- CLASS 11 -->
+
+                <div class="class-box">
+                    <h3>Class 11</h3>
+
                     <div class="subject-list">
-                        <button class="subject-button">Physics</button>
-                        <button class="subject-button">Chemistry</button>
-                        <button class="subject-button">Maths</button>
-                        <button class="subject-button">Biology</button>
-                        <button class="subject-button">History</button>
-                        <button class="subject-button">Geography</button>
-                        <button class="subject-button">Political Science</button>
+                        <button class="subject-button" onclick="go('Physics_11.html')">Physics</button>
+                        <button class="subject-button" onclick="go('Chemistry_11.html')">Chemistry</button>
+                        <button class="subject-button" onclick="go('History_11.html')">History</button>
+                        <button class="subject-button" onclick="go('Political_Science_11.html')">Political Science</button>
                     </div>
                 </div>
-                <div class="class-box">Class 12
+
+                <!-- CLASS 12 -->
+
+                <div class="class-box">
+                    <h3>Class 12</h3>
+
                     <div class="subject-list">
-                        <button class="subject-button">Physics</button>
-                        <button class="subject-button">Chemistry</button>
-                        <button class="subject-button">Maths</button>
-                        <button class="subject-button">Biology</button>
-                        <button class="subject-button">History</button>
-                        <button class="subject-button">Geography</button>
-                        <button class="subject-button">Political Science</button>
+                        <button class="subject-button" onclick="go('Physics_12.html')">Physics</button>
+                        <button class="subject-button" onclick="go('Chemistry_12.html')">Chemistry</button>
+                        <button class="subject-button" onclick="go('History_12.html')">History</button>
+                        <button class="subject-button" onclick="go('Political_Science_12.html')">Political Science</button>
                     </div>
                 </div>
-            </div>
-        </div>
-        <button>Test</button>
-        <button>Download</button>
-    </div>
-    <div class="content">
-        <div id="sidebar" class="sidebar">
-            <h3>Class 9 Geography Chapters</h3>
-            <div class="subject-list">
-                <button class="subject-button" onclick="window.location.href='Math_10.html';">Math</button>
-                <button class="subject-button" onclick="window.location.href='Physics_10.html';">Physics</button>
-                <button class="subject-button" onclick="window.location.href='Chemistry_10.html';">Chemistry</button>
-                <button class="subject-button" onclick="window.location.href='Biology_10.html';">Biology</button>
-                <button class="subject-button" onclick="window.location.href='History_10.html';">History</button>
-                <button class="subject-button" onclick="window.location.href='Geography_10.html';">Geography</button>
-                <button class="subject-button" onclick="window.location.href='Civics_10.html';">Civics</button>
-                <button class="subject-button" onclick="window.location.href='Economy_10.html';">Economy</button>
 
             </div>
-            
-            
-            <ol>
-                <li><a href="Democracy_in_the_Contemporary_World.html">1. Democracy in the Contemporary World</a></li>
-                <li><a href="What_is_Democracy_Why_Democracy.html">2. What is Democracy? Why Democracy?</a></li>
-                <li><a href="Constitutional Design.html">3. Constitutional Design</a></li>
-                <li><a href="Electoral_Politics.html">4. Electoral Politics</a></li>
-                <li><a href="Working_of_Institutions.html">5. Working of Institutions</a></li>
-                <li><a href="Democratic_Rights.html">6. Democratic Rights</a></li>
-            </ol>
-        </div>
-        <div class="main-content"></div>
-        <div class="right-sidebar">
-            <button>Download PDF</button>
-            <button>Attempt Test</button>
         </div>
     </div>
-    
-    
-    
-    
+
+    <button
+        class="nav-button"
+        type="button"
+        onclick="go('Class_9_Social_Science_Test.html')">
+        Test
+    </button>
+
+    <button
+        class="nav-button"
+        type="button"
+        onclick="go('Downloads.html')">
+        Download
+    </button>
+
+</nav>
+
+<!-- =========================
+     PAGE LAYOUT
+========================= -->
+
+<div class="layout">
+
+    <!-- LEFT SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <h2>Class 9 Social Science</h2>
+
+        <p class="sidebar-description">
+            Updated textbook chapter list
+        </p>
+
+        <input
+            type="search"
+            class="search-box"
+            id="chapterSearch"
+            placeholder="Search chapter..."
+            aria-label="Search chapters">
+
+        <ol class="chapter-list" id="chapterList">
+
+            <li>
+                <a href="Understanding_Social_Science.html">
+                    1. Understanding Social Science
+                </a>
+            </li>
+
+            <li>
+                <a href="Shaping_of_the_Earths_Surface.html">
+                    2. Shaping of the Earth’s Surface
+                </a>
+            </li>
+
+            <li>
+                <a href="Atmosphere_and_Climate.html">
+                    3. Atmosphere and Climate
+                </a>
+            </li>
+
+            <li>
+                <a href="Early_Humans_and_Beginning_of_Civilisation.html">
+                    4. Early Humans and Beginning of Civilisation
+                </a>
+            </li>
+
+            <li>
+                <a href="State_and_Society_up_to_1000_CE.html">
+                    5. State and Society up to 1000 CE
+                </a>
+            </li>
+
+            <li>
+                <a href="Democracy.html">
+                    6. Democracy
+                </a>
+            </li>
+
+            <li>
+                <a href="Elections.html">
+                    7. Elections
+                </a>
+            </li>
+
+            <li>
+                <a href="Building_Blocks_in_Economics.html">
+                    8. Building Blocks in Economics: The Problem of Choice
+                </a>
+            </li>
+
+            <li>
+                <a href="The_Price_Puzzle.html">
+                    9. The Price Puzzle: What Drives the Market
+                </a>
+            </li>
+
+        </ol>
+
+        <p class="no-results" id="noResults">
+            No matching chapter found.
+        </p>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main-content">
+
+        <!-- WELCOME BANNER -->
+
+        <section class="hero">
+
+            <div class="hero-eyebrow">
+                CLASS 9 • SOCIAL SCIENCE
+            </div>
+
+            <h2>Welcome to Your Study Room</h2>
+
+            <p>
+                Explore the updated Class 9 Social Science syllabus.
+                Study Geography, History, Political Science and Economics
+                with chapter-wise notes, practice questions and revision material.
+            </p>
+
+            <div class="hero-actions">
+
+                <a class="action-link" href="#chapters">
+                    Explore Chapters ↓
+                </a>
+
+                <a
+                    class="action-link secondary"
+                    href="Class_9_Social_Science_Test.html">
+                    Attempt Test
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- CHAPTERS -->
+
+        <h2 class="section-title" id="chapters">
+            Class 9 Chapters
+        </h2>
+
+        <p class="section-description">
+            Select a chapter to open its study material.
+            The chapter names below follow the contents page of the
+            textbook images you provided.
+        </p>
+
+        <section class="chapter-cards">
+
+            <!-- CHAPTER 1 -->
+
+            <article class="chapter-card">
+
+                <span class="subject-tag">
+                    Introduction
+                </span>
+
+                <h3>
+                    1. Understanding Social Science
+                </h3>
+
+                <p>
+                    Introduction to Social Science and its key disciplines.
+                </p>
+
+                <a
+                    class="chapter-link"
+                    href="Understanding_Social_Science.html">
+                    Open Chapter →
+                </a>
+
+            </article>
+
+            <!-- CHAPTER 2 -->
+
+            <article class="chapter-card">
+
+                <span class="subject-tag">
+                    Geography
+                </span>
+
+                <h3>
+                    2. Shaping of the Earth’s Surface
+                </h3>
+
+                <p>
+                    Learn about the processes and features that shape
+                    the Earth’s surface.
+                </p>
+
+                <a
+                    class="chapter-link"
+                    href="Shaping_of_the_Earths_Surface.html">
+                    Open Chapter →
+                </a>
+
+            </article>
+
+            <!-- CHAPTER 3 -->
+
+            <article class="chapter-card">
+
+                <span class="subject-tag">
+                    Geography
+                </span>
+
+                <h3>
+                    3. Atmosphere and Climate
+                </h3>
+
+                <p>
+                    Explore the atmosphere, weather, climate and
+                    their influence on life.
+                </p>
+
+                <a
+                    class="chapter-link"
+                    href="Atmosphere_and_Climate.html">
+                    Open Chapter →
+                </a>
+
+            </article>
+
+            <!-- CHAPTER 4 -->
+
+            <article class="chapter-card">
+
+                <span class="subject-tag">
+                    History
+                </span>
+
+                <h3>
+                    4. Early Humans and Beginning of Civilisation
+                </h3>
+
+                <p>
+                    Study early human life and the beginnings
+                    of civilisation.
+                </p>
+
+                <a
+                    class="chapter-link"
+                    href="Early_Humans_and_Beginning_of_Civilisation.html">
+                    Open Chapter →
+                </a>
+
+            </article>
+
+            <!-- CHAPTER 5 -->
+
+            <article class="chapter-card">
+
+                <span class="subject-tag">
+                    History
+                </span>
+
+                <h3>
+                    5. State and Society up to 1000 CE
+                </h3>
+
+                <p>
+                    Understand the development of states and societies
+                    up to 1000 CE.
+                </p>
+
+                <a
+                    class="chapter-link"
+                    href="State_and_Society_up_to_1000_CE.html">
+                    Open Chapter →
+                </a>
+
+            </article>
+
+            <!-- CHAPTER 6 -->
+
+            <article class="chapter-card">
+
+                <span class="subject-tag">
+                    Political Science
+                </span>
+
+                <h3>
+                    6. Democracy
+                </h3>
+
+                <p>
+                    Explore the meaning, features and importance
+                    of democracy.
+                </p>
+
+                <a
+                    class="chapter-link"
+                    href="Democracy.html">
+                    Open Chapter →
+                </a>
+
+            </article>
+
+            <!-- CHAPTER 7 -->
+
+            <article class="chapter-card">
+
+                <span class="subject-tag">
+                    Political Science
+                </span>
+
+                <h3>
+                    7. Elections
+                </h3>
+
+                <p>
+                    Learn why elections matter and how representatives
+                    are chosen.
+                </p>
+
+                <a
+                    class="chapter-link"
+                    href="Elections.html">
+                    Open Chapter →
+                </a>
+
+            </article>
+
+            <!-- CHAPTER 8 -->
+
+            <article class="chapter-card">
+
+                <span class="subject-tag">
+                    Economics
+                </span>
+
+                <h3>
+                    8. Building Blocks in Economics: The Problem of Choice
+                </h3>
+
+                <p>
+                    Explore scarcity, choice and basic economic
+                    decision-making.
+                </p>
+
+                <a
+                    class="chapter-link"
+                    href="Building_Blocks_in_Economics.html">
+                    Open Chapter →
+                </a>
+
+            </article>
+
+            <!-- CHAPTER 9 -->
+
+            <article class="chapter-card">
+
+                <span class="subject-tag">
+                    Economics
+                </span>
+
+                <h3>
+                    9. The Price Puzzle: What Drives the Market
+                </h3>
+
+                <p>
+                    Understand prices and the forces that influence markets.
+                </p>
+
+                <a
+                    class="chapter-link"
+                    href="The_Price_Puzzle.html">
+                    Open Chapter →
+                </a>
+
+            </article>
+
+        </section>
+
+        <!-- QUICK LINKS -->
+
+        <h2 class="section-title">
+            Quick Access
+        </h2>
+
+        <section class="quick-links">
+
+            <div class="quick-card">
+
+                <div class="icon">📖</div>
+
+                <h3>Study Notes</h3>
+
+                <p>
+                    Open chapter-wise learning material.
+                </p>
+
+                <a href="#chapters">
+                    Browse Chapters →
+                </a>
+
+            </div>
+
+            <div class="quick-card">
+
+                <div class="icon">📝</div>
+
+                <h3>Practice Test</h3>
+
+                <p>
+                    Test your understanding of the syllabus.
+                </p>
+
+                <a href="Class_9_Social_Science_Test.html">
+                    Attempt Test →
+                </a>
+
+            </div>
+
+            <div class="quick-card">
+
+                <div class="icon">📥</div>
+
+                <h3>Downloads</h3>
+
+                <p>
+                    Access available notes and study resources.
+                </p>
+
+                <a href="Downloads.html">
+                    View Downloads →
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- IMPORTANT NOTE -->
+
+        <div class="notice">
+
+            <strong>Important:</strong>
+
+            This page uses the nine Class 9 Social Science chapter titles
+            shown in your uploaded textbook contents image.
+
+            Each chapter link must match the actual HTML filename in your
+            GitHub repository. If a chapter file has a different filename,
+            update that link accordingly.
+
+        </div>
+
+    </main>
+
+</div>
+
+<footer class="footer">
+    © Orient Classes • Learn • Practise • Succeed
+</footer>
+
+<script>
+"use strict";
+
+/* =========================
+   PAGE NAVIGATION
+========================= */
+
+function go(page) {
+    window.location.href = page;
+}
+
+/* =========================
+   STUDY MENU
+   Works on mobile and desktop
+========================= */
+
+const dropdown = document.getElementById("studyDropdown");
+const studyButton = document.getElementById("studyButton");
+const menuToggle = document.getElementById("menuToggle");
+
+function toggleStudyMenu() {
+
+    const isOpen = dropdown.classList.toggle("open");
+
+    studyButton.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+    );
+
+    menuToggle.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+    );
+}
+
+studyButton.addEventListener(
+    "click",
+    function(event) {
+
+        event.stopPropagation();
+
+        toggleStudyMenu();
+    }
+);
+
+menuToggle.addEventListener(
+    "click",
+    function(event) {
+
+        event.stopPropagation();
+
+        toggleStudyMenu();
+    }
+);
+
+/* Close menu when clicking outside */
+
+document.addEventListener(
+    "click",
+    function(event) {
+
+        if (
+            !dropdown.contains(event.target) &&
+            event.target !== menuToggle
+        ) {
+
+            dropdown.classList.remove("open");
+
+            studyButton.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+        }
+    }
+);
+
+/* Close menu when Escape is pressed */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Escape") {
+
+            dropdown.classList.remove("open");
+
+            studyButton.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+        }
+    }
+);
+
+/* =========================
+   CHAPTER SEARCH
+========================= */
+
+const searchInput = document.getElementById("chapterSearch");
+const chapterItems = Array.from(
+    document.querySelectorAll("#chapterList li")
+);
+const noResults = document.getElementById("noResults");
+
+searchInput.addEventListener(
+    "input",
+    function() {
+
+        const searchText = this.value
+            .trim()
+            .toLowerCase();
+
+        let visibleCount = 0;
+
+        chapterItems.forEach(function(item) {
+
+            const chapterName = item.textContent
+                .trim()
+                .toLowerCase();
+
+            const matches = chapterName.includes(searchText);
+
+            item.style.display = matches ? "" : "none";
+
+            if (matches) {
+                visibleCount++;
+            }
+        });
+
+        noResults.style.display =
+            visibleCount === 0 ? "block" : "none";
+    }
+);
+
+/* =========================
+   ACTIVE CHAPTER LINK
+========================= */
+
+const currentPage = window.location.pathname
+    .split("/")
+    .pop();
+
+document.querySelectorAll(".chapter-list a").forEach(
+    function(link) {
+
+        const linkPage = link
+            .getAttribute("href")
+            .split("/")
+            .pop();
+
+        if (linkPage === currentPage) {
+
+            link.classList.add("active");
+        }
+    }
+);
+</script>
+
 </body>
-</html> 
+</html>
