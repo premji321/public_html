@@ -1,0 +1,2062 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Indus Valley Civilization | Complete BPSC Notes</title>
+
+<style>
+:root {
+    --navy: #10264b;
+    --blue: #2459c4;
+    --blue-light: #edf4ff;
+    --gold: #dca83c;
+    --green: #147d55;
+    --red: #c0392b;
+    --text: #253047;
+    --muted: #667085;
+    --border: #dce3ee;
+    --background: #f4f7fc;
+    --white: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 85px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.75;
+}
+
+button, input {
+    font: inherit;
+}
+
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--navy);
+    color: white;
+    padding: 13px 20px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.15);
+}
+
+.topbar-inner {
+    max-width: 1250px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.brand {
+    font-weight: 800;
+    font-size: 17px;
+    letter-spacing: .3px;
+}
+
+.brand span {
+    color: #ffd36a;
+}
+
+.top-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.btn {
+    border: none;
+    border-radius: 7px;
+    padding: 9px 13px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.btn-white {
+    background: white;
+    color: var(--navy);
+}
+
+.btn-gold {
+    background: var(--gold);
+    color: #1c2535;
+}
+
+.btn-blue {
+    background: var(--blue);
+    color: white;
+}
+
+.hero {
+    background: linear-gradient(135deg, #10264b, #2459c4);
+    color: white;
+    padding: 55px 20px;
+    text-align: center;
+}
+
+.hero-inner {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.eyebrow {
+    display: inline-block;
+    padding: 5px 12px;
+    border: 1px solid rgba(255,255,255,.4);
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    font-size: clamp(27px, 5vw, 45px);
+    line-height: 1.25;
+    margin-bottom: 14px;
+}
+
+.hero p {
+    max-width: 750px;
+    margin: 0 auto 22px;
+    color: #e4ecff;
+    font-size: 16px;
+}
+
+.hero-tags {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.hero-tags span {
+    background: rgba(255,255,255,.13);
+    border: 1px solid rgba(255,255,255,.2);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+.container {
+    max-width: 1250px;
+    margin: 25px auto;
+    padding: 0 18px 45px;
+}
+
+.search-wrap {
+    margin-bottom: 20px;
+}
+
+.search-box {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: white;
+    outline: none;
+    font-size: 15px;
+}
+
+.search-box:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(36,89,196,.1);
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 285px minmax(0,1fr);
+    gap: 22px;
+    align-items: start;
+}
+
+.sidebar {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    position: sticky;
+    top: 76px;
+    max-height: calc(100vh - 95px);
+    overflow-y: auto;
+}
+
+.sidebar-heading {
+    background: var(--navy);
+    color: white;
+    padding: 15px 17px;
+    font-weight: 800;
+    font-size: 15px;
+}
+
+.sidebar-list {
+    padding: 10px;
+}
+
+.sidebar-list a {
+    display: block;
+    text-decoration: none;
+    color: #344054;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 10px;
+    border-radius: 6px;
+    margin-bottom: 2px;
+}
+
+.sidebar-list a:hover,
+.sidebar-list a.active {
+    background: var(--blue-light);
+    color: var(--blue);
+}
+
+.main {
+    min-width: 0;
+}
+
+.card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 7px rgba(16,38,75,.035);
+    scroll-margin-top: 85px;
+}
+
+.card h2 {
+    color: var(--navy);
+    font-size: 23px;
+    line-height: 1.4;
+    padding-bottom: 12px;
+    margin-bottom: 17px;
+    border-bottom: 2px solid #e7edf7;
+}
+
+.card h3 {
+    color: var(--blue);
+    font-size: 18px;
+    margin: 22px 0 10px;
+}
+
+.card h4 {
+    color: var(--navy);
+    font-size: 15px;
+    margin: 15px 0 7px;
+}
+
+.card p {
+    margin-bottom: 12px;
+}
+
+.card ul,
+.card ol {
+    padding-left: 23px;
+    margin-bottom: 14px;
+}
+
+.card li {
+    padding-left: 3px;
+    margin-bottom: 5px;
+}
+
+.table-wrap {
+    overflow-x: auto;
+    margin: 14px 0 18px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    min-width: 480px;
+}
+
+th {
+    background: var(--navy);
+    color: white;
+    text-align: left;
+    padding: 12px;
+}
+
+td {
+    padding: 11px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+}
+
+tr:nth-child(even) td {
+    background: #f7f9fd;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+.callout {
+    padding: 15px 17px;
+    margin: 16px 0;
+    border-radius: 8px;
+    background: var(--blue-light);
+    border-left: 4px solid var(--blue);
+}
+
+.callout.warning {
+    background: #fff7e8;
+    border-left-color: var(--gold);
+}
+
+.callout.success {
+    background: #eaf8f0;
+    border-left-color: var(--green);
+}
+
+.callout strong {
+    color: var(--navy);
+}
+
+.site-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.site-box {
+    padding: 15px;
+    background: #f7f9fd;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.site-box h4 {
+    margin-top: 0;
+    color: var(--blue);
+    font-size: 16px;
+}
+
+.site-box p {
+    font-size: 13px;
+    margin-bottom: 0;
+}
+
+.fact-grid {
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 12px;
+}
+
+.fact {
+    background: #f7f9fd;
+    border: 1px solid var(--border);
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.fact strong {
+    display: block;
+    color: var(--blue);
+    margin-bottom: 5px;
+}
+
+.fact span {
+    font-size: 13px;
+}
+
+.question {
+    padding: 17px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.question:last-child {
+    border-bottom: none;
+}
+
+.question h4 {
+    font-size: 15px;
+    margin: 0 0 10px;
+}
+
+.options {
+    display: grid;
+    gap: 7px;
+}
+
+.option {
+    text-align: left;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    padding: 10px 12px;
+    cursor: pointer;
+    color: var(--text);
+}
+
+.option:hover {
+    background: var(--blue-light);
+    border-color: var(--blue);
+}
+
+.option.correct {
+    background: #e7f7ed;
+    border-color: #24945f;
+    color: #12623b;
+}
+
+.option.wrong {
+    background: #fff0ef;
+    border-color: #d94841;
+    color: #a52620;
+}
+
+.feedback {
+    font-size: 13px;
+    margin-top: 8px;
+    font-weight: 700;
+}
+
+.score-box {
+    background: var(--navy);
+    color: white;
+    border-radius: 9px;
+    padding: 16px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.score-box strong {
+    font-size: 20px;
+}
+
+.answer-key {
+    display: none;
+    background: #eaf8f0;
+    padding: 16px;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+.answer-key.show {
+    display: block;
+}
+
+.back-top {
+    display: inline-block;
+    text-decoration: none;
+    background: var(--blue-light);
+    color: var(--blue);
+    padding: 7px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+.footer {
+    background: var(--navy);
+    color: #dbe6ff;
+    padding: 25px 18px;
+    text-align: center;
+    font-size: 13px;
+}
+
+.footer strong {
+    color: white;
+}
+
+.hidden-search {
+    display: none !important;
+}
+
+.no-results {
+    display: none;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 25px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+@media(max-width:900px) {
+    .layout {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        position: static;
+        max-height: none;
+    }
+
+    .sidebar-list {
+        display: grid;
+        grid-template-columns: repeat(2,minmax(0,1fr));
+        gap: 3px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+}
+
+@media(max-width:550px) {
+    .topbar {
+        padding: 10px;
+    }
+
+    .topbar-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .brand {
+        font-size: 15px;
+    }
+
+    .hero {
+        padding: 38px 16px;
+    }
+
+    .container {
+        padding: 0 10px 30px;
+        margin-top: 15px;
+    }
+
+    .card {
+        padding: 16px;
+    }
+
+    .card h2 {
+        font-size: 20px;
+    }
+
+    .site-grid,
+    .fact-grid,
+    .sidebar-list {
+        grid-template-columns: 1fr;
+    }
+
+    .btn {
+        padding: 8px 10px;
+    }
+}
+
+@media print {
+    .topbar,
+    .sidebar,
+    .search-wrap,
+    .top-actions,
+    .back-top,
+    .no-print,
+    #noResults {
+        display: none !important;
+    }
+
+    body {
+        background: white;
+        color: black;
+        font-size: 11pt;
+    }
+
+    .hero {
+        background: white;
+        color: black;
+        padding: 20px 0;
+    }
+
+    .hero p,
+    .hero-tags span {
+        color: black;
+    }
+
+    .hero-tags span {
+        border: 1px solid #999;
+    }
+
+    .container {
+        max-width: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .layout {
+        display: block;
+    }
+
+    .card {
+        border: none;
+        box-shadow: none;
+        padding: 10px 0;
+        break-inside: auto;
+    }
+
+    .card h2 {
+        break-after: avoid;
+    }
+
+    table {
+        font-size: 9pt;
+    }
+
+    .table-wrap {
+        overflow: visible;
+    }
+
+    .option {
+        color: black;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="topbar">
+    <div class="topbar-inner">
+        <div class="brand">BPSC HISTORY <span>STUDY NOTES</span></div>
+        <div class="top-actions">
+            <button class="btn btn-white" onclick="window.print()">Print / PDF</button>
+            <button class="btn btn-gold" onclick="resetSearch()">Show All Notes</button>
+        </div>
+    </div>
+</header>
+
+<section class="hero" id="top">
+    <div class="hero-inner">
+        <span class="eyebrow">ANCIENT INDIAN HISTORY</span>
+        <h1>Indus Valley Civilization</h1>
+        <p>Complete Notes for BPSC Prelims and Mains — Harappan Sites, Town Planning, Economy, Religion, Art, Trade, Decline and Practice MCQs.</p>
+        <div class="hero-tags">
+            <span>Mature Phase: c. 2600–1900 BCE</span>
+            <span>Bronze Age</span>
+            <span>Prelims + Mains</span>
+            <span>Chapter-wise Revision</span>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+
+    <div class="search-wrap">
+        <input
+            type="search"
+            class="search-box"
+            id="searchInput"
+            placeholder="Search notes, sites, topics or keywords..."
+            oninput="searchNotes()"
+            aria-label="Search notes">
+    </div>
+
+    <div class="no-results" id="noResults">
+        No matching topic found. Try another keyword.
+    </div>
+
+    <div class="layout">
+
+        <aside class="sidebar">
+            <div class="sidebar-heading">📚 CHAPTER INDEX</div>
+            <nav class="sidebar-list" id="chapterIndex">
+                <a href="#intro">01. Introduction</a>
+                <a href="#discovery">02. Discovery</a>
+                <a href="#chronology">03. Chronology</a>
+                <a href="#geography">04. Geographical Extent</a>
+                <a href="#sites">05. Major Sites</a>
+                <a href="#townplanning">06. Town Planning</a>
+                <a href="#drainage">07. Drainage System</a>
+                <a href="#greatbath">08. Great Bath</a>
+                <a href="#agriculture">09. Agriculture</a>
+                <a href="#animals">10. Animal Husbandry</a>
+                <a href="#trade">11. Trade and Commerce</a>
+                <a href="#weights">12. Weights and Measures</a>
+                <a href="#crafts">13. Industries and Crafts</a>
+                <a href="#art">14. Art and Sculpture</a>
+                <a href="#pottery">15. Pottery</a>
+                <a href="#seals">16. Seals and Sealings</a>
+                <a href="#script">17. Script and Language</a>
+                <a href="#religion">18. Religious Beliefs</a>
+                <a href="#society">19. Social Life</a>
+                <a href="#politics">20. Political System</a>
+                <a href="#technology">21. Science and Technology</a>
+                <a href="#burials">22. Burial Practices</a>
+                <a href="#relations">23. External Relations</a>
+                <a href="#specialsites">24. Site-wise Revision</a>
+                <a href="#decline">25. Decline</a>
+                <a href="#comparison">26. Harappan vs Vedic</a>
+                <a href="#discoveries">27. Key Discoveries</a>
+                <a href="#limitations">28. Limitations</a>
+                <a href="#prelims">29. Important Facts</a>
+                <a href="#mains">30. Mains Questions</a>
+                <a href="#revision">31. Quick Revision</a>
+                <a href="#mcqs">32. Practice MCQs</a>
+            </nav>
+        </aside>
+
+        <main class="main" id="notesContent">
+
+            <!-- 01 INTRODUCTION -->
+            <section class="card searchable" id="intro">
+                <h2>01. Introduction</h2>
+
+                <p>The Indus Valley Civilization, also known as the Harappan Civilization, was one of the earliest major urban civilizations of the world. It flourished in the northwestern Indian subcontinent during the Bronze Age.</p>
+
+                <p>It was contemporary with civilizations such as Mesopotamia and ancient Egypt. Its Mature Harappan phase is generally dated to approximately 2600–1900 BCE.</p>
+
+                <div class="callout success">
+                    <strong>BPSC Important:</strong> Harappan Civilization is a broader geographical term because its settlements extended far beyond the Indus Valley.
+                </div>
+
+                <div class="table-wrap">
+                    <table>
+                        <tr><th>Feature</th><th>Details</th></tr>
+                        <tr><td>Alternative name</td><td>Harappan Civilization</td></tr>
+                        <tr><td>Mature phase</td><td>c. 2600–1900 BCE</td></tr>
+                        <tr><td>Broad cultural range</td><td>Approximately 3300–1300 BCE</td></tr>
+                        <tr><td>Historical age</td><td>Bronze Age</td></tr>
+                        <tr><td>First major excavated site</td><td>Harappa</td></tr>
+                        <tr><td>Important river system</td><td>Indus and its tributaries</td></tr>
+                        <tr><td>Script</td><td>Undeciphered</td></tr>
+                        <tr><td>Economic activities</td><td>Agriculture, crafts, animal husbandry and trade</td></tr>
+                        <tr><td>Famous characteristics</td><td>Town planning, drainage and standardized weights</td></tr>
+                    </table>
+                </div>
+            </section>
+
+            <!-- 02 DISCOVERY -->
+            <section class="card searchable" id="discovery">
+                <h2>02. Discovery and Archaeological Excavations</h2>
+
+                <p>The discovery of Harappan sites transformed our understanding of ancient Indian history.</p>
+
+                <div class="table-wrap">
+                    <table>
+                        <tr><th>Person</th><th>Contribution</th><th>Year/Period</th></tr>
+                        <tr><td>Alexander Cunningham</td><td>Reported a Harappan seal without recognizing the civilization's full significance</td><td>1870s</td></tr>
+                        <tr><td>Daya Ram Sahni</td><td>Excavated Harappa</td><td>1921</td></tr>
+                        <tr><td>R. D. Banerji</td><td>Excavated Mohenjo-daro</td><td>1922</td></tr>
+                        <tr><td>John Marshall</td><td>Announced the discovery of the civilization</td><td>1924</td></tr>
+                        <tr><td>M. S. Vats</td><td>Important excavations at Harappa</td><td>1920s–1930s</td></tr>
+                        <tr><td>Ernest Mackay</td><td>Excavations at Mohenjo-daro and Chanhudaro</td><td>1920s–1930s</td></tr>
+                        <tr><td>Mortimer Wheeler</td><td>Important excavations at Harappa</td><td>1940s</td></tr>
+                        <tr><td>S. R. Rao</td><td>Led excavations at Lothal</td><td>1950s–1960s</td></tr>
+                        <tr><td>R. S. Bisht</td><td>Major excavations at Dholavira</td><td>1990s onward</td></tr>
+                    </table>
+                </div>
+
+                <div class="callout warning">
+                    <strong>Memory Trick:</strong> Harappa — Daya Ram Sahni — 1921; Mohenjo-daro — R. D. Banerji — 1922; Public announcement — John Marshall — 1924.
+                </div>
+            </section>
+
+            <!-- 03 CHRONOLOGY -->
+            <section class="card searchable" id="chronology">
+                <h2>03. Chronology and Important Phases</h2>
+
+                <div class="table-wrap">
+                    <table>
+                        <tr><th>Phase</th><th>Approximate Period</th><th>Main Features</th></tr>
+                        <tr><td>Early Harappan</td><td>c. 3300–2600 BCE</td><td>Settlement growth, agriculture, crafts and early urban features</td></tr>
+                        <tr><td>Mature Harappan</td><td>c. 2600–1900 BCE</td><td>Planned cities, standardized weights, seals and extensive trade</td></tr>
+                        <tr><td>Late Harappan</td><td>c. 1900–1300 BCE</td><td>Transformation of urban centres and regional cultures</td></tr>
+                    </table>
+                </div>
+
+                <h3>Early Harappan Phase</h3>
+                <ul>
+                    <li>Growth of agricultural settlements.</li>
+                    <li>Development of specialized crafts.</li>
+                    <li>Expansion of regional trade.</li>
+                    <li>Emergence of fortified settlements.</li>
+                </ul>
+
+                <h3>Mature Harappan Phase</h3>
+                <ul>
+                    <li>Large cities such as Harappa and Mohenjo-daro.</li>
+                    <li>Planned streets and drainage systems.</li>
+                    <li>Standardized weights and measures.</li>
+                    <li>Long-distance trade and widespread seal use.</li>
+                </ul>
+
+                <h3>Late Harappan Phase</h3>
+                <ul>
+                    <li>Decline of several large urban centres.</li>
+                    <li>Changes in trade and pottery.</li>
+                    <li>Population redistribution.</li>
+                    <li>Development of regional cultures.</li>
+                </ul>
+
+                <div class="callout">
+                    <strong>Remember:</strong> The decline of major urban centres did not mean the complete disappearance of Harappan populations.
+                </div>
+            </section>
+
+            <!-- 04 GEOGRAPHY -->
+            <section class="card searchable" id="geography">
+                <h2>04. Geographical Extent</h2>
+
+                <p>The Harappan Civilization extended across present-day Pakistan and northwestern and western India. Related cultural remains have also been found farther east and south.</p>
+
+                <div class="table-wrap">
+                    <table>
+                        <tr><th>Direction</th><th>Site</th><th>Modern Location</th></tr>
+                        <tr><td>Western extent</td><td>Sutkagendor</td><td>Balochistan, Pakistan</td></tr>
+                        <tr><td>Eastern extent</td><td>Alamgirpur</td><td>Uttar Pradesh, India</td></tr>
+                        <tr><td>Northern extent</td><td>Shortugai</td><td>Afghanistan</td></tr>
+                        <tr><td>Southern extent</td><td>Daimabad</td><td>Maharashtra, India</td></tr>
+                    </table>
+                </div>
+
+                <h3>Major Geographical Regions</h3>
+                <ul>
+                    <li>Punjab and Sindh.</li>
+                    <li>Balochistan.</li>
+                    <li>Haryana.</li>
+                    <li>Rajasthan.</li>
+                    <li>Gujarat.</li>
+                    <li>Parts of western Uttar Pradesh.</li>
+                    <li>Parts of Jammu and Kashmir.</li>
+                </ul>
+
+                <div class="callout warning">
+                    These are conventional geographical extremes of the wider Harappan distribution. The precise limits depend on the archaeological criteria used.
+                </div>
+            </section>
+
+            <!-- 05 SITES -->
+            <section class="card searchable" id="sites">
+                <h2>05. Major Harappan Sites and Their Features</h2>
+
+                <div class="table-wrap">
+                    <table>
+                        <tr><th>Site</th><th>Location</th><th>Important Features</th></tr>
+                        <tr><td>Harappa</td><td>Punjab, Pakistan</td><td>Ravi River region, cemetery evidence and seals</td></tr>
+                        <tr><td>Mohenjo-daro</td><td>Sindh, Pakistan</td><td>Great Bath, Dancing Girl and Priest-King sculpture</td></tr>
+                        <tr><td>Dholavira</td><td>Gujarat, India</td><td>Reservoirs, water management and distinctive urban divisions</td></tr>
+                        <tr><td>Lothal</td><td>Gujarat, India</td><td>Bead-making, trade and basin-like structure interpreted as a dockyard</td></tr>
+                        <tr><td>Kalibangan</td><td>Rajasthan, India</td><td>Ploughed field and fire altars</td></tr>
+                        <tr><td>Rakhigarhi</td><td>Haryana, India</td><td>One of the largest known Harappan urban settlements</td></tr>
+                        <tr><td>Banawali</td><td>Haryana, India</td><td>Fortified settlement and Early/Mature Harappan remains</td></tr>
+                        <tr><td>Chanhudaro</td><td>Sindh, Pakistan</td><td>Craft production and bead-making</td></tr>
+                        <tr><td>Surkotada</td><td>Gujarat, India</td><td>Fortified settlement and debated horse-related remains</td></tr>
+                        <tr><td>Alamgirpur</td><td>Uttar Pradesh, India</td><td>Eastern extent commonly cited in textbooks</td></tr>
+                        <tr><td>Daimabad</td><td>Maharashtra, India</td><td>Southern extent commonly cited; bronze objects</td></tr>
+                        <tr><td>Sutkagendor</td><td>Balochistan, Pakistan</td><td>Western outpost and trade connections</td></tr>
+                        <tr><td>Shortugai</td><td>Afghanistan</td><td>Trading outpost and lapis lazuli connections</td></tr>
+                        <tr><td>Kot Diji</td><td>Sindh, Pakistan</td><td>Important Early Harappan settlement</td></tr>
+                    </table>
+                </div>
+
+                <h3>Site-Wise Memory Tricks</h3>
+
+                <div class="site-grid">
+                    <div class="site-box">
+                        <h4>Harappa</h4>
+                        <p>Ravi River region; excavated by Daya Ram Sahni in 1921.</p>
+                    </div>
+                    <div class="site-box">
+                        <h4>Mohenjo-daro</h4>
+                        <p>Great Bath, Dancing Girl and Priest-King sculpture.</p>
+                    </div>
+                    <div class="site-box">
+                        <h4>Dholavira</h4>
+                        <p>Reservoirs, water management and distinctive urban planning.</p>
+                    </div>
+                    <div class="site-box">
+                        <h4>Lothal</h4>
+                        <p>Bead-making and a structure commonly interpreted as a dockyard.</p>
+                    </div>
+                    <div class="site-box">
+                        <h4>Kalibangan</h4>
+                        <p>Ploughed field and fire altars.</p>
+                    </div>
+                    <div class="site-box">
+                        <h4>Chanhudaro</h4>
+                        <p>Craft production and bead-making.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 06 TOWN PLANNING -->
+            <section class="card searchable" id="townplanning">
+                <h2>06. Town Planning</h2>
+
+                <p>Town planning was one of the most remarkable features of the Harappan Civilization. Major cities displayed organized streets, residential blocks, drainage systems and standardized construction practices.</p>
+
+                <h3>Grid Pattern</h3>
+                <ul>
+                    <li>Many streets intersected at approximately right angles.</li>
+                    <li>Residential blocks were arranged along streets.</li>
+                    <li>Main roads and smaller lanes formed connected networks.</li>
+                    <li>Houses frequently had courtyards.</li>
+                </ul>
+
+                <h3>Citadel and Lower Town</h3>
+                <p>Many major settlements had an elevated or fortified area and a lower settlement area. Their exact functions remain uncertain.</p>
+
+                <h3>Building Materials</h3>
+                <ul>
+                    <li>Baked bricks.</li>
+                    <li>Mud bricks.</li>
+                    <li>Stone at certain sites.</li>
+                    <li>Wood and other perishable materials.</li>
+                </ul>
+
+                <div class="callout success">
+                    <strong>Important Fact:</strong> Harappan bricks commonly followed a proportion of approximately 1:2:4 in thickness, width and length.
+                </div>
+
+                <h3>Houses</h3>
+                <ul>
+                    <li>Rooms arranged around courtyards.</li>
+                    <li>Brick walls and bathing areas.</li>
+                    <li>Staircases in some houses.</li>
+                    <li>Doors frequently opened onto side streets.</li>
+                    <li>Some houses had access to drains.</li>
+                </ul>
+
+                <h3>Public Structures</h3>
+                <ul>
+                    <li>Great Bath at Mohenjo-daro.</li>
+                    <li>Large halls and platforms.</li>
+                    <li>Storage-like structures.</li>
+                    <li>Reservoirs at Dholavira.</li>
+                </ul>
+
+                <div class="callout warning">
+                    Some structures traditionally called granaries have uncertain functions. Archaeological interpretations may change as new evidence emerges.
+                </div>
+            </section>
+
+            <!-- 07 DRAINAGE -->
+            <section class="card searchable" id="drainage">
+                <h2>07. Drainage System and Sanitation</h2>
+
+                <p>Several Harappan settlements had carefully constructed drainage systems connecting household wastewater arrangements with street drains.</p>
+
+                <h3>Main Features</h3>
+                <ul>
+                    <li>Brick-built drains.</li>
+                    <li>Covered drains in many locations.</li>
+                    <li>Gradients designed to move wastewater.</li>
+                    <li>Household bathing areas.</li>
+                    <li>Inspection openings or removable covers in some systems.</li>
+                    <li>Connections between domestic and street drainage in several settlements.</li>
+                </ul>
+
+                <h3>Importance</h3>
+                <ol>
+                    <li>Improved the removal of wastewater.</li>
+                    <li>Demonstrated planned urban construction.</li>
+                    <li>Required coordination between houses and public streets.</li>
+                    <li>Reflected shared engineering practices.</li>
+                </ol>
+
+                <div class="callout">
+                    <strong>Mains Point:</strong> Harappan drainage systems demonstrate the importance of public infrastructure in early urban civilization.
+                </div>
+            </section>
+
+            <!-- 08 GREAT BATH -->
+            <section class="card searchable" id="greatbath">
+                <h2>08. Great Bath of Mohenjo-daro</h2>
+
+                <h3>Location</h3>
+                <p>Mohenjo-daro, Sindh, Pakistan.</p>
+
+                <h3>Main Features</h3>
+                <ul>
+                    <li>Rectangular water tank.</li>
+                    <li>Baked-brick construction.</li>
+                    <li>Waterproofing using bituminous material.</li>
+                    <li>Steps leading into the tank.</li>
+                    <li>Surrounding rooms and structures.</li>
+                    <li>Arrangements for supplying and draining water.</li>
+                </ul>
+
+                <h3>Possible Purpose</h3>
+                <p>It is often interpreted as a structure used for ritual bathing or other collective activities. Its exact function cannot be established with certainty.</p>
+
+                <div class="callout success">
+                    <strong>BPSC One-Liner:</strong> The Great Bath was discovered at Mohenjo-daro.
+                </div>
+            </section>
+
+            <!-- 09 AGRICULTURE -->
+            <section class="card searchable" id="agriculture">
+                <h2>09. Agriculture</h2>
+
+                <p>Agriculture was a major foundation of the Harappan economy. Cultivated crops supported urban populations alongside animal husbandry, fishing, hunting and crafts.</p>
+
+                <div class="table-wrap">
+                    <table>
+                        <tr><th>Crop</th><th>Importance</th></tr>
+                        <tr><td>Wheat</td><td>Major food grain</td></tr>
+                        <tr><td>Barley</td><td>Important cereal</td></tr>
+                        <tr><td>Peas</td><td>Pulse crop</td></tr>
+                        <tr><td>Sesame</td><td>Oilseed</td></tr>
+                        <tr><td>Mustard</td><td>Oilseed</td></tr>
+                        <tr><td>Dates</td><td>Fruit crop</td></tr>
+                        <tr><td>Cotton</td><td>Textile production</td></tr>
+                        <tr><td>Rice</td><td>Evidence at some sites; importance varied by region</td></tr>
+                    </table>
+                </div>
+
+                <h3>Agricultural Techniques</h3>
+                <ul>
+                    <li>Plough-like agricultural implements.</li>
+                    <li>Seasonal cultivation.</li>
+                    <li>Animal power for agricultural activities.</li>
+                    <li>Water management adapted to local environments.</li>
+                </ul>
+
+                <h3>Ploughed Field at Kalibangan</h3>
+                <p>Kalibangan is famous for evidence interpreted as a ploughed agricultural field. The furrows provide important evidence of Harappan cultivation practices.</p>
+
+                <div class="callout warning">
+                    <strong>Memory Trick:</strong> Kalibangan = Ploughed field.
+                </div>
+            </section>
+
+            <!-- 10 ANIMALS -->
+            <section class="card searchable" id="animals">
+                <h2>10. Animal Husbandry</h2>
+
+                <p>Animal husbandry supported food production, transportation, agricultural work and craft activities.</p>
+
+                <h3>Important Animals</h3>
+                <ul>
+                    <li>Cattle and buffaloes.</li>
+                    <li>Sheep and goats.</li>
+                    <li>Pigs and dogs.</li>
+                    <li>Elephants.</li>
+                    <li>Birds and other animals.</li>
+                    <li>Camels in some regional contexts.</li>
+                </ul>
+
+                <h3>Humped Bull</h3>
+                <p>The humped bull appears frequently in Harappan art and seals. Cattle were important for agricultural and economic activities.</p>
+
+                <h3>Horse</h3>
+                <p>The presence and significance of the horse remain debated. Some finds have been interpreted as horse remains, but their identification and context have been disputed.</p>
+
+                <div class="callout warning">
+                    Do not claim that the horse was definitively absent from every Harappan settlement. Its role is less clearly established than that of cattle.
+                </div>
+            </section>
+
+            <!-- 11 TRADE -->
+            <section class="card searchable" id="trade">
+                <h2>11. Trade and Commerce</h2>
+
+                <h3>Internal Trade</h3>
+                <p>Internal trade connected urban centres, villages, craft-production centres and resource-rich regions.</p>
+
+                <ul>
+                    <li>Agricultural products.</li>
+                    <li>Pottery and textiles.</li>
+                    <li>Beads and ornaments.</li>
+                    <li>Metal objects.</li>
+                    <li>Shell products.</li>
+                    <li>Semi-precious stones.</li>
+                </ul>
+
+                <h3>External Trade</h3>
+                <ul>
+                    <li>Mesopotamia.</li>
+                    <li>Oman.</li>
+                    <li>Bahrain.</li>
+                    <li>Afghanistan.</li>
+                    <li>Iranian regions.</li>
+                    <li>Central Asian areas.</li>
+                </ul>
+
+                <h3>Mesopotamian Connections</h3>
+                <p>Mesopotamian texts refer to a trading region called <strong>Meluhha</strong>, which many scholars associate with the Harappan region.</p>
+
+                <div class="table-wrap">
+                    <table>
+                        <tr><th>Material</th><th>Possible Source or Region</th></tr>
+                        <tr><td>Lapis lazuli</td><td>Afghanistan, especially Badakhshan</td></tr>
+                        <tr><td>Copper</td><td>Rajasthan, Oman and other sources</td></tr>
+                        <tr><td>Tin</td><td>Various possible sources in Central Asia and Iran</td></tr>
+                        <tr><td>Gold</td><td>Southern India, Afghanistan and other possible sources</td></tr>
+                        <tr><td>Silver</td><td>Iran, Afghanistan and other regions</td></tr>
+                        <tr><td>Shell</td><td>Coastal regions</td></tr>
+                    </table>
+                </div>
+
+                <h3>Maritime Trade</h3>
+                <p>Coastal settlements, Gulf connections, shell-working industries and objects associated with long-distance exchange provide evidence of maritime connections.</p>
+
+                <p>The basin-like structure at Lothal is commonly interpreted as a dockyard, although its precise function remains debated.</p>
+
+                <div class="callout success">
+                    <strong>BPSC Focus:</strong> Meluhha — Mesopotamian texts; Lothal — maritime trade connections.
+                </div>
+            </section>
+
+            <!-- 12 WEIGHTS -->
+            <section class="card searchable" id="weights">
+                <h2>12. Weights and Measures</h2>
+
+                <ul>
+                    <li>Cubical stone weights were commonly used.</li>
+                    <li>Chert was used for many weights.</li>
+                    <li>Standardized weight systems occurred across settlements.</li>
+                    <li>Measurements supported trade and craft production.</li>
+                    <li>Recurring numerical relationships included binary and decimal patterns.</li>
+                </ul>
+
+                <h3>Importance</h3>
+                <ul>
+                    <li>Commercial organization.</li>
+                    <li>Shared measurement practices.</li>
+                    <li>Coordination between trading communities.</li>
+                    <li>Standardization of economic activities.</li>
+                </ul>
+
+                <div class="callout">
+                    Standardized weights are an important characteristic of Mature Harappan trade.
+                </div>
+            </section>
+
+            <!-- 13 CRAFTS -->
+            <section class="card searchable" id="crafts">
+                <h2>13. Industries and Crafts</h2>
+
+                <h3>Bead-Making</h3>
+                <p>Important centres included Lothal and Chanhudaro. Materials included carnelian, agate, jasper, steatite and lapis lazuli.</p>
+
+                <h3>Pottery</h3>
+                <p>Pottery was used for cooking, storage, transport, serving food and household activities.</p>
+
+                <h3>Metallurgy</h3>
+                <p>Harappan metalworkers worked with copper and bronze. Gold, silver, lead and other metals were also used.</p>
+
+                <h3>Shell Industry</h3>
+                <p>Shell was used to produce bangles, ornaments and decorative objects.</p>
+
+                <h3>Textile Production</h3>
+                <p>Evidence of cotton cultivation indicates that textile production formed part of Harappan economic life.</p>
+
+                <h3>Ivory and Terracotta</h3>
+                <p>Ivory objects, terracotta figurines, toys, beads, animal models and small carts were produced.</p>
+
+                <div class="callout success">
+                    <strong>Remember:</strong> Lothal and Chanhudaro are important for questions on bead-making and specialized craft production.
+                </div>
+            </section>
+
+            <!-- 14 ART -->
+            <section class="card searchable" id="art">
+                <h2>14. Art and Sculpture</h2>
+
+                <h3>Bronze Dancing Girl</h3>
+                <ul>
+                    <li>Found at Mohenjo-daro.</li>
+                    <li>Made of bronze.</li>
+                    <li>Depicts a young female figure.</li>
+                    <li>Shows a distinctive standing posture and numerous bangles.</li>
+                    <li>Associated with the lost-wax casting technique.</li>
+                </ul>
+
+                <h3>Priest-King Sculpture</h3>
+                <ul>
+                    <li>Found at Mohenjo-daro.</li>
+                    <li>Made from a soft stone, commonly identified as steatite.</li>
+                    <li>Depicts a bearded male figure with a patterned garment.</li>
+                </ul>
+
+                <div class="callout warning">
+                    "Priest-King" is a conventional modern label. There is no conclusive evidence that the figure was actually a priest or king.
+                </div>
+
+                <h3>Red Sandstone Male Torso</h3>
+                <p>A famous male torso made of red sandstone was discovered at Harappa.</p>
+
+                <h3>Terracotta Figurines</h3>
+                <p>Figurines depict humans and animals. Some female figurines have been interpreted as mother-goddess figures, but their exact significance is uncertain.</p>
+
+                <h3>Animal Representations</h3>
+                <p>Seals and figurines depict bulls, elephants, rhinoceroses, tigers, buffaloes and other animals.</p>
+            </section>
+
+            <!-- 15 POTTERY -->
+            <section class="card searchable" id="pottery">
+                <h2>15. Pottery</h2>
+
+                <p>Harappan pottery was generally made on a potter's wheel. Red pottery painted with black designs is a characteristic category.</p>
+
+                <h3>Main Features</h3>
+                <ul>
+                    <li>Red or reddish surfaces.</li>
+                    <li>Black geometric designs.</li>
+                    <li>Animal and plant motifs on some vessels.</li>
+                    <li>Different forms for storage and household use.</li>
+                    <li>Regional and chronological variation.</li>
+                </ul>
+
+                <h3>Uses</h3>
+                <ul>
+                    <li>Storage of grain and other materials.</li>
+                    <li>Cooking and carrying water.</li>
+                    <li>Serving food.</li>
+                    <li>Special or ritual activities.</li>
+                </ul>
+            </section>
+
+            <!-- 16 SEALS -->
+            <section class="card searchable" id="seals">
+                <h2>16. Seals and Sealings</h2>
+
+                <p>Seals are important sources for understanding Harappan society. Many were made of steatite and carried animal motifs and short inscriptions.</p>
+
+                <h3>Features</h3>
+                <ul>
+                    <li>Small and portable.</li>
+                    <li>Often square or rectangular.</li>
+                    <li>Frequently made of steatite.</li>
+                    <li>Animal motifs and inscriptions.</li>
+                    <li>Some had a raised boss on the reverse.</li>
+                </ul>
+
+                <h3>Common Animal Motifs</h3>
+                <ul>
+                    <li>Unicorn.</li>
+                    <li>Humped bull.</li>
+                    <li>Elephant.</li>
+                    <li>Rhinoceros.</li>
+                    <li>Tiger.</li>
+                    <li>Buffalo.</li>
+                </ul>
+
+                <h3>Possible Uses</h3>
+                <ul>
+                    <li>Identification.</li>
+                    <li>Trade and commercial administration.</li>
+                    <li>Marking goods.</li>
+                    <li>Ownership or access control.</li>
+                    <li>Symbolic purposes.</li>
+                </ul>
+
+                <h3>Pashupati Seal</h3>
+                <p>A famous seal from Mohenjo-daro depicts a seated horned figure surrounded by animals. Some scholars have compared the figure with later representations of Shiva, but this identification remains debated.</p>
+
+                <div class="callout">
+                    <strong>Prelims Facts:</strong> Steatite — common seal material; Unicorn — common motif; Pashupati — debated interpretation.
+                </div>
+            </section>
+
+            <!-- 17 SCRIPT -->
+            <section class="card searchable" id="script">
+                <h2>17. Script and Language</h2>
+
+                <p>The Harappan script has not been conclusively deciphered.</p>
+
+                <h3>Main Features</h3>
+                <ul>
+                    <li>Inscriptions are usually short.</li>
+                    <li>Signs occur on seals, pottery, tablets and other objects.</li>
+                    <li>Hundreds of distinct signs or sign variants have been recorded, depending on classification.</li>
+                    <li>Many inscriptions contain only a few signs.</li>
+                    <li>Right-to-left writing is frequently inferred for many inscriptions, although practices may have varied.</li>
+                </ul>
+
+                <h3>Why Has It Not Been Deciphered?</h3>
+                <ul>
+                    <li>No widely accepted bilingual inscription.</li>
+                    <li>Short inscriptions.</li>
+                    <li>Unknown underlying language.</li>
+                    <li>Difficulty interpreting the sign system.</li>
+                </ul>
+
+                <h3>Language</h3>
+                <p>The language or languages spoken by Harappan communities remain unknown. Dravidian-related hypotheses have been proposed, but no decipherment or language identification has achieved conclusive acceptance.</p>
+
+                <div class="callout warning">
+                    <strong>BPSC One-Liner:</strong> The Harappan script remains undeciphered.
+                </div>
+            </section>
+
+            <!-- 18 RELIGION -->
+            <section class="card searchable" id="religion">
+                <h2>18. Religious Beliefs</h2>
+
+                <p>Harappan religious practices are reconstructed from archaeological evidence because written inscriptions cannot yet be read.</p>
+
+                <h3>Mother-Goddess Interpretation</h3>
+                <p>Some female terracotta figurines have traditionally been interpreted as mother-goddess representations. Their exact meaning remains uncertain.</p>
+
+                <h3>Pashupati Interpretation</h3>
+                <p>The seated horned figure on a famous seal has been interpreted by some scholars as a proto-Shiva or Pashupati figure. This interpretation is debated.</p>
+
+                <h3>Tree and Animal Symbolism</h3>
+                <p>Trees and animals appear in distinctive settings on seals and other objects. Their meanings may have been religious, symbolic, economic or administrative.</p>
+
+                <h3>Fire Altars</h3>
+                <p>Structures interpreted as fire altars have been reported at Kalibangan and some other sites. Their precise function is uncertain.</p>
+
+                <h3>Water and Ritual Bathing</h3>
+                <p>The Great Bath at Mohenjo-daro may have been used for ritual bathing or other collective activities.</p>
+
+                <h3>Burial Practices</h3>
+                <p>Burials and grave goods provide evidence of mortuary customs, but cannot establish the complete religious beliefs of the civilization.</p>
+
+                <div class="callout warning">
+                    Do not state that Shiva worship in its exact later form is conclusively established by the Pashupati seal.
+                </div>
+            </section>
+
+            <!-- 19 SOCIETY -->
+            <section class="card searchable" id="society">
+                <h2>19. Social Life</h2>
+
+                <h3>Social Organization</h3>
+                <p>Differences in house sizes and grave goods suggest some degree of social differentiation. The exact social hierarchy remains uncertain.</p>
+
+                <h3>Clothing</h3>
+                <p>Cotton textiles were important. Other plant or animal fibres may also have been used, although direct evidence is limited.</p>
+
+                <h3>Ornaments</h3>
+                <p>Gold, silver, copper, shell, carnelian, faience, terracotta and other stones were used to produce ornaments.</p>
+
+                <h3>Food</h3>
+                <ul>
+                    <li>Wheat and barley.</li>
+                    <li>Pulses.</li>
+                    <li>Fruits.</li>
+                    <li>Milk and other animal products.</li>
+                    <li>Fish and meat in some communities.</li>
+                    <li>Other locally available foods.</li>
+                </ul>
+
+                <h3>Entertainment</h3>
+                <p>Terracotta toys, game pieces and other objects suggest recreational activities.</p>
+
+                <h3>Education and Literacy</h3>
+                <p>The use of signs is clear, but the literacy rate and organization of education are not known.</p>
+            </section>
+
+            <!-- 20 POLITICS -->
+            <section class="card searchable" id="politics">
+                <h2>20. Political System and Administration</h2>
+
+                <p>The Harappan political system is not fully understood. No universally accepted series of Harappan kings or readable royal inscriptions has been identified.</p>
+
+                <h3>Evidence of Organization</h3>
+                <ul>
+                    <li>Standardized bricks.</li>
+                    <li>Standardized weights.</li>
+                    <li>Planned cities.</li>
+                    <li>Shared pottery and craft traditions.</li>
+                    <li>Public infrastructure.</li>
+                </ul>
+
+                <h3>Was It a Monarchy?</h3>
+                <p>A centralized monarchy has not been conclusively established.</p>
+
+                <h3>Was It a Republic?</h3>
+                <p>There is insufficient evidence to classify the Harappan political system as a republic.</p>
+
+                <h3>Possible Forms of Authority</h3>
+                <ul>
+                    <li>Regional governing authorities.</li>
+                    <li>Urban elites.</li>
+                    <li>Merchant groups.</li>
+                    <li>Religious or administrative institutions.</li>
+                </ul>
+
+                <div class="callout">
+                    <strong>Mains Point:</strong> Organized urban planning is clearly established, but the exact political structure remains uncertain because the script is undeciphered.
+                </div>
+            </section>
+
+            <!-- 21 TECHNOLOGY -->
+            <section class="card searchable" id="technology">
+                <h2>21. Science and Technology</h2>
+
+                <h3>Metallurgy</h3>
+                <p>Harappans worked with copper and bronze. Gold, silver, lead and other metals were also used.</p>
+
+                <h3>Lost-Wax Casting</h3>
+                <p>The bronze Dancing Girl is a famous example of metalworking associated with this technique.</p>
+
+                <h3>Mathematics and Measurement</h3>
+                <p>Standardized weights and building dimensions suggest practical knowledge of measurement.</p>
+
+                <h3>Civil Engineering</h3>
+                <ul>
+                    <li>Planned streets.</li>
+                    <li>Brick construction.</li>
+                    <li>Drainage systems.</li>
+                    <li>Wells.</li>
+                    <li>Reservoirs at Dholavira.</li>
+                </ul>
+
+                <h3>Water Management</h3>
+                <p>Dholavira is especially important for understanding water conservation in a relatively dry environment.</p>
+
+                <h3>Transport</h3>
+                <p>Terracotta cart models provide evidence of wheeled vehicles. Boats and maritime transport are inferred from coastal settlement patterns and trade connections.</p>
+            </section>
+
+            <!-- 22 BURIALS -->
+            <section class="card searchable" id="burials">
+                <h2>22. Burial Practices</h2>
+
+                <h3>Main Features</h3>
+                <ul>
+                    <li>Several settlements contain cemeteries.</li>
+                    <li>Extended burials are known.</li>
+                    <li>Grave goods occur in some burials.</li>
+                    <li>Burial customs varied across regions.</li>
+                    <li>Some graves show differences in treatment and grave goods.</li>
+                </ul>
+
+                <h3>Important Sites</h3>
+                <p><strong>Harappa:</strong> Important cemetery evidence.</p>
+                <p><strong>Rakhigarhi:</strong> Important burial remains used to study Harappan populations and social practices.</p>
+
+                <h3>Importance</h3>
+                <ul>
+                    <li>Diet and health.</li>
+                    <li>Population relationships.</li>
+                    <li>Mortuary customs.</li>
+                    <li>Social differences.</li>
+                    <li>Burial-related cultural practices.</li>
+                </ul>
+            </section>
+
+            <!-- 23 RELATIONS -->
+            <section class="card searchable" id="relations">
+                <h2>23. Relations with Other Civilizations</h2>
+
+                <h3>Mesopotamia</h3>
+                <p>Mesopotamian references to Meluhha and archaeological materials associated with long-distance exchange demonstrate important connections.</p>
+
+                <h3>Oman</h3>
+                <p>Copper and maritime exchange connected the Harappan world with Oman and neighbouring Gulf regions.</p>
+
+                <h3>Bahrain</h3>
+                <p>Bahrain, often associated with ancient Dilmun, played an important role in Gulf trade networks.</p>
+
+                <h3>Afghanistan</h3>
+                <p>Afghanistan provided access to resources such as lapis lazuli. Shortugai is important evidence of connections with Central Asian resource networks.</p>
+
+                <h3>Iran and Central Asia</h3>
+                <p>These regions were connected with wider networks of raw-material exchange and cultural interaction.</p>
+
+                <div class="callout success">
+                    <strong>Conclusion:</strong> The Harappan Civilization participated in a wide Bronze Age network connecting South Asia with western and central Asia.
+                </div>
+            </section>
+
+            <!-- 24 SPECIAL SITES -->
+            <section class="card searchable" id="specialsites">
+                <h2>24. Important Sites: Rapid Revision</h2>
+
+                <div class="table-wrap">
+                    <table>
+                        <tr><th>Site</th><th>Special Feature</th></tr>
+                        <tr><td>Harappa</td><td>Cemetery evidence and important early excavations</td></tr>
+                        <tr><td>Mohenjo-daro</td><td>Great Bath</td></tr>
+                        <tr><td>Dholavira</td><td>Reservoirs and water management</td></tr>
+                        <tr><td>Lothal</td><td>Bead-making and dockyard interpretation</td></tr>
+                        <tr><td>Kalibangan</td><td>Ploughed field</td></tr>
+                        <tr><td>Rakhigarhi</td><td>Major Harappan urban settlement</td></tr>
+                        <tr><td>Chanhudaro</td><td>Craft production and bead-making</td></tr>
+                        <tr><td>Banawali</td><td>Early and Mature Harappan remains</td></tr>
+                        <tr><td>Surkotada</td><td>Fortified settlement; debated horse-related evidence</td></tr>
+                        <tr><td>Alamgirpur</td><td>Eastern extent commonly cited</td></tr>
+                        <tr><td>Daimabad</td><td>Southern extent commonly cited</td></tr>
+                        <tr><td>Sutkagendor</td><td>Western outpost</td></tr>
+                        <tr><td>Shortugai</td><td>Trading outpost in Afghanistan</td></tr>
+                        <tr><td>Kot Diji</td><td>Early Harappan settlement</td></tr>
+                    </table>
+                </div>
+            </section>
+
+            <!-- 25 DECLINE -->
+            <section class="card searchable" id="decline">
+                <h2>25. Decline of the Harappan Civilization</h2>
+
+                <p>The decline of the Mature Harappan urban system began around 1900 BCE. Major urban centres changed, and several settlements were abandoned or transformed.</p>
+
+                <h3>Major Theories</h3>
+
+                <h4>1. Climate Change</h4>
+                <p>Changes in rainfall and climatic conditions may have affected agriculture and settlement patterns.</p>
+
+                <h4>2. Changes in River Systems</h4>
+                <p>Changes in river courses and water availability may have affected settlements dependent on river systems.</p>
+
+                <h4>3. Floods</h4>
+                <p>Repeated flooding may have damaged some settlements, but cannot explain the decline of every Harappan centre.</p>
+
+                <h4>4. Decline in Long-Distance Trade</h4>
+                <p>Changes in trade networks may have affected urban economies and craft production.</p>
+
+                <h4>5. Environmental and Agricultural Stress</h4>
+                <p>Local ecological changes, rainfall variation and agricultural pressures may have contributed to settlement changes.</p>
+
+                <h4>6. Population Movement</h4>
+                <p>Some communities moved toward other regions, contributing to the development of regional cultures.</p>
+
+                <h4>7. Aryan Invasion Theory</h4>
+                <p>Older interpretations attributed the decline to an Aryan invasion. However, this is not accepted as a sufficient explanation for the widespread archaeological transformation.</p>
+
+                <div class="callout success">
+                    <strong>Modern Understanding:</strong> The decline was a complex and regionally varied process involving possible environmental, economic and social factors. Harappan populations did not simply disappear.
+                </div>
+            </section>
+
+            <!-- 26 COMPARISON -->
+            <section class="card searchable" id="comparison">
+                <h2>26. Harappan Civilization vs Early Vedic Society</h2>
+
+                <div class="table-wrap">
+                    <table>
+                        <tr><th>Basis</th><th>Harappan Civilization</th><th>Early Vedic Society</th></tr>
+                        <tr><td>Period</td><td>Mature phase c. 2600–1900 BCE</td><td>Commonly dated c. 1500–1000 BCE</td></tr>
+                        <tr><td>Main sources</td><td>Archaeological remains</td><td>Rigveda and related literary traditions</td></tr>
+                        <tr><td>Nature</td><td>Urban in its mature phase</td><td>Predominantly rural and pastoral in the early phase</td></tr>
+                        <tr><td>Settlements</td><td>Planned cities and smaller settlements</td><td>Villages and pastoral settlements</td></tr>
+                        <tr><td>Economy</td><td>Agriculture, crafts and long-distance trade</td><td>Cattle rearing, pastoralism and agriculture</td></tr>
+                        <tr><td>Script</td><td>Undeciphered script</td><td>No established Harappan-style urban script</td></tr>
+                        <tr><td>Trade</td><td>Extensive internal and external trade</td><td>Exchange with changing patterns</td></tr>
+                        <tr><td>Religious evidence</td><td>Seals, figurines, structures and burials</td><td>Vedic hymns and ritual traditions</td></tr>
+                        <tr><td>Horse</td><td>Evidence limited and debated</td><td>Appears in Vedic texts</td></tr>
+                        <tr><td>Political organization</td><td>Exact system unknown</td><td>Tribal and chiefly structures described in texts</td></tr>
+                    </table>
+                </div>
+
+                <div class="callout warning">
+                    The relationship between Harappan populations and later South Asian societies is complex. The two traditions should not be treated as completely separate in every respect.
+                </div>
+            </section>
+
+            <!-- 27 DISCOVERIES -->
+            <section class="card searchable" id="discoveries">
+                <h2>27. Important Archaeological Discoveries</h2>
+
+                <div class="fact-grid">
+                    <div class="fact">
+                        <strong>Great Bath</strong>
+                        <span>Mohenjo-daro — advanced water engineering.</span>
+                    </div>
+                    <div class="fact">
+                        <strong>Bronze Dancing Girl</strong>
+                        <span>Mohenjo-daro — metalworking and artistic skill.</span>
+                    </div>
+                    <div class="fact">
+                        <strong>Priest-King Sculpture</strong>
+                        <span>Mohenjo-daro — stone sculpture.</span>
+                    </div>
+                    <div class="fact">
+                        <strong>Pashupati Seal</strong>
+                        <span>Mohenjo-daro — animal imagery and debated interpretation.</span>
+                    </div>
+                    <div class="fact">
+                        <strong>Ploughed Field</strong>
+                        <span>Kalibangan — agricultural practices.</span>
+                    </div>
+                    <div class="fact">
+                        <strong>Reservoirs</strong>
+                        <span>Dholavira — water conservation.</span>
+                    </div>
+                    <div class="fact">
+                        <strong>Bead-Making</strong>
+                        <span>Lothal and Chanhudaro — specialized craft production.</span>
+                    </div>
+                    <div class="fact">
+                        <strong>Signboard</strong>
+                        <span>Dholavira — Harappan signs in a prominent architectural setting.</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 28 LIMITATIONS -->
+            <section class="card searchable" id="limitations">
+                <h2>28. Limitations of Our Knowledge</h2>
+
+                <ol>
+                    <li><strong>Script:</strong> The Harappan script remains undeciphered.</li>
+                    <li><strong>Language:</strong> The spoken language or languages remain unknown.</li>
+                    <li><strong>Political System:</strong> The precise form of government is uncertain.</li>
+                    <li><strong>Religion:</strong> Many interpretations rely on archaeological inference.</li>
+                    <li><strong>Rulers:</strong> No universally accepted list of Harappan kings is known.</li>
+                    <li><strong>Decline:</strong> The relative importance of environmental, economic and social factors remains debated.</li>
+                    <li><strong>Population:</strong> Relationships with later South Asian communities remain an active research area.</li>
+                </ol>
+
+                <div class="callout">
+                    <strong>Mains Point:</strong> Archaeological evidence allows us to reconstruct many aspects of Harappan life, but the undeciphered script limits our knowledge of its rulers, institutions and beliefs.
+                </div>
+            </section>
+
+            <!-- 29 PRELIMS -->
+            <section class="card searchable" id="prelims">
+                <h2>29. Important Facts for BPSC Prelims</h2>
+
+                <ol>
+                    <li>The Harappan Civilization was a Bronze Age civilization.</li>
+                    <li>The Mature Harappan phase dates to approximately 2600–1900 BCE.</li>
+                    <li>Daya Ram Sahni excavated Harappa in 1921.</li>
+                    <li>R. D. Banerji excavated Mohenjo-daro in 1922.</li>
+                    <li>John Marshall announced the discovery in 1924.</li>
+                    <li>Harappa was situated in the Ravi River region.</li>
+                    <li>Mohenjo-daro was situated in the Indus River region.</li>
+                    <li>The Great Bath was found at Mohenjo-daro.</li>
+                    <li>The bronze Dancing Girl was found at Mohenjo-daro.</li>
+                    <li>The Priest-King sculpture was found at Mohenjo-daro.</li>
+                    <li>Kalibangan is famous for evidence of a ploughed field.</li>
+                    <li>Dholavira is famous for water management.</li>
+                    <li>Lothal is associated with bead-making and maritime trade.</li>
+                    <li>Chanhudaro was an important craft-production centre.</li>
+                    <li>Rakhigarhi is located in Haryana.</li>
+                    <li>Dholavira is located in Gujarat.</li>
+                    <li>Kalibangan is located in Rajasthan.</li>
+                    <li>Harappan seals were frequently made of steatite.</li>
+                    <li>The unicorn is a common Harappan seal motif.</li>
+                    <li>The Harappan script remains undeciphered.</li>
+                    <li>Wheat and barley were important crops.</li>
+                    <li>Cotton was cultivated by Harappan communities.</li>
+                    <li>Copper and bronze were important metals.</li>
+                    <li>The lost-wax casting technique was used in bronze production.</li>
+                    <li>Meluhha is commonly associated with the Harappan region.</li>
+                    <li>Dholavira was inscribed on the UNESCO World Heritage List in 2021.</li>
+                    <li>The decline of the Mature Harappan urban system began around 1900 BCE.</li>
+                    <li>The decline was a complex process rather than one universally established catastrophic event.</li>
+                    <li>The exact Harappan political system is unknown.</li>
+                    <li>The Pashupati-Shiva identification remains debated.</li>
+                    <li>The Lothal dockyard interpretation is well known but debated.</li>
+                    <li>The horse's role in Harappan society remains debated.</li>
+                    <li>Harappan cities had sophisticated drainage systems.</li>
+                    <li>Dholavira had a distinctive three-part urban division.</li>
+                    <li>Harappan settlements extended beyond the Indus Valley.</li>
+                    <li>The civilization participated in extensive Bronze Age trade networks.</li>
+                </ol>
+            </section>
+
+            <!-- 30 MAINS -->
+            <section class="card searchable" id="mains">
+                <h2>30. Important Questions for BPSC Mains</h2>
+
+                <h3>Question 1. Discuss the major features of the Indus Valley Civilization.</h3>
+                <p><strong>Introduction:</strong> The Harappan Civilization was a major Bronze Age urban civilization that flourished in the northwestern Indian subcontinent.</p>
+                <p><strong>Main Body:</strong></p>
+                <ol>
+                    <li>Urban planning and organized settlements.</li>
+                    <li>Advanced drainage systems.</li>
+                    <li>Baked-brick architecture.</li>
+                    <li>Agriculture and animal husbandry.</li>
+                    <li>Craft production and metallurgy.</li>
+                    <li>Internal and external trade.</li>
+                    <li>Seals and undeciphered script.</li>
+                    <li>Art and sculpture.</li>
+                </ol>
+                <p><strong>Conclusion:</strong> The civilization represents a major achievement in early urban planning, craft production and economic organization.</p>
+
+                <h3>Question 2. Explain the town-planning system of the Harappan Civilization.</h3>
+                <p>Discuss planned streets, residential blocks, courtyard houses, baked bricks, drainage systems, wells and water-management structures. Conclude by emphasizing coordinated urban infrastructure.</p>
+
+                <h3>Question 3. Discuss the economic life of the Harappan people.</h3>
+                <p>Explain agriculture, animal husbandry, craft specialization, internal trade, external trade and standardized weights and measures.</p>
+
+                <h3>Question 4. Examine the religious beliefs of the Harappan Civilization.</h3>
+                <p>Discuss female figurines, the Pashupati seal, animal imagery, tree symbolism, possible fire altars, the Great Bath and burial practices. Explain the limitations of archaeological interpretation.</p>
+
+                <h3>Question 5. Discuss the causes of the decline of the Harappan Civilization.</h3>
+                <p>Examine climate change, river-system changes, floods, environmental stress, changes in trade, population movement and regional transformations.</p>
+
+                <h3>Question 6. Explain the importance of trade in the Harappan Civilization.</h3>
+                <p>Discuss the supply of raw materials, specialized crafts, standardized weights, trade with Mesopotamia and connections with Oman and Bahrain.</p>
+
+                <div class="callout success">
+                    <strong>Mains Answer Structure:</strong> Introduction → Evidence-based explanation → Examples of sites → Analysis → Balanced conclusion.
+                </div>
+            </section>
+
+            <!-- 31 REVISION -->
+            <section class="card searchable" id="revision">
+                <h2>31. Quick Revision Table</h2>
+
+                <div class="table-wrap">
+                    <table>
+                        <tr><th>Question</th><th>Answer</th></tr>
+                        <tr><td>Another name for the civilization?</td><td>Harappan Civilization</td></tr>
+                        <tr><td>Mature Harappan period?</td><td>c. 2600–1900 BCE</td></tr>
+                        <tr><td>Who excavated Harappa?</td><td>Daya Ram Sahni, 1921</td></tr>
+                        <tr><td>Who excavated Mohenjo-daro?</td><td>R. D. Banerji, 1922</td></tr>
+                        <tr><td>Who announced the discovery?</td><td>John Marshall, 1924</td></tr>
+                        <tr><td>Great Bath?</td><td>Mohenjo-daro</td></tr>
+                        <tr><td>Dancing Girl?</td><td>Mohenjo-daro</td></tr>
+                        <tr><td>Priest-King sculpture?</td><td>Mohenjo-daro</td></tr>
+                        <tr><td>Ploughed field?</td><td>Kalibangan</td></tr>
+                        <tr><td>Reservoirs?</td><td>Dholavira</td></tr>
+                        <tr><td>Bead-making and maritime trade?</td><td>Lothal</td></tr>
+                        <tr><td>Craft-production centre?</td><td>Chanhudaro</td></tr>
+                        <tr><td>Site in Haryana?</td><td>Rakhigarhi</td></tr>
+                        <tr><td>Common seal material?</td><td>Steatite</td></tr>
+                        <tr><td>Common seal motif?</td><td>Unicorn</td></tr>
+                        <tr><td>Script status?</td><td>Undeciphered</td></tr>
+                        <tr><td>Important cereals?</td><td>Wheat and barley</td></tr>
+                        <tr><td>Important textile crop?</td><td>Cotton</td></tr>
+                        <tr><td>Important metals?</td><td>Copper and bronze</td></tr>
+                        <tr><td>Bronze casting technique?</td><td>Lost-wax casting</td></tr>
+                        <tr><td>Mesopotamian trading region?</td><td>Meluhha</td></tr>
+                        <tr><td>Beginning of urban decline?</td><td>Around 1900 BCE</td></tr>
+                        <tr><td>Exact political system?</td><td>Unknown</td></tr>
+                    </table>
+                </div>
+            </section>
+
+            <!-- 32 MCQS -->
+            <section class="card searchable" id="mcqs">
+                <h2>32. Practice MCQs for BPSC Prelims</h2>
+
+                <p>Attempt the questions and check your score instantly. Each question carries one practice point.</p>
+
+                <div class="score-box">
+                    <div>
+                        <div>YOUR PRACTICE SCORE</div>
+                        <strong id="score">0 / 20</strong>
+                    </div>
+                    <div class="top-actions">
+                        <button class="btn btn-gold" onclick="showAnswerKey()">Answer Key</button>
+                        <button class="btn btn-white" onclick="resetQuiz()">Restart Test</button>
+                    </div>
+                </div>
+
+                <div id="quiz"></div>
+
+                <div class="answer-key" id="answerKey">
+                    <h3>Answer Key</h3>
+                    <p id="keyText"></p>
+                </div>
+            </section>
+
+        </main>
+    </div>
+</div>
+
+<footer class="footer">
+    <strong>BPSC STUDY NOTES</strong>
+    <p>Indus Valley Civilization — Ancient Indian History</p>
+    <p>Designed for educational and competitive examination preparation.</p>
+</footer>
+
+<script>
+/* ==========================================
+   BPSC INDUS VALLEY CIVILIZATION MCQ DATA
+========================================== */
+
+const questions = [
+    {
+        q: "The Mature Harappan Civilization flourished approximately during which period?",
+        options: ["5000–4000 BCE", "2600–1900 BCE", "1500–1000 BCE", "600–300 BCE"],
+        answer: 1
+    },
+    {
+        q: "Who excavated Harappa in 1921?",
+        options: ["John Marshall", "R. D. Banerji", "Daya Ram Sahni", "Mortimer Wheeler"],
+        answer: 2
+    },
+    {
+        q: "The Great Bath was discovered at:",
+        options: ["Harappa", "Lothal", "Kalibangan", "Mohenjo-daro"],
+        answer: 3
+    },
+    {
+        q: "Which site is famous for evidence of a ploughed field?",
+        options: ["Kalibangan", "Dholavira", "Harappa", "Chanhudaro"],
+        answer: 0
+    },
+    {
+        q: "Dholavira is located in:",
+        options: ["Rajasthan", "Haryana", "Gujarat", "Punjab"],
+        answer: 2
+    },
+    {
+        q: "Which site is associated with bead-making and maritime trade?",
+        options: ["Alamgirpur", "Lothal", "Rakhigarhi", "Banawali"],
+        answer: 1
+    },
+    {
+        q: "The Harappan script is:",
+        options: ["Written entirely in Sanskrit", "Fully deciphered", "Written in classical Tamil", "Undeciphered"],
+        answer: 3
+    },
+    {
+        q: "Which material was commonly used for Harappan seals?",
+        options: ["Steatite", "Marble", "Granite", "Limestone exclusively"],
+        answer: 0
+    },
+    {
+        q: "The famous bronze Dancing Girl was found at:",
+        options: ["Harappa", "Dholavira", "Mohenjo-daro", "Kalibangan"],
+        answer: 2
+    },
+    {
+        q: "Which crops were cultivated by Harappan communities?",
+        options: ["Cotton", "Wheat", "Barley", "All of the above"],
+        answer: 3
+    },
+    {
+        q: "The Harappan Civilization is associated with which technological age?",
+        options: ["Iron Age", "Bronze Age", "Medieval Age", "Modern Age"],
+        answer: 1
+    },
+    {
+        q: "Which site is especially famous for water management and reservoirs?",
+        options: ["Dholavira", "Chanhudaro", "Alamgirpur", "Kot Diji"],
+        answer: 0
+    },
+    {
+        q: "Which Mesopotamian trading region is commonly associated with the Harappan region?",
+        options: ["Magan", "Dilmun", "Meluhha", "Akkad"],
+        answer: 2
+    },
+    {
+        q: "The bronze Dancing Girl is associated with which technique?",
+        options: ["Fresco painting", "Lost-wax casting", "Woodblock printing", "Stone inlay only"],
+        answer: 1
+    },
+    {
+        q: "Which statement about Harappan religion is most accurate?",
+        options: [
+            "All beliefs are known from written texts.",
+            "Shiva worship in its later form is conclusively established.",
+            "Interpretations rely largely on archaeological evidence and remain debated.",
+            "Archaeologists have proved that Harappans had no religious beliefs."
+        ],
+        answer: 2
+    },
+    {
+        q: "Which is an important feature of Harappan cities?",
+        options: ["Sophisticated drainage systems", "Exclusive use of iron tools", "No planned streets", "Exclusive use of wooden buildings"],
+        answer: 0
+    },
+    {
+        q: "Which major Harappan site is located in Haryana?",
+        options: ["Dholavira", "Rakhigarhi", "Lothal", "Mohenjo-daro"],
+        answer: 1
+    },
+    {
+        q: "Which statement about the decline of the Mature Harappan Civilization is correct?",
+        options: [
+            "Every settlement was destroyed on the same date.",
+            "It was conclusively caused by one invasion.",
+            "It involved complex and regionally varied transformations.",
+            "All Harappan populations disappeared completely."
+        ],
+        answer: 2
+    },
+    {
+        q: "The Harappan Civilization is particularly known for:",
+        options: ["Standardized weights and measures", "Extensive iron coinage", "Stone pyramids", "Sanskrit royal inscriptions"],
+        answer: 0
+    },
+    {
+        q: "Which statement about the Harappan political system is correct?",
+        options: [
+            "A complete list of kings has been discovered.",
+            "The entire civilization was certainly a republic.",
+            "Its exact political organization remains uncertain.",
+            "It was certainly ruled by one known emperor."
+        ],
+        answer: 2
+    }
+];
+
+let score = 0;
+let answered = new Array(questions.length).fill(false);
+
+function renderQuiz() {
+    const quiz = document.getElementById("quiz");
+    quiz.innerHTML = "";
+
+    questions.forEach((item, index) => {
+        const wrapper = document.createElement("div");
+        wrapper.className = "question";
+        wrapper.id = "question-" + index;
+
+        const title = document.createElement("h4");
+        title.textContent = (index + 1) + ". " + item.q;
+        wrapper.appendChild(title);
+
+        const options = document.createElement("div");
+        options.className = "options";
+
+        item.options.forEach((option, optionIndex) => {
+            const button = document.createElement("button");
+            button.className = "option";
+            button.textContent =
+                String.fromCharCode(65 + optionIndex) + ". " + option;
+
+            button.onclick = () => checkAnswer(index, optionIndex, button);
+
+            options.appendChild(button);
+        });
+
+        wrapper.appendChild(options);
+
+        const feedback = document.createElement("div");
+        feedback.className = "feedback";
+        feedback.id = "feedback-" + index;
+
+        wrapper.appendChild(feedback);
+        quiz.appendChild(wrapper);
+    });
+
+    updateScore();
+}
+
+function checkAnswer(questionIndex, optionIndex, selectedButton) {
+    if (answered[questionIndex]) return;
+
+    answered[questionIndex] = true;
+
+    const item = questions[questionIndex];
+    const questionElement = document.getElementById("question-" + questionIndex);
+    const buttons = questionElement.querySelectorAll(".option");
+    const feedback = document.getElementById("feedback-" + questionIndex);
+
+    buttons.forEach(button => {
+        button.disabled = true;
+        button.style.cursor = "default";
+    });
+
+    if (optionIndex === item.answer) {
+        score++;
+        selectedButton.classList.add("correct");
+        feedback.textContent = "Correct answer!";
+        feedback.style.color = "#147d55";
+    } else {
+        selectedButton.classList.add("wrong");
+        buttons[item.answer].classList.add("correct");
+        feedback.textContent =
+            "Incorrect. Correct answer: " +
+            String.fromCharCode(65 + item.answer) +
+            ". " + item.options[item.answer];
+
+        feedback.style.color = "#c0392b";
+    }
+
+    updateScore();
+}
+
+function updateScore() {
+    document.getElementById("score").textContent =
+        score + " / " + questions.length;
+}
+
+function showAnswerKey() {
+    const key = document.getElementById("answerKey");
+    const keyText = document.getElementById("keyText");
+
+    keyText.innerHTML = questions.map((item, index) => {
+        return "<strong>" + (index + 1) + ". " +
+            String.fromCharCode(65 + item.answer) +
+            "</strong> — " +
+            item.options[item.answer];
+    }).join("<br>");
+
+    key.classList.toggle("show");
+}
+
+function resetQuiz() {
+    score = 0;
+    answered = new Array(questions.length).fill(false);
+
+    document.getElementById("answerKey").classList.remove("show");
+
+    renderQuiz();
+}
+
+function searchNotes() {
+    const query = document.getElementById("searchInput")
+        .value.toLowerCase().trim();
+
+    const sections = document.querySelectorAll(".searchable");
+    const links = document.querySelectorAll("#chapterIndex a");
+
+    let matches = 0;
+
+    sections.forEach(section => {
+        const content = section.innerText.toLowerCase();
+        const isMatch = !query || content.includes(query);
+
+        section.classList.toggle("hidden-search", !isMatch);
+
+        if (isMatch) matches++;
+    });
+
+    links.forEach(link => {
+        const target = document.querySelector(link.getAttribute("href"));
+
+        if (!target) return;
+
+        const visible = !target.classList.contains("hidden-search");
+        link.classList.toggle("hidden-search", !visible);
+    });
+
+    document.getElementById("noResults").style.display =
+        matches === 0 ? "block" : "none";
+}
+
+function resetSearch() {
+    document.getElementById("searchInput").value = "";
+
+    document.querySelectorAll(".searchable").forEach(section => {
+        section.classList.remove("hidden-search");
+    });
+
+    document.querySelectorAll("#chapterIndex a").forEach(link => {
+        link.classList.remove("hidden-search");
+    });
+
+    document.getElementById("noResults").style.display = "none";
+
+    window.scrollTo({
+        top: document.getElementById("top").offsetTop,
+        behavior: "smooth"
+    });
+}
+
+/* Highlight the current chapter in the index */
+const chapterLinks = document.querySelectorAll("#chapterIndex a");
+
+chapterLinks.forEach(link => {
+    link.addEventListener("click", () => {
+        chapterLinks.forEach(item => item.classList.remove("active"));
+        link.classList.add("active");
+    });
+});
+
+/* Initialize the practice test */
+renderQuiz();
+</script>
+
+</body>
+</html>
