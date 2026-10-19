@@ -3,20 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>The Revolt of 1857 | Orient Classes</title>
 
 <style>
-:root {
-    --navy: #10264b;
-    --blue: #173f78;
-    --gold: #f4c542;
-    --light: #f3f6fb;
-    --white: #ffffff;
-    --text: #253247;
-    --border: #dce4ef;
-    --green: #137547;
-}
-
 * {
     box-sizing: border-box;
 }
@@ -27,192 +17,58 @@ html {
 
 body {
     margin: 0;
+    padding: 24px;
     font-family: Arial, Helvetica, sans-serif;
-    background: var(--light);
-    color: var(--text);
-    line-height: 1.75;
+    background: #f3f6fb;
+    color: #253247;
+    line-height: 1.8;
 }
 
-/* HEADER */
-
-.top-header {
-    background: linear-gradient(120deg, var(--navy), var(--blue));
-    color: white;
-    padding: 24px 20px;
-    border-bottom: 4px solid var(--gold);
-}
-
-.header-inner {
-    max-width: 1400px;
+.container {
+    max-width: 1100px;
     margin: auto;
-}
-
-.brand {
-    font-size: 27px;
-    font-weight: 800;
-    letter-spacing: 0.5px;
-}
-
-.brand span {
-    color: var(--gold);
-}
-
-.header-subtitle {
-    margin-top: 5px;
-    color: #e0e9f7;
-    font-size: 14px;
-}
-
-/* PAGE LAYOUT */
-
-.layout {
-    display: flex;
-    align-items: flex-start;
-    max-width: 1500px;
-    margin: auto;
-    min-height: 100vh;
-}
-
-/* BPSC NAVIGATION */
-
-.sidebar {
-    width: 270px;
-    flex-shrink: 0;
-    background: var(--navy);
-    color: white;
-    min-height: 100vh;
-    padding: 18px 12px;
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    overflow-y: auto;
-}
-
-.sidebar-title {
-    color: var(--gold);
-    font-size: 19px;
-    font-weight: bold;
-    padding: 8px 12px 15px;
-    border-bottom: 1px solid #405477;
-    margin-bottom: 12px;
-}
-
-.nav-link,
-.sidebar summary {
-    display: block;
-    color: #edf3ff;
-    padding: 10px 12px;
-    text-decoration: none;
-    border-radius: 6px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.nav-link:hover,
-.sidebar summary:hover {
-    background: #284d7e;
-    color: var(--gold);
-}
-
-.sidebar details {
-    margin: 3px 0;
-}
-
-.sidebar details details {
-    margin-left: 9px;
-}
-
-.sidebar summary {
-    list-style-position: inside;
-    font-weight: 600;
-}
-
-.sidebar .sub-link {
-    display: block;
-    padding: 7px 10px 7px 20px;
-    margin: 2px 0;
-    color: #d8e4f5;
-    text-decoration: none;
-    font-size: 13px;
-    border-radius: 5px;
-}
-
-.sidebar .sub-link:hover {
-    background: #284d7e;
-    color: var(--gold);
-}
-
-.sidebar .active {
-    background: #31588c;
-    color: var(--gold);
-    border-left: 4px solid var(--gold);
-}
-
-.mock-button {
-    display: block;
-    margin: 18px 5px 8px;
-    padding: 12px 10px;
-    text-align: center;
-    background: #dc2626;
-    color: white;
-    text-decoration: none;
-    border-radius: 7px;
-    font-weight: bold;
-}
-
-.mock-button:hover {
-    background: #b91c1c;
-}
-
-/* MAIN CONTENT */
-
-.main-content {
-    flex: 1;
-    min-width: 0;
-    padding: 25px;
-}
-
-.content-card {
-    max-width: 1050px;
-    margin: auto;
-    background: white;
-    padding: 32px;
+    padding: 35px;
+    background: #ffffff;
     border-radius: 12px;
-    box-shadow: 0 4px 18px rgba(16, 38, 75, 0.08);
+    box-shadow: 0 4px 20px rgba(16, 38, 75, 0.08);
 }
 
-.page-label {
+.subject-label {
     display: inline-block;
-    padding: 5px 12px;
+    background: #e7efff;
+    color: #173f78;
+    padding: 6px 13px;
     border-radius: 5px;
-    background: #e8effb;
-    color: var(--blue);
-    font-weight: bold;
     font-size: 12px;
+    font-weight: bold;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
 }
 
 h1 {
-    color: var(--navy);
+    color: #10264b;
+    font-size: 34px;
     line-height: 1.3;
-    font-size: 32px;
-    margin: 15px 0 5px;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: #53647c;
+    font-size: 16px;
+    margin-bottom: 25px;
 }
 
 h2 {
-    color: var(--navy);
-    font-size: 23px;
+    color: #10264b;
+    font-size: 24px;
     margin-top: 38px;
     padding-bottom: 8px;
-    border-bottom: 2px solid var(--gold);
+    border-bottom: 3px solid #f4c542;
 }
 
 h3 {
-    color: var(--blue);
+    color: #173f78;
     margin-top: 25px;
-    font-size: 18px;
+    font-size: 19px;
 }
 
 p {
@@ -220,169 +76,140 @@ p {
 }
 
 li {
-    margin-bottom: 7px;
+    margin-bottom: 8px;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    margin: 18px 0 25px;
+    margin: 20px 0;
     font-size: 14px;
 }
 
 th {
-    background: var(--navy);
+    background: #10264b;
     color: white;
     text-align: left;
 }
 
 th, td {
-    padding: 11px 12px;
-    border: 1px solid var(--border);
+    padding: 12px;
+    border: 1px solid #dce4ef;
     vertical-align: top;
 }
 
 tbody tr:nth-child(even) {
-    background: #f5f8fc;
+    background: #f4f7fc;
 }
 
-.callout {
-    margin: 20px 0;
-    padding: 15px 18px;
-    border-left: 5px solid var(--gold);
+.note {
+    padding: 16px 18px;
+    margin: 22px 0;
+    border-left: 5px solid #f4c542;
     background: #fff9e6;
-    border-radius: 4px;
+    border-radius: 5px;
 }
 
 .exam-point {
-    margin: 18px 0;
-    padding: 15px 18px;
-    background: #eaf3ff;
+    padding: 16px 18px;
+    margin: 22px 0;
     border-left: 5px solid #2563eb;
-    border-radius: 4px;
+    background: #eaf3ff;
+    border-radius: 5px;
 }
 
 .success-point {
-    margin: 18px 0;
-    padding: 15px 18px;
-    background: #eaf8ef;
-    border-left: 5px solid var(--green);
-    border-radius: 4px;
-}
-
-.fact-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-    margin: 20px 0;
-}
-
-.fact-box {
-    padding: 15px;
-    background: #f4f7fc;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-}
-
-.fact-box strong {
-    display: block;
-    color: var(--blue);
-    margin-bottom: 4px;
-}
-
-.toc {
-    background: #f5f8fc;
-    padding: 18px 24px;
-    border: 1px solid var(--border);
-    border-radius: 8px;
+    padding: 16px 18px;
     margin: 22px 0;
+    border-left: 5px solid #16804a;
+    background: #eaf8ef;
+    border-radius: 5px;
 }
 
-.toc a {
-    color: var(--blue);
+.contents {
+    padding: 20px 25px;
+    background: #f5f8fc;
+    border: 1px solid #dce4ef;
+    border-radius: 8px;
+    margin: 25px 0;
+}
+
+.contents a {
+    color: #173f78;
     text-decoration: none;
 }
 
-.toc a:hover {
+.contents a:hover {
     text-decoration: underline;
 }
 
 .question {
-    border: 1px solid var(--border);
+    border: 1px solid #dce4ef;
     border-radius: 8px;
-    padding: 17px;
-    margin: 18px 0;
+    padding: 18px;
+    margin: 20px 0;
+    background: #fff;
 }
 
-.question p {
-    margin-top: 0;
+.question details {
+    margin-top: 12px;
+}
+
+.question summary {
+    color: #173f78;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .answer {
-    margin-top: 10px;
-    color: #12653a;
+    color: #137547;
     font-weight: bold;
-}
-
-.footer {
-    margin-top: 35px;
-    padding: 20px;
-    text-align: center;
-    background: var(--navy);
-    color: #e4ecf9;
-    font-size: 13px;
-    border-radius: 8px;
+    margin-top: 10px;
 }
 
 .back-top {
     display: inline-block;
-    margin-top: 20px;
-    padding: 9px 14px;
-    background: var(--blue);
+    margin-top: 25px;
+    padding: 10px 16px;
+    background: #173f78;
     color: white;
     text-decoration: none;
     border-radius: 5px;
 }
 
-/* MOBILE */
+.back-top:hover {
+    background: #10264b;
+}
 
-@media (max-width: 800px) {
-    .layout {
-        display: block;
+.footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #dce4ef;
+    text-align: center;
+    color: #53647c;
+    font-size: 13px;
+}
+
+@media (max-width: 650px) {
+    body {
+        padding: 10px;
     }
 
-    .sidebar {
-        position: relative;
-        width: 100%;
-        height: auto;
-        min-height: auto;
-        max-height: 420px;
-    }
-
-    .main-content {
-        padding: 12px;
-    }
-
-    .content-card {
+    .container {
         padding: 18px;
     }
 
     h1 {
-        font-size: 26px;
+        font-size: 27px;
     }
 
     h2 {
         font-size: 21px;
     }
 
-    .fact-grid {
-        grid-template-columns: 1fr;
-    }
-
     table {
         display: block;
         overflow-x: auto;
-        white-space: normal;
     }
 }
 </style>
@@ -390,181 +217,40 @@ tbody tr:nth-child(even) {
 
 <body>
 
-<header class="top-header">
-    <div class="header-inner">
-        <div class="brand">ORIENT <span>CLASSES</span></div>
-        <div class="header-subtitle">
-            BPSC & UPSC Preparation | Modern Indian History
-        </div>
-    </div>
-</header>
+<main class="container" id="top">
 
-<div class="layout">
-
-<!-- BPSC NAVIGATION PANEL -->
-
-<aside class="sidebar">
-
-    <div class="sidebar-title">BPSC NAVIGATION</div>
-
-    <a class="nav-link" href="index.html">⌂ Home Page</a>
-
-    <a class="nav-link" href="BPSC_Syllabus.html">📘 Syllabus</a>
-
-    <a class="nav-link" href="BPSC_Exam_Pattern.html">📋 Exam Pattern</a>
-
-    <a class="nav-link" href="BPSC_Cutoff.html">📊 Cut-Off Trends</a>
-
-    <a class="nav-link" href="BPSC_Vacancy.html">📢 Vacancies</a>
-
-    <a class="nav-link" href="BPSC_Prelims_PYQ.html">📝 Prelims PYQ</a>
-
-    <a class="nav-link" href="BPSC_Mains_PYQ.html">📚 Mains PYQ</a>
-
-    <details open>
-        <summary>📖 Subject-wise Notes</summary>
-
-        <details>
-            <summary>Modern Indian History</summary>
-
-            <a class="sub-link" href="revolt-of-1857.html">
-                The Revolt of 1857
-            </a>
-
-            <a class="sub-link" href="national-movement.html">
-                National Movement
-            </a>
-
-            <a class="sub-link" href="governor-generals.html">
-                Governor-Generals & Viceroys
-            </a>
-
-            <a class="sub-link" href="british-expansion.html">
-                British Expansion
-            </a>
-        </details>
-
-        <details>
-            <summary>Indian Polity</summary>
-
-            <a class="sub-link" href="preamble.html">Preamble</a>
-
-            <a class="sub-link" href="fundamental-rights.html">
-                Fundamental Rights
-            </a>
-
-            <a class="sub-link" href="fundamental-duties.html">
-                Fundamental Duties
-            </a>
-
-            <a class="sub-link" href="directive-principles.html">
-                Directive Principles
-            </a>
-        </details>
-
-        <details>
-            <summary>Ancient Indian History</summary>
-
-            <a class="sub-link" href="indus-valley.html">
-                Indus Valley Civilization
-            </a>
-
-            <a class="sub-link" href="mauryan-empire.html">
-                Mauryan Empire
-            </a>
-
-            <a class="sub-link" href="gupta-empire.html">
-                Gupta Empire
-            </a>
-        </details>
-
-        <details>
-            <summary>Indian Geography</summary>
-
-            <a class="sub-link" href="indian-geography.html">
-                Indian Geography
-            </a>
-
-            <a class="sub-link" href="drainage-system.html">
-                Drainage System
-            </a>
-        </details>
-
-        <details>
-            <summary>Indian Economy</summary>
-
-            <a class="sub-link" href="indian-economy.html">
-                Basic Concepts
-            </a>
-        </details>
-    </details>
-
-    <a class="nav-link" href="Current_Affairs.html">
-        📰 Current Affairs
-    </a>
-
-    <a class="mock-button" href="BPSC_Mock_Tests.html">
-        🔴 MOCK TESTS
-    </a>
-
-</aside>
-
-
-<!-- MAIN NOTES CONTENT -->
-
-<main class="main-content">
-
-<article class="content-card" id="top">
-
-<span class="page-label">Modern Indian History</span>
+<span class="subject-label">Modern Indian History</span>
 
 <h1>THE REVOLT OF 1857</h1>
 
+<div class="subtitle">
+Complete Notes for BPSC &amp; UPSC Prelims<br>
+Difficulty Level: Advanced
+</div>
+
 <p>
-<strong>Complete Notes for BPSC & UPSC Prelims</strong>
+<strong>Focus:</strong> Important facts, causes, leaders, centres,
+chronology, consequences and previous-year-question concepts.
 </p>
 
-<div class="fact-grid">
-    <div class="fact-box">
-        <strong>Subject</strong>
-        Modern Indian History
-    </div>
+<nav class="contents">
+<strong>CONTENTS</strong>
+<ol>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#background">Background</a></li>
+<li><a href="#causes">Causes of the Revolt</a></li>
+<li><a href="#leaders">Major Centres and Leaders</a></li>
+<li><a href="#failure">Why the Revolt Failed</a></li>
+<li><a href="#nature">Nature of the Revolt</a></li>
+<li><a href="#consequences">Consequences</a></li>
+<li><a href="#governors">Governor-Generals and Viceroys</a></li>
+<li><a href="#dates">Important Dates</a></li>
+<li><a href="#questions">BPSC Prelims Questions</a></li>
+<li><a href="#revision">Final Revision</a></li>
+</ol>
+</nav>
 
-    <div class="fact-box">
-        <strong>Difficulty Level</strong>
-        Advanced
-    </div>
-
-    <div class="fact-box">
-        <strong>Focus</strong>
-        Causes, leaders, centres and chronology
-    </div>
-
-    <div class="fact-box">
-        <strong>Exam Target</strong>
-        BPSC & UPSC Prelims
-    </div>
-</div>
-
-<div class="toc">
-    <strong>CONTENTS</strong>
-    <ol>
-        <li><a href="#introduction">Introduction</a></li>
-        <li><a href="#background">Background</a></li>
-        <li><a href="#causes">Causes of the Revolt</a></li>
-        <li><a href="#centres">Major Centres and Leaders</a></li>
-        <li><a href="#failure">Why the Revolt Failed</a></li>
-        <li><a href="#nature">Nature and Historical Interpretations</a></li>
-        <li><a href="#consequences">Consequences of the Revolt</a></li>
-        <li><a href="#viceroys">Governor-Generals and Viceroys</a></li>
-        <li><a href="#dates">Important Dates</a></li>
-        <li><a href="#questions">BPSC Prelims Questions</a></li>
-        <li><a href="#revision">Final Revision</a></li>
-    </ol>
-</div>
-
-
-<!-- SECTION 1 -->
+<!-- 1. INTRODUCTION -->
 
 <h2 id="introduction">1. Introduction</h2>
 
@@ -605,8 +291,7 @@ The revolt did not begin simultaneously throughout India.
 Its intensity and participation varied considerably from region to region.
 </div>
 
-
-<!-- SECTION 2 -->
+<!-- 2. BACKGROUND -->
 
 <h2 id="background">2. Background of the Revolt</h2>
 
@@ -628,16 +313,9 @@ British expansion created resentment among different sections of society.
 <li>Racial discrimination and exclusion from higher positions.</li>
 </ol>
 
-<p>
-These grievances combined to create an atmosphere of widespread dissatisfaction.
-</p>
-
-
-<!-- SECTION 3 -->
+<!-- 3. CAUSES -->
 
 <h2 id="causes">3. Causes of the Revolt of 1857</h2>
-
-<p>The causes can be classified into five major categories.</p>
 
 <h3>A. Political Causes</h3>
 
@@ -645,15 +323,9 @@ These grievances combined to create an atmosphere of widespread dissatisfaction.
 
 <p>
 The Doctrine of Lapse was aggressively applied during the tenure of
-Lord Dalhousie (1848–1856).
-Under this policy, the British refused to recognise certain adopted
-heirs as legitimate successors to rulers of states considered dependent
-on British authority.
-</p>
-
-<p>
-When a ruler died without a recognised natural male heir, the state
-could be annexed under the policy.
+Lord Dalhousie (1848–1856). Under this policy, the British refused to
+recognise certain adopted heirs as legitimate successors to rulers of
+states considered dependent on British authority.
 </p>
 
 <table>
@@ -700,10 +372,10 @@ continuation of his father's pension. He later became a prominent leader
 of the revolt at Kanpur.
 </p>
 
-
 <h3>B. Economic Causes</h3>
 
 <h3>1. Peasants</h3>
+
 <ul>
 <li>Heavy land-revenue demands created financial pressure.</li>
 <li>Failure to pay revenue could result in the loss of land.</li>
@@ -712,6 +384,7 @@ of the revolt at Kanpur.
 </ul>
 
 <h3>2. Artisans and Craftspeople</h3>
+
 <ul>
 <li>Competition from machine-made British textiles.</li>
 <li>Decline in the patronage of traditional rulers.</li>
@@ -739,10 +412,7 @@ Economic grievances were important, but they did not produce identical
 responses across all regions.
 </div>
 
-
 <h3>C. Military Causes</h3>
-
-<p>The revolt initially emerged among Indian soldiers serving in the Company's army.</p>
 
 <table>
 <thead>
@@ -766,12 +436,11 @@ responses across all regions.
 <td>Changes in allowances and service conditions created resentment.</td>
 </tr>
 <tr>
-<td>Religious fears</td>
+<td>Cultural and religious fears</td>
 <td>Rumours spread that the British intended to undermine Indian religions and customs.</td>
 </tr>
 </tbody>
 </table>
-
 
 <h3>D. Religious and Social Causes</h3>
 
@@ -787,73 +456,43 @@ However, the revolt was not simply a religious uprising. Political,
 economic and military grievances were equally important.
 </p>
 
-
 <h3>E. Immediate Cause: Greased-Cartridge Controversy</h3>
 
 <p>
 The immediate trigger was the introduction of the Pattern 1853 Enfield rifle.
 Its cartridge was opened by biting off one end before loading.
+Rumours spread that the cartridges were greased with cow and pig fat.
 </p>
 
-<p>
-Rumours spread that the cartridges were greased with cow and pig fat.
-This offended religious sensitivities: cows were sacred to many Hindus,
-while pigs were considered unclean by Muslims.
-</p>
+<ul>
+<li>Cows were sacred to many Hindus.</li>
+<li>Pigs were considered unclean by Muslims.</li>
+</ul>
 
 <table>
 <thead>
 <tr><th>Date</th><th>Event</th><th>Significance</th></tr>
 </thead>
 <tbody>
-<tr>
-<td>26 February 1857</td>
-<td>Cartridge-related discontent at Berhampore</td>
-<td>Early indication of unrest</td>
-</tr>
-<tr>
-<td>29 March 1857</td>
-<td>Mangal Pandey attacked British officers at Barrackpore</td>
-<td>Symbolic early episode of resistance</td>
-</tr>
-<tr>
-<td>8 April 1857</td>
-<td>Mangal Pandey was executed</td>
-<td>Increased tension</td>
-</tr>
-<tr>
-<td>24 April 1857</td>
-<td>Soldiers at Meerut refused to use the cartridges</td>
-<td>Immediate military confrontation</td>
-</tr>
-<tr>
-<td>9 May 1857</td>
-<td>85 troopers were punished and imprisoned at Meerut</td>
-<td>Trigger for the outbreak</td>
-</tr>
-<tr>
-<td>10 May 1857</td>
-<td>Soldiers revolted at Meerut</td>
-<td>Beginning of the major uprising</td>
-</tr>
-<tr>
-<td>11 May 1857</td>
-<td>Rebels reached Delhi</td>
-<td>Bahadur Shah II became the symbolic leader</td>
-</tr>
+<tr><td>26 February 1857</td><td>Cartridge-related discontent at Berhampore</td><td>Early indication of unrest</td></tr>
+<tr><td>29 March 1857</td><td>Mangal Pandey attacked British officers at Barrackpore</td><td>Symbolic early episode of resistance</td></tr>
+<tr><td>8 April 1857</td><td>Mangal Pandey was executed</td><td>Increased tension</td></tr>
+<tr><td>24 April 1857</td><td>Soldiers at Meerut refused to use the cartridges</td><td>Immediate military confrontation</td></tr>
+<tr><td>9 May 1857</td><td>85 troopers were punished and imprisoned at Meerut</td><td>Trigger for the outbreak</td></tr>
+<tr><td>10 May 1857</td><td>Soldiers revolted at Meerut</td><td>Beginning of the major uprising</td></tr>
+<tr><td>11 May 1857</td><td>Rebels reached Delhi</td><td>Bahadur Shah II became the symbolic leader</td></tr>
 </tbody>
 </table>
 
-<div class="callout">
+<div class="note">
 <strong>BPSC FACT:</strong>
 Mangal Pandey's action occurred at Barrackpore in March 1857,
 but the major revolt began at Meerut on 10 May 1857.
 </div>
 
+<!-- 4. CENTRES AND LEADERS -->
 
-<!-- SECTION 4 -->
-
-<h2 id="centres">4. Major Centres and Leaders of the Revolt</h2>
+<h2 id="leaders">4. Major Centres and Leaders of the Revolt</h2>
 
 <table>
 <thead>
@@ -901,9 +540,6 @@ through mobile military operations. He was captured and executed in 1859.
 Lucknow became a major centre of resistance. Begum Hazrat Mahal,
 the wife of Wajid Ali Shah, led opposition to British rule.
 Her son, Birjis Qadr, was proclaimed ruler.
-</p>
-
-<p>
 The resistance drew support from sections of the former royal establishment,
 taluqdars, soldiers and civilians.
 </p>
@@ -933,9 +569,7 @@ was one of the leading figures of the revolt.
 <li>He died on 26 April 1858.</li>
 </ul>
 
-<p>
-His brother Amar Singh continued resistance after his death.
-</p>
+<p>His brother Amar Singh continued resistance after his death.</p>
 
 <div class="success-point">
 <strong>BPSC SPECIAL FOCUS:</strong>
@@ -943,8 +577,7 @@ Kunwar Singh is among the most important personalities to study
 for Bihar-specific questions on the Revolt of 1857.
 </div>
 
-
-<!-- SECTION 5 -->
+<!-- 5. FAILURE -->
 
 <h2 id="failure">5. Why Did the Revolt Fail?</h2>
 
@@ -953,34 +586,13 @@ for Bihar-specific questions on the Revolt of 1857.
 <tr><th>Reason</th><th>Explanation</th></tr>
 </thead>
 <tbody>
-<tr>
-<td>Lack of unified leadership</td>
-<td>There was no single central authority coordinating all rebel forces.</td>
-</tr>
-<tr>
-<td>Limited geographical spread</td>
-<td>The revolt was strongest in northern and central India.</td>
-</tr>
-<tr>
-<td>Lack of a common programme</td>
-<td>Different groups participated for different reasons.</td>
-</tr>
-<tr>
-<td>British military advantages</td>
-<td>The British possessed advantages in organisation, communications and reinforcements.</td>
-</tr>
-<tr>
-<td>Support from some Indian rulers</td>
-<td>Several princely states supported the British or remained neutral.</td>
-</tr>
-<tr>
-<td>Limited resources</td>
-<td>The rebels faced difficulties obtaining weapons, ammunition, funds and supplies.</td>
-</tr>
-<tr>
-<td>Lack of coordination</td>
-<td>Rebel forces did not coordinate their operations effectively across different centres.</td>
-</tr>
+<tr><td>Lack of unified leadership</td><td>There was no single central authority capable of coordinating all rebel forces.</td></tr>
+<tr><td>Limited geographical spread</td><td>The revolt was strongest in northern and central India.</td></tr>
+<tr><td>Lack of a common programme</td><td>Different groups participated for different reasons.</td></tr>
+<tr><td>British military advantages</td><td>The British possessed advantages in organisation, communications, logistics and reinforcements.</td></tr>
+<tr><td>Support from some Indian rulers</td><td>Several princely states supported the British or remained neutral.</td></tr>
+<tr><td>Limited resources</td><td>The rebels faced difficulties obtaining weapons, ammunition, funds and supplies.</td></tr>
+<tr><td>Lack of coordination</td><td>Rebel forces did not coordinate their operations effectively across different centres.</td></tr>
 </tbody>
 </table>
 
@@ -991,8 +603,7 @@ limited coordination and British military advantages—not because the rebels
 lacked courage or popular grievances.
 </div>
 
-
-<!-- SECTION 6 -->
+<!-- 6. NATURE -->
 
 <h2 id="nature">6. Nature of the Revolt: Historical Interpretations</h2>
 
@@ -1001,22 +612,10 @@ lacked courage or popular grievances.
 <tr><th>Interpretation</th><th>Explanation</th></tr>
 </thead>
 <tbody>
-<tr>
-<td>Sepoy Mutiny</td>
-<td>Emphasises the role of Indian soldiers in initiating the revolt.</td>
-</tr>
-<tr>
-<td>Popular rebellion</td>
-<td>Highlights civilian, peasant, taluqdari and displaced-elite participation in several regions.</td>
-</tr>
-<tr>
-<td>First War of Independence</td>
-<td>Emphasises its anti-colonial character and later nationalist significance.</td>
-</tr>
-<tr>
-<td>Regional and varied uprising</td>
-<td>Recognises that participation, objectives and intensity differed across India.</td>
-</tr>
+<tr><td>Sepoy Mutiny</td><td>Emphasises the role of Indian soldiers in initiating the revolt.</td></tr>
+<tr><td>Popular rebellion</td><td>Highlights the participation of civilians, peasants, taluqdars and displaced elites in several regions.</td></tr>
+<tr><td>First War of Independence</td><td>Emphasises its anti-colonial character and later nationalist significance.</td></tr>
+<tr><td>Regional and varied uprising</td><td>Recognises that participation, objectives and intensity differed across India.</td></tr>
 </tbody>
 </table>
 
@@ -1028,14 +627,13 @@ lacked courage or popular grievances.
 <li><strong>R. C. Majumdar:</strong> Emphasised the varied nature of the uprising and challenged the idea that it was uniformly a national war of independence.</li>
 </ul>
 
-<div class="callout">
+<div class="note">
 <strong>EXAM CAUTION:</strong>
 There is no single interpretation accepted by every historian.
 The revolt's character must be assessed regionally and historically.
 </div>
 
-
-<!-- SECTION 7 -->
+<!-- 7. CONSEQUENCES -->
 
 <h2 id="consequences">7. Consequences of the Revolt of 1857</h2>
 
@@ -1043,13 +641,12 @@ The revolt's character must be assessed regionally and historically.
 
 <p>
 The Government of India Act, 1858 transferred the administration of India
-from the East India Company to the British Crown. The Company's governing
-role ended.
+from the East India Company to the British Crown. The Company's governing role ended.
 </p>
 
 <h3>B. Queen Victoria's Proclamation, 1858</h3>
 
-<p>The proclamation announced the new framework of Crown rule. It included assurances concerning:</p>
+<p>The proclamation included assurances concerning:</p>
 
 <ul>
 <li>Respect for religious beliefs and practices.</li>
@@ -1075,8 +672,8 @@ by a Council of India. This strengthened direct control from Britain.
 
 <p>
 Lord Canning became the first Viceroy of India under Crown rule.
-The Governor-General continued to administer British India, while
-the title Viceroy emphasised his role as the Crown's representative.
+The Governor-General continued to administer British India, while the title
+Viceroy emphasised his role as the Crown's representative.
 </p>
 
 <h3>E. Changes in the Army</h3>
@@ -1085,7 +682,7 @@ the title Viceroy emphasised his role as the Crown's representative.
 <li>Increasing the proportion of British soldiers in key formations.</li>
 <li>Greater control over artillery.</li>
 <li>Recruitment policies favouring selected communities and regions.</li>
-<li>Greater emphasis on preventing unified resistance among Indian soldiers.</li>
+<li>Increased emphasis on preventing unified resistance among Indian soldiers.</li>
 </ul>
 
 <h3>F. Policy Towards Princely States</h3>
@@ -1093,8 +690,7 @@ the title Viceroy emphasised his role as the Crown's representative.
 <p>
 The British became more cautious about annexing princely states.
 They increasingly relied on alliances with Indian princes to maintain
-imperial control. The recognition of adoption rights was also addressed
-in subsequent Crown policy towards princely states.
+imperial control. Subsequent Crown policy also addressed adoption rights.
 </p>
 
 <h3>G. Changes in British Attitudes</h3>
@@ -1105,10 +701,9 @@ officials and Indians. Colonial administration increasingly emphasised
 security and the preservation of British authority.
 </p>
 
+<!-- 8. GOVERNORS -->
 
-<!-- SECTION 8 -->
-
-<h2 id="viceroys">8. Important Governor-Generals and Viceroys</h2>
+<h2 id="governors">8. Important Governor-Generals and Viceroys</h2>
 
 <table>
 <thead>
@@ -1134,10 +729,9 @@ security and the preservation of British authority.
 </tbody>
 </table>
 
+<!-- 9. DATES -->
 
-<!-- SECTION 9 -->
-
-<h2 id="dates">9. Important Dates: Chronology</h2>
+<h2 id="dates">9. Important Dates</h2>
 
 <table>
 <thead>
@@ -1162,8 +756,7 @@ security and the preservation of British authority.
 </tbody>
 </table>
 
-
-<!-- SECTION 10 -->
+<!-- 10. QUESTIONS -->
 
 <h2 id="questions">10. BPSC Prelims: High-Probability Questions</h2>
 
@@ -1240,7 +833,7 @@ security and the preservation of British authority.
 </div>
 
 <div class="question">
-<p><strong>Q9. Which of the following was the immediate trigger of the revolt?</strong></p>
+<p><strong>Q9. Which was the immediate trigger of the revolt?</strong></p>
 <p>A) The Rowlatt Act<br>B) The Vernacular Press Act<br>C) The greased-cartridge controversy<br>D) The Partition of Bengal</p>
 <details>
 <summary>Show Answer</summary>
@@ -1257,8 +850,7 @@ security and the preservation of British authority.
 </details>
 </div>
 
-
-<!-- SECTION 11 -->
+<!-- 11. REVISION -->
 
 <h2 id="revision">11. Final Revision: Remember These 10 Facts</h2>
 
@@ -1294,14 +886,12 @@ but it did not end British colonial rule in India.
 <a class="back-top" href="#top">↑ Back to Top</a>
 
 <div class="footer">
-    <strong>ORIENT CLASSES</strong><br>
-    BPSC & UPSC Preparation | Modern Indian History<br>
-    Learn • Revise • Practise
+<strong>ORIENT CLASSES</strong><br>
+BPSC &amp; UPSC Preparation | Modern Indian History<br>
+Learn • Revise • Practise
 </div>
 
-</article>
 </main>
-</div>
 
 </body>
 </html>
