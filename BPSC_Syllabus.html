@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>BPSC Study Portal</title>
 
 <style>
@@ -17,7 +18,9 @@
   --gold:#f5bd4f;
 }
 
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+}
 
 body{
   margin:0;
@@ -279,8 +282,12 @@ header p{
 }
 
 @keyframes shine{
-  0%,45%{left:-75%}
-  75%,100%{left:140%}
+  0%,45%{
+    left:-75%;
+  }
+  75%,100%{
+    left:140%;
+  }
 }
 
 @keyframes mockPulse{
@@ -290,6 +297,82 @@ header p{
   50%{
     box-shadow:0 5px 0 #183d92,0 8px 22px #7c3aed65;
   }
+}
+
+/* MOCK TEST SUBMENU */
+
+.mock-tree{
+  display:none;
+  margin:5px 0 10px 11px;
+  padding:7px 0 7px 10px;
+  border-left:2px solid #c4d8ff;
+}
+
+.mock-tree.open{
+  display:block;
+}
+
+.mock-sub-btn{
+  width:100%;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  padding:11px 9px;
+  margin:4px 0;
+  text-align:left;
+  border:1px solid #e1e9f8;
+  border-radius:9px;
+  background:#fff;
+  color:#34445d;
+  font-size:12px;
+  font-weight:750;
+  cursor:pointer;
+  transition:all .18s ease;
+}
+
+.mock-sub-btn:hover{
+  background:#edf4ff;
+  border-color:#a9c8ff;
+  color:#1746a2;
+  transform:translateX(2px);
+}
+
+.mock-sub-btn.active{
+  background:linear-gradient(100deg,#e6eaff,#f5f7ff);
+  border-color:#a9bfff;
+  color:#4232a5;
+  box-shadow:inset 3px 0 0 #7c3aed;
+}
+
+.mock-sub-btn .sub-icon{
+  width:23px;
+  text-align:center;
+  font-size:16px;
+}
+
+.mock-sub-btn .sub-tag{
+  margin-left:auto;
+  padding:3px 5px;
+  border-radius:5px;
+  background:#e8efff;
+  color:#3155a0;
+  font-size:8px;
+  font-weight:900;
+  white-space:nowrap;
+}
+
+.mock-sub-btn.full-length{
+  background:linear-gradient(110deg,#fff5df,#fffaf0);
+  border-color:#f0d18c;
+  color:#795000;
+}
+
+.mock-sub-btn.full-length:hover,
+.mock-sub-btn.full-length.active{
+  background:linear-gradient(110deg,#ffedc2,#fff7e6);
+  border-color:#e5bd60;
+  color:#704600;
+  box-shadow:inset 3px 0 0 #d99014;
 }
 
 /* SUBJECT TREE */
@@ -415,7 +498,7 @@ header p{
 }
 
 .welcome h2,
-.placeholder h2{
+#placeholder h2{
   margin:0 0 10px;
   color:var(--navy);
   font-size:clamp(24px,3vw,32px);
@@ -513,6 +596,7 @@ header p{
   padding:10px 13px;
   margin-bottom:12px;
   font-weight:700;
+  cursor:pointer;
 }
 
 footer{
@@ -523,6 +607,7 @@ footer{
 }
 
 @media(max-width:900px){
+
   .dashboard{
     grid-template-columns:1fr;
   }
@@ -550,6 +635,7 @@ footer{
 }
 
 @media(max-width:560px){
+
   .shell{
     padding:0 10px;
     margin:12px auto;
@@ -568,9 +654,14 @@ footer{
   .content-area{
     padding:15px;
   }
+
+  .hero{
+    padding:19px;
+  }
 }
 
 @media(prefers-reduced-motion:reduce){
+
   *,
   *:before,
   *:after{
@@ -584,276 +675,377 @@ footer{
 
 <body>
 
+<!-- HEADER -->
+
 <header>
- <div class="brand">
-  <div class="logo">📘</div>
-  <div>
-   <h1>BPSC Study Portal</h1>
-   <p>Syllabus • Exam Resources • Subject Notes • Practice</p>
+  <div class="brand">
+
+    <div class="logo">📘</div>
+
+    <div>
+      <h1>BPSC Study Portal</h1>
+      <p>Syllabus • Exam Resources • Subject Notes • Practice</p>
+    </div>
+
   </div>
- </div>
 </header>
 
 <div class="shell">
 
- <button class="mobile-nav-btn" onclick="toggleSidebar()">
-  ☰ Open Navigation
- </button>
+  <button class="mobile-nav-btn" onclick="toggleSidebar()">
+    ☰ Open Navigation
+  </button>
 
- <div class="dashboard">
+  <div class="dashboard">
 
-  <!-- SIDEBAR -->
+    <!-- SIDEBAR -->
 
-  <aside class="sidebar" id="sidebar">
+    <aside class="sidebar" id="sidebar">
 
-   <div class="sidehead">
-    <h2>🧭 BPSC Navigation</h2>
-    <p>Choose a section or explore chapter notes</p>
-   </div>
-
-   <!-- ORIENT CLASSES HOME -->
-
-   <a class="nav-item orient-home"
-      href="index.html"
-      title="Go to Orient Classes main home page">
-    <span class="nav-icon">🏠</span>
-    <span>Orient Classes Home</span>
-    <span class="home-tag">MAIN SITE</span>
-   </a>
-
-   <div class="sidebar-scroll">
-
-    <div class="nav-label">Main Menu</div>
-
-    <button class="nav-item active"
-            data-page="Home"
-            onclick="openPage('Home',this)">
-     <span class="nav-icon">⌂</span>
-     Home
-    </button>
-
-    <button class="nav-item"
-            data-page="Syllabus"
-            onclick="openPage('Syllabus',this)">
-     <span class="nav-icon">▤</span>
-     Syllabus
-    </button>
-
-    <button class="nav-item"
-            data-page="Exam Pattern"
-            onclick="openPage('Exam Pattern',this)">
-     <span class="nav-icon">☷</span>
-     Exam Pattern
-    </button>
-
-    <button class="nav-item"
-            data-page="Cutoff Trend"
-            onclick="openPage('Cutoff Trend',this)">
-     <span class="nav-icon">↗</span>
-     Cutoff Trend
-    </button>
-
-    <button class="nav-item"
-            data-page="Prelim PYQ"
-            onclick="openPage('Prelim PYQ',this)">
-     <span class="nav-icon">✎</span>
-     Prelim PYQ
-    </button>
-
-    <!-- UPDATED MAINS PYQ MENU -->
-
-    <button class="nav-item"
-            id="mainsPYQButton"
-            onclick="toggleMainsPYQ(this)">
-     <span class="nav-icon">📝</span>
-     <span>Mains PYQ</span>
-     <span class="chevron">⌄</span>
-    </button>
-
-    <div id="mainsPYQTree" class="subject-tree">
-
-     <button class="subject-btn"
-             data-page="GS Paper I"
-             onclick="openPage('GS Paper I',this)">
-      <span>📘</span>
-      <span>GS Paper I</span>
-     </button>
-
-     <button class="subject-btn"
-             data-page="GS Paper II"
-             onclick="openPage('GS Paper II',this)">
-      <span>📗</span>
-      <span>GS Paper II</span>
-     </button>
-
-     <button class="subject-btn"
-             data-page="Essay"
-             onclick="openPage('Essay',this)">
-      <span>✍️</span>
-      <span>Essay</span>
-     </button>
-
-     <button class="subject-btn"
-             data-page="Hindi"
-             onclick="openPage('Hindi',this)">
-      <span>अ</span>
-      <span>Hindi</span>
-     </button>
-
-    </div>
-
-    <button class="nav-item"
-            data-page="Latest Vacancy"
-            onclick="openPage('Latest Vacancy',this)">
-     <span class="nav-icon">▣</span>
-     Latest Vacancy
-    </button>
-
-    <button class="nav-item"
-            data-page="Current Affairs"
-            onclick="openPage('Current Affairs',this)">
-     <span class="nav-icon">◷</span>
-     Current Affairs
-    </button>
-
-    <div class="nav-label">Study Material</div>
-
-    <button class="nav-item"
-            id="subjectNotesButton"
-            onclick="toggleSubjectTree(this)">
-     <span class="nav-icon">📚</span>
-     Subject Notes
-     <span class="chevron">⌄</span>
-    </button>
-
-    <div id="subjectTree" class="subject-tree"></div>
-
-    <button class="nav-item mock-btn"
-            data-page="Mock Test"
-            onclick="openPage('Mock Test',this)">
-     <span class="nav-icon">🎯</span>
-     <span>Attempt Mock Test</span>
-     <span class="mock-tag">PRACTICE</span>
-    </button>
-
-   </div>
-  </aside>
-
-  <!-- MAIN PANEL -->
-
-  <main class="main">
-
-   <div class="panelhead">
-    <div id="breadcrumb">
-     BPSC Portal / <strong>Home</strong>
-    </div>
-   </div>
-
-   <div class="content-area">
-
-    <!-- HOME PAGE -->
-
-    <section id="welcome" class="welcome">
-
-     <h2>Welcome to BPSC Study Portal</h2>
-
-     <p class="lead">
-      A single place to organise your BPSC preparation.
-      Use the vertical navigation on the left to open exam resources,
-      or expand Subject Notes to browse subject → division → chapter.
-     </p>
-
-     <div class="hero">
-      <h3>Prepare smart. Revise systematically.</h3>
-      <p>
-       Each section and chapter can be stored in its own HTML file
-       on GitHub. When clicked, its file opens in this content area
-       while the left navigation stays in place.
-      </p>
-     </div>
-
-     <div class="stats">
-      <div class="stat">
-       <strong>10</strong>
-       <span>Exam and study sections</span>
+      <div class="sidehead">
+        <h2>🧭 BPSC Navigation</h2>
+        <p>Choose a section or explore chapter notes</p>
       </div>
 
-      <div class="stat">
-       <strong>7</strong>
-       <span>Subject categories</span>
+      <!-- ORIENT CLASSES HOME -->
+
+      <a
+        class="nav-item orient-home"
+        href="index.html"
+        title="Go to Orient Classes main home page">
+
+        <span class="nav-icon">🏠</span>
+        <span>Orient Classes Home</span>
+        <span class="home-tag">MAIN SITE</span>
+
+      </a>
+
+      <div class="sidebar-scroll">
+
+        <!-- MAIN MENU -->
+
+        <div class="nav-label">Main Menu</div>
+
+        <button
+          class="nav-item active"
+          data-page="Home"
+          onclick="openPage('Home',this)">
+
+          <span class="nav-icon">⌂</span>
+          Home
+
+        </button>
+
+        <button
+          class="nav-item"
+          data-page="Syllabus"
+          onclick="openPage('Syllabus',this)">
+
+          <span class="nav-icon">▤</span>
+          Syllabus
+
+        </button>
+
+        <button
+          class="nav-item"
+          data-page="Exam Pattern"
+          onclick="openPage('Exam Pattern',this)">
+
+          <span class="nav-icon">☷</span>
+          Exam Pattern
+
+        </button>
+
+        <button
+          class="nav-item"
+          data-page="Cutoff Trend"
+          onclick="openPage('Cutoff Trend',this)">
+
+          <span class="nav-icon">↗</span>
+          Cutoff Trend
+
+        </button>
+
+        <button
+          class="nav-item"
+          data-page="Prelim PYQ"
+          onclick="openPage('Prelim PYQ',this)">
+
+          <span class="nav-icon">✎</span>
+          Prelim PYQ
+
+        </button>
+
+        <!-- MAINS PYQ -->
+
+        <button
+          class="nav-item"
+          id="mainsPYQButton"
+          onclick="toggleMainsPYQ(this)">
+
+          <span class="nav-icon">📝</span>
+          <span>Mains PYQ</span>
+          <span class="chevron">⌄</span>
+
+        </button>
+
+        <div id="mainsPYQTree" class="subject-tree">
+
+          <button
+            class="subject-btn"
+            data-page="GS Paper I"
+            onclick="openPage('GS Paper I',this)">
+
+            <span>📘</span>
+            <span>GS Paper I</span>
+
+          </button>
+
+          <button
+            class="subject-btn"
+            data-page="GS Paper II"
+            onclick="openPage('GS Paper II',this)">
+
+            <span>📗</span>
+            <span>GS Paper II</span>
+
+          </button>
+
+          <button
+            class="subject-btn"
+            data-page="Essay"
+            onclick="openPage('Essay',this)">
+
+            <span>✍️</span>
+            <span>Essay</span>
+
+          </button>
+
+          <button
+            class="subject-btn"
+            data-page="Hindi"
+            onclick="openPage('Hindi',this)">
+
+            <span>अ</span>
+            <span>Hindi</span>
+
+          </button>
+
+        </div>
+
+        <button
+          class="nav-item"
+          data-page="Latest Vacancy"
+          onclick="openPage('Latest Vacancy',this)">
+
+          <span class="nav-icon">▣</span>
+          Latest Vacancy
+
+        </button>
+
+        <button
+          class="nav-item"
+          data-page="Current Affairs"
+          onclick="openPage('Current Affairs',this)">
+
+          <span class="nav-icon">◷</span>
+          Current Affairs
+
+        </button>
+
+        <!-- STUDY MATERIAL -->
+
+        <div class="nav-label">Study Material</div>
+
+        <button
+          class="nav-item"
+          id="subjectNotesButton"
+          onclick="toggleSubjectTree(this)">
+
+          <span class="nav-icon">📚</span>
+          Subject Notes
+          <span class="chevron">⌄</span>
+
+        </button>
+
+        <div id="subjectTree" class="subject-tree"></div>
+
+        <!-- UPDATED MOCK TEST MENU -->
+
+        <button
+          class="nav-item mock-btn"
+          id="mockTestButton"
+          onclick="toggleMockTree(this)">
+
+          <span class="nav-icon">🎯</span>
+          <span>Attempt Mock Test</span>
+          <span class="mock-tag">PRACTICE</span>
+          <span class="chevron" style="color:#fff">⌄</span>
+
+        </button>
+
+        <!-- MOCK TEST SUBMENU -->
+
+        <div id="mockTestTree" class="mock-tree">
+
+          <!-- SUBJECT-WISE MOCK TEST -->
+
+          <button
+            class="mock-sub-btn"
+            data-page="Subject-wise Mock Test"
+            onclick="openPage('Subject-wise Mock Test',this)">
+
+            <span class="sub-icon">📚</span>
+            <span>Subject-wise Mock Test</span>
+            <span class="sub-tag">SUBJECT</span>
+
+          </button>
+
+          <!-- FULL LENGTH MOCK TEST -->
+
+          <button
+            class="mock-sub-btn full-length"
+            data-page="Full Length Mock Test"
+            onclick="openPage('Full Length Mock Test',this)">
+
+            <span class="sub-icon">🏆</span>
+            <span>Full Length Mock Test</span>
+            <span class="sub-tag">FULL TEST</span>
+
+          </button>
+
+        </div>
+
+      </div>
+    </aside>
+
+    <!-- MAIN PANEL -->
+
+    <main class="main">
+
+      <div class="panelhead">
+        <div id="breadcrumb">
+          BPSC Portal / <strong>Home</strong>
+        </div>
       </div>
 
-      <div class="stat">
-       <strong>3</strong>
-       <span>History divisions</span>
+      <div class="content-area">
+
+        <!-- HOME PAGE -->
+
+        <section id="welcome" class="welcome">
+
+          <h2>Welcome to BPSC Study Portal</h2>
+
+          <p class="lead">
+            A single place to organise your BPSC preparation.
+            Use the vertical navigation on the left to open exam resources,
+            or expand Subject Notes to browse subject → division → chapter.
+          </p>
+
+          <div class="hero">
+
+            <h3>Prepare smart. Revise systematically.</h3>
+
+            <p>
+              Each section and chapter can be stored in its own HTML file
+              on GitHub. When clicked, its file opens in this content area
+              while the left navigation stays in place.
+            </p>
+
+          </div>
+
+          <div class="stats">
+
+            <div class="stat">
+              <strong>10</strong>
+              <span>Exam and study sections</span>
+            </div>
+
+            <div class="stat">
+              <strong>7</strong>
+              <span>Subject categories</span>
+            </div>
+
+            <div class="stat">
+              <strong>3</strong>
+              <span>History divisions</span>
+            </div>
+
+          </div>
+
+          <div class="cards">
+
+            <div class="card">
+              <h3>📋 Exam Resources</h3>
+              <p>
+                Syllabus, exam pattern, cutoff trend, PYQs and latest vacancy.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3>📖 Subject Notes</h3>
+              <p>
+                Expand a subject, select its division, and click the chapter
+                you want to study.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3>🎯 Mock Test</h3>
+              <p>
+                Attempt subject-wise practice tests or full-length BPSC
+                mock tests from the navigation menu.
+              </p>
+            </div>
+
+          </div>
+
+          <div class="note">
+            <strong>Important:</strong>
+            Each linked HTML file must be uploaded to the same folder as
+            this portal, with exactly the filename configured in the code.
+          </div>
+
+        </section>
+
+        <!-- PLACEHOLDER -->
+
+        <section id="placeholder" style="display:none">
+
+          <h2 id="placeholderTitle"></h2>
+
+          <p class="lead" id="placeholderLead"></p>
+
+          <div class="note" id="placeholderNote"></div>
+
+        </section>
+
+        <!-- CONTENT FRAME -->
+
+        <section id="frameSection" style="display:none">
+
+          <iframe
+            id="contentFrame"
+            title="BPSC content"
+            src="about:blank">
+          </iframe>
+
+          <p style="font-size:12px;color:#69788e">
+            The selected file is displayed here.
+            The left navigation remains on this page.
+          </p>
+
+        </section>
+
       </div>
-     </div>
+    </main>
 
-     <div class="cards">
-
-      <div class="card">
-       <h3>📋 Exam Resources</h3>
-       <p>
-        Syllabus, exam pattern, cutoff trend, PYQs and latest vacancy.
-       </p>
-      </div>
-
-      <div class="card">
-       <h3>📖 Subject Notes</h3>
-       <p>
-        Expand a subject, select its division, and click the chapter
-        you want to study.
-       </p>
-      </div>
-
-      <div class="card">
-       <h3>🎯 Mock Test</h3>
-       <p>
-        Use the highlighted practice button to open the mock-test section.
-       </p>
-      </div>
-
-     </div>
-
-     <div class="note">
-      <strong>Important:</strong>
-      Each linked HTML file must be uploaded to the same folder as
-      this portal, with exactly the filename configured in the code.
-     </div>
-
-    </section>
-
-    <!-- PLACEHOLDER -->
-
-    <section id="placeholder" style="display:none">
-     <h2 id="placeholderTitle"></h2>
-     <p class="lead" id="placeholderLead"></p>
-     <div class="note" id="placeholderNote"></div>
-    </section>
-
-    <!-- CONTENT FRAME -->
-
-    <section id="frameSection" style="display:none">
-     <iframe
-      id="contentFrame"
-      title="BPSC content"
-      src="about:blank">
-     </iframe>
-
-     <p style="font-size:12px;color:#69788e">
-      The selected file is displayed here.
-      The left navigation remains on this page.
-     </p>
-    </section>
-
-   </div>
-  </main>
-
- </div>
+  </div>
 </div>
 
 <footer>
- BPSC Study Portal • Vertical navigation layout
+  BPSC Study Portal • Vertical navigation layout
 </footer>
 
 <script>
@@ -861,19 +1053,33 @@ footer{
 /* MAIN SECTION FILES */
 
 const sectionFiles = {
- "Syllabus": "syllabus.html",
- "Exam Pattern": "exam-pattern.html",
- "Cutoff Trend": "cutoff-trend.html",
- "Prelim PYQ": "prelim-pyq.html",
 
- "GS Paper I": "mains-gs-paper-1.html",
- "GS Paper II": "mains-gs-paper-2.html",
- "Essay": "mains-essay.html",
- "Hindi": "mains-hindi.html",
+  "Syllabus": "syllabus.html",
 
- "Latest Vacancy": "latest-vacancy.html",
- "Current Affairs": "current-affairs.html",
- "Mock Test": "mock-test.html"
+  "Exam Pattern": "exam-pattern.html",
+
+  "Cutoff Trend": "cutoff-trend.html",
+
+  "Prelim PYQ": "prelim-pyq.html",
+
+  "GS Paper I": "mains-gs-paper-1.html",
+
+  "GS Paper II": "mains-gs-paper-2.html",
+
+  "Essay": "mains-essay.html",
+
+  "Hindi": "mains-hindi.html",
+
+  "Latest Vacancy": "latest-vacancy.html",
+
+  "Current Affairs": "current-affairs.html",
+
+  /* NEW MOCK TEST FILES */
+
+  "Subject-wise Mock Test": "subject-wise-mock-test.html",
+
+  "Full Length Mock Test": "full-length-mock-test.html"
+
 };
 
 
@@ -881,237 +1087,237 @@ const sectionFiles = {
 
 const subjects = [
 
- {
-  name:"History",
-  icon:"🏛️",
-  divisions:[
+  {
+    name:"History",
+    icon:"🏛️",
+    divisions:[
 
-   {
-    name:"Ancient History",
-    chapters:[
-     ["Indus Valley Civilization","indus-valley-civilization.html"],
-     ["Vedic Period","vedic-period.html"],
-     ["Mahajanapadas and Buddhism","mahajanapadas-buddhism.html"],
-     ["Mauryan Empire","mauryan-empire.html"],
-     ["Gupta Empire","gupta-empire.html"]
+      {
+        name:"Ancient History",
+        chapters:[
+          ["Indus Valley Civilization","indus-valley-civilization.html"],
+          ["Vedic Period","vedic-period.html"],
+          ["Mahajanapadas and Buddhism","mahajanapadas-buddhism.html"],
+          ["Mauryan Empire","mauryan-empire.html"],
+          ["Gupta Empire","gupta-empire.html"]
+        ]
+      },
+
+      {
+        name:"Medieval History",
+        chapters:[
+          ["Delhi Sultanate","delhi-sultanate.html"],
+          ["Mughal Empire","mughal-empire.html"],
+          ["Bhakti and Sufi Movements","bhakti-sufi-movements.html"],
+          ["Vijayanagara Empire","vijayanagara-empire.html"]
+        ]
+      },
+
+      {
+        name:"Modern History",
+        chapters:[
+          ["Revolt of 1857","revolt-of-1857.html"],
+          ["Governor-Generals and Viceroys","governor-generals-viceroys.html"],
+          ["Socio-Religious Reform Movements","socio-religious-reform-movements.html"],
+          ["Indian National Congress","indian-national-congress.html"],
+          ["National Movement and Gandhian Era","national-movement-gandhian-era.html"]
+        ]
+      }
+
     ]
-   },
+  },
 
-   {
-    name:"Medieval History",
-    chapters:[
-     ["Delhi Sultanate","delhi-sultanate.html"],
-     ["Mughal Empire","mughal-empire.html"],
-     ["Bhakti and Sufi Movements","bhakti-sufi-movements.html"],
-     ["Vijayanagara Empire","vijayanagara-empire.html"]
+  {
+    name:"Geography",
+    icon:"🌍",
+    divisions:[
+
+      {
+        name:"Physical Geography",
+        chapters:[
+          ["Earth and Solar System","earth-solar-system.html"],
+          ["Geomorphology","geomorphology.html"],
+          ["Climatology","climatology.html"],
+          ["Oceanography","oceanography.html"]
+        ]
+      },
+
+      {
+        name:"Indian Geography",
+        chapters:[
+          ["Physiographic Divisions of India","physiographic-divisions-india.html"],
+          ["Drainage System","drainage-system.html"],
+          ["Climate of India","climate-of-india.html"],
+          ["Soils and Natural Vegetation","soils-natural-vegetation.html"],
+          ["Agriculture and Minerals","agriculture-minerals-india.html"]
+        ]
+      },
+
+      {
+        name:"World Geography",
+        chapters:[
+          ["Continents and Oceans","continents-oceans.html"],
+          ["Resources and Industries","resources-industries.html"]
+        ]
+      }
+
     ]
-   },
+  },
 
-   {
-    name:"Modern History",
-    chapters:[
-     ["Revolt of 1857","revolt-of-1857.html"],
-     ["Governor-Generals and Viceroys","governor-generals-viceroys.html"],
-     ["Socio-Religious Reform Movements","socio-religious-reform-movements.html"],
-     ["Indian National Congress","indian-national-congress.html"],
-     ["National Movement and Gandhian Era","national-movement-gandhian-era.html"]
+  {
+    name:"Polity",
+    icon:"⚖️",
+    divisions:[
+
+      {
+        name:"Constitutional Foundations",
+        chapters:[
+          ["Making of the Constitution","making-of-constitution.html"],
+          ["Preamble and Salient Features","preamble-salient-features.html"],
+          ["Fundamental Rights","fundamental-rights.html"],
+          ["Directive Principles and Duties","dpsp-fundamental-duties.html"]
+        ]
+      },
+
+      {
+        name:"Union Government",
+        chapters:[
+          ["President and Vice-President","president-vice-president.html"],
+          ["Prime Minister and Council of Ministers","prime-minister-council-ministers.html"],
+          ["Parliament","parliament.html"],
+          ["Supreme Court","supreme-court.html"]
+        ]
+      },
+
+      {
+        name:"State and Local Government",
+        chapters:[
+          ["Governor and Chief Minister","governor-chief-minister.html"],
+          ["State Legislature","state-legislature.html"],
+          ["Panchayati Raj","panchayati-raj.html"],
+          ["Constitutional Bodies","constitutional-bodies.html"]
+        ]
+      }
+
     ]
-   }
+  },
 
-  ]
- },
+  {
+    name:"Economy",
+    icon:"💹",
+    divisions:[
 
- {
-  name:"Geography",
-  icon:"🌍",
-  divisions:[
+      {
+        name:"Basic Concepts",
+        chapters:[
+          ["Basic Concepts of Economy","basic-concepts-economy.html"],
+          ["National Income","national-income.html"],
+          ["Inflation and Unemployment","inflation-unemployment.html"]
+        ]
+      },
 
-   {
-    name:"Physical Geography",
-    chapters:[
-     ["Earth and Solar System","earth-solar-system.html"],
-     ["Geomorphology","geomorphology.html"],
-     ["Climatology","climatology.html"],
-     ["Oceanography","oceanography.html"]
+      {
+        name:"Indian Economy",
+        chapters:[
+          ["Planning and NITI Aayog","planning-niti-aayog.html"],
+          ["Banking and Monetary Policy","banking-monetary-policy.html"],
+          ["Budget and Taxation","budget-taxation.html"],
+          ["Poverty and Inclusive Growth","poverty-inclusive-growth.html"]
+        ]
+      }
+
     ]
-   },
+  },
 
-   {
-    name:"Indian Geography",
-    chapters:[
-     ["Physiographic Divisions of India","physiographic-divisions-india.html"],
-     ["Drainage System","drainage-system.html"],
-     ["Climate of India","climate-of-india.html"],
-     ["Soils and Natural Vegetation","soils-natural-vegetation.html"],
-     ["Agriculture and Minerals","agriculture-minerals-india.html"]
+  {
+    name:"Science",
+    icon:"🔬",
+    divisions:[
+
+      {
+        name:"Biology",
+        chapters:[
+          ["Cell","cell.html"],
+          ["Human Digestive System","digestive-system.html"],
+          ["Human Nervous System","nervous-system.html"],
+          ["Circulatory System","circulatory-system.html"],
+          ["Diseases and Immunity","diseases-immunity.html"]
+        ]
+      },
+
+      {
+        name:"Physics",
+        chapters:[
+          ["Motion and Force","motion-force.html"],
+          ["Work, Energy and Power","work-energy-power.html"],
+          ["Light","light.html"],
+          ["Electricity","electricity.html"]
+        ]
+      },
+
+      {
+        name:"Chemistry",
+        chapters:[
+          ["Atoms and Molecules","atoms-molecules.html"],
+          ["Acids, Bases and Salts","acids-bases-salts.html"],
+          ["Metals and Non-metals","metals-nonmetals.html"]
+        ]
+      }
+
     ]
-   },
+  },
 
-   {
-    name:"World Geography",
-    chapters:[
-     ["Continents and Oceans","continents-oceans.html"],
-     ["Resources and Industries","resources-industries.html"]
+  {
+    name:"Bihar Special",
+    icon:"🦅",
+    divisions:[
+
+      {
+        name:"Bihar History and Culture",
+        chapters:[
+          ["Ancient Bihar","ancient-bihar.html"],
+          ["Modern Bihar and Freedom Movement","modern-bihar-freedom-movement.html"],
+          ["Bihar Art and Culture","bihar-art-culture.html"]
+        ]
+      },
+
+      {
+        name:"Bihar Geography",
+        chapters:[
+          ["Rivers and Physical Divisions of Bihar","bihar-rivers-geography.html"],
+          ["Climate, Soil and Agriculture","bihar-climate-soil-agriculture.html"]
+        ]
+      },
+
+      {
+        name:"Bihar Economy and Polity",
+        chapters:[
+          ["Bihar Economy","bihar-economy.html"],
+          ["Government Schemes of Bihar","bihar-government-schemes.html"],
+          ["Administrative Structure of Bihar","bihar-administration.html"]
+        ]
+      }
+
     ]
-   }
+  },
 
-  ]
- },
+  {
+    name:"Environment",
+    icon:"🌱",
+    divisions:[
 
- {
-  name:"Polity",
-  icon:"⚖️",
-  divisions:[
+      {
+        name:"Ecology and Environment",
+        chapters:[
+          ["Ecosystem and Biodiversity","ecosystem-biodiversity.html"],
+          ["Climate Change","climate-change.html"],
+          ["Pollution","pollution.html"],
+          ["Environmental Conventions","environmental-conventions.html"]
+        ]
+      }
 
-   {
-    name:"Constitutional Foundations",
-    chapters:[
-     ["Making of the Constitution","making-of-constitution.html"],
-     ["Preamble and Salient Features","preamble-salient-features.html"],
-     ["Fundamental Rights","fundamental-rights.html"],
-     ["Directive Principles and Duties","dpsp-fundamental-duties.html"]
     ]
-   },
-
-   {
-    name:"Union Government",
-    chapters:[
-     ["President and Vice-President","president-vice-president.html"],
-     ["Prime Minister and Council of Ministers","prime-minister-council-ministers.html"],
-     ["Parliament","parliament.html"],
-     ["Supreme Court","supreme-court.html"]
-    ]
-   },
-
-   {
-    name:"State and Local Government",
-    chapters:[
-     ["Governor and Chief Minister","governor-chief-minister.html"],
-     ["State Legislature","state-legislature.html"],
-     ["Panchayati Raj","panchayati-raj.html"],
-     ["Constitutional Bodies","constitutional-bodies.html"]
-    ]
-   }
-
-  ]
- },
-
- {
-  name:"Economy",
-  icon:"💹",
-  divisions:[
-
-   {
-    name:"Basic Concepts",
-    chapters:[
-     ["Basic Concepts of Economy","basic-concepts-economy.html"],
-     ["National Income","national-income.html"],
-     ["Inflation and Unemployment","inflation-unemployment.html"]
-    ]
-   },
-
-   {
-    name:"Indian Economy",
-    chapters:[
-     ["Planning and NITI Aayog","planning-niti-aayog.html"],
-     ["Banking and Monetary Policy","banking-monetary-policy.html"],
-     ["Budget and Taxation","budget-taxation.html"],
-     ["Poverty and Inclusive Growth","poverty-inclusive-growth.html"]
-    ]
-   }
-
-  ]
- },
-
- {
-  name:"Science",
-  icon:"🔬",
-  divisions:[
-
-   {
-    name:"Biology",
-    chapters:[
-     ["Cell","cell.html"],
-     ["Human Digestive System","digestive-system.html"],
-     ["Human Nervous System","nervous-system.html"],
-     ["Circulatory System","circulatory-system.html"],
-     ["Diseases and Immunity","diseases-immunity.html"]
-    ]
-   },
-
-   {
-    name:"Physics",
-    chapters:[
-     ["Motion and Force","motion-force.html"],
-     ["Work, Energy and Power","work-energy-power.html"],
-     ["Light","light.html"],
-     ["Electricity","electricity.html"]
-    ]
-   },
-
-   {
-    name:"Chemistry",
-    chapters:[
-     ["Atoms and Molecules","atoms-molecules.html"],
-     ["Acids, Bases and Salts","acids-bases-salts.html"],
-     ["Metals and Non-metals","metals-nonmetals.html"]
-    ]
-   }
-
-  ]
- },
-
- {
-  name:"Bihar Special",
-  icon:"🦅",
-  divisions:[
-
-   {
-    name:"Bihar History and Culture",
-    chapters:[
-     ["Ancient Bihar","ancient-bihar.html"],
-     ["Modern Bihar and Freedom Movement","modern-bihar-freedom-movement.html"],
-     ["Bihar Art and Culture","bihar-art-culture.html"]
-    ]
-   },
-
-   {
-    name:"Bihar Geography",
-    chapters:[
-     ["Rivers and Physical Divisions of Bihar","bihar-rivers-geography.html"],
-     ["Climate, Soil and Agriculture","bihar-climate-soil-agriculture.html"]
-    ]
-   },
-
-   {
-    name:"Bihar Economy and Polity",
-    chapters:[
-     ["Bihar Economy","bihar-economy.html"],
-     ["Government Schemes of Bihar","bihar-government-schemes.html"],
-     ["Administrative Structure of Bihar","bihar-administration.html"]
-    ]
-   }
-
-  ]
- },
-
- {
-  name:"Environment",
-  icon:"🌱",
-  divisions:[
-
-   {
-    name:"Ecology and Environment",
-    chapters:[
-     ["Ecosystem and Biodiversity","ecosystem-biodiversity.html"],
-     ["Climate Change","climate-change.html"],
-     ["Pollution","pollution.html"],
-     ["Environmental Conventions","environmental-conventions.html"]
-    ]
-   }
-
-  ]
- }
+  }
 
 ];
 
@@ -1122,92 +1328,92 @@ const tree = document.getElementById("subjectTree");
 
 subjects.forEach(subject => {
 
- const subjectButton = document.createElement("button");
+  const subjectButton = document.createElement("button");
 
- subjectButton.className = "subject-btn";
+  subjectButton.className = "subject-btn";
 
- subjectButton.innerHTML =
-  `<span>${subject.icon}</span>
-   <span>${subject.name}</span>
-   <span class="arrow">›</span>`;
+  subjectButton.innerHTML =
+    `<span>${subject.icon}</span>
+     <span>${subject.name}</span>
+     <span class="arrow">›</span>`;
 
- const divisionList = document.createElement("div");
+  const divisionList = document.createElement("div");
 
- divisionList.className = "division-list";
+  divisionList.className = "division-list";
 
- divisionList.style.display = "none";
+  divisionList.style.display = "none";
 
- subjectButton.onclick = () => {
+  subjectButton.onclick = () => {
 
-  const isOpen = divisionList.style.display === "none";
+    const isOpen = divisionList.style.display === "none";
 
-  divisionList.style.display = isOpen ? "block" : "none";
+    divisionList.style.display = isOpen ? "block" : "none";
 
-  subjectButton.classList.toggle("open",isOpen);
+    subjectButton.classList.toggle("open",isOpen);
 
-  subjectButton.classList.toggle("active",isOpen);
-
- };
-
- subject.divisions.forEach(division => {
-
-  const divisionButton = document.createElement("button");
-
-  divisionButton.className = "division-btn";
-
-  divisionButton.innerHTML =
-   `<span>▸</span><span>${division.name}</span>`;
-
-  const chapterList = document.createElement("div");
-
-  chapterList.className = "chapter-list";
-
-  chapterList.style.display = "none";
-
-  divisionButton.onclick = () => {
-
-   const isOpen = chapterList.style.display === "none";
-
-   chapterList.style.display = isOpen ? "block" : "none";
-
-   divisionButton.classList.toggle("active",isOpen);
+    subjectButton.classList.toggle("active",isOpen);
 
   };
 
-  division.chapters.forEach((chapter,index) => {
+  subject.divisions.forEach(division => {
 
-   const chapterButton = document.createElement("button");
+    const divisionButton = document.createElement("button");
 
-   chapterButton.className = "chapter-btn";
+    divisionButton.className = "division-btn";
 
-   chapterButton.innerHTML =
-    `<span class="chapter-num">${String(index+1).padStart(2,"0")}</span>
-     <span>${chapter[0]}</span>`;
+    divisionButton.innerHTML =
+      `<span>▸</span><span>${division.name}</span>`;
 
-   chapterButton.onclick = () => {
+    const chapterList = document.createElement("div");
 
-    loadFile(
-     chapter[0],
-     chapter[1],
-     `Subject Notes / ${subject.name} / ${division.name} / ${chapter[0]}`,
-     chapterButton
-    );
+    chapterList.className = "chapter-list";
 
-   };
+    chapterList.style.display = "none";
 
-   chapterList.appendChild(chapterButton);
+    divisionButton.onclick = () => {
+
+      const isOpen = chapterList.style.display === "none";
+
+      chapterList.style.display = isOpen ? "block" : "none";
+
+      divisionButton.classList.toggle("active",isOpen);
+
+    };
+
+    division.chapters.forEach((chapter,index) => {
+
+      const chapterButton = document.createElement("button");
+
+      chapterButton.className = "chapter-btn";
+
+      chapterButton.innerHTML =
+        `<span class="chapter-num">${String(index+1).padStart(2,"0")}</span>
+         <span>${chapter[0]}</span>`;
+
+      chapterButton.onclick = () => {
+
+        loadFile(
+          chapter[0],
+          chapter[1],
+          `Subject Notes / ${subject.name} / ${division.name} / ${chapter[0]}`,
+          chapterButton
+        );
+
+      };
+
+      chapterList.appendChild(chapterButton);
+
+    });
+
+    divisionList.appendChild(divisionButton);
+
+    divisionList.appendChild(chapterList);
 
   });
 
-  divisionList.appendChild(divisionButton);
+  tree.appendChild(subjectButton);
 
-  divisionList.appendChild(chapterList);
-
- });
-
- tree.appendChild(subjectButton);
-
- tree.appendChild(divisionList);
+  tree.appendChild(divisionList);
 
 });
 
@@ -1216,16 +1422,16 @@ subjects.forEach(subject => {
 
 function toggleSubjectTree(button){
 
- const tree = document.getElementById("subjectTree");
+  const subjectTree = document.getElementById("subjectTree");
 
- const isOpen = !tree.classList.contains("open");
+  const isOpen = !subjectTree.classList.contains("open");
 
- tree.classList.toggle("open",isOpen);
+  subjectTree.classList.toggle("open",isOpen);
 
- button.classList.toggle("active",isOpen);
+  button.classList.toggle("active",isOpen);
 
- button.querySelector(".chevron").textContent =
-  isOpen ? "⌃" : "⌄";
+  button.querySelector(".chevron").textContent =
+    isOpen ? "⌃" : "⌄";
 
 }
 
@@ -1234,18 +1440,36 @@ function toggleSubjectTree(button){
 
 function toggleMainsPYQ(button){
 
- const tree = document.getElementById("mainsPYQTree");
+  const mainsTree = document.getElementById("mainsPYQTree");
 
- const isOpen = !tree.classList.contains("open");
+  const isOpen = !mainsTree.classList.contains("open");
 
- tree.classList.toggle("open",isOpen);
+  mainsTree.classList.toggle("open",isOpen);
 
- tree.style.display = isOpen ? "block" : "none";
+  mainsTree.style.display = isOpen ? "block" : "none";
 
- button.classList.toggle("active",isOpen);
+  button.classList.toggle("active",isOpen);
 
- button.querySelector(".chevron").textContent =
-  isOpen ? "⌃" : "⌄";
+  button.querySelector(".chevron").textContent =
+    isOpen ? "⌃" : "⌄";
+
+}
+
+
+/* NEW: TOGGLE MOCK TEST SUBMENU */
+
+function toggleMockTree(button){
+
+  const mockTree = document.getElementById("mockTestTree");
+
+  const isOpen = !mockTree.classList.contains("open");
+
+  mockTree.classList.toggle("open",isOpen);
+
+  button.classList.toggle("active",isOpen);
+
+  button.querySelector(".chevron").textContent =
+    isOpen ? "⌃" : "⌄";
 
 }
 
@@ -1254,34 +1478,34 @@ function toggleMainsPYQ(button){
 
 function activateNav(page){
 
- document.querySelectorAll(".nav-item[data-page]").forEach(button => {
+  document.querySelectorAll(".nav-item[data-page]").forEach(button => {
 
-  button.classList.toggle(
-   "active",
-   button.dataset.page === page
-  );
+    button.classList.toggle(
+      "active",
+      button.dataset.page === page
+    );
 
- });
+  });
 
 }
 
 
-/* OPEN CONTENT FILE */
+/* SHOW CONTENT FILE */
 
 function showFrame(title,file,crumb){
 
- document.getElementById("welcome").style.display = "none";
+  document.getElementById("welcome").style.display = "none";
 
- document.getElementById("placeholder").style.display = "none";
+  document.getElementById("placeholder").style.display = "none";
 
- document.getElementById("frameSection").style.display = "block";
+  document.getElementById("frameSection").style.display = "block";
 
- document.getElementById("breadcrumb").innerHTML =
-  `BPSC Portal / <strong>${crumb || title}</strong>`;
+  document.getElementById("breadcrumb").innerHTML =
+    `BPSC Portal / <strong>${crumb || title}</strong>`;
 
- document.getElementById("contentFrame").src = file;
+  document.getElementById("contentFrame").src = file;
 
- document.getElementById("sidebar").classList.remove("mobile-open");
+  document.getElementById("sidebar").classList.remove("mobile-open");
 
 }
 
@@ -1290,87 +1514,157 @@ function showFrame(title,file,crumb){
 
 function openPage(page,button){
 
- /*
-  * Mains PYQ child buttons have their own data-page.
-  * Highlight the Mains PYQ parent in the main menu.
-  */
+  /*
+   * MAINS PYQ CHILD PAGES
+   */
 
- if(
-  page === "GS Paper I" ||
-  page === "GS Paper II" ||
-  page === "Essay" ||
-  page === "Hindi"
- ){
+  if(
+    page === "GS Paper I" ||
+    page === "GS Paper II" ||
+    page === "Essay" ||
+    page === "Hindi"
+  ){
 
-  activateNav("Mains PYQ");
+    activateNav("Mains PYQ");
 
-  document.getElementById("mainsPYQTree").classList.add("open");
+    document.getElementById("mainsPYQTree").classList.add("open");
 
-  document.getElementById("mainsPYQTree").style.display = "block";
+    document.getElementById("mainsPYQTree").style.display = "block";
 
-  document.getElementById("mainsPYQButton").classList.add("active");
+    document.getElementById("mainsPYQButton").classList.add("active");
 
-  document.querySelectorAll("#mainsPYQTree .subject-btn").forEach(item => {
+    document.querySelectorAll("#mainsPYQTree .subject-btn").forEach(item => {
 
-   item.classList.toggle(
-    "active",
-    item.dataset.page === page
-   );
+      item.classList.toggle(
+        "active",
+        item.dataset.page === page
+      );
 
-  });
+    });
 
-  showFrame(
-   page,
-   sectionFiles[page],
-   "Mains PYQ / " + page
-  );
+    document.querySelectorAll("#mockTestTree .mock-sub-btn").forEach(item => {
+      item.classList.remove("active");
+    });
 
- }else{
-
-  activateNav(page);
-
-  if(page === "Home"){
-
-   document.getElementById("welcome").style.display = "block";
-
-   document.getElementById("placeholder").style.display = "none";
-
-   document.getElementById("frameSection").style.display = "none";
-
-   document.getElementById("contentFrame").src = "about:blank";
-
-   document.getElementById("breadcrumb").innerHTML =
-    'BPSC Portal / <strong>Home</strong>';
-
-  }else if(page === "Subject Notes"){
-
-   document.getElementById("welcome").style.display = "none";
-
-   document.getElementById("frameSection").style.display = "none";
-
-   document.getElementById("placeholder").style.display = "block";
-
-   document.getElementById("placeholderTitle").textContent =
-    "Subject Notes";
-
-   document.getElementById("placeholderLead").textContent =
-    "Choose a subject in the left navigation, expand a division, then click a chapter. The selected chapter will open in this panel.";
-
-   document.getElementById("placeholderNote").textContent =
-    "Subject → Division → Chapter. Each chapter is connected to its own HTML file.";
-
-   document.getElementById("breadcrumb").innerHTML =
-    'BPSC Portal / <strong>Subject Notes</strong>';
-
-  }else{
-
-   showFrame(page,sectionFiles[page],page);
+    showFrame(
+      page,
+      sectionFiles[page],
+      "Mains PYQ / " + page
+    );
 
   }
 
- }
+  /*
+   * SUBJECT-WISE AND FULL-LENGTH MOCK TEST PAGES
+   */
 
- document.getElementById("sidebar").classList.remove("mobile-open");
+  else if(
+    page === "Subject-wise Mock Test" ||
+    page === "Full Length Mock Test"
+  ){
+
+    activateNav("");
+
+    document.getElementById("mockTestTree").classList.add("open");
+
+    document.getElementById("mockTestButton").classList.add("active");
+
+    document.getElementById("mockTestButton")
+      .querySelector(".chevron").textContent = "⌃";
+
+    document.querySelectorAll("#mockTestTree .mock-sub-btn").forEach(item => {
+
+      item.classList.toggle(
+        "active",
+        item.dataset.page === page
+      );
+
+    });
+
+    document.querySelectorAll("#mainsPYQTree .subject-btn").forEach(item => {
+      item.classList.remove("active");
+    });
+
+    document.getElementById("mainsPYQButton").classList.remove("active");
+
+    showFrame(
+      page,
+      sectionFiles[page],
+      "Mock Test / " + page
+    );
+
+  }
+
+  /*
+   * OTHER MAIN PAGES
+   */
+
+  else{
+
+    activateNav(page);
+
+    document.getElementById("mockTestButton").classList.remove("active");
+
+    document.querySelectorAll("#mockTestTree .mock-sub-btn").forEach(item => {
+      item.classList.remove("active");
+    });
+
+    document.querySelectorAll("#mainsPYQTree .subject-btn").forEach(item => {
+      item.classList.remove("active");
+    });
+
+    document.getElementById("mainsPYQButton").classList.remove("active");
+
+    if(page === "Home"){
+
+      document.getElementById("welcome").style.display = "block";
+
+      document.getElementById("placeholder").style.display = "none";
+
+      document.getElementById("frameSection").style.display = "none";
+
+      document.getElementById("contentFrame").src = "about:blank";
+
+      document.getElementById("breadcrumb").innerHTML =
+        'BPSC Portal / <strong>Home</strong>';
+
+    }
+
+    else if(page === "Subject Notes"){
+
+      document.getElementById("welcome").style.display = "none";
+
+      document.getElementById("frameSection").style.display = "none";
+
+      document.getElementById("placeholder").style.display = "block";
+
+      document.getElementById("placeholderTitle").textContent =
+        "Subject Notes";
+
+      document.getElementById("placeholderLead").textContent =
+        "Choose a subject in the left navigation, expand a division, then click a chapter. The selected chapter will open in this panel.";
+
+      document.getElementById("placeholderNote").textContent =
+        "Subject → Division → Chapter. Each chapter is connected to its own HTML file.";
+
+      document.getElementById("breadcrumb").innerHTML =
+        'BPSC Portal / <strong>Subject Notes</strong>';
+
+    }
+
+    else{
+
+      showFrame(
+        page,
+        sectionFiles[page],
+        page
+      );
+
+    }
+
+  }
+
+  document.getElementById("sidebar").classList.remove("mobile-open");
 
 }
 
@@ -1379,17 +1673,29 @@ function openPage(page,button){
 
 function loadFile(title,file,crumb,button){
 
- activateNav("Subject Notes");
+  activateNav("");
 
- document.querySelectorAll(".chapter-btn").forEach(item => {
+  document.getElementById("mockTestButton").classList.remove("active");
 
-  item.classList.remove("active");
+  document.querySelectorAll("#mockTestTree .mock-sub-btn").forEach(item => {
+    item.classList.remove("active");
+  });
 
- });
+  document.querySelectorAll("#mainsPYQTree .subject-btn").forEach(item => {
+    item.classList.remove("active");
+  });
 
- button.classList.add("active");
+  document.getElementById("mainsPYQButton").classList.remove("active");
 
- showFrame(title,file,crumb);
+  document.querySelectorAll(".chapter-btn").forEach(item => {
+
+    item.classList.remove("active");
+
+  });
+
+  button.classList.add("active");
+
+  showFrame(title,file,crumb);
 
 }
 
@@ -1398,7 +1704,7 @@ function loadFile(title,file,crumb,button){
 
 function toggleSidebar(){
 
- document.getElementById("sidebar").classList.toggle("mobile-open");
+  document.getElementById("sidebar").classList.toggle("mobile-open");
 
 }
 
