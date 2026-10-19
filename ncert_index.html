@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NCERT Class 6–12 Chapter Index | BPSC Study Portal</title>
+
+<style>
+:root{
+  --navy:#10264b;
+  --blue:#2459c4;
+  --blue2:#3478f6;
+  --pale:#edf4ff;
+  --line:#e1e8f2;
+  --ink:#202c40;
+  --muted:#69788e;
+  --gold:#f5bd4f;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  background:#f3f6fb;
+  color:var(--ink);
+  font-family:Segoe UI,Arial,sans-serif;
+  line-height:1.5;
+}
+
+/* HEADER */
+
+header{
+  padding:23px clamp(16px,3vw,36px);
+  color:#fff;
+  background:linear-gradient(120deg,#0b1d3a,#1c4c91,#2563eb);
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:13px;
+}
+
+.logo{
+  width:49px;
+  height:49px;
+  display:grid;
+  place-items:center;
+  border-radius:14px;
+  background:#ffffff20;
+  border:1px solid #ffffff38;
+  font-size:25px;
+}
+
+header h1{
+  margin:0;
+  font-size:clamp(22px,3vw,32px);
+}
+
+header p{
+  margin:5px 0 0;
+  color:#dbeafe;
+  font-size:13px;
+}
+
+/* MAIN */
+
+.container{
+  max-width:1250px;
+  margin:24px auto;
+  padding:0 18px;
+}
+
+.toolbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+  background:#fff;
+  padding:15px;
+  border:1px solid var(--line);
+  border-radius:13px;
+  margin-bottom:20px;
+}
+
+.search{
+  flex:1;
+  min-width:220px;
+  padding:12px 14px;
+  border:1px solid #d8e2f0;
+  border-radius:9px;
+  font-size:14px;
+  outline:none;
+}
+
+.search:focus{
+  border-color:var(--blue2);
+  box-shadow:0 0 0 3px #3478f620;
+}
+
+.toolbar-buttons{
+  display:flex;
+  gap:8px;
+}
+
+.tool-btn{
+  padding:10px 13px;
+  border:1px solid #d8e2f0;
+  border-radius:8px;
+  background:#fff;
+  color:var(--navy);
+  font-weight:700;
+  cursor:pointer;
+}
+
+.tool-btn:hover{
+  background:var(--pale);
+}
+
+/* CLASS SECTION */
+
+.class-section{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:14px;
+  overflow:hidden;
+  margin-bottom:20px;
+  box-shadow:0 5px 20px #10264b08;
+}
+
+.class-header{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:17px 20px;
+  border:0;
+  background:linear-gradient(100deg,#10264b,#2459c4);
+  color:#fff;
+  cursor:pointer;
+  text-align:left;
+}
+
+.class-header h2{
+  margin:0;
+  font-size:20px;
+}
+
+.class-header span{
+  font-size:13px;
+  color:#dbeafe;
+}
+
+.class-header .arrow{
+  font-size:22px;
+  transition:transform .2s;
+}
+
+.class-header[aria-expanded="true"] .arrow{
+  transform:rotate(180deg);
+}
+
+.class-content{
+  padding:18px;
+  display:none;
+}
+
+.class-content.open{
+  display:block;
+}
+
+/* SUBJECT */
+
+.subject{
+  border:1px solid var(--line);
+  border-radius:10px;
+  margin-bottom:14px;
+  overflow:hidden;
+}
+
+.subject:last-child{
+  margin-bottom:0;
+}
+
+.subject-header{
+  width:100%;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:13px 15px;
+  border:0;
+  background:#edf4ff;
+  color:#173d7b;
+  font-size:15px;
+  font-weight:800;
+  text-align:left;
+  cursor:pointer;
+}
+
+.subject-header:hover{
+  background:#e0ecff;
+}
+
+.subject-header .arrow{
+  margin-left:auto;
+  transition:transform .2s;
+}
+
+.subject-header[aria-expanded="true"] .arrow{
+  transform:rotate(180deg);
+}
+
+.subject-content{
+  display:none;
+  padding:14px;
+  background:#fff;
+}
+
+.subject-content.open{
+  display:block;
+}
+
+/* DIVISION */
+
+.division{
+  margin-bottom:14px;
+}
+
+.division:last-child{
+  margin-bottom:0;
+}
+
+.division-title{
+  margin:0 0 9px;
+  color:#34445d;
+  font-size:13px;
+  font-weight:800;
+}
+
+/* CHAPTER GRID */
+
+.chapter-list{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:8px;
+}
+
+.chapter{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  padding:10px 11px;
+  background:#fff;
+  border:1px solid #e5eaf2;
+  border-radius:8px;
+  color:#34445d;
+  font-size:13px;
+}
+
+.chapter:hover{
+  background:#fffaf0;
+  border-color:#efcf88;
+}
+
+.chapter-number{
+  flex:0 0 25px;
+  height:25px;
+  display:grid;
+  place-items:center;
+  background:#eaf1ff;
+  color:#2459c4;
+  border-radius:6px;
+  font-size:10px;
+  font-weight:900;
+}
+
+.chapter-name{
+  min-width:0;
+  overflow-wrap:anywhere;
+}
+
+.part-title{
+  margin:4px 0 12px;
+  padding:10px 12px;
+  background:#fff7e6;
+  border-left:4px solid var(--gold);
+  border-radius:5px;
+  color:#75500b;
+  font-size:14px;
+  font-weight:800;
+}
+
+.empty{
+  display:none;
+  text-align:center;
+  padding:35px 15px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:12px;
+  color:var(--muted);
+}
+
+footer{
+  text-align:center;
+  color:#8a96a7;
+  padding:0 15px 25px;
+  font-size:12px;
+}
+
+@media(max-width:650px){
+  .container{
+    padding:0 10px;
+    margin:14px auto;
+  }
+
+  .chapter-list{
+    grid-template-columns:1fr;
+  }
+
+  .class-header{
+    padding:15px;
+  }
+
+  .class-header h2{
+    font-size:18px;
+  }
+
+  .class-content{
+    padding:11px;
+  }
+
+  .toolbar{
+    padding:11px;
+  }
+
+  .toolbar-buttons{
+    width:100%;
+  }
+
+  .tool-btn{
+    flex:1;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,
+  *:before,
+  *:after{
+    animation:none!important;
+    transition:none!important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="brand">
+    <div class="logo">📚</div>
+    <div>
+      <h1>NCERT Chapter Index</h1>
+      <p>Class 6–12 | Science & Social Science</p>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <div class="toolbar">
+    <input
+      type="search"
+      id="searchInput"
+      class="search"
+      placeholder="Search class, subject or chapter..."
+      aria-label="Search classes, subjects and chapters">
+
+    <div class="toolbar-buttons">
+      <button class="tool-btn" onclick="expandAll()">Expand All</button>
+      <button class="tool-btn" onclick="collapseAll()">Collapse All</button>
+    </div>
+  </div>
+
+  <div id="indexContainer"></div>
+
+  <div id="emptyMessage" class="empty">
+    No matching class, subject or chapter found.
+  </div>
+
+</main>
+
+<footer>
+  BPSC Study Portal • NCERT Chapter Index
+</footer>
+
+<script>
+
+/*
+  NCERT CHAPTER DATA
+  Class → Subject → Division/Part → Chapter
+*/
+
+const ncertData = [
+
+/* ================= CLASS 6 ================= */
+
+{
+  className:"Class 6",
+  subjects:[
+    {
+      name:"Science",
+      divisions:[{
+        name:"Science",
+        chapters:[
+          "The Wonderful World of Science",
+          "Diversity in the Living World",
+          "Mindful Eating: A Path to a Healthy Body",
+          "Exploring Magnets",
+          "Measurement of Length and Motion",
+          "Materials Around Us",
+          "Temperature and Its Measurement",
+          "A Journey through States of Water",
+          "Methods of Separation in Everyday Life",
+          "Living Creatures: Exploring their Characteristics",
+          "Nature's Treasures",
+          "Beyond Earth"
+        ]
+      }]
+    },
+    {
+      name:"Social Science",
+      divisions:[
+        {
+          name:"History — Old NCERT",
+          chapters:[
+            "What, Where, How and When?",
+            "From Hunting-Gathering to Growing Food",
+            "In the Earliest Cities",
+            "What Books and Burials Tell Us",
+            "Kingdoms, Kings and an Early Republic",
+            "New Questions and Ideas",
+            "Ashoka, the Emperor Who Gave Up War",
+            "Vital Villages, Thriving Towns",
+            "Traders, Kings and Pilgrims",
+            "New Empires and Kingdoms",
+            "Buildings, Paintings and Books"
+          ]
+        },
+        {
+          name:"Geography — Old NCERT",
+          chapters:[
+            "The Earth in the Solar System",
+            "Globe: Latitudes and Longitudes",
+            "Motions of the Earth",
+            "Maps",
+            "Major Domains of the Earth",
+            "Our Country—India"
+          ]
+        },
+        {
+          name:"Civics — Old NCERT",
+          chapters:[
+            "Understanding Diversity",
+            "Diversity and Discrimination",
+            "What Is Government?",
+            "Key Elements of a Democratic Government",
+            "Panchayati Raj",
+            "Rural Administration",
+            "Urban Administration",
+            "Rural Livelihoods",
+            "Urban Livelihoods"
+          ]
+        }
+      ]
+    }
+  ]
+},
+
+/* ================= CLASS 7 ================= */
+
+{
+  className:"Class 7",
+  subjects:[
+    {
+      name:"Science",
+      divisions:[{
+        name:"Science — Previous Index",
+        chapters:[
+          "The Ever-Evolving World of Science",
+          "Exploring Substances: Acidic, Basic and Neutral",
+          "Electricity: Circuits and Their Components",
+          "The World of Metals and Non-metals",
+          "Changes Around Us: Physical and Chemical",
+          "Materials Around Us",
+          "Heat Transfer in Nature",
+          "Measurement of Time and Motion",
+          "Life Processes in Animals",
+          "Life Processes in Plants",
+          "Light: Shadows and Reflections",
+          "Our Environment"
+        ]
+      }]
+    },
+    {
+      name:"Social Science",
+      divisions:[
+        {
+          name:"History — Old NCERT",
+          chapters:[
+            "Tracing Changes Through a Thousand Years",
+            "New Kings and Kingdoms",
+            "The Delhi Sultans",
+            "The Mughal Empire",
+            "Rulers and Buildings",
+            "Towns, Traders and Craftspersons",
+            "Tribes, Nomads and Settled Communities",
+            "Devotional Paths to the Divine",
+            "The Making of Regional Cultures",
+            "Eighteenth-Century Political Formations"
+          ]
+        },
+        {
+          name:"Geography — Old NCERT",
+          chapters:[
+            "Environment",
+            "Inside Our Earth",
+            "Our Changing Earth",
+            "Air",
+            "Water",
+            "Natural Vegetation and Wildlife",
+            "Human Environment—Settlement, Transport and Communication",
+            "Human Environment Interactions",
+            "Life in the Temperate Grasslands",
+            "Life in the Deserts"
+          ]
+        },
+        {
+          name:"Civics — Old NCERT",
+          chapters:[
+            "On Equality",
+            "Role of the Government in Health",
+            "How the State Government Works",
+            "Growing up as Boys and Girls",
+            "Women Change the World",
+            "Understanding Media",
+            "Understanding Advertising",
+            "Markets Around Us",
+            "A Shirt in the Market",
+            "Struggles for Equality"
+          ]
+        }
+      ]
+    }
+  ]
+},
+
+/* ================= CLASS 8 ================= */
+
+{
+  className:"Class 8",
+  subjects:[
+    {
+      name:"Science",
+      divisions:[{
+        name:"Science — Old NCERT",
+        chapters:[
+          "Crop Production and Management",
+          "Microorganisms: Friend and Foe",
+          "Synthetic Fibres and Plastics",
+          "Materials: Metals and Non-Metals",
+          "Coal and Petroleum",
+          "Combustion and Flame",
+          "Conservation of Plants and Animals",
+          "Cell—Structure and Functions",
+          "Reproduction in Animals",
+          "Reaching the Age of Adolescence",
+          "Force and Pressure",
+          "Friction",
+          "Sound",
+          "Chemical Effects of Electric Current",
+          "Some Natural Phenomena",
+          "Light",
+          "Stars and the Solar System",
+          "Pollution of Air and Water"
+        ]
+      }]
+    },
+    {
+      name:"Social Science",
+      divisions:[
+        {
+          name:"History — Old NCERT",
+          chapters:[
+            "How, When and Where",
+            "From Trade to Territory",
+            "Ruling the Countryside",
+            "Tribals, Dikus and the Vision of a Golden Age",
+            "When People Rebel—1857 and After",
+            "Civilising the Native, Educating the Nation",
+            "Women, Caste and Reform",
+            "The Making of the National Movement: 1870s–1947",
+            "India After Independence"
+          ]
+        },
+        {
+          name:"Geography — Old NCERT",
+          chapters:[
+            "Resources",
+            "Land, Soil, Water, Natural Vegetation and Wildlife Resources",
+            "Mineral and Power Resources",
+            "Agriculture",
+            "Industries",
+            "Human Resources"
+          ]
+        },
+        {
+          name:"Civics — Old NCERT",
+          chapters:[
+            "The Indian Constitution",
+            "Understanding Secularism",
+            "Why Do We Need a Parliament?",
+            "Understanding Laws",
+            "Judiciary",
+            "Understanding Our Criminal Justice System",
+            "Understanding Marginalisation",
+            "Confronting Marginalisation",
+            "Public Facilities",
+            "Law and Social Justice"
+          ]
+        }
+      ]
+    }
+  ]
+},
+
+/* ================= CLASS 9 ================= */
+
+{
+  className:"Class 9",
+  subjects:[
+    {
+      name:"Science",
+      divisions:[{
+        name:"Exploration",
+        chapters:[
+          "Exploration: Entering the World of Secondary Science",
+          "Cell: The Building Block of Life",
+          "Tissues in Action",
+          "Describing Motion Around Us",
+          "Exploring Mixtures and Their Separation",
+          "How Forces Affect Motion",
+          "Work, Energy, and Simple Machines",
+          "Journey Inside the Atom",
+          "Atomic Foundations of Matter",
+          "Sound Waves: Characteristics and Applications",
+          "Reproduction: How Life Continues",
+          "Patterns in Life: Diversity and Classification",
+          "Earth as a System: Energy, Matter, and Life"
+        ]
+      }]
+    },
+    {
+      name:"Social Science",
+      divisions:[
+        {
+          name:"Part 1",
+          chapters:[
+            "Understanding Social Science",
+            "Shaping of the Earth's Surface",
+            "Atmosphere and Climate",
+            "Early Humans and Beginning of Civilisation",
+            "State and Society up to 1000 CE",
+            "Democracy",
+            "Elections",
+            "Building Blocks in Economics: The Problem of Choice",
+            "The Price Puzzle: What Drives the Market"
+          ]
+        },
+        {
+          name:"Part 2",
+          chapters:[
+            "Oceans and Life",
+            "Life on Earth",
+            "Resistance and Resilience (1000–1700 CE)",
+            "Governance and Public Policy",
+            "Managing Your Personal Finances",
+            "From Ideas to Startups"
+          ]
+        }
+      ]
+    }
+  ]
+},
+
+/* ================= CLASS 10 ================= */
+
+{
+  className:"Class 10",
+  subjects:[
+    {
+      name:"Science",
+      divisions:[{
+        name:"Science — Previous NCERT Index",
+        chapters:[
+          "Chemical Reactions and Equations",
+          "Acids, Bases and Salts",
+          "Metals and Non-metals",
+          "Carbon and Its Compounds",
+          "Periodic Classification of Elements",
+          "Life Processes",
+          "Control and Coordination",
+          "How Do Organisms Reproduce?",
+          "Heredity and Evolution",
+          "Light—Reflection and Refraction",
+          "The Human Eye and the Colourful World",
+          "Electricity",
+          "Magnetic Effects of Electric Current",
+          "Sources of Energy",
+          "Our Environment",
+          "Sustainable Management of Natural Resources"
+        ]
+      }]
+    },
+    {
+      name:"Social Science",
+      divisions:[
+        {
+          name:"History",
+          chapters:[
+            "The Rise of Nationalism in Europe",
+            "Nationalism in India",
+            "The Making of a Global World",
+            "The Age of Industrialisation",
+            "Print Culture and the Modern World"
+          ]
+        },
+        {
+          name:"Geography",
+          chapters:[
+            "Resources and Development",
+            "Forest and Wildlife Resources",
+            "Water Resources",
+            "Agriculture",
+            "Minerals and Energy Resources",
+            "Manufacturing Industries",
+            "Lifelines of National Economy"
+          ]
+        },
+        {
+          name:"Political Science",
+          chapters:[
+            "Power Sharing",
+            "Federalism",
+            "Gender, Religion and Caste",
+            "Political Parties",
+            "Outcomes of Democracy",
+            "Challenges to Democracy"
+          ]
+        },
+        {
+          name:"Economics",
+          chapters:[
+            "Development",
+            "Sectors of the Indian Economy",
+            "Money and Credit",
+            "Globalisation and the Indian Economy",
+            "Consumer Rights"
+          ]
+        }
+      ]
+    }
+  ]
+},
+
+/* ================= CLASS 11 ================= */
+
+{
+  className:"Class 11",
+  subjects:[
+    {
+      name:"History",
+      divisions:[{
+        name:"Themes in World History",
+        chapters:[
+          "Writing and City Life",
+          "An Empire Across Three Continents",
+          "Nomadic Empires",
+          "The Three Orders",
+          "Changing Cultural Traditions",
+          "Displacing Indigenous Peoples",
+          "Paths to Modernisation"
+        ]
+      }]
+    },
+    {
+      name:"Geography",
+      divisions:[
+        {
+          name:"Fundamentals of Physical Geography",
+          chapters:[
+            "Geography as a Discipline",
+            "The Origin and Evolution of the Earth",
+            "Interior of the Earth",
+            "Distribution of Oceans and Continents",
+            "Minerals and Rocks",
+            "Geomorphic Processes",
+            "Landforms and Their Evolution",
+            "Composition and Structure of Atmosphere",
+            "Solar Radiation, Heat Balance and Temperature",
+            "Atmospheric Circulation and Weather Systems",
+            "Water in the Atmosphere",
+            "World Climate and Climate Change",
+            "Water (Oceans)",
+            "Movements of Ocean Water",
+            "Life on the Earth",
+            "Biodiversity and Conservation"
+          ]
+        },
+        {
+          name:"India: Physical Environment",
+          chapters:[
+            "India—Location",
+            "Structure and Physiography",
+            "Drainage System",
+            "Climate",
+            "Natural Vegetation",
+            "Soils",
+            "Natural Hazards and Disasters"
+          ]
+        }
+      ]
+    },
+    {
+      name:"Political Science",
+      divisions:[
+        {
+          name:"Indian Constitution at Work",
+          chapters:[
+            "Constitution: Why and How?",
+            "Rights in the Indian Constitution",
+            "Election and Representation",
+            "Executive",
+            "Legislature",
+            "Judiciary",
+            "Federalism",
+            "Local Governments",
+            "Constitution as a Living Document",
+            "The Philosophy of the Constitution"
+          ]
+        },
+        {
+          name:"Political Theory",
+          chapters:[
+            "Political Theory: An Introduction",
+            "Freedom",
+            "Equality",
+            "Social Justice",
+            "Rights",
+            "Citizenship",
+            "Nationalism",
+            "Secularism",
+            "Peace",
+            "Development"
+          ]
+        }
+      ]
+    },
+    {
+      name:"Economics",
+      divisions:[{
+        name:"Indian Economic Development",
+        chapters:[
+          "Indian Economy on the Eve of Independence",
+          "Indian Economy (1950–1990)",
+          "Liberalisation, Privatisation and Globalisation: An Appraisal",
+          "Poverty",
+          "Human Capital Formation in India",
+          "Rural Development",
+          "Employment: Growth, Informalisation and Other Issues",
+          "Infrastructure",
+          "Environment and Sustainable Development",
+          "Comparative Development Experiences of India and its Neighbours"
+        ]
+      }]
+    }
+  ]
+},
+
+/* ================= CLASS 12 ================= */
+
+{
+  className:"Class 12",
+  subjects:[
+    {
+      name:"History",
+      divisions:[
+        {
+          name:"Themes in Indian History — Part I",
+          chapters:[
+            "Bricks, Beads and Bones: The Harappan Civilisation",
+            "Kings, Farmers and Towns: Early States and Economies",
+            "Kinship, Caste and Class: Early Societies",
+            "Thinkers, Beliefs and Buildings: Cultural Developments"
+          ]
+        },
+        {
+          name:"Themes in Indian History — Part II",
+          chapters:[
+            "Through the Eyes of Travellers",
+            "Bhakti-Sufi Traditions",
+            "An Imperial Capital: Vijayanagara",
+            "Peasants, Zamindars and the State"
+          ]
+        },
+        {
+          name:"Themes in Indian History — Part III",
+          chapters:[
+            "Colonialism and the Countryside",
+            "Rebels and the Raj: The Revolt of 1857",
+            "Mahatma Gandhi and the Nationalist Movement",
+            "Framing the Constitution"
+          ]
+        }
+      ]
+    },
+    {
+      name:"Geography",
+      divisions:[
+        {
+          name:"Fundamentals of Human Geography",
+          chapters:[
+            "Human Geography: Nature and Scope",
+            "The World Population: Distribution, Density and Growth",
+            "Population Composition",
+            "Human Development",
+            "Primary Activities",
+            "Secondary Activities",
+            "Tertiary and Quaternary Activities",
+            "Transport and Communication",
+            "International Trade",
+            "Human Settlements"
+          ]
+        },
+        {
+          name:"India: People and Economy",
+          chapters:[
+            "Population: Distribution, Density, Growth and Composition",
+            "Migration: Types, Causes and Consequences",
+            "Human Development",
+            "Human Settlements",
+            "Land Resources and Agriculture",
+            "Water Resources",
+            "Mineral and Energy Resources",
+            "Manufacturing Industries",
+            "Planning and Sustainable Development in Indian Context",
+            "Transport and Communication",
+            "International Trade",
+            "Geographical Perspective on Selected Issues and Problems"
+          ]
+        }
+      ]
+    },
+    {
+      name:"Political Science",
+      divisions:[
+        {
+          name:"Contemporary World Politics",
+          chapters:[
+            "The End of Bipolarity",
+            "Contemporary Centres of Power",
+            "Contemporary South Asia",
+            "International Organisations",
+            "Security in the Contemporary World",
+            "Environment and Natural Resources",
+            "Globalisation"
+          ]
+        },
+        {
+          name:"Politics in India Since Independence",
+          chapters:[
+            "Challenges of Nation-Building",
+            "Era of One-Party Dominance",
+            "Politics of Planned Development",
+            "India's External Relations",
+            "Challenges to and Restoration of the Congress System",
+            "The Crisis of the Democratic Order",
+            "Regional Aspirations",
+            "Recent Developments in Indian Politics"
+          ]
+        }
+      ]
+    },
+    {
+      name:"Economics",
+      divisions:[
+        {
+          name:"Introductory Macroeconomics",
+          chapters:[
+            "Introduction",
+            "National Income Accounting",
+            "Money and Banking",
+            "Determination of Income and Employment",
+            "Government Budget and the Economy",
+            "Open Economy Macroeconomics"
+          ]
+        },
+        {
+          name:"Introductory Microeconomics",
+          chapters:[
+            "Introduction",
+            "Theory of Consumer Behaviour",
+            "Production and Costs",
+            "The Theory of the Firm under Perfect Competition",
+            "Market Equilibrium",
+            "Non-competitive Markets"
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+];
+
+
+/* BUILD INDEX */
+
+const container = document.getElementById("indexContainer");
+
+function createElement(tag,className,text){
+  const el = document.createElement(tag);
+  if(className) el.className = className;
+  if(text !== undefined) el.textContent = text;
+  return el;
+}
+
+function createToggle(title,className,contentClass,icon=""){
+
+  const button = createElement("button",className);
+
+  button.type = "button";
+  button.setAttribute("aria-expanded","false");
+
+  const label = createElement("span","",title);
+  const arrow = createElement("span","arrow","⌄");
+
+  button.append(label,arrow);
+
+  const content = createElement("div",contentClass);
+
+  button.addEventListener("click",()=>{
+
+    const open = !content.classList.contains("open");
+
+    content.classList.toggle("open",open);
+
+    button.setAttribute("aria-expanded",String(open));
+
+  });
+
+  return {button,content};
+}
+
+function buildIndex(){
+
+  ncertData.forEach(classData=>{
+
+    const section = createElement("section","class-section");
+
+    section.dataset.search = classData.className.toLowerCase();
+
+    const header = createElement("button","class-header");
+    header.type = "button";
+    header.setAttribute("aria-expanded","false");
+
+    const left = createElement("div");
+    const title = createElement("h2","",classData.className);
+
+    const summary = createElement(
+      "span",
+      "",
+      `${classData.subjects.length} subject categories`
+    );
+
+    left.append(title,summary);
+
+    const arrow = createElement("span","arrow","⌄");
+
+    header.append(left,arrow);
+
+    const content = createElement("div","class-content");
+
+    header.addEventListener("click",()=>{
+
+      const open = !content.classList.contains("open");
+
+      content.classList.toggle("open",open);
+
+      header.setAttribute("aria-expanded",String(open));
+
+    });
+
+    classData.subjects.forEach(subjectData=>{
+
+      const subject = createElement("section","subject");
+
+      subject.dataset.search = subjectData.name.toLowerCase();
+
+      const subjectHeader = createElement("button","subject-header");
+
+      subjectHeader.type = "button";
+      subjectHeader.setAttribute("aria-expanded","false");
+
+      const subjectIcon = createElement(
+        "span",
+        "",
+        subjectData.name === "Science" ? "🔬" :
+        subjectData.name === "History" ? "🏛️" :
+        subjectData.name === "Geography" ? "🌍" :
+        subjectData.name === "Political Science" ? "⚖️" :
+        subjectData.name === "Civics" ? "🏛️" :
+        subjectData.name === "Economics" ? "📈" :
+        "📚"
+      );
+
+      const subjectTitle = createElement("span","",subjectData.name);
+      const subjectArrow = createElement("span","arrow","⌄");
+
+      subjectHeader.append(subjectIcon,subjectTitle,subjectArrow);
+
+      const subjectContent = createElement("div","subject-content");
+
+      subjectHeader.addEventListener("click",()=>{
+
+        const open = !subjectContent.classList.contains("open");
+
+        subjectContent.classList.toggle("open",open);
+
+        subjectHeader.setAttribute("aria-expanded",String(open));
+
+      });
+
+      subjectData.divisions.forEach(division=>{
+
+        const divisionBox = createElement("div","division");
+
+        const divisionTitle = createElement(
+          "h3",
+          "division-title",
+          division.name
+        );
+
+        const chapterList = createElement("div","chapter-list");
+
+        division.chapters.forEach((chapter,index)=>{
+
+          const chapterItem = createElement("div","chapter");
+
+          chapterItem.dataset.search = chapter.toLowerCase();
+
+          const number = createElement(
+            "span",
+            "chapter-number",
+            String(index+1).padStart(2,"0")
+          );
+
+          const name = createElement("span","chapter-name",chapter);
+
+          chapterItem.append(number,name);
+
+          chapterList.appendChild(chapterItem);
+
+        });
+
+        divisionBox.append(divisionTitle,chapterList);
+
+        subjectContent.appendChild(divisionBox);
+
+      });
+
+      subject.append(subjectHeader,subjectContent);
+
+      content.appendChild(subject);
+
+    });
+
+    section.append(header,content);
+
+    container.appendChild(section);
+
+  });
+
+}
+
+buildIndex();
+
+
+/* SEARCH */
+
+document.getElementById("searchInput").addEventListener("input",function(){
+
+  const query = this.value.trim().toLowerCase();
+
+  let visibleCount = 0;
+
+  document.querySelectorAll(".class-section").forEach(section=>{
+
+    let classMatch = section.dataset.search.includes(query);
+
+    let sectionHasMatch = false;
+
+    section.querySelectorAll(".subject").forEach(subject=>{
+
+      const subjectMatch = subject.dataset.search.includes(query);
+
+      let subjectHasMatch = false;
+
+      subject.querySelectorAll(".chapter").forEach(chapter=>{
+
+        const chapterMatch = chapter.dataset.search.includes(query);
+
+        const show = !query || classMatch || subjectMatch || chapterMatch;
+
+        chapter.style.display = show ? "flex" : "none";
+
+        if(show) subjectHasMatch = true;
+
+      });
+
+      const showSubject =
+        !query || classMatch || subjectMatch || subjectHasMatch;
+
+      subject.style.display = showSubject ? "block" : "none";
+
+      if(showSubject) sectionHasMatch = true;
+
+      if(query && showSubject){
+
+        const subjectContent = subject.querySelector(".subject-content");
+        const subjectHeader = subject.querySelector(".subject-header");
+
+        subjectContent.classList.add("open");
+        subjectHeader.setAttribute("aria-expanded","true");
+
+      }
+
+    });
+
+    const showSection = !query || classMatch || sectionHasMatch;
+
+    section.style.display = showSection ? "block" : "none";
+
+    if(showSection) visibleCount++;
+
+    if(query && showSection){
+
+      const content = section.querySelector(".class-content");
+      const header = section.querySelector(".class-header");
+
+      content.classList.add("open");
+      header.setAttribute("aria-expanded","true");
+
+    }
+
+  });
+
+  document.getElementById("emptyMessage").style.display =
+    visibleCount === 0 ? "block" : "none";
+
+});
+
+
+/* EXPAND ALL */
+
+function expandAll(){
+
+  document.querySelectorAll(".class-content,.subject-content").forEach(el=>{
+    el.classList.add("open");
+  });
+
+  document.querySelectorAll(".class-header,.subject-header").forEach(el=>{
+    el.setAttribute("aria-expanded","true");
+  });
+
+}
+
+
+/* COLLAPSE ALL */
+
+function collapseAll(){
+
+  document.querySelectorAll(".class-content,.subject-content").forEach(el=>{
+    el.classList.remove("open");
+  });
+
+  document.querySelectorAll(".class-header,.subject-header").forEach(el=>{
+    el.setAttribute("aria-expanded","false");
+  });
+
+}
+
+</script>
+
+</body>
+</html>
