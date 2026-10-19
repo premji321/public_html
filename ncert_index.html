@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#10264b">
+<meta name="description" content="Orient Classes NCERT Study Portal for Classes 6 to 12 with subject-wise chapter index and learning resources.">
 
 <title>NCERT Study Portal | Orient Classes</title>
 
@@ -17,8 +18,9 @@
   --ink:#202c40;
   --muted:#69788e;
   --gold:#ffc928;
-  --white:#fff;
   --bg:#f3f6fb;
+  --white:#ffffff;
+  --green:#0d9488;
 }
 
 *{
@@ -27,6 +29,7 @@
 
 html{
   scroll-behavior:smooth;
+  scroll-padding-top:15px;
 }
 
 body{
@@ -34,7 +37,7 @@ body{
   font-family:Arial,Helvetica,sans-serif;
   background:var(--bg);
   color:var(--ink);
-  line-height:1.5;
+  line-height:1.55;
 }
 
 button,input{
@@ -48,6 +51,13 @@ button{
 a{
   text-decoration:none;
   color:inherit;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible{
+  outline:3px solid #f5bd4f;
+  outline-offset:2px;
 }
 
 /* ================= HEADER ================= */
@@ -67,15 +77,15 @@ a{
 }
 
 .logo{
-  width:44px;
-  height:44px;
+  width:46px;
+  height:46px;
   flex-shrink:0;
   display:grid;
   place-items:center;
   border-radius:12px;
   background:#ffffff20;
   border:1px solid #ffffff35;
-  font-size:23px;
+  font-size:24px;
 }
 
 .header-title h1{
@@ -89,22 +99,22 @@ a{
   color:#dbeafe;
 }
 
-/* ================= MAIN LAYOUT ================= */
+/* ================= APP LAYOUT ================= */
 
 .app-layout{
   max-width:1500px;
   margin:16px auto;
   padding:0 14px;
   display:grid;
-  grid-template-columns:290px minmax(0,1fr);
+  grid-template-columns:285px minmax(0,1fr);
   gap:15px;
   align-items:start;
 }
 
-/* ================= LEFT SIDEBAR ================= */
+/* ================= SIDEBAR ================= */
 
 .sidebar{
-  background:#fff;
+  background:white;
   border:1px solid var(--line);
   border-radius:13px;
   overflow:hidden;
@@ -118,7 +128,7 @@ a{
 
 .sidebar-heading{
   background:linear-gradient(120deg,#10264b,#2459c4);
-  color:#fff;
+  color:white;
   padding:15px;
   flex-shrink:0;
 }
@@ -130,51 +140,94 @@ a{
 
 .sidebar-heading p{
   margin:4px 0 0;
-  font-size:10px;
   color:#dbeafe;
+  font-size:10px;
 }
 
-/* HOME BUTTON ABOVE CLASS BUTTONS */
+/* HOME BUTTONS */
+
+.home-navigation{
+  padding:9px 10px 0;
+  flex-shrink:0;
+}
 
 .home-button{
+  width:100%;
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  gap:8px;
-  margin:10px;
-  padding:11px 12px;
-  border:1px solid #ecd58d;
+  gap:9px;
+  padding:11px;
+  margin-bottom:7px;
+  border:1px solid #e1e8f2;
   border-radius:8px;
-  background:#fff7df;
-  color:#17345f;
+  background:white;
+  color:#26364e;
   font-size:12px;
   font-weight:800;
-  box-shadow:0 2px 5px #10264b08;
+  text-align:left;
+  transition:background .2s;
 }
 
 .home-button:hover{
+  background:#edf4ff;
+}
+
+.home-button.orient-home{
+  background:#fff7df;
+  border-color:#ecd58d;
+}
+
+.home-button.orient-home:hover{
   background:#ffefb9;
 }
 
-.home-badge{
-  background:#f5df9c;
-  padding:3px 6px;
-  border-radius:4px;
-  font-size:9px;
+.home-button.ncert-home{
+  background:#eaf1ff;
+  border-color:#bfd2f8;
+  color:#17469b;
 }
 
+.home-button.ncert-home:hover{
+  background:#dce9ff;
+}
+
+.home-icon{
+  width:25px;
+  height:25px;
+  flex-shrink:0;
+  display:grid;
+  place-items:center;
+  border-radius:6px;
+  background:#ffffffa8;
+}
+
+.home-badge{
+  margin-left:auto;
+  padding:3px 5px;
+  border-radius:4px;
+  background:#f5df9c;
+  font-size:8px;
+  white-space:nowrap;
+}
+
+.ncert-home .home-badge{
+  background:#cbdcff;
+}
+
+/* SEARCH */
+
 .sidebar-search{
-  padding:0 10px 10px;
+  padding:5px 10px 10px;
   flex-shrink:0;
 }
 
 .sidebar-search input{
   width:100%;
   padding:10px;
-  border:1px solid var(--line);
+  border:1px solid #d8e2f0;
   border-radius:7px;
-  outline:none;
   font-size:12px;
+  outline:none;
 }
 
 .sidebar-search input:focus{
@@ -191,36 +244,38 @@ a{
 
 .sidebar-tools button{
   flex:1;
+  padding:7px 4px;
   border:1px solid var(--line);
   border-radius:6px;
-  padding:7px 5px;
   background:white;
   color:var(--navy);
   font-size:10px;
-  font-weight:bold;
+  font-weight:800;
 }
 
 .sidebar-tools button:hover{
   background:var(--pale);
 }
 
+/* SCROLLABLE CLASS INDEX */
+
 .sidebar-scroll{
+  min-height:0;
   overflow-y:auto;
   padding:0 10px 12px;
-  min-height:0;
 }
 
 .menu-label{
-  margin:5px 0 8px;
+  margin:5px 0 9px;
   padding:0 3px;
-  font-size:9px;
   color:#77859a;
+  font-size:9px;
   font-weight:800;
   letter-spacing:1.2px;
   text-transform:uppercase;
 }
 
-/* CLASS NAVIGATION */
+/* CLASS */
 
 .class-group{
   margin-bottom:7px;
@@ -236,11 +291,11 @@ a{
   gap:9px;
   padding:10px;
   border:0;
-  background:#fff;
-  text-align:left;
+  background:white;
   color:#26364e;
   font-size:12px;
   font-weight:800;
+  text-align:left;
 }
 
 .class-button:hover{
@@ -259,16 +314,15 @@ a{
   flex-shrink:0;
   display:grid;
   place-items:center;
+  border-radius:6px;
   background:#eaf1ff;
   color:#2459c4;
-  border-radius:6px;
   font-size:11px;
   font-weight:900;
 }
 
 .class-arrow{
   margin-left:auto;
-  font-size:14px;
   transition:transform .2s;
 }
 
@@ -286,11 +340,10 @@ a{
   display:block;
 }
 
-/* SUBJECT NAVIGATION */
+/* SUBJECT */
 
 .subject-group{
   margin:4px 0;
-  border-radius:6px;
 }
 
 .subject-button{
@@ -322,6 +375,8 @@ a{
 .subject-button[aria-expanded="true"] .subject-arrow{
   transform:rotate(180deg);
 }
+
+/* CHAPTER NAVIGATION */
 
 .chapter-nav{
   display:none;
@@ -372,7 +427,7 @@ a{
 
 .content-area{
   min-width:0;
-  background:#fff;
+  background:white;
   border:1px solid var(--line);
   border-radius:13px;
   box-shadow:0 5px 20px #10264b08;
@@ -394,35 +449,46 @@ a{
 
 .content-inner{
   padding:clamp(17px,3vw,30px);
+  min-height:420px;
 }
 
-.welcome-title{
-  color:var(--navy);
-  font-size:clamp(24px,3vw,32px);
+.page{
+  display:none;
+}
+
+.page.active{
+  display:block;
+}
+
+/* HOME PAGE */
+
+.home-title{
   margin:0 0 10px;
+  color:var(--navy);
+  font-size:clamp(25px,3vw,33px);
 }
 
-.welcome-description{
-  color:var(--muted);
-  font-size:13px;
+.home-description{
   max-width:800px;
   margin:0 0 22px;
+  color:var(--muted);
+  font-size:13px;
 }
 
-.welcome-banner{
-  padding:22px;
+.hero-banner{
+  padding:23px;
+  margin-bottom:20px;
+  border-radius:12px;
   color:white;
   background:linear-gradient(120deg,#10264b,#2459c4);
-  border-radius:12px;
-  margin-bottom:20px;
 }
 
-.welcome-banner h2{
-  font-size:19px;
-  margin:0 0 7px;
+.hero-banner h2{
+  margin:0 0 8px;
+  font-size:21px;
 }
 
-.welcome-banner p{
+.hero-banner p{
   margin:0;
   color:#e0ebff;
   font-size:12px;
@@ -432,14 +498,14 @@ a{
   display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
   gap:10px;
-  margin-bottom:22px;
+  margin-bottom:25px;
 }
 
 .stat-card{
   padding:15px;
   border:1px solid var(--line);
   border-radius:10px;
-  background:#fff;
+  background:white;
 }
 
 .stat-card strong{
@@ -454,27 +520,168 @@ a{
   font-size:10px;
 }
 
-.content-heading{
+.section-title{
+  margin:0 0 7px;
   color:var(--navy);
   font-size:21px;
-  margin:0 0 7px;
 }
 
-.content-subtitle{
+.section-description{
+  margin:0 0 18px;
   color:var(--muted);
   font-size:12px;
-  margin:0 0 20px;
+}
+
+/* CLASS CARDS */
+
+.class-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+}
+
+.class-card{
+  padding:17px;
+  border:1px solid var(--line);
+  border-radius:11px;
+  background:white;
+  transition:transform .2s,border-color .2s;
+}
+
+.class-card:hover{
+  transform:translateY(-3px);
+  border-color:#b8cef4;
+}
+
+.class-card-icon{
+  font-size:24px;
+}
+
+.class-card h3{
+  margin:7px 0 4px;
+  color:var(--navy);
+  font-size:16px;
+}
+
+.class-card p{
+  margin:0 0 12px;
+  color:var(--muted);
+  font-size:10px;
+}
+
+.class-card button{
+  width:100%;
+  padding:9px;
+  border:0;
+  border-radius:6px;
+  background:#edf4ff;
+  color:#2459c4;
+  font-size:10px;
+  font-weight:800;
+}
+
+.class-card button:hover{
+  background:#dce9ff;
+}
+
+/* CLASS AND SUBJECT PAGES */
+
+.page-banner{
+  padding:21px;
+  border-radius:11px;
+  color:white;
+  background:linear-gradient(120deg,#10264b,#2459c4);
+  margin-bottom:20px;
+}
+
+.page-banner h2{
+  margin:0 0 6px;
+  font-size:23px;
+}
+
+.page-banner p{
+  margin:0;
+  color:#dbeafe;
+  font-size:12px;
+}
+
+.subject-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+}
+
+.subject-card{
+  padding:17px;
+  border:1px solid var(--line);
+  border-radius:10px;
+  background:white;
+}
+
+.subject-card h3{
+  margin:0 0 8px;
+  color:#173c78;
+  font-size:16px;
+}
+
+.subject-card p{
+  margin:0 0 12px;
+  color:var(--muted);
+  font-size:11px;
+}
+
+.subject-card button{
+  padding:8px 11px;
+  border:0;
+  border-radius:6px;
+  background:#edf4ff;
+  color:#2459c4;
+  font-size:10px;
+  font-weight:800;
+}
+
+/* CHAPTER LIST */
+
+.chapter-list{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:9px;
+  margin:15px 0 20px;
+}
+
+.chapter-card{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  padding:12px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:white;
+  color:#34445d;
+  text-align:left;
+  font-size:12px;
+  line-height:1.5;
+}
+
+.chapter-card:hover{
+  background:#f2f6ff;
+  border-color:#b8cef4;
+}
+
+.chapter-card-number{
+  width:26px;
+  height:26px;
+  flex-shrink:0;
+  display:grid;
+  place-items:center;
+  border-radius:6px;
+  background:#eaf1ff;
+  color:#2459c4;
+  font-size:10px;
+  font-weight:900;
 }
 
 /* CHAPTER CONTENT */
-
-.chapter-content{
-  display:none;
-}
-
-.chapter-content.active{
-  display:block;
-}
 
 .chapter-meta{
   display:flex;
@@ -484,21 +691,20 @@ a{
 }
 
 .meta-badge{
-  display:inline-block;
   padding:5px 9px;
+  border-radius:5px;
   background:#edf4ff;
   color:#2459c4;
-  border-radius:5px;
   font-size:10px;
   font-weight:800;
 }
 
 .lesson-box{
-  margin:17px 0;
+  margin:16px 0;
   padding:17px;
   border:1px solid var(--line);
   border-radius:10px;
-  background:#fff;
+  background:white;
 }
 
 .lesson-box h3{
@@ -514,7 +720,6 @@ a{
 }
 
 .lesson-box ul{
-  margin:8px 0;
   padding-left:22px;
   color:#4b5b70;
   font-size:13px;
@@ -529,7 +734,7 @@ a{
   border-left:4px solid var(--gold);
 }
 
-.chapter-actions{
+.content-actions{
   display:flex;
   flex-wrap:wrap;
   gap:9px;
@@ -537,10 +742,6 @@ a{
 }
 
 .action-button{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:7px;
   padding:10px 14px;
   border:1px solid var(--line);
   border-radius:7px;
@@ -560,83 +761,6 @@ a{
   opacity:.85;
 }
 
-/* CLASS OVERVIEW */
-
-.subject-overview-grid{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:12px;
-  margin-top:20px;
-}
-
-.overview-card{
-  padding:17px;
-  border:1px solid var(--line);
-  border-radius:10px;
-  background:#fff;
-}
-
-.overview-card h3{
-  margin:0 0 8px;
-  color:#173c78;
-  font-size:15px;
-}
-
-.overview-card p{
-  margin:0 0 12px;
-  color:var(--muted);
-  font-size:11px;
-}
-
-.overview-card button{
-  border:0;
-  background:#edf4ff;
-  color:#2459c4;
-  border-radius:6px;
-  padding:8px 10px;
-  font-size:10px;
-  font-weight:800;
-}
-
-/* SUBJECT OVERVIEW */
-
-.chapter-overview-list{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:9px;
-  margin-top:15px;
-}
-
-.chapter-overview-button{
-  display:flex;
-  align-items:flex-start;
-  gap:10px;
-  padding:12px;
-  border:1px solid var(--line);
-  border-radius:8px;
-  background:white;
-  text-align:left;
-  color:#34445d;
-  font-size:12px;
-}
-
-.chapter-overview-button:hover{
-  background:#f2f6ff;
-  border-color:#b8cef4;
-}
-
-.chapter-overview-button strong{
-  width:25px;
-  height:25px;
-  flex-shrink:0;
-  display:grid;
-  place-items:center;
-  border-radius:6px;
-  background:#eaf1ff;
-  color:#2459c4;
-  font-size:10px;
-}
-
 /* FOOTER */
 
 .content-footer{
@@ -645,45 +769,35 @@ a{
   background:#fbfcff;
   color:#8a96a7;
   font-size:10px;
+  text-align:center;
 }
 
 /* ================= RESPONSIVE ================= */
 
-@media(max-width:850px){
-
+@media(max-width:950px){
   .app-layout{
-    grid-template-columns:245px minmax(0,1fr);
+    grid-template-columns:250px minmax(0,1fr);
     gap:10px;
     padding:0 9px;
   }
 
-  .top-header{
-    padding:13px;
+  .class-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
   }
-
-  .header-title h1{
-    font-size:19px;
-  }
-
-  .content-inner{
-    padding:16px;
-  }
-
-  .stats-grid{
-    grid-template-columns:1fr;
-  }
-
-  .stat-card{
-    padding:10px;
-  }
-
-  .stat-card strong{
-    font-size:20px;
-  }
-
 }
 
 @media(max-width:600px){
+  .top-header{
+    padding:12px;
+  }
+
+  .header-title h1{
+    font-size:18px;
+  }
+
+  .header-title p{
+    font-size:10px;
+  }
 
   .app-layout{
     display:flex;
@@ -699,20 +813,20 @@ a{
   }
 
   .sidebar-scroll{
-    max-height:420px;
+    max-height:400px;
   }
 
   .content-area{
     width:100%;
   }
 
-  .subject-overview-grid,
-  .chapter-overview-list{
-    grid-template-columns:1fr;
+  .content-inner{
+    padding:15px;
   }
 
   .stats-grid{
     grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:6px;
   }
 
   .stat-card{
@@ -727,18 +841,19 @@ a{
     font-size:9px;
   }
 
-  .welcome-banner{
-    padding:16px;
+  .class-grid,
+  .subject-grid,
+  .chapter-list{
+    grid-template-columns:1fr;
   }
 
-  .welcome-banner h2{
-    font-size:17px;
+  .hero-banner{
+    padding:17px;
   }
 
-  .content-heading{
-    font-size:19px;
+  .hero-banner h2{
+    font-size:18px;
   }
-
 }
 
 @media(prefers-reduced-motion:reduce){
@@ -755,9 +870,12 @@ a{
 
 <body>
 
+<!-- ================= TOP HEADER ================= -->
+
 <header class="top-header">
   <div class="header-inner">
     <div class="logo">📚</div>
+
     <div class="header-title">
       <h1>Orient Classes — NCERT Study Portal</h1>
       <p>Class 6–12 • Subject Index • Chapter-wise Learning</p>
@@ -767,7 +885,7 @@ a{
 
 <div class="app-layout">
 
-  <!-- LEFT NAVIGATION -->
+  <!-- ================= LEFT SIDEBAR ================= -->
 
   <aside class="sidebar">
 
@@ -776,25 +894,44 @@ a{
       <p>Choose a class, subject or chapter</p>
     </div>
 
-    <!-- HOME BUTTON MUST BE FIRST -->
+    <!-- 1. ORIENT CLASSES HOME -->
 
-    <a class="home-button" href="index.html">
-      <span>🏠 Orient Classes Home</span>
-      <span class="home-badge">MAIN SITE</span>
-    </a>
+    <div class="home-navigation">
+
+      <a class="home-button orient-home" href="index.html">
+        <span class="home-icon">🏠</span>
+        <span>Orient Classes Home</span>
+        <span class="home-badge">MAIN SITE</span>
+      </a>
+
+      <!-- 2. NCERT HOME -->
+
+      <button class="home-button ncert-home" id="ncertHomeButton" type="button">
+        <span class="home-icon">📘</span>
+        <span>NCERT Home</span>
+        <span class="home-badge">HOME</span>
+      </button>
+
+    </div>
+
+    <!-- SEARCH -->
 
     <div class="sidebar-search">
       <input
         type="search"
         id="searchInput"
         placeholder="Search class, subject, chapter..."
-        aria-label="Search index">
+        aria-label="Search classes, subjects and chapters">
     </div>
+
+    <!-- EXPAND / COLLAPSE -->
 
     <div class="sidebar-tools">
       <button type="button" id="expandButton">＋ Expand All</button>
       <button type="button" id="collapseButton">－ Collapse All</button>
     </div>
+
+    <!-- CLASS INDEX -->
 
     <div class="sidebar-scroll">
 
@@ -803,45 +940,45 @@ a{
       <div id="leftIndex"></div>
 
       <div id="noResults" class="no-results">
-        No matching results.
+        No matching results found.
       </div>
 
     </div>
 
   </aside>
 
-  <!-- RIGHT CONTENT -->
+  <!-- ================= RIGHT CONTENT ================= -->
 
   <main class="content-area">
 
     <div class="breadcrumb" id="breadcrumb">
-      Orient Classes / <span>Home</span>
+      Orient Classes / <span>NCERT Home</span>
     </div>
 
     <div class="content-inner">
 
-      <!-- WELCOME PAGE -->
+      <!-- NCERT HOME PAGE -->
 
-      <section id="welcomePage">
+      <section class="page active" id="homePage">
 
-        <h2 class="welcome-title">
-          Welcome to NCERT Study Portal
-        </h2>
+        <h2 class="home-title">Welcome to NCERT Study Portal</h2>
 
-        <p class="welcome-description">
-          Select a class from the left navigation. Expand the subject
-          and click any chapter to open its content here.
+        <p class="home-description">
+          Explore Class 6 to Class 12 study resources.
+          Select a class, choose a subject and click any chapter
+          from the left navigation to open its content here.
         </p>
 
-        <div class="welcome-banner">
-          <h2>Learn systematically. Revise effectively.</h2>
+        <div class="hero-banner">
+          <h2>Build Strong Concepts. Learn Chapter by Chapter.</h2>
           <p>
-            Explore NCERT subjects and chapters from Class 6 to Class 12.
-            Select a chapter from the left panel to start learning.
+            Organised NCERT chapter index for school learning,
+            revision and competitive examination foundations.
           </p>
         </div>
 
         <div class="stats-grid">
+
           <div class="stat-card">
             <strong>7</strong>
             <span>Classes: 6–12</span>
@@ -849,37 +986,42 @@ a{
 
           <div class="stat-card">
             <strong id="subjectCount">0</strong>
-            <span>Subject categories</span>
+            <span>Subject Categories</span>
           </div>
 
           <div class="stat-card">
             <strong id="chapterCount">0</strong>
-            <span>Indexed chapters</span>
+            <span>Indexed Chapters</span>
           </div>
+
         </div>
 
-        <h2 class="content-heading">Select Your Class</h2>
+        <h2 class="section-title">Select Your Class</h2>
 
-        <p class="content-subtitle">
-          Choose a class below or use the left-side index.
+        <p class="section-description">
+          Choose a class below or use the left-side navigation.
         </p>
 
-        <div class="subject-overview-grid" id="classOverview"></div>
+        <div class="class-grid" id="classCards"></div>
 
       </section>
 
-      <!-- DYNAMIC PAGE CONTENT -->
+      <!-- DYNAMIC CONTENT PAGE -->
 
-      <section id="dynamicPage" style="display:none">
-        <h2 class="content-heading" id="pageTitle"></h2>
-        <p class="content-subtitle" id="pageSubtitle"></p>
+      <section class="page" id="dynamicPage">
+
+        <h2 class="section-title" id="pageTitle"></h2>
+
+        <p class="section-description" id="pageSubtitle"></p>
+
         <div id="pageBody"></div>
+
       </section>
 
     </div>
 
     <div class="content-footer">
-      Orient Classes • NCERT Chapter-wise Study Portal
+      © <span id="year"></span> Orient Classes • NCERT Study Portal
     </div>
 
   </main>
@@ -888,15 +1030,13 @@ a{
 
 <script>
 
-/*
-  CLASS → SUBJECT → CHAPTER INDEX
-
-  This is an index and navigation system.
-  Replace the chapterContent function with real chapter notes,
-  or connect each chapter to its own HTML file.
-*/
+/* ======================================================
+   NCERT CLASS → SUBJECT → CHAPTER DATA
+   ====================================================== */
 
 const ncertData = [
+
+/* ================= CLASS 6 ================= */
 
 {
   className:"Class 6",
@@ -917,7 +1057,7 @@ const ncertData = [
             "Temperature and Its Measurement",
             "A Journey through States of Water",
             "Methods of Separation in Everyday Life",
-            "Living Creatures: Exploring their Characteristics",
+            "Living Creatures: Exploring Their Characteristics",
             "Nature's Treasures",
             "Beyond Earth"
           ]
@@ -974,29 +1114,33 @@ const ncertData = [
   ]
 },
 
+/* ================= CLASS 7 ================= */
+
 {
   className:"Class 7",
   subjects:[
     {
       name:"Science",
       icon:"🔬",
-      divisions:[{
-        name:"Science",
-        chapters:[
-          "The Ever-Evolving World of Science",
-          "Exploring Substances: Acidic, Basic and Neutral",
-          "Electricity: Circuits and Their Components",
-          "The World of Metals and Non-metals",
-          "Changes Around Us: Physical and Chemical",
-          "Materials Around Us",
-          "Heat Transfer in Nature",
-          "Measurement of Time and Motion",
-          "Life Processes in Animals",
-          "Life Processes in Plants",
-          "Light: Shadows and Reflections",
-          "Our Environment"
-        ]
-      }]
+      divisions:[
+        {
+          name:"Science",
+          chapters:[
+            "The Ever-Evolving World of Science",
+            "Exploring Substances: Acidic, Basic and Neutral",
+            "Electricity: Circuits and Their Components",
+            "The World of Metals and Non-metals",
+            "Changes Around Us: Physical and Chemical",
+            "Materials Around Us",
+            "Heat Transfer in Nature",
+            "Measurement of Time and Motion",
+            "Life Processes in Animals",
+            "Life Processes in Plants",
+            "Light: Shadows and Reflections",
+            "Our Environment"
+          ]
+        }
+      ]
     },
     {
       name:"Social Science",
@@ -1052,35 +1196,39 @@ const ncertData = [
   ]
 },
 
+/* ================= CLASS 8 ================= */
+
 {
   className:"Class 8",
   subjects:[
     {
       name:"Science",
       icon:"🔬",
-      divisions:[{
-        name:"Science",
-        chapters:[
-          "Crop Production and Management",
-          "Microorganisms: Friend and Foe",
-          "Synthetic Fibres and Plastics",
-          "Materials: Metals and Non-Metals",
-          "Coal and Petroleum",
-          "Combustion and Flame",
-          "Conservation of Plants and Animals",
-          "Cell—Structure and Functions",
-          "Reproduction in Animals",
-          "Reaching the Age of Adolescence",
-          "Force and Pressure",
-          "Friction",
-          "Sound",
-          "Chemical Effects of Electric Current",
-          "Some Natural Phenomena",
-          "Light",
-          "Stars and the Solar System",
-          "Pollution of Air and Water"
-        ]
-      }]
+      divisions:[
+        {
+          name:"Science",
+          chapters:[
+            "Crop Production and Management",
+            "Microorganisms: Friend and Foe",
+            "Synthetic Fibres and Plastics",
+            "Materials: Metals and Non-Metals",
+            "Coal and Petroleum",
+            "Combustion and Flame",
+            "Conservation of Plants and Animals",
+            "Cell—Structure and Functions",
+            "Reproduction in Animals",
+            "Reaching the Age of Adolescence",
+            "Force and Pressure",
+            "Friction",
+            "Sound",
+            "Chemical Effects of Electric Current",
+            "Some Natural Phenomena",
+            "Light",
+            "Stars and the Solar System",
+            "Pollution of Air and Water"
+          ]
+        }
+      ]
     },
     {
       name:"Social Science",
@@ -1131,30 +1279,34 @@ const ncertData = [
   ]
 },
 
+/* ================= CLASS 9 ================= */
+
 {
   className:"Class 9",
   subjects:[
     {
       name:"Science",
       icon:"🔬",
-      divisions:[{
-        name:"Science",
-        chapters:[
-          "Exploration: Entering the World of Secondary Science",
-          "Cell: The Building Block of Life",
-          "Tissues in Action",
-          "Describing Motion Around Us",
-          "Exploring Mixtures and Their Separation",
-          "How Forces Affect Motion",
-          "Work, Energy, and Simple Machines",
-          "Journey Inside the Atom",
-          "Atomic Foundations of Matter",
-          "Sound Waves: Characteristics and Applications",
-          "Reproduction: How Life Continues",
-          "Patterns in Life: Diversity and Classification",
-          "Earth as a System: Energy, Matter, and Life"
-        ]
-      }]
+      divisions:[
+        {
+          name:"Science",
+          chapters:[
+            "Exploration: Entering the World of Secondary Science",
+            "Cell: The Building Block of Life",
+            "Tissues in Action",
+            "Describing Motion Around Us",
+            "Exploring Mixtures and Their Separation",
+            "How Forces Affect Motion",
+            "Work, Energy, and Simple Machines",
+            "Journey Inside the Atom",
+            "Atomic Foundations of Matter",
+            "Sound Waves: Characteristics and Applications",
+            "Reproduction: How Life Continues",
+            "Patterns in Life: Diversity and Classification",
+            "Earth as a System: Energy, Matter, and Life"
+          ]
+        }
+      ]
     },
     {
       name:"Social Science",
@@ -1200,33 +1352,37 @@ const ncertData = [
   ]
 },
 
+/* ================= CLASS 10 ================= */
+
 {
   className:"Class 10",
   subjects:[
     {
       name:"Science",
       icon:"🔬",
-      divisions:[{
-        name:"Science",
-        chapters:[
-          "Chemical Reactions and Equations",
-          "Acids, Bases and Salts",
-          "Metals and Non-metals",
-          "Carbon and Its Compounds",
-          "Periodic Classification of Elements",
-          "Life Processes",
-          "Control and Coordination",
-          "How Do Organisms Reproduce?",
-          "Heredity and Evolution",
-          "Light—Reflection and Refraction",
-          "The Human Eye and the Colourful World",
-          "Electricity",
-          "Magnetic Effects of Electric Current",
-          "Sources of Energy",
-          "Our Environment",
-          "Sustainable Management of Natural Resources"
-        ]
-      }]
+      divisions:[
+        {
+          name:"Science",
+          chapters:[
+            "Chemical Reactions and Equations",
+            "Acids, Bases and Salts",
+            "Metals and Non-metals",
+            "Carbon and Its Compounds",
+            "Periodic Classification of Elements",
+            "Life Processes",
+            "Control and Coordination",
+            "How Do Organisms Reproduce?",
+            "Heredity and Evolution",
+            "Light—Reflection and Refraction",
+            "The Human Eye and the Colourful World",
+            "Electricity",
+            "Magnetic Effects of Electric Current",
+            "Sources of Energy",
+            "Our Environment",
+            "Sustainable Management of Natural Resources"
+          ]
+        }
+      ]
     },
     {
       name:"Social Science",
@@ -1280,24 +1436,28 @@ const ncertData = [
   ]
 },
 
+/* ================= CLASS 11 ================= */
+
 {
   className:"Class 11",
   subjects:[
     {
       name:"History",
       icon:"🏛️",
-      divisions:[{
-        name:"Themes in World History",
-        chapters:[
-          "Writing and City Life",
-          "An Empire Across Three Continents",
-          "Nomadic Empires",
-          "The Three Orders",
-          "Changing Cultural Traditions",
-          "Displacing Indigenous Peoples",
-          "Paths to Modernisation"
-        ]
-      }]
+      divisions:[
+        {
+          name:"Themes in World History",
+          chapters:[
+            "Writing and City Life",
+            "An Empire Across Three Continents",
+            "Nomadic Empires",
+            "The Three Orders",
+            "Changing Cultural Traditions",
+            "Displacing Indigenous Peoples",
+            "Paths to Modernisation"
+          ]
+        }
+      ]
     },
     {
       name:"Geography",
@@ -1377,24 +1537,28 @@ const ncertData = [
     {
       name:"Economics",
       icon:"📈",
-      divisions:[{
-        name:"Indian Economic Development",
-        chapters:[
-          "Indian Economy on the Eve of Independence",
-          "Indian Economy (1950–1990)",
-          "Liberalisation, Privatisation and Globalisation: An Appraisal",
-          "Poverty",
-          "Human Capital Formation in India",
-          "Rural Development",
-          "Employment: Growth, Informalisation and Other Issues",
-          "Infrastructure",
-          "Environment and Sustainable Development",
-          "Comparative Development Experiences of India and its Neighbours"
-        ]
-      }]
+      divisions:[
+        {
+          name:"Indian Economic Development",
+          chapters:[
+            "Indian Economy on the Eve of Independence",
+            "Indian Economy (1950–1990)",
+            "Liberalisation, Privatisation and Globalisation: An Appraisal",
+            "Poverty",
+            "Human Capital Formation in India",
+            "Rural Development",
+            "Employment: Growth, Informalisation and Other Issues",
+            "Infrastructure",
+            "Environment and Sustainable Development",
+            "Comparative Development Experiences of India and its Neighbours"
+          ]
+        }
+      ]
     }
   ]
 },
+
+/* ================= CLASS 12 ================= */
 
 {
   className:"Class 12",
@@ -1534,178 +1698,38 @@ const ncertData = [
 
 ];
 
-/* ================= ELEMENTS ================= */
+/* ======================================================
+   ELEMENTS
+   ====================================================== */
 
 const leftIndex = document.getElementById("leftIndex");
 const searchInput = document.getElementById("searchInput");
 const noResults = document.getElementById("noResults");
 
-const welcomePage = document.getElementById("welcomePage");
+const homePage = document.getElementById("homePage");
 const dynamicPage = document.getElementById("dynamicPage");
 const pageTitle = document.getElementById("pageTitle");
 const pageSubtitle = document.getElementById("pageSubtitle");
 const pageBody = document.getElementById("pageBody");
 const breadcrumb = document.getElementById("breadcrumb");
 
-let activeChapterButton = null;
-
-/* ================= HELPERS ================= */
+/* ======================================================
+   HELPERS
+   ====================================================== */
 
 function makeElement(tag,className,text){
-  const element = document.createElement(tag);
+  const el = document.createElement(tag);
 
   if(className){
-    element.className = className;
+    el.className = className;
   }
 
   if(text !== undefined){
-    element.textContent = text;
+    el.textContent = text;
   }
 
-  return element;
+  return el;
 }
-
-function countChapters(classData){
-  return classData.subjects.reduce((total,subject)=>{
-    return total + subject.divisions.reduce((sum,division)=>{
-      return sum + division.chapters.length;
-    },0);
-  },0);
-}
-
-function countSubjects(){
-  return ncertData.reduce((total,classData)=>{
-    return total + classData.subjects.length;
-  },0);
-}
-
-function totalChapters(){
-  return ncertData.reduce((total,classData)=>{
-    return total + countChapters(classData);
-  },0);
-}
-
-/* ================= RIGHT CONTENT ================= */
-
-function showPage(title,subtitle,html,crumb){
-
-  welcomePage.style.display = "none";
-  dynamicPage.style.display = "block";
-
-  pageTitle.textContent = title;
-  pageSubtitle.textContent = subtitle;
-
-  pageBody.innerHTML = html;
-
-  breadcrumb.replaceChildren();
-
-  breadcrumb.append(
-    document.createTextNode("Orient Classes / ")
-  );
-
-  const current = makeElement("span","",crumb || title);
-
-  breadcrumb.appendChild(current);
-
-  document.querySelector(".content-area").scrollIntoView({
-    behavior:"smooth",
-    block:"start"
-  });
-}
-
-function showWelcome(){
-
-  dynamicPage.style.display = "none";
-  welcomePage.style.display = "block";
-
-  breadcrumb.replaceChildren();
-
-  breadcrumb.append(
-    document.createTextNode("Orient Classes / ")
-  );
-
-  breadcrumb.appendChild(
-    makeElement("span","","Home")
-  );
-}
-
-/* ================= CHAPTER CONTENT ================= */
-
-/*
-  This function provides a starting template for chapter pages.
-  Add your real notes, images, diagrams and MCQs here.
-  Alternatively, connect chapterData.file to a separate HTML file.
-*/
-
-function chapterContent(className,subjectName,divisionName,chapterName,index){
-
-  const title = chapterName;
-
-  return `
-    <div class="chapter-meta">
-      <span class="meta-badge">${escapeHTML(className)}</span>
-      <span class="meta-badge">${escapeHTML(subjectName)}</span>
-      <span class="meta-badge">${escapeHTML(divisionName)}</span>
-      <span class="meta-badge">Chapter ${index+1}</span>
-    </div>
-
-    <div class="welcome-banner">
-      <h2>${escapeHTML(title)}</h2>
-      <p>
-        NCERT chapter study area for ${escapeHTML(className)}.
-        Use this page to add chapter notes, explanations, diagrams,
-        mind maps, MCQs and revision material.
-      </p>
-    </div>
-
-    <div class="lesson-box">
-      <h3>📘 Chapter Overview</h3>
-      <p>
-        This is the dedicated content area for
-        <strong>${escapeHTML(title)}</strong>.
-      </p>
-      <p>
-        The chapter title and index are loaded successfully.
-        Detailed chapter notes have not yet been added to this template.
-      </p>
-    </div>
-
-    <div class="lesson-box">
-      <h3>🎯 What You Can Add Here</h3>
-      <ul>
-        <li>Complete NCERT-based notes and explanations.</li>
-        <li>Important terms, definitions and key concepts.</li>
-        <li>Suitable diagrams, maps, figures and mind maps.</li>
-        <li>Important questions and answers.</li>
-        <li>Multiple-choice questions with answer explanations.</li>
-        <li>Revision points and practice exercises.</li>
-      </ul>
-    </div>
-
-    <div class="lesson-box highlight-box">
-      <h3>📝 Revision Notes</h3>
-      <p>
-        Add short revision points and important facts for quick review.
-      </p>
-    </div>
-
-    <div class="chapter-actions">
-      <button class="action-button primary"
-        type="button"
-        onclick="showSubject('${escapeJS(className)}','${escapeJS(subjectName)}')">
-        ← Back to Subject Chapters
-      </button>
-
-      <button class="action-button"
-        type="button"
-        onclick="window.print()">
-        🖨️ Print Chapter
-      </button>
-    </div>
-  `;
-}
-
-/* Escape content before inserting into HTML. */
 
 function escapeHTML(value){
   return String(value).replace(/[&<>"']/g,char=>({
@@ -1725,21 +1749,173 @@ function escapeJS(value){
     .replace(/\n/g,"\\n");
 }
 
-/* ================= SHOW CLASS ================= */
+function classChapterCount(classData){
+  return classData.subjects.reduce((sum,subject)=>{
+    return sum+subject.divisions.reduce((divisionSum,division)=>{
+      return divisionSum+division.chapters.length;
+    },0);
+  },0);
+}
+
+function totalSubjects(){
+  return ncertData.reduce((sum,classData)=>{
+    return sum+classData.subjects.length;
+  },0);
+}
+
+function totalChapters(){
+  return ncertData.reduce((sum,classData)=>{
+    return sum+classChapterCount(classData);
+  },0);
+}
+
+function findClass(className){
+  return ncertData.find(item=>item.className===className);
+}
+
+function findSubject(className,subjectName){
+  const classData=findClass(className);
+  if(!classData) return null;
+
+  return classData.subjects.find(item=>item.name===subjectName) || null;
+}
+
+/* ======================================================
+   BREADCRUMB AND PAGE ROUTING
+   ====================================================== */
+
+function setBreadcrumb(parts){
+  breadcrumb.replaceChildren();
+
+  breadcrumb.appendChild(
+    document.createTextNode("Orient Classes / ")
+  );
+
+  parts.forEach((part,index)=>{
+    if(index>0){
+      breadcrumb.appendChild(
+        document.createTextNode(" / ")
+      );
+    }
+
+    const span=makeElement("span","",part);
+    breadcrumb.appendChild(span);
+  });
+}
+
+function showHome(){
+  homePage.classList.add("active");
+  dynamicPage.classList.remove("active");
+
+  setBreadcrumb(["NCERT Home"]);
+
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function showPage(title,subtitle,html,crumbParts){
+  homePage.classList.remove("active");
+  dynamicPage.classList.add("active");
+
+  pageTitle.textContent=title;
+  pageSubtitle.textContent=subtitle;
+  pageBody.innerHTML=html;
+
+  setBreadcrumb(crumbParts);
+
+  document.querySelector(".content-area").scrollIntoView({
+    behavior:"smooth",
+    block:"start"
+  });
+}
+
+/* ======================================================
+   CHAPTER CONTENT TEMPLATE
+   ====================================================== */
+
+function chapterContent(className,subjectName,divisionName,chapterName,index){
+
+  return `
+    <div class="chapter-meta">
+      <span class="meta-badge">${escapeHTML(className)}</span>
+      <span class="meta-badge">${escapeHTML(subjectName)}</span>
+      <span class="meta-badge">${escapeHTML(divisionName)}</span>
+      <span class="meta-badge">Chapter ${index+1}</span>
+    </div>
+
+    <div class="hero-banner">
+      <h2>${escapeHTML(chapterName)}</h2>
+      <p>
+        ${escapeHTML(className)} • ${escapeHTML(subjectName)}
+      </p>
+    </div>
+
+    <div class="lesson-box">
+      <h3>📘 Chapter Overview</h3>
+      <p>
+        Welcome to the study page for
+        <strong>${escapeHTML(chapterName)}</strong>.
+      </p>
+      <p>
+        This area is ready for complete chapter notes,
+        NCERT explanations, important facts, diagrams,
+        mind maps, questions and answers.
+      </p>
+    </div>
+
+    <div class="lesson-box">
+      <h3>🎯 Learning Objectives</h3>
+      <ul>
+        <li>Understand the main concepts of the chapter.</li>
+        <li>Learn important terms and definitions.</li>
+        <li>Revise key facts and concepts.</li>
+        <li>Practise questions based on the chapter.</li>
+      </ul>
+    </div>
+
+    <div class="lesson-box highlight-box">
+      <h3>📝 Important Notes</h3>
+      <p>
+        Detailed notes for this chapter have not yet been added.
+        You can replace this template with your actual NCERT-based
+        notes, diagrams and practice questions.
+      </p>
+    </div>
+
+    <div class="content-actions">
+      <button class="action-button primary"
+        type="button"
+        onclick="showSubject('${escapeJS(className)}','${escapeJS(subjectName)}')">
+        ← Back to Subject
+      </button>
+
+      <button class="action-button"
+        type="button"
+        onclick="window.print()">
+        🖨️ Print Chapter
+      </button>
+
+      <button class="action-button"
+        type="button"
+        onclick="showHome()">
+        🏠 NCERT Home
+      </button>
+    </div>
+  `;
+}
+
+/* ======================================================
+   SHOW CLASS PAGE
+   ====================================================== */
 
 function showClass(className){
 
-  const classData = ncertData.find(item=>item.className===className);
-
+  const classData=findClass(className);
   if(!classData) return;
 
-  let html = `
-    <div class="welcome-banner">
-      <h2>${escapeHTML(className)} Study Resources</h2>
-      <p>
-        Select a subject below to view its chapters.
-        Click any chapter to open its content.
-      </p>
+  let html=`
+    <div class="page-banner">
+      <h2>📚 ${escapeHTML(className)}</h2>
+      <p>Select a subject to view its chapter index.</p>
     </div>
 
     <div class="stats-grid">
@@ -1747,31 +1923,33 @@ function showClass(className){
         <strong>${classData.subjects.length}</strong>
         <span>Subjects</span>
       </div>
+
       <div class="stat-card">
-        <strong>${countChapters(classData)}</strong>
+        <strong>${classChapterCount(classData)}</strong>
         <span>Indexed Chapters</span>
       </div>
+
       <div class="stat-card">
         <strong>${escapeHTML(className.replace("Class ",""))}</strong>
         <span>Selected Class</span>
       </div>
     </div>
 
-    <h3 class="content-heading">Subjects in ${escapeHTML(className)}</h3>
+    <h3 class="section-title">Subjects in ${escapeHTML(className)}</h3>
 
-    <div class="subject-overview-grid">
+    <div class="subject-grid">
   `;
 
   classData.subjects.forEach(subject=>{
-
-    const chapters = subject.divisions.reduce(
-      (total,division)=>total+division.chapters.length,0
+    const count=subject.divisions.reduce(
+      (sum,division)=>sum+division.chapters.length,0
     );
 
-    html += `
-      <article class="overview-card">
+    html+=`
+      <article class="subject-card">
         <h3>${subject.icon || "📚"} ${escapeHTML(subject.name)}</h3>
-        <p>${chapters} indexed chapters</p>
+        <p>${count} indexed chapters</p>
+
         <button type="button"
           onclick="showSubject('${escapeJS(className)}','${escapeJS(subject.name)}')">
           View Chapters →
@@ -1780,47 +1958,45 @@ function showClass(className){
     `;
   });
 
-  html += `</div>`;
+  html+="</div>";
 
-  showPage(className+" — Study Index",
-    "Choose a subject to explore its chapter list.",
+  showPage(
+    className+" — Study Index",
+    "Select a subject to explore its chapter list.",
     html,
-    className
+    [className]
   );
 }
 
-/* ================= SHOW SUBJECT ================= */
+/* ======================================================
+   SHOW SUBJECT PAGE
+   ====================================================== */
 
 function showSubject(className,subjectName){
 
-  const classData = ncertData.find(item=>item.className===className);
+  const classData=findClass(className);
+  const subject=findSubject(className,subjectName);
 
-  if(!classData) return;
+  if(!classData || !subject) return;
 
-  const subject = classData.subjects.find(item=>item.name===subjectName);
-
-  if(!subject) return;
-
-  let html = `
-    <div class="welcome-banner">
-      <h2>${escapeHTML(subject.name)}</h2>
-      <p>
-        ${escapeHTML(className)} • Select a chapter to open its content.
-      </p>
+  let html=`
+    <div class="page-banner">
+      <h2>${subject.icon || "📚"} ${escapeHTML(subject.name)}</h2>
+      <p>${escapeHTML(className)} • Choose a chapter to open its content.</p>
     </div>
   `;
 
   subject.divisions.forEach(division=>{
 
-    html += `
-      <h3 class="content-heading">${escapeHTML(division.name)}</h3>
-      <div class="chapter-overview-list">
+    html+=`
+      <h3 class="section-title">${escapeHTML(division.name)}</h3>
+      <div class="chapter-list">
     `;
 
     division.chapters.forEach((chapter,index)=>{
 
-      html += `
-        <button class="chapter-overview-button"
+      html+=`
+        <button class="chapter-card"
           type="button"
           onclick="showChapter(
             '${escapeJS(className)}',
@@ -1829,37 +2005,57 @@ function showSubject(className,subjectName){
             '${escapeJS(chapter)}',
             ${index}
           )">
-          <strong>${String(index+1).padStart(2,"0")}</strong>
+
+          <span class="chapter-card-number">
+            ${String(index+1).padStart(2,"0")}
+          </span>
+
           <span>${escapeHTML(chapter)}</span>
+
         </button>
       `;
     });
 
-    html += `</div>`;
+    html+="</div>";
   });
 
-  html += `
-    <div class="chapter-actions">
+  html+=`
+    <div class="content-actions">
       <button class="action-button"
         type="button"
         onclick="showClass('${escapeJS(className)}')">
         ← Back to ${escapeHTML(className)}
       </button>
+
+      <button class="action-button"
+        type="button"
+        onclick="showHome()">
+        🏠 NCERT Home
+      </button>
     </div>
   `;
 
-  showPage(className+" — "+subject.name,
+  showPage(
+    className+" — "+subject.name,
     "Chapter index and study resources.",
     html,
-    className+" / "+subject.name
+    [className,subject.name]
   );
 }
 
-/* ================= SHOW CHAPTER ================= */
+/* ======================================================
+   SHOW CHAPTER PAGE
+   ====================================================== */
 
-function showChapter(className,subjectName,divisionName,chapterName,index){
+function showChapter(
+  className,
+  subjectName,
+  divisionName,
+  chapterName,
+  index
+){
 
-  const html = chapterContent(
+  const html=chapterContent(
     className,
     subjectName,
     divisionName,
@@ -1867,23 +2063,26 @@ function showChapter(className,subjectName,divisionName,chapterName,index){
     index
   );
 
-  showPage(chapterName,
+  showPage(
+    chapterName,
     "Chapter-wise study content.",
     html,
-    className+" / "+subjectName+" / "+chapterName
+    [className,subjectName,chapterName]
   );
 
   document.querySelectorAll(".chapter-link").forEach(button=>{
     button.classList.toggle(
       "active",
-      button.dataset.chapter === chapterName &&
-      button.dataset.class === className &&
-      button.dataset.subject === subjectName
+      button.dataset.class===className &&
+      button.dataset.subject===subjectName &&
+      button.dataset.chapter===chapterName
     );
   });
 }
 
-/* ================= BUILD LEFT INDEX ================= */
+/* ======================================================
+   BUILD LEFT-SIDE INDEX
+   ====================================================== */
 
 function buildIndex(){
 
@@ -1891,31 +2090,31 @@ function buildIndex(){
 
   ncertData.forEach(classData=>{
 
-    const classGroup = makeElement("div","class-group");
+    const classGroup=makeElement("div","class-group");
+    classGroup.dataset.search=classData.className.toLowerCase();
 
-    classGroup.dataset.search = classData.className.toLowerCase();
-
-    const classButton = makeElement("button","class-button");
-
-    classButton.type = "button";
+    const classButton=makeElement("button","class-button");
+    classButton.type="button";
     classButton.setAttribute("aria-expanded","false");
 
-    const number = classData.className.replace("Class ","");
+    const classNumber=makeElement(
+      "span",
+      "class-number",
+      classData.className.replace("Class ","")
+    );
 
-    const classNumber = makeElement("span","class-number",number);
-    const classTitle = makeElement("span","",classData.className);
-    const arrow = makeElement("span","class-arrow","⌄");
+    const classTitle=makeElement("span","",classData.className);
+    const classArrow=makeElement("span","class-arrow","⌄");
 
-    classButton.append(classNumber,classTitle,arrow);
+    classButton.append(classNumber,classTitle,classArrow);
+
+    const subjectsPanel=makeElement("div","class-subjects");
 
     classButton.addEventListener("click",()=>{
 
-      const subjectsPanel = classGroup.querySelector(".class-subjects");
-
-      const open = !subjectsPanel.classList.contains("open");
+      const open=!subjectsPanel.classList.contains("open");
 
       subjectsPanel.classList.toggle("open",open);
-
       classButton.setAttribute("aria-expanded",String(open));
 
       document.querySelectorAll(".class-button").forEach(button=>{
@@ -1927,44 +2126,44 @@ function buildIndex(){
       classButton.classList.add("active");
 
       showClass(classData.className);
-
     });
-
-    const subjectsPanel = makeElement("div","class-subjects");
 
     classData.subjects.forEach(subjectData=>{
 
-      const subjectGroup = makeElement("div","subject-group");
+      const subjectGroup=makeElement("div","subject-group");
 
-      subjectGroup.dataset.search = subjectData.name.toLowerCase();
+      subjectGroup.dataset.search=subjectData.name.toLowerCase();
 
-      const subjectButton = makeElement("button","subject-button");
-
-      subjectButton.type = "button";
+      const subjectButton=makeElement("button","subject-button");
+      subjectButton.type="button";
       subjectButton.setAttribute("aria-expanded","false");
 
-      const icon = makeElement("span","",subjectData.icon || "📚");
-      const subjectTitle = makeElement("span","",subjectData.name);
-      const subjectArrow = makeElement("span","subject-arrow","⌄");
+      const icon=makeElement("span","",subjectData.icon || "📚");
+      const subjectTitle=makeElement("span","",subjectData.name);
+      const subjectArrow=makeElement("span","subject-arrow","⌄");
 
       subjectButton.append(icon,subjectTitle,subjectArrow);
 
-      const chapterPanel = makeElement("div","chapter-nav");
+      const chapterPanel=makeElement("div","chapter-nav");
 
       subjectData.divisions.forEach(division=>{
 
         division.chapters.forEach((chapter,index)=>{
 
-          const chapterButton = makeElement("button","chapter-link",chapter);
+          const chapterButton=makeElement(
+            "button",
+            "chapter-link",
+            chapter
+          );
 
-          chapterButton.type = "button";
+          chapterButton.type="button";
 
-          chapterButton.dataset.search = chapter.toLowerCase();
-          chapterButton.dataset.chapter = chapter;
-          chapterButton.dataset.class = classData.className;
-          chapterButton.dataset.subject = subjectData.name;
-          chapterButton.dataset.division = division.name;
-          chapterButton.dataset.index = String(index);
+          chapterButton.dataset.search=chapter.toLowerCase();
+          chapterButton.dataset.chapter=chapter;
+          chapterButton.dataset.class=classData.className;
+          chapterButton.dataset.subject=subjectData.name;
+          chapterButton.dataset.division=division.name;
+          chapterButton.dataset.index=String(index);
 
           chapterButton.addEventListener("click",()=>{
 
@@ -1981,7 +2180,6 @@ function buildIndex(){
               chapter,
               index
             );
-
           });
 
           chapterPanel.appendChild(chapterButton);
@@ -1992,170 +2190,185 @@ function buildIndex(){
 
       subjectButton.addEventListener("click",()=>{
 
-        const open = !chapterPanel.classList.contains("open");
+        const open=!chapterPanel.classList.contains("open");
 
         chapterPanel.classList.toggle("open",open);
-
         subjectButton.setAttribute("aria-expanded",String(open));
+        subjectButton.classList.toggle("active",open);
 
         showSubject(classData.className,subjectData.name);
-
       });
 
       subjectGroup.append(subjectButton,chapterPanel);
-
       subjectsPanel.appendChild(subjectGroup);
 
     });
 
     classGroup.append(classButton,subjectsPanel);
-
     leftIndex.appendChild(classGroup);
 
   });
 
 }
 
-/* ================= CLASS OVERVIEW ================= */
+/* ======================================================
+   BUILD HOME PAGE CLASS CARDS
+   ====================================================== */
 
-function buildClassOverview(){
+function buildClassCards(){
 
-  const overview = document.getElementById("classOverview");
+  const classCards=document.getElementById("classCards");
+
+  classCards.replaceChildren();
 
   ncertData.forEach(classData=>{
 
-    const card = makeElement("article","overview-card");
+    const card=makeElement("article","class-card");
 
-    const title = makeElement("h3","",
-      "📚 "+classData.className
+    const icon=makeElement("div","class-card-icon","📚");
+    const title=makeElement("h3","",classData.className);
+
+    const description=makeElement(
+      "p",
+      "",
+      `${classData.subjects.length} subjects • ${classChapterCount(classData)} indexed chapters`
     );
 
-    const details = makeElement("p","",
-      `${classData.subjects.length} subjects • ${countChapters(classData)} chapters`
+    const button=makeElement(
+      "button",
+      "",
+      "Explore "+classData.className+" →"
     );
 
-    const button = makeElement("button","","Open "+classData.className+" →");
-
-    button.type = "button";
+    button.type="button";
 
     button.addEventListener("click",()=>{
 
-      const group = [...document.querySelectorAll(".class-group")]
+      const group=[...document.querySelectorAll(".class-group")]
         .find(item=>item.dataset.search===classData.className.toLowerCase());
 
       if(group){
 
-        const classButton = group.querySelector(".class-button");
-        const subjects = group.querySelector(".class-subjects");
+        const classButton=group.querySelector(".class-button");
+        const panel=group.querySelector(".class-subjects");
 
-        subjects.classList.add("open");
-
+        panel.classList.add("open");
         classButton.setAttribute("aria-expanded","true");
         classButton.classList.add("active");
 
       }
 
       showClass(classData.className);
-
-      window.scrollTo({top:0,behavior:"smooth"});
-
     });
 
-    card.append(title,details,button);
-
-    overview.appendChild(card);
+    card.append(icon,title,description,button);
+    classCards.appendChild(card);
 
   });
 
 }
 
-/* ================= SEARCH ================= */
+/* ======================================================
+   SEARCH
+   ====================================================== */
 
 searchInput.addEventListener("input",()=>{
 
-  const query = searchInput.value.trim().toLowerCase();
+  const query=searchInput.value.trim().toLowerCase();
 
-  let matches = 0;
+  let visibleClasses=0;
 
   document.querySelectorAll(".class-group").forEach(classGroup=>{
 
-    const classMatch = classGroup.dataset.search.includes(query);
-
-    let classHasMatch = false;
+    const classMatch=classGroup.dataset.search.includes(query);
+    let classHasMatch=false;
 
     classGroup.querySelectorAll(".subject-group").forEach(subjectGroup=>{
 
-      const subjectMatch = subjectGroup.dataset.search.includes(query);
-
-      let subjectHasMatch = false;
+      const subjectMatch=subjectGroup.dataset.search.includes(query);
+      let subjectHasMatch=false;
 
       subjectGroup.querySelectorAll(".chapter-link").forEach(chapter=>{
 
-        const chapterMatch = chapter.dataset.search.includes(query);
+        const chapterMatch=chapter.dataset.search.includes(query);
 
-        const visible = !query || classMatch || subjectMatch || chapterMatch;
+        const showChapterItem=
+          !query || classMatch || subjectMatch || chapterMatch;
 
-        chapter.style.display = visible ? "block" : "none";
+        chapter.style.display=showChapterItem ? "block" : "none";
 
-        if(visible){
-          subjectHasMatch = true;
+        if(showChapterItem){
+          subjectHasMatch=true;
         }
 
       });
 
-      const showSubject = !query || classMatch || subjectMatch || subjectHasMatch;
+      const showSubject=
+        !query || classMatch || subjectMatch || subjectHasMatch;
 
-      subjectGroup.style.display = showSubject ? "block" : "none";
+      subjectGroup.style.display=showSubject ? "block" : "none";
 
       if(query && showSubject){
 
-        const panel = subjectGroup.querySelector(".chapter-nav");
-        const button = subjectGroup.querySelector(".subject-button");
+        const chapterPanel=subjectGroup.querySelector(".chapter-nav");
+        const subjectButton=subjectGroup.querySelector(".subject-button");
 
-        panel.classList.add("open");
-        button.setAttribute("aria-expanded","true");
-
+        chapterPanel.classList.add("open");
+        subjectButton.setAttribute("aria-expanded","true");
       }
 
       if(showSubject){
-        classHasMatch = true;
+        classHasMatch=true;
       }
 
     });
 
-    const showClass = !query || classMatch || classHasMatch;
+    const showClass=!query || classMatch || classHasMatch;
 
-    classGroup.style.display = showClass ? "block" : "none";
+    classGroup.style.display=showClass ? "block" : "none";
 
     if(showClass){
-      matches++;
+      visibleClasses++;
     }
 
     if(query && showClass){
 
-      const panel = classGroup.querySelector(".class-subjects");
-      const button = classGroup.querySelector(".class-button");
+      const subjectsPanel=classGroup.querySelector(".class-subjects");
+      const classButton=classGroup.querySelector(".class-button");
 
-      panel.classList.add("open");
-      button.setAttribute("aria-expanded","true");
-
+      subjectsPanel.classList.add("open");
+      classButton.setAttribute("aria-expanded","true");
     }
 
   });
 
-  noResults.style.display = matches===0 ? "block" : "none";
+  noResults.style.display=visibleClasses===0 ? "block" : "none";
 
 });
 
-/* ================= EXPAND / COLLAPSE ================= */
+/* ======================================================
+   EXPAND / COLLAPSE
+   ====================================================== */
 
 function expandAll(){
 
-  document.querySelectorAll(".class-subjects,.chapter-nav").forEach(panel=>{
+  document.querySelectorAll(".class-group").forEach(group=>{
+    if(group.style.display==="none") return;
+
+    const panel=group.querySelector(".class-subjects");
+    const button=group.querySelector(".class-button");
+
     panel.classList.add("open");
+    button.setAttribute("aria-expanded","true");
   });
 
-  document.querySelectorAll(".class-button,.subject-button").forEach(button=>{
+  document.querySelectorAll(".subject-group").forEach(group=>{
+    if(group.style.display==="none") return;
+
+    const panel=group.querySelector(".chapter-nav");
+    const button=group.querySelector(".subject-button");
+
+    panel.classList.add("open");
     button.setAttribute("aria-expanded","true");
   });
 
@@ -2169,20 +2382,57 @@ function collapseAll(){
 
   document.querySelectorAll(".class-button,.subject-button").forEach(button=>{
     button.setAttribute("aria-expanded","false");
+    button.classList.remove("active");
   });
 
 }
 
-document.getElementById("expandButton").addEventListener("click",expandAll);
-document.getElementById("collapseButton").addEventListener("click",collapseAll);
+document.getElementById("expandButton")
+  .addEventListener("click",expandAll);
 
-/* ================= INITIALISE ================= */
+document.getElementById("collapseButton")
+  .addEventListener("click",collapseAll);
+
+/* ======================================================
+   NCERT HOME BUTTON
+   ====================================================== */
+
+document.getElementById("ncertHomeButton")
+  .addEventListener("click",()=>{
+
+    searchInput.value="";
+
+    document.querySelectorAll(".class-group").forEach(group=>{
+      group.style.display="block";
+    });
+
+    document.querySelectorAll(".subject-group").forEach(group=>{
+      group.style.display="block";
+    });
+
+    document.querySelectorAll(".chapter-link").forEach(chapter=>{
+      chapter.style.display="block";
+      chapter.classList.remove("active");
+    });
+
+    noResults.style.display="none";
+
+    collapseAll();
+    showHome();
+
+  });
+
+/* ======================================================
+   INITIALISE
+   ====================================================== */
 
 buildIndex();
-buildClassOverview();
+buildClassCards();
 
-document.getElementById("subjectCount").textContent = countSubjects();
-document.getElementById("chapterCount").textContent = totalChapters();
+document.getElementById("subjectCount").textContent=totalSubjects();
+document.getElementById("chapterCount").textContent=totalChapters();
+
+document.getElementById("year").textContent=new Date().getFullYear();
 
 </script>
 
