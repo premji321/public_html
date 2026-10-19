@@ -1,1 +1,1941 @@
-gg
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BPSC Exam Pattern 2026 | Orient Classes</title>
+
+<style>
+:root {
+    --navy: #102b52;
+    --blue: #174f91;
+    --gold: #f4c542;
+    --light: #f3f6fb;
+    --white: #ffffff;
+    --border: #dce4ef;
+    --text: #263445;
+    --red: #d92d20;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--light);
+    color: var(--text);
+    line-height: 1.7;
+}
+
+/* HEADER */
+
+header {
+    background: linear-gradient(135deg, var(--navy), #1765a8);
+    color: white;
+    padding: 23px 15px;
+    text-align: center;
+    border-bottom: 5px solid var(--gold);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 30px;
+}
+
+header p {
+    margin: 5px 0 0;
+}
+
+/* TOP NAVIGATION */
+
+.topnav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px;
+    background: #ffdc68;
+}
+
+.topnav a {
+    color: var(--navy);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 7px 12px;
+    border-radius: 6px;
+}
+
+.topnav a:hover {
+    background: white;
+}
+
+/* MAIN LAYOUT */
+
+.layout {
+    max-width: 1500px;
+    margin: 22px auto;
+    padding: 0 15px;
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr);
+    gap: 20px;
+}
+
+/* LEFT SIDEBAR */
+
+.sidebar {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px;
+    position: sticky;
+    top: 10px;
+    align-self: start;
+    max-height: calc(100vh - 20px);
+    overflow-y: auto;
+    box-shadow: 0 4px 15px #102b520b;
+}
+
+.sidebar h2 {
+    font-size: 19px;
+    color: var(--navy);
+    border-bottom: 3px solid var(--gold);
+    padding-bottom: 9px;
+    margin: 0 0 12px;
+}
+
+.sidebar a,
+.sidebar button {
+    display: block;
+    width: 100%;
+    padding: 9px 10px;
+    margin: 3px 0;
+    text-align: left;
+    text-decoration: none;
+    color: #26374d;
+    background: transparent;
+    border: none;
+    border-radius: 7px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.sidebar a:hover,
+.sidebar button:hover,
+.sidebar a.active {
+    background: #eaf2ff;
+    color: #124d8c;
+}
+
+.sidebar .active {
+    font-weight: bold;
+}
+
+/* TREE NAVIGATION */
+
+.tree-button {
+    font-weight: 600 !important;
+}
+
+.tree-button::before {
+    content: "＋ ";
+    color: var(--blue);
+    font-weight: bold;
+}
+
+.tree-button.open::before {
+    content: "− ";
+}
+
+.tree-level-1 {
+    margin-left: 9px;
+    padding-left: 8px;
+    border-left: 2px solid #d6e4f7;
+}
+
+.tree-level-2 {
+    margin-left: 9px;
+    padding-left: 8px;
+    border-left: 2px solid #e4eaf3;
+}
+
+.tree-level-1 a,
+.tree-level-2 a {
+    font-size: 13px;
+    padding: 7px 9px;
+}
+
+/* MOCK TEST BUTTON */
+
+.mock-button {
+    margin-top: 14px !important;
+    background: var(--red) !important;
+    color: white !important;
+    text-align: center !important;
+    font-weight: bold !important;
+    animation: pulse 1.8s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 #d92d2055;
+    }
+
+    70% {
+        box-shadow: 0 0 0 8px #d92d2000;
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 #d92d2000;
+    }
+}
+
+/* CONTENT AREA */
+
+main {
+    min-width: 0;
+}
+
+.content-box {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 23px;
+    margin-bottom: 18px;
+    box-shadow: 0 4px 15px #102b5208;
+}
+
+h2 {
+    color: var(--navy);
+    margin-top: 0;
+}
+
+h3 {
+    color: var(--blue);
+    margin-top: 22px;
+}
+
+.badge {
+    display: inline-block;
+    background: #fff1bd;
+    color: #604900;
+    padding: 4px 11px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.notice {
+    background: #fff7dc;
+    border-left: 5px solid var(--gold);
+    border-radius: 5px;
+    padding: 13px 15px;
+    margin: 15px 0;
+}
+
+.warning {
+    background: #fff0ee;
+    border-left: 5px solid var(--red);
+    border-radius: 5px;
+    padding: 13px 15px;
+    margin: 15px 0;
+}
+
+/* TABLES */
+
+.table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    margin: 15px 0 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 520px;
+}
+
+th {
+    background: var(--navy);
+    color: white;
+    text-align: left;
+}
+
+th,
+td {
+    border: 1px solid var(--border);
+    padding: 10px;
+    vertical-align: top;
+}
+
+tbody tr:nth-child(even) {
+    background: #f4f7fc;
+}
+
+/* STAGES */
+
+.stages {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin: 18px 0;
+}
+
+.stage {
+    background: #edf4ff;
+    border: 1px solid #d2e2f8;
+    border-radius: 9px;
+    padding: 14px;
+    text-align: center;
+}
+
+.stage strong {
+    display: block;
+    color: var(--navy);
+}
+
+/* CHAPTER CONTENT */
+
+.chapter-content {
+    min-height: 300px;
+}
+
+.chapter-content h2 {
+    border-bottom: 3px solid var(--gold);
+    padding-bottom: 9px;
+}
+
+.chapter-content h3 {
+    color: var(--blue);
+}
+
+.chapter-content ul,
+.chapter-content ol {
+    padding-left: 24px;
+}
+
+.chapter-content li {
+    margin-bottom: 7px;
+}
+
+.chapter-content .key-point {
+    background: #edf4ff;
+    padding: 12px;
+    border-radius: 7px;
+    margin: 12px 0;
+}
+
+.chapter-content .chapter-tag {
+    display: inline-block;
+    background: #eaf2ff;
+    color: var(--blue);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.chapter-link.selected {
+    background: #eaf2ff;
+    color: var(--blue);
+    font-weight: bold;
+}
+
+footer {
+    background: var(--navy);
+    color: white;
+    text-align: center;
+    padding: 22px 12px;
+    margin-top: 25px;
+}
+
+footer p {
+    margin: 4px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 850px) {
+
+    .layout {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        position: relative;
+        top: auto;
+        max-height: none;
+    }
+
+    .stages {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width: 520px) {
+
+    header h1 {
+        font-size: 24px;
+    }
+
+    .layout {
+        padding: 0 10px;
+        margin: 12px auto;
+    }
+
+    .content-box {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 21px;
+    }
+
+    .topnav a {
+        padding: 6px 8px;
+        font-size: 13px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Orient Classes</h1>
+    <p>BPSC Preparation | Study Smart, Achieve Success</p>
+</header>
+
+<nav class="topnav">
+    <a href="index.html">Home</a>
+    <a href="BPSC_Syllabus.html">Syllabus</a>
+    <a href="BPSC_Exam_Pattern.html">Exam Pattern</a>
+    <a href="BPSC_Cutoff.html">Cut-Off Trends</a>
+    <a href="Current_Affairs.html">Current Affairs</a>
+</nav>
+
+<div class="layout">
+
+<!-- LEFT SIDEBAR -->
+
+<aside class="sidebar">
+
+    <h2>BPSC Navigation</h2>
+
+    <a href="index.html">⌂ Home Page</a>
+
+    <a href="BPSC_Syllabus.html">▤ Syllabus</a>
+
+    <a href="BPSC_Exam_Pattern.html" class="active">
+        ▣ Exam Pattern
+    </a>
+
+    <a href="BPSC_Cutoff.html">▥ Cut-Off Trends</a>
+
+    <a href="BPSC_Vacancy.html">♙ Vacancies</a>
+
+    <a href="BPSC_Prelims_PYQ.html">✎ Prelims PYQ</a>
+
+    <a href="BPSC_Mains_PYQ.html">✎ Mains PYQ</a>
+
+    <button type="button"
+            class="tree-button"
+            onclick="toggleTree('subjects','subjectToggle')"
+            id="subjectToggle"
+            aria-expanded="false">
+        Subject-wise Notes
+    </button>
+
+    <div id="subjects" class="tree-level-1" hidden>
+
+        <button type="button"
+                class="tree-button"
+                onclick="toggleTree('historyTopics','historyToggle')"
+                id="historyToggle"
+                aria-expanded="false">
+            History
+        </button>
+
+        <div id="historyTopics" class="tree-level-1" hidden>
+
+            <button type="button"
+                    class="tree-button"
+                    onclick="toggleTree('ancientChapters','ancientToggle')"
+                    id="ancientToggle">
+                Ancient History
+            </button>
+
+            <div id="ancientChapters" class="tree-level-2" hidden>
+                <a href="#" class="chapter-link"
+                   onclick="showChapter('indus');return false;">
+                   Indus Valley Civilization
+                </a>
+
+                <a href="#" class="chapter-link"
+                   onclick="showChapter('vedic');return false;">
+                   Vedic Period
+                </a>
+
+                <a href="#" class="chapter-link"
+                   onclick="showChapter('maurya');return false;">
+                   Mauryan Empire
+                </a>
+
+                <a href="#" class="chapter-link"
+                   onclick="showChapter('gupta');return false;">
+                   Gupta Empire
+                </a>
+            </div>
+
+            <button type="button"
+                    class="tree-button"
+                    onclick="toggleTree('medievalChapters','medievalToggle')"
+                    id="medievalToggle">
+                Medieval History
+            </button>
+
+            <div id="medievalChapters" class="tree-level-2" hidden>
+                <a href="#" class="chapter-link"
+                   onclick="showChapter('sultanate');return false;">
+                   Delhi Sultanate
+                </a>
+
+                <a href="#" class="chapter-link"
+                   onclick="showChapter('mughal');return false;">
+                   Mughal Empire
+                </a>
+            </div>
+
+            <button type="button"
+                    class="tree-button"
+                    onclick="toggleTree('modernChapters','modernToggle')"
+                    id="modernToggle">
+                Modern History
+            </button>
+
+            <div id="modernChapters" class="tree-level-2" hidden>
+                <a href="#" class="chapter-link"
+                   onclick="showChapter('1857');return false;">
+                   Revolt of 1857
+                </a>
+
+                <a href="#" class="chapter-link"
+                   onclick="showChapter('governors');return false;">
+                   Governor-Generals and Viceroys
+                </a>
+
+                <a href="#" class="chapter-link"
+                   onclick="showChapter('nationalMovement');return false;">
+                   Indian National Movement
+                </a>
+            </div>
+
+        </div>
+
+        <button type="button"
+                class="tree-button"
+                onclick="toggleTree('geographyTopics','geographyToggle')"
+                id="geographyToggle">
+            Geography
+        </button>
+
+        <div id="geographyTopics" class="tree-level-1" hidden>
+
+            <button type="button"
+                    class="tree-button"
+                    onclick="toggleTree('physicalChapters','physicalToggle')"
+                    id="physicalToggle">
+                Physical Geography
+            </button>
+
+            <div id="physicalChapters" class="tree-level-2" hidden>
+                <a href="#" class="chapter-link"
+                   onclick="showChapter('earth');return false;">
+                   Earth and Its Structure
+                </a>
+
+                <a href="#" class="chapter-link"
+                   onclick="showChapter('climate');return false;">
+                   Climate and Monsoon
+                </a>
+            </div>
+
+            <button type="button"
+                    class="tree-button"
+                    onclick="toggleTree('indianGeoChapters','indianGeoToggle')"
+                    id="indianGeoToggle">
+                Indian Geography
+            </button>
+
+            <div id="indianGeoChapters" class="tree-level-2" hidden>
+                <a href="#" class="chapter-link"
+                   onclick="showChapter('physiography');return false;">
+                   Physiographic Divisions
+                </a>
+
+                <a href="#" class="chapter-link"
+                   onclick="showChapter('drainage');return false;">
+                   Indian Drainage System
+                </a>
+            </div>
+
+            <button type="button"
+                    class="tree-button"
+                    onclick="toggleTree('biharGeoChapters','biharGeoToggle')"
+                    id="biharGeoToggle">
+                Bihar Geography
+            </button>
+
+            <div id="biharGeoChapters" class="tree-level-2" hidden>
+                <a href="#" class="chapter-link"
+                   onclick="showChapter('biharRivers');return false;">
+                   Rivers of Bihar
+                </a>
+
+                <a href="#" class="chapter-link"
+                   onclick="showChapter('biharAgriculture');return false;">
+                   Agriculture of Bihar
+                </a>
+            </div>
+
+        </div>
+
+        <button type="button"
+                class="tree-button"
+                onclick="toggleTree('polityTopics','polityToggle')"
+                id="polityToggle">
+            Indian Polity
+        </button>
+
+        <div id="polityTopics" class="tree-level-1" hidden>
+
+            <button type="button"
+                    class="tree-button"
+                    onclick="toggleTree('constitutionChapters','constitutionToggle')"
+                    id="constitutionToggle">
+                Constitution
+            </button>
+
+            <div id="constitutionChapters" class="tree-level-2" hidden>
+                <a href="#" class="chapter-link"
+                   onclick="showChapter('preamble');return false;">
+                   Preamble of the Constitution
+                </a>
+
+                <a href="#" class="chapter-link"
+                   onclick="showChapter('fundamentalRights');return false;">
+                   Fundamental Rights
+                </a>
+
+                <a href="#" class="chapter-link"
+                   onclick="showChapter('duties');return false;">
+                   Fundamental Duties
+                </a>
+            </div>
+
+            <button type="button"
+                    class="tree-button"
+                    onclick="toggleTree('governmentChapters','governmentToggle')"
+                    id="governmentToggle">
+                Government and Judiciary
+            </button>
+
+            <div id="governmentChapters" class="tree-level-2" hidden>
+                <a href="#" class="chapter-link"
+                   onclick="showChapter('parliament');return false;">
+                   Parliament of India
+                </a>
+
+                <a href="#" class="chapter-link"
+                   onclick="showChapter('judiciary');return false;">
+                   Indian Judiciary
+                </a>
+            </div>
+
+        </div>
+
+        <button type="button"
+                class="tree-button"
+                onclick="toggleTree('economyTopics','economyToggle')"
+                id="economyToggle">
+            Indian Economy
+        </button>
+
+        <div id="economyTopics" class="tree-level-1" hidden>
+
+            <button type="button"
+                    class="tree-button"
+                    onclick="toggleTree('economyBasicChapters','economyBasicToggle')"
+                    id="economyBasicToggle">
+                Basic Economic Concepts
+            </button>
+
+            <div id="economyBasicChapters" class="tree-level-2" hidden>
+                <a href="#" class="chapter-link"
+                   onclick="showChapter('gdp');return false;">
+                   GDP and National Income
+                </a>
+
+                <a href="#" class="chapter-link"
+                   onclick="showChapter('inflation');return false;">
+                   Inflation
+                </a>
+            </div>
+
+            <button type="button"
+                    class="tree-button"
+                    onclick="toggleTree('bankingChapters','bankingToggle')"
+                    id="bankingToggle">
+                Banking and Finance
+            </button>
+
+            <div id="bankingChapters" class="tree-level-2" hidden>
+                <a href="#" class="chapter-link"
+                   onclick="showChapter('rbi');return false;">
+                   Reserve Bank of India
+                </a>
+
+                <a href="#" class="chapter-link"
+                   onclick="showChapter('budget');return false;">
+                   Budget and Fiscal Policy
+                </a>
+            </div>
+
+        </div>
+
+        <button type="button"
+                class="tree-button"
+                onclick="toggleTree('scienceTopics','scienceToggle')"
+                id="scienceToggle">
+            General Science
+        </button>
+
+        <div id="scienceTopics" class="tree-level-1" hidden>
+
+            <button type="button"
+                    class="tree-button"
+                    onclick="toggleTree('physicsChapters','physicsToggle')"
+                    id="physicsToggle">
+                Physics
+            </button>
+
+            <div id="physicsChapters" class="tree-level-2" hidden>
+                <a href="#" class="chapter-link"
+                   onclick="showChapter('motion');return false;">
+                   Motion and Force
+                </a>
+
+                <a href="#" class="chapter-link"
+                   onclick="showChapter('electricity');return false;">
+                   Electricity
+                </a>
+            </div>
+
+            <button type="button"
+                    class="tree-button"
+                    onclick="toggleTree('chemistryChapters','chemistryToggle')"
+                    id="chemistryToggle">
+                Chemistry
+            </button>
+
+            <div id="chemistryChapters" class="tree-level-2" hidden>
+                <a href="#" class="chapter-link"
+                   onclick="showChapter('matter');return false;">
+                   Matter and Its Properties
+                </a>
+            </div>
+
+            <button type="button"
+                    class="tree-button"
+                    onclick="toggleTree('biologyChapters','biologyToggle')"
+                    id="biologyToggle">
+                Biology
+            </button>
+
+            <div id="biologyChapters" class="tree-level-2" hidden>
+                <a href="#" class="chapter-link"
+                   onclick="showChapter('cell');return false;">
+                   Cell and Its Structure
+                </a>
+
+                <a href="#" class="chapter-link"
+                   onclick="showChapter('humanBody');return false;">
+                   Human Body Systems
+                </a>
+            </div>
+
+        </div>
+
+        <button type="button"
+                class="tree-button"
+                onclick="toggleTree('biharTopics','biharToggle')"
+                id="biharToggle">
+            Bihar Special
+        </button>
+
+        <div id="biharTopics" class="tree-level-1" hidden>
+
+            <button type="button"
+                    class="tree-button"
+                    onclick="toggleTree('biharHistoryChapters','biharHistoryToggle')"
+                    id="biharHistoryToggle">
+                History of Bihar
+            </button>
+
+            <div id="biharHistoryChapters" class="tree-level-2" hidden>
+                <a href="#" class="chapter-link"
+                   onclick="showChapter('ancientBihar');return false;">
+                   Ancient Bihar
+                </a>
+
+                <a href="#" class="chapter-link"
+                   onclick="showChapter('modernBihar');return false;">
+                   Modern Bihar
+                </a>
+            </div>
+
+            <button type="button"
+                    class="tree-button"
+                    onclick="toggleTree('biharCultureChapters','biharCultureToggle')"
+                    id="biharCultureToggle">
+                Culture of Bihar
+            </button>
+
+            <div id="biharCultureChapters" class="tree-level-2" hidden>
+                <a href="#" class="chapter-link"
+                   onclick="showChapter('biharFestivals');return false;">
+                   Festivals and Traditions
+                </a>
+
+                <a href="#" class="chapter-link"
+                   onclick="showChapter('biharArt');return false;">
+                   Art and Handicrafts
+                </a>
+            </div>
+
+        </div>
+
+        <button type="button"
+                class="tree-button"
+                onclick="toggleTree('environmentTopics','environmentToggle')"
+                id="environmentToggle">
+            Environment
+        </button>
+
+        <div id="environmentTopics" class="tree-level-1" hidden>
+
+            <a href="#" class="chapter-link"
+               onclick="showChapter('ecology');return false;">
+                Ecology and Ecosystem
+            </a>
+
+            <a href="#" class="chapter-link"
+               onclick="showChapter('climateChange');return false;">
+                Climate Change
+            </a>
+
+        </div>
+
+        <button type="button"
+                class="tree-button"
+                onclick="toggleTree('currentTopics','currentToggle')"
+                id="currentToggle">
+            Current Affairs Notes
+        </button>
+
+        <div id="currentTopics" class="tree-level-1" hidden>
+
+            <a href="#" class="chapter-link"
+               onclick="showChapter('nationalAffairs');return false;">
+                National Affairs
+            </a>
+
+            <a href="#" class="chapter-link"
+               onclick="showChapter('biharCurrent');return false;">
+                Bihar Current Affairs
+            </a>
+
+        </div>
+
+    </div>
+
+    <a href="Current_Affairs.html">▤ Current Affairs</a>
+
+    <a class="mock-button" href="BPSC_Mock_Tests.html">
+        ▶ ATTEMPT MOCK TEST
+    </a>
+
+</aside>
+
+<!-- MAIN CONTENT -->
+
+<main id="mainContent">
+
+    <!-- DEFAULT EXAM PATTERN PAGE -->
+
+    <section class="content-box">
+
+        <span class="badge">BPSC • 2026</span>
+
+        <h2 style="margin-top:10px;">
+            Bihar Public Service Commission (BPSC) – Exam Pattern 2026
+        </h2>
+
+        <h3>72nd Combined Competitive Examination (CCE)</h3>
+
+        <h3>1. Introduction</h3>
+
+        <p>
+            The Bihar Public Service Commission (BPSC) conducts the
+            Combined Competitive Examination (CCE) to recruit candidates
+            for various administrative posts in Bihar. The selection
+            process consists of three stages: Preliminary Examination,
+            Main Examination and Interview.
+        </p>
+
+        <div class="stages">
+            <div class="stage">
+                <strong>Preliminary Examination</strong>
+                Prelims
+            </div>
+
+            <div class="stage">
+                <strong>Main Examination</strong>
+                Mains
+            </div>
+
+            <div class="stage">
+                <strong>Interview</strong>
+                Personality Test
+            </div>
+        </div>
+
+        <div class="notice">
+            <strong>Important:</strong>
+            The latest official notification should be treated as the final
+            authority for the examination pattern, marks, and qualifying
+            requirements.
+        </div>
+
+    </section>
+
+    <!-- EXAM STRUCTURE -->
+
+    <section class="content-box">
+
+        <h2>2. BPSC Exam Structure</h2>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Stage</th>
+                        <th>Type of Examination</th>
+                        <th>Duration</th>
+                        <th>Marks</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Preliminary Examination</td>
+                        <td>Objective (MCQs)</td>
+                        <td>2 Hours</td>
+                        <td>150</td>
+                    </tr>
+
+                    <tr>
+                        <td>Main Examination</td>
+                        <td>Descriptive + Qualifying Objective Paper</td>
+                        <td>
+                            3 Hours per descriptive paper;
+                            2 Hours for optional paper
+                        </td>
+                        <td>1,100</td>
+                    </tr>
+
+                    <tr>
+                        <td>Interview</td>
+                        <td>Personality Test</td>
+                        <td>As prescribed by BPSC</td>
+                        <td>120</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- PRELIMS -->
+
+    <section class="content-box">
+
+        <h2>3. Preliminary Examination (Prelims)</h2>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Particulars</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr><td>Examination Type</td><td>Objective (MCQs)</td></tr>
+                    <tr><td>Total Questions</td><td>150</td></tr>
+                    <tr><td>Maximum Marks</td><td>150</td></tr>
+                    <tr><td>Duration</td><td>2 Hours</td></tr>
+                    <tr><td>Correct Answer</td><td>+1 Mark</td></tr>
+                    <tr><td>Incorrect Answer</td><td>−1/3 Mark</td></tr>
+                    <tr><td>Nature</td><td>Qualifying</td></tr>
+                    <tr><td>Marks Included in Final Merit</td><td>No</td></tr>
+                    <tr><td>Question Paper Language</td><td>Hindi and English</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="notice">
+            <strong>Revised Answer Format:</strong>
+            Option E (Not Attempted) has been introduced, according to
+            the supplied reference. Candidates should follow the latest
+            official instructions regarding unanswered questions and
+            negative marking.
+        </div>
+
+    </section>
+
+    <!-- MAINS -->
+
+    <section class="content-box">
+
+        <h2>4. Main Examination (Mains)</h2>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Paper</th>
+                        <th>Subject</th>
+                        <th>Marks</th>
+                        <th>Duration</th>
+                        <th>Nature</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Paper I</td>
+                        <td>General Hindi</td>
+                        <td>100</td>
+                        <td>3 Hours</td>
+                        <td>Qualifying</td>
+                    </tr>
+
+                    <tr>
+                        <td>Paper II</td>
+                        <td>General Studies Paper I</td>
+                        <td>300</td>
+                        <td>3 Hours</td>
+                        <td>Merit</td>
+                    </tr>
+
+                    <tr>
+                        <td>Paper III</td>
+                        <td>General Studies Paper II</td>
+                        <td>300</td>
+                        <td>3 Hours</td>
+                        <td>Merit</td>
+                    </tr>
+
+                    <tr>
+                        <td>Paper IV</td>
+                        <td>Essay</td>
+                        <td>300</td>
+                        <td>3 Hours</td>
+                        <td>Merit</td>
+                    </tr>
+
+                    <tr>
+                        <td>Paper V</td>
+                        <td>Optional Subject</td>
+                        <td>100</td>
+                        <td>2 Hours</td>
+                        <td>Qualifying</td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2"><strong>Total</strong></td>
+                        <td><strong>1,100</strong></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- QUALIFYING MARKS -->
+
+    <section class="content-box">
+
+        <h2>5. Qualifying Marks</h2>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Minimum Qualifying Marks</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>General Hindi</td>
+                        <td>30% (as stated in the supplied reference)</td>
+                    </tr>
+
+                    <tr>
+                        <td>General Category — Optional Paper</td>
+                        <td>40%</td>
+                    </tr>
+
+                    <tr>
+                        <td>Backward Classes (BC)</td>
+                        <td>36.5%</td>
+                    </tr>
+
+                    <tr>
+                        <td>Extremely Backward Classes (EBC)</td>
+                        <td>34%</td>
+                    </tr>
+
+                    <tr>
+                        <td>SC/ST, Women and Persons with Disabilities</td>
+                        <td>32%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="warning">
+            The qualifying requirements should be checked against the
+            applicable official notification.
+        </div>
+
+    </section>
+
+    <!-- INTERVIEW -->
+
+    <section class="content-box">
+
+        <h2>6. Interview (Personality Test)</h2>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Particulars</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr><td>Maximum Marks</td><td>120</td></tr>
+                    <tr><td>Nature</td><td>Personality Test</td></tr>
+                    <tr>
+                        <td>Purpose</td>
+                        <td>Assessment of personality and administrative suitability</td>
+                    </tr>
+                    <tr>
+                        <td>Candidates Called</td>
+                        <td>According to the commission's selection rules</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- FINAL MERIT -->
+
+    <section class="content-box">
+
+        <h2>7. Final Merit Calculation</h2>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>Marks</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr><td>General Studies Paper I</td><td>300</td></tr>
+                    <tr><td>General Studies Paper II</td><td>300</td></tr>
+                    <tr><td>Essay</td><td>300</td></tr>
+                    <tr><td>Interview</td><td>120</td></tr>
+                    <tr><td><strong>Total Merit Marks</strong></td><td><strong>1,020</strong></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p>
+            General Hindi, the qualifying optional paper and Prelims marks
+            are excluded from the merit calculation under the structure
+            described in the supplied reference.
+        </p>
+
+    </section>
+
+    <!-- SELECTION PROCESS -->
+
+    <section class="content-box">
+
+        <h2>8. Selection Process</h2>
+
+        <p><strong>
+            Prelims → Mains → Interview → Final Merit List
+        </strong></p>
+
+        <ul>
+            <li><strong>Prelims:</strong> Screening examination.</li>
+            <li><strong>Mains:</strong> Written examination and qualifying papers.</li>
+            <li><strong>Interview:</strong> Personality assessment.</li>
+            <li><strong>Final Selection:</strong> Based on merit and the applicable BPSC rules.</li>
+        </ul>
+
+    </section>
+
+    <!-- OFFICIAL WEBSITE -->
+
+    <section class="content-box">
+
+        <h2>Official Website</h2>
+
+        <p>
+            For the latest notification and examination rules, visit the
+            <a href="https://bpsc.bihar.gov.in/"
+               target="_blank"
+               rel="noopener noreferrer">
+                Bihar Public Service Commission official website
+            </a>.
+        </p>
+
+        <p>
+            <a href="https://bpsc.bihar.gov.in/exam-calendar/"
+               target="_blank"
+               rel="noopener noreferrer">
+                Official BPSC Exam Calendar
+            </a>
+        </p>
+
+        <div class="warning">
+            <strong>Note:</strong>
+            This is a concise exam-pattern summary based on the supplied
+            reference. Confirm the applicable paper structure, optional-paper
+            requirement and marking rules in the latest official notification
+            for the 72nd BPSC CCE.
+        </div>
+
+    </section>
+
+</main>
+
+</div>
+
+<footer>
+    <p><strong>Orient Classes</strong></p>
+    <p>BPSC Exam Pattern 2026</p>
+    <p>Learn Today • Lead Tomorrow</p>
+</footer>
+
+<script>
+
+/* OPEN AND CLOSE TREE MENUS */
+
+function toggleTree(contentId, buttonId) {
+
+    const content = document.getElementById(contentId);
+    const button = document.getElementById(buttonId);
+
+    if (!content) return;
+
+    content.hidden = !content.hidden;
+
+    if (button) {
+        button.classList.toggle("open", !content.hidden);
+
+        button.setAttribute(
+            "aria-expanded",
+            String(!content.hidden)
+        );
+    }
+}
+
+/* CHAPTER NOTES */
+
+const chapterNotes = {
+
+    indus: {
+        subject: "History",
+        topic: "Ancient History",
+        title: "Indus Valley Civilization",
+        intro: "The Indus Valley Civilization was one of the earliest urban civilizations of the Indian subcontinent.",
+        points: [
+            "The mature Harappan phase flourished approximately between 2600 BCE and 1900 BCE.",
+            "Harappa was excavated by Daya Ram Sahni in 1921.",
+            "Mohenjodaro was excavated by Rakhal Das Banerji in 1922.",
+            "Major sites include Harappa, Mohenjodaro, Dholavira, Lothal and Kalibangan.",
+            "Important features included planned cities, drainage systems, standardized weights and seals."
+        ],
+        exam: "For BPSC, focus on important sites, their locations, archaeological discoveries, town planning and distinctive features."
+    },
+
+    vedic: {
+        subject: "History",
+        topic: "Ancient History",
+        title: "Vedic Period",
+        intro: "The Vedic Period is studied through the literature and social developments associated with the Vedas.",
+        points: [
+            "The Rigveda is the oldest of the four Vedas.",
+            "The four Vedas are Rigveda, Samaveda, Yajurveda and Atharvaveda.",
+            "Early Vedic society was largely pastoral.",
+            "Agriculture and settled life became more prominent in the Later Vedic Period.",
+            "Assemblies such as Sabha and Samiti are mentioned in early Vedic literature."
+        ],
+        exam: "Revise the Vedas, Vedic assemblies, social structure, economy and differences between the Early and Later Vedic periods."
+    },
+
+    maurya: {
+        subject: "History",
+        topic: "Ancient History",
+        title: "Mauryan Empire",
+        intro: "The Mauryan Empire was one of the largest political empires in ancient India.",
+        points: [
+            "Chandragupta Maurya founded the Mauryan Empire around 322 BCE.",
+            "Chanakya or Kautilya is traditionally associated with the Arthashastra.",
+            "Ashoka is particularly known for his policy of Dhamma.",
+            "Ashokan inscriptions provide important historical evidence.",
+            "Megasthenes visited the court of Chandragupta Maurya."
+        ],
+        exam: "Remember the rulers, administration, sources, Ashokan inscriptions and the significance of the Kalinga War."
+    },
+
+    gupta: {
+        subject: "History",
+        topic: "Ancient History",
+        title: "Gupta Empire",
+        intro: "The Gupta period is known for developments in literature, mathematics, astronomy, art and sculpture.",
+        points: [
+            "Chandragupta I was an important early Gupta ruler.",
+            "Samudragupta is known from the Allahabad Pillar inscription.",
+            "Chandragupta II is associated with the title Vikramaditya.",
+            "Kalidasa was a celebrated Sanskrit poet and dramatist.",
+            "Aryabhata made important contributions to mathematics and astronomy."
+        ],
+        exam: "Focus on Gupta rulers, inscriptions, literature, scientific achievements, art and administration."
+    },
+
+    sultanate: {
+        subject: "History",
+        topic: "Medieval History",
+        title: "Delhi Sultanate",
+        intro: "The Delhi Sultanate refers to a series of dynasties that ruled large parts of northern India.",
+        points: [
+            "The Mamluk or Slave dynasty was the first Delhi Sultanate dynasty.",
+            "Qutb-ud-din Aibak founded the Mamluk dynasty.",
+            "Alauddin Khalji introduced important market-control measures.",
+            "Muhammad bin Tughlaq is associated with ambitious administrative experiments.",
+            "The Lodi dynasty was the last ruling dynasty of the Delhi Sultanate."
+        ],
+        exam: "Prepare dynasties, rulers, administration, military campaigns, economic measures and architecture."
+    },
+
+    mughal: {
+        subject: "History",
+        topic: "Medieval History",
+        title: "Mughal Empire",
+        intro: "The Mughal Empire played a major role in the political and cultural history of the Indian subcontinent.",
+        points: [
+            "Babur founded the Mughal Empire after the First Battle of Panipat in 1526.",
+            "Akbar developed a broad imperial administration.",
+            "Todar Mal is associated with Mughal revenue administration.",
+            "Shah Jahan commissioned major architectural works, including the Taj Mahal.",
+            "Aurangzeb was the last of the major Mughal emperors."
+        ],
+        exam: "Revise battles, rulers, mansabdari, revenue administration, religious policies and architecture."
+    },
+
+    "1857": {
+        subject: "History",
+        topic: "Modern History",
+        title: "Revolt of 1857",
+        intro: "The Revolt of 1857 was a major uprising against East India Company rule.",
+        points: [
+            "The revolt began at Meerut on 10 May 1857.",
+            "Mangal Pandey is associated with the events at Barrackpore in March 1857.",
+            "Bahadur Shah Zafar became a symbolic leader of the revolt.",
+            "Rani Lakshmibai, Nana Sahib, Tantia Tope and Kunwar Singh were important leaders.",
+            "Kunwar Singh led the revolt in the Bihar region."
+        ],
+        exam: "Focus on causes, leaders, centres, regional participation, reasons for failure and consequences."
+    },
+
+    governors: {
+        subject: "History",
+        topic: "Modern History",
+        title: "Governor-Generals and Viceroys",
+        intro: "Governor-Generals and Viceroys played important roles in the expansion and administration of British rule in India.",
+        points: [
+            "Warren Hastings was the first Governor-General of Bengal.",
+            "Lord Cornwallis is associated with the Permanent Settlement of 1793.",
+            "Lord Wellesley introduced the Subsidiary Alliance system.",
+            "Lord Dalhousie is associated with the Doctrine of Lapse.",
+            "Lord Canning was the first Viceroy of India after the transfer of power in 1858."
+        ],
+        exam: "Prepare chronological order, major policies, important Acts, wars and administrative reforms."
+    },
+
+    nationalMovement: {
+        subject: "History",
+        topic: "Modern History",
+        title: "Indian National Movement",
+        intro: "The Indian National Movement developed through political associations, mass movements and demands for independence.",
+        points: [
+            "The Indian National Congress was founded in 1885.",
+            "The Swadeshi Movement gained momentum after the Partition of Bengal in 1905.",
+            "The Non-Cooperation Movement began in 1920.",
+            "The Civil Disobedience Movement began with the Salt March in 1930.",
+            "The Quit India Movement was launched in 1942."
+        ],
+        exam: "Study important sessions, leaders, movements, Acts, slogans and the chronology of events."
+    },
+
+    earth: {
+        subject: "Geography",
+        topic: "Physical Geography",
+        title: "Earth and Its Structure",
+        intro: "Earth has several internal layers and a dynamic surface shaped by geological processes.",
+        points: [
+            "The main internal layers are the crust, mantle and core.",
+            "The lithosphere includes the crust and the rigid uppermost mantle.",
+            "Plate movements contribute to earthquakes, volcanoes and mountain formation.",
+            "Earth's rotation causes day and night.",
+            "Earth's revolution around the Sun, together with its axial tilt, produces seasonal changes."
+        ],
+        exam: "Revise Earth's layers, plate tectonics, latitude, longitude, rotation and revolution."
+    },
+
+    climate: {
+        subject: "Geography",
+        topic: "Physical Geography",
+        title: "Climate and Monsoon",
+        intro: "India's climate is strongly influenced by seasonal monsoon winds.",
+        points: [
+            "The southwest monsoon supplies a major share of India's annual rainfall.",
+            "The Arabian Sea and Bay of Bengal branches are major parts of the southwest monsoon.",
+            "Relief, pressure systems and distance from the sea affect rainfall patterns.",
+            "The retreating monsoon brings important rainfall to parts of southeastern India.",
+            "Monsoon variability affects agriculture, water resources and the economy."
+        ],
+        exam: "Focus on monsoon mechanism, branches, rainfall distribution, western disturbances and seasonal changes."
+    },
+
+    physiography: {
+        subject: "Geography",
+        topic: "Indian Geography",
+        title: "Physiographic Divisions of India",
+        intro: "India has diverse physical regions shaped by geological history and geomorphological processes.",
+        points: [
+            "The major divisions include the Himalayas, Northern Plains, Peninsular Plateau, Indian Desert, Coastal Plains and Islands.",
+            "The Himalayas are young fold mountains.",
+            "The Northern Plains were formed largely by alluvial deposits.",
+            "The Peninsular Plateau contains some of India's oldest rock formations.",
+            "The Western and Eastern Ghats influence regional climate and drainage."
+        ],
+        exam: "Study the location, formation, important ranges, plains, plateaus and regional features."
+    },
+
+    drainage: {
+        subject: "Geography",
+        topic: "Indian Geography",
+        title: "Indian Drainage System",
+        intro: "India's drainage systems are commonly classified into Himalayan and Peninsular river systems.",
+        points: [
+            "The Indus, Ganga and Brahmaputra are major Himalayan river systems.",
+            "Himalayan rivers generally receive water from rainfall and snowmelt.",
+            "Peninsular rivers include the Godavari, Krishna, Kaveri, Mahanadi and Narmada.",
+            "Most major east-flowing Peninsular rivers drain into the Bay of Bengal.",
+            "The Narmada and Tapi flow westward towards the Arabian Sea."
+        ],
+        exam: "Revise tributaries, river origins, dams, drainage patterns and rivers flowing into each sea."
+    },
+
+    biharRivers: {
+        subject: "Geography",
+        topic: "Bihar Geography",
+        title: "Rivers of Bihar",
+        intro: "Bihar's river system is closely linked to the Ganga and its northern and southern tributaries.",
+        points: [
+            "The Ganga flows across Bihar from west to east.",
+            "Northern Bihar rivers include the Gandak, Burhi Gandak, Bagmati, Kamla and Kosi.",
+            "Southern tributaries include the Son, Punpun and Falgu.",
+            "The Kosi is associated with frequent changes in course and flooding.",
+            "River flooding affects agriculture, settlement and transport in several districts."
+        ],
+        exam: "Study river origins, tributaries, districts, flood-prone regions and major river projects."
+    },
+
+    biharAgriculture: {
+        subject: "Geography",
+        topic: "Bihar Geography",
+        title: "Agriculture of Bihar",
+        intro: "Agriculture is an important part of Bihar's economy and rural livelihoods.",
+        points: [
+            "Rice, wheat, maize and pulses are important crops.",
+            "Sugarcane, jute and several horticultural crops are grown in suitable regions.",
+            "The Ganga plain contains extensive fertile alluvial soils.",
+            "Floods, droughts, fragmented holdings and irrigation access influence agricultural productivity.",
+            "Agro-climatic conditions vary across northern, southern and plateau-adjacent regions."
+        ],
+        exam: "Prepare crop seasons, major crops, irrigation, soil, agricultural challenges and horticulture."
+    },
+
+    preamble: {
+        subject: "Indian Polity",
+        topic: "Constitution",
+        title: "Preamble of the Constitution",
+        intro: "The Preamble expresses the basic ideals and objectives of the Constitution of India.",
+        points: [
+            "It describes India as a Sovereign, Socialist, Secular, Democratic Republic.",
+            "It identifies Justice, Liberty, Equality and Fraternity as key constitutional ideals.",
+            "The words Socialist, Secular and Integrity were added by the 42nd Constitutional Amendment Act, 1976.",
+            "The Preamble is an important guide to understanding constitutional objectives.",
+            "The Supreme Court has recognised its importance in constitutional interpretation."
+        ],
+        exam: "Memorise the key terms, objectives and the amendment that changed the Preamble."
+    },
+
+    fundamentalRights: {
+        subject: "Indian Polity",
+        topic: "Constitution",
+        title: "Fundamental Rights",
+        intro: "Fundamental Rights protect important freedoms and legal guarantees under Part III of the Constitution.",
+        points: [
+            "Fundamental Rights are contained in Articles 12 to 35.",
+            "The Right to Equality is covered by Articles 14 to 18.",
+            "The Right to Freedom is mainly covered by Articles 19 to 22.",
+            "Article 21 protects life and personal liberty.",
+            "The Right to Constitutional Remedies is provided under Article 32."
+        ],
+        exam: "Study the articles, rights, reasonable restrictions and constitutional remedies."
+    },
+
+    duties: {
+        subject: "Indian Polity",
+        topic: "Constitution",
+        title: "Fundamental Duties",
+        intro: "Fundamental Duties identify responsibilities expected of citizens.",
+        points: [
+            "Fundamental Duties are listed in Article 51A.",
+            "They were added by the 42nd Constitutional Amendment Act, 1976.",
+            "The original list contained ten duties.",
+            "The 86th Constitutional Amendment Act, 2002 added a duty relating to education for children aged 6 to 14 years.",
+            "Fundamental Duties are generally non-justiciable in themselves."
+        ],
+        exam: "Learn the constitutional article, amendments and major duties."
+    },
+
+    parliament: {
+        subject: "Indian Polity",
+        topic: "Government and Judiciary",
+        title: "Parliament of India",
+        intro: "The Parliament of India is the Union legislature established under the Constitution.",
+        points: [
+            "Parliament consists of the President and two Houses.",
+            "The two Houses are the Lok Sabha and Rajya Sabha.",
+            "The Lok Sabha is the House of the People.",
+            "The Rajya Sabha is the Council of States.",
+            "Parliament performs legislative, financial and oversight functions."
+        ],
+        exam: "Prepare the composition, tenure, presiding officers, legislative procedure and parliamentary committees."
+    },
+
+    judiciary: {
+        subject: "Indian Polity",
+        topic: "Government and Judiciary",
+        title: "Indian Judiciary",
+        intro: "India has an integrated judicial system with the Supreme Court at the apex.",
+        points: [
+            "The Supreme Court is the highest court of India.",
+            "High Courts operate at the state or regional level.",
+            "Subordinate courts function below the High Courts.",
+            "Judicial review allows courts to examine the constitutional validity of laws and executive actions.",
+            "The Constitution provides for the independence of the judiciary."
+        ],
+        exam: "Focus on court structure, jurisdiction, judicial review, writs and constitutional provisions."
+    },
+
+    gdp: {
+        subject: "Indian Economy",
+        topic: "Basic Economic Concepts",
+        title: "GDP and National Income",
+        intro: "Gross Domestic Product measures the value of final goods and services produced within a country's domestic territory during a specified period.",
+        points: [
+            "GDP is a key indicator of economic activity.",
+            "Nominal GDP uses current prices.",
+            "Real GDP adjusts for changes in prices.",
+            "Per capita income is calculated by dividing an income measure by population.",
+            "Economic growth and economic development are related but distinct concepts."
+        ],
+        exam: "Understand GDP, GVA, real and nominal growth, inflation adjustment and per capita measures."
+    },
+
+    inflation: {
+        subject: "Indian Economy",
+        topic: "Basic Economic Concepts",
+        title: "Inflation",
+        intro: "Inflation is a sustained increase in the general price level of goods and services.",
+        points: [
+            "Inflation reduces the purchasing power of money.",
+            "Consumer Price Index is an important measure of retail inflation.",
+            "Wholesale Price Index tracks price changes at the wholesale level.",
+            "Demand-pull and cost-push inflation are common explanations of inflationary pressure.",
+            "Monetary and fiscal policies can influence inflation."
+        ],
+        exam: "Revise inflation indices, causes, effects and the role of the Reserve Bank of India."
+    },
+
+    rbi: {
+        subject: "Indian Economy",
+        topic: "Banking and Finance",
+        title: "Reserve Bank of India",
+        intro: "The Reserve Bank of India is India's central bank.",
+        points: [
+            "The RBI commenced operations on 1 April 1935.",
+            "The Reserve Bank of India Act was enacted in 1934.",
+            "The RBI issues banknotes, subject to the statutory exception for the one-rupee note.",
+            "It conducts monetary policy and regulates important parts of the financial system.",
+            "The Monetary Policy Committee plays a key role in setting the policy repo rate."
+        ],
+        exam: "Study RBI functions, monetary policy tools, repo rate, CRR, SLR and banking regulation."
+    },
+
+    budget: {
+        subject: "Indian Economy",
+        topic: "Banking and Finance",
+        title: "Budget and Fiscal Policy",
+        intro: "The Union Budget presents the government's estimated receipts and expenditure for a financial year.",
+        points: [
+            "The financial year in India runs from 1 April to 31 March.",
+            "Revenue receipts and capital receipts are different categories of government receipts.",
+            "Revenue expenditure and capital expenditure have different economic effects.",
+            "Fiscal deficit broadly measures the excess of total expenditure over receipts excluding borrowings.",
+            "Fiscal policy uses taxation and public expenditure to influence the economy."
+        ],
+        exam: "Revise budget terminology, deficits, taxation, public expenditure and fiscal policy."
+    },
+
+    motion: {
+        subject: "General Science",
+        topic: "Physics",
+        title: "Motion and Force",
+        intro: "Motion describes a change in the position of an object with time.",
+        points: [
+            "Speed is distance travelled per unit time.",
+            "Velocity is displacement per unit time in a specified direction.",
+            "Acceleration is the rate of change of velocity.",
+            "Newton's laws describe the relationship between force and motion.",
+            "Force is measured in newtons."
+        ],
+        exam: "Practise definitions, SI units, motion graphs and basic numerical questions."
+    },
+
+    electricity: {
+        subject: "General Science",
+        topic: "Physics",
+        title: "Electricity",
+        intro: "Electricity involves electric charges and their movement or interaction.",
+        points: [
+            "Electric current is measured in amperes.",
+            "Potential difference is measured in volts.",
+            "Resistance is measured in ohms.",
+            "Ohm's law relates voltage, current and resistance under specified conditions.",
+            "Electric power is measured in watts."
+        ],
+        exam: "Revise electrical units, circuits, conductors, insulators and basic formulas."
+    },
+
+    matter: {
+        subject: "General Science",
+        topic: "Chemistry",
+        title: "Matter and Its Properties",
+        intro: "Matter is anything that has mass and occupies space.",
+        points: [
+            "Common states of matter include solids, liquids and gases.",
+            "Elements contain one type of atom.",
+            "Compounds contain elements chemically combined in fixed proportions.",
+            "Mixtures contain substances physically combined.",
+            "Physical and chemical changes differ in the nature of the changes involved."
+        ],
+        exam: "Study elements, compounds, mixtures, separation methods and changes of state."
+    },
+
+    cell: {
+        subject: "General Science",
+        topic: "Biology",
+        title: "Cell and Its Structure",
+        intro: "The cell is the basic structural and functional unit of life.",
+        points: [
+            "Cell theory explains the fundamental role of cells in living organisms.",
+            "The cell membrane regulates movement of substances into and out of the cell.",
+            "The nucleus contains most of the genetic material in a typical eukaryotic cell.",
+            "Mitochondria are important sites of cellular energy production.",
+            "Plant cells generally contain a cell wall and chloroplasts."
+        ],
+        exam: "Revise cell organelles, their functions and differences between plant and animal cells."
+    },
+
+    humanBody: {
+        subject: "General Science",
+        topic: "Biology",
+        title: "Human Body Systems",
+        intro: "Human body systems work together to maintain life and internal balance.",
+        points: [
+            "The circulatory system transports blood, oxygen and nutrients.",
+            "The respiratory system supports gas exchange.",
+            "The digestive system breaks food into absorbable substances.",
+            "The nervous system coordinates responses and body functions.",
+            "The kidneys help remove wastes and regulate fluid balance."
+        ],
+        exam: "Study organs, functions, common diseases, nutrition and basic human physiology."
+    },
+
+    ancientBihar: {
+        subject: "Bihar Special",
+        topic: "History of Bihar",
+        title: "Ancient Bihar",
+        intro: "Ancient Bihar was an important centre of political, religious and intellectual developments.",
+        points: [
+            "Magadha became a major power in ancient India.",
+            "Rajagriha and Pataliputra served as important political centres in different periods.",
+            "Bihar is closely associated with the life of Gautama Buddha.",
+            "Mahavira, the 24th Tirthankara of Jainism, is associated with the region.",
+            "Nalanda developed into a renowned centre of learning."
+        ],
+        exam: "Prepare ancient kingdoms, capitals, religious sites, archaeological remains and historical personalities."
+    },
+
+    modernBihar: {
+        subject: "Bihar Special",
+        topic: "History of Bihar",
+        title: "Modern Bihar",
+        intro: "Modern Bihar played an important role in the freedom movement and the development of modern Indian politics.",
+        points: [
+            "The Champaran Satyagraha took place in 1917.",
+            "Raj Kumar Shukla played an important role in bringing Gandhi to Champaran.",
+            "Dr. Rajendra Prasad was born in Bihar and became India's first President.",
+            "The Quit India Movement of 1942 saw participation across Bihar.",
+            "Kunwar Singh was a prominent leader of the Revolt of 1857 in Bihar."
+        ],
+        exam: "Focus on freedom fighters, movements, important dates and Bihar's role in national history."
+    },
+
+    biharFestivals: {
+        subject: "Bihar Special",
+        topic: "Culture of Bihar",
+        title: "Festivals and Traditions of Bihar",
+        intro: "Bihar has a rich cultural heritage expressed through festivals, fairs, music and traditional practices.",
+        points: [
+            "Chhath is an important festival observed widely in Bihar.",
+            "Sonepur Mela is a well-known traditional fair.",
+            "Sama-Chakeva is associated with Mithila's cultural traditions.",
+            "Folk traditions differ across regions of Bihar.",
+            "Traditional festivals reflect local beliefs, agriculture and community life."
+        ],
+        exam: "Revise festivals, their regions, cultural significance and associated traditions."
+    },
+
+    biharArt: {
+        subject: "Bihar Special",
+        topic: "Culture of Bihar",
+        title: "Art and Handicrafts of Bihar",
+        intro: "Bihar is known for traditional painting, textiles, handicrafts and regional art forms.",
+        points: [
+            "Madhubani painting is associated with the Mithila region.",
+            "Manjusha art is associated with Bhagalpur.",
+            "Sujini embroidery is a traditional textile craft.",
+            "Traditional crafts reflect regional identity and community practices.",
+            "Art forms are used in cultural expression and livelihood activities."
+        ],
+        exam: "Learn the names of art forms, their geographical associations and distinctive features."
+    },
+
+    ecology: {
+        subject: "Environment",
+        topic: "Ecology",
+        title: "Ecology and Ecosystem",
+        intro: "Ecology studies relationships between organisms and their environment.",
+        points: [
+            "An ecosystem includes living organisms and their physical environment.",
+            "Producers generally convert solar energy into chemical energy.",
+            "Consumers obtain energy by feeding on other organisms.",
+            "Decomposers break down dead organic matter.",
+            "Food chains and food webs show energy transfer within ecosystems."
+        ],
+        exam: "Revise ecosystems, food chains, trophic levels, biodiversity and ecological relationships."
+    },
+
+    climateChange: {
+        subject: "Environment",
+        topic: "Environment",
+        title: "Climate Change",
+        intro: "Climate change refers to long-term changes in temperatures and weather patterns.",
+        points: [
+            "Human activities have increased greenhouse gas concentrations.",
+            "Carbon dioxide and methane are important greenhouse gases.",
+            "Impacts include heatwaves, changing rainfall patterns and sea-level rise.",
+            "Mitigation aims to reduce greenhouse gas emissions.",
+            "Adaptation helps communities and ecosystems manage climate impacts."
+        ],
+        exam: "Study greenhouse gases, causes, impacts, mitigation, adaptation and international agreements."
+    },
+
+    nationalAffairs: {
+        subject: "Current Affairs",
+        topic: "National Affairs",
+        title: "National Current Affairs",
+        intro: "National current affairs cover important developments in India's governance, economy, science and society.",
+        points: [
+            "Track major government policies and programmes.",
+            "Revise important constitutional and judicial developments.",
+            "Follow major economic indicators and policy announcements.",
+            "Study important scientific missions and environmental initiatives.",
+            "Connect current developments with static General Studies topics."
+        ],
+        exam: "Update this section regularly with dated news notes, official announcements and examination-relevant facts."
+    },
+
+    biharCurrent: {
+        subject: "Current Affairs",
+        topic: "Bihar Current Affairs",
+        title: "Bihar Current Affairs",
+        intro: "Bihar current affairs include state government programmes, economy, infrastructure, appointments and important events.",
+        points: [
+            "Follow major Bihar government schemes and policy announcements.",
+            "Track state budget and economic survey highlights.",
+            "Revise important infrastructure and development projects.",
+            "Study significant awards, appointments, sports and cultural events.",
+            "Verify dates, figures and announcements through reliable official sources."
+        ],
+        exam: "Add recent, dated Bihar news and revise it alongside Bihar history, geography, economy and polity."
+    }
+
+};
+
+/* SHOW CHAPTER IN CENTRAL CONTENT PANEL */
+
+function showChapter(id) {
+
+    const chapter = chapterNotes[id];
+
+    if (!chapter) return;
+
+    document.querySelectorAll(".chapter-link").forEach(function(link) {
+        link.classList.remove("selected");
+    });
+
+    const clickedLink = Array.from(
+        document.querySelectorAll(".chapter-link")
+    ).find(function(link) {
+        return link.getAttribute("onclick") &&
+               link.getAttribute("onclick").includes("'" + id + "'");
+    });
+
+    if (clickedLink) {
+        clickedLink.classList.add("selected");
+    }
+
+    const main = document.getElementById("mainContent");
+
+    main.innerHTML = `
+        <section class="content-box chapter-content">
+
+            <span class="chapter-tag">${chapter.subject}</span>
+
+            <p class="chapter-tag">${chapter.topic}</p>
+
+            <h2>${chapter.title}</h2>
+
+            <h3>Introduction</h3>
+
+            <p>${chapter.intro}</p>
+
+            <h3>Important Points</h3>
+
+            <ul>
+                ${chapter.points.map(function(point) {
+                    return `<li>${point}</li>`;
+                }).join("")}
+            </ul>
+
+            <div class="key-point">
+                <strong>Important for BPSC:</strong>
+                <p>${chapter.exam}</p>
+            </div>
+
+            <button onclick="showExamPattern()"
+                    style="background:#174f91;color:white;border:0;
+                    padding:10px 16px;border-radius:6px;cursor:pointer;">
+                Back to Exam Pattern
+            </button>
+
+        </section>
+    `;
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+/* RETURN TO EXAM PATTERN */
+
+function showExamPattern() {
+    window.location.reload();
+}
+
+/* OPEN AND CLOSE SUBJECT TREE */
+
+function toggleTree(contentId, buttonId) {
+
+    const content = document.getElementById(contentId);
+    const button = document.getElementById(buttonId);
+
+    if (!content) return;
+
+    content.hidden = !content.hidden;
+
+    if (button) {
+        button.classList.toggle("open", !content.hidden);
+
+        button.setAttribute(
+            "aria-expanded",
+            String(!content.hidden)
+        );
+    }
+}
+
+</script>
+
+</body>
+</html>
