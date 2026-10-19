@@ -3,500 +3,182 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#102b50">
 
-<title>BPSC Syllabus & Subject-wise Notes | Orient Classes</title>
+<title>BPSC Syllabus & Study Notes</title>
 
 <style>
-:root {
-    --navy: #102b50;
-    --blue: #2864ad;
-    --light-blue: #eaf3ff;
-    --gold: #ffc928;
-    --bg: #f3f6fb;
-    --text: #24344b;
-    --muted: #68778b;
-    --border: #e2e9f3;
-    --white: #ffffff;
-    --red: #d93636;
-}
-
 * {
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.7;
+    font-family: Arial, sans-serif;
+    background: #f3f5f9;
+    color: #222;
 }
 
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-button {
-    font-family: inherit;
-}
-
-/* HEADER */
-
+/* Header */
 .header {
-    background: linear-gradient(120deg, var(--navy), #245b99);
+    background: #102b50;
     color: white;
-    padding: 16px 0;
+    padding: 18px 20px;
 }
 
-.header-inner {
-    width: 96%;
-    max-width: 1550px;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 15px;
+.header h1 {
+    margin: 0;
+    font-size: 25px;
 }
 
-.brand {
-    font-size: 23px;
-    font-weight: 800;
-    letter-spacing: 1px;
+.header p {
+    margin: 7px 0 0;
+    color: #dbeafe;
 }
 
-.brand span {
-    color: var(--gold);
-}
-
-.header-home {
-    background: white;
-    color: var(--navy);
-    padding: 8px 14px;
-    border-radius: 7px;
-    font-size: 13px;
-    font-weight: bold;
-}
-
-/* LAYOUT */
-
+/* Main Layout */
 .layout {
-    width: 100%;
-    max-width: 1700px;
-    margin: auto;
     display: grid;
     grid-template-columns: 275px minmax(0, 1fr);
-    align-items: start;
+    min-height: calc(100vh - 90px);
 }
 
-/* SIDEBAR */
-
+/* Left Navigation */
 .sidebar {
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    overflow-y: auto;
-    background: white;
-    border-right: 1px solid var(--border);
-    padding: 20px 13px;
+    background: #ffffff;
+    border-right: 1px solid #d9e0ea;
+    padding: 18px 14px;
 }
 
-.sidebar-title {
-    padding: 0 10px 15px;
-    color: var(--muted);
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 1px;
+.sidebar h2 {
+    font-size: 19px;
+    color: #102b50;
+    margin-top: 0;
 }
 
-.menu-list,
-.subject-list,
-.subtopic-list,
-.chapter-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.sidebar h3 {
+    margin: 18px 0 8px;
+    color: #234a78;
+    font-size: 15px;
 }
 
-.menu-list > li {
-    margin-bottom: 6px;
-}
-
-.menu-link {
+.nav-button {
+    width: 100%;
     display: block;
     padding: 11px 12px;
-    border-radius: 8px;
-    color: var(--text);
-    font-size: 13px;
-    transition: background .2s;
-}
-
-.menu-link:hover,
-.menu-link.active {
-    background: var(--light-blue);
-    color: var(--blue);
-    font-weight: bold;
-}
-
-/* GENERAL DROPDOWN BUTTONS */
-
-.tree-toggle {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 8px;
-    padding: 10px;
-    border: none;
-    border-radius: 7px;
-    background: transparent;
-    color: var(--text);
+    margin: 5px 0;
     text-align: left;
-    font-size: 13px;
+    border: 1px solid #e1e7ef;
+    background: #f8fafc;
+    border-radius: 6px;
     cursor: pointer;
+    font-size: 14px;
+    color: #26374b;
 }
 
-.tree-toggle:hover {
-    background: var(--light-blue);
-    color: var(--blue);
+.nav-button:hover,
+.nav-button.selected {
+    background: #dbeafe;
+    border-color: #7aa7e8;
+    color: #102b50;
 }
-
-.tree-toggle .arrow {
-    flex-shrink: 0;
-    font-size: 11px;
-    transition: transform .2s;
-}
-
-.tree-toggle[aria-expanded="true"] .arrow {
-    transform: rotate(180deg);
-}
-
-/* SUBJECT-WISE NOTES MAIN BUTTON */
-
-.subject-main-toggle {
-    background: #eaf3ff;
-    color: var(--navy);
-    font-weight: 800;
-    padding: 12px;
-}
-
-.subject-main-toggle:hover {
-    background: #dceaff;
-}
-
-/* SUBJECT LIST */
-
-.subject-list {
-    display: none;
-    margin-top: 5px;
-    padding-left: 5px;
-}
-
-.subject-list.open {
-    display: block;
-}
-
-/* SUBJECT BUTTON */
-
-.subject-toggle {
-    font-weight: 700;
-    padding-left: 11px;
-}
-
-/* SUBTOPIC LIST */
-
-.subtopic-list {
-    display: none;
-    margin-left: 10px;
-    padding-left: 5px;
-    border-left: 2px solid #d5e5fa;
-}
-
-.subtopic-list.open {
-    display: block;
-}
-
-/* SUBTOPIC BUTTON */
-
-.subtopic-toggle {
-    font-size: 12px;
-    padding: 9px;
-    color: #43566e;
-}
-
-/* CHAPTER LIST */
 
 .chapter-list {
-    display: none;
-    margin: 0 0 7px 10px;
-    padding: 4px 0 5px 8px;
-    border-left: 2px solid #c5d9f3;
+    padding-left: 12px;
+    border-left: 2px solid #dbeafe;
+    margin-left: 5px;
 }
 
-.chapter-list.open {
-    display: block;
-}
-
-.chapter-link {
-    display: block;
-    width: 100%;
-    border: none;
-    background: transparent;
-    color: #5b6b80;
-    border-radius: 5px;
-    padding: 8px;
-    text-align: left;
-    font-size: 12px;
-    line-height: 1.5;
-    cursor: pointer;
-}
-
-.chapter-link:hover {
-    background: var(--light-blue);
-    color: var(--blue);
-}
-
-.chapter-link.selected {
-    background: var(--blue);
-    color: white;
-}
-
-/* MOCK TEST BUTTON */
-
-.mock-button {
-    display: block;
-    padding: 13px 10px;
-    background: var(--red);
-    color: white !important;
-    text-align: center;
-    border-radius: 9px;
-    font-size: 13px;
-    font-weight: 800;
-    animation: pulse 1.7s infinite;
-}
-
-.mock-button:hover {
-    background: #b91c1c;
-}
-
-@keyframes pulse {
-    0%, 100% {
-        box-shadow: 0 0 0 0 #d9363640;
-    }
-
-    50% {
-        box-shadow: 0 0 0 5px #d9363600;
-    }
-}
-
-/* MAIN CONTENT */
-
+/* Right Content */
 .content {
+    padding: 22px;
     min-width: 0;
-    padding: 25px;
 }
 
-.mobile-menu-button {
-    display: none;
-    margin-bottom: 15px;
-    background: var(--navy);
-    color: white;
-    border: none;
-    border-radius: 7px;
-    padding: 10px 14px;
-    font-weight: bold;
-    cursor: pointer;
+.home-card,
+.chapter-card {
+    background: white;
+    padding: 24px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
+
+.home-card h2 {
+    color: #102b50;
 }
 
 .breadcrumb {
-    font-size: 12px;
-    color: var(--muted);
-    margin-bottom: 18px;
-}
-
-.breadcrumb a {
-    color: var(--blue);
-}
-
-/* PAGE BANNER */
-
-.page-title {
-    background: linear-gradient(120deg, var(--navy), #2864ad);
-    color: white;
-    padding: 30px;
-    border-radius: 14px;
-    margin-bottom: 22px;
-}
-
-.page-title small {
-    color: #c7e1ff;
-    font-size: 11px;
-    letter-spacing: 1.5px;
-    font-weight: bold;
-}
-
-.page-title h1 {
-    margin: 10px 0;
-    font-size: clamp(26px, 4vw, 37px);
-    line-height: 1.35;
-}
-
-.page-title p {
-    color: #e0ebfa;
-    font-size: 14px;
-    margin-bottom: 0;
-}
-
-/* CONTENT CARDS */
-
-.section {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 24px;
-    margin-bottom: 20px;
-}
-
-.section h2 {
-    color: var(--navy);
-    margin-top: 0;
-    font-size: 23px;
-}
-
-.section h3 {
-    color: var(--blue);
-}
-
-.section li {
-    margin-bottom: 7px;
-}
-
-.section ul {
-    padding-left: 22px;
-}
-
-.note {
-    background: #fff8e8;
-    border-left: 4px solid var(--gold);
-    border-radius: 5px;
-    padding: 14px 16px;
     font-size: 13px;
-    margin-bottom: 20px;
+    color: #64748b;
+    margin-bottom: 16px;
 }
 
-/* CHAPTER NOTES PANEL */
+.breadcrumb button {
+    border: none;
+    background: none;
+    color: #1769aa;
+    cursor: pointer;
+    padding: 0;
+    font-size: 13px;
+}
 
-#chapterContent {
+#chapterTitle {
+    color: #102b50;
+    margin-top: 0;
+}
+
+/* Separate HTML file display */
+#chapterFrame {
+    width: 100%;
+    height: 78vh;
+    min-height: 650px;
+    border: none;
     display: none;
     background: white;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 28px;
-    min-height: 350px;
-    overflow-wrap: anywhere;
 }
 
-#chapterContent h1 {
-    color: var(--navy);
-    font-size: 29px;
-    line-height: 1.4;
-}
-
-#chapterContent h2 {
-    color: var(--navy);
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 10px;
-}
-
-#chapterContent h3 {
-    color: var(--blue);
-    margin-top: 24px;
-}
-
-#chapterContent p,
-#chapterContent li {
-    font-size: 15px;
-    line-height: 1.9;
-}
-
-#chapterContent li {
-    margin-bottom: 8px;
-}
-
-#chapterContent .key-point {
-    background: #eef5ff;
-    border-left: 4px solid var(--blue);
-    padding: 13px;
+/* Mobile Navigation */
+.mobile-button {
+    display: none;
+    padding: 10px 14px;
+    background: #102b50;
+    color: white;
+    border: none;
     border-radius: 5px;
-    margin: 15px 0;
+    margin-bottom: 15px;
+    cursor: pointer;
 }
 
-#chapterContent .exam-tip {
-    background: #fff8e8;
-    border-left: 4px solid #e5a700;
-    padding: 13px;
-    border-radius: 5px;
-    margin: 15px 0;
-}
-
-/* FOOTER */
-
-.footer {
-    text-align: center;
-    padding: 20px;
-    color: var(--muted);
-    font-size: 12px;
-}
-
-/* RESPONSIVE */
-
-@media (max-width: 850px) {
+@media (max-width: 760px) {
     .layout {
         grid-template-columns: 1fr;
     }
 
     .sidebar {
         display: none;
-        position: static;
-        height: auto;
-        max-height: 70vh;
         border-right: none;
-        border-bottom: 1px solid var(--border);
+        border-bottom: 1px solid #ddd;
     }
 
     .sidebar.open {
         display: block;
     }
 
-    .mobile-menu-button {
-        display: block;
+    .mobile-button {
+        display: inline-block;
     }
 
     .content {
-        padding: 15px;
+        padding: 12px;
     }
 
-    .page-title {
-        padding: 23px;
+    .home-card,
+    .chapter-card {
+        padding: 16px;
     }
 
-    .section,
-    #chapterContent {
-        padding: 19px;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation: none !important;
-        scroll-behavior: auto !important;
+    #chapterFrame {
+        min-height: 75vh;
+        height: 75vh;
     }
 }
 </style>
@@ -504,1896 +186,302 @@ button {
 
 <body>
 
-<!-- HEADER -->
-
 <header class="header">
-    <div class="header-inner">
-        <a class="brand" href="index.html">
-            ORIENT <span>CLASSES</span>
-        </a>
-
-        <a class="header-home" href="index.html">
-            ← Home Page
-        </a>
-    </div>
+    <h1>BPSC Syllabus & Study Notes</h1>
+    <p>Subject-wise Preparation for BPSC Examination</p>
 </header>
 
 <div class="layout">
 
-<!-- LEFT SIDEBAR -->
+    <!-- LEFT NAVIGATION -->
+    <aside class="sidebar" id="sidebar">
 
-<aside class="sidebar" id="sidebar">
+        <h2>BPSC Navigation</h2>
 
-    <div class="sidebar-title">BPSC NAVIGATION</div>
+        <button class="nav-button" onclick="showHome()">
+            🏠 Home / Syllabus
+        </button>
 
-    <ul class="menu-list">
+        <h3>Subject-wise Notes</h3>
 
-        <li>
-            <a class="menu-link" href="index.html">
-                🏠 Home Page
-            </a>
-        </li>
+        <button class="nav-button" onclick="toggleHistory()">
+            📚 History ▾
+        </button>
 
-        <li>
-            <a class="menu-link active" href="BPSC_Syllabus.html">
-                📘 Syllabus
-            </a>
-        </li>
+        <div class="chapter-list" id="historyList" style="display:none;">
 
-        <li>
-            <a class="menu-link" href="BPSC_Exam_Pattern.html">
-                📝 Exam Pattern
-            </a>
-        </li>
-
-        <li>
-            <a class="menu-link" href="BPSC_Cutoff.html">
-                📊 Cut-Offs Trends
-            </a>
-        </li>
-
-        <li>
-            <a class="menu-link" href="BPSC_Vacancy.html">
-                🏛️ Vacancies
-            </a>
-        </li>
-
-        <li>
-            <a class="menu-link" href="BPSC_Prelims_PYQ.html">
-                📄 Prelim PYQ
-            </a>
-        </li>
-
-        <li>
-            <a class="menu-link" href="BPSC_Mains_PYQ.html">
-                ✍️ Mains PYQ
-            </a>
-        </li>
-
-        <!-- SUBJECT-WISE NOTES -->
-
-        <li>
+            <h3>Modern History</h3>
 
             <button
-                class="tree-toggle subject-main-toggle"
-                id="subjectMainToggle"
-                aria-expanded="false"
-                aria-controls="subjectList">
-
-                <span>📚 Subject-wise Notes</span>
-                <span class="arrow">▼</span>
-
+                class="nav-button chapter-link"
+                onclick="openChapter(
+                    'Revolt of 1857',
+                    'revolt-of-1857.html',
+                    this
+                )">
+                Revolt of 1857
             </button>
 
-            <ul class="subject-list" id="subjectList"></ul>
+            <button
+                class="nav-button chapter-link"
+                onclick="showMessage(
+                    'Nationalism in India',
+                    this
+                )">
+                Nationalism in India
+            </button>
 
-        </li>
+            <button
+                class="nav-button chapter-link"
+                onclick="showMessage(
+                    'Governor-Generals and Viceroys',
+                    this
+                )">
+                Governor-Generals & Viceroys
+            </button>
 
-        <li>
-            <a class="menu-link" href="Current_Affairs.html">
-                📰 Current Affairs
-            </a>
-        </li>
+            <button
+                class="nav-button chapter-link"
+                onclick="showMessage(
+                    'Socio-Religious Reform Movements',
+                    this
+                )">
+                Socio-Religious Reform Movements
+            </button>
 
-        <li>
-            <a class="mock-button" href="BPSC_Mock_Tests.html">
-                🚀 START MOCK TEST
-            </a>
-        </li>
+            <button
+                class="nav-button chapter-link"
+                onclick="showMessage(
+                    'Indian National Congress',
+                    this
+                )">
+                Indian National Congress
+            </button>
 
-    </ul>
+            <h3>Ancient History</h3>
 
-</aside>
+            <button
+                class="nav-button chapter-link"
+                onclick="showMessage(
+                    'Indus Valley Civilization',
+                    this
+                )">
+                Indus Valley Civilization
+            </button>
 
-<!-- MAIN CONTENT -->
+            <button
+                class="nav-button chapter-link"
+                onclick="showMessage(
+                    'Mauryan Empire',
+                    this
+                )">
+                Mauryan Empire
+            </button>
 
-<main class="content">
+            <button
+                class="nav-button chapter-link"
+                onclick="showMessage(
+                    'Gupta Empire',
+                    this
+                )">
+                Gupta Empire
+            </button>
 
-    <button
-        class="mobile-menu-button"
-        id="mobileMenuButton"
-        aria-expanded="false"
-        aria-controls="sidebar">
-
-        ☰ BPSC MENU
-
-    </button>
-
-    <div class="breadcrumb" id="mainBreadcrumb">
-        <a href="index.html">Home Page</a> /
-        BPSC / Syllabus
-    </div>
-
-    <!-- CHAPTER NOTES WILL APPEAR HERE -->
-
-    <section id="chapterContent">
-
-        <div class="breadcrumb">
-            <a href="#" id="notesHomeLink">Subject-wise Notes</a>
-            /
-            <span id="chapterBreadcrumb"></span>
         </div>
 
-        <h1 id="chapterTitle"></h1>
+        <button class="nav-button" onclick="showMessage('Geography', this)">
+            🌍 Geography
+        </button>
 
-        <div id="chapterBody"></div>
+        <button class="nav-button" onclick="showMessage('Indian Polity', this)">
+            ⚖️ Indian Polity
+        </button>
 
-    </section>
+        <button class="nav-button" onclick="showMessage('Economics', this)">
+            💰 Economics
+        </button>
 
-    <!-- DEFAULT SYLLABUS PAGE -->
+        <button class="nav-button" onclick="showMessage('General Science', this)">
+            🔬 General Science
+        </button>
 
-    <div id="syllabusHome">
+        <button class="nav-button" onclick="showMessage('Current Affairs', this)">
+            📰 Current Affairs
+        </button>
 
-        <section class="page-title">
+    </aside>
 
-            <small>BIHAR PUBLIC SERVICE COMMISSION</small>
+    <!-- RIGHT CONTENT AREA -->
+    <main class="content">
 
-            <h1>BPSC Examination Syllabus</h1>
+        <button class="mobile-button" onclick="toggleSidebar()">
+            ☰ Open Navigation
+        </button>
 
-            <p>
-                Subject-wise syllabus, chapter-wise notes and
-                systematic preparation for BPSC examinations.
-            </p>
+        <!-- Home / Syllabus -->
+        <section class="home-card" id="syllabusHome">
 
-        </section>
-
-        <div class="note">
-            <strong>Important:</strong>
-            This is a general preparation outline. The exact syllabus,
-            examination pattern and qualifying requirements may differ
-            by recruitment. Always check the official notification
-            for your target BPSC examination.
-        </div>
-
-        <section class="section">
-
-            <h2>Syllabus Overview</h2>
-
-            <ul>
-                <li>Indian History and Bihar History</li>
-                <li>Geography of India and Bihar</li>
-                <li>Indian Constitution and Polity</li>
-                <li>Indian Economy and Bihar Economy</li>
-                <li>General Science and Technology</li>
-                <li>Current Affairs</li>
-                <li>Environment and Ecology</li>
-                <li>General Mental Ability, where applicable</li>
-            </ul>
-
-        </section>
-
-        <section class="section">
-
-            <h2>Preliminary Examination</h2>
+            <h2>Welcome to BPSC Study Portal</h2>
 
             <p>
-                Prepare the subjects prescribed in the official
-                notification. Common General Studies preparation
-                areas include history, geography, polity, economy,
-                science, current affairs and Bihar-specific topics.
+                Select a subject and chapter from the left navigation
+                to open its study material.
             </p>
 
-        </section>
-
-        <section class="section">
-
-            <h2>Main Examination</h2>
-
-            <p>
-                Prepare the prescribed General Studies and other
-                papers according to the applicable BPSC notification.
-                Practise answer writing and previous-year questions.
-            </p>
-
-        </section>
-
-        <section class="section">
-
-            <h2>How to Use Subject-wise Notes</h2>
+            <h3>How to use this portal</h3>
 
             <ol>
-                <li>Click Subject-wise Notes in the left sidebar.</li>
-                <li>Select a subject, such as History.</li>
-                <li>Select a subtopic, such as Modern History.</li>
-                <li>Choose the chapter you want to study.</li>
-                <li>The selected chapter's notes will appear here.</li>
+                <li>Open Subject-wise Notes.</li>
+                <li>Select History and then Modern History.</li>
+                <li>Click on Revolt of 1857.</li>
+                <li>The notes will load in the right-side content area.</li>
             </ol>
 
         </section>
 
-    </div>
+        <!-- Chapter Content -->
+        <section class="chapter-card" id="chapterContent"
+                 style="display:none;">
 
-    <footer class="footer">
-        © <span id="year"></span> Orient Classes |
-        BPSC Preparation
-    </footer>
+            <div class="breadcrumb">
+                <button onclick="showHome()">Home</button>
+                &nbsp; / &nbsp;
+                <span id="chapterBreadcrumb">Chapter</span>
+            </div>
 
-</main>
+            <h2 id="chapterTitle"></h2>
+
+            <!-- Other chapters can use this message area -->
+            <div id="chapterMessage"></div>
+
+            <!-- Separate HTML files load here -->
+            <iframe
+                id="chapterFrame"
+                title="BPSC Chapter Notes"
+                src="about:blank">
+            </iframe>
+
+        </section>
+
+    </main>
 
 </div>
 
 <script>
 
+/* Toggle History menu */
+function toggleHistory() {
+    const historyList = document.getElementById("historyList");
+
+    if (historyList.style.display === "none") {
+        historyList.style.display = "block";
+    } else {
+        historyList.style.display = "none";
+    }
+}
+
+/* Toggle navigation on mobile */
+function toggleSidebar() {
+    document.getElementById("sidebar").classList.toggle("open");
+}
+
+/* Highlight the selected chapter */
+function selectButton(button) {
+    document.querySelectorAll(".chapter-link").forEach(function(item) {
+        item.classList.remove("selected");
+    });
+
+    if (button) {
+        button.classList.add("selected");
+    }
+}
+
 /*
-==========================================================
-CHAPTER DATA
-==========================================================
-
-Structure:
-Subject
-  -> Subtopic
-      -> Chapter
-          -> Notes
-
-Add or edit chapter content inside this object.
+   IMPORTANT:
+   This function loads a separate HTML file inside the iframe.
+   The left navigation remains on the BPSC_Syllabus.html page.
 */
+function openChapter(title, filePath, clickedButton) {
 
-const subjectData = [
-
-{
-    id: "history",
-    name: "History",
-    icon: "📖",
-
-    subtopics: [
-
-        {
-            id: "ancient-history",
-            name: "Ancient History",
-
-            chapters: [
-
-                {
-                    id: "indus-valley",
-                    title: "Indus Valley Civilization",
-
-                    content: `
-                        <h2>Indus Valley Civilization</h2>
-
-                        <p>
-                            The Indus Valley Civilization was one of
-                            the earliest urban civilizations of the
-                            Indian subcontinent.
-                        </p>
-
-                        <h3>Important Sites</h3>
-
-                        <ul>
-                            <li>Harappa — present-day Pakistan</li>
-                            <li>Mohenjo-daro — present-day Pakistan</li>
-                            <li>Dholavira — Gujarat</li>
-                            <li>Lothal — Gujarat</li>
-                            <li>Kalibangan — Rajasthan</li>
-                            <li>Rakhigarhi — Haryana</li>
-                        </ul>
-
-                        <h3>Important Features</h3>
-
-                        <ul>
-                            <li>Planned urban settlements</li>
-                            <li>Drainage systems</li>
-                            <li>Standardised weights and measures</li>
-                            <li>Trade and craft production</li>
-                            <li>Undeciphered script</li>
-                        </ul>
-
-                        <div class="key-point">
-                            <strong>Exam Point:</strong>
-                            Remember the major sites, their locations
-                            and their distinctive archaeological finds.
-                        </div>
-                    `
-                },
-
-                {
-                    id: "vedic-period",
-                    title: "Vedic Period",
-
-                    content: `
-                        <h2>Vedic Period</h2>
-
-                        <p>
-                            The Vedic period is studied through
-                            the Vedic texts and other historical
-                            and archaeological evidence.
-                        </p>
-
-                        <h3>Major Topics</h3>
-
-                        <ul>
-                            <li>Rigvedic society</li>
-                            <li>Later Vedic society</li>
-                            <li>Political institutions</li>
-                            <li>Economic activities</li>
-                            <li>Religious practices</li>
-                            <li>Vedic literature</li>
-                        </ul>
-
-                        <div class="exam-tip">
-                            <strong>Preparation Tip:</strong>
-                            Compare the social, political and
-                            economic features of the Early and
-                            Later Vedic periods.
-                        </div>
-                    `
-                },
-
-                {
-                    id: "mahajanapadas",
-                    title: "Mahajanapadas and Magadha",
-
-                    content: `
-                        <h2>Mahajanapadas and Magadha</h2>
-
-                        <p>
-                            The period saw the growth of larger
-                            territorial states and the rise of
-                            Magadha as a major political power.
-                        </p>
-
-                        <h3>Important Topics</h3>
-
-                        <ul>
-                            <li>The sixteen Mahajanapadas</li>
-                            <li>Republics and monarchies</li>
-                            <li>Rise of Magadha</li>
-                            <li>Haryanka dynasty</li>
-                            <li>Shishunaga dynasty</li>
-                            <li>Nanda dynasty</li>
-                        </ul>
-                    `
-                },
-
-                {
-                    id: "buddhism-jainism",
-                    title: "Buddhism and Jainism",
-
-                    content: `
-                        <h2>Buddhism and Jainism</h2>
-
-                        <h3>Buddhism</h3>
-
-                        <ul>
-                            <li>Life of Gautama Buddha</li>
-                            <li>Four Noble Truths</li>
-                            <li>Eightfold Path</li>
-                            <li>Buddhist councils</li>
-                            <li>Spread of Buddhism</li>
-                        </ul>
-
-                        <h3>Jainism</h3>
-
-                        <ul>
-                            <li>Life of Mahavira</li>
-                            <li>Triratna</li>
-                            <li>Ahimsa</li>
-                            <li>Jain councils and literature</li>
-                        </ul>
-                    `
-                },
-
-                {
-                    id: "mauryan-empire",
-                    title: "Mauryan Empire",
-
-                    content: `
-                        <h2>Mauryan Empire</h2>
-
-                        <ul>
-                            <li>Chandragupta Maurya</li>
-                            <li>Chanakya and Arthashastra</li>
-                            <li>Bindusara</li>
-                            <li>Ashoka and the Kalinga War</li>
-                            <li>Ashokan inscriptions</li>
-                            <li>Mauryan administration</li>
-                            <li>Decline of the Mauryan Empire</li>
-                        </ul>
-
-                        <div class="key-point">
-                            <strong>Exam Point:</strong>
-                            Study Ashoka's inscriptions, Dhamma and
-                            the administrative system of the Mauryas.
-                        </div>
-                    `
-                },
-
-                {
-                    id: "gupta-empire",
-                    title: "Gupta Empire",
-
-                    content: `
-                        <h2>Gupta Empire</h2>
-
-                        <ul>
-                            <li>Chandragupta I</li>
-                            <li>Samudragupta</li>
-                            <li>Chandragupta II</li>
-                            <li>Administration</li>
-                            <li>Literature and science</li>
-                            <li>Art and architecture</li>
-                            <li>Decline of the Gupta Empire</li>
-                        </ul>
-                    `
-                }
-
-            ]
-        },
-
-        {
-            id: "medieval-history",
-            name: "Medieval History",
-
-            chapters: [
-
-                {
-                    id: "delhi-sultanate",
-                    title: "Delhi Sultanate",
-
-                    content: `
-                        <h2>Delhi Sultanate</h2>
-
-                        <ul>
-                            <li>Slave or Mamluk dynasty</li>
-                            <li>Khilji dynasty</li>
-                            <li>Tughlaq dynasty</li>
-                            <li>Sayyid dynasty</li>
-                            <li>Lodi dynasty</li>
-                            <li>Administration and revenue</li>
-                            <li>Military and market reforms</li>
-                        </ul>
-                    `
-                },
-
-                {
-                    id: "mughal-empire",
-                    title: "Mughal Empire",
-
-                    content: `
-                        <h2>Mughal Empire</h2>
-
-                        <ul>
-                            <li>Babur and the First Battle of Panipat</li>
-                            <li>Humayun and Sher Shah Suri</li>
-                            <li>Akbar's administration</li>
-                            <li>Jahangir and Shah Jahan</li>
-                            <li>Aurangzeb</li>
-                            <li>Mansabdari system</li>
-                            <li>Mughal decline</li>
-                        </ul>
-                    `
-                },
-
-                {
-                    id: "bhakti-sufi",
-                    title: "Bhakti and Sufi Movements",
-
-                    content: `
-                        <h2>Bhakti and Sufi Movements</h2>
-
-                        <ul>
-                            <li>Kabir</li>
-                            <li>Guru Nanak</li>
-                            <li>Mirabai</li>
-                            <li>Chaitanya Mahaprabhu</li>
-                            <li>Sufi silsilas</li>
-                            <li>Social and cultural impact</li>
-                        </ul>
-                    `
-                },
-
-                {
-                    id: "vijayanagara",
-                    title: "Vijayanagara Empire",
-
-                    content: `
-                        <h2>Vijayanagara Empire</h2>
-
-                        <ul>
-                            <li>Foundation and dynasties</li>
-                            <li>Krishnadevaraya</li>
-                            <li>Administration</li>
-                            <li>Trade and economy</li>
-                            <li>Art and architecture</li>
-                            <li>Battle of Talikota</li>
-                        </ul>
-                    `
-                }
-
-            ]
-        },
-
-        {
-            id: "modern-history",
-            name: "Modern History",
-
-            chapters: [
-
-                {
-                    id: "europeans-india",
-                    title: "Advent of Europeans",
-
-                    content: `
-                        <h2>Advent of Europeans in India</h2>
-
-                        <ul>
-                            <li>Portuguese arrival</li>
-                            <li>Dutch trading activities</li>
-                            <li>English East India Company</li>
-                            <li>French East India Company</li>
-                            <li>Anglo-French rivalry</li>
-                        </ul>
-                    `
-                },
-
-                {
-                    id: "plassey-buxar",
-                    title: "Battle of Plassey and Buxar",
-
-                    content: `
-                        <h2>Battle of Plassey and Buxar</h2>
-
-                        <h3>Battle of Plassey — 1757</h3>
-
-                        <p>
-                            The battle strengthened the English East
-                            India Company's political influence in Bengal.
-                        </p>
-
-                        <h3>Battle of Buxar — 1764</h3>
-
-                        <p>
-                            The Company's victory over the combined
-                            forces of Mir Qasim, Shuja-ud-Daula and
-                            Shah Alam II was a major turning point
-                            in British expansion.
-                        </p>
-
-                        <h3>Important Topics</h3>
-
-                        <ul>
-                            <li>Causes and consequences</li>
-                            <li>Role of Robert Clive</li>
-                            <li>Diwani rights, 1765</li>
-                        </ul>
-                    `
-                },
-
-                {
-                    id: "revolt-1857",
-                    title: "Revolt of 1857",
-
-                    content: `
-                        <h2>Revolt of 1857</h2>
-
-                        <h3>Causes</h3>
-
-                        <ul>
-                            <li>Political annexations</li>
-                            <li>Economic exploitation</li>
-                            <li>Military grievances</li>
-                            <li>Social and religious concerns</li>
-                            <li>Immediate cartridge controversy</li>
-                        </ul>
-
-                        <h3>Important Leaders</h3>
-
-                        <ul>
-                            <li>Bahadur Shah Zafar — Delhi</li>
-                            <li>Rani Lakshmibai — Jhansi</li>
-                            <li>Nana Sahib — Kanpur</li>
-                            <li>Kunwar Singh — Bihar</li>
-                            <li>Begum Hazrat Mahal — Lucknow</li>
-                            <li>Bakht Khan — associated with Delhi</li>
-                        </ul>
-
-                        <h3>Consequences</h3>
-
-                        <ul>
-                            <li>End of East India Company rule</li>
-                            <li>Beginning of Crown rule in 1858</li>
-                            <li>Changes in army and administration</li>
-                        </ul>
-
-                        <div class="exam-tip">
-                            <strong>Exam Tip:</strong>
-                            Prepare the leaders, centres, causes,
-                            nature and consequences of the revolt.
-                        </div>
-                    `
-                },
-
-                {
-                    id: "governor-generals",
-                    title: "Governor-Generals and Viceroys",
-
-                    content: `
-                        <h2>Governor-Generals and Viceroys</h2>
-
-                        <ul>
-                            <li>Warren Hastings</li>
-                            <li>Lord Cornwallis</li>
-                            <li>Lord Wellesley</li>
-                            <li>Lord William Bentinck</li>
-                            <li>Lord Dalhousie</li>
-                            <li>Lord Canning</li>
-                            <li>Lord Lytton</li>
-                            <li>Lord Ripon</li>
-                            <li>Lord Curzon</li>
-                            <li>Lord Mountbatten</li>
-                        </ul>
-
-                        <h3>Prepare for Each Administrator</h3>
-
-                        <ul>
-                            <li>Major policies and reforms</li>
-                            <li>Important laws</li>
-                            <li>Wars and annexations</li>
-                            <li>Administrative changes</li>
-                        </ul>
-                    `
-                },
-
-                {
-                    id: "national-movement",
-                    title: "Indian National Movement",
-
-                    content: `
-                        <h2>Indian National Movement</h2>
-
-                        <ul>
-                            <li>Formation of the Indian National Congress</li>
-                            <li>Moderates and Extremists</li>
-                            <li>Partition of Bengal and Swadeshi</li>
-                            <li>Home Rule Movement</li>
-                            <li>Non-Cooperation Movement</li>
-                            <li>Civil Disobedience Movement</li>
-                            <li>Quit India Movement</li>
-                            <li>Subhas Chandra Bose and INA</li>
-                            <li>Independence and Partition</li>
-                        </ul>
-                    `
-                }
-
-            ]
-        }
-
-    ]
-},
-
-{
-    id: "geography",
-    name: "Geography",
-    icon: "🌍",
-
-    subtopics: [
-
-        {
-            id: "physical-geography",
-            name: "Physical Geography",
-
-            chapters: [
-
-                {
-                    id: "earth-structure",
-                    title: "Earth and Its Structure",
-
-                    content: `
-                        <h2>Earth and Its Structure</h2>
-
-                        <ul>
-                            <li>Origin of the Earth</li>
-                            <li>Crust, mantle and core</li>
-                            <li>Continental and oceanic crust</li>
-                            <li>Plate tectonics</li>
-                            <li>Earthquakes and volcanoes</li>
-                        </ul>
-                    `
-                },
-
-                {
-                    id: "latitude-longitude",
-                    title: "Latitude and Longitude",
-
-                    content: `
-                        <h2>Latitude and Longitude</h2>
-
-                        <ul>
-                            <li>Equator</li>
-                            <li>Latitudes and parallels</li>
-                            <li>Longitudes and meridians</li>
-                            <li>Prime Meridian</li>
-                            <li>Time zones</li>
-                            <li>Indian Standard Time</li>
-                        </ul>
-                    `
-                },
-
-                {
-                    id: "climate",
-                    title: "Atmosphere and Climate",
-
-                    content: `
-                        <h2>Atmosphere and Climate</h2>
-
-                        <ul>
-                            <li>Layers of the atmosphere</li>
-                            <li>Temperature and pressure</li>
-                            <li>Winds and air circulation</li>
-                            <li>Humidity and rainfall</li>
-                            <li>Climate classification</li>
-                        </ul>
-                    `
-                }
-
-            ]
-        },
-
-        {
-            id: "indian-geography",
-            name: "Indian Geography",
-
-            chapters: [
-
-                {
-                    id: "physiographic-divisions",
-                    title: "Physiographic Divisions of India",
-
-                    content: `
-                        <h2>Physiographic Divisions of India</h2>
-
-                        <ul>
-                            <li>Himalayan Mountains</li>
-                            <li>Northern Plains</li>
-                            <li>Peninsular Plateau</li>
-                            <li>Indian Desert</li>
-                            <li>Coastal Plains</li>
-                            <li>Islands of India</li>
-                        </ul>
-                    `
-                },
-
-                {
-                    id: "indian-drainage",
-                    title: "Indian Drainage System",
-
-                    content: `
-                        <h2>Indian Drainage System</h2>
-
-                        <ul>
-                            <li>Himalayan rivers</li>
-                            <li>Indus river system</li>
-                            <li>Ganga river system</li>
-                            <li>Brahmaputra river system</li>
-                            <li>Peninsular rivers</li>
-                            <li>River basins and dams</li>
-                        </ul>
-                    `
-                },
-
-                {
-                    id: "indian-monsoon",
-                    title: "Indian Monsoon",
-
-                    content: `
-                        <h2>Indian Monsoon</h2>
-
-                        <ul>
-                            <li>Factors affecting the monsoon</li>
-                            <li>Southwest monsoon</li>
-                            <li>Northeast monsoon</li>
-                            <li>Rainfall distribution</li>
-                            <li>El Niño and La Niña</li>
-                        </ul>
-                    `
-                }
-
-            ]
-        },
-
-        {
-            id: "bihar-geography",
-            name: "Bihar Geography",
-
-            chapters: [
-
-                {
-                    id: "bihar-rivers",
-                    title: "Rivers of Bihar",
-
-                    content: `
-                        <h2>Rivers of Bihar</h2>
-
-                        <ul>
-                            <li>Ganga</li>
-                            <li>Kosi</li>
-                            <li>Gandak</li>
-                            <li>Bagmati</li>
-                            <li>Son</li>
-                            <li>Falgu</li>
-                            <li>Major tributaries and flood-prone regions</li>
-                        </ul>
-                    `
-                },
-
-                {
-                    id: "bihar-agriculture",
-                    title: "Agriculture and Soils of Bihar",
-
-                    content: `
-                        <h2>Agriculture and Soils of Bihar</h2>
-
-                        <ul>
-                            <li>Major soil types</li>
-                            <li>Rice, wheat and maize</li>
-                            <li>Cash crops</li>
-                            <li>Irrigation</li>
-                            <li>Agricultural challenges</li>
-                        </ul>
-                    `
-                }
-
-            ]
-        }
-
-    ]
-},
-
-{
-    id: "polity",
-    name: "Indian Polity",
-    icon: "⚖️",
-
-    subtopics: [
-
-        {
-            id: "constitution",
-            name: "Constitution of India",
-
-            chapters: [
-
-                {
-                    id: "making-constitution",
-                    title: "Making of the Constitution",
-
-                    content: `
-                        <h2>Making of the Constitution</h2>
-
-                        <ul>
-                            <li>Constituent Assembly</li>
-                            <li>Drafting Committee</li>
-                            <li>Important committees</li>
-                            <li>Adoption and commencement</li>
-                            <li>Sources of the Constitution</li>
-                        </ul>
-                    `
-                },
-
-                {
-                    id: "preamble",
-                    title: "Preamble",
-
-                    content: `
-                        <h2>Preamble of the Constitution</h2>
-
-                        <ul>
-                            <li>Sovereign</li>
-                            <li>Socialist</li>
-                            <li>Secular</li>
-                            <li>Democratic</li>
-                            <li>Republic</li>
-                            <li>Justice, Liberty, Equality and Fraternity</li>
-                        </ul>
-                    `
-                },
-
-                {
-                    id: "constitutional-amendments",
-                    title: "Constitutional Amendments",
-
-                    content: `
-                        <h2>Constitutional Amendments</h2>
-
-                        <p>
-                            Study the amendment procedure and important
-                            constitutional amendments prescribed in
-                            your examination syllabus.
-                        </p>
-
-                        <ul>
-                            <li>Amendment procedure</li>
-                            <li>Important constitutional amendments</li>
-                            <li>Basic structure doctrine</li>
-                        </ul>
-                    `
-                }
-
-            ]
-        },
-
-        {
-            id: "rights-duties",
-            name: "Fundamental Rights and Duties",
-
-            chapters: [
-
-                {
-                    id: "fundamental-rights",
-                    title: "Fundamental Rights",
-
-                    content: `
-                        <h2>Fundamental Rights</h2>
-
-                        <ul>
-                            <li>Right to Equality</li>
-                            <li>Right to Freedom</li>
-                            <li>Right against Exploitation</li>
-                            <li>Right to Freedom of Religion</li>
-                            <li>Cultural and Educational Rights</li>
-                            <li>Right to Constitutional Remedies</li>
-                        </ul>
-                    `
-                },
-
-                {
-                    id: "dpsp",
-                    title: "Directive Principles of State Policy",
-
-                    content: `
-                        <h2>Directive Principles of State Policy</h2>
-
-                        <ul>
-                            <li>Meaning and objectives</li>
-                            <li>Classification of DPSPs</li>
-                            <li>Relationship with Fundamental Rights</li>
-                            <li>Important constitutional provisions</li>
-                        </ul>
-                    `
-                },
-
-                {
-                    id: "fundamental-duties",
-                    title: "Fundamental Duties",
-
-                    content: `
-                        <h2>Fundamental Duties</h2>
-
-                        <ul>
-                            <li>Constitutional background</li>
-                            <li>Article 51A</li>
-                            <li>List of Fundamental Duties</li>
-                            <li>Importance in civic life</li>
-                        </ul>
-                    `
-                }
-
-            ]
-        },
-
-        {
-            id: "government",
-            name: "Government and Judiciary",
-
-            chapters: [
-
-                {
-                    id: "president-prime-minister",
-                    title: "President and Prime Minister",
-
-                    content: `
-                        <h2>President and Prime Minister</h2>
-
-                        <ul>
-                            <li>Election of the President</li>
-                            <li>Powers and functions of the President</li>
-                            <li>Vice-President</li>
-                            <li>Appointment of the Prime Minister</li>
-                            <li>Council of Ministers</li>
-                        </ul>
-                    `
-                },
-
-                {
-                    id: "parliament",
-                    title: "Parliament",
-
-                    content: `
-                        <h2>Parliament of India</h2>
-
-                        <ul>
-                            <li>Lok Sabha</li>
-                            <li>Rajya Sabha</li>
-                            <li>Legislative procedure</li>
-                            <li>Money Bills and Finance Bills</li>
-                            <li>Parliamentary committees</li>
-                            <li>Speaker and Chairman</li>
-                        </ul>
-                    `
-                },
-
-                {
-                    id: "judiciary",
-                    title: "Supreme Court and High Courts",
-
-                    content: `
-                        <h2>Indian Judiciary</h2>
-
-                        <ul>
-                            <li>Supreme Court</li>
-                            <li>High Courts</li>
-                            <li>Judicial review</li>
-                            <li>Judicial activism</li>
-                            <li>Public Interest Litigation</li>
-                        </ul>
-                    `
-                }
-
-            ]
-        }
-
-    ]
-},
-
-{
-    id: "economy",
-    name: "Indian Economy",
-    icon: "💰",
-
-    subtopics: [
-
-        {
-            id: "economic-basics",
-            name: "Basic Economic Concepts",
-
-            chapters: [
-
-                {
-                    id: "national-income",
-                    title: "National Income and GDP",
-
-                    content: `
-                        <h2>National Income and GDP</h2>
-
-                        <ul>
-                            <li>Gross Domestic Product</li>
-                            <li>Gross National Income</li>
-                            <li>Nominal and real GDP</li>
-                            <li>Per capita income</li>
-                            <li>Methods of national income calculation</li>
-                        </ul>
-                    `
-                },
-
-                {
-                    id: "inflation",
-                    title: "Inflation and Unemployment",
-
-                    content: `
-                        <h2>Inflation and Unemployment</h2>
-
-                        <ul>
-                            <li>Meaning of inflation</li>
-                            <li>Consumer and wholesale price indices</li>
-                            <li>Demand-pull inflation</li>
-                            <li>Cost-push inflation</li>
-                            <li>Types of unemployment</li>
-                        </ul>
-                    `
-                }
-
-            ]
-        },
-
-        {
-            id: "banking",
-            name: "Banking and Finance",
-
-            chapters: [
-
-                {
-                    id: "rbi",
-                    title: "Reserve Bank of India",
-
-                    content: `
-                        <h2>Reserve Bank of India</h2>
-
-                        <ul>
-                            <li>Functions of the RBI</li>
-                            <li>Monetary policy</li>
-                            <li>Repo rate and reverse repo rate</li>
-                            <li>Cash Reserve Ratio</li>
-                            <li>Statutory Liquidity Ratio</li>
-                        </ul>
-                    `
-                },
-
-                {
-                    id: "budget",
-                    title: "Budget and Taxation",
-
-                    content: `
-                        <h2>Budget and Taxation</h2>
-
-                        <ul>
-                            <li>Union Budget</li>
-                            <li>Revenue and capital expenditure</li>
-                            <li>Direct and indirect taxes</li>
-                            <li>Goods and Services Tax</li>
-                            <li>Fiscal deficit</li>
-                        </ul>
-                    `
-                }
-
-            ]
-        },
-
-        {
-            id: "bihar-economy",
-            name: "Bihar Economy",
-
-            chapters: [
-
-                {
-                    id: "bihar-development",
-                    title: "Bihar's Economic Development",
-
-                    content: `
-                        <h2>Bihar's Economic Development</h2>
-
-                        <ul>
-                            <li>Agriculture and allied sectors</li>
-                            <li>Industrial development</li>
-                            <li>Infrastructure</li>
-                            <li>Employment and migration</li>
-                            <li>State development programmes</li>
-                        </ul>
-                    `
-                }
-
-            ]
-        }
-
-    ]
-},
-
-{
-    id: "science",
-    name: "General Science",
-    icon: "🔬",
-
-    subtopics: [
-
-        {
-            id: "physics",
-            name: "Physics",
-
-            chapters: [
-
-                {
-                    id: "motion-force",
-                    title: "Motion and Force",
-
-                    content: `
-                        <h2>Motion and Force</h2>
-
-                        <ul>
-                            <li>Distance and displacement</li>
-                            <li>Speed and velocity</li>
-                            <li>Acceleration</li>
-                            <li>Newton's laws of motion</li>
-                            <li>Momentum</li>
-                        </ul>
-                    `
-                },
-
-                {
-                    id: "light",
-                    title: "Light",
-
-                    content: `
-                        <h2>Light</h2>
-
-                        <ul>
-                            <li>Reflection</li>
-                            <li>Refraction</li>
-                            <li>Mirrors and lenses</li>
-                            <li>Human eye</li>
-                            <li>Optical phenomena</li>
-                        </ul>
-                    `
-                },
-
-                {
-                    id: "electricity",
-                    title: "Electricity and Magnetism",
-
-                    content: `
-                        <h2>Electricity and Magnetism</h2>
-
-                        <ul>
-                            <li>Electric current</li>
-                            <li>Voltage and resistance</li>
-                            <li>Ohm's law</li>
-                            <li>Series and parallel circuits</li>
-                            <li>Magnetic effects of current</li>
-                        </ul>
-                    `
-                }
-
-            ]
-        },
-
-        {
-            id: "chemistry",
-            name: "Chemistry",
-
-            chapters: [
-
-                {
-                    id: "atoms-molecules",
-                    title: "Atoms and Molecules",
-
-                    content: `
-                        <h2>Atoms and Molecules</h2>
-
-                        <ul>
-                            <li>Atomic structure</li>
-                            <li>Atomic number and mass number</li>
-                            <li>Elements and compounds</li>
-                            <li>Chemical formulae</li>
-                            <li>Chemical reactions</li>
-                        </ul>
-                    `
-                },
-
-                {
-                    id: "acids-bases",
-                    title: "Acids, Bases and Salts",
-
-                    content: `
-                        <h2>Acids, Bases and Salts</h2>
-
-                        <ul>
-                            <li>Properties of acids and bases</li>
-                            <li>Indicators</li>
-                            <li>pH scale</li>
-                            <li>Neutralisation</li>
-                            <li>Common salts and their uses</li>
-                        </ul>
-                    `
-                }
-
-            ]
-        },
-
-        {
-            id: "biology",
-            name: "Biology",
-
-            chapters: [
-
-                {
-                    id: "cell-biology",
-                    title: "Cell Biology",
-
-                    content: `
-                        <h2>Cell Biology</h2>
-
-                        <ul>
-                            <li>Cell theory</li>
-                            <li>Plant and animal cells</li>
-                            <li>Cell membrane and cytoplasm</li>
-                            <li>Nucleus and chromosomes</li>
-                            <li>Cell division</li>
-                        </ul>
-                    `
-                },
-
-                {
-                    id: "human-body",
-                    title: "Human Body Systems",
-
-                    content: `
-                        <h2>Human Body Systems</h2>
-
-                        <ul>
-                            <li>Digestive system</li>
-                            <li>Respiratory system</li>
-                            <li>Circulatory system</li>
-                            <li>Nervous system</li>
-                            <li>Excretory system</li>
-                        </ul>
-                    `
-                },
-
-                {
-                    id: "diseases",
-                    title: "Diseases and Nutrition",
-
-                    content: `
-                        <h2>Diseases and Nutrition</h2>
-
-                        <ul>
-                            <li>Macronutrients and micronutrients</li>
-                            <li>Deficiency diseases</li>
-                            <li>Communicable diseases</li>
-                            <li>Non-communicable diseases</li>
-                            <li>Vaccination and immunity</li>
-                        </ul>
-                    `
-                }
-
-            ]
-        }
-
-    ]
-},
-
-{
-    id: "bihar",
-    name: "Bihar Special",
-    icon: "🏛️",
-
-    subtopics: [
-
-        {
-            id: "bihar-history",
-            name: "History of Bihar",
-
-            chapters: [
-
-                {
-                    id: "ancient-bihar",
-                    title: "Ancient Bihar and Magadha",
-
-                    content: `
-                        <h2>Ancient Bihar and Magadha</h2>
-
-                        <ul>
-                            <li>Magadha Mahajanapada</li>
-                            <li>Haryanka dynasty</li>
-                            <li>Shishunaga dynasty</li>
-                            <li>Nanda dynasty</li>
-                            <li>Mauryan Empire</li>
-                            <li>Ancient centres of learning</li>
-                        </ul>
-                    `
-                },
-
-                {
-                    id: "freedom-movement-bihar",
-                    title: "Bihar in the Freedom Movement",
-
-                    content: `
-                        <h2>Bihar in the Freedom Movement</h2>
-
-                        <ul>
-                            <li>Kunwar Singh and the Revolt of 1857</li>
-                            <li>Champaran Satyagraha</li>
-                            <li>Rajendra Prasad</li>
-                            <li>Participation in the national movement</li>
-                            <li>Quit India Movement in Bihar</li>
-                        </ul>
-                    `
-                }
-
-            ]
-        },
-
-        {
-            id: "bihar-geography",
-            name: "Geography of Bihar",
-
-            chapters: [
-
-                {
-                    id: "rivers-bihar",
-                    title: "Rivers of Bihar",
-
-                    content: `
-                        <h2>Rivers of Bihar</h2>
-
-                        <ul>
-                            <li>Ganga</li>
-                            <li>Kosi</li>
-                            <li>Gandak</li>
-                            <li>Bagmati</li>
-                            <li>Son</li>
-                            <li>Falgu</li>
-                        </ul>
-                    `
-                },
-
-                {
-                    id: "agriculture-bihar",
-                    title: "Agriculture of Bihar",
-
-                    content: `
-                        <h2>Agriculture of Bihar</h2>
-
-                        <ul>
-                            <li>Major crops</li>
-                            <li>Agro-climatic zones</li>
-                            <li>Irrigation</li>
-                            <li>Horticulture</li>
-                            <li>Agricultural challenges</li>
-                        </ul>
-                    `
-                }
-
-            ]
-        },
-
-        {
-            id: "bihar-culture",
-            name: "Culture of Bihar",
-
-            chapters: [
-
-                {
-                    id: "festivals-art",
-                    title: "Festivals, Art and Traditions",
-
-                    content: `
-                        <h2>Festivals, Art and Traditions</h2>
-
-                        <ul>
-                            <li>Chhath Puja</li>
-                            <li>Madhubani painting</li>
-                            <li>Traditional crafts</li>
-                            <li>Regional languages</li>
-                            <li>Historical and cultural heritage</li>
-                        </ul>
-                    `
-                }
-
-            ]
-        }
-
-    ]
-},
-
-{
-    id: "environment",
-    name: "Environment",
-    icon: "🌱",
-
-    subtopics: [
-
-        {
-            id: "ecology",
-            name: "Ecology",
-
-            chapters: [
-
-                {
-                    id: "ecosystem",
-                    title: "Ecosystem",
-
-                    content: `
-                        <h2>Ecosystem</h2>
-
-                        <ul>
-                            <li>Biotic and abiotic components</li>
-                            <li>Food chains and food webs</li>
-                            <li>Ecological pyramids</li>
-                            <li>Energy flow</li>
-                            <li>Ecological succession</li>
-                        </ul>
-                    `
-                },
-
-                {
-                    id: "biodiversity",
-                    title: "Biodiversity and Conservation",
-
-                    content: `
-                        <h2>Biodiversity and Conservation</h2>
-
-                        <ul>
-                            <li>Genetic, species and ecosystem diversity</li>
-                            <li>Threats to biodiversity</li>
-                            <li>Protected areas</li>
-                            <li>National parks and wildlife sanctuaries</li>
-                            <li>Conservation programmes</li>
-                        </ul>
-                    `
-                }
-
-            ]
-        },
-
-        {
-            id: "climate",
-            name: "Climate Change",
-
-            chapters: [
-
-                {
-                    id: "global-warming",
-                    title: "Global Warming",
-
-                    content: `
-                        <h2>Global Warming</h2>
-
-                        <ul>
-                            <li>Greenhouse gases</li>
-                            <li>Greenhouse effect</li>
-                            <li>Causes of global warming</li>
-                            <li>Impacts on ecosystems</li>
-                            <li>Mitigation and adaptation</li>
-                        </ul>
-                    `
-                },
-
-                {
-                    id: "environment-pollution",
-                    title: "Environmental Pollution",
-
-                    content: `
-                        <h2>Environmental Pollution</h2>
-
-                        <ul>
-                            <li>Air pollution</li>
-                            <li>Water pollution</li>
-                            <li>Soil pollution</li>
-                            <li>Noise pollution</li>
-                            <li>Waste management</li>
-                        </ul>
-                    `
-                }
-
-            ]
-        }
-
-    ]
-},
-
-{
-    id: "current",
-    name: "Current Affairs Notes",
-    icon: "📰",
-
-    subtopics: [
-
-        {
-            id: "national-affairs",
-            name: "National Affairs",
-
-            chapters: [
-
-                {
-                    id: "government-schemes",
-                    title: "Government Schemes",
-
-                    content: `
-                        <h2>Government Schemes</h2>
-
-                        <p>
-                            Add updated notes on important central
-                            government schemes, including their
-                            objectives, ministries, beneficiaries
-                            and implementation.
-                        </p>
-
-                        <h3>Suggested Format</h3>
-
-                        <ul>
-                            <li>Name of the scheme</li>
-                            <li>Launch date and ministry</li>
-                            <li>Objectives</li>
-                            <li>Beneficiaries</li>
-                            <li>Important examination facts</li>
-                        </ul>
-                    `
-                },
-
-                {
-                    id: "reports-indices",
-                    title: "Reports and Indices",
-
-                    content: `
-                        <h2>Reports and Indices</h2>
-
-                        <p>
-                            Add the latest reports, publishing
-                            organisations, rankings and India's
-                            performance after verifying reliable
-                            official sources.
-                        </p>
-                    `
-                }
-
-            ]
-        },
-
-        {
-            id: "bihar-current",
-            name: "Bihar Current Affairs",
-
-            chapters: [
-
-                {
-                    id: "bihar-news",
-                    title: "Important Bihar Developments",
-
-                    content: `
-                        <h2>Important Bihar Developments</h2>
-
-                        <p>
-                            Add verified notes about Bihar government
-                            schemes, state policies, appointments,
-                            infrastructure projects and important
-                            developments.
-                        </p>
-                    `
-                }
-
-            ]
-        }
-
-    ]
-}
-
-];
-
-
-/* =====================================================
-   BUILD THE THREE-LEVEL DROPDOWN
-===================================================== */
-
-const subjectList = document.getElementById("subjectList");
-const subjectMainToggle = document.getElementById("subjectMainToggle");
-
-function createButton(label, className, expanded) {
-
-    const button = document.createElement("button");
-
-    button.type = "button";
-    button.className = className;
-    button.setAttribute("aria-expanded", String(!!expanded));
-
-    const text = document.createElement("span");
-    text.textContent = label;
-
-    const arrow = document.createElement("span");
-    arrow.className = "arrow";
-    arrow.textContent = "▼";
-
-    button.appendChild(text);
-    button.appendChild(arrow);
-
-    return button;
-}
-
-
-function createChapterList(subject, subtopic, container) {
-
-    subtopic.chapters.forEach(function(chapter) {
-
-        const li = document.createElement("li");
-        const button = document.createElement("button");
-
-        button.type = "button";
-        button.className = "chapter-link";
-        button.textContent = chapter.title;
-
-        button.addEventListener("click", function() {
-            showChapter(subject, subtopic, chapter, button);
-        });
-
-        li.appendChild(button);
-        container.appendChild(li);
-
-    });
-
-}
-
-
-function createSubjectTree() {
-
-    subjectData.forEach(function(subject) {
-
-        const subjectLi = document.createElement("li");
-
-        const subjectButton = createButton(
-            subject.icon + " " + subject.name,
-            "tree-toggle subject-toggle",
-            false
-        );
-
-        const subtopicList = document.createElement("ul");
-        subtopicList.className = "subtopic-list";
-
-        subject.subtopics.forEach(function(subtopic) {
-
-            const subtopicLi = document.createElement("li");
-
-            const subtopicButton = createButton(
-                subtopic.name,
-                "tree-toggle subtopic-toggle",
-                false
-            );
-
-            const chapterList = document.createElement("ul");
-            chapterList.className = "chapter-list";
-
-            createChapterList(subject, subtopic, chapterList);
-
-            subtopicButton.addEventListener("click", function() {
-
-                const wasOpen = chapterList.classList.contains("open");
-
-                subtopicList.querySelectorAll(".chapter-list")
-                    .forEach(function(list) {
-                        list.classList.remove("open");
-                    });
-
-                subtopicList.querySelectorAll(".subtopic-toggle")
-                    .forEach(function(button) {
-                        button.setAttribute("aria-expanded", "false");
-                    });
-
-                if (!wasOpen) {
-                    chapterList.classList.add("open");
-                    subtopicButton.setAttribute("aria-expanded", "true");
-                }
-
-            });
-
-            subtopicLi.appendChild(subtopicButton);
-            subtopicLi.appendChild(chapterList);
-
-            subtopicList.appendChild(subtopicLi);
-
-        });
-
-        subjectButton.addEventListener("click", function() {
-
-            const wasOpen = subtopicList.classList.contains("open");
-
-            subjectList.querySelectorAll(".subtopic-list")
-                .forEach(function(list) {
-                    list.classList.remove("open");
-                });
-
-            subjectList.querySelectorAll(".subject-toggle")
-                .forEach(function(button) {
-                    button.setAttribute("aria-expanded", "false");
-                });
-
-            if (!wasOpen) {
-                subtopicList.classList.add("open");
-                subjectButton.setAttribute("aria-expanded", "true");
-            }
-
-        });
-
-        subjectLi.appendChild(subjectButton);
-        subjectLi.appendChild(subtopicList);
-
-        subjectList.appendChild(subjectLi);
-
-    });
-
-}
-
-createSubjectTree();
-
-
-/* =====================================================
-   OPEN/CLOSE SUBJECT-WISE NOTES
-===================================================== */
-
-subjectMainToggle.addEventListener("click", function() {
-
-    const isOpen = subjectList.classList.toggle("open");
-
-    subjectMainToggle.setAttribute("aria-expanded", String(isOpen));
-
-});
-
-
-/* =====================================================
-   SHOW CHAPTER NOTES IN CENTRAL PANEL
-===================================================== */
-
-function showChapter(subject, subtopic, chapter, clickedButton) {
-
-    const chapterPanel = document.getElementById("chapterContent");
+    const home = document.getElementById("syllabusHome");
+    const chapterContent = document.getElementById("chapterContent");
     const chapterTitle = document.getElementById("chapterTitle");
-    const chapterBody = document.getElementById("chapterBody");
-    const chapterBreadcrumb = document.getElementById("chapterBreadcrumb");
+    const breadcrumb = document.getElementById("chapterBreadcrumb");
+    const message = document.getElementById("chapterMessage");
+    const frame = document.getElementById("chapterFrame");
 
-    const syllabusHome = document.getElementById("syllabusHome");
-    const mainBreadcrumb = document.getElementById("mainBreadcrumb");
+    home.style.display = "none";
+    chapterContent.style.display = "block";
 
-    chapterTitle.textContent = chapter.title;
+    chapterTitle.textContent = title;
+    breadcrumb.textContent = "History / Modern History / " + title;
 
-    chapterBreadcrumb.textContent =
-        subject.name + " / " +
-        subtopic.name + " / " +
-        chapter.title;
+    message.style.display = "none";
+    message.innerHTML = "";
+
+    frame.style.display = "block";
 
     /*
-       The content below comes from the website's own chapterData
-       object. Add your chapter notes to that object.
+       The browser requests this file from the same website
+       where BPSC_Syllabus.html is hosted.
     */
+    frame.src = filePath;
 
-    chapterBody.innerHTML = chapter.content;
+    selectButton(clickedButton);
 
-    syllabusHome.style.display = "none";
-    mainBreadcrumb.style.display = "none";
-    chapterPanel.style.display = "block";
+    document.getElementById("sidebar").classList.remove("open");
 
-    document.querySelectorAll(".chapter-link").forEach(function(button) {
-        button.classList.remove("selected");
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
     });
-
-    clickedButton.classList.add("selected");
-
-    chapterPanel.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-    });
-
 }
 
+/* Temporary display for chapters without separate HTML files */
+function showMessage(title, clickedButton) {
 
-/* =====================================================
-   CLICK SUBJECT-WISE NOTES BREADCRUMB TO RETURN
-===================================================== */
+    const home = document.getElementById("syllabusHome");
+    const chapterContent = document.getElementById("chapterContent");
+    const chapterTitle = document.getElementById("chapterTitle");
+    const breadcrumb = document.getElementById("chapterBreadcrumb");
+    const message = document.getElementById("chapterMessage");
+    const frame = document.getElementById("chapterFrame");
 
-document.getElementById("notesHomeLink").addEventListener("click", function(event) {
+    home.style.display = "none";
+    chapterContent.style.display = "block";
 
-    event.preventDefault();
+    chapterTitle.textContent = title;
+    breadcrumb.textContent = title;
 
-    document.getElementById("chapterContent").style.display = "none";
+    frame.style.display = "none";
+    frame.src = "about:blank";
+
+    message.style.display = "block";
+    message.innerHTML =
+        "<p>Notes for this chapter have not yet been connected to a separate HTML file.</p>";
+
+    selectButton(clickedButton);
+
+    document.getElementById("sidebar").classList.remove("open");
+}
+
+/* Return to home */
+function showHome() {
+
     document.getElementById("syllabusHome").style.display = "block";
-    document.getElementById("mainBreadcrumb").style.display = "block";
+    document.getElementById("chapterContent").style.display = "none";
 
-});
+    document.getElementById("chapterFrame").src = "about:blank";
 
+    document.querySelectorAll(".chapter-link").forEach(function(item) {
+        item.classList.remove("selected");
+    });
 
-/* =====================================================
-   MOBILE SIDEBAR
-===================================================== */
-
-const mobileMenuButton = document.getElementById("mobileMenuButton");
-const sidebar = document.getElementById("sidebar");
-
-mobileMenuButton.addEventListener("click", function() {
-
-    const isOpen = sidebar.classList.toggle("open");
-
-    mobileMenuButton.setAttribute("aria-expanded", String(isOpen));
-
-});
-
-
-/* FOOTER YEAR */
-
-document.getElementById("year").textContent =
-    new Date().getFullYear();
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
 
 </script>
 
