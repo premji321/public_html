@@ -2,518 +2,1233 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>BPSC Full Length Mock Test – Set 01</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BPSC Full Length Mock Test 01</title>
+
 <style>
-:root{--navy:#10264b;--blue:#2459c4;--blue2:#3478f6;--line:#dfe7f2;--ink:#202c40;--muted:#69788e;--green:#16834a;--red:#c0392b;--amber:#f0b429}
-*{box-sizing:border-box}
-body{margin:0;background:#f3f6fb;color:var(--ink);font-family:Segoe UI,Arial,sans-serif}
-header{background:linear-gradient(120deg,#0b1d3a,#1c4c91,#2563eb);color:white;padding:16px 22px}
-.header-row{max-width:1500px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:16px}
-header h1{font-size:clamp(18px,2.6vw,27px);margin:0}
-header p{margin:5px 0 0;color:#dbeafe;font-size:12px}
-.timer{position:sticky;top:8px;z-index:10;display:flex;align-items:center;gap:9px;padding:10px 14px;border:1px solid #ffffff55;border-radius:10px;background:#ffffff18;font-size:18px;font-weight:900;white-space:nowrap}
-.timer.warning{background:#b42318;color:#fff}
-.meta{max-width:1500px;margin:14px auto 0;padding:0 16px;display:flex;gap:9px;flex-wrap:wrap}
-.pill{background:#fff;border:1px solid var(--line);border-radius:99px;padding:7px 11px;color:#42536d;font-size:12px;font-weight:750}
-.layout{max-width:1500px;margin:16px auto 30px;padding:0 16px;display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:16px;align-items:start}
-.panel{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 7px 22px #10264b0b;overflow:hidden}
-.panel-head{padding:15px 18px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
-.panel-head h2{margin:0;color:var(--navy);font-size:18px}
-.subject-label{font-size:12px;font-weight:800;color:#2459c4;background:#edf4ff;padding:6px 9px;border-radius:7px}
-.question-area{padding:22px}
-.question-number{font-size:12px;color:var(--muted);font-weight:800;text-transform:uppercase;letter-spacing:.7px}
-.question-text{font-size:18px;line-height:1.7;font-weight:650;margin:12px 0 20px;white-space:pre-line}
-.options{display:grid;gap:11px}
-.option{display:flex;align-items:flex-start;gap:11px;padding:13px 14px;border:1px solid #dfe7f2;border-radius:10px;background:#fff;cursor:pointer;line-height:1.5}
-.option:hover{border-color:#9dbdf7;background:#f6f9ff}
-.option.selected{border-color:#3478f6;background:#eaf2ff;box-shadow:inset 3px 0 0 #2459c4}
-.option input{margin-top:4px;accent-color:#2459c4;flex:0 0 auto}
-.option-letter{font-weight:900;color:#2459c4;min-width:20px}
-.question-actions{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:24px;padding-top:17px;border-top:1px solid var(--line)}
-.btn{border:0;border-radius:9px;padding:11px 15px;font-weight:800;cursor:pointer;font-size:13px}
-.btn:disabled{opacity:.4;cursor:not-allowed}
-.btn-secondary{background:#edf2f8;color:#263a58}
-.btn-primary{background:#2459c4;color:#fff}
-.btn-submit{background:#16834a;color:white}
-.small-note{font-size:12px;color:var(--muted);line-height:1.6}
-.side-panel{padding:16px;position:sticky;top:75px}
-.side-panel h3{margin:0 0 7px;color:var(--navy);font-size:17px}
-.side-panel p{margin:0 0 14px;color:var(--muted);font-size:12px;line-height:1.5}
-.legend{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:14px;font-size:11px;color:#53647b}
-.legend span{display:flex;align-items:center;gap:5px}
-.dot{width:10px;height:10px;border-radius:3px;display:inline-block;border:1px solid #cbd5e1;background:#fff}
-.dot.done{background:#16834a;border-color:#16834a}.dot.current{background:#2459c4;border-color:#2459c4}.dot.unanswered{background:#fff}
-.navigator{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px}
-.qnav{height:37px;border:1px solid #d7e0ec;border-radius:7px;background:#fff;color:#526078;font-weight:800;cursor:pointer}
-.qnav.answered{background:#16834a;color:#fff;border-color:#16834a}
-.qnav.current{outline:3px solid #9fc2ff;background:#2459c4;color:#fff;border-color:#2459c4}
-.qnav:focus-visible,.btn:focus-visible,.option:focus-within{outline:3px solid #93c5fd;outline-offset:2px}
-.progress-wrap{margin:15px 0 8px;height:8px;background:#e9eef6;border-radius:99px;overflow:hidden}
-.progress{height:100%;width:0;background:#16834a;transition:width .2s}
-.progress-text{font-size:12px;color:var(--muted);display:flex;justify-content:space-between}
-.submit-area{display:none;margin-top:16px;padding-top:15px;border-top:1px solid var(--line)}
-.submit-area.show{display:block}
-.submit-area .btn{width:100%;margin-top:10px;padding:13px}
-.submit-warning{color:#8a4b08;background:#fff7e6;border:1px solid #f5d58a;border-radius:8px;padding:10px;font-size:12px;line-height:1.5}
-.result{display:none;max-width:1200px;margin:22px auto 40px;padding:0 16px}
-.result.show{display:block}
-.result-header{background:linear-gradient(120deg,#10264b,#2459c4);color:#fff;border-radius:14px;padding:22px}
-.result-header h2{margin:0 0 6px}.result-header p{margin:0;color:#dbeafe}
-.score-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:14px 0}
-.score-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px}
-.score-card span{display:block;font-size:12px;color:var(--muted);margin-bottom:7px}
-.score-card strong{font-size:25px;color:var(--navy)}
-.result-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
-.result-box{background:#fff;border:1px solid var(--line);border-radius:12px;padding:17px;margin-bottom:14px}
-.result-box h3{margin:0 0 15px;color:var(--navy)}
-.bar-row{display:grid;grid-template-columns:90px 1fr 38px;align-items:center;gap:9px;margin:13px 0;font-size:12px}
-.bar{height:14px;background:#eef2f7;border-radius:99px;overflow:hidden}
-.bar-fill{height:100%;border-radius:99px}
-.correct-fill{background:#16834a}.wrong-fill{background:#c0392b}.skip-fill{background:#9aa8bb}
-table{width:100%;border-collapse:collapse;font-size:13px}
-th,td{text-align:left;padding:11px 9px;border-bottom:1px solid #e7edf5}
-th{background:#f5f8fc;color:#42536d}
-.result-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}
-.result-actions a{text-decoration:none;display:inline-block}
-@media(max-width:900px){.layout{grid-template-columns:1fr}.side-panel{position:static}.navigator{grid-template-columns:repeat(10,minmax(0,1fr))}.score-cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:560px){header{padding:14px}.header-row{align-items:flex-start;flex-direction:column}.timer{position:static;font-size:16px}.layout{padding:0 10px}.meta{padding:0 10px}.question-area{padding:16px}.question-text{font-size:16px}.navigator{grid-template-columns:repeat(6,minmax(0,1fr))}.result-grid{grid-template-columns:1fr}.score-cards{grid-template-columns:repeat(2,minmax(0,1fr))}.bar-row{grid-template-columns:75px 1fr 30px}}
+:root {
+    --primary: #2459c4;
+    --primary-dark: #10264b;
+    --light-blue: #edf4ff;
+    --green: #15803d;
+    --red: #dc2626;
+    --border: #dbe3ef;
+    --text: #172033;
+    --muted: #64748b;
+    --white: #ffffff;
+    --background: #f4f7fc;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--text);
+}
+
+/* Only the mock test page */
+
+.test-page {
+    width: 100%;
+    min-height: 100vh;
+    padding: 18px;
+}
+
+/* Test heading */
+
+.test-header {
+    background: linear-gradient(
+        120deg,
+        var(--primary-dark),
+        var(--primary)
+    );
+    color: white;
+    padding: 22px;
+    border-radius: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 18px;
+}
+
+.test-header h1 {
+    font-size: 23px;
+    margin: 0 0 8px;
+}
+
+.test-header p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Timer */
+
+.timer-box {
+    flex-shrink: 0;
+    background: rgba(255,255,255,0.13);
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 10px;
+    padding: 13px 17px;
+    text-align: center;
+}
+
+.timer-label {
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+#timer {
+    font-size: 24px;
+    font-weight: bold;
+    font-variant-numeric: tabular-nums;
+}
+
+#timer.timer-warning {
+    color: #fecaca;
+}
+
+/* Intro and start */
+
+.start-panel {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.start-panel h2 {
+    margin-top: 0;
+    font-size: 24px;
+}
+
+.test-instructions {
+    color: var(--muted);
+    line-height: 1.8;
+    font-size: 14px;
+    max-width: 700px;
+    margin: 15px auto 22px;
+}
+
+.primary-button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 9px;
+    padding: 14px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.primary-button:hover {
+    background: var(--primary-dark);
+}
+
+.primary-button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+/* Test information */
+
+.test-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-bottom: 18px;
+}
+
+.info-chip {
+    background: white;
+    border: 1px solid var(--border);
+    padding: 9px 13px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+/* Main test layout */
+
+.test-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 300px;
+    gap: 18px;
+    align-items: start;
+}
+
+/* Question area */
+
+.question-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.question-heading {
+    padding: 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.question-heading h2 {
+    margin: 0;
+    font-size: 19px;
+}
+
+.subject-tag {
+    background: var(--light-blue);
+    color: var(--primary);
+    border-radius: 7px;
+    padding: 7px 10px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.question-body {
+    padding: 22px;
+}
+
+.question-text {
+    font-size: 17px;
+    line-height: 1.8;
+    margin: 0 0 20px;
+    white-space: pre-line;
+}
+
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.option-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: white;
+    cursor: pointer;
+    line-height: 1.6;
+    transition: background 0.15s, border-color 0.15s;
+}
+
+.option-label:hover {
+    background: var(--light-blue);
+    border-color: var(--primary);
+}
+
+.option-label.selected {
+    background: var(--light-blue);
+    border-color: var(--primary);
+}
+
+.option-label input {
+    margin-top: 5px;
+    flex-shrink: 0;
+    accent-color: var(--primary);
+}
+
+.question-footer {
+    padding: 17px 22px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 11px 17px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.footer-button:disabled {
+    background: #cbd5e1;
+    color: #64748b;
+    cursor: not-allowed;
+}
+
+.attempt-counter {
+    color: var(--muted);
+    font-size: 13px;
+    text-align: center;
+}
+
+/* Question navigator */
+
+.navigator-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px;
+    position: sticky;
+    top: 12px;
+}
+
+.navigator-card h3 {
+    margin: 0 0 14px;
+    font-size: 17px;
+}
+
+.navigator-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 15px;
+    font-size: 11px;
+    color: var(--muted);
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.legend-box {
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+}
+
+.legend-answered {
+    background: var(--green);
+}
+
+.legend-current {
+    background: var(--primary);
+}
+
+.legend-unanswered {
+    background: #e2e8f0;
+    border: 1px solid #cbd5e1;
+}
+
+.question-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 7px;
+}
+
+.nav-question {
+    width: 100%;
+    min-height: 37px;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    background: #f8fafc;
+    color: var(--text);
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.nav-question:hover {
+    border-color: var(--primary);
+}
+
+.nav-question.answered {
+    background: var(--green);
+    border-color: var(--green);
+    color: white;
+}
+
+.nav-question.current {
+    background: var(--primary);
+    color: white;
+    border: 2px solid var(--primary-dark);
+    outline: 2px solid #bfdbfe;
+}
+
+.nav-question.answered.current {
+    background: var(--primary);
+    border: 2px solid var(--primary-dark);
+}
+
+.completion-section {
+    margin-top: 18px;
+}
+
+.completion-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 8px;
+}
+
+.progress-track {
+    height: 9px;
+    border-radius: 20px;
+    background: #e2e8f0;
+    overflow: hidden;
+}
+
+#progressBar {
+    width: 0%;
+    height: 100%;
+    background: var(--green);
+    transition: width 0.2s;
+}
+
+/* Submit area */
+
+.submit-section {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 18px;
+    text-align: center;
+}
+
+.submit-section p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+/* Results */
+
+#resultArea {
+    margin-top: 22px;
+}
+
+.result-heading {
+    background: var(--primary-dark);
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 18px;
+}
+
+.result-heading h2 {
+    margin: 0 0 8px;
+}
+
+.result-heading p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.result-summary {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.result-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 17px;
+    text-align: center;
+}
+
+.result-card h3 {
+    margin: 0 0 12px;
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.result-card .result-value {
+    margin: 0;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.correct-value {
+    color: var(--green);
+}
+
+.wrong-value {
+    color: var(--red);
+}
+
+.result-panel {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 18px;
+}
+
+.result-panel h3 {
+    margin-top: 0;
+}
+
+#resultGraph {
+    display: block;
+    width: 100%;
+    max-width: 700px;
+    height: 300px;
+    margin: 10px auto;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.result-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.result-table th,
+.result-table td {
+    padding: 12px;
+    border: 1px solid var(--border);
+    text-align: center;
+}
+
+.result-table th {
+    background: var(--light-blue);
+}
+
+.solution-section {
+    text-align: center;
+    padding: 22px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+.solution-button {
+    background: var(--green);
+    color: white;
+    padding: 14px 22px;
+    border: none;
+    border-radius: 9px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.solution-button:hover {
+    background: #166534;
+}
+
+/* Utility */
+
+.hidden {
+    display: none !important;
+}
+
+/* Mobile */
+
+@media (max-width: 850px) {
+
+    .test-page {
+        padding: 10px;
+    }
+
+    .test-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .navigator-card {
+        position: static;
+        order: -1;
+    }
+
+    .question-grid {
+        grid-template-columns: repeat(10, minmax(0, 1fr));
+        gap: 5px;
+    }
+
+    .nav-question {
+        min-height: 33px;
+        font-size: 12px;
+    }
+
+    .result-summary {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 500px) {
+
+    .test-header {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 17px;
+    }
+
+    .test-header h1 {
+        font-size: 19px;
+    }
+
+    .timer-box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    .timer-label {
+        margin: 0;
+    }
+
+    #timer {
+        font-size: 22px;
+    }
+
+    .start-panel {
+        padding: 20px 14px;
+    }
+
+    .question-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .question-body {
+        padding: 17px;
+    }
+
+    .question-text {
+        font-size: 16px;
+    }
+
+    .question-footer {
+        padding: 14px;
+        flex-wrap: wrap;
+    }
+
+    .footer-button {
+        padding: 11px 12px;
+    }
+
+    .attempt-counter {
+        order: 3;
+        width: 100%;
+    }
+
+    .question-grid {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+
+    .result-card {
+        padding: 12px 8px;
+    }
+
+    .result-card .result-value {
+        font-size: 24px;
+    }
+}
 </style>
 </head>
+
 <body>
-<header>
-  <div class="header-row">
-    <div><h1>BPSC FULL LENGTH MOCK TEST – SET 01</h1><p>Bihar Public Service Commission | Preliminary Examination | Medium: English</p></div>
-    <div class="timer" id="timerBox">⏱ <span id="timer">02:00:00</span></div>
-  </div>
-</header>
-<div class="meta">
-  <span class="pill">150 Questions</span><span class="pill">Time: 2 Hours</span><span class="pill">Difficulty: Tough</span><span class="pill">One question at a time</span>
-</div>
 
-<main id="testLayout" class="layout">
-  <section class="panel" id="questionPanel">
-    <div class="panel-head"><h2 id="questionHeading">Question 1 of 150</h2><span class="subject-label" id="subjectLabel">Ancient History</span></div>
-    <div class="question-area">
-      <div class="question-number" id="questionNumber">QUESTION 01</div>
-      <div class="question-text" id="questionText"></div>
-      <div class="options" id="options"></div>
-      <div class="question-actions">
-        <button class="btn btn-secondary" id="prevBtn" onclick="moveQuestion(-1)">← Previous</button>
-        <span class="small-note" id="answeredCount">Attempted: 0 / 150</span>
-        <button class="btn btn-primary" id="nextBtn" onclick="moveQuestion(1)">Save &amp; Next →</button>
-      </div>
-    </div>
-  </section>
-  <aside class="panel side-panel">
-    <h3>Question Navigator</h3>
-    <p>किसी भी प्रश्न संख्या पर क्लिक करके सीधे उस प्रश्न पर जाएँ। उत्तर देने पर नंबर हरा हो जाएगा।</p>
-    <div class="legend">
-      <span><i class="dot done"></i> Attempted</span><span><i class="dot current"></i> Current</span><span><i class="dot unanswered"></i> Unanswered</span>
-    </div>
-    <div class="progress-wrap"><div class="progress" id="progress"></div></div>
-    <div class="progress-text"><span>Completion</span><strong id="progressText">0%</strong></div>
-    <div class="navigator" id="navigator"></div>
-    <div class="submit-area" id="submitArea">
-      <div class="submit-warning" id="submitWarning">All questions have been attempted. You can now submit the test.</div>
-      <button class="btn btn-submit" onclick="submitTest(false)">Submit Test &amp; View Result</button>
-    </div>
-  </aside>
+<main class="test-page">
+
+    <!-- TEST HEADER -->
+
+    <header class="test-header">
+
+        <div>
+            <h1>BPSC FULL LENGTH MOCK TEST — SET 01</h1>
+
+            <p>
+                Bihar Public Service Commission |
+                Preliminary Examination |
+                Medium: English
+            </p>
+        </div>
+
+        <div class="timer-box">
+
+            <div class="timer-label">
+                REMAINING TIME
+            </div>
+
+            <div id="timer">
+                02:00:00
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- START SCREEN -->
+
+    <section id="startPanel" class="start-panel">
+
+        <h2>Full Length Mock Test — 01</h2>
+
+        <p class="test-instructions">
+            Total Questions: 150<br>
+            Time Allowed: 2 Hours<br>
+            Select an answer for each question.<br>
+            Use the Question Navigator to move directly to any question.<br>
+            The test timer starts when you click Start Test.<br>
+            You must attempt all questions before submitting.
+        </p>
+
+        <button
+            type="button"
+            id="startButton"
+            class="primary-button"
+        >
+            ▶ Start Test
+        </button>
+
+    </section>
+
+
+    <!-- TEST CONTENT: HIDDEN UNTIL START -->
+
+    <section id="testContent" class="hidden">
+
+        <div class="test-info">
+
+            <span class="info-chip">
+                150 Questions
+            </span>
+
+            <span class="info-chip">
+                Time: 2 Hours
+            </span>
+
+            <span class="info-chip">
+                One Question at a Time
+            </span>
+
+            <span class="info-chip">
+                Full Length Mock Test 01
+            </span>
+
+        </div>
+
+
+        <!-- QUESTION + NAVIGATOR -->
+
+        <div class="test-layout">
+
+            <section class="question-card">
+
+                <div class="question-heading">
+
+                    <h2 id="questionHeading">
+                        Question 1 of 150
+                    </h2>
+
+                    <span
+                        id="subjectTag"
+                        class="subject-tag"
+                    >
+                        Ancient History
+                    </span>
+
+                </div>
+
+                <div class="question-body">
+
+                    <p
+                        id="questionText"
+                        class="question-text"
+                    ></p>
+
+                    <div
+                        id="optionsContainer"
+                        class="options-container"
+                    ></div>
+
+                </div>
+
+                <div class="question-footer">
+
+                    <button
+                        type="button"
+                        id="previousButton"
+                        class="footer-button"
+                    >
+                        ← Previous
+                    </button>
+
+                    <div
+                        id="attemptCounter"
+                        class="attempt-counter"
+                    >
+                        Attempted: 0 / 150
+                    </div>
+
+                    <button
+                        type="button"
+                        id="nextButton"
+                        class="footer-button"
+                    >
+                        Save & Next →
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- QUESTION NAVIGATOR -->
+
+            <aside class="navigator-card">
+
+                <h3>Question Navigator</h3>
+
+                <div class="navigator-legend">
+
+                    <span class="legend-item">
+                        <span class="legend-box legend-answered"></span>
+                        Attempted
+                    </span>
+
+                    <span class="legend-item">
+                        <span class="legend-box legend-current"></span>
+                        Current
+                    </span>
+
+                    <span class="legend-item">
+                        <span class="legend-box legend-unanswered"></span>
+                        Unanswered
+                    </span>
+
+                </div>
+
+                <div
+                    id="questionGrid"
+                    class="question-grid"
+                ></div>
+
+                <div class="completion-section">
+
+                    <div class="completion-label">
+
+                        <span>Completion</span>
+
+                        <span id="completionPercent">
+                            0%
+                        </span>
+
+                    </div>
+
+                    <div class="progress-track">
+
+                        <div id="progressBar"></div>
+
+                    </div>
+
+                </div>
+
+            </aside>
+
+        </div>
+
+
+        <!-- SUBMIT SECTION -->
+
+        <section class="submit-section">
+
+            <p id="submitMessage">
+                Attempt all 150 questions to enable submission.
+            </p>
+
+            <button
+                type="button"
+                id="submitButton"
+                class="primary-button"
+                disabled
+            >
+                Submit Test
+            </button>
+
+        </section>
+
+    </section>
+
+
+    <!-- RESULT AREA -->
+
+    <section
+        id="resultArea"
+        class="hidden"
+    ></section>
+
 </main>
-
-<section class="result" id="resultSection">
-  <div class="result-header">
-    <h2>Test Result — Set 01</h2>
-    <p>Your test has been submitted. Review your score and performance below.</p>
-  </div>
-  <div class="score-cards">
-    <div class="score-card"><span>Total Score</span><strong id="scoreValue">0 / 150</strong></div>
-    <div class="score-card"><span>Correct Answers</span><strong id="correctValue">0</strong></div>
-    <div class="score-card"><span>Wrong Answers</span><strong id="wrongValue">0</strong></div>
-    <div class="score-card"><span>Accuracy</span><strong id="accuracyValue">0%</strong></div>
-  </div>
-  <div class="result-grid">
-    <div class="result-box">
-      <h3>Performance Graph</h3>
-      <div class="bar-row"><span>Correct</span><div class="bar"><div class="bar-fill correct-fill" id="correctBar" style="width:0%"></div></div><strong id="correctGraphNum">0</strong></div>
-      <div class="bar-row"><span>Incorrect</span><div class="bar"><div class="bar-fill wrong-fill" id="wrongBar" style="width:0%"></div></div><strong id="wrongGraphNum">0</strong></div>
-      <div class="bar-row"><span>Unattempted</span><div class="bar"><div class="bar-fill skip-fill" id="skipBar" style="width:0%"></div></div><strong id="skipGraphNum">0</strong></div>
-      <p class="small-note">Graph shows the share of correct, incorrect and unattempted questions out of 150.</p>
-    </div>
-    <div class="result-box">
-      <h3>Result Summary</h3>
-      <table><tbody>
-        <tr><th>Total Questions</th><td>150</td></tr>
-        <tr><th>Attempted</th><td id="attemptedResult">0</td></tr>
-        <tr><th>Unattempted</th><td id="skippedResult">0</td></tr>
-        <tr><th>Correct</th><td id="correctTable">0</td></tr>
-        <tr><th>Wrong</th><td id="wrongTable">0</td></tr>
-        <tr><th>Accuracy among attempted</th><td id="accuracyTable">0%</td></tr>
-        <tr><th>Time used</th><td id="timeUsed">00:00:00</td></tr>
-      </tbody></table>
-    </div>
-  </div>
-  <div class="result-box">
-    <h3>Subject-wise Performance</h3>
-    <table><thead><tr><th>Subject</th><th>Total</th><th>Correct</th><th>Wrong</th><th>Unattempted</th></tr></thead><tbody id="subjectResultRows"></tbody></table>
-  </div>
-  <div class="result-actions">
-    <a class="btn btn-primary" href="full-length-mock-test-1-solution.html">📘 View Detailed Solutions</a>
-    <button class="btn btn-secondary" onclick="window.print()">Print Result</button>
-  </div>
-  <p class="small-note">Scoring shown here is +1 for each correct answer and 0 for wrong/unattempted answers. Change the scoring rule if your chosen BPSC test pattern requires negative marking.</p>
-</section>
-
 <script>
-const questions = [ {
+const questions = [
+
+{
 n:1,subject:"Ancient History",
-q:"Consider the following statements regarding the Mauryan Empire:\n1. Megasthenes visited the court of Chandragupta Maurya.\n2. Ashoka appointed Dhamma Mahamatras to promote Dhamma.\n3. The Mauryan Empire had no system of provincial administration.\nWhich of the statements given above is/are correct?",
-options:["1 only","1 and 2 only","2 and 3 only","1, 2 and 3"],
-answer:"B",
-explanation:"Megasthenes visited Chandragupta Maurya's court, and Ashoka appointed Dhamma Mahamatras. The Mauryan Empire had a provincial administrative system."
+q:"Which Harappan site is particularly famous for its dockyard?",
+options:["Harappa","Mohenjo-daro","Lothal","Kalibangan"],
+answer:"C",
+explanation:"Lothal, located in present-day Gujarat, is famous for its ancient dockyard and maritime trade connections."
 },
 {
 n:2,subject:"Ancient History",
-q:"Which of the following statements about the Gupta period is correct?",
-options:["The Allahabad Pillar inscription was composed by Banabhatta.","Samudragupta's achievements are described in an inscription composed by Harisena.","Chandragupta II was the founder of the Mauryan Empire.","The Gupta rulers completely abolished the use of gold coins."],
+q:"Who founded the Mauryan Empire?",
+options:["Ashoka","Chandragupta Maurya","Bindusara","Bimbisara"],
 answer:"B",
-explanation:"The Allahabad Pillar inscription, also known as the Prayaga Prashasti, describes Samudragupta's achievements and was composed by Harisena."
+explanation:"Chandragupta Maurya founded the Mauryan Empire around 322 BCE with the guidance of Chanakya."
 },
 {
 n:3,subject:"Ancient History",
-q:"Consider the following pairs:\n1. First Buddhist Council — Rajagriha\n2. Second Buddhist Council — Vaishali\n3. Third Buddhist Council — Pataliputra\n4. Fourth Buddhist Council — Kashmir, under Kanishka, according to the traditional northern account\nWhich of the pairs given above are correctly matched?",
-options:["1 and 2 only","1, 2 and 3 only","2, 3 and 4 only","1, 2, 3 and 4"],
-answer:"D",
-explanation:"All four pairs are traditionally matched with these locations. The Fourth Council's location and details vary between Buddhist traditions."
+q:"Which ruler is associated with the Kalinga War?",
+options:["Chandragupta Maurya","Samudragupta","Ashoka","Harsha"],
+answer:"C",
+explanation:"Ashoka fought the Kalinga War around 261 BCE. The suffering caused by the war influenced his subsequent policy of Dhamma."
 },
 {
 n:4,subject:"Ancient History",
-q:"Which of the following best explains the significance of the Harappan drainage system?",
-options:["It was used exclusively for irrigation.","It demonstrates the existence of planned urban infrastructure.","It was constructed entirely from iron pipes.","It indicates that Harappan settlements were primarily nomadic."],
+q:"The Prayaga Prashasti is associated with which Gupta ruler?",
+options:["Chandragupta I","Samudragupta","Kumaragupta I","Skandagupta"],
 answer:"B",
-explanation:"Covered drains, street planning and drainage arrangements demonstrate advanced urban planning in Harappan cities."
+explanation:"The Prayaga Prashasti, composed by Harisena, describes the achievements of Samudragupta."
 },
 {
 n:5,subject:"Ancient History",
-q:"Consider the following statements regarding Jainism:\n1. Mahavira was the 24th Tirthankara.\n2. Parshvanatha was the 23rd Tirthankara.\n3. Jainism accepts the authority of the Vedas as supreme.\nWhich of the statements given above is/are correct?",
-options:["1 only","1 and 2 only","2 and 3 only","1, 2 and 3"],
-answer:"B",
-explanation:"Mahavira was the 24th Tirthankara and Parshvanatha was the 23rd. Jainism does not accept the Vedas as supreme authority."
+q:"Which of the following was a famous ancient centre of learning in Bihar?",
+options:["Nalanda","Madurai","Kanchipuram","Thanjavur"],
+answer:"A",
+explanation:"Nalanda was a major ancient centre of Buddhist learning in present-day Bihar."
 },
 {
 n:6,subject:"Ancient History",
-q:"Which of the following was NOT a characteristic feature of the mature Harappan civilisation?",
-options:["Standardised weights and measures","Extensive use of baked bricks","Widespread use of iron tools","Long-distance trade"],
+q:"The Fourth Buddhist Council under the patronage of Kanishka is traditionally associated with:",
+options:["Pataliputra","Vaishali","Kashmir","Sarnath"],
 answer:"C",
-explanation:"The mature Harappan civilisation belonged to the Bronze Age. Widespread iron-tool use was not a characteristic feature."
+explanation:"The Fourth Buddhist Council is traditionally associated with Kashmir during the reign of Kanishka, although accounts differ across Buddhist traditions."
 },
 {
 n:7,subject:"Ancient History",
-q:"Consider the following pairs:\n1. Sarnath — First sermon of Buddha\n2. Bodh Gaya — Enlightenment of Buddha\n3. Kushinagar — Mahaparinirvana of Buddha\n4. Lumbini — Birthplace of Buddha\nHow many pairs are correctly matched?",
-options:["Only one","Only two","Only three","All four"],
-answer:"D",
-explanation:"All four locations are traditionally associated with these important events in the life of Gautama Buddha."
+q:"Which Mahajanapada had its capital at Rajagriha before the rise of Pataliputra?",
+options:["Kosala","Magadha","Avanti","Vatsa"],
+answer:"B",
+explanation:"Rajagriha, also known as Rajgir, was an early capital of Magadha before Pataliputra became the principal capital."
 },
 {
 n:8,subject:"Ancient History",
-q:"Which of the following statements about the Sangam age is correct?",
-options:["Sangam literature was composed exclusively in Sanskrit.","The Cheras, Cholas and Pandyas were important political powers in southern India.","Sangam literature contains no references to trade.","The Sangam age began after the establishment of the Delhi Sultanate."],
-answer:"B",
-explanation:"The Cheras, Cholas and Pandyas were prominent political powers in ancient southern India. Sangam literature was primarily composed in Tamil."
+q:"Which ancient Indian text is traditionally attributed to Kautilya?",
+options:["Arthashastra","Ashtadhyayi","Indica","Mudrarakshasa"],
+answer:"A",
+explanation:"The Arthashastra is traditionally attributed to Kautilya, also known as Chanakya, and discusses statecraft, administration and economics."
 },
 {
 n:9,subject:"Medieval History",
-q:"The market-control measures of Alauddin Khalji were primarily intended to:",
-options:["Encourage unrestricted foreign trade","Maintain a large army at a controlled cost","Abolish all agricultural taxes","Transfer the capital permanently to Daulatabad"],
+q:"Who founded the Slave Dynasty in India?",
+options:["Iltutmish","Qutb-ud-din Aibak","Balban","Alauddin Khalji"],
 answer:"B",
-explanation:"Alauddin Khalji controlled market prices to maintain a large army while keeping soldiers' salaries and state expenditure manageable."
+explanation:"Qutb-ud-din Aibak established the Mamluk or Slave Dynasty in Delhi in 1206."
 },
 {
 n:10,subject:"Medieval History",
-q:"Which of the following pairs is correctly matched?",
-options:["Muhammad bin Tughlaq — Introduction of the Mansabdari system","Firoz Shah Tughlaq — Construction of canals and public works","Balban — Foundation of the Mughal Empire","Ibrahim Lodi — Introduction of Din-i-Ilahi"],
+q:"Who introduced market-control measures during the Delhi Sultanate?",
+options:["Balban","Alauddin Khalji","Ibrahim Lodi","Firoz Shah Tughlaq"],
 answer:"B",
-explanation:"Firoz Shah Tughlaq is associated with canals, irrigation works and other public works."
+explanation:"Alauddin Khalji introduced extensive market regulations and price-control measures to maintain supplies and support his military system."
 },
 {
 n:11,subject:"Medieval History",
-q:"Consider the following statements regarding the Mughal Mansabdari system:\n1. Mansab indicated an official's rank.\n2. Zat was associated with personal status.\n3. Sawar was associated with cavalry obligations.\n4. All mansabdars received hereditary ownership of their assigned territories.\nWhich of the statements given above are correct?",
-options:["1 and 2 only","1, 2 and 3 only","2, 3 and 4 only","1, 2, 3 and 4"],
-answer:"B",
-explanation:"Mansab indicated rank, zat represented personal status and sawar related to cavalry obligations. Assignments were not automatically hereditary ownership."
+q:"Who shifted the capital from Delhi to Daulatabad and later reversed the decision?",
+options:["Muhammad bin Tughlaq","Sher Shah Suri","Babur","Sikandar Lodi"],
+answer:"A",
+explanation:"Muhammad bin Tughlaq ordered the transfer of the capital to Daulatabad and later permitted the return to Delhi."
 },
 {
 n:12,subject:"Medieval History",
-q:"The Battle of Talikota (1565) is significant because it:",
-options:["Established the Mughal Empire in northern India","Led to the defeat of Vijayanagara forces by a coalition of Deccan Sultanates","Ended the rule of the Delhi Sultanate","Marked the beginning of British political control in India"],
-answer:"B",
-explanation:"In 1565, Vijayanagara forces were defeated by a coalition of Deccan Sultanates at the Battle of Talikota."
+q:"The Vijayanagara Empire was founded in 1336 by:",
+options:["Harihara and Bukka","Krishnadevaraya and Devaraya","Rajendra and Rajaraja","Akbar and Birbal"],
+answer:"A",
+explanation:"Harihara and Bukka are credited with founding the Vijayanagara Empire in 1336."
 },
 {
 n:13,subject:"Medieval History",
-q:"Which of the following statements regarding the Bhakti movement is correct?",
-options:["It was confined exclusively to royal courts.","It rejected all forms of devotional worship.","It included diverse traditions emphasising personal devotion and, in many cases, criticism of social hierarchy.","It originated after the Battle of Plassey."],
+q:"Who was the founder of the Mughal Empire in India?",
+options:["Humayun","Akbar","Babur","Jahangir"],
 answer:"C",
-explanation:"Bhakti traditions emphasised devotion to a personal deity. Many Bhakti saints also criticised social inequalities and rigid religious practices."
+explanation:"Babur founded the Mughal Empire in India after defeating Ibrahim Lodi at the First Battle of Panipat in 1526."
 },
 {
 n:14,subject:"Modern History",
-q:"Consider the following events:\n1. Battle of Buxar\n2. Battle of Plassey\n3. Grant of Diwani rights to the East India Company\n4. Permanent Settlement\nWhat is the correct chronological order?",
-options:["2–1–3–4","1–2–4–3","2–3–1–4","3–2–1–4"],
+q:"The Battle of Plassey was fought in:",
+options:["1757","1764","1857","1773"],
 answer:"A",
-explanation:"The Battle of Plassey occurred in 1757, Buxar in 1764, the Diwani grant in 1765 and the Permanent Settlement in 1793."
+explanation:"The Battle of Plassey took place in 1757 and marked a major turning point in the expansion of British political power in Bengal."
 },
 {
 n:15,subject:"Modern History",
-q:"Which of the following was a major consequence of the Battle of Buxar (1764)?",
-options:["The French obtained control over Bengal.","The East India Company strengthened its political position and secured the Diwani rights of Bengal, Bihar and Orissa in 1765.","The Mughal Empire regained complete control over Bengal.","The British immediately abolished all land revenue collection."],
+q:"The Permanent Settlement of Bengal was introduced in 1793 by:",
+options:["Lord Wellesley","Lord Cornwallis","Lord Dalhousie","Lord Curzon"],
 answer:"B",
-explanation:"The Company's victory at Buxar strengthened its political position. In 1765, it received Diwani rights over Bengal, Bihar and Orissa."
+explanation:"Lord Cornwallis introduced the Permanent Settlement in Bengal in 1793."
 },
 {
 n:16,subject:"Modern History",
-q:"Consider the following statements regarding the Permanent Settlement of 1793:\n1. It was introduced under Lord Cornwallis.\n2. Zamindars were recognised as proprietors subject to revenue obligations.\n3. The land revenue demand was permanently fixed under the settlement.\n4. It was initially introduced throughout all British territories in India.\nWhich of the statements given above are correct?",
-options:["1 and 2 only","1, 2 and 3 only","2, 3 and 4 only","1, 2, 3 and 4"],
-answer:"B",
-explanation:"The Permanent Settlement was introduced under Cornwallis in 1793 and fixed the revenue demand permanently in the territories where it applied. It was not introduced throughout all British India."
+q:"The Revolt of 1857 began at:",
+options:["Kanpur","Lucknow","Meerut","Jhansi"],
+answer:"C",
+explanation:"The major uprising began at Meerut on 10 May 1857 and spread to other parts of northern and central India."
 },
 {
 n:17,subject:"Modern History",
-q:"Which of the following was the immediate trigger for the Revolt of 1857?",
-options:["Introduction of the Permanent Settlement","Annexation of Punjab","Introduction of Enfield rifle cartridges associated with cow and pig fat","Partition of Bengal"],
+q:"Who was the last Mughal emperor?",
+options:["Bahadur Shah I","Shah Alam II","Bahadur Shah II","Akbar II"],
 answer:"C",
-explanation:"The cartridges associated with cow and pig fat offended religious sentiments among many Indian soldiers and became the immediate trigger."
+explanation:"Bahadur Shah II, also known as Bahadur Shah Zafar, was the last Mughal emperor."
 },
 {
 n:18,subject:"Modern History",
-q:"Which of the following leaders was associated with the Revolt of 1857 in Bihar?",
-options:["Kunwar Singh","Birsa Munda","Sidhu Murmu","Alluri Sitarama Raju"],
+q:"Who founded the Indian National Congress in 1885 with the support of other early nationalists?",
+options:["A. O. Hume","Lord Curzon","Lord Mountbatten","Robert Clive"],
 answer:"A",
-explanation:"Kunwar Singh, the zamindar of Jagdishpur, was a prominent leader of the Revolt of 1857 in Bihar."
+explanation:"A. O. Hume played a key role in establishing the Indian National Congress in 1885."
 },
 {
 n:19,subject:"Modern History",
-q:"Consider the following pairs:\n1. Brahmo Samaj — Raja Ram Mohan Roy\n2. Arya Samaj — Swami Dayanand Saraswati\n3. Ramakrishna Mission — Swami Vivekananda\n4. Satyashodhak Samaj — Jyotirao Phule\nWhich of the pairs are correctly matched?",
-options:["1 and 2 only","1, 2 and 3 only","2, 3 and 4 only","1, 2, 3 and 4"],
-answer:"D",
-explanation:"All four reform organisations are correctly matched with their respective founders."
+q:"The Partition of Bengal in 1905 was announced during the viceroyalty of:",
+options:["Lord Ripon","Lord Curzon","Lord Irwin","Lord Canning"],
+answer:"B",
+explanation:"Lord Curzon announced the Partition of Bengal in 1905. The decision triggered widespread protests and the Swadeshi movement."
 },
 {
 n:20,subject:"Modern History",
-q:"The Indian National Congress was founded in 1885. Who presided over its first session?",
-options:["Dadabhai Naoroji","Womesh Chunder Bonnerjee","Surendranath Banerjea","A.O. Hume"],
-answer:"B",
-explanation:"Womesh Chunder Bonnerjee presided over the first session of the Indian National Congress held in Bombay in 1885."
+q:"The Champaran Satyagraha of 1917 was primarily associated with:",
+options:["Indigo cultivators","Textile mill workers","Railway workers","Salt producers"],
+answer:"A",
+explanation:"Gandhi's Champaran Satyagraha supported indigo cultivators in Bihar who faced oppressive plantation arrangements."
 },
 {
 n:21,subject:"Modern History",
-q:"The Drain of Wealth theory was most prominently associated with:",
-options:["Gopal Krishna Gokhale","Dadabhai Naoroji","Bal Gangadhar Tilak","Lala Lajpat Rai"],
-answer:"B",
-explanation:"Dadabhai Naoroji explained how colonial economic policies transferred India's wealth to Britain."
+q:"The Non-Cooperation Movement was launched by Gandhi in:",
+options:["1917","1919","1920","1930"],
+answer:"C",
+explanation:"The Non-Cooperation Movement was launched in 1920 and was withdrawn in 1922 after the Chauri Chaura incident."
 },
 {
 n:22,subject:"Modern History",
-q:"The Partition of Bengal in 1905 led directly to the growth of which movement?",
-options:["Quit India Movement","Non-Cooperation Movement","Swadeshi and Boycott Movement","Individual Satyagraha"],
-answer:"C",
-explanation:"The 1905 Partition of Bengal triggered the Swadeshi and Boycott Movement against British goods and colonial policies."
+q:"The Dandi March of 1930 was associated with the:",
+options:["Quit India Movement","Civil Disobedience Movement","Khilafat Movement alone","Home Rule Movement"],
+answer:"B",
+explanation:"The Dandi March was a key event in the Civil Disobedience Movement and challenged the British salt laws."
 },
 {
 n:23,subject:"Modern History",
-q:"Consider the following statements about the Morley–Minto Reforms of 1909:\n1. They introduced separate electorates for Muslims.\n2. They expanded legislative councils.\n3. They established complete responsible government at the provincial level.\nWhich of the statements given above are correct?",
-options:["1 only","1 and 2 only","2 and 3 only","1, 2 and 3"],
-answer:"B",
-explanation:"The Indian Councils Act of 1909 expanded legislative councils and introduced separate electorates for Muslims. It did not establish complete provincial responsible government."
+q:"The Quit India Movement was launched in:",
+options:["1930","1935","1942","1946"],
+answer:"C",
+explanation:"The Quit India Movement was launched by the Indian National Congress in August 1942."
 },
 {
 n:24,subject:"Modern History",
-q:"The Lucknow Pact of 1916 was an agreement between:",
-options:["The Congress and the Muslim League","The Congress and the British Labour Party","The Muslim League and the Justice Party","The Congress and the Hindu Mahasabha"],
-answer:"A",
-explanation:"The Lucknow Pact of 1916 was an agreement between the Indian National Congress and the All-India Muslim League."
+q:"Who gave the slogan 'Give me blood, and I shall give you freedom'?",
+options:["Jawaharlal Nehru","Subhas Chandra Bose","Bal Gangadhar Tilak","Gopal Krishna Gokhale"],
+answer:"B",
+explanation:"Subhas Chandra Bose used the slogan to inspire the struggle for India's independence."
 },
 {
 n:25,subject:"Modern History",
-q:"Which of the following was a major outcome of the Champaran Satyagraha of 1917?",
-options:["Abolition of the zamindari system throughout India","Relief for indigo cultivators subjected to oppressive plantation practices","Immediate independence for Bihar","Introduction of universal adult franchise"],
-answer:"B",
-explanation:"The Champaran Satyagraha challenged oppressive indigo cultivation arrangements and helped secure relief for affected cultivators."
+q:"The Simon Commission arrived in India in:",
+options:["1919","1922","1928","1935"],
+answer:"C",
+explanation:"The Simon Commission arrived in India in 1928. Its lack of Indian members led to widespread protests."
 },
 {
 n:26,subject:"Modern History",
-q:"The Rowlatt Act of 1919 was criticised because it:",
-options:["Abolished the Indian Civil Service","Introduced universal adult suffrage","Allowed detention and restrictions on civil liberties without the ordinary safeguards of a regular criminal trial","Granted complete independence to India"],
-answer:"C",
-explanation:"The Rowlatt Act extended extraordinary powers of detention and repression, leading to widespread opposition."
+q:"The Poona Pact of 1932 was signed between Mahatma Gandhi and:",
+options:["Muhammad Ali Jinnah","B. R. Ambedkar","Subhas Chandra Bose","Lord Curzon"],
+answer:"B",
+explanation:"The Poona Pact was an agreement between Gandhi and B. R. Ambedkar concerning representation for the Depressed Classes."
 },
 {
 n:27,subject:"Modern History",
-q:"Which of the following events led Gandhi to withdraw the Non-Cooperation Movement in 1922?",
-options:["Kakori conspiracy","Chauri Chaura incident","Dandi March","Jallianwala Bagh massacre"],
-answer:"B",
-explanation:"Gandhi withdrew the Non-Cooperation Movement after the violent Chauri Chaura incident in February 1922."
+q:"Who was the first Governor-General of independent India?",
+options:["Lord Mountbatten","C. Rajagopalachari","Jawaharlal Nehru","Dr. Rajendra Prasad"],
+answer:"A",
+explanation:"Lord Mountbatten served as the first Governor-General of independent India. C. Rajagopalachari later became the first Indian Governor-General."
 },
 {
 n:28,subject:"Modern History",
-q:"The Simon Commission was opposed in India primarily because:",
-options:["It recommended immediate partition.","It proposed the abolition of provincial legislatures.","It contained no Indian member.","It demanded the restoration of the Mughal Empire."],
-answer:"C",
-explanation:"The Simon Commission, appointed in 1927, had no Indian members, provoking widespread protests."
+q:"The Government of India Act, 1935 provided for:",
+options:["Provincial autonomy","Immediate complete independence","A republic with an elected president","Abolition of all provincial legislatures"],
+answer:"A",
+explanation:"The Government of India Act, 1935 introduced provincial autonomy and proposed an all-India federation that did not fully come into operation."
 },
 {
 n:29,subject:"Modern History",
-q:"Consider the following statements regarding the Civil Disobedience Movement:\n1. It began with the Salt March in 1930.\n2. It involved the deliberate violation of selected colonial laws.\n3. It ended permanently with the signing of the Gandhi–Irwin Pact.\nWhich of the statements given above are correct?",
-options:["1 only","1 and 2 only","2 and 3 only","1, 2 and 3"],
+q:"Who founded the Arya Samaj in 1875?",
+options:["Raja Ram Mohan Roy","Swami Dayanand Saraswati","Swami Vivekananda","Ishwar Chandra Vidyasagar"],
 answer:"B",
-explanation:"The movement began with the Salt March and involved deliberate law-breaking. The Gandhi–Irwin Pact temporarily suspended the movement; it did not end it permanently."
+explanation:"Swami Dayanand Saraswati founded the Arya Samaj in 1875."
 },
 {
 n:30,subject:"Modern History",
-q:"The Poona Pact of 1932 was concluded between:",
-options:["Mahatma Gandhi and Muhammad Ali Jinnah","Jawaharlal Nehru and Lord Irwin","B.R. Ambedkar and Mahatma Gandhi","Subhas Chandra Bose and Lord Mountbatten"],
-answer:"C",
-explanation:"The Poona Pact was concluded in 1932 between B.R. Ambedkar and representatives of the Depressed Classes on one side and Mahatma Gandhi on the other."
+q:"The Brahmo Samaj was founded by:",
+options:["Raja Ram Mohan Roy","Jyotirao Phule","Swami Dayanand Saraswati","Keshab Chandra Sen alone"],
+answer:"A",
+explanation:"Raja Ram Mohan Roy founded the Brahmo Sabha in 1828, which later became known as the Brahmo Samaj."
 },
 {
 n:31,subject:"Modern History",
-q:"Which of the following provisions was introduced by the Government of India Act, 1935?",
-options:["Complete independence for India","Provincial autonomy","Universal adult franchise throughout British India","Abolition of all communal representation"],
+q:"Who founded the Ramakrishna Mission in 1897?",
+options:["Ramakrishna Paramahamsa","Swami Vivekananda","Bankim Chandra Chattopadhyay","Debendranath Tagore"],
 answer:"B",
-explanation:"The Government of India Act, 1935 introduced provincial autonomy, although important powers remained with the British authorities."
+explanation:"Swami Vivekananda founded the Ramakrishna Mission in 1897."
 },
 {
 n:32,subject:"Modern History",
-q:"The August Offer of 1940 was made by the British government during the viceroyalty of:",
-options:["Lord Wavell","Lord Mountbatten","Lord Irwin","Lord Linlithgow"],
-answer:"D",
-explanation:"The August Offer was announced in 1940 during the viceroyalty of Lord Linlithgow."
+q:"The Vernacular Press Act was passed in 1878 during the tenure of:",
+options:["Lord Lytton","Lord Ripon","Lord Curzon","Lord Canning"],
+answer:"A",
+explanation:"Lord Lytton's government passed the Vernacular Press Act in 1878 to restrict publications in Indian languages."
 },
 {
 n:33,subject:"Modern History",
-q:"The Cripps Mission of 1942 proposed, among other things:",
-options:["Immediate transfer of all powers to an elected Indian government","Dominion status after the Second World War, subject to the proposed constitutional arrangements","The permanent abolition of provincial governments","Immediate implementation of the Cabinet Mission Plan"],
+q:"Who was the first woman president of the Indian National Congress?",
+options:["Sarojini Naidu","Annie Besant","Vijaya Lakshmi Pandit","Aruna Asaf Ali"],
 answer:"B",
-explanation:"The Cripps proposals offered dominion status after the war and provided for a constitution-making process."
+explanation:"Annie Besant became the first woman president of the Indian National Congress in 1917. Sarojini Naidu later became the first Indian woman president in 1925."
 },
 {
 n:34,subject:"Modern History",
-q:"The Quit India Movement was launched in:",
-options:["1919","1922","1942","1946"],
-answer:"C",
-explanation:"The Quit India resolution was adopted in August 1942, launching a major mass movement against British rule."
+q:"The Lucknow Pact of 1916 was an agreement between:",
+options:["Congress and the Muslim League","Congress and the British Cabinet","The Marathas and the Mughals","The British and the French"],
+answer:"A",
+explanation:"The Lucknow Pact of 1916 brought the Indian National Congress and the All-India Muslim League to an agreement on constitutional reforms."
 },
 {
 n:35,subject:"Modern History",
-q:"Consider the following statements about the Indian Independence Act, 1947:\n1. It provided for the creation of India and Pakistan as independent dominions.\n2. It ended British paramountcy over princely states.\n3. It established a fully sovereign republic in India on 15 August 1947.\nWhich of the statements given above are correct?",
-options:["1 only","1 and 2 only","2 and 3 only","1, 2 and 3"],
-answer:"B",
-explanation:"The Act created the two dominions and ended British paramountcy. India became a republic on 26 January 1950, not in August 1947."
+q:"The Cabinet Mission came to India in:",
+options:["1942","1945","1946","1947"],
+answer:"C",
+explanation:"The Cabinet Mission arrived in India in 1946 to discuss the transfer of power and constitutional arrangements."
 },
 {
 n:36,subject:"Geography",
-q:"Which of the following rivers flows through a rift valley?",
-options:["Godavari","Narmada","Mahanadi","Kosi"],
+q:"Which is the highest mountain peak in India when considering the Indian-administered territory?",
+options:["Nanda Devi","Kanchenjunga","Anamudi","Guru Shikhar"],
 answer:"B",
-explanation:"The Narmada flows westward through a rift valley between the Vindhya and Satpura ranges."
+explanation:"Kanchenjunga, on the India–Nepal border, is India's highest mountain peak."
 },
 {
 n:37,subject:"Geography",
-q:"Consider the following statements about the Indian monsoon:\n1. Differential heating of land and sea contributes to monsoon circulation.\n2. The seasonal shift of the Intertropical Convergence Zone influences the monsoon.\n3. The Tibetan Plateau has no influence on the South Asian monsoon.\nWhich of the statements given above are correct?",
-options:["1 only","1 and 2 only","2 and 3 only","1, 2 and 3"],
+q:"Which river is known as the 'Sorrow of Bihar'?",
+options:["Gandak","Kosi","Son","Punpun"],
 answer:"B",
-explanation:"Differential heating and the seasonal movement of the ITCZ influence the monsoon. The Tibetan Plateau also affects regional atmospheric circulation."
+explanation:"The Kosi River is known as the 'Sorrow of Bihar' because of its history of devastating floods and changes in course."
 },
 {
 n:38,subject:"Geography",
-q:"Black soil is particularly suitable for cotton cultivation primarily because it:",
-options:["Has very low clay content and drains immediately","Is always highly acidic","Has a high clay content and considerable moisture-retention capacity","Contains no mineral nutrients"],
+q:"The Tropic of Cancer passes through how many Indian states?",
+options:["6","7","8","9"],
 answer:"C",
-explanation:"Black soil has a high clay content and retains moisture, making it suitable for cotton cultivation."
+explanation:"The Tropic of Cancer passes through eight Indian states."
 },
 {
 n:39,subject:"Geography",
-q:"Which of the following is the correct sequence of Himalayan ranges from south to north?",
-options:["Himadri – Himachal – Shiwalik","Shiwalik – Himachal – Himadri","Himachal – Shiwalik – Himadri","Shiwalik – Himadri – Himachal"],
+q:"Which soil is particularly suitable for cotton cultivation?",
+options:["Alluvial soil","Black soil","Laterite soil","Mountain soil"],
 answer:"B",
-explanation:"From south to north, the Himalayan ranges are the Shiwalik, Himachal or Lesser Himalaya, and Himadri or Greater Himalaya."
+explanation:"Black soil, also called regur soil, is especially suitable for cotton cultivation because of its clay content and moisture-retention capacity."
 },
 {
 n:40,subject:"Geography",
-q:"The Coriolis force is zero at the:",
-options:["North Pole","South Pole","Equator","Tropic of Cancer"],
-answer:"C",
-explanation:"The Coriolis effect is zero at the Equator and increases in magnitude toward the poles."
+q:"Which is the longest river flowing entirely within India?",
+options:["Ganga","Godavari","Narmada","Krishna"],
+answer:"B",
+explanation:"The Godavari is generally recognised as the longest river flowing entirely within India."
 },
 {
 n:41,subject:"Geography",
-q:"Which of the following pairs is correctly matched?",
-options:["Laterite soil — High leaching under intense rainfall","Arid soil — High organic matter in all cases","Alluvial soil — Formed exclusively from volcanic lava","Black soil — Primarily derived from glacial deposits"],
-answer:"A",
-explanation:"Laterite soils develop under conditions of high temperature and heavy rainfall, which cause intense leaching."
+q:"Which state has the largest area covered by the Thar Desert?",
+options:["Gujarat","Punjab","Rajasthan","Haryana"],
+answer:"C",
+explanation:"The Thar Desert is mainly located in Rajasthan, with extensions into neighbouring states and Pakistan."
 },
 {
 n:42,subject:"Geography",
-q:"Which of the following rivers does NOT originate in the Himalayan region?",
-options:["Ganga","Yamuna","Brahmaputra","Godavari"],
-answer:"D",
-explanation:"The Godavari originates near Trimbakeshwar in the Western Ghats of Maharashtra."
+q:"Which of the following is a major west-flowing river of peninsular India?",
+options:["Godavari","Krishna","Narmada","Mahanadi"],
+answer:"C",
+explanation:"The Narmada flows westward into the Arabian Sea."
 },
 {
 n:43,subject:"Geography",
-q:"The phenomenon of El Niño is associated with:",
-options:["Abnormal cooling of the North Atlantic Ocean","Periodic warming of the central and eastern equatorial Pacific Ocean","Permanent cooling of the Indian Ocean","Increased salinity throughout the Arctic Ocean"],
+q:"Which Indian state has the longest coastline?",
+options:["Tamil Nadu","Gujarat","Andhra Pradesh","Maharashtra"],
 answer:"B",
-explanation:"El Niño is the periodic warming of the central and eastern equatorial Pacific Ocean, influencing global weather patterns."
+explanation:"Gujarat has the longest coastline among Indian states."
 },
 {
 n:44,subject:"Geography",
-q:"Which of the following Indian states has the longest coastline according to the commonly used pre-2025 official state-wise measurements?",
-options:["Gujarat","Maharashtra","Tamil Nadu","Andhra Pradesh"],
-answer:"A",
-explanation:"Gujarat was traditionally listed as the Indian state with the longest coastline in commonly used pre-2025 official measurements."
+q:"The Western Ghats and Eastern Ghats meet in the region of the:",
+options:["Aravalli Hills","Nilgiri Hills","Vindhya Range","Satpura Range"],
+answer:"B",
+explanation:"The Western and Eastern Ghats meet in the Nilgiri Hills of southern India."
 },
 {
 n:45,subject:"Geography",
-q:"Which of the following is a characteristic of tropical evergreen forests?",
-options:["Trees shed all their leaves simultaneously during a long dry season.","Vegetation is restricted to thorny shrubs.","Dense vegetation grows in areas with high rainfall and little seasonal leaf shedding.","The forests occur only above the permanent snowline."],
-answer:"C",
-explanation:"Tropical evergreen forests occur in areas of high rainfall and generally retain their foliage throughout the year."
+q:"Which of the following is a major tributary of the Ganga?",
+options:["Tapi","Yamuna","Sabarmati","Periyar"],
+answer:"B",
+explanation:"The Yamuna is one of the major tributaries of the Ganga."
 },
 {
 n:46,subject:"Geography",
-q:"Which of the following rivers is a major tributary of the Ganga flowing through northern Bihar?",
-options:["Son","Punpun","Gandak","North Koel"],
-answer:"C",
-explanation:"The Gandak is an important Himalayan tributary of the Ganga and joins it near the Hajipur–Patna region."
+q:"Which is the largest freshwater lake in India by surface area?",
+options:["Wular Lake","Sambhar Lake","Chilika Lake","Pulicat Lake"],
+answer:"A",
+explanation:"Wular Lake in Jammu and Kashmir is commonly described as one of India's largest freshwater lakes and the largest by surface area in many standard references."
 },
 {
 n:47,subject:"Geography",
-q:"The Kosi River is frequently associated with flooding in Bihar primarily because of:",
-options:["Its extremely low sediment load","Its tendency to shift channels and deposit large quantities of sediment","Its origin in the Western Ghats","Its complete absence of Himalayan tributaries"],
+q:"Which Indian state is the leading producer of tea?",
+options:["Punjab","Assam","Rajasthan","Haryana"],
 answer:"B",
-explanation:"The Kosi carries substantial sediment and has historically shifted its channel across the plains, contributing to flood vulnerability."
+explanation:"Assam is India's leading tea-producing state."
 },
 {
 n:48,subject:"Geography",
-q:"Which of the following rivers joins the Ganga near Patna from the south?",
-options:["Gandak","Son","Kosi","Mahananda"],
+q:"The Sundarbans are famous for:",
+options:["Cold desert vegetation","Mangrove forests","Alpine meadows","Tropical thorn forests only"],
 answer:"B",
-explanation:"The Son River joins the Ganga near Maner, west of Patna."
+explanation:"The Sundarbans contain extensive mangrove forests in the Ganga–Brahmaputra delta."
 },
 {
 n:49,subject:"Geography",
-q:"The Gandak River is known as which of the following in Nepal?",
-options:["Karnali","Narayani","Bagmati","Koshi"],
+q:"Which of the following is a major source of irrigation in the Indo-Gangetic plains?",
+options:["Glaciers alone","Canals and groundwater","Only rainwater harvesting","Desalinated seawater"],
 answer:"B",
-explanation:"The Gandak River is known as the Narayani in Nepal."
+explanation:"Canals and groundwater are important irrigation sources across the Indo-Gangetic plains."
 },
 {
 n:50,subject:"Geography",
-q:"Which of the following is a major soil type found in the floodplains of Bihar?",
-options:["Alluvial soil","Laterite soil throughout the state","Desert soil","Mountain podzol throughout the state"],
-answer:"A",
-explanation:"Alluvial soil deposited by rivers is widespread across the floodplains of Bihar."
+q:"Which of the following is a major coal-producing state in eastern India?",
+options:["Bihar","Jharkhand","Kerala","Goa"],
+answer:"B",
+explanation:"Jharkhand contains major coalfields, including Jharia and Bokaro."
 },
 
 {
@@ -525,108 +1240,108 @@ explanation:"Valmiki National Park is located in West Champaran district of Biha
 },
 {
 n:52,subject:"Geography",
-q:"Which of the following is a major tributary of the Kosi system?",
+q:"Which of the following is a major tributary of the Kosi river system?",
 options:["Bhagirathi","Ghaghara","Arun","Betwa"],
 answer:"C",
-explanation:"The Arun River originates in Tibet and forms an important part of the Kosi river system."
+explanation:"The Arun River originates in Tibet and is an important part of the Kosi river system."
 },
 {
 n:53,subject:"Geography",
-q:"The principal reason for the high flood vulnerability of northern Bihar is:",
-options:["Its location entirely in a rain-shadow region","The absence of any perennial rivers","Himalayan rivers carrying heavy sediment and discharging into low-lying plains","The dominance of volcanic mountains"],
+q:"What is the principal reason for the high flood vulnerability of northern Bihar?",
+options:["Its location entirely in a rain-shadow region","The absence of perennial rivers","Himalayan rivers carrying heavy sediment and flowing through low-lying plains","The dominance of volcanic mountains"],
 answer:"C",
-explanation:"Northern Bihar receives water from Himalayan rivers carrying heavy sediment. These rivers flow across low-lying plains that are vulnerable to flooding."
+explanation:"Northern Bihar has extensive low-lying alluvial plains and rivers originating in the Himalayas, making it vulnerable to floods."
 },
 {
 n:54,subject:"Geography",
-q:"Which of the following districts is associated with the Kaimur hill region?",
+q:"Which district of Bihar is associated with the Kaimur hill region?",
 options:["Kaimur","Araria","Madhepura","Supaul"],
 answer:"A",
 explanation:"The Kaimur hill region is associated with Kaimur district in southwestern Bihar."
 },
 {
 n:55,subject:"Geography",
-q:"Which of the following statements about Bihar's physical geography is correct?",
+q:"Which statement about the physical geography of Bihar is correct?",
 options:["The entire state lies south of the Ganga.","Northern Bihar is generally more vulnerable to flooding than the plateau margins of southern Bihar.","Bihar has an extensive coastline.","The state is dominated by the Thar Desert."],
 answer:"B",
-explanation:"Northern Bihar has extensive alluvial plains and numerous Himalayan rivers, making it particularly vulnerable to floods."
+explanation:"Northern Bihar has extensive alluvial plains and several Himalayan rivers, making it particularly vulnerable to floods."
 },
 {
 n:56,subject:"Indian Polity",
-q:"Which Article of the Indian Constitution guarantees equality before the law and equal protection of the laws?",
+q:"Which Article of the Indian Constitution guarantees equality before the law?",
 options:["Article 12","Article 14","Article 19","Article 32"],
 answer:"B",
-explanation:"Article 14 guarantees equality before the law and equal protection of the laws within the territory of India."
+explanation:"Article 14 guarantees equality before the law and equal protection of the laws."
 },
 {
 n:57,subject:"Indian Polity",
-q:"Consider the following statements regarding a Money Bill:\n1. It can be introduced only in the Lok Sabha.\n2. The Rajya Sabha must return it within 14 days.\n3. The Rajya Sabha can amend it with binding effect on the Lok Sabha.\n4. The Speaker of the Lok Sabha certifies whether a Bill is a Money Bill.\nWhich of the statements given above are correct?",
+q:"Consider the following statements about a Money Bill:\n1. It can be introduced only in the Lok Sabha.\n2. The Rajya Sabha must return it within 14 days.\n3. The Rajya Sabha can make amendments that are binding on the Lok Sabha.\n4. The Speaker of the Lok Sabha certifies whether a Bill is a Money Bill.\nWhich statements are correct?",
 options:["1 and 2 only","1, 2 and 4 only","2, 3 and 4 only","1, 2, 3 and 4"],
 answer:"B",
-explanation:"A Money Bill can originate only in the Lok Sabha. The Rajya Sabha has 14 days to make recommendations, and the Speaker certifies the Bill. Its recommendations are not binding on the Lok Sabha."
+explanation:"A Money Bill can originate only in the Lok Sabha. The Rajya Sabha can make recommendations within 14 days, but these are not binding. The Speaker certifies the Bill."
 },
 {
 n:58,subject:"Indian Polity",
 q:"The power of judicial review in India is primarily exercised by:",
-options:["The Election Commission alone","The Parliament alone","The Supreme Court and High Courts","The Finance Commission"],
+options:["The Election Commission alone","Parliament alone","The Supreme Court and High Courts","The Finance Commission"],
 answer:"C",
-explanation:"The Supreme Court and High Courts exercise judicial review to examine whether laws and executive actions comply with the Constitution."
+explanation:"The Supreme Court and High Courts can examine whether laws and executive actions comply with the Constitution."
 },
 {
 n:59,subject:"Indian Polity",
 q:"Which of the following Fundamental Rights is available only to Indian citizens?",
-options:["Equality before the law under Article 14","Protection of life and personal liberty under Article 21","Freedom of speech and expression under Article 19","Protection against ex post facto criminal laws under Article 20"],
+options:["Equality before law under Article 14","Protection of life under Article 21","Freedom of speech and expression under Article 19","Protection against ex post facto criminal laws under Article 20"],
 answer:"C",
-explanation:"Article 19 rights are available only to citizens of India, whereas Articles 14, 20 and 21 also protect non-citizens within their respective scopes."
+explanation:"Article 19 rights are available only to Indian citizens, whereas Articles 14, 20 and 21 also protect non-citizens within their respective scopes."
 },
 {
 n:60,subject:"Indian Polity",
-q:"The procedure for amending the Constitution is primarily laid down in:",
+q:"The constitutional procedure for amendment is primarily laid down in:",
 options:["Article 32","Article 110","Article 280","Article 368"],
 answer:"D",
-explanation:"Article 368 deals with the constitutional amendment procedure and the powers of Parliament to amend the Constitution, subject to constitutional limitations."
+explanation:"Article 368 deals with the constitutional amendment procedure."
 },
 {
 n:61,subject:"Indian Polity",
-q:"Which of the following statements regarding the Finance Commission is correct?",
-options:["It is constituted under Article 280.","It is a permanent constitutional body with no need for reconstitution.","It determines the results of general elections.","It appoints the Governors of states."],
+q:"The Finance Commission is constituted under which Article of the Constitution?",
+options:["Article 280","Article 324","Article 356","Article 370"],
 answer:"A",
-explanation:"Article 280 provides for the constitution of a Finance Commission by the President, ordinarily every five years or earlier if necessary."
+explanation:"Article 280 provides for the constitution of a Finance Commission by the President."
 },
 {
 n:62,subject:"Indian Polity",
 q:"The anti-defection provisions are contained in which Schedule of the Constitution?",
 options:["Fifth Schedule","Seventh Schedule","Tenth Schedule","Twelfth Schedule"],
 answer:"C",
-explanation:"The Tenth Schedule, added by the 52nd Constitutional Amendment Act, 1985, contains provisions relating to disqualification on grounds of defection."
+explanation:"The Tenth Schedule contains provisions relating to disqualification on grounds of defection."
 },
 {
 n:63,subject:"Indian Polity",
 q:"Which of the following is NOT a constitutional body?",
 options:["Election Commission of India","Union Public Service Commission","Finance Commission","NITI Aayog"],
 answer:"D",
-explanation:"NITI Aayog was established by an executive resolution of the Union Government. It is not a constitutional body."
+explanation:"NITI Aayog was established by an executive resolution and is not a constitutional body."
 },
 {
 n:64,subject:"Indian Polity",
 q:"Under Article 356, President's Rule may be imposed in a state when:",
-options:["The state government requests additional tax revenue.","The constitutional machinery of the state has failed, subject to constitutional requirements.","The state's population decreases.","The state legislature passes any ordinary Bill."],
+options:["The state government requests additional tax revenue","The constitutional machinery of the state has failed, subject to constitutional requirements","The state's population decreases","The state legislature passes any ordinary Bill"],
 answer:"B",
 explanation:"Article 356 provides for President's Rule when the constitutional machinery of a state has failed, subject to constitutional conditions and judicial review."
 },
 {
 n:65,subject:"Indian Polity",
-q:"Consider the following statements about the Governor of a state:\n1. The Governor is appointed by the President.\n2. The Governor normally holds office during the pleasure of the President.\n3. The Governor must necessarily be a resident of the state in which appointed.\n4. The Governor can reserve certain Bills for the consideration of the President.\nWhich of the statements given above are correct?",
+q:"Consider the following statements about the Governor of a state:\n1. The Governor is appointed by the President.\n2. The Governor normally holds office during the pleasure of the President.\n3. The Governor must necessarily be a resident of the state.\n4. The Governor can reserve certain Bills for the consideration of the President.\nWhich statements are correct?",
 options:["1 and 2 only","1, 2 and 4 only","2, 3 and 4 only","1, 2, 3 and 4"],
 answer:"B",
-explanation:"The President appoints the Governor, who normally holds office during the President's pleasure. A Governor need not be a resident of the state and may reserve certain Bills for the President."
+explanation:"The President appoints the Governor, who normally holds office during the President's pleasure. The Governor need not be a resident of the state and may reserve certain Bills for the President."
 },
 {
 n:66,subject:"Mathematics and Reasoning",
-q:"The HCF of 252, 180 and 108 is:",
+q:"What is the HCF of 252, 180 and 108?",
 options:["6","12","18","36"],
-answer:"B",
-explanation:"The HCF of 252 and 180 is 36. The HCF of 36 and 108 is also 36. Therefore, the correct answer is 36, option D."
+answer:"D",
+explanation:"The HCF of 252, 180 and 108 is 36."
 },
 {
 n:67,subject:"Mathematics and Reasoning",
@@ -637,84 +1352,84 @@ explanation:"Assume the original value is 100. After a 20% increase it becomes 1
 },
 {
 n:68,subject:"Mathematics and Reasoning",
-q:"A train 180 metres long crosses a pole in 12 seconds. What is its speed in km/h?",
+q:"A train 180 metres long crosses a pole in 12 seconds. What is its speed?",
 options:["45 km/h","48 km/h","54 km/h","60 km/h"],
 answer:"C",
-explanation:"Speed = 180/12 = 15 m/s. Converting to km/h: 15 × 18/5 = 54 km/h."
+explanation:"Speed = 180/12 = 15 m/s. Converting to km/h gives 15 × 18/5 = 54 km/h."
 },
 {
 n:69,subject:"Mathematics and Reasoning",
-q:"A can complete a job in 12 days and B can complete it in 18 days. Working together, how long will they take?",
+q:"A can complete a job in 12 days and B can complete it in 18 days. How long will they take working together?",
 options:["6 days","7.2 days","8 days","9 days"],
 answer:"B",
-explanation:"A's daily work is 1/12 and B's daily work is 1/18. Together they complete 5/36 of the work daily, so the time required is 36/5 = 7.2 days."
+explanation:"Combined daily work = 1/12 + 1/18 = 5/36. Time required = 36/5 = 7.2 days."
 },
 {
 n:70,subject:"Mathematics and Reasoning",
-q:"The average of eight numbers is 24. If one number, 18, is replaced by 34, what is the new average?",
+q:"The average of eight numbers is 24. If 18 is replaced by 34, what is the new average?",
 options:["24","25","26","28"],
 answer:"C",
-explanation:"Original total = 8 × 24 = 192. Replacing 18 with 34 increases the total by 16, giving 208. New average = 208/8 = 26."
+explanation:"Original total = 8 × 24 = 192. Replacing 18 with 34 increases the total to 208. New average = 208/8 = 26."
 },
 {
 n:71,subject:"Mathematics and Reasoning",
 q:"Find the next number in the series:\n3, 8, 15, 24, 35, 48, ?",
 options:["60","61","63","65"],
 answer:"C",
-explanation:"The differences are 5, 7, 9, 11 and 13. The next difference is 15, so 48 + 15 = 63."
+explanation:"The differences are 5, 7, 9, 11 and 13. The next difference is 15, so the next number is 63."
 },
 {
 n:72,subject:"Mathematics and Reasoning",
-q:"If the ratio of A's income to B's income is 5:7 and their total income is ₹48,000, what is B's income?",
+q:"The ratio of A's income to B's income is 5:7. If their total income is ₹48,000, what is B's income?",
 options:["₹20,000","₹24,000","₹28,000","₹30,000"],
 answer:"C",
-explanation:"Total ratio units = 5 + 7 = 12. B's income = 7/12 × ₹48,000 = ₹28,000."
+explanation:"Total ratio units = 12. B's income = 7/12 × ₹48,000 = ₹28,000."
 },
 {
 n:73,subject:"Mathematics and Reasoning",
-q:"A sum of money doubles itself in 8 years under simple interest. What is the annual rate of interest?",
+q:"A sum doubles itself in 8 years under simple interest. What is the annual rate of interest?",
 options:["8%","10%","12.5%","15%"],
 answer:"C",
-explanation:"If the sum doubles, the interest earned equals the principal. Under simple interest, rate = 100/8 = 12.5% per annum."
+explanation:"When the sum doubles, interest equals the principal. Rate = 100/8 = 12.5% per annum."
 },
 {
 n:74,subject:"Mathematics and Reasoning",
-q:"In a code, each letter is replaced by the next letter in the English alphabet. If BIHAR is coded as CJIBS, how will PATNA be coded?",
+q:"If every letter is replaced by the next letter in the English alphabet, PATNA is coded as:",
 options:["QBUOB","QZUMB","OZSMA","QATOB"],
 answer:"A",
-explanation:"Each letter moves one position forward: P→Q, A→B, T→U, N→O and A→B. Therefore, PATNA becomes QBUOB."
+explanation:"P becomes Q, A becomes B, T becomes U, N becomes O and A becomes B. Thus PATNA becomes QBUOB."
 },
 {
 n:75,subject:"Mathematics and Reasoning",
-q:"A person walks 8 km north, then 6 km east, and finally 8 km south. How far and in which direction is the person from the starting point?",
+q:"A person walks 8 km north, then 6 km east and finally 8 km south. How far is the person from the starting point?",
 options:["6 km east","6 km west","8 km north","14 km east"],
 answer:"A",
-explanation:"The 8 km northward and 8 km southward movements cancel each other. The person remains 6 km east of the starting point."
+explanation:"The northward and southward movements cancel. The person is 6 km east of the starting point."
 },
 {
 n:76,subject:"Current Affairs",
 q:"Which organisation publishes the World Economic Outlook?",
 options:["International Monetary Fund","World Health Organization","UNESCO","International Labour Organization"],
 answer:"A",
-explanation:"The International Monetary Fund publishes the World Economic Outlook, which analyses global economic developments and forecasts."
+explanation:"The International Monetary Fund publishes the World Economic Outlook."
 },
 {
 n:77,subject:"Current Affairs",
 q:"The Sustainable Development Goals were adopted by the United Nations in:",
 options:["2000","2005","2015","2020"],
 answer:"C",
-explanation:"The United Nations adopted the 2030 Agenda for Sustainable Development, including 17 Sustainable Development Goals, in 2015."
+explanation:"The United Nations adopted the 2030 Agenda for Sustainable Development in 2015."
 },
 {
 n:78,subject:"Current Affairs",
-q:"Which of the following is a principal objective of the Paris Agreement on climate change?",
+q:"What is a principal objective of the Paris Agreement on climate change?",
 options:["Eliminate all international trade","Limit global warming and strengthen climate action","Prohibit all agricultural activity","Replace national governments with a global authority"],
 answer:"B",
-explanation:"The Paris Agreement aims to hold the increase in global average temperature to well below 2°C and pursue efforts to limit it to 1.5°C above pre-industrial levels."
+explanation:"The Paris Agreement aims to hold global warming well below 2°C and pursue efforts to limit it to 1.5°C above pre-industrial levels."
 },
 {
 n:79,subject:"Current Affairs",
-q:"The headquarters of the World Health Organization is located in:",
+q:"Where is the headquarters of the World Health Organization located?",
 options:["Paris","Geneva","New York","Vienna"],
 answer:"B",
 explanation:"The World Health Organization is headquartered in Geneva, Switzerland."
@@ -724,33 +1439,33 @@ n:80,subject:"Current Affairs",
 q:"The International Solar Alliance primarily promotes:",
 options:["Global cooperation in solar energy","Nuclear weapons development","Deep-sea mining","International sporting competitions"],
 answer:"A",
-explanation:"The International Solar Alliance promotes international cooperation to expand solar energy deployment and adoption."
+explanation:"The International Solar Alliance promotes international cooperation to expand solar energy deployment."
 },
 {
 n:81,subject:"Current Affairs",
-q:"Which of the following best describes the primary objective of India's Digital Public Infrastructure initiatives?",
-options:["Eliminate all physical banking services immediately","Provide digital systems supporting identity, payments and service delivery","Restrict internet access to government offices","Replace the Constitution with digital regulations"],
+q:"What is a major objective of Digital Public Infrastructure initiatives?",
+options:["Immediately eliminate all physical banking services","Provide digital systems supporting identity, payments and service delivery","Restrict internet access to government offices","Replace the Constitution with digital regulations"],
 answer:"B",
-explanation:"Digital Public Infrastructure supports interoperable digital services, including digital identity, payments and public-service delivery."
+explanation:"Digital Public Infrastructure supports digital identity, payments and public-service delivery."
 },
 {
 n:82,subject:"Current Affairs",
-q:"The National Green Hydrogen Mission aims primarily to:",
-options:["Increase dependence on imported coal","Promote the production and use of green hydrogen","Eliminate all renewable energy projects","Replace the entire railway network with road transport"],
+q:"The National Green Hydrogen Mission primarily aims to:",
+options:["Increase dependence on imported coal","Promote the production and use of green hydrogen","Eliminate all renewable energy projects","Replace railways with road transport"],
 answer:"B",
-explanation:"The National Green Hydrogen Mission seeks to develop green hydrogen production, use and related technologies in India."
+explanation:"The mission seeks to develop green hydrogen production, use and related technologies in India."
 },
 {
 n:83,subject:"Current Affairs",
 q:"Which institution is India's central bank?",
-options:["State Bank of India","Securities and Exchange Board of India","Reserve Bank of India","National Bank for Agriculture and Rural Development"],
+options:["State Bank of India","SEBI","Reserve Bank of India","NABARD"],
 answer:"C",
-explanation:"The Reserve Bank of India is India's central bank and is responsible for monetary policy and important banking functions."
+explanation:"The Reserve Bank of India is India's central bank and is responsible for monetary policy and currency management."
 },
 {
 n:84,subject:"Current Affairs",
-q:"Which of the following is a major objective of India's National Quantum Mission?",
-options:["Promote quantum technologies and research","Replace all computers with mechanical calculators","Eliminate telecommunications","Prohibit scientific research in physics"],
+q:"What is a major objective of India's National Quantum Mission?",
+options:["Promote quantum technologies and research","Replace computers with mechanical calculators","Eliminate telecommunications","Prohibit research in physics"],
 answer:"A",
 explanation:"The National Quantum Mission supports research and development in quantum computing, communication, sensing and related technologies."
 },
@@ -759,19 +1474,19 @@ n:85,subject:"Current Affairs",
 q:"India's Aditya-L1 mission is primarily designed to study:",
 options:["Mars's atmosphere","The Sun","Jupiter's moons","The Earth's ocean floor"],
 answer:"B",
-explanation:"Aditya-L1 is India's solar observatory mission designed to study the Sun from a halo orbit around the Sun–Earth L1 point."
+explanation:"Aditya-L1 is India's solar observatory mission designed to study the Sun."
 },
 {
 n:86,subject:"Current Affairs",
-q:"The Chandrayaan-3 mission achieved a major milestone by:",
-options:["Returning humans from the Moon","Demonstrating a successful soft landing near the lunar south-polar region","Establishing a permanent lunar colony","Landing a rover on Mars"],
+q:"Chandrayaan-3 achieved which major milestone?",
+options:["Returning humans from the Moon","Successfully soft-landing near the lunar south-polar region","Establishing a permanent lunar colony","Landing a rover on Mars"],
 answer:"B",
-explanation:"Chandrayaan-3 achieved a successful lunar soft landing on 23 August 2023 in the Moon's southern polar region."
+explanation:"Chandrayaan-3 achieved a successful lunar soft landing on 23 August 2023."
 },
 {
 n:87,subject:"Current Affairs",
 q:"The Unified Payments Interface is operated by:",
-options:["National Payments Corporation of India","Securities and Exchange Board of India","Election Commission of India","Central Board of Secondary Education"],
+options:["National Payments Corporation of India","SEBI","Election Commission of India","CBSE"],
 answer:"A",
 explanation:"The National Payments Corporation of India operates UPI, India's real-time digital payment system."
 },
@@ -780,7 +1495,7 @@ n:88,subject:"Current Affairs",
 q:"Which organisation coordinates India's meteorological services?",
 options:["India Meteorological Department","Geological Survey of India","Archaeological Survey of India","University Grants Commission"],
 answer:"A",
-explanation:"The India Meteorological Department provides meteorological observations, forecasts and warnings in India."
+explanation:"The India Meteorological Department provides weather observations, forecasts and warnings."
 },
 {
 n:89,subject:"Current Affairs",
@@ -791,10 +1506,10 @@ explanation:"The Jal Jeevan Mission aims to provide functional household tap-wat
 },
 {
 n:90,subject:"Current Affairs",
-q:"The Special Intensive Revision of electoral rolls is primarily concerned with:",
-options:["Revision of income-tax rates","Verification and updating of electoral rolls","Conducting the national population census","Preparing the Union Budget"],
+q:"An intensive revision of electoral rolls is primarily concerned with:",
+options:["Revision of income-tax rates","Verification and updating of electoral rolls","Conducting the population census","Preparing the Union Budget"],
 answer:"B",
-explanation:"An intensive revision of electoral rolls focuses on verifying voter details and updating electoral registers in accordance with applicable election procedures."
+explanation:"Intensive revision focuses on verifying voter details and updating electoral registers in accordance with election procedures."
 },
 {
 n:91,subject:"Current Affairs",
@@ -806,7 +1521,7 @@ explanation:"Article 324 vests the superintendence, direction and control of ele
 {
 n:92,subject:"Current Affairs",
 q:"The PM-KISAN scheme primarily provides:",
-options:["Income support to eligible farmer families","Free housing exclusively to urban workers","Guaranteed employment to all graduates","Finance only to large industrial enterprises"],
+options:["Income support to eligible farmer families","Free housing exclusively to urban workers","Guaranteed employment to all graduates","Finance only to large industries"],
 answer:"A",
 explanation:"PM-KISAN provides income support to eligible farmer families through direct benefit transfers, subject to scheme rules."
 },
@@ -826,15 +1541,15 @@ explanation:"The National Disaster Management Authority lays down policies and g
 },
 {
 n:95,subject:"Current Affairs",
-q:"Which of the following best describes a semiconductor?",
+q:"Which statement best describes a semiconductor?",
 options:["A material whose electrical conductivity lies between that of a conductor and an insulator under relevant conditions","A material that can never conduct electricity","A material used exclusively as a fuel","A substance that always behaves as a perfect conductor"],
 answer:"A",
-explanation:"Semiconductors have electrical properties between conductors and insulators, and their conductivity can be controlled through doping and other methods."
+explanation:"Semiconductors have electrical properties between conductors and insulators, and their conductivity can be controlled."
 },
 {
 n:96,subject:"Current Affairs",
-q:"Which of the following is a major objective of the Ayushman Bharat–Pradhan Mantri Jan Arogya Yojana?",
-options:["Crop insurance","Health coverage for eligible beneficiaries","Universal pension for all private-sector employees","Free higher education for all students"],
+q:"The Ayushman Bharat–Pradhan Mantri Jan Arogya Yojana primarily provides:",
+options:["Crop insurance","Health coverage for eligible beneficiaries","Universal pensions for all private-sector employees","Free higher education for every student"],
 answer:"B",
 explanation:"PM-JAY provides health coverage for eligible beneficiaries for specified hospitalisation services under scheme conditions."
 },
@@ -843,25 +1558,25 @@ n:97,subject:"Current Affairs",
 q:"The primary purpose of carbon capture and storage is to:",
 options:["Increase atmospheric carbon dioxide","Capture carbon dioxide emissions and store them to reduce their release into the atmosphere","Eliminate the need for electricity","Convert all fossil fuels into oxygen"],
 answer:"B",
-explanation:"Carbon capture and storage aims to capture carbon dioxide from industrial or energy-related sources and store it to prevent or reduce its release into the atmosphere."
+explanation:"Carbon capture and storage aims to capture carbon dioxide and store it to prevent or reduce its release into the atmosphere."
 },
 {
 n:98,subject:"Current Affairs",
 q:"Which organisation is responsible for administering the Olympic Games?",
 options:["FIFA","International Olympic Committee","International Cricket Council","World Athletics alone"],
 answer:"B",
-explanation:"The International Olympic Committee leads the Olympic Movement and oversees the organisation of the Olympic Games with host bodies and international federations."
+explanation:"The International Olympic Committee leads the Olympic Movement and oversees the Olympic Games with host bodies and international federations."
 },
 {
 n:99,subject:"Current Affairs",
-q:"Which of the following is a major objective of India's National Education Policy 2020?",
+q:"Which is a major objective of India's National Education Policy 2020?",
 options:["Eliminate multidisciplinary education","Promote foundational literacy, flexibility and multidisciplinary learning","Abolish all vocational education","Replace all school education with online examinations"],
 answer:"B",
 explanation:"NEP 2020 emphasises foundational literacy and numeracy, flexibility, multidisciplinary learning and educational reform."
 },
 {
 n:100,subject:"Current Affairs",
-q:"The headquarters of the International Atomic Energy Agency is located in:",
+q:"Where is the headquarters of the International Atomic Energy Agency located?",
 options:["Geneva","Vienna","Rome","Brussels"],
 answer:"B",
 explanation:"The International Atomic Energy Agency is headquartered in Vienna, Austria."
@@ -869,7 +1584,7 @@ explanation:"The International Atomic Energy Agency is headquartered in Vienna, 
 
 {
 n:101,subject:"Indian Economy",
-q:"Which of the following is the primary function of the Reserve Bank of India?",
+q:"Which of the following is a primary function of the Reserve Bank of India?",
 options:["Conducting elections","Formulating and implementing monetary policy","Preparing school textbooks","Constructing national highways"],
 answer:"B",
 explanation:"The RBI is India's central bank and is responsible for monetary policy, currency management and important banking functions."
@@ -877,86 +1592,86 @@ explanation:"The RBI is India's central bank and is responsible for monetary pol
 {
 n:102,subject:"Indian Economy",
 q:"Gross Domestic Product (GDP) measures:",
-options:["Only government expenditure","The total value of final goods and services produced within a country's domestic territory during a specified period","Only agricultural production","The total wealth of citizens living abroad"],
+options:["Only government expenditure","The value of final goods and services produced within a country's domestic territory during a specified period","Only agricultural production","The total wealth of citizens living abroad"],
 answer:"B",
 explanation:"GDP measures the value of final goods and services produced within a country's domestic territory during a specified period."
 },
 {
 n:103,subject:"Indian Economy",
-q:"Which of the following is generally considered an indirect tax in India?",
-options:["Personal income tax","Corporation tax","Goods and Services Tax","Tax on personal income from salary"],
+q:"Which of the following is an indirect tax in India?",
+options:["Personal income tax","Corporation tax","Goods and Services Tax","Tax on personal salary income"],
 answer:"C",
 explanation:"GST is an indirect tax levied on the supply of goods and services."
 },
 {
 n:104,subject:"Indian Economy",
 q:"Inflation refers to:",
-options:["A sustained increase in the general price level","A continuous fall in the general price level","An increase in the value of money in every situation","A decrease in the supply of currency to zero"],
+options:["A sustained increase in the general price level","A continuous fall in the general price level","An increase in the purchasing power of money in every situation","A complete disappearance of currency"],
 answer:"A",
-explanation:"Inflation is a sustained increase in the general price level of goods and services, reducing the purchasing power of money."
+explanation:"Inflation is a sustained increase in the general price level of goods and services."
 },
 {
 n:105,subject:"Indian Economy",
-q:"Which institution primarily provides refinance and developmental support for agriculture and rural development in India?",
+q:"Which institution provides refinance and developmental support for agriculture and rural development in India?",
 options:["SEBI","NABARD","Election Commission of India","UPSC"],
 answer:"B",
-explanation:"The National Bank for Agriculture and Rural Development supports agriculture and rural development through refinance, development initiatives and related functions."
+explanation:"The National Bank for Agriculture and Rural Development supports agriculture and rural development through refinance and development initiatives."
 },
 {
 n:106,subject:"Indian Economy",
-q:"The Union Budget of India is constitutionally referred to as the:",
+q:"The Union Budget is constitutionally referred to as the:",
 options:["Annual Financial Statement","National Development Statement","Monetary Policy Statement","Public Employment Statement"],
 answer:"A",
 explanation:"Article 112 of the Constitution provides for the Annual Financial Statement, commonly known as the Union Budget."
 },
 {
 n:107,subject:"Indian Economy",
-q:"Which of the following is a major function of the Securities and Exchange Board of India (SEBI)?",
+q:"Which of the following is a major function of SEBI?",
 options:["Conducting population censuses","Regulating the securities market and protecting investors","Issuing all Indian currency notes","Managing state police forces"],
 answer:"B",
-explanation:"SEBI regulates the securities market, promotes its development and protects investors' interests."
+explanation:"The Securities and Exchange Board of India regulates the securities market and protects investors' interests."
 },
 {
 n:108,subject:"Indian Economy",
 q:"Fiscal deficit broadly represents:",
-options:["The excess of total expenditure over total receipts excluding borrowings","The excess of exports over imports","The total value of agricultural output","The difference between population growth and literacy growth"],
+options:["Total expenditure minus total receipts excluding borrowings","Exports minus imports","Total agricultural production","Population growth minus literacy growth"],
 answer:"A",
 explanation:"Fiscal deficit is the difference between total expenditure and total receipts excluding borrowings."
 },
 {
 n:109,subject:"Indian Economy",
-q:"Which of the following is an example of a public good?",
+q:"Which of the following is a standard example of a public good?",
 options:["A privately owned car","A restaurant meal","National defence","A private mobile phone"],
 answer:"C",
-explanation:"National defence is a standard example of a public good because it is generally non-rivalrous and difficult to exclude people from benefiting from it."
+explanation:"National defence is a standard example of a public good because it is generally non-rivalrous and non-excludable."
 },
 {
 n:110,subject:"Indian Economy",
-q:"Which of the following best describes the purpose of Minimum Support Price (MSP) in India?",
-options:["To fix the retail price of every manufactured product","To provide a price-support mechanism for specified agricultural crops","To determine the salaries of government employees","To regulate international airfares"],
+q:"The Minimum Support Price (MSP) is primarily intended to:",
+options:["Fix the retail price of every manufactured product","Provide a price-support mechanism for specified agricultural crops","Determine government employee salaries","Regulate international airfares"],
 answer:"B",
-explanation:"MSP is intended to provide price support to farmers for specified crops, subject to government policy and procurement arrangements."
+explanation:"MSP is intended to provide price support to farmers for specified agricultural crops, subject to government policy and procurement arrangements."
 },
 {
 n:111,subject:"Physics",
-q:"The SI unit of force is:",
+q:"What is the SI unit of force?",
 options:["Joule","Newton","Watt","Pascal"],
 answer:"B",
-explanation:"Force is measured in newtons (N). One newton is the force required to accelerate a mass of one kilogram at one metre per second squared."
+explanation:"Force is measured in newtons. One newton is the force required to accelerate one kilogram at one metre per second squared."
 },
 {
 n:112,subject:"Physics",
-q:"Which law states that the pressure of a gas is inversely proportional to its volume at constant temperature for a fixed amount of gas?",
+q:"Which law states that the pressure of a gas is inversely proportional to its volume at constant temperature?",
 options:["Newton's law","Boyle's law","Ohm's law","Faraday's law"],
 answer:"B",
-explanation:"Boyle's law states that pressure is inversely proportional to volume when temperature and the amount of gas remain constant."
+explanation:"Boyle's law states that pressure is inversely proportional to volume for a fixed amount of gas at constant temperature."
 },
 {
 n:113,subject:"Physics",
-q:"Which of the following is the SI unit of electric current?",
+q:"What is the SI unit of electric current?",
 options:["Volt","Ohm","Ampere","Coulomb"],
 answer:"C",
-explanation:"The ampere (A) is the SI base unit of electric current."
+explanation:"The ampere is the SI base unit of electric current."
 },
 {
 n:114,subject:"Physics",
@@ -967,14 +1682,14 @@ explanation:"The speed of light in a vacuum is approximately 3 × 10^8 metres pe
 },
 {
 n:115,subject:"Physics",
-q:"Which type of lens is commonly used to correct myopia (short-sightedness)?",
-options:["Convex lens","Concave lens","Cylindrical lens in every case","Plane glass only"],
+q:"Which type of lens is commonly used to correct myopia?",
+options:["Convex lens","Concave lens","Plane glass only","A prism in every case"],
 answer:"B",
-explanation:"A concave lens diverges incoming light rays and helps focus the image of distant objects on the retina in a myopic eye."
+explanation:"A concave lens diverges incoming light rays and helps focus distant images on the retina in a myopic eye."
 },
 {
 n:116,subject:"Physics",
-q:"Which instrument is used to measure electric current in a circuit?",
+q:"Which instrument is used to measure electric current?",
 options:["Voltmeter","Ammeter","Barometer","Thermometer"],
 answer:"B",
 explanation:"An ammeter measures electric current and is connected in series in a circuit."
@@ -984,7 +1699,7 @@ n:117,subject:"Physics",
 q:"Sound cannot travel through:",
 options:["Air","Water","Steel","A vacuum"],
 answer:"D",
-explanation:"Sound is a mechanical wave and requires a material medium. It cannot propagate through a vacuum."
+explanation:"Sound is a mechanical wave and requires a material medium to propagate."
 },
 {
 n:118,subject:"Physics",
@@ -998,14 +1713,14 @@ n:119,subject:"Physics",
 q:"Which phenomenon explains the formation of a rainbow?",
 options:["Reflection only","Dispersion, refraction and internal reflection of sunlight in water droplets","Magnetic induction","Nuclear fission"],
 answer:"B",
-explanation:"A rainbow forms when sunlight is refracted, dispersed into its component colours and internally reflected inside water droplets."
+explanation:"A rainbow forms when sunlight is refracted, dispersed and internally reflected inside water droplets."
 },
 {
 n:120,subject:"Physics",
 q:"The energy possessed by a moving object is called:",
 options:["Potential energy","Kinetic energy","Chemical energy","Nuclear energy"],
 answer:"B",
-explanation:"Kinetic energy is the energy possessed by an object due to its motion. For a non-relativistic object, it is given by KE = 1/2 mv²."
+explanation:"Kinetic energy is the energy possessed by an object due to its motion."
 },
 {
 n:121,subject:"Chemistry",
@@ -1016,17 +1731,17 @@ explanation:"At approximately 25°C, a neutral aqueous solution has a pH of 7."
 },
 {
 n:122,subject:"Chemistry",
-q:"Which gas is released when an ordinary acid reacts with many metals?",
+q:"Which gas is commonly released when an acid reacts with many metals?",
 options:["Oxygen","Hydrogen","Nitrogen","Chlorine"],
 answer:"B",
-explanation:"Many acids react with metals to form a salt and release hydrogen gas. The exact reaction depends on the metal and acid."
+explanation:"Many acids react with metals to form a salt and release hydrogen gas."
 },
 {
 n:123,subject:"Chemistry",
-q:"The chemical formula of common table salt is:",
+q:"What is the chemical formula of common table salt?",
 options:["NaOH","NaCl","HCl","Na2CO3"],
 answer:"B",
-explanation:"Common table salt is sodium chloride, whose chemical formula is NaCl."
+explanation:"Common table salt is sodium chloride, with the chemical formula NaCl."
 },
 {
 n:124,subject:"Chemistry",
@@ -1051,28 +1766,28 @@ explanation:"Rusting produces new substances, mainly hydrated iron oxides, so it
 },
 {
 n:127,subject:"Chemistry",
-q:"Which element is essential for the formation of haemoglobin in human blood?",
+q:"Which element is essential for the formation of haemoglobin?",
 options:["Iron","Helium","Neon","Argon"],
 answer:"A",
 explanation:"Iron is an essential component of haemoglobin, the protein responsible for oxygen transport in red blood cells."
 },
 {
 n:128,subject:"Chemistry",
-q:"Which of the following is commonly used as a disinfectant for drinking water?",
+q:"Which substance is commonly used to disinfect drinking water?",
 options:["Chlorine","Hydrogen","Nitrogen","Helium"],
 answer:"A",
-explanation:"Chlorine and chlorine-based compounds are commonly used to disinfect drinking water by killing many disease-causing microorganisms."
+explanation:"Chlorine and chlorine-based compounds are commonly used to disinfect drinking water."
 },
 {
 n:129,subject:"Chemistry",
-q:"The process of coating iron or steel with a layer of zinc is known as:",
+q:"The process of coating iron or steel with zinc is known as:",
 options:["Distillation","Galvanisation","Sublimation","Crystallisation"],
 answer:"B",
 explanation:"Galvanisation coats iron or steel with zinc to protect it from corrosion."
 },
 {
 n:130,subject:"Chemistry",
-q:"Which of the following is the major component of natural gas?",
+q:"Which gas is the principal component of natural gas?",
 options:["Methane","Oxygen","Sulphur dioxide","Hydrogen chloride"],
 answer:"A",
 explanation:"Methane is the principal component of natural gas, although its exact composition varies by source."
@@ -1086,7 +1801,7 @@ explanation:"Mitochondria generate much of the usable energy in eukaryotic cells
 },
 {
 n:132,subject:"Biology",
-q:"Which part of the human brain is mainly responsible for balance and coordination of voluntary movements?",
+q:"Which part of the human brain mainly coordinates balance and voluntary movements?",
 options:["Cerebrum","Cerebellum","Medulla oblongata","Hypothalamus alone"],
 answer:"B",
 explanation:"The cerebellum plays a major role in balance, posture and coordination of movements."
@@ -1096,42 +1811,42 @@ n:133,subject:"Biology",
 q:"Photosynthesis in green plants primarily takes place in:",
 options:["Mitochondria","Chloroplasts","Lysosomes","Centrioles"],
 answer:"B",
-explanation:"Chloroplasts contain chlorophyll and are the main organelles where photosynthesis occurs in green plants."
+explanation:"Chloroplasts contain chlorophyll and are the main organelles where photosynthesis occurs."
 },
 {
 n:134,subject:"Biology",
-q:"Which vitamin is synthesised in human skin on exposure to suitable ultraviolet radiation?",
+q:"Which vitamin can be synthesised in human skin following suitable ultraviolet exposure?",
 options:["Vitamin A","Vitamin B12","Vitamin C","Vitamin D"],
 answer:"D",
-explanation:"Exposure of skin to UVB radiation helps initiate the synthesis of vitamin D."
+explanation:"Exposure to UVB radiation helps initiate vitamin D synthesis in human skin."
 },
 {
 n:135,subject:"Biology",
-q:"Which blood cells are primarily responsible for defending the body against infections?",
+q:"Which blood cells primarily defend the body against infections?",
 options:["Red blood cells","White blood cells","Platelets","All red blood cells only"],
 answer:"B",
-explanation:"White blood cells, also called leukocytes, are important components of the immune system and help defend the body against infections."
+explanation:"White blood cells, also called leukocytes, are important components of the immune system."
 },
 {
 n:136,subject:"Biology",
-q:"Which hormone helps regulate blood glucose levels by lowering them?",
+q:"Which hormone helps lower blood glucose levels?",
 options:["Insulin","Adrenaline","Thyroxine","Melatonin"],
 answer:"A",
-explanation:"Insulin, produced by beta cells in the pancreas, helps lower blood glucose by promoting glucose uptake and storage."
+explanation:"Insulin, produced by beta cells in the pancreas, helps lower blood glucose."
 },
 {
 n:137,subject:"Biology",
-q:"Which of the following is the basic structural and functional unit of the kidney?",
+q:"What is the basic structural and functional unit of the kidney?",
 options:["Neuron","Nephron","Alveolus","Villus"],
 answer:"B",
-explanation:"The nephron is the structural and functional unit of the kidney. It filters blood and helps form urine."
+explanation:"The nephron filters blood and plays a central role in urine formation."
 },
 {
 n:138,subject:"Biology",
-q:"Which plant tissue transports water and minerals from the roots to other parts of the plant?",
+q:"Which plant tissue transports water and minerals from the roots?",
 options:["Phloem","Xylem","Epidermis only","Cork"],
 answer:"B",
-explanation:"Xylem transports water and dissolved minerals from the roots to the stems and leaves."
+explanation:"Xylem transports water and dissolved minerals from roots to the stems and leaves."
 },
 {
 n:139,subject:"Biology",
@@ -1145,60 +1860,60 @@ n:140,subject:"Biology",
 q:"In humans, fertilisation normally occurs in the:",
 options:["Uterus","Ovary","Fallopian tube","Cervix"],
 answer:"C",
-explanation:"In humans, fertilisation normally occurs in the fallopian tube, usually in its ampullary region."
+explanation:"Human fertilisation normally occurs in the fallopian tube, usually in its ampullary region."
 },
 {
 n:141,subject:"Mixed Subjects",
 q:"Who was the first President of the Republic of India?",
 options:["Dr. Rajendra Prasad","Dr. S. Radhakrishnan","Jawaharlal Nehru","Sardar Vallabhbhai Patel"],
 answer:"A",
-explanation:"Dr. Rajendra Prasad became the first President of the Republic of India on 26 January 1950."
+explanation:"Dr. Rajendra Prasad became India's first President on 26 January 1950."
 },
 {
 n:142,subject:"Mixed Subjects",
 q:"The Battle of Plassey was fought in:",
 options:["1757","1764","1857","1773"],
 answer:"A",
-explanation:"The Battle of Plassey was fought in 1757 between the forces of the British East India Company, led by Robert Clive, and the forces of Siraj ud-Daulah."
+explanation:"The Battle of Plassey took place in 1757 and was a major turning point in the expansion of British political power in Bengal."
 },
 {
 n:143,subject:"Mixed Subjects",
-q:"Which river is often called the 'Sorrow of Bihar' because of its history of destructive floods?",
+q:"Which river is known as the 'Sorrow of Bihar'?",
 options:["Son","Kosi","Punpun","Falgu"],
 answer:"B",
-explanation:"The Kosi River is widely known as the 'Sorrow of Bihar' because of its frequent course changes and destructive floods."
+explanation:"The Kosi River is widely known as the 'Sorrow of Bihar' because of its history of destructive floods."
 },
 {
 n:144,subject:"Mixed Subjects",
-q:"Which Article of the Constitution of India abolishes untouchability?",
+q:"Which Article of the Constitution abolishes untouchability?",
 options:["Article 14","Article 17","Article 21","Article 32"],
 answer:"B",
 explanation:"Article 17 abolishes untouchability and forbids its practice in any form."
 },
 {
 n:145,subject:"Mixed Subjects",
-q:"Who wrote the book 'The Discovery of India'?",
+q:"Who wrote 'The Discovery of India'?",
 options:["Mahatma Gandhi","Jawaharlal Nehru","Rabindranath Tagore","B. R. Ambedkar"],
 answer:"B",
-explanation:"Jawaharlal Nehru wrote The Discovery of India during his imprisonment at Ahmednagar Fort during 1942–1945."
+explanation:"Jawaharlal Nehru wrote The Discovery of India during his imprisonment at Ahmednagar Fort."
 },
 {
 n:146,subject:"Mixed Subjects",
 q:"Which soil type is particularly suitable for cotton cultivation in India?",
 options:["Laterite soil","Black soil","Mountain soil","Desert sand only"],
 answer:"B",
-explanation:"Black soil, also known as regur soil, retains moisture and is particularly suitable for cotton cultivation."
+explanation:"Black soil retains moisture and is particularly suitable for cotton cultivation."
 },
 {
 n:147,subject:"Mixed Subjects",
-q:"The headquarters of the United Nations is located in:",
+q:"Where is the headquarters of the United Nations located?",
 options:["London","New York City","Geneva","The Hague"],
 answer:"B",
 explanation:"The principal headquarters of the United Nations is located in New York City, United States."
 },
 {
 n:148,subject:"Mixed Subjects",
-q:"Which of the following is the largest planet in the Solar System?",
+q:"Which is the largest planet in the Solar System?",
 options:["Earth","Saturn","Jupiter","Neptune"],
 answer:"C",
 explanation:"Jupiter is the largest planet in the Solar System by diameter and mass."
@@ -1212,55 +1927,128 @@ explanation:"The Indian National Congress was founded in 1885. A. O. Hume played
 },
 {
 n:150,subject:"Mixed Subjects",
-q:"Which of the following is the principal source of energy for the Earth's climate system?",
+q:"What is the principal source of energy for the Earth's climate system?",
 options:["The Moon","The Sun","Earth's magnetic field","Ocean tides alone"],
 answer:"B",
 explanation:"Solar radiation is the primary external energy source driving the Earth's climate system."
-}
+},
+
 
 ];
 
-// ===============================
-// BPSC MOCK TEST CONFIGURATION
-// ===============================
+// =============================================
+// BPSC FULL LENGTH MOCK TEST — SET 01
+// FINAL JAVASCRIPT
+// =============================================
 
 const TOTAL_QUESTIONS = 150;
-const TOTAL_TIME = 2 * 60 * 60;
+const TOTAL_SECONDS = 2 * 60 * 60;
 
 let currentQuestion = 0;
-let timeLeft = TOTAL_TIME;
+let timeLeft = TOTAL_SECONDS;
 let timerInterval = null;
+let testStarted = false;
 let testSubmitted = false;
 
-const userAnswers = new Array(TOTAL_QUESTIONS).fill(null);
-const attemptedQuestions = new Set();
+const answers = Array(TOTAL_QUESTIONS).fill(null);
 
-const questionArea = document.getElementById("questionArea");
-const questionNavigation = document.getElementById("questionNavigation");
+// HTML ELEMENTS
+
+const startPanel = document.getElementById("startPanel");
+const startButton = document.getElementById("startButton");
+const testContent = document.getElementById("testContent");
+
 const timerElement = document.getElementById("timer");
+
+const questionHeading = document.getElementById("questionHeading");
+const subjectTag = document.getElementById("subjectTag");
+const questionText = document.getElementById("questionText");
+const optionsContainer = document.getElementById("optionsContainer");
+
+const questionGrid = document.getElementById("questionGrid");
+
+const previousButton = document.getElementById("previousButton");
+const nextButton = document.getElementById("nextButton");
+
+const attemptCounter = document.getElementById("attemptCounter");
+const completionPercent = document.getElementById("completionPercent");
+const progressBar = document.getElementById("progressBar");
+
 const submitButton = document.getElementById("submitButton");
+const submitMessage = document.getElementById("submitMessage");
 const resultArea = document.getElementById("resultArea");
 
 
-// ===============================
-// INITIALIZE TEST
-// ===============================
+// =============================================
+// VALIDATE QUESTION DATA
+// =============================================
 
-function initializeTest() {
+function validateQuestions() {
 
     if (questions.length !== TOTAL_QUESTIONS) {
         alert(
-            "Question data error! Expected 150 questions, found " +
-            questions.length +
-            ". Please check the question array."
+            "Question data error!\n" +
+            "Expected: 150 questions\n" +
+            "Found: " + questions.length + "\n\n" +
+            "Please check Parts 2, 3 and 4."
         );
+
+        startButton.disabled = true;
+        return false;
     }
 
-    createNavigation();
-    renderQuestion(0);
+    for (let i = 0; i < TOTAL_QUESTIONS; i++) {
+
+        const question = questions[i];
+
+        if (
+            question.n !== i + 1 ||
+            !Array.isArray(question.options) ||
+            question.options.length !== 4 ||
+            !["A", "B", "C", "D"].includes(question.answer)
+        ) {
+            alert(
+                "Question data error at question " +
+                (i + 1) +
+                ". Please check the question object."
+            );
+
+            startButton.disabled = true;
+            return false;
+        }
+    }
+
+    return true;
+}
+
+
+// =============================================
+// START TEST
+// =============================================
+
+startButton.addEventListener("click", function () {
+
+    if (testStarted || testSubmitted) return;
+
+    if (!validateQuestions()) return;
+
+    testStarted = true;
+
+    startPanel.classList.add("hidden");
+    testContent.classList.remove("hidden");
+
+    createQuestionNavigator();
+
+    currentQuestion = 0;
+
+    renderQuestion(currentQuestion);
+
+    updateProgress();
+    updateSubmitButton();
     updateTimer();
 
     timerInterval = setInterval(function () {
+
         if (testSubmitted) {
             clearInterval(timerInterval);
             return;
@@ -1269,56 +2057,73 @@ function initializeTest() {
         timeLeft--;
 
         if (timeLeft <= 0) {
+
             timeLeft = 0;
+
             updateTimer();
+
             submitTest(true);
+
             return;
         }
 
         updateTimer();
+
     }, 1000);
 
-    updateSubmitButton();
-}
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+});
 
 
-// ===============================
-// CREATE QUESTION NAVIGATION
-// ===============================
+// =============================================
+// CREATE QUESTION NAVIGATOR
+// =============================================
 
-function createNavigation() {
+function createQuestionNavigator() {
 
-    questionNavigation.innerHTML = "";
+    questionGrid.innerHTML = "";
 
-    for (let i = 0; i < questions.length; i++) {
+    questions.forEach(function (question, index) {
 
         const button = document.createElement("button");
 
         button.type = "button";
         button.className = "nav-question";
-        button.textContent = i + 1;
-        button.setAttribute("aria-label", "Question " + (i + 1));
+
+        button.textContent = question.n;
+
+        button.setAttribute(
+            "aria-label",
+            "Go to question " + question.n
+        );
 
         button.addEventListener("click", function () {
-            if (!testSubmitted) {
-                renderQuestion(i);
-            }
+
+            if (testSubmitted) return;
+
+            renderQuestion(index);
+
         });
 
-        questionNavigation.appendChild(button);
-    }
+        questionGrid.appendChild(button);
 
-    updateNavigation();
+    });
+
+    updateNavigator();
 }
 
 
-// ===============================
-// DISPLAY ONE QUESTION AT A TIME
-// ===============================
+// =============================================
+// DISPLAY QUESTION
+// =============================================
 
 function renderQuestion(index) {
 
-    if (testSubmitted) return;
+    if (!testStarted || testSubmitted) return;
 
     if (index < 0 || index >= questions.length) return;
 
@@ -1326,161 +2131,210 @@ function renderQuestion(index) {
 
     const question = questions[index];
 
-    questionArea.innerHTML = "";
+    questionHeading.textContent =
+        "Question " + question.n + " of " + TOTAL_QUESTIONS;
 
-    const wrapper = document.createElement("div");
-    wrapper.className = "question-card";
+    subjectTag.textContent = question.subject;
 
-    const heading = document.createElement("h3");
-    heading.textContent =
-        "Question " + question.n + " of " + questions.length;
-
-    const subject = document.createElement("p");
-    subject.className = "question-subject";
-    subject.textContent = "Subject: " + question.subject;
-
-    const questionText = document.createElement("div");
-    questionText.className = "question-text";
-    questionText.style.whiteSpace = "pre-line";
     questionText.textContent = question.q;
 
-    wrapper.appendChild(heading);
-    wrapper.appendChild(subject);
-    wrapper.appendChild(questionText);
-
-    const optionsContainer = document.createElement("div");
-    optionsContainer.className = "options-container";
+    optionsContainer.innerHTML = "";
 
     const optionLabels = ["A", "B", "C", "D"];
 
     question.options.forEach(function (option, optionIndex) {
 
+        const letter = optionLabels[optionIndex];
+
         const label = document.createElement("label");
+
         label.className = "option-label";
 
-        const radio = document.createElement("input");
-        radio.type = "radio";
-        radio.name = "question-" + question.n;
-        radio.value = optionLabels[optionIndex];
-
-        if (userAnswers[index] === optionLabels[optionIndex]) {
-            radio.checked = true;
+        if (answers[index] === letter) {
+            label.classList.add("selected");
         }
+
+        const radio = document.createElement("input");
+
+        radio.type = "radio";
+
+        radio.name = "question-" + question.n;
+
+        radio.value = letter;
+
+        radio.checked = answers[index] === letter;
 
         radio.addEventListener("change", function () {
 
             if (testSubmitted) return;
 
-            userAnswers[index] = optionLabels[optionIndex];
-            attemptedQuestions.add(index);
+            answers[index] = letter;
 
-            updateNavigation();
+            updateSelectedOption();
+
+            updateNavigator();
+
             updateProgress();
+
             updateSubmitButton();
+
         });
 
-        const optionText = document.createElement("span");
-        optionText.textContent =
-            optionLabels[optionIndex] + ". " + option;
+        const text = document.createElement("span");
+
+        text.textContent = letter + ". " + option;
 
         label.appendChild(radio);
-        label.appendChild(optionText);
+
+        label.appendChild(text);
 
         optionsContainer.appendChild(label);
+
     });
 
-    wrapper.appendChild(optionsContainer);
-
-    const controls = document.createElement("div");
-    controls.className = "question-controls";
-
-    const previousButton = document.createElement("button");
-    previousButton.type = "button";
-    previousButton.textContent = "← Previous";
     previousButton.disabled = index === 0;
-    previousButton.addEventListener("click", function () {
-        renderQuestion(currentQuestion - 1);
-    });
 
-    const nextButton = document.createElement("button");
-    nextButton.type = "button";
-    nextButton.textContent = "Next →";
     nextButton.disabled = index === questions.length - 1;
-    nextButton.addEventListener("click", function () {
-        renderQuestion(currentQuestion + 1);
-    });
 
-    controls.appendChild(previousButton);
-    controls.appendChild(nextButton);
+    if (index === questions.length - 1) {
+        nextButton.textContent = "Last Question";
+    } else {
+        nextButton.textContent = "Save & Next →";
+    }
 
-    wrapper.appendChild(controls);
-    questionArea.appendChild(wrapper);
+    updateNavigator();
 
-    updateNavigation();
     updateProgress();
+
 }
 
 
-// ===============================
-// UPDATE QUESTION NAVIGATION
-// ===============================
+// =============================================
+// HIGHLIGHT SELECTED OPTION
+// =============================================
 
-function updateNavigation() {
+function updateSelectedOption() {
 
-    const buttons = questionNavigation.querySelectorAll("button");
+    const labels = optionsContainer.querySelectorAll(".option-label");
+
+    labels.forEach(function (label) {
+
+        const radio = label.querySelector("input");
+
+        label.classList.toggle(
+            "selected",
+            radio.checked
+        );
+
+    });
+
+}
+
+
+// =============================================
+// PREVIOUS / NEXT NAVIGATION
+// =============================================
+
+previousButton.addEventListener("click", function () {
+
+    if (testSubmitted) return;
+
+    if (currentQuestion > 0) {
+
+        renderQuestion(currentQuestion - 1);
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+
+});
+
+
+nextButton.addEventListener("click", function () {
+
+    if (testSubmitted) return;
+
+    if (currentQuestion < questions.length - 1) {
+
+        renderQuestion(currentQuestion + 1);
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+
+});
+
+
+// =============================================
+// UPDATE NAVIGATOR COLOURS
+// =============================================
+
+function updateNavigator() {
+
+    const buttons = questionGrid.querySelectorAll(".nav-question");
 
     buttons.forEach(function (button, index) {
 
         button.classList.remove("answered", "current");
 
-        if (userAnswers[index] !== null) {
+        if (answers[index] !== null) {
             button.classList.add("answered");
         }
 
         if (index === currentQuestion) {
             button.classList.add("current");
         }
+
+        button.disabled = testSubmitted;
+
     });
+
 }
 
 
-// ===============================
+// =============================================
 // UPDATE PROGRESS
-// ===============================
+// =============================================
 
 function updateProgress() {
 
-    const attempted = userAnswers.filter(function (answer) {
+    const attempted = answers.filter(function (answer) {
+
         return answer !== null;
+
     }).length;
 
-    const unanswered = questions.length - attempted;
+    const percentage =
+        (attempted / TOTAL_QUESTIONS) * 100;
 
-    const progressText = document.getElementById("progressText");
-    const progressBar = document.getElementById("progressBar");
+    attemptCounter.textContent =
+        "Attempted: " + attempted + " / " + TOTAL_QUESTIONS;
 
-    if (progressText) {
-        progressText.textContent =
-            "Attempted: " + attempted +
-            " / " + questions.length +
-            " | Remaining: " + unanswered;
-    }
+    completionPercent.textContent =
+        percentage.toFixed(0) + "%";
 
-    if (progressBar) {
-        progressBar.style.width =
-            (attempted / questions.length * 100) + "%";
-    }
+    progressBar.style.width =
+        percentage + "%";
+
 }
 
 
-// ===============================
+// =============================================
 // UPDATE TIMER
-// ===============================
+// =============================================
 
 function updateTimer() {
 
     const hours = Math.floor(timeLeft / 3600);
+
     const minutes = Math.floor((timeLeft % 3600) / 60);
+
     const seconds = timeLeft % 60;
 
     timerElement.textContent =
@@ -1489,97 +2343,131 @@ function updateTimer() {
         String(seconds).padStart(2, "0");
 
     if (timeLeft <= 300) {
+
         timerElement.classList.add("timer-warning");
+
+    } else {
+
+        timerElement.classList.remove("timer-warning");
+
     }
+
 }
 
 
-// ===============================
-// SUBMIT BUTTON CONTROL
-// ===============================
+// =============================================
+// SUBMIT BUTTON STATE
+// =============================================
 
 function updateSubmitButton() {
 
-    const attempted = userAnswers.filter(function (answer) {
+    const attempted = answers.filter(function (answer) {
+
         return answer !== null;
+
     }).length;
 
-    const allAttempted = attempted === questions.length;
+    const allAttempted = attempted === TOTAL_QUESTIONS;
 
-    submitButton.disabled = !allAttempted || testSubmitted;
+    submitButton.disabled =
+        !testStarted ||
+        !allAttempted ||
+        testSubmitted;
 
     if (testSubmitted) {
+
         submitButton.textContent = "Test Submitted";
+
     } else if (allAttempted) {
+
         submitButton.textContent = "Submit Test";
+
+        submitMessage.textContent =
+            "All 150 questions have been attempted. You can now submit your test.";
+
     } else {
+
         submitButton.textContent =
             "Submit Test (" +
-            (questions.length - attempted) +
-            " unanswered)";
+            (TOTAL_QUESTIONS - attempted) +
+            " remaining)";
+
+        submitMessage.textContent =
+            "Attempt all 150 questions to enable submission. " +
+            (TOTAL_QUESTIONS - attempted) +
+            " questions remaining.";
+
     }
+
 }
 
 
-// ===============================
+// =============================================
 // SUBMIT TEST
-// ===============================
+// =============================================
+
+submitButton.addEventListener("click", function () {
+
+    submitTest(false);
+
+});
+
 
 function submitTest(autoSubmitted) {
 
-    if (testSubmitted) return;
+    if (testSubmitted || !testStarted) return;
 
-    const attempted = userAnswers.filter(function (answer) {
+    const attempted = answers.filter(function (answer) {
+
         return answer !== null;
+
     }).length;
 
-    if (!autoSubmitted && attempted !== questions.length) {
+    if (!autoSubmitted && attempted !== TOTAL_QUESTIONS) {
 
         alert(
-            "Please attempt all " + questions.length +
-            " questions before submitting.\n" +
+            "Please attempt all 150 questions before submitting.\n" +
             "Questions remaining: " +
-            (questions.length - attempted)
+            (TOTAL_QUESTIONS - attempted)
         );
 
         return;
+
     }
 
-    if (autoSubmitted) {
-        const unanswered = questions.length - attempted;
-
-        alert(
-            "Time is over!\n" +
-            "Your test will now be submitted.\n" +
-            "Unanswered questions: " + unanswered
-        );
-    } else {
+    if (!autoSubmitted) {
 
         const confirmed = confirm(
-            "Are you sure you want to submit the test?"
+            "Are you sure you want to submit your test?"
         );
 
         if (!confirmed) return;
+
     }
 
     testSubmitted = true;
 
     clearInterval(timerInterval);
 
-    submitButton.disabled = true;
+    updateTimer();
+
+    updateSubmitButton();
 
     calculateResult();
+
 }
 
 
-// ===============================
+// =============================================
 // CALCULATE RESULT
-// ===============================
+// =============================================
 
 function calculateResult() {
 
     let correct = 0;
+
     let wrong = 0;
+
     let unattempted = 0;
 
     const subjectResults = {};
@@ -1589,37 +2477,42 @@ function calculateResult() {
         const subject = question.subject;
 
         if (!subjectResults[subject]) {
+
             subjectResults[subject] = {
                 total: 0,
                 correct: 0,
                 wrong: 0,
                 unattempted: 0
             };
+
         }
 
         subjectResults[subject].total++;
 
-        if (userAnswers[index] === null) {
+        if (answers[index] === null) {
 
             unattempted++;
+
             subjectResults[subject].unattempted++;
 
-        } else if (userAnswers[index] === question.answer) {
+        } else if (answers[index] === question.answer) {
 
             correct++;
+
             subjectResults[subject].correct++;
 
         } else {
 
             wrong++;
+
             subjectResults[subject].wrong++;
+
         }
+
     });
 
     const percentage =
-        questions.length > 0
-        ? (correct / questions.length) * 100
-        : 0;
+        (correct / TOTAL_QUESTIONS) * 100;
 
     displayResult(
         correct,
@@ -1628,12 +2521,13 @@ function calculateResult() {
         percentage,
         subjectResults
     );
+
 }
 
 
-// ===============================
-// DISPLAY FINAL RESULT
-// ===============================
+// =============================================
+// DISPLAY RESULT
+// =============================================
 
 function displayResult(
     correct,
@@ -1643,105 +2537,106 @@ function displayResult(
     subjectResults
 ) {
 
-    questionArea.style.display = "none";
-    questionNavigation.style.display = "none";
+    testContent.classList.add("hidden");
 
-    const resultPanel = resultArea;
-    resultPanel.style.display = "block";
-    resultPanel.innerHTML = "";
+    resultArea.classList.remove("hidden");
 
-    const heading = document.createElement("h2");
-    heading.textContent = "BPSC Mock Test — Result";
-    resultPanel.appendChild(heading);
+    resultArea.innerHTML = "";
+
+    const heading = document.createElement("div");
+
+    heading.className = "result-heading";
+
+    heading.innerHTML = `
+        <h2>BPSC Mock Test — Final Result</h2>
+        <p>Full Length Mock Test — Set 01</p>
+        <p>Maximum Questions: ${TOTAL_QUESTIONS}</p>
+    `;
+
+    resultArea.appendChild(heading);
+
+
+    // RESULT SUMMARY CARDS
 
     const summary = document.createElement("div");
+
     summary.className = "result-summary";
 
     summary.innerHTML = `
         <div class="result-card">
-            <h3>Total Questions</h3>
-            <p>${questions.length}</p>
-        </div>
-
-        <div class="result-card">
             <h3>Correct Answers</h3>
-            <p>${correct}</p>
+            <p class="result-value correct-value">${correct}</p>
         </div>
 
         <div class="result-card">
             <h3>Wrong Answers</h3>
-            <p>${wrong}</p>
+            <p class="result-value wrong-value">${wrong}</p>
         </div>
 
         <div class="result-card">
             <h3>Unattempted</h3>
-            <p>${unattempted}</p>
+            <p class="result-value">${unattempted}</p>
         </div>
 
         <div class="result-card">
-            <h3>Accuracy</h3>
-            <p>${percentage.toFixed(2)}%</p>
+            <h3>Percentage</h3>
+            <p class="result-value">${percentage.toFixed(2)}%</p>
         </div>
     `;
 
-    resultPanel.appendChild(summary);
+    resultArea.appendChild(summary);
 
-    const scoreHeading = document.createElement("h3");
-    scoreHeading.textContent = "Your Performance";
-    resultPanel.appendChild(scoreHeading);
 
-    const scoreText = document.createElement("p");
-    scoreText.textContent =
-        "Correct: " + correct +
-        " | Wrong: " + wrong +
-        " | Unattempted: " + unattempted;
+    // GRAPH PANEL
 
-    resultPanel.appendChild(scoreText);
+    const graphPanel = document.createElement("section");
 
-    const graphHeading = document.createElement("h3");
-    graphHeading.textContent = "Performance Graph";
-    resultPanel.appendChild(graphHeading);
+    graphPanel.className = "result-panel";
 
-    const graphCanvas = document.createElement("canvas");
-    graphCanvas.id = "resultGraph";
-    graphCanvas.width = 600;
-    graphCanvas.height = 300;
-    graphCanvas.style.width = "100%";
-    graphCanvas.style.maxWidth = "650px";
-    graphCanvas.style.display = "block";
-    graphCanvas.style.margin = "20px auto";
-
-    resultPanel.appendChild(graphCanvas);
-
-    drawResultGraph(
-        graphCanvas,
-        correct,
-        wrong,
-        unattempted
-    );
-
-    const tableHeading = document.createElement("h3");
-    tableHeading.textContent = "Subject-wise Performance";
-    resultPanel.appendChild(tableHeading);
-
-    const table = document.createElement("table");
-    table.className = "result-table";
-
-    table.innerHTML = `
-        <thead>
-            <tr>
-                <th>Subject</th>
-                <th>Total</th>
-                <th>Correct</th>
-                <th>Wrong</th>
-                <th>Unattempted</th>
-                <th>Accuracy</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
+    graphPanel.innerHTML = `
+        <h3>Performance Graph</h3>
+        <canvas id="resultGraph" width="700" height="300"></canvas>
     `;
 
-    const tbody = table.querySelector("tbody");
+    resultArea.appendChild(graphPanel);
+
+    drawResultGraph(correct, wrong, unattempted);
+
+
+    // SUBJECT TABLE
+
+    const tablePanel = document.createElement("section");
+
+    tablePanel.className = "result-panel";
+
+    tablePanel.innerHTML = `
+        <h3>Subject-wise Performance</h3>
+
+        <div class="table-wrapper">
+
+            <table class="result-table">
+
+                <thead>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Total</th>
+                        <th>Correct</th>
+                        <th>Wrong</th>
+                        <th>Unattempted</th>
+                        <th>Accuracy</th>
+                    </tr>
+                </thead>
+
+                <tbody id="subjectResultBody"></tbody>
+
+            </table>
+
+        </div>
+    `;
+
+    resultArea.appendChild(tablePanel);
+
+    const tbody = tablePanel.querySelector("#subjectResultBody");
 
     Object.keys(subjectResults).forEach(function (subject) {
 
@@ -1754,139 +2649,200 @@ function displayResult(
 
         const row = document.createElement("tr");
 
-        [
+        const values = [
             subject,
             data.total,
             data.correct,
             data.wrong,
             data.unattempted,
             accuracy.toFixed(1) + "%"
-        ].forEach(function (value) {
+        ];
+
+        values.forEach(function (value) {
 
             const cell = document.createElement("td");
+
             cell.textContent = value;
+
             row.appendChild(cell);
+
         });
 
         tbody.appendChild(row);
+
     });
 
-    resultPanel.appendChild(table);
 
-    const solutionButton = document.createElement("button");
-    solutionButton.type = "button";
-    solutionButton.textContent = "View Answer Key & Solutions";
-    solutionButton.className = "solution-button";
+    // ANSWER KEY BUTTON
 
-    solutionButton.addEventListener("click", function () {
-        window.location.href =
-            "full-length-mock-test-1-solution.html";
-    });
+    const solutionSection = document.createElement("section");
 
-    resultPanel.appendChild(solutionButton);
+    solutionSection.className = "solution-section";
 
-    const retryButton = document.createElement("button");
-    retryButton.type = "button";
-    retryButton.textContent = "Restart Mock Test";
-    retryButton.className = "retry-button";
+    solutionSection.innerHTML = `
+        <h3>Want to check the correct answers?</h3>
+        <p>Open the answer key and explanations below.</p>
 
-    retryButton.addEventListener("click", function () {
-        window.location.reload();
-    });
+        <button
+            type="button"
+            id="solutionButton"
+            class="solution-button"
+        >
+            View Answer Key & Solutions
+        </button>
+    `;
 
-    resultPanel.appendChild(retryButton);
+    resultArea.appendChild(solutionSection);
 
-    resultPanel.scrollIntoView({
+    document.getElementById("solutionButton").addEventListener(
+        "click",
+        function () {
+
+            window.location.href =
+                "full-length-mock-test-1-solution.html";
+
+        }
+    );
+
+
+    // SCROLL TO RESULT
+
+    resultArea.scrollIntoView({
         behavior: "smooth",
         block: "start"
     });
+
 }
 
 
-// ===============================
-// DRAW PERFORMANCE GRAPH
-// ===============================
+// =============================================
+// DRAW RESULT GRAPH
+// =============================================
 
-function drawResultGraph(canvas, correct, wrong, unattempted) {
+function drawResultGraph(correct, wrong, unattempted) {
+
+    const canvas = document.getElementById("resultGraph");
+
+    if (!canvas) return;
 
     const ctx = canvas.getContext("2d");
 
     const width = canvas.width;
+
     const height = canvas.height;
 
     ctx.clearRect(0, 0, width, height);
 
     const data = [
-        { label: "Correct", value: correct },
-        { label: "Wrong", value: wrong },
-        { label: "Unattempted", value: unattempted }
+        {
+            label: "Correct",
+            value: correct,
+            color: "#15803d"
+        },
+        {
+            label: "Wrong",
+            value: wrong,
+            color: "#dc2626"
+        },
+        {
+            label: "Unattempted",
+            value: unattempted,
+            color: "#64748b"
+        }
     ];
 
     const maxValue = Math.max(
-        1,
-        ...data.map(function (item) {
-            return item.value;
-        })
+        TOTAL_QUESTIONS,
+        correct,
+        wrong,
+        unattempted
     );
 
-    const left = 100;
-    const top = 30;
+    const left = 120;
+
+    const top = 35;
+
     const barHeight = 45;
-    const gap = 35;
-    const chartWidth = width - left - 40;
+
+    const gap = 40;
+
+    const chartWidth = width - left - 70;
 
     ctx.font = "16px Arial";
+
     ctx.textBaseline = "middle";
 
     data.forEach(function (item, index) {
 
         const y = top + index * (barHeight + gap);
+
         const barWidth =
             (item.value / maxValue) * chartWidth;
 
-        ctx.fillStyle = "#243b64";
-        ctx.fillText(item.label, 10, y + barHeight / 2);
+        ctx.fillStyle = "#172033";
 
-        ctx.fillStyle = "#3478f6";
-        ctx.fillRect(left, y, barWidth, barHeight);
+        ctx.fillText(
+            item.label,
+            10,
+            y + barHeight / 2
+        );
 
-        ctx.fillStyle = "#111827";
+        ctx.fillStyle = item.color;
+
+        ctx.fillRect(
+            left,
+            y,
+            barWidth,
+            barHeight
+        );
+
+        ctx.fillStyle = "#172033";
+
         ctx.fillText(
             String(item.value),
             left + barWidth + 10,
             y + barHeight / 2
         );
+
     });
+
 }
 
 
-// ===============================
-// START TEST
-// ===============================
+// =============================================
+// INITIAL PAGE STATE
+// =============================================
 
-document.addEventListener("DOMContentLoaded", function () {
+function initializePage() {
 
-    if (
-        !questionArea ||
-        !questionNavigation ||
-        !timerElement ||
-        !submitButton ||
-        !resultArea
-    ) {
-        console.error(
-            "Required HTML elements are missing. " +
-            "Check the element IDs in your HTML."
-        );
+    timerElement.textContent = "02:00:00";
+
+    testContent.classList.add("hidden");
+
+    resultArea.classList.add("hidden");
+
+    submitButton.disabled = true;
+
+    submitMessage.textContent =
+        "Attempt all 150 questions to enable submission.";
+
+    if (!Array.isArray(questions)) {
+
+        alert("Question data could not be loaded.");
+
+        startButton.disabled = true;
+
         return;
+
     }
 
-    initializeTest();
+    startButton.disabled = false;
 
-    submitButton.addEventListener("click", function () {
-        submitTest(false);
-    });
-});
+}
+
+initializePage();
 
 </script>
+
 </body>
 </html>
