@@ -4,59 +4,72 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>BPSC GS Paper-II | 69th & 70th PYQ</title>
+<title>BPSC General Studies Paper II | PYQ</title>
 
 <style>
+:root {
+    --navy: #10264b;
+    --blue: #2459c4;
+    --blue2: #3478f6;
+    --pale: #edf4ff;
+    --bg: #f4f7fb;
+    --white: #ffffff;
+    --text: #243247;
+    --muted: #64748b;
+    --border: #dbe4f0;
+    --green: #15803d;
+    --green-bg: #dcfce7;
+    --orange: #a16207;
+    --orange-bg: #fef3c7;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-:root {
-    --primary: #123b68;
-    --secondary: #176b87;
-    --background: #f2f5f9;
-    --white: #ffffff;
-    --text: #243247;
-    --border: #dbe3ec;
-    --accent: #f0a500;
-}
-
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: var(--background);
+    background: var(--bg);
     color: var(--text);
     line-height: 1.7;
 }
 
-header {
-    background: linear-gradient(135deg, #102f54, #176b87);
+/* HEADER */
+
+.header {
+    background: linear-gradient(135deg, #10264b, #2459c4);
     color: white;
-    padding: 28px 15px;
+    padding: 28px 16px;
     text-align: center;
 }
 
-header h1 {
-    font-size: 27px;
+.header h1 {
+    font-size: 28px;
     margin-bottom: 6px;
+    letter-spacing: 0.5px;
 }
 
-header p {
+.header p {
     font-size: 14px;
     opacity: 0.95;
 }
 
+/* MAIN CONTAINER */
+
 .container {
-    max-width: 1100px;
-    margin: 25px auto;
-    padding: 0 15px;
+    max-width: 1150px;
+    margin: 24px auto;
+    padding: 0 16px;
 }
 
-.toolbar {
+/* TOP NAVIGATION */
+
+.topbar {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     gap: 12px;
     flex-wrap: wrap;
     margin-bottom: 20px;
@@ -68,30 +81,43 @@ header p {
     flex-wrap: wrap;
 }
 
-.tab-button,
-.print-button {
+.tab-btn {
+    background: #e2eaf6;
+    color: var(--navy);
     border: none;
+    border-radius: 7px;
     padding: 11px 20px;
-    border-radius: 6px;
-    cursor: pointer;
     font-size: 14px;
     font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
 }
 
-.tab-button {
-    background: #dce6f0;
-    color: var(--primary);
+.tab-btn:hover {
+    background: #d3e1f7;
 }
 
-.tab-button.active {
-    background: var(--primary);
+.tab-btn.active {
+    background: var(--blue);
     color: white;
 }
 
-.print-button {
-    background: var(--accent);
-    color: #17202a;
+.print-btn {
+    background: #f0a500;
+    color: #172033;
+    border: none;
+    border-radius: 7px;
+    padding: 11px 18px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
 }
+
+.print-btn:hover {
+    background: #ffc233;
+}
+
+/* PAPER VISIBILITY */
 
 .paper {
     display: none;
@@ -101,135 +127,191 @@ header p {
     display: block;
 }
 
+/* PAPER TITLE */
+
 .paper-heading {
     background: var(--white);
     border: 1px solid var(--border);
-    border-radius: 9px;
-    padding: 20px;
-    margin-bottom: 20px;
+    border-radius: 10px;
+    padding: 22px 18px;
     text-align: center;
+    margin-bottom: 24px;
+    box-shadow: 0 3px 12px rgba(16, 38, 75, 0.04);
 }
 
 .paper-heading h2 {
-    color: var(--primary);
-    margin-bottom: 8px;
+    color: var(--navy);
+    font-size: 23px;
+    margin-bottom: 5px;
+}
+
+.paper-heading h3 {
+    color: var(--blue);
+    font-size: 17px;
+    margin-bottom: 14px;
 }
 
 .paper-info {
     display: flex;
     justify-content: center;
+    align-items: center;
+    gap: 10px;
     flex-wrap: wrap;
-    gap: 12px;
-    font-size: 14px;
 }
 
 .info-badge {
-    background: #eaf1f8;
+    display: inline-block;
     padding: 5px 12px;
+    background: var(--pale);
+    color: var(--navy);
     border-radius: 5px;
+    font-size: 13px;
+    font-weight: bold;
 }
 
+/* SECTION */
+
 .section {
-    margin-bottom: 25px;
+    margin-bottom: 26px;
+    border-radius: 9px;
+    overflow: hidden;
 }
 
 .section-title {
-    background: var(--primary);
+    background: var(--navy);
     color: white;
-    padding: 12px 16px;
-    border-radius: 7px 7px 0 0;
-    font-size: 18px;
+    padding: 14px 18px;
+    font-size: 19px;
 }
 
-.section-description {
-    background: #e3edf7;
-    padding: 10px 15px;
+.section-subtitle {
+    background: #dfeaff;
+    color: var(--navy);
+    padding: 10px 18px;
     font-size: 13px;
+    font-weight: bold;
     border: 1px solid var(--border);
 }
 
-.question-list {
+.questions {
     background: white;
     border: 1px solid var(--border);
     border-top: none;
-    border-radius: 0 0 7px 7px;
-    padding: 8px 18px;
+    padding: 5px 18px;
 }
+
+/* QUESTION */
 
 .question {
     display: flex;
+    gap: 13px;
     align-items: flex-start;
-    gap: 12px;
-    padding: 15px 0;
-    border-bottom: 1px solid #e8edf3;
+    padding: 16px 0;
+    border-bottom: 1px solid #e8edf4;
 }
 
 .question:last-child {
     border-bottom: none;
 }
 
-.question-number {
-    min-width: 31px;
-    height: 31px;
-    background: #eaf1f8;
-    color: var(--primary);
+.q-number {
+    min-width: 34px;
+    height: 34px;
     border-radius: 50%;
+    background: var(--pale);
+    color: var(--blue);
     display: flex;
-    align-items: center;
     justify-content: center;
-    font-weight: bold;
-    font-size: 13px;
-}
-
-.question-content {
-    flex: 1;
-}
-
-.question-text {
-    font-size: 15px;
-}
-
-.question-meta {
-    margin-top: 7px;
-    display: flex;
-    gap: 8px;
     align-items: center;
+    font-size: 13px;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.q-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.q-text {
+    font-size: 15px;
+    line-height: 1.75;
+    overflow-wrap: anywhere;
+}
+
+.q-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     flex-wrap: wrap;
+    margin-top: 8px;
 }
 
 .marks {
     display: inline-block;
-    background: #e2f5e9;
-    color: #176536;
-    padding: 2px 9px;
-    border-radius: 4px;
+    background: var(--green-bg);
+    color: var(--green);
+    padding: 3px 9px;
+    border-radius: 5px;
     font-size: 12px;
     font-weight: bold;
 }
 
 .or-label {
     display: inline-block;
-    background: #fff0d6;
-    color: #875500;
-    padding: 2px 8px;
-    border-radius: 4px;
+    background: var(--orange-bg);
+    color: var(--orange);
+    padding: 3px 10px;
+    border-radius: 5px;
     font-size: 12px;
     font-weight: bold;
 }
 
+/* QUESTION INSTRUCTIONS */
+
+.instruction {
+    padding: 13px 16px;
+    margin: 12px 0;
+    background: #f8fafc;
+    border-left: 4px solid var(--blue);
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.question-group-title {
+    background: #f1f5fb;
+    padding: 11px 15px;
+    font-weight: bold;
+    color: var(--navy);
+    border-bottom: 1px solid var(--border);
+}
+
+/* FOOTER */
+
 .footer {
     text-align: center;
-    padding: 22px 10px;
-    color: #657387;
+    padding: 25px 12px;
+    color: var(--muted);
     font-size: 13px;
 }
 
-@media (max-width: 600px) {
-    header h1 {
+/* MOBILE */
+
+@media (max-width: 650px) {
+    .header {
+        padding: 22px 12px;
+    }
+
+    .header h1 {
         font-size: 22px;
     }
 
-    .toolbar {
+    .container {
+        padding: 0 10px;
+        margin-top: 16px;
+    }
+
+    .topbar {
         align-items: stretch;
     }
 
@@ -237,70 +319,115 @@ header p {
         width: 100%;
     }
 
-    .tab-button {
+    .tab-btn {
         flex: 1;
-        padding: 10px;
+        padding: 10px 8px;
     }
 
-    .print-button {
+    .print-btn {
         width: 100%;
     }
 
-    .question-list {
+    .paper-heading h2 {
+        font-size: 20px;
+    }
+
+    .section-title {
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    .questions {
         padding: 5px 12px;
     }
 
-    .question-text {
+    .question {
+        gap: 9px;
+        padding: 13px 0;
+    }
+
+    .q-number {
+        min-width: 29px;
+        height: 29px;
+        font-size: 12px;
+    }
+
+    .q-text {
         font-size: 14px;
     }
 }
+
+/* PRINT */
 
 @media print {
     body {
         background: white;
         color: black;
+        font-size: 12px;
     }
 
-    header {
-        background: white;
-        color: black;
+    .header {
+        background: white !important;
+        color: black !important;
         border-bottom: 2px solid black;
+        padding: 12px;
     }
 
-    .toolbar,
+    .topbar,
     .footer {
-        display: none;
+        display: none !important;
     }
 
     .container {
+        width: 100%;
         max-width: 100%;
-        margin: 10px auto;
+        padding: 0;
+        margin: 0;
     }
 
     .paper {
         display: block !important;
     }
 
-    .paper-heading,
-    .section-title,
-    .section-description,
-    .question-list {
-        border: 1px solid #999;
+    .paper-heading {
+        box-shadow: none;
     }
 
     .section-title {
-        background: #eeeeee !important;
+        background: #e5e7eb !important;
         color: black !important;
-        -webkit-print-color-adjust: exact;
+        border: 1px solid #777;
         print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+
+    .section-subtitle {
+        background: #f1f5f9 !important;
+        color: black !important;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
     }
 
     .question {
         break-inside: avoid;
+        page-break-inside: avoid;
     }
 
     .section {
-        break-inside: avoid;
+        break-inside: auto;
+        page-break-inside: auto;
+    }
+
+    .marks,
+    .or-label,
+    .q-number {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+
+    @page {
+        size: A4;
+        margin: 15mm;
     }
 }
 </style>
@@ -308,314 +435,1067 @@ header p {
 
 <body>
 
-<header>
+<header class="header">
     <h1>BPSC STUDY PORTAL</h1>
-    <p>69th &amp; 70th BPSC Combined Competitive Examination</p>
-    <p>General Studies — Paper II | Previous Year Questions</p>
+    <p>Previous Year Questions | Combined Competitive Examination</p>
+    <p>General Studies — Paper II</p>
 </header>
 
-<div class="container">
+<main class="container">
 
-    <div class="toolbar">
+    <div class="topbar">
         <div class="tabs">
-            <button class="tab-button active"
+            <button class="tab-btn active"
                     onclick="showPaper('paper70', this)">
                 70th BPSC
             </button>
 
-            <button class="tab-button"
+            <button class="tab-btn"
                     onclick="showPaper('paper69', this)">
                 69th BPSC
             </button>
         </div>
 
-        <button class="print-button" onclick="window.print()">
+        <button class="print-btn" onclick="printCurrentPaper()">
             Print / Save as PDF
         </button>
     </div>
 
 
-    <!-- ====================================== -->
-    <!-- 70TH BPSC GENERAL STUDIES PAPER II     -->
-    <!-- ====================================== -->
+    <!-- ================================================== -->
+    <!-- 70TH BPSC GENERAL STUDIES PAPER II                 -->
+    <!-- ================================================== -->
 
-    <div id="paper70" class="paper active">
+    <div class="paper active" id="paper70">
 
         <div class="paper-heading">
-            <h2>70th BPSC — General Studies Paper II</h2>
+            <h2>70th BPSC Combined Competitive Examination</h2>
+            <h3>GENERAL STUDIES – II</h3>
 
             <div class="paper-info">
-                <span class="info-badge">Time: 3 Hours</span>
+                <span class="info-badge">Time Allowed: 3 Hours</span>
                 <span class="info-badge">Full Marks: 300</span>
-                <span class="info-badge">Mains Examination</span>
             </div>
         </div>
 
 
         <!-- SECTION I -->
 
-        <div class="section">
+        <section class="section">
 
             <h3 class="section-title">
-                Section I — 114 Marks
+                SECTION – I: POLITICAL SCIENCE &amp; INDIAN CONSTITUTION
             </h3>
 
-            <div class="section-description">
-                Answer the following questions as directed.
-                Follow the marks allotted to each question.
+            <div class="section-subtitle">
+                Total Marks: 114
             </div>
 
-            <div class="question-list">
+            <div class="questions">
+
+                <div class="question-group-title">
+                    Question 1. Write short answers to the following questions:
+                    (8 × 3 + 7 × 2 = 38 Marks)
+                </div>
 
                 <div class="question">
-                    <span class="question-number">1</span>
-                    <div class="question-content">
-                        <div class="question-text">
-                            Explain why Article 32 is called the
-                            “Heart and Soul of the Constitution of India”.
-                        </div>
-                        <div class="question-meta">
+                    <span class="q-number">1(a)</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            Article 32 is the “Heart and Soul of the
+                            Constitution of India.” Explain.
+                        </p>
+                        <div class="q-meta">
                             <span class="marks">8 Marks</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="question">
-                    <span class="question-number">2</span>
-                    <div class="question-content">
-                        <div class="question-text">
-                            Analyse the statement “Criminalisation of
-                            politics and politicisation of criminals”
-                            in the context of Bihar.
-                        </div>
-                        <div class="question-meta">
+                    <span class="q-number">1(b)</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            “Criminalisation of politics and politicisation
+                            of criminals.” Analyse this statement in the
+                            context of Bihar State.
+                        </p>
+                        <div class="q-meta">
                             <span class="marks">8 Marks</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Add the remaining Section I questions here
-                     using the same question-block structure. -->
+                <div class="question">
+                    <span class="q-number">1(c)</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            “In India, at present, caste is no more a
+                            social phenomenon, rather it is a political
+                            phenomenon.” Do you agree with this statement?
+                            Analyse and give reasons to support your answer.
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">8 Marks</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="q-number">1(d)</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            What is the collegium system? Why is it at
+                            the centre of criticism? Express your views.
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">8 Marks</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="q-number">1(e)</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            In the light of the 73rd and 74th Constitutional
+                            Amendments, discuss the role of Local
+                            Self-Government in empowering women at the
+                            grassroots level in Bihar.
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">8 Marks</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="question-group-title">
+                    Question 2. Answer either (a) or (b):
+                    (38 Marks)
+                </div>
+
+                <div class="question">
+                    <span class="q-number">2(a)</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            Trace the evolution of political parties in India
+                            from one-party dominance to the era of coalition
+                            governments. Has coalition politics undermined
+                            the authority of the Prime Minister in India?
+                            Give reasons.
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">19 + 19 = 38 Marks</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="q-number">OR</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            <strong>Question 2(b)</strong> — “When there is
+                            a change in Government at the Centre, the
+                            Governors also change.” In the context of this
+                            statement, examine the role of the Governor
+                            in India as a link between the Centre and the
+                            States. Can the Governor act according to his
+                            own discretion? Explain.
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">38 Marks</span>
+                            <span class="or-label">OR OPTION</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="question-group-title">
+                    Question 3. Answer either (a) or (b):
+                    (38 Marks)
+                </div>
+
+                <div class="question">
+                    <span class="q-number">3(a)</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            “Besides being a medium of communication,
+                            language has also been an effective symbol of
+                            identity.” In the light of this statement,
+                            analyse the political impact of linguistic
+                            identity in India.
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">38 Marks</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="q-number">OR</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            <strong>Question 3(b)</strong> — Write an essay
+                            on the political and constitutional changes in
+                            Jammu and Kashmir following the abrogation of
+                            Article 370.
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">38 Marks</span>
+                            <span class="or-label">OR OPTION</span>
+                        </div>
+                    </div>
+                </div>
 
             </div>
-        </div>
+        </section>
 
 
         <!-- SECTION II -->
 
-        <div class="section">
+        <section class="section">
 
             <h3 class="section-title">
-                Section II — 114 Marks
+                SECTION – II: INDIAN &amp; BIHAR GEOGRAPHY
             </h3>
 
-            <div class="section-description">
-                Answer the questions according to the instructions
-                and marks specified in the original question paper.
+            <div class="section-subtitle">
+                Total Marks: 114
             </div>
 
-            <div class="question-list">
+            <div class="questions">
 
-                <!-- Add the complete Section II questions here. -->
+                <div class="question-group-title">
+                    Question 4. Write short answers to the following questions:
+                </div>
 
                 <div class="question">
-                    <span class="question-number">1</span>
-                    <div class="question-content">
-                        <div class="question-text">
-                            Write your Section II question here.
+                    <span class="q-number">4(a)</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            Explain the climatic conditions and mechanism
+                            of winter rainfall in India, along with its
+                            spatial distribution.
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">8 Marks</span>
                         </div>
-                        <div class="question-meta">
-                            <span class="marks">Marks as prescribed</span>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="q-number">4(b)</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            Discuss the environmental and economic benefits
+                            of mangrove forests along the Indian coast,
+                            with suitable examples.
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">8 Marks</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="q-number">4(c)</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            What are the geographical conditions suitable
+                            for the cultivation of major types of millets
+                            in India? Explain with examples.
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">8 Marks</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="q-number">4(d)</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            Explain the ecological conditions suitable for
+                            the cultivation of Makhana (fox nuts). What
+                            measures are being taken by the Government to
+                            increase its production and improve its marketing?
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">7 Marks</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="q-number">4(e)</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            Discuss the growth and development of the
+                            automobile industry in and around four major
+                            metropolitan regions of India.
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">7 Marks</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="question-group-title">
+                    Question 5. Answer either (a) or (b):
+                    (38 Marks)
+                </div>
+
+                <div class="question">
+                    <span class="q-number">5(a)</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            “Peninsular India is richer in rock and mineral
+                            resources.” Discuss this statement with reference
+                            to its geological formations and the associated
+                            quarrying and mining activities.
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">38 Marks</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="q-number">OR</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            <strong>Question 5(b)</strong> — Distinguish
+                            between the alluvial and diluvial soils of India.
+                            Explain their processes of formation,
+                            characteristics and distribution patterns with
+                            suitable examples.
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">38 Marks</span>
+                            <span class="or-label">OR OPTION</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="question-group-title">
+                    Question 6. Answer either (a) or (b):
+                    (38 Marks)
+                </div>
+
+                <div class="question">
+                    <span class="q-number">6(a)</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            Discuss the causes and consequences of the
+                            out-migration of population from Bihar. Also,
+                            examine the measures taken by the State Government
+                            to stabilise the population and address
+                            migration-related challenges.
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">38 Marks</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="q-number">OR</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            <strong>Question 6(b)</strong> — Examine the
+                            ecological and economic benefits of solar
+                            energy generation in India, with suitable examples.
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">38 Marks</span>
+                            <span class="or-label">OR OPTION</span>
                         </div>
                     </div>
                 </div>
 
             </div>
-        </div>
+        </section>
 
 
         <!-- SECTION III -->
 
-        <div class="section">
+        <section class="section">
 
             <h3 class="section-title">
-                Section III — 72 Marks
+                SECTION – III: SCIENCE &amp; TECHNOLOGY
             </h3>
 
-            <div class="section-description">
-                Answer the following questions as directed.
+            <div class="section-subtitle">
+                Total Marks: 72
             </div>
 
-            <div class="question-list">
+            <div class="questions">
 
-                <!-- Add the complete Section III questions here. -->
+                <div class="question-group-title">
+                    Question 7. Write short answers to the following questions:
+                </div>
 
                 <div class="question">
-                    <span class="question-number">1</span>
-                    <div class="question-content">
-                        <div class="question-text">
-                            Write your Section III question here.
+                    <span class="q-number">7(a)</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            Explain how science and technology help improve
+                            agricultural productivity and food preservation.
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">6 Marks</span>
                         </div>
-                        <div class="question-meta">
-                            <span class="marks">Marks as prescribed</span>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="q-number">7(b)</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            What is cybercrime? Describe its different types
+                            and explain how technology helps minimise such crimes.
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">6 Marks</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="q-number">7(c)</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            “We need science and technology in every sphere
+                            of life, from the treatment of diseases such as
+                            cancer to booking train and air tickets.”
+                            Justify the statement.
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">6 Marks</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="q-number">7(d)</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            Describe how DNA fingerprinting helps in the
+                            field of forensic science.
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">6 Marks</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="q-number">7(e)</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            What is STEM education? Explain how it can help
+                            provide quality education in different regions
+                            of Bihar and prepare students for the future
+                            workforce.
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">6 Marks</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="q-number">7(f)</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            Explain how drone technology is contributing
+                            to national security in India, with suitable examples.
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">6 Marks</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="question-group-title">
+                    Question 8. Answer either (a) or (b):
+                    (36 Marks)
+                </div>
+
+                <div class="question">
+                    <span class="q-number">8(a)</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            Discuss how major milestones such as Chandrayaan
+                            and Mangalyaan have enhanced India's global
+                            standing in space exploration. Also, explain
+                            how these space missions and related space
+                            technologies benefit sectors such as agriculture,
+                            disaster management and urban planning.
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">36 Marks</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="q-number">OR</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            <strong>Question 8(b)</strong> — What is Wi-Fi?
+                            Explain how it has contributed to the development
+                            of the economy, infrastructure and higher
+                            education in India.
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">36 Marks</span>
+                            <span class="or-label">OR OPTION</span>
                         </div>
                     </div>
                 </div>
 
             </div>
-        </div>
+        </section>
 
     </div>
 
 
-    <!-- ====================================== -->
-    <!-- 69TH BPSC GENERAL STUDIES PAPER II     -->
-    <!-- ====================================== -->
+    <!-- ================================================== -->
+    <!-- 69TH BPSC GENERAL STUDIES PAPER II                 -->
+    <!-- ================================================== -->
 
-    <div id="paper69" class="paper">
+    <div class="paper" id="paper69">
 
         <div class="paper-heading">
-            <h2>69th BPSC — General Studies Paper II</h2>
+            <h2>69th BPSC Combined Competitive Examination</h2>
+            <h3>GENERAL STUDIES – II</h3>
 
             <div class="paper-info">
-                <span class="info-badge">Time: 3 Hours</span>
+                <span class="info-badge">Time Allowed: 3 Hours</span>
                 <span class="info-badge">Full Marks: 300</span>
-                <span class="info-badge">Mains Examination</span>
             </div>
         </div>
 
 
         <!-- SECTION I -->
 
-        <div class="section">
+        <section class="section">
 
             <h3 class="section-title">
-                Section I
+                SECTION – I: POLITICAL SCIENCE &amp; INDIAN CONSTITUTION
             </h3>
 
-            <div class="section-description">
-                Answer the following questions as directed.
+            <div class="section-subtitle">
+                Total Marks: 114
             </div>
 
-            <div class="question-list">
+            <div class="questions">
 
-                <!-- Add the complete 69th BPSC Section I questions here. -->
+                <div class="question-group-title">
+                    Question 1. Write short answers to the following questions:
+                </div>
 
                 <div class="question">
-                    <span class="question-number">1</span>
-                    <div class="question-content">
-                        <div class="question-text">
-                            Write your first question from the 69th
-                            BPSC General Studies Paper II here.
+                    <span class="q-number">1(a)</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            Critically examine the Basic Structure Doctrine
+                            of the Indian Constitution.
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">8 Marks</span>
                         </div>
-                        <div class="question-meta">
-                            <span class="marks">Marks as prescribed</span>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="q-number">1(b)</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            Is reservation for Economically Weaker Sections
+                            (EWS) justified? Comment.
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">8 Marks</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="q-number">1(c)</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            Critically describe the amendment procedure
+                            of the Indian Constitution.
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">8 Marks</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="q-number">1(d)</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            Explain how the Preamble of the Indian
+                            Constitution provides a blueprint for the
+                            goals and objectives of the Constitution.
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">7 Marks</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="q-number">1(e)</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            Describe how a caste census is likely to
+                            influence the politics of Bihar.
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">7 Marks</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="question-group-title">
+                    Question 2. Answer either (a) or (b):
+                    (38 Marks)
+                </div>
+
+                <div class="question">
+                    <span class="q-number">2(a)</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            Discuss the institutional relationship between
+                            the President and the Prime Minister under
+                            the Indian Constitution. Examine how their
+                            respective roles are evolving in the present context.
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">38 Marks</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="q-number">OR</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            <strong>Question 2(b)</strong> — “Indian
+                            federalism is fundamentally rooted in two
+                            simultaneous pursuits of nationhood: an embrace
+                            of State-based cultural diversities and a
+                            commitment to the larger Indian political unity.”
+                            Critically examine the nature of the Indian
+                            model of federalism in the light of this statement.
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">38 Marks</span>
+                            <span class="or-label">OR OPTION</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="question-group-title">
+                    Question 3. Answer either (a) or (b):
+                    (38 Marks)
+                </div>
+
+                <div class="question">
+                    <span class="q-number">3(a)</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            Discuss and analyse the fundamental principles
+                            of coalition politics in Bihar, particularly
+                            from the perspective of safeguarding and
+                            fulfilling national interests.
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">38 Marks</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="q-number">OR</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            <strong>Question 3(b)</strong> — Explain and
+                            evaluate the functioning of Local Self-Government,
+                            focusing on the empowerment of Panchayati Raj
+                            institutions and urban local bodies, with
+                            examples from the grassroots level in Bihar.
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">19 + 19 = 38 Marks</span>
+                            <span class="or-label">OR OPTION</span>
                         </div>
                     </div>
                 </div>
 
             </div>
-        </div>
+        </section>
 
 
         <!-- SECTION II -->
 
-        <div class="section">
+        <section class="section">
 
             <h3 class="section-title">
-                Section II
+                SECTION – II: INDIAN &amp; BIHAR GEOGRAPHY
             </h3>
 
-            <div class="section-description">
-                Answer the questions according to the original paper.
+            <div class="section-subtitle">
+                Total Marks: 114
             </div>
 
-            <div class="question-list">
+            <div class="questions">
 
-                <!-- Add the complete 69th BPSC Section II questions here. -->
+                <div class="question-group-title">
+                    Question 4. Write short answers to the following questions:
+                </div>
 
                 <div class="question">
-                    <span class="question-number">1</span>
-                    <div class="question-content">
-                        <div class="question-text">
-                            Write your Section II question here.
+                    <span class="q-number">4(a)</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            Analyse the mechanism and characteristics
+                            of the Indian monsoon system.
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">8 Marks</span>
                         </div>
-                        <div class="question-meta">
-                            <span class="marks">Marks as prescribed</span>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="q-number">4(b)</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            What are the major sources of energy in India?
+                            Are they sufficient to meet domestic requirements?
+                            Discuss possible alternative energy sources
+                            and critically evaluate their potential.
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">8 Marks</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="q-number">4(c)</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            Discuss the present state of the tourism industry
+                            in India and analyse its future prospects.
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">8 Marks</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="q-number">4(d)</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            Describe the distribution of Scheduled Caste
+                            and Scheduled Tribe populations in Bihar and
+                            comment on their socio-economic conditions.
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">7 Marks</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="q-number">4(e)</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            Divide India into its major physiographic
+                            divisions and describe the physiographic
+                            region to which Bihar belongs.
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">7 Marks</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="question-group-title">
+                    Question 5. Answer either (a) or (b):
+                    (38 Marks)
+                </div>
+
+                <div class="question">
+                    <span class="q-number">5(a)</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            Explain the factors affecting the climate of
+                            Bihar. Into how many agro-climatic zones is the
+                            State divided, and what are their characteristics?
+                            Describe the major seasons of Bihar and discuss
+                            their effects on agriculture.
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">38 Marks</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="q-number">OR</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            <strong>Question 5(b)</strong> — How are cities
+                            classified by the Census of India? Explain the
+                            population and growth rates of different
+                            categories of cities on the basis of the
+                            2011 Census. Also, discuss Bihar's population
+                            according to the 2011 Census and examine the
+                            trends in the State's working population.
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">38 Marks</span>
+                            <span class="or-label">OR OPTION</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="question-group-title">
+                    Question 6. Answer either (a) or (b):
+                    (38 Marks)
+                </div>
+
+                <div class="question">
+                    <span class="q-number">6(a)</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            Explain the trickle-down theory of economics,
+                            its major elements, benefits, limitations and
+                            criticisms in the context of economic planning
+                            in India.
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">38 Marks</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="q-number">OR</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            <strong>Question 6(b)</strong> — Describe the
+                            Indian monsoon system with reference to its
+                            nature, types, seasonal distribution, relationship
+                            with climate change, regional variations,
+                            associated terminology, the eastern and western
+                            jet streams, and its predictability.
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">38 Marks</span>
+                            <span class="or-label">OR OPTION</span>
                         </div>
                     </div>
                 </div>
 
             </div>
-        </div>
+        </section>
 
 
         <!-- SECTION III -->
 
-        <div class="section">
+        <section class="section">
 
             <h3 class="section-title">
-                Section III
+                SECTION – III: SCIENCE &amp; TECHNOLOGY
             </h3>
 
-            <div class="section-description">
-                Answer the questions as directed in the original paper.
+            <div class="section-subtitle">
+                Total Marks: 72
             </div>
 
-            <div class="question-list">
+            <div class="questions">
 
-                <!-- Add the complete 69th BPSC Section III questions here. -->
+                <div class="question-group-title">
+                    Question 7. Write short answers to the following questions:
+                </div>
 
                 <div class="question">
-                    <span class="question-number">1</span>
-                    <div class="question-content">
-                        <div class="question-text">
-                            Write your Section III question here.
+                    <span class="q-number">7(a)</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            What is the role of computers in modern society?
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">8 Marks</span>
                         </div>
-                        <div class="question-meta">
-                            <span class="marks">Marks as prescribed</span>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="q-number">7(b)</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            Discuss the relationship between technology
+                            and social development, with suitable examples.
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">7 Marks</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="q-number">7(c)</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            Discuss the role of science and technology
+                            in the industrial development of Bihar.
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">7 Marks</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="q-number">7(d)</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            Explain how modern technology helped India
+                            during the COVID-19 pandemic.
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">7 Marks</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="q-number">7(e)</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            Write a note on the role of technology
+                            in sustainable development.
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">7 Marks</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="question-group-title">
+                    Question 8. Answer either (a) or (b):
+                    (36 Marks)
+                </div>
+
+                <div class="question">
+                    <span class="q-number">8(a)</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            “The misuse and improper application of technology
+                            lead to environmental pollution and climate change.”
+                            Discuss, with suitable examples, how the misuse
+                            of technology has become a major environmental
+                            challenge in India.
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">36 Marks</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="q-number">OR</span>
+                    <div class="q-content">
+                        <p class="q-text">
+                            <strong>Question 8(b)</strong> — Nanotechnology
+                            has enormous potential to revolutionise human
+                            life. Discuss its emerging applications in
+                            human health, with suitable examples.
+                        </p>
+                        <div class="q-meta">
+                            <span class="marks">36 Marks</span>
+                            <span class="or-label">OR OPTION</span>
                         </div>
                     </div>
                 </div>
 
             </div>
-        </div>
+        </section>
 
     </div>
 
-</div>
+</main>
 
-<div class="footer">
-    BPSC Study Portal | General Studies Paper II | Previous Year Questions
-</div>
+<footer class="footer">
+    BPSC STUDY PORTAL | General Studies Paper II | 69th &amp; 70th PYQ
+    <br>
+    Questions organised for study and revision.
+</footer>
 
 
 <script>
 function showPaper(paperId, button) {
 
-    // Hide all question papers
     document.querySelectorAll(".paper").forEach(function(paper) {
         paper.classList.remove("active");
     });
 
-    // Remove active state from all tab buttons
-    document.querySelectorAll(".tab-button").forEach(function(tab) {
+    document.querySelectorAll(".tab-btn").forEach(function(tab) {
         tab.classList.remove("active");
     });
 
-    // Display the selected question paper
     document.getElementById(paperId).classList.add("active");
-
-    // Highlight the selected tab
     button.classList.add("active");
 
-    // Scroll to the top of the question paper
     window.scrollTo({
         top: 0,
         behavior: "smooth"
     });
 }
+
+function printCurrentPaper() {
+
+    const activePaper = document.querySelector(".paper.active");
+    const inactivePaper = document.querySelector(".paper:not(.active)");
+
+    if (activePaper) {
+        document.body.classList.add("printing-current");
+        window.print();
+        document.body.classList.remove("printing-current");
+    }
+}
 </script>
+
+<style>
+@media print {
+    body.printing-current .paper {
+        display: none !important;
+    }
+
+    body.printing-current .paper.active {
+        display: block !important;
+    }
+}
+</style>
 
 </body>
 </html>
