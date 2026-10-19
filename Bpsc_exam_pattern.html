@@ -1,259 +1,549 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>BPSC Exam Pattern 2026 | Orient Classes</title>
+<title>BPSC Exam Pattern 2026 | Orient Classes</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+<style>
+* {
+    box-sizing: border-box;
+}
 
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f3f6fb;
-            color: #263445;
-            line-height: 1.7;
-        }
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f3f6fb;
+    color: #263445;
+    line-height: 1.7;
+}
 
-        header {
-            background: linear-gradient(135deg, #102b52, #1765a8);
-            color: white;
-            text-align: center;
-            padding: 25px 15px;
-            border-bottom: 5px solid #f4c542;
-        }
+/* HEADER */
 
-        header h1 {
-            margin: 0;
-            font-size: 30px;
-        }
+header {
+    background: linear-gradient(135deg, #102b52, #1765a8);
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+    border-bottom: 5px solid #f4c542;
+}
 
-        header p {
-            margin: 5px 0 0;
-        }
+header h1 {
+    margin: 0;
+    font-size: 30px;
+}
 
-        .container {
-            max-width: 1100px;
-            margin: 25px auto;
-            padding: 0 15px;
-        }
+header p {
+    margin: 5px 0 0;
+}
 
-        .content-box {
-            background: white;
-            padding: 25px;
-            margin-bottom: 22px;
-            border-radius: 12px;
-            border: 1px solid #dce4ef;
-            box-shadow: 0 4px 14px rgba(16, 43, 82, 0.07);
-        }
+/* TOP NAVIGATION */
 
-        h2 {
-            color: #102b52;
-            border-bottom: 3px solid #f4c542;
-            padding-bottom: 8px;
-            margin-top: 0;
-        }
+.topnav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 7px;
+    background: #ffdc68;
+    padding: 10px;
+}
 
-        h3 {
-            color: #174f91;
-            margin-top: 22px;
-        }
+.topnav a {
+    color: #102b52;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 7px 12px;
+    border-radius: 7px;
+}
 
-        .subtitle {
-            color: #174f91;
-            font-size: 21px;
-            font-weight: bold;
-        }
+.topnav a:hover {
+    background: white;
+}
 
-        .important {
-            background: #fff6d9;
-            border-left: 5px solid #f4c542;
-            padding: 14px;
-            margin: 18px 0;
-            border-radius: 5px;
-        }
+/* MAIN LAYOUT */
 
-        .warning {
-            background: #fff0ee;
-            border-left: 5px solid #d92d20;
-            padding: 14px;
-            margin: 18px 0;
-            border-radius: 5px;
-        }
+.layout {
+    max-width: 1500px;
+    margin: 22px auto;
+    padding: 0 15px;
+    display: grid;
+    grid-template-columns: 250px minmax(0, 1fr);
+    gap: 20px;
+}
 
-        .table-wrapper {
-            width: 100%;
-            overflow-x: auto;
-            margin: 15px 0 22px;
-        }
+/* LEFT SIDEBAR */
 
-        table {
-            width: 100%;
-            min-width: 550px;
-            border-collapse: collapse;
-            background: white;
-        }
+.sidebar {
+    position: sticky;
+    top: 12px;
+    align-self: start;
+    max-height: calc(100vh - 24px);
+    overflow-y: auto;
+    background: white;
+    border: 1px solid #dce4ef;
+    border-radius: 12px;
+    padding: 14px;
+    box-shadow: 0 4px 15px #102b520b;
+}
 
-        th {
-            background: #102b52;
-            color: white;
-            text-align: left;
-        }
+.sidebar h2 {
+    font-size: 18px;
+    color: #102b52;
+    margin: 0 0 10px;
+    padding-bottom: 9px;
+    border-bottom: 3px solid #f4c542;
+}
 
-        th, td {
-            border: 1px solid #dce4ef;
-            padding: 11px;
-            vertical-align: top;
-        }
+.sidebar a,
+.sidebar button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    border: 0;
+    border-radius: 7px;
+    background: transparent;
+    color: #26374d;
+    text-decoration: none;
+    padding: 9px 10px;
+    margin: 3px 0;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+}
 
-        tbody tr:nth-child(even) {
-            background: #f3f7fc;
-        }
+.sidebar a:hover,
+.sidebar button:hover,
+.sidebar a.active {
+    background: #eaf2ff;
+    color: #124d8c;
+}
 
-        ul, ol {
-            padding-left: 25px;
-        }
+/* SUBJECT SUBMENU */
 
-        li {
-            margin-bottom: 7px;
-        }
+.subnav {
+    margin: 3px 0 8px 11px;
+    padding-left: 10px;
+    border-left: 2px solid #d4e3f8;
+}
 
-        .stages {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin: 20px 0;
-        }
+.subnav a {
+    font-size: 13px;
+}
 
-        .stage {
-            flex: 1 1 200px;
-            padding: 18px;
-            text-align: center;
-            background: #eaf2ff;
-            border: 1px solid #cbdcf4;
-            border-radius: 10px;
-            font-weight: bold;
-            color: #102b52;
-        }
+/* MOCK TEST BUTTON */
 
-        .priority-high {
-            color: #b42318;
-            font-weight: bold;
-        }
+.mock {
+    margin-top: 12px !important;
+    background: #d92d20 !important;
+    color: white !important;
+    text-align: center !important;
+    font-weight: 800 !important;
+    animation: pulse 1.8s infinite;
+}
 
-        .priority-medium {
-            color: #8a5a00;
-            font-weight: bold;
-        }
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 #d92d2055;
+    }
 
-        a {
-            color: #145da0;
-            font-weight: bold;
-        }
+    70% {
+        box-shadow: 0 0 0 8px #d92d2000;
+    }
 
-        a:hover {
-            color: #d97706;
-        }
+    100% {
+        box-shadow: 0 0 0 0 #d92d2000;
+    }
+}
 
-        footer {
-            background: #102b52;
-            color: white;
-            text-align: center;
-            padding: 22px 12px;
-            margin-top: 30px;
-        }
+/* CONTENT */
 
-        footer p {
-            margin: 4px;
-        }
+main {
+    min-width: 0;
+}
 
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 24px;
-            }
+.hero,
+.card {
+    background: white;
+    border: 1px solid #dce4ef;
+    border-radius: 13px;
+    padding: 22px;
+    margin-bottom: 18px;
+    box-shadow: 0 4px 15px #102b5208;
+}
 
-            .container {
-                padding: 0 10px;
-                margin: 15px auto;
-            }
+.badge {
+    display: inline-block;
+    background: #fff1bd;
+    color: #604900;
+    border-radius: 30px;
+    padding: 4px 11px;
+    font-weight: bold;
+    font-size: 13px;
+}
 
-            .content-box {
-                padding: 16px;
-            }
+h2 {
+    color: #102b52;
+    margin: 0 0 13px;
+    font-size: 24px;
+}
 
-            h2 {
-                font-size: 21px;
-            }
+h3 {
+    color: #174f91;
+    margin: 20px 0 8px;
+    font-size: 19px;
+}
 
-            .subtitle {
-                font-size: 18px;
-            }
-        }
-    </style>
+p {
+    margin: 8px 0;
+}
+
+/* TABLES */
+
+.table-wrap {
+    overflow-x: auto;
+    margin: 13px 0 20px;
+    border: 1px solid #dce4ef;
+    border-radius: 8px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 560px;
+    background: white;
+}
+
+th {
+    background: #102b52;
+    color: white;
+    text-align: left;
+}
+
+th,
+td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #dce4ef;
+    vertical-align: top;
+}
+
+tbody tr:nth-child(even) {
+    background: #f4f7fc;
+}
+
+tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+/* NOTICE BOXES */
+
+.notice {
+    padding: 14px 15px;
+    border-left: 5px solid #f4c542;
+    background: #fff7dc;
+    border-radius: 6px;
+    margin: 15px 0;
+}
+
+.warning {
+    padding: 14px 15px;
+    border-left: 5px solid #d92d20;
+    background: #fff0ee;
+    border-radius: 6px;
+    margin: 15px 0;
+}
+
+/* EXAM STAGES */
+
+.stages {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+}
+
+.stage {
+    background: #edf4ff;
+    border: 1px solid #d2e2f8;
+    border-radius: 9px;
+    padding: 14px;
+    text-align: center;
+}
+
+.stage strong {
+    display: block;
+    color: #102b52;
+}
+
+ul,
+ol {
+    padding-left: 24px;
+}
+
+li {
+    margin: 5px 0;
+}
+
+a {
+    color: #145da0;
+}
+
+/* FOOTER */
+
+footer {
+    background: #102b52;
+    color: #edf4ff;
+    text-align: center;
+    padding: 22px 12px;
+    margin-top: 25px;
+}
+
+footer p {
+    margin: 4px;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 850px) {
+    .layout {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        position: relative;
+        top: auto;
+        max-height: none;
+    }
+
+    .stages {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 520px) {
+    .layout {
+        padding: 0 10px;
+        margin: 12px auto;
+        gap: 12px;
+    }
+
+    .hero,
+    .card {
+        padding: 15px;
+    }
+
+    .topnav {
+        gap: 3px;
+    }
+
+    .topnav a {
+        padding: 6px 8px;
+        font-size: 13px;
+    }
+
+    h2 {
+        font-size: 21px;
+    }
+}
+</style>
 </head>
 
 <body>
 
+<!-- HEADER -->
+
 <header>
     <h1>Orient Classes</h1>
-    <p>BPSC Preparation | Study Smart, Achieve Success</p>
+    <p>BPSC Preparation • Learn Today, Lead Tomorrow</p>
 </header>
 
-<div class="container">
+<!-- TOP NAVIGATION -->
+
+<nav class="topnav">
+    <a href="index.html">Home</a>
+    <a href="BPSC_Syllabus.html">Syllabus</a>
+    <a href="BPSC_Exam_Pattern.html">Exam Pattern</a>
+    <a href="BPSC_Cutoff.html">Cut-Off Trends</a>
+    <a href="Current_Affairs.html">Current Affairs</a>
+</nav>
+
+<div class="layout">
+
+<!-- LEFT SIDEBAR -->
+
+<aside class="sidebar">
+
+    <h2>BPSC Navigation</h2>
+
+    <a href="index.html">⌂ Home Page</a>
+
+    <a href="BPSC_Syllabus.html">▤ Syllabus</a>
+
+    <a class="active" href="BPSC_Exam_Pattern.html">
+        ▣ Exam Pattern
+    </a>
+
+    <a href="BPSC_Cutoff.html">▥ Cut-Off Trends</a>
+
+    <a href="BPSC_Vacancy.html">♙ Vacancies</a>
+
+    <a href="BPSC_Prelims_PYQ.html">✎ Prelims PYQ</a>
+
+    <a href="BPSC_Mains_PYQ.html">✎ Mains PYQ</a>
+
+    <button type="button"
+            onclick="toggleSubjects()"
+            aria-expanded="false"
+            id="subjectToggle">
+        ＋ Subject-wise Notes
+    </button>
+
+    <div class="subnav" id="subjectLinks" hidden>
+
+        <a href="BPSC_History.html">History</a>
+
+        <a href="BPSC_Geography.html">Geography</a>
+
+        <a href="BPSC_Polity.html">Indian Polity</a>
+
+        <a href="BPSC_Economy.html">Indian Economy</a>
+
+        <a href="BPSC_Science.html">General Science</a>
+
+        <a href="BPSC_Bihar_Special.html">Bihar Special</a>
+
+        <a href="BPSC_Environment.html">Environment</a>
+
+    </div>
+
+    <a href="Current_Affairs.html">▤ Current Affairs</a>
+
+    <a class="mock" href="BPSC_Mock_Tests.html">
+        ▶ ATTEMPT MOCK TEST
+    </a>
+
+</aside>
+
+<!-- MAIN CONTENT -->
+
+<main>
 
     <!-- INTRODUCTION -->
 
-    <section class="content-box">
-        <h2>BPSC Exam Pattern 2026</h2>
+    <section class="hero">
 
-        <p class="subtitle">
-            72nd BPSC Combined Competitive Examination (CCE)
-        </p>
+        <span class="badge">BPSC • 2026</span>
+
+        <h2 style="margin-top:10px;">
+            Bihar Public Service Commission (BPSC) – Exam Pattern 2026
+        </h2>
+
+        <h3 style="margin-top:0;">
+            72nd Combined Competitive Examination (CCE)
+        </h3>
+
+        <h3>1. Introduction</h3>
 
         <p>
             The Bihar Public Service Commission (BPSC) conducts the
             Combined Competitive Examination (CCE) to recruit candidates
-            for various administrative and other government positions in Bihar.
+            for various administrative posts in Bihar. The selection
+            process consists of three stages: Preliminary Examination,
+            Main Examination and Interview.
         </p>
 
-        <p>The selection process generally consists of three stages:</p>
-
         <div class="stages">
+
             <div class="stage">
-                1. Preliminary Examination
-                <br>(Prelims)
+                <strong>1. Preliminary Examination</strong>
+                Prelims
             </div>
 
             <div class="stage">
-                2. Main Examination
-                <br>(Mains)
+                <strong>2. Main Examination</strong>
+                Mains
             </div>
 
             <div class="stage">
-                3. Interview
-                <br>(Personality Test)
+                <strong>3. Interview</strong>
+                Personality Test
             </div>
+
         </div>
 
-        <div class="important">
+        <div class="notice">
             <strong>Important:</strong>
-            The latest official notification should be treated as the final
-            authority for the examination pattern, marks, and qualifying requirements.
+            The latest official notification should be treated as the
+            final authority for the examination pattern, marks, and
+            qualifying requirements.
         </div>
+
     </section>
 
+    <!-- EXAM STRUCTURE -->
+
+    <section class="card" id="structure">
+
+        <h2>2. BPSC Exam Structure</h2>
+
+        <div class="table-wrap">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Stage</th>
+                        <th>Type of Examination</th>
+                        <th>Duration</th>
+                        <th>Marks</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Preliminary Examination</td>
+                        <td>Objective (MCQs)</td>
+                        <td>2 Hours</td>
+                        <td>150</td>
+                    </tr>
+
+                    <tr>
+                        <td>Main Examination</td>
+                        <td>Descriptive + Qualifying Objective Paper</td>
+                        <td>
+                            3 Hours per descriptive paper;
+                            2 Hours for optional paper
+                        </td>
+                        <td>1,100</td>
+                    </tr>
+
+                    <tr>
+                        <td>Interview</td>
+                        <td>Personality Test</td>
+                        <td>As prescribed by BPSC</td>
+                        <td>120</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
 
     <!-- PRELIMS -->
 
-    <section class="content-box">
-        <h2>1. BPSC Prelims Exam Pattern</h2>
+    <section class="card" id="prelims">
 
-        <div class="table-wrapper">
+        <h2>3. Preliminary Examination (Prelims)</h2>
+
+        <div class="table-wrap">
+
             <table>
+
                 <thead>
                     <tr>
                         <th>Particulars</th>
@@ -262,13 +552,9 @@
                 </thead>
 
                 <tbody>
-                    <tr>
-                        <td>Examination</td>
-                        <td>Preliminary Examination</td>
-                    </tr>
 
                     <tr>
-                        <td>Type of Questions</td>
+                        <td>Examination Type</td>
                         <td>Objective (MCQs)</td>
                     </tr>
 
@@ -278,7 +564,7 @@
                     </tr>
 
                     <tr>
-                        <td>Total Marks</td>
+                        <td>Maximum Marks</td>
                         <td>150</td>
                     </tr>
 
@@ -288,141 +574,149 @@
                     </tr>
 
                     <tr>
-                        <td>Subject</td>
-                        <td>General Studies</td>
+                        <td>Correct Answer</td>
+                        <td>+1 Mark</td>
                     </tr>
 
                     <tr>
-                        <td>Negative Marking</td>
-                        <td>
-                            1/3 mark for each incorrect answer,
-                            as specified in the notification
-                        </td>
+                        <td>Incorrect Answer</td>
+                        <td>−1/3 Mark</td>
                     </tr>
 
                     <tr>
-                        <td>Purpose</td>
-                        <td>Screening candidates for the Mains Examination</td>
+                        <td>Nature</td>
+                        <td>Qualifying</td>
                     </tr>
+
+                    <tr>
+                        <td>Marks Included in Final Merit</td>
+                        <td>No</td>
+                    </tr>
+
+                    <tr>
+                        <td>Question Paper Language</td>
+                        <td>Hindi and English</td>
+                    </tr>
+
                 </tbody>
+
             </table>
+
         </div>
 
-        <h3>BPSC Prelims Syllabus</h3>
+        <div class="notice">
+            <strong>Revised Answer Format:</strong>
+            Option E (Not Attempted) has been introduced, according to
+            the supplied reference. Candidates should follow the latest
+            official instructions regarding unanswered questions and
+            negative marking.
+        </div>
 
-        <div class="table-wrapper">
+    </section>
+
+    <!-- MAINS -->
+
+    <section class="card" id="mains">
+
+        <h2>4. Main Examination (Mains)</h2>
+
+        <div class="table-wrap">
+
             <table>
+
                 <thead>
                     <tr>
-                        <th>S. No.</th>
+                        <th>Paper</th>
                         <th>Subject</th>
-                        <th>Important Topics</th>
+                        <th>Marks</th>
+                        <th>Duration</th>
+                        <th>Nature</th>
                     </tr>
                 </thead>
 
                 <tbody>
+
                     <tr>
-                        <td>1</td>
-                        <td>Indian History</td>
-                        <td>Ancient, Medieval and Modern Indian History</td>
+                        <td>Paper I</td>
+                        <td>General Hindi</td>
+                        <td>100</td>
+                        <td>3 Hours</td>
+                        <td>Qualifying</td>
                     </tr>
 
                     <tr>
-                        <td>2</td>
-                        <td>Bihar History</td>
-                        <td>Historical events, movements and personalities of Bihar</td>
+                        <td>Paper II</td>
+                        <td>General Studies Paper I</td>
+                        <td>300</td>
+                        <td>3 Hours</td>
+                        <td>Merit</td>
                     </tr>
 
                     <tr>
-                        <td>3</td>
-                        <td>Indian Geography</td>
-                        <td>Physical, economic and human geography</td>
+                        <td>Paper III</td>
+                        <td>General Studies Paper II</td>
+                        <td>300</td>
+                        <td>3 Hours</td>
+                        <td>Merit</td>
                     </tr>
 
                     <tr>
-                        <td>4</td>
-                        <td>Bihar Geography</td>
-                        <td>Rivers, climate, agriculture, minerals and resources</td>
+                        <td>Paper IV</td>
+                        <td>Essay</td>
+                        <td>300</td>
+                        <td>3 Hours</td>
+                        <td>Merit</td>
                     </tr>
 
                     <tr>
-                        <td>5</td>
-                        <td>Indian Polity</td>
-                        <td>
-                            Constitution, Parliament, President, Judiciary
-                            and Fundamental Rights
-                        </td>
+                        <td>Paper V</td>
+                        <td>Optional Subject</td>
+                        <td>100</td>
+                        <td>2 Hours</td>
+                        <td>Qualifying</td>
                     </tr>
 
                     <tr>
-                        <td>6</td>
-                        <td>Indian Economy</td>
-                        <td>Economic development, planning, poverty and unemployment</td>
+                        <td colspan="2"><strong>Total</strong></td>
+                        <td><strong>1,100</strong></td>
+                        <td></td>
+                        <td></td>
                     </tr>
 
-                    <tr>
-                        <td>7</td>
-                        <td>General Science</td>
-                        <td>Physics, Chemistry, Biology and everyday science</td>
-                    </tr>
-
-                    <tr>
-                        <td>8</td>
-                        <td>Current Affairs</td>
-                        <td>National and international events</td>
-                    </tr>
-
-                    <tr>
-                        <td>9</td>
-                        <td>Bihar Special</td>
-                        <td>Bihar's economy, culture, history and development</td>
-                    </tr>
-
-                    <tr>
-                        <td>10</td>
-                        <td>General Mental Ability</td>
-                        <td>Basic reasoning and mental ability</td>
-                    </tr>
                 </tbody>
+
             </table>
+
         </div>
 
-        <h3>Negative Marking</h3>
-
-        <p>
-            Under the applicable examination rules, candidates should carefully
-            follow the instructions regarding unanswered questions and the fifth
-            option (E).
-        </p>
-
-        <div class="warning">
-            For the 72nd BPSC examination, verify the exact rules in the latest
-            official notification before attempting the paper.
-        </div>
     </section>
 
+    <!-- QUALIFYING MARKS -->
 
-    <!-- MINIMUM QUALIFYING MARKS -->
+    <section class="card" id="qualifying">
 
-    <section class="content-box">
-        <h2>2. Minimum Qualifying Marks</h2>
+        <h2>5. Qualifying Marks</h2>
 
-        <p>
-            The following qualifying percentages have been used in BPSC examinations:
-        </p>
+        <div class="table-wrap">
 
-        <div class="table-wrapper">
             <table>
+
                 <thead>
                     <tr>
                         <th>Category</th>
-                        <th>Minimum Qualifying Percentage</th>
+                        <th>Minimum Qualifying Marks</th>
                     </tr>
                 </thead>
 
                 <tbody>
+
                     <tr>
-                        <td>General / Unreserved</td>
+                        <td>General Hindi</td>
+                        <td>30% (as stated in the supplied reference)</td>
+                    </tr>
+
+                    <tr>
+                        <td>General Category — Optional Paper</td>
                         <td>40%</td>
                     </tr>
 
@@ -437,141 +731,33 @@
                     </tr>
 
                     <tr>
-                        <td>Scheduled Castes (SC)</td>
+                        <td>SC/ST, Women and Persons with Disabilities</td>
                         <td>32%</td>
                     </tr>
 
-                    <tr>
-                        <td>Scheduled Tribes (ST)</td>
-                        <td>32%</td>
-                    </tr>
-
-                    <tr>
-                        <td>Women</td>
-                        <td>32%</td>
-                    </tr>
                 </tbody>
+
             </table>
-        </div>
 
-        <div class="important">
-            <strong>Note:</strong>
-            These are commonly prescribed minimum qualifying percentages.
-            Check the applicable notification for the specific examination
-            and category. The actual cutoff may be higher.
-        </div>
-    </section>
-
-
-    <!-- MAINS -->
-
-    <section class="content-box">
-        <h2>3. BPSC Mains Exam Pattern</h2>
-
-        <p>
-            The Mains Examination consists of descriptive papers.
-            The exact structure and marks must be checked against the
-            relevant examination notification.
-        </p>
-
-        <p><strong>A commonly cited BPSC Mains structure is:</strong></p>
-
-        <div class="table-wrapper">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Paper</th>
-                        <th>Subject</th>
-                        <th>Marks</th>
-                        <th>Nature</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <tr>
-                        <td>Paper I</td>
-                        <td>General Hindi</td>
-                        <td>100</td>
-                        <td>Qualifying</td>
-                    </tr>
-
-                    <tr>
-                        <td>Paper II</td>
-                        <td>General Studies Paper I</td>
-                        <td>300</td>
-                        <td>Merit</td>
-                    </tr>
-
-                    <tr>
-                        <td>Paper III</td>
-                        <td>General Studies Paper II</td>
-                        <td>300</td>
-                        <td>Merit</td>
-                    </tr>
-
-                    <tr>
-                        <td>Paper IV</td>
-                        <td>Essay</td>
-                        <td>300</td>
-                        <td>Merit</td>
-                    </tr>
-
-                    <tr>
-                        <td>Paper V</td>
-                        <td>Optional Subject</td>
-                        <td>100</td>
-                        <td>Qualifying</td>
-                    </tr>
-
-                    <tr>
-                        <td colspan="2"><strong>Total</strong></td>
-                        <td><strong>1,100</strong></td>
-                        <td>As shown in this commonly cited structure</td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
 
         <div class="warning">
-            <strong>Important:</strong>
-            Do not assume this table applies unchanged to every BPSC CCE cycle.
-            Confirm the number of papers, optional-subject requirements and
-            merit calculation from the latest official notification.
+            The qualifying requirements should be checked against
+            the applicable official notification.
         </div>
 
-        <h3>General Studies Paper I</h3>
-
-        <p>Important areas include:</p>
-
-        <ul>
-            <li>Modern Indian History</li>
-            <li>Indian National Movement</li>
-            <li>Indian culture</li>
-            <li>Contemporary events</li>
-            <li>Statistical analysis and related topics</li>
-        </ul>
-
-        <h3>General Studies Paper II</h3>
-
-        <p>Important areas include:</p>
-
-        <ul>
-            <li>Indian Constitution and Polity</li>
-            <li>Indian Economy</li>
-            <li>Geography of India</li>
-            <li>Science and Technology</li>
-            <li>Bihar-specific issues</li>
-        </ul>
     </section>
-
 
     <!-- INTERVIEW -->
 
-    <section class="content-box">
-        <h2>4. BPSC Interview Pattern</h2>
+    <section class="card" id="interview">
 
-        <div class="table-wrapper">
+        <h2>6. Interview (Personality Test)</h2>
+
+        <div class="table-wrap">
+
             <table>
+
                 <thead>
                     <tr>
                         <th>Particulars</th>
@@ -580,170 +766,161 @@
                 </thead>
 
                 <tbody>
+
                     <tr>
-                        <td>Stage</td>
-                        <td>Interview / Personality Test</td>
+                        <td>Maximum Marks</td>
+                        <td>120</td>
+                    </tr>
+
+                    <tr>
+                        <td>Nature</td>
+                        <td>Personality Test</td>
                     </tr>
 
                     <tr>
                         <td>Purpose</td>
-                        <td>Assess personality and administrative suitability</td>
+                        <td>
+                            Assessment of personality and administrative suitability
+                        </td>
                     </tr>
 
                     <tr>
-                        <td>Important Areas</td>
+                        <td>Candidates Called</td>
                         <td>
-                            General awareness, Bihar, current affairs,
-                            decision-making and personal background
+                            According to the commission's selection rules
                         </td>
                     </tr>
+
                 </tbody>
+
             </table>
+
         </div>
 
-        <p>
-            The interview marks and their contribution to the final merit list
-            depend on the applicable examination rules.
-        </p>
     </section>
-
 
     <!-- FINAL MERIT -->
 
-    <section class="content-box">
-        <h2>5. How Is the Final Merit List Prepared?</h2>
+    <section class="card" id="merit">
 
-        <p><strong>The general selection process is:</strong></p>
+        <h2>7. Final Merit Calculation</h2>
 
-        <div class="stages">
-            <div class="stage">Prelims</div>
-            <div class="stage">Mains</div>
-            <div class="stage">Interview</div>
-            <div class="stage">Final Merit List</div>
-        </div>
+        <div class="table-wrap">
 
-        <ul>
-            <li>
-                <strong>Prelims:</strong>
-                Screens candidates for the Mains Examination.
-            </li>
-
-            <li>
-                <strong>Mains:</strong>
-                Tests subject knowledge, analytical ability and written expression.
-            </li>
-
-            <li>
-                <strong>Interview:</strong>
-                Assesses personality and suitability for administrative responsibilities.
-            </li>
-
-            <li>
-                <strong>Final Merit List:</strong>
-                Prepared according to the marks and rules specified in the
-                official notification.
-            </li>
-        </ul>
-    </section>
-
-
-    <!-- PREPARATION STRATEGY -->
-
-    <section class="content-box">
-        <h2>6. Preparation Strategy for BPSC Prelims</h2>
-
-        <p>
-            For effective preparation, divide your study time among the following areas:
-        </p>
-
-        <div class="table-wrapper">
             <table>
+
                 <thead>
                     <tr>
-                        <th>Priority</th>
-                        <th>Subject</th>
-                        <th>Preparation Focus</th>
+                        <th>Component</th>
+                        <th>Marks</th>
                     </tr>
                 </thead>
 
                 <tbody>
+
                     <tr>
-                        <td class="priority-high">High</td>
-                        <td>Modern Indian History</td>
-                        <td>
-                            British expansion, Governor-Generals,
-                            Revolt of 1857 and National Movement
-                        </td>
+                        <td>General Studies Paper I</td>
+                        <td>300</td>
                     </tr>
 
                     <tr>
-                        <td class="priority-high">High</td>
-                        <td>Indian Polity</td>
-                        <td>
-                            Constitution, Parliament, Fundamental Rights
-                            and constitutional bodies
-                        </td>
+                        <td>General Studies Paper II</td>
+                        <td>300</td>
                     </tr>
 
                     <tr>
-                        <td class="priority-high">High</td>
-                        <td>Geography</td>
-                        <td>
-                            Indian physiography, rivers, climate
-                            and Bihar geography
-                        </td>
+                        <td>Essay</td>
+                        <td>300</td>
                     </tr>
 
                     <tr>
-                        <td class="priority-high">High</td>
-                        <td>General Science</td>
-                        <td>Biology, Physics, Chemistry and everyday science</td>
+                        <td>Interview</td>
+                        <td>120</td>
                     </tr>
 
                     <tr>
-                        <td class="priority-high">High</td>
-                        <td>Current Affairs</td>
-                        <td>Bihar, national and international developments</td>
+                        <td><strong>Total Merit Marks</strong></td>
+                        <td><strong>1,020</strong></td>
                     </tr>
 
-                    <tr>
-                        <td class="priority-medium">Medium</td>
-                        <td>Ancient and Medieval History</td>
-                        <td>Mauryas, Guptas, Delhi Sultanate and Mughals</td>
-                    </tr>
-
-                    <tr>
-                        <td class="priority-medium">Medium</td>
-                        <td>Economy</td>
-                        <td>
-                            Basic concepts, inflation, banking
-                            and government schemes
-                        </td>
-                    </tr>
                 </tbody>
+
             </table>
+
         </div>
 
-        <h3>Recommended Practice Plan</h3>
+        <p>
+            General Hindi, the qualifying optional paper and Prelims
+            marks are excluded from the merit calculation under the
+            structure described in the supplied reference.
+        </p>
 
-        <ol>
-            <li>Study important topics based on previous-year questions.</li>
-            <li>Revise factual information regularly.</li>
-            <li>Solve topic-wise MCQs after completing each chapter.</li>
-            <li>Attempt full-length mock tests under timed conditions.</li>
-            <li>Analyse incorrect answers and revise weak areas.</li>
-        </ol>
     </section>
 
+    <!-- SELECTION PROCESS -->
+
+    <section class="card" id="selection">
+
+        <h2>8. Selection Process</h2>
+
+        <div class="stages">
+
+            <div class="stage">
+                <strong>Prelims</strong>
+                Screening examination
+            </div>
+
+            <div class="stage">
+                <strong>Mains</strong>
+                Written examination and qualifying papers
+            </div>
+
+            <div class="stage">
+                <strong>Interview</strong>
+                Personality assessment
+            </div>
+
+        </div>
+
+        <p>
+            <strong>Selection sequence:</strong>
+            Prelims → Mains → Interview → Final Merit List
+        </p>
+
+        <ul>
+
+            <li>
+                <strong>Prelims:</strong>
+                Screening examination.
+            </li>
+
+            <li>
+                <strong>Mains:</strong>
+                Written examination and qualifying papers.
+            </li>
+
+            <li>
+                <strong>Interview:</strong>
+                Personality assessment.
+            </li>
+
+            <li>
+                <strong>Final Selection:</strong>
+                Based on merit and the applicable BPSC rules.
+            </li>
+
+        </ul>
+
+    </section>
 
     <!-- OFFICIAL WEBSITE -->
 
-    <section class="content-box">
+    <section class="card" id="official">
+
         <h2>Official Website</h2>
 
         <p>
-            For the latest notification, syllabus, examination dates and
-            official instructions, visit the
+            For the latest notification and examination rules, visit the
             <a href="https://bpsc.bihar.gov.in/"
                target="_blank"
                rel="noopener noreferrer">
@@ -755,23 +932,52 @@
             <a href="https://bpsc.bihar.gov.in/exam-calendar/"
                target="_blank"
                rel="noopener noreferrer">
-                View Official BPSC Exam Calendar
+                Official BPSC Exam Calendar
             </a>
         </p>
 
-        <div class="important">
-            Always verify examination details from the latest official
-            notification applicable to your examination cycle.
+        <div class="warning">
+            <strong>Note:</strong>
+            This is a concise exam-pattern summary based on your supplied
+            reference. Confirm the applicable paper structure, optional-paper
+            requirement and marking rules in the latest official notification
+            for the 72nd BPSC CCE.
         </div>
+
     </section>
 
+</main>
+
 </div>
+
+<!-- FOOTER -->
 
 <footer>
     <p><strong>Orient Classes</strong></p>
     <p>BPSC Exam Pattern 2026</p>
     <p>Learn Today • Lead Tomorrow</p>
 </footer>
+
+<!-- SIDEBAR SUBMENU SCRIPT -->
+
+<script>
+function toggleSubjects() {
+
+    const links = document.getElementById("subjectLinks");
+    const button = document.getElementById("subjectToggle");
+
+    links.hidden = !links.hidden;
+
+    button.setAttribute(
+        "aria-expanded",
+        String(!links.hidden)
+    );
+
+    button.textContent = links.hidden
+        ? "＋ Subject-wise Notes"
+        : "− Subject-wise Notes";
+}
+</script>
 
 </body>
 </html>
