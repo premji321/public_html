@@ -2,121 +2,132 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>BPSC Study Portal</title>
 <style>
-:root{--navy:#102a43;--blue:#1f5f99;--light:#f3f7fb;--ink:#203040;--muted:#627386;--line:#d9e2ec;--gold:#f0b429}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--light);color:var(--ink)}
-header{position:sticky;top:0;z-index:10;background:linear-gradient(120deg,#102a43,#1f5f99);color:white;padding:16px 22px;box-shadow:0 3px 14px #102a4325}
-.header-row{display:flex;justify-content:space-between;align-items:center;gap:15px;max-width:1500px;margin:auto}header h1{margin:0;font-size:clamp(20px,3vw,29px)}header p{margin:5px 0 0;color:#d9eaf8;font-size:13px}
-#menuBtn{display:none;border:1px solid #ffffff80;color:white;background:transparent;border-radius:8px;padding:8px 12px}
-.layout{display:grid;grid-template-columns:310px minmax(0,1fr);max-width:1500px;margin:auto;min-height:calc(100vh - 80px)}
-aside{background:white;border-right:1px solid var(--line);height:calc(100vh - 80px);position:sticky;top:80px;overflow:auto;padding:16px 12px}
-.search{width:100%;padding:11px;border:1px solid var(--line);border-radius:8px;margin-bottom:10px;font-size:14px}
-.tree-title{font-weight:800;color:var(--navy);font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:10px 8px}
-.nav-link,.tree-toggle,.leaf-link{display:block;width:100%;text-align:left;border:0;background:transparent;color:#30465a;text-decoration:none;padding:9px 10px;border-radius:7px;font-size:13px;cursor:pointer;line-height:1.35}
-.nav-link:hover,.tree-toggle:hover,.leaf-link:hover{background:#edf5fc;color:#124b7b}
-.nav-link.active{background:#e2effb;color:#124b7b;font-weight:700}
-.tree-toggle{font-weight:700;color:#163c5b;display:flex;justify-content:space-between;gap:8px}
-.tree-toggle::after{content:"+";color:var(--blue);font-weight:800}
-.tree-toggle[aria-expanded="true"]::after{content:"−"}
-.tree-children{display:none;margin-left:9px;padding-left:8px;border-left:1px solid var(--line)}
-.tree-children.open{display:block}
-.leaf-link{padding:7px 8px;font-size:12.5px}
-main{padding:24px;min-width:0}.hero{background:linear-gradient(120deg,#e6f2ff,#fff);border:1px solid #cfe2f5;border-radius:16px;padding:26px;margin-bottom:20px}
-.hero h2{font-size:clamp(24px,4vw,36px);margin:0 0 10px;color:var(--navy)}.hero p{max-width:850px;line-height:1.7;color:#42576b;margin:0}
-.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:18px 0 24px}
-.stat,.card{background:white;border:1px solid var(--line);border-radius:12px;padding:17px;box-shadow:0 4px 14px #102a4308}
-.stat strong{display:block;font-size:25px;color:var(--blue)}.stat span{font-size:12px;color:var(--muted)}
-section.content-section{background:white;border:1px solid var(--line);border-radius:13px;padding:22px;margin:0 0 18px;scroll-margin-top:100px}
-section h2{margin:0 0 12px;color:var(--navy);font-size:22px}section p{line-height:1.65;color:#465b6f}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.card h3{margin:0 0 7px;color:#194f7b;font-size:16px}.card p{margin:0;font-size:13px}
-.pill{display:inline-block;background:#e9f3fc;color:#174f7c;border-radius:20px;padding:5px 9px;font-size:11px;font-weight:700;margin:4px 4px 0 0}
-.btn{display:inline-block;background:var(--blue);color:white;text-decoration:none;border:0;border-radius:8px;padding:10px 13px;font-size:13px;cursor:pointer;margin:5px 5px 0 0}.btn.secondary{background:#e9f1f8;color:#17466d}
-.notice{background:#fff8e5;border:1px solid #f4d58d;padding:12px 14px;border-radius:9px;color:#765517;font-size:13px;line-height:1.6}
-table{width:100%;border-collapse:collapse;margin-top:12px;font-size:13px}th,td{border:1px solid var(--line);padding:10px;text-align:left}th{background:#edf4fa;color:var(--navy)}
-.quiz-option{display:block;margin:8px 0;padding:10px;border:1px solid var(--line);border-radius:8px;cursor:pointer}.quiz-option input{margin-right:8px}
-footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
-@media(max-width:900px){.layout{grid-template-columns:1fr}aside{display:none;position:fixed;z-index:20;top:70px;left:0;bottom:0;width:min(88vw,330px);height:auto;box-shadow:8px 0 30px #102a4330}aside.show{display:block}#menuBtn{display:block}main{padding:15px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.grid{grid-template-columns:1fr}}
+:root{--navy:#10264b;--blue:#2459c4;--pale:#edf4ff;--line:#e1e8f2;--ink:#202c40;--muted:#69788e}
+*{box-sizing:border-box}body{margin:0;background:#f3f6fb;color:var(--ink);font-family:Segoe UI,Arial,sans-serif}
+header{padding:24px clamp(16px,4vw,44px);color:#fff;background:linear-gradient(120deg,#0b1d3a,#1c4c91,#2563eb)}
+header h1{margin:0;font-size:clamp(24px,3vw,34px)}header p{margin:7px 0 0;color:#dbeafe}
+.navwrap{position:sticky;top:0;z-index:5;background:white;padding:11px;box-shadow:0 4px 18px #10264b12}
+.topnav{display:flex;gap:8px;overflow-x:auto;max-width:1500px;margin:auto}
+.top-tab{white-space:nowrap;border:1px solid var(--line);border-radius:9px;background:#f8fafc;padding:11px 14px;font-weight:700;color:#34435a;cursor:pointer}
+.top-tab.active,.top-tab:hover{background:var(--navy);color:white}
+.shell{max-width:1500px;margin:22px auto;padding:0 18px}.dashboard{display:grid;grid-template-columns:285px minmax(0,1fr);gap:18px}
+.sidebar,.main{background:white;border:1px solid var(--line);border-radius:15px;overflow:hidden;box-shadow:0 6px 24px #10264b0a}
+.sidehead{padding:17px;background:linear-gradient(120deg,#f8fbff,#eaf2ff);border-bottom:1px solid var(--line)}.sidehead h2{margin:0;font-size:18px;color:var(--navy)}.sidehead p{margin:6px 0 0;color:var(--muted);font-size:12px}
+.tree{padding:12px;max-height:calc(100vh - 200px);overflow:auto}.label{padding:9px;font-size:11px;font-weight:800;letter-spacing:1px;color:#8491a5;text-transform:uppercase}
+.subject,.division,.chapter{display:flex;gap:8px;align-items:center;width:100%;text-align:left;border:0;border-radius:8px;cursor:pointer;font-size:13px;line-height:1.4}
+.subject{padding:11px 9px;margin:3px 0;background:white;color:#27364d;font-weight:750}.subject:hover,.subject.active{background:var(--pale);color:#1746a2}
+.subject .arrow{margin-left:auto}.subtree{margin:2px 0 8px 10px;padding-left:10px;border-left:2px solid #e1eaf8}
+.division{padding:9px;margin:3px 0;background:#f8fafc;color:#40516a;font-weight:650}.division:hover,.division.active{background:#eaf2ff;color:#1d4ed8}
+.chapterlist{margin:3px 0 8px 10px;padding-left:10px;border-left:2px solid #dbeafe}
+.chapter{padding:8px;margin:2px 0;background:white;color:#58667a;font-size:12px}.chapter:hover,.chapter.active{background:#fff4dc;color:#744900;font-weight:700}
+.num{min-width:20px;color:#8491a5;font-size:10px}
+.panelhead{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:17px 21px;border-bottom:1px solid var(--line);font-size:12px;color:var(--muted)}.panelhead strong{color:var(--navy)}
+.pill{background:#e8f8f1;color:#087f5b;padding:7px 10px;border-radius:99px;font-weight:800;white-space:nowrap}
+.area{padding:clamp(16px,3vw,30px)}.welcome h2,.placeholder h2{margin:0 0 10px;color:var(--navy);font-size:clamp(24px,3vw,32px)}.lead{max-width:800px;color:var(--muted);line-height:1.7}
+.hero{padding:24px;border-radius:14px;background:linear-gradient(120deg,#10264b,#2459c4);color:white;margin:20px 0}.hero h3{margin:0 0 8px;font-size:22px}.hero p{margin:0;color:#dbeafe;line-height:1.6}
+.stats,.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0}.stat,.card{border:1px solid var(--line);border-radius:12px;padding:16px;background:white}.stat strong{display:block;color:var(--blue);font-size:24px}.stat span,.card p{color:var(--muted);font-size:13px}.card h3{margin:0 0 7px}
+.note{margin-top:18px;background:#fff8e8;border:1px solid #f4dfaa;color:#71531c;padding:13px 15px;border-radius:10px;line-height:1.6;font-size:13px}
+#contentFrame{width:100%;height:calc(100vh - 250px);min-height:620px;border:1px solid var(--line);border-radius:10px;background:#fff;display:block}.mobilebtn{display:none;background:var(--navy);color:#fff;border:0;border-radius:8px;padding:10px 13px;margin-bottom:12px}
+footer{text-align:center;color:#8a96a7;padding:0 15px 25px;font-size:12px}
+@media(max-width:900px){.dashboard{grid-template-columns:1fr}.sidebar{display:none}.sidebar.mobile-open{display:block}.mobilebtn{display:inline-block}.tree{max-height:420px}#contentFrame{height:75vh;min-height:520px}}
+@media(max-width:560px){.shell{padding:0 10px;margin:12px auto}.stats,.cards{grid-template-columns:1fr}.panelhead{align-items:flex-start;flex-direction:column}.area{padding:15px}}
 </style>
 </head>
 <body>
-<header><div class="header-row"><div><h1>📘 BPSC STUDY PORTAL</h1><p>Organised syllabus • Chapter-wise notes • PYQs • Exam practice</p></div><button id="menuBtn" onclick="document.querySelector('aside').classList.toggle('show')">☰ Index</button></div></header>
-<div class="layout">
-<aside id="sidebar">
-<input id="searchBox" class="search" type="search" placeholder="Search subject or chapter…">
-<div class="tree-title">Portal Navigation</div>
-<nav id="mainNav"></nav>
-<div class="tree-title">8. Subject Notes — Chapter Index</div>
-<div id="subjectTree"></div>
-</aside>
-<main>
-<section id="home" class="hero">
-<h2>Prepare Smart. Revise Systematically.</h2>
-<p>Welcome to your BPSC preparation hub. Use the left index to navigate through the portal and expand Subject Notes to open individual subjects, units and chapters. The chapter links are designed for separate HTML files in your GitHub repository.</p>
-<div><span class="pill">Prelims</span><span class="pill">Mains</span><span class="pill">Bihar Special</span><span class="pill">Chapter-wise Study</span></div>
-</section>
-<div class="stats">
-<div class="stat"><strong>10</strong><span>Main portal sections</span></div>
-<div class="stat"><strong>17</strong><span>Subject-note categories</span></div>
-<div class="stat"><strong>Chapter-wise</strong><span>Expandable index</span></div>
-<div class="stat"><strong>Practice</strong><span>Mock-test area</span></div>
-</div>
-<section id="syllabus" class="content-section"><h2>2. Syllabus</h2><p>Use this section as a preparation checklist. Match every topic with the latest official BPSC notification for the examination you are targeting.</p><div class="grid"><div class="card"><h3>Prelims</h3><p>General Studies, Bihar-related topics, current affairs, history, geography, polity, economy, science and other notified areas.</p></div><div class="card"><h3>Mains</h3><p>Prepare descriptive answers and the papers/subjects prescribed in the relevant examination notification.</p></div></div><p class="notice">This is a study portal index, not a substitute for the official syllabus. Check the latest BPSC advertisement before finalising preparation.</p></section>
-<section id="exam-pattern" class="content-section"><h2>3. Exam Pattern</h2><div class="grid"><div class="card"><h3>Preliminary Examination</h3><p>Objective screening stage. Verify question count, marks, duration, negative marking and qualifying rules from the current notification.</p></div><div class="card"><h3>Main Examination</h3><p>Written/descriptive stage as prescribed for the specific BPSC examination. Check paper-wise marks and qualifying requirements.</p></div><div class="card"><h3>Interview / Final Selection</h3><p>Applicable stages and final merit calculation vary by examination. Refer to the official notice.</p></div><div class="card"><h3>Official Notice Checklist</h3><p>Confirm papers, language requirements, exam duration, marking scheme and selection stages.</p></div></div></section>
-<section id="cutoff-trend" class="content-section"><h2>4. Cutoff Trend</h2><p>Record official cutoffs by examination, year and category. Do not treat unofficial estimates as final.</p><table><thead><tr><th>Exam / Year</th><th>Category</th><th>Prelims Cutoff</th><th>Mains / Final Cutoff</th><th>Source / Notes</th></tr></thead><tbody><tr><td>Add year</td><td>Add category</td><td>Enter official value</td><td>Enter official value</td><td>Add official notice</td></tr><tr><td>Add year</td><td>Add category</td><td>Enter official value</td><td>Enter official value</td><td>Add official notice</td></tr></tbody></table></section>
-<section id="vacancy" class="content-section"><h2>5. Vacancy</h2><p>Maintain vacancy details from the relevant official advertisement and corrigenda.</p><table><thead><tr><th>Advertisement</th><th>Post</th><th>Total Vacancies</th><th>Category-wise Details</th><th>Status</th></tr></thead><tbody><tr><td>Enter advertisement no.</td><td>Enter post name</td><td>Enter official count</td><td>Link/upload details</td><td>Open / Closed / Updated</td></tr></tbody></table></section>
-<section id="prelims-pyq" class="content-section"><h2>6. Prelims PYQ</h2><p>Open year-wise or subject-wise previous-year question papers. Keep each paper in a separate HTML or PDF file in your repository.</p><div class="grid"><div class="card"><h3>History PYQ</h3><a class="btn" href="prelim-history.html">Open History PYQ</a></div><div class="card"><h3>Geography PYQ</h3><a class="btn" href="prelim-geography.html">Open Geography PYQ</a></div><div class="card"><h3>Polity & Economy PYQ</h3><a class="btn" href="prelim-polity-economy.html">Open PYQ</a></div><div class="card"><h3>Science & Current Affairs</h3><a class="btn" href="prelim-science-current.html">Open PYQ</a></div></div></section>
-<section id="mains-pyq" class="content-section"><h2>7. Mains PYQ</h2><p>Keep mains papers, essay questions, model answers and answer-writing practice organised by year and paper.</p><a class="btn" href="mains-pyq.html">Open Mains PYQ</a></section>
-<section id="subject-notes" class="content-section"><h2>8. Subject Notes</h2><p>Expand a subject in the left-hand chapter index. Click a chapter to open its dedicated HTML page. Create the corresponding files in the same GitHub folder, or update the links if you use a different folder structure.</p><div id="subjectSummary" class="grid"></div></section>
-<section id="priority-index" class="content-section"><h2>9. Exam Priority Index</h2><p>Classify topics based on your PYQ analysis and revision needs. Priority is a study-planning aid, not a prediction of the next paper.</p><div class="grid"><div class="card"><h3>High Priority</h3><p>Frequently tested topics and concepts that need regular revision.</p><p><span class="pill">Add topics</span></p></div><div class="card"><h3>Medium Priority</h3><p>Topics with moderate recurrence or useful conceptual links.</p><p><span class="pill">Add topics</span></p></div><div class="card"><h3>Low Priority</h3><p>Lower-frequency or supplementary topics; cover them after core areas.</p><p><span class="pill">Add topics</span></p></div></div></section>
-<section id="mock-test" class="content-section"><h2>10. Mock Test</h2><p>Select a practice mode. Add your full question sets in separate files as your test bank grows.</p><div class="grid"><div class="card"><h3>Topic-Wise Test</h3><p>Practice one concept at a time.</p><a class="btn" href="topic-wise-test.html">Open</a></div><div class="card"><h3>Chapter-Wise Test</h3><p>Test your understanding after each chapter.</p><a class="btn" href="chapter-wise-test.html">Open</a></div><div class="card"><h3>Subject-Wise Test</h3><p>Revise an entire subject in one sitting.</p><a class="btn" href="subject-wise-test.html">Open</a></div><div class="card"><h3>Full-Length Test</h3><p>Practise exam timing and endurance.</p><a class="btn" href="full-length-test.html">Open</a></div></div><div class="notice" style="margin-top:14px">These buttons expect separate HTML files with the shown filenames. Create those files in GitHub for the links to work.</div></section>
-<footer>BPSC Study Portal • Personal study and revision index</footer>
-</main>
-</div>
+<header><h1>📘 BPSC Study Portal</h1><p>Syllabus • Exam Pattern • PYQ • Subject Notes • Current Affairs • Mock Test</p></header>
+<div class="navwrap"><nav class="topnav" id="topnav">
+<button class="top-tab active" data-page="Home" onclick="openPage('Home',this)">⌂ Home</button>
+<button class="top-tab" data-page="Syllabus" onclick="openPage('Syllabus',this)">Syllabus</button>
+<button class="top-tab" data-page="Exam Pattern" onclick="openPage('Exam Pattern',this)">Exam Pattern</button>
+<button class="top-tab" data-page="Cutoff Trend" onclick="openPage('Cutoff Trend',this)">Cutoff Trend</button>
+<button class="top-tab" data-page="Prelim PYQ" onclick="openPage('Prelim PYQ',this)">Prelim PYQ</button>
+<button class="top-tab" data-page="Mains PYQ" onclick="openPage('Mains PYQ',this)">Mains PYQ</button>
+<button class="top-tab" data-page="Latest Vacancy" onclick="openPage('Latest Vacancy',this)">Latest Vacancy</button>
+<button class="top-tab" data-page="Subject Notes" onclick="openPage('Subject Notes',this)">Subject Notes</button>
+<button class="top-tab" data-page="Current Affairs" onclick="openPage('Current Affairs',this)">Current Affairs</button>
+<button class="top-tab" data-page="Mock Test" onclick="openPage('Mock Test',this)">Mock Test</button>
+</nav></div>
+<div class="shell">
+<button class="mobilebtn" onclick="document.getElementById('sidebar').classList.toggle('mobile-open')">☰ Show Subject Navigation</button>
+<div class="dashboard">
+<aside class="sidebar" id="sidebar"><div class="sidehead"><h2>📚 Subject Notes Explorer</h2><p>Subject → Division → Chapter</p></div><div class="tree" id="tree"><div class="label">Subjects</div></div></aside>
+<main class="main">
+<div class="panelhead"><div id="breadcrumb">BPSC Portal / <strong>Home</strong></div><div class="pill">● Separate HTML file loader</div></div>
+<div class="area">
+<section id="welcome" class="welcome"><h2>Welcome to BPSC Study Portal</h2><p class="lead">A beautiful, organised dashboard for BPSC exam resources. Choose a top section or open a subject, division and chapter from the left navigation. Chapter content is loaded from a separate HTML file stored in your GitHub website folder.</p>
+<div class="hero"><h3>Prepare smart. Revise systematically.</h3><p>Keep each chapter in its own HTML file. The navigation stays on this page while the selected file is displayed in the content panel.</p></div>
+<div class="stats"><div class="stat"><strong>10</strong><span>Main portal sections</span></div><div class="stat"><strong>7</strong><span>Subject categories</span></div><div class="stat"><strong>3</strong><span>History divisions</span></div></div>
+<div class="cards"><div class="card"><h3>📋 Exam Resources</h3><p>Syllabus, exam pattern, cutoff trend and vacancy information.</p></div><div class="card"><h3>📖 Chapter Notes</h3><p>Subject → division → chapter. Each chapter loads from its own HTML file.</p></div><div class="card"><h3>✍️ Practice</h3><p>Prelim PYQ, Mains PYQ and mock tests.</p></div></div>
+<div class="note"><b>Important:</b> The HTML file must exist in the same folder as this portal, and the filename must match exactly. GitHub Pages/Netlify will then serve it in the right content panel.</div></section>
+<section id="placeholder" class="placeholder" style="display:none"><h2 id="placeholderTitle"></h2><p class="lead" id="placeholderLead"></p><div class="note" id="placeholderNote"></div></section>
+<section id="frameSection" style="display:none"><iframe id="contentFrame" title="BPSC content"></iframe><p style="font-size:12px;color:#69788e">Content is loaded from a separate HTML file. The left navigation remains part of this portal.</p></section>
+</div></main></div></div><footer>BPSC Study Portal • Customisable GitHub HTML website</footer>
 <script>
-const generalNav = [["1. Home", "home"], ["2. Syllabus", "syllabus"], ["3. Exam Pattern", "exam-pattern"], ["4. Cutoff Trend", "cutoff-trend"], ["5. Vacancy", "vacancy"], ["6. Prelims PYQ", "prelims-pyq"], ["7. Mains PYQ", "mains-pyq"], ["9. Exam Priority Index", "priority-index"], ["10. Mock Test", "mock-test"]];
-const subjectData = {"8.1 History": {"Ancient Indian History": ["Prehistoric Period", "Indus Valley Civilization", "Vedic Civilization", "Mahajanapadas", "Jainism", "Buddhism", "Rise of Magadha", "Mauryan Empire", "Post-Mauryan Period", "Gupta Empire", "Post-Gupta Period"], "Medieval Indian History": ["Early Medieval India", "Delhi Sultanate", "Slave Dynasty", "Khilji Dynasty", "Tughlaq Dynasty", "Sayyid Dynasty", "Lodi Dynasty", "Vijayanagara Empire", "Mughal Empire", "Mughal Administration", "Maratha Empire", "Bhakti and Sufi Movements"], "Modern Indian History": ["Arrival of Europeans", "Battle of Plassey", "Battle of Buxar", "British Expansion", "Governor-Generals and Viceroys", "Land Revenue Systems", "Revolt of 1857", "Socio-Religious Reform Movements", "Formation of Indian National Congress", "Swadeshi Movement", "Gandhian Movements", "Non-Cooperation Movement", "Civil Disobedience Movement", "Quit India Movement", "Independence and Partition"], "Indian National Movement": ["Moderate Phase", "Extremist Phase", "Revolutionary Movement", "Home Rule Movement", "Champaran Satyagraha", "Dandi March", "Round Table Conferences", "Indian Independence Act, 1947"], "Bihar History": ["Ancient Bihar", "Magadha Empire", "Mauryan Rule in Bihar", "Gupta Period in Bihar", "Nalanda University", "Vikramshila University", "Medieval Bihar", "Revolt of 1857 in Bihar", "Veer Kunwar Singh", "Champaran Satyagraha", "Bihar in the National Movement"]}, "8.2 Geography": {"Physical Geography": ["Origin and Structure of the Earth", "Latitude and Longitude", "Rocks and Minerals", "Plate Tectonics", "Earthquakes and Volcanoes", "Mountains, Plateaus and Plains"], "Indian Geography": ["Location and Extent of India", "Physiographic Divisions", "Himalayan Mountains", "Northern Plains", "Peninsular Plateau", "Indian Drainage System", "Major Rivers", "Indian Climate and Monsoon", "Soils of India", "Natural Vegetation", "Agriculture", "Mineral Resources", "Industries", "Population and Urbanisation"], "World Geography": ["Continents and Oceans", "Major Mountains", "Major Rivers", "Deserts", "Climate Zones", "Ocean Currents", "Important Straits and Canals"], "Bihar Geography": ["Location and Extent", "Physiographic Divisions", "Major Rivers of Bihar", "Ganga River System", "Kosi River", "Gandak River", "Son River", "Climate and Rainfall", "Soil Types", "Agriculture", "Irrigation Projects", "Floods and Droughts", "District-Wise Geography"]}, "8.3 Indian Polity": ["Constitutional Development", "Making of the Constitution", "Preamble", "Salient Features", "Fundamental Rights", "Directive Principles", "Fundamental Duties", "President", "Vice-President", "Prime Minister and Council of Ministers", "Parliament", "Supreme Court", "Governor", "Chief Minister", "State Legislature", "Centre-State Relations", "Constitutional Bodies", "Election Commission", "Emergency Provisions", "Constitutional Amendments", "Panchayati Raj"], "8.4 Indian Economy": ["Basic Concepts of Economics", "National Income", "GDP and GVA", "Economic Growth and Development", "Economic Planning", "Economic Reforms of 1991", "NITI Aayog", "Banking System", "Reserve Bank of India", "Monetary Policy", "Inflation", "Union Budget", "Taxation and GST", "Fiscal Deficit", "Agriculture", "Green Revolution", "Industry and Infrastructure", "Poverty and Unemployment", "Foreign Trade"], "8.5 Bihar Economy": ["Economic Profile of Bihar", "Gross State Domestic Product", "Per Capita Income", "Agriculture and Allied Sectors", "Major Crops", "Irrigation", "Industries of Bihar", "Infrastructure Development", "Employment and Unemployment", "Poverty and Development", "Bihar Budget", "Bihar Economic Survey"], "8.6 General Science": {"Physics": ["Units and Measurements", "Motion and Force", "Work, Energy and Power", "Gravitation", "Heat and Temperature", "Light", "Sound", "Electricity", "Magnetism"], "Chemistry": ["Matter and Its States", "Atomic Structure", "Periodic Table", "Chemical Reactions", "Acids, Bases and Salts", "Metals and Non-Metals", "Carbon and Its Compounds"], "Biology": ["Cell Structure", "Plant Physiology", "Human Digestive System", "Respiratory System", "Circulatory System", "Nervous System", "Vitamins and Minerals", "Human Diseases", "Genetics and Evolution"]}, "8.7 Science & Technology": ["Space Technology", "ISRO Missions", "Satellites and Launch Vehicles", "Nuclear Technology", "Information Technology", "Artificial Intelligence", "Biotechnology", "Nanotechnology", "Robotics", "Defence Technology"], "8.8 Mathematics": ["Number System", "HCF and LCM", "Simplification", "Fractions and Decimals", "Ratio and Proportion", "Percentage", "Average", "Profit and Loss", "Simple and Compound Interest", "Time and Work", "Time, Speed and Distance", "Algebra", "Geometry", "Mensuration", "Statistics"], "8.9 Current Affairs": ["National Current Affairs", "International Current Affairs", "Government Schemes", "Important Appointments", "Awards and Honours", "Reports and Rankings", "Economy and Budget", "Science and Technology", "Sports", "Important Days", "Bihar Current Affairs"], "8.10 Bihar Special GK": ["History of Bihar", "Geography of Bihar", "Economy of Bihar", "Art and Culture", "Folk Dances and Music", "Festivals and Fairs", "Important Personalities", "Historical Places", "Districts and Divisions", "Government Schemes"], "8.11 Indian Art & Culture": ["Ancient Architecture", "Buddhist Architecture", "Temple Architecture", "Mughal Architecture", "Indian Paintings", "Sculpture", "Classical Dances", "Folk Dances", "Indian Music", "Literature and Traditions"], "8.12 Indian Society": ["Features of Indian Society", "Diversity of India", "Caste System", "Tribal Communities", "Women Empowerment", "Poverty and Inequality", "Education and Health", "Social Welfare Schemes"], "8.13 General Hindi": ["वर्ण विचार", "शब्द विचार", "संज्ञा और सर्वनाम", "विशेषण और क्रिया", "संधि", "समास", "उपसर्ग और प्रत्यय", "पर्यायवाची और विलोम", "मुहावरे और लोकोक्तियाँ", "वाक्य शुद्धि", "गद्यांश"], "8.14 Essay Writing": ["Social Issues", "Education", "Women Empowerment", "Indian Economy", "Democracy and Governance", "Science and Technology", "Sustainable Development", "Bihar-Specific Essays"], "8.15 Data Interpretation": ["Tables", "Bar Graphs", "Line Graphs", "Pie Charts", "Mean, Median and Mode", "Data-Based Questions"], "8.16 Governance": ["Good Governance", "Transparency and Accountability", "Right to Information", "E-Governance", "Public Administration", "District Administration", "Bihar Administration"], "8.17 International Relations": ["India's Foreign Policy", "India and Neighbouring Countries", "India-China Relations", "India-Nepal Relations", "India-Bangladesh Relations", "United Nations", "World Bank and IMF", "BRICS and G20", "International Organisations"]};
-const mainNav = document.getElementById('mainNav');
-generalNav.slice(0,7).forEach(item=>{const a=document.createElement('a');a.className='nav-link';a.href='#'+item[1];a.textContent=item[0];mainNav.appendChild(a)});
-const notesLink=document.createElement('a');notesLink.className='nav-link';notesLink.href='#subject-notes';notesLink.textContent='8. Subject Notes';mainNav.appendChild(notesLink);
-generalNav.slice(7).forEach(item=>{const a=document.createElement('a');a.className='nav-link';a.href='#'+item[1];a.textContent=item[0];mainNav.appendChild(a)});
-function slugify(s){if(s==='Revolt of 1857')return 'revolt_of_1857_notes_original_style_with_images.html';return s.toLowerCase().replace(/&/g,' and ').replace(/[’']/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')+'.html'}
-function makeTreeNode(label,value,depth=0){
- const wrap=document.createElement('div');wrap.className='tree-node';wrap.dataset.search=label.toLowerCase();
- if(Array.isArray(value)){
-   const btn=document.createElement('button');btn.className='tree-toggle';btn.type='button';btn.textContent=label;btn.setAttribute('aria-expanded','false');
-   const kids=document.createElement('div');kids.className='tree-children';
-   value.forEach(child=>{const a=document.createElement('a');a.className='leaf-link';a.href=slugify(child);a.textContent=child;a.title='Open '+child+' page';a.dataset.search=child.toLowerCase();kids.appendChild(a)});
-   btn.addEventListener('click',()=>{const open=kids.classList.toggle('open');btn.setAttribute('aria-expanded',String(open))});
-   wrap.append(btn,kids);
- } else if(value && typeof value==='object'){
-   const btn=document.createElement('button');btn.className='tree-toggle';btn.type='button';btn.textContent=label;btn.setAttribute('aria-expanded','false');
-   const kids=document.createElement('div');kids.className='tree-children';
-   Object.entries(value).forEach(([k,v])=>kids.appendChild(makeTreeNode(k,v,depth+1)));
-   btn.addEventListener('click',()=>{const open=kids.classList.toggle('open');btn.setAttribute('aria-expanded',String(open))});
-   wrap.append(btn,kids);
- } else {
-   const a=document.createElement('a');a.className='leaf-link';a.href=slugify(label);a.textContent=label;wrap.appendChild(a);
- }
- return wrap;
-}
-const subjectTree=document.getElementById('subjectTree');
-Object.entries(subjectData).forEach(([subject,items])=>subjectTree.appendChild(makeTreeNode(subject,items)));
-const summary=document.getElementById('subjectSummary');
-Object.entries(subjectData).forEach(([subject,items])=>{const c=document.createElement('div');c.className='card';const h=document.createElement('h3');h.textContent=subject;const p=document.createElement('p');let count=0;function tally(v){if(Array.isArray(v))count+=v.length;else if(v&&typeof v==='object')Object.values(v).forEach(tally)}tally(items);p.textContent=count+' listed chapter/topic links';const b=document.createElement('a');b.className='btn secondary';b.href='#subject-notes';b.textContent='Find in index';c.append(h,p,b);summary.appendChild(c)});
-document.getElementById('searchBox').addEventListener('input',e=>{
- const q=e.target.value.trim().toLowerCase();
- document.querySelectorAll('#subjectTree .tree-node').forEach(node=>{
-   const own=(node.dataset.search||'').includes(q);
-   const descendants=[...node.querySelectorAll('a, .tree-node')].some(el=>(el.textContent||'').toLowerCase().includes(q));
-   const show=!q||own||descendants;
-   node.style.display=show?'':'none';
-   if(q&&show){const kids=node.querySelector(':scope > .tree-children');const btn=node.querySelector(':scope > .tree-toggle');if(kids&&btn){kids.classList.add('open');btn.setAttribute('aria-expanded','true')}}
- });
- document.querySelectorAll('#subjectTree a.leaf-link').forEach(a=>a.style.display=(!q||(a.textContent||'').toLowerCase().includes(q))?'':'none');
+const sectionFiles={
+"Syllabus":"syllabus.html","Exam Pattern":"exam-pattern.html","Cutoff Trend":"cutoff-trend.html",
+"Prelim PYQ":"prelim-pyq.html","Mains PYQ":"mains-pyq.html","Latest Vacancy":"latest-vacancy.html",
+"Current Affairs":"current-affairs.html","Mock Test":"mock-test.html"
+};
+const subjects=[
+{name:"History",icon:"🏛️",divisions:[
+{name:"Ancient History",chapters:[["Indus Valley Civilization","indus-valley-civilization.html"],["Vedic Period","vedic-period.html"],["Mahajanapadas and Buddhism","mahajanapadas-buddhism.html"],["Mauryan Empire","mauryan-empire.html"],["Gupta Empire","gupta-empire.html"]]},
+{name:"Medieval History",chapters:[["Delhi Sultanate","delhi-sultanate.html"],["Mughal Empire","mughal-empire.html"],["Bhakti and Sufi Movements","bhakti-sufi-movements.html"],["Vijayanagara Empire","vijayanagara-empire.html"]]},
+{name:"Modern History",chapters:[["Revolt of 1857","revolt-of-1857.html"],["Governor-Generals and Viceroys","governor-generals-viceroys.html"],["Socio-Religious Reform Movements","socio-religious-reform-movements.html"],["Indian National Congress","indian-national-congress.html"],["National Movement and Gandhian Era","national-movement-gandhian-era.html"]]}]},
+{name:"Geography",icon:"🌍",divisions:[
+{name:"Physical Geography",chapters:[["Earth and Solar System","earth-solar-system.html"],["Geomorphology","geomorphology.html"],["Climatology","climatology.html"],["Oceanography","oceanography.html"]]},
+{name:"Indian Geography",chapters:[["Physiographic Divisions of India","physiographic-divisions-india.html"],["Drainage System","drainage-system.html"],["Climate of India","climate-of-india.html"],["Soils and Natural Vegetation","soils-natural-vegetation.html"],["Agriculture and Minerals","agriculture-minerals-india.html"]]},
+{name:"World Geography",chapters:[["Continents and Oceans","continents-oceans.html"],["Resources and Industries","resources-industries.html"]]}]},
+{name:"Polity",icon:"⚖️",divisions:[
+{name:"Constitutional Foundations",chapters:[["Making of the Constitution","making-of-constitution.html"],["Preamble and Salient Features","preamble-salient-features.html"],["Fundamental Rights","fundamental-rights.html"],["Directive Principles and Duties","dpsp-fundamental-duties.html"]]},
+{name:"Union Government",chapters:[["President and Vice-President","president-vice-president.html"],["Prime Minister and Council of Ministers","prime-minister-council-ministers.html"],["Parliament","parliament.html"],["Supreme Court","supreme-court.html"]]},
+{name:"State and Local Government",chapters:[["Governor and Chief Minister","governor-chief-minister.html"],["State Legislature","state-legislature.html"],["Panchayati Raj","panchayati-raj.html"],["Constitutional Bodies","constitutional-bodies.html"]]}]},
+{name:"Economy",icon:"💹",divisions:[
+{name:"Basic Concepts",chapters:[["Basic Concepts of Economy","basic-concepts-economy.html"],["National Income","national-income.html"],["Inflation and Unemployment","inflation-unemployment.html"]]},
+{name:"Indian Economy",chapters:[["Planning and NITI Aayog","planning-niti-aayog.html"],["Banking and Monetary Policy","banking-monetary-policy.html"],["Budget and Taxation","budget-taxation.html"],["Poverty and Inclusive Growth","poverty-inclusive-growth.html"]]}]},
+{name:"Science",icon:"🔬",divisions:[
+{name:"Biology",chapters:[["Cell","cell.html"],["Human Digestive System","digestive-system.html"],["Human Nervous System","nervous-system.html"],["Circulatory System","circulatory-system.html"],["Diseases and Immunity","diseases-immunity.html"]]},
+{name:"Physics",chapters:[["Motion and Force","motion-force.html"],["Work, Energy and Power","work-energy-power.html"],["Light","light.html"],["Electricity","electricity.html"]]},
+{name:"Chemistry",chapters:[["Atoms and Molecules","atoms-molecules.html"],["Acids, Bases and Salts","acids-bases-salts.html"],["Metals and Non-metals","metals-nonmetals.html"]]}]},
+{name:"Bihar Special",icon:"🦅",divisions:[
+{name:"Bihar History and Culture",chapters:[["Ancient Bihar","ancient-bihar.html"],["Modern Bihar and Freedom Movement","modern-bihar-freedom-movement.html"],["Bihar Art and Culture","bihar-art-culture.html"]]},
+{name:"Bihar Geography",chapters:[["Rivers and Physical Divisions of Bihar","bihar-rivers-geography.html"],["Climate, Soil and Agriculture","bihar-climate-soil-agriculture.html"]]},
+{name:"Bihar Economy and Polity",chapters:[["Bihar Economy","bihar-economy.html"],["Government Schemes of Bihar","bihar-government-schemes.html"],["Administrative Structure of Bihar","bihar-administration.html"]]}]},
+{name:"Environment",icon:"🌱",divisions:[{name:"Ecology and Environment",chapters:[["Ecosystem and Biodiversity","ecosystem-biodiversity.html"],["Climate Change","climate-change.html"],["Pollution","pollution.html"],["Environmental Conventions","environmental-conventions.html"]]}]}
+];
+const tree=document.getElementById("tree");
+subjects.forEach(subject=>{
+ const sb=document.createElement("button");sb.className="subject";sb.innerHTML=`<span>${subject.icon}</span>${subject.name}<span class="arrow">›</span>`;
+ const st=document.createElement("div");st.className="subtree";st.style.display="none";
+ sb.onclick=()=>{let open=st.style.display==="none";st.style.display=open?"block":"none";sb.classList.toggle("open",open);sb.classList.toggle("active",open)};
+ subject.divisions.forEach(division=>{
+  const db=document.createElement("button");db.className="division";db.innerHTML=`<span>▸</span>${division.name}`;
+  const cl=document.createElement("div");cl.className="chapterlist";cl.style.display="none";
+  db.onclick=()=>{let open=cl.style.display==="none";cl.style.display=open?"block":"none";db.classList.toggle("active",open)};
+  division.chapters.forEach((chapter,i)=>{
+   const cb=document.createElement("button");cb.className="chapter";cb.innerHTML=`<span class="num">${String(i+1).padStart(2,"0")}</span><span>${chapter[0]}</span>`;
+   cb.onclick=()=>loadFile(chapter[0],chapter[1],`Subject Notes / ${subject.name} / ${division.name} / ${chapter[0]}`,cb);
+   cl.appendChild(cb);
+  });st.appendChild(db);st.appendChild(cl);
+ });tree.appendChild(sb);tree.appendChild(st);
 });
-document.querySelectorAll('.nav-link').forEach(a=>a.addEventListener('click',()=>{document.querySelectorAll('.nav-link').forEach(x=>x.classList.remove('active'));a.classList.add('active');if(window.innerWidth<=900)document.querySelector('aside').classList.remove('show')}));
+function setTop(page){document.querySelectorAll(".top-tab").forEach(b=>b.classList.toggle("active",b.dataset.page===page))}
+function showSectionFrame(title,file,breadcrumb){
+ document.getElementById("welcome").style.display="none";document.getElementById("placeholder").style.display="none";
+ document.getElementById("frameSection").style.display="block";document.getElementById("breadcrumb").innerHTML=`BPSC Portal / <strong>${breadcrumb||title}</strong>`;
+ document.getElementById("contentFrame").src=file;document.getElementById("sidebar").classList.remove("mobile-open");
+}
+function openPage(page){
+ setTop(page);
+ if(page==="Home"){document.getElementById("welcome").style.display="block";document.getElementById("placeholder").style.display="none";document.getElementById("frameSection").style.display="none";document.getElementById("breadcrumb").innerHTML='BPSC Portal / <strong>Home</strong>';document.getElementById("contentFrame").src="about:blank";return}
+ if(page==="Subject Notes"){document.getElementById("welcome").style.display="none";document.getElementById("placeholder").style.display="block";document.getElementById("frameSection").style.display="none";document.getElementById("placeholderTitle").textContent="Subject Notes";document.getElementById("placeholderLead").textContent="Select a subject from the left panel, expand a division, then click a chapter to load its separate HTML file.";document.getElementById("placeholderNote").textContent="Subject → Division → Chapter. The chapter HTML file is displayed in the right-side panel.";document.getElementById("breadcrumb").innerHTML='BPSC Portal / <strong>Subject Notes</strong>';return}
+ showSectionFrame(page,sectionFiles[page],page);
+}
+function loadFile(title,file,path,button){
+ setTop("Subject Notes");showSectionFrame(title,file,path);
+ document.querySelectorAll(".chapter").forEach(b=>b.classList.remove("active"));button.classList.add("active");
+}
 </script>
-</body>
-</html>
+</body></html>
