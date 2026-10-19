@@ -1,1891 +1,873 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#102b50">
-
-<meta name="description"
-content="Orient Classes provides complete NCERT learning for Classes 6 to 12 and comprehensive BPSC preparation, syllabus, vacancies, salary, previous year cut-offs, notes and current affairs.">
-
-<title>Orient Classes | NCERT 6–12 & BPSC Preparation</title>
+<meta name="description" content="Orient Classes offers NCERT Classes 6–12 and BPSC preparation, syllabus, vacancies, salary, previous year cut-offs, notes and current affairs.">
+<title>Orient Classes | NCERT & BPSC</title>
 
 <style>
-
-/* =========================
-   GLOBAL SETTINGS
-========================= */
-
 :root {
-    --navy: #102b50;
-    --blue: #2864ad;
-    --light-blue: #edf4ff;
-    --gold: #ffc928;
-    --teal: #13a89e;
-    --white: #ffffff;
-    --bg: #f3f6fb;
-    --text: #22324a;
-    --muted: #66758b;
-    --border: #e2e9f3;
-    --shadow: 0 8px 25px rgba(16,43,80,0.08);
+  --navy:#102b50;
+  --blue:#2864ad;
+  --gold:#ffc928;
+  --teal:#13a89e;
+  --bg:#f3f6fb;
+  --text:#24344b;
+  --muted:#68778b;
+  --border:#e2e9f3;
+  --white:#fff;
 }
 
-* {
-    box-sizing: border-box;
-}
+* { box-sizing:border-box; }
 
 html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 90px;
+  scroll-behavior:smooth;
+  scroll-padding-top:85px;
 }
 
 body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
+a { text-decoration:none; color:inherit; }
 
-button {
-    font-family: inherit;
-    cursor: pointer;
-}
+button { font:inherit; cursor:pointer; }
 
 .container {
-    width: 100%;
-    max-width: 1200px;
-    margin: auto;
-    padding: 0 20px;
+  width:min(1160px,92%);
+  margin:auto;
 }
-
-
-/* =========================
-   TOP ANNOUNCEMENT BAR
-========================= */
 
 .announcement {
-    background: #091b32;
-    color: white;
-    text-align: center;
-    padding: 9px 12px;
-    font-size: 12px;
+  background:#091b32;
+  color:white;
+  text-align:center;
+  padding:8px;
+  font-size:12px;
 }
 
-.announcement strong {
-    color: var(--gold);
-}
+.announcement strong { color:var(--gold); }
 
-
-/* =========================
-   WEBSITE HEADER
-========================= */
+/* HEADER */
 
 .header {
-    background: linear-gradient(
-        120deg,
-        #102b50,
-        #1e518e
-    );
-
-    color: white;
+  background:linear-gradient(120deg,var(--navy),#245b99);
+  color:white;
 }
 
 .header-inner {
-    max-width: 1200px;
-    margin: auto;
-    padding: 18px 20px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    gap: 15px;
+  width:min(1160px,92%);
+  margin:auto;
+  padding:18px 0;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
 }
 
-.logo-area {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+.brand {
+  display:flex;
+  align-items:center;
+  gap:12px;
 }
 
 .logo {
-    width: 50px;
-    height: 50px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: var(--gold);
-    color: var(--navy);
-
-    border-radius: 13px;
-
-    font-size: 21px;
-    font-weight: bold;
+  width:48px;
+  height:48px;
+  display:grid;
+  place-items:center;
+  background:var(--gold);
+  color:var(--navy);
+  border-radius:12px;
+  font-size:21px;
+  font-weight:900;
 }
 
-.logo-text h1 {
-    margin: 0;
-    font-size: 27px;
-    letter-spacing: 1px;
+.brand h1 {
+  font-size:25px;
+  margin:0;
+  letter-spacing:1px;
 }
 
-.logo-text p {
-    margin: 3px 0 0;
-    font-size: 10px;
-    letter-spacing: 2px;
-    color: #d8e7fa;
+.brand p {
+  font-size:10px;
+  letter-spacing:2px;
+  margin:2px 0 0;
+  color:#dce9fa;
 }
 
 .header-tag {
-    border: 1px solid #ffffff55;
-    border-radius: 8px;
-    padding: 9px 13px;
-    font-size: 12px;
-    font-weight: bold;
+  font-size:12px;
+  border:1px solid #ffffff66;
+  border-radius:8px;
+  padding:9px 12px;
 }
 
-
-/* =========================
-   NAVIGATION BAR
-========================= */
+/* NAVIGATION */
 
 .navbar {
-    background: white;
-
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-
-    border-bottom: 1px solid var(--border);
-
-    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:white;
+  border-bottom:1px solid var(--border);
+  box-shadow:0 3px 12px #102b500b;
 }
 
 .nav-inner {
-    max-width: 1200px;
-    margin: auto;
-    padding: 8px 20px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    gap: 10px;
+  width:min(1160px,92%);
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  min-height:58px;
 }
 
 .nav-links {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 5px;
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:5px;
 }
 
 .nav-links a {
-    padding: 10px 12px;
-    border-radius: 7px;
-
-    font-size: 13px;
-    font-weight: bold;
-
-    color: #43536b;
-
-    transition: 0.2s;
+  padding:9px 12px;
+  font-size:12px;
+  font-weight:bold;
+  border-radius:7px;
 }
 
 .nav-links a:hover {
-    background: var(--light-blue);
-    color: var(--navy);
+  background:#edf4ff;
+  color:var(--blue);
 }
 
 .menu-button {
-    display: none;
-    border: none;
-    border-radius: 8px;
-    padding: 9px 12px;
-
-    background: var(--light-blue);
-    color: var(--navy);
-
-    font-weight: bold;
+  display:none;
+  border:0;
+  padding:9px 12px;
+  border-radius:7px;
+  background:#edf4ff;
+  color:var(--navy);
+  font-weight:bold;
 }
 
-
-/* =========================
-   HERO SECTION
-========================= */
+/* HERO */
 
 .hero {
-    margin-top: 25px;
-
-    padding: 55px 45px;
-
-    border-radius: 20px;
-
-    background: linear-gradient(
-        115deg,
-        #102b50,
-        #1c4d87,
-        #2864ad
-    );
-
-    color: white;
-
-    box-shadow: var(--shadow);
+  margin-top:25px;
+  padding:clamp(28px,5vw,55px);
+  border-radius:18px;
+  color:white;
+  background:linear-gradient(115deg,#102b50,#1d4d87,#2864ad);
 }
 
-.hero-label {
-    color: #b9dcff;
-
-    font-size: 11px;
-    font-weight: bold;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+.eyebrow {
+  color:#b9dcff;
+  font-size:11px;
+  font-weight:bold;
+  letter-spacing:2px;
+  text-transform:uppercase;
 }
 
 .hero h2 {
-    margin: 15px 0;
-
-    font-size: clamp(30px, 5vw, 48px);
-    line-height: 1.2;
+  font-size:clamp(30px,5vw,48px);
+  line-height:1.2;
+  margin:14px 0;
 }
 
-.hero h2 span {
-    color: var(--gold);
-}
+.hero h2 span { color:var(--gold); }
 
 .hero p {
-    max-width: 720px;
-
-    color: #e1ebf8;
-    font-size: 15px;
-
-    margin-bottom: 25px;
+  max-width:700px;
+  color:#e0ebfa;
+  font-size:15px;
+  margin-bottom:24px;
 }
 
-.hero-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
+.actions {
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
 }
 
-.button {
-    display: inline-block;
-
-    padding: 12px 18px;
-
-    border-radius: 8px;
-
-    font-size: 13px;
-    font-weight: bold;
-
-    transition: 0.2s;
+.btn {
+  display:inline-block;
+  padding:11px 16px;
+  border-radius:8px;
+  font-size:12px;
+  font-weight:bold;
 }
 
-.button:hover {
-    transform: translateY(-2px);
+.btn-gold {
+  background:var(--gold);
+  color:var(--navy);
 }
 
-.button-gold {
-    background: var(--gold);
-    color: var(--navy);
+.btn-white {
+  background:white;
+  color:var(--navy);
 }
 
-.button-white {
-    background: white;
-    color: var(--navy);
+.btn-blue {
+  background:var(--navy);
+  color:white;
 }
 
-.button-blue {
-    background: var(--navy);
-    color: white;
-}
+/* SECTIONS */
 
-.button-outline {
-    border: 1px solid #ffffff88;
-    color: white;
-}
+.section { margin-top:38px; }
 
-
-/* =========================
-   GENERAL SECTION
-========================= */
-
-.section {
-    margin-top: 38px;
-}
-
-.section-heading {
-    margin-bottom: 20px;
-}
+.section-heading { margin-bottom:18px; }
 
 .section-heading small {
-    color: var(--blue);
-
-    font-size: 11px;
-    font-weight: bold;
-    letter-spacing: 2px;
+  color:var(--blue);
+  font-weight:bold;
+  font-size:11px;
+  letter-spacing:1.7px;
 }
 
 .section-heading h2 {
-    margin: 5px 0;
-
-    color: var(--navy);
-    font-size: 29px;
+  color:var(--navy);
+  font-size:clamp(23px,3vw,30px);
+  margin:5px 0;
 }
 
 .section-heading p {
-    margin: 0;
-
-    color: var(--muted);
-    font-size: 14px;
+  color:var(--muted);
+  font-size:13px;
+  margin:0;
 }
 
+/* MAIN COURSES */
 
-/* =========================
-   TWO MAIN LEARNING CARDS
-========================= */
+.grid {
+  display:grid;
+  gap:16px;
+}
 
 .main-grid {
-    display: grid;
-
-    grid-template-columns: repeat(2, 1fr);
-
-    gap: 20px;
+  grid-template-columns:repeat(2,minmax(0,1fr));
 }
 
-.main-card {
-    background: white;
-
-    border: 1px solid var(--border);
-    border-radius: 17px;
-
-    padding: 25px;
-
-    box-shadow: var(--shadow);
-
-    transition: 0.25s;
+.card {
+  background:white;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:22px;
 }
 
-.main-card:hover {
-    transform: translateY(-4px);
+.course-card {
+  border-top:4px solid var(--teal);
 }
 
-.ncert-card {
-    border-top: 5px solid var(--teal);
+.course-card.bpsc { border-top-color:var(--gold); }
+
+.card-icon { font-size:27px; }
+
+.card h3 {
+  color:var(--navy);
+  margin:8px 0;
+  font-size:19px;
 }
 
-.bpsc-card {
-    border-top: 5px solid var(--gold);
-}
-
-.card-icon {
-    width: 55px;
-    height: 55px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: var(--light-blue);
-
-    border-radius: 14px;
-
-    font-size: 27px;
-}
-
-.main-card h3 {
-    margin: 16px 0 8px;
-
-    color: var(--navy);
-    font-size: 23px;
-}
-
-.main-card p {
-    color: var(--muted);
-    font-size: 14px;
+.card p {
+  color:var(--muted);
+  font-size:13px;
 }
 
 .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-
-    margin: 17px 0 22px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin:15px 0;
 }
 
 .tags span {
-    background: #f0f5fb;
-
-    border: 1px solid var(--border);
-    border-radius: 6px;
-
-    padding: 5px 9px;
-
-    font-size: 11px;
-    font-weight: bold;
+  padding:5px 8px;
+  background:#f0f5fb;
+  border:1px solid var(--border);
+  border-radius:5px;
+  font-size:10px;
+  font-weight:bold;
 }
 
-
-/* =========================
-   NCERT CLASS CARDS
-========================= */
+/* CLASS SELECTOR */
 
 .class-grid {
-    display: grid;
-
-    grid-template-columns: repeat(7, minmax(0, 1fr));
-
-    gap: 12px;
+  grid-template-columns:repeat(7,minmax(0,1fr));
 }
 
 .class-card {
-    display: block;
-
-    text-align: center;
-
-    background: white;
-
-    border: 1px solid var(--border);
-    border-radius: 12px;
-
-    padding: 17px 8px;
-
-    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-
-    transition: 0.2s;
+  text-align:center;
+  padding:16px 5px;
+  border:1px solid var(--border);
+  border-radius:11px;
+  background:white;
+  transition:transform .2s;
 }
 
-.class-card:hover {
-    border-color: var(--blue);
-    transform: translateY(-3px);
-}
+.class-card:hover { transform:translateY(-3px); }
 
 .class-card strong {
-    display: block;
-
-    color: var(--navy);
-    font-size: 27px;
+  display:block;
+  color:var(--navy);
+  font-size:26px;
 }
 
 .class-card span {
-    display: block;
-
-    color: var(--muted);
-    font-size: 11px;
+  display:block;
+  color:var(--muted);
+  font-size:11px;
 }
 
 .class-card small {
-    display: block;
-
-    margin-top: 7px;
-
-    color: var(--teal);
-    font-weight: bold;
-    font-size: 11px;
+  display:block;
+  margin-top:5px;
+  color:var(--teal);
+  font-weight:bold;
 }
 
-
-/* =========================
-   BPSC INTRODUCTION
-========================= */
-
-.bpsc-intro {
-    background: white;
-
-    border: 1px solid var(--border);
-    border-radius: 15px;
-
-    padding: 23px;
-}
-
-.bpsc-intro h3 {
-    margin-top: 0;
-
-    color: var(--navy);
-    font-size: 22px;
-}
-
-.bpsc-intro p {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-
-/* =========================
-   BPSC INFORMATION CARDS
-========================= */
+/* BPSC INFORMATION */
 
 .info-grid {
-    display: grid;
-
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-
-    gap: 15px;
-
-    margin-top: 16px;
+  grid-template-columns:repeat(3,minmax(0,1fr));
 }
 
-.info-card {
-    background: white;
+.info-card { padding:18px; }
 
-    border: 1px solid var(--border);
-    border-radius: 13px;
-
-    padding: 20px;
-
-    transition: 0.2s;
-}
-
-.info-card:hover {
-    transform: translateY(-3px);
-
-    box-shadow: var(--shadow);
-}
-
-.info-icon {
-    font-size: 25px;
-}
-
-.info-card h3 {
-    margin: 9px 0 6px;
-
-    color: var(--navy);
-    font-size: 16px;
-}
+.info-card h3 { font-size:15px; }
 
 .info-card p {
-    color: var(--muted);
-    font-size: 12px;
-
-    margin-bottom: 15px;
+  font-size:12px;
+  min-height:55px;
 }
 
-.info-card a {
-    color: var(--blue);
-
-    font-size: 12px;
-    font-weight: bold;
+.info-card a,
+.subject-card a,
+.resource-card a {
+  color:var(--blue);
+  font-size:12px;
+  font-weight:bold;
 }
 
-
-/* =========================
-   SUBJECT NOTES
-========================= */
+/* SUBJECTS */
 
 .subject-grid {
-    display: grid;
-
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-
-    gap: 12px;
+  grid-template-columns:repeat(4,minmax(0,1fr));
 }
 
 .subject-card {
-    background: white;
-
-    border: 1px solid var(--border);
-    border-radius: 12px;
-
-    padding: 17px;
+  background:white;
+  padding:15px;
+  border:1px solid var(--border);
+  border-radius:11px;
 }
 
 .subject-card h3 {
-    margin: 0 0 7px;
-
-    color: var(--navy);
-    font-size: 15px;
+  color:var(--navy);
+  font-size:14px;
+  margin:0 0 5px;
 }
 
 .subject-card p {
-    margin: 0 0 12px;
-
-    color: var(--muted);
-    font-size: 12px;
+  color:var(--muted);
+  font-size:11px;
 }
 
-.subject-card a {
-    color: var(--blue);
-
-    font-size: 12px;
-    font-weight: bold;
-}
-
-
-/* =========================
-   CURRENT AFFAIRS
-========================= */
+/* CURRENT AFFAIRS */
 
 .current-box {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    gap: 20px;
-
-    padding: 25px;
-
-    background: linear-gradient(
-        120deg,
-        #e6f7f5,
-        #f2f7ff
-    );
-
-    border: 1px solid #cfe9e6;
-    border-radius: 16px;
+  background:linear-gradient(120deg,#e7f7f5,#eff5ff);
+  border:1px solid #cde6e3;
+  border-radius:14px;
+  padding:23px;
 }
 
 .current-box h3 {
-    color: var(--navy);
-
-    margin-top: 0;
-    font-size: 23px;
+  color:var(--navy);
+  margin-top:0;
 }
 
 .current-box p {
-    max-width: 760px;
-
-    color: var(--muted);
-    font-size: 14px;
+  color:var(--muted);
+  font-size:13px;
+  max-width:800px;
 }
 
-.current-badge {
-    background: white;
-
-    border: 1px solid #cfe9e6;
-    border-radius: 10px;
-
-    padding: 15px;
-
-    color: #0d8279;
-
-    font-size: 12px;
-    font-weight: bold;
-
-    text-align: center;
-    white-space: nowrap;
-}
-
-
-/* =========================
-   NOTES AND DOWNLOADS
-========================= */
+/* RESOURCES */
 
 .resource-grid {
-    display: grid;
-
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-
-    gap: 15px;
+  grid-template-columns:repeat(3,minmax(0,1fr));
 }
 
-.resource-card {
-    background: white;
+.resource-card h3 { font-size:16px; }
 
-    border: 1px solid var(--border);
-    border-radius: 13px;
+.resource-card p { font-size:12px; }
 
-    padding: 20px;
+/* NOTICE */
+
+.notice {
+  margin-top:20px;
+  padding:14px;
+  border-left:4px solid var(--gold);
+  background:white;
+  color:var(--muted);
+  font-size:12px;
 }
 
-.resource-label {
-    display: inline-block;
-
-    background: var(--light-blue);
-    color: var(--blue);
-
-    border-radius: 5px;
-
-    padding: 4px 8px;
-
-    font-size: 10px;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-.resource-card h3 {
-    color: var(--navy);
-
-    margin: 10px 0 5px;
-
-    font-size: 17px;
-}
-
-.resource-card p {
-    color: var(--muted);
-
-    font-size: 12px;
-}
-
-.resource-card a {
-    color: var(--blue);
-
-    font-size: 12px;
-    font-weight: bold;
-}
-
-
-/* =========================
-   FOOTER
-========================= */
+/* FOOTER */
 
 .footer {
-    margin-top: 45px;
-
-    background: #0b1f39;
-    color: #dce8f8;
+  margin-top:45px;
+  background:#091b32;
+  color:#dce8f8;
 }
 
 .footer-inner {
-    max-width: 1200px;
-
-    margin: auto;
-
-    padding: 35px 20px;
-
-    display: grid;
-
-    grid-template-columns: 1.5fr 1fr 1fr;
-
-    gap: 30px;
+  width:min(1160px,92%);
+  margin:auto;
+  padding:30px 0;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:25px;
 }
 
 .footer h3 {
-    margin-top: 0;
-
-    color: white;
-    font-size: 16px;
+  color:white;
+  font-size:15px;
 }
 
 .footer p,
 .footer a {
-    color: #bdcde2;
-    font-size: 12px;
+  font-size:12px;
+  color:#bdcde2;
 }
 
 .footer a {
-    display: block;
-    margin: 8px 0;
+  display:block;
+  margin:7px 0;
 }
 
-.footer a:hover {
-    color: var(--gold);
-}
+.footer a:hover { color:var(--gold); }
 
 .footer-bottom {
-    text-align: center;
-
-    padding: 15px;
-
-    border-top: 1px solid #ffffff1c;
-
-    font-size: 11px;
-    color: #aebfd6;
+  border-top:1px solid #ffffff20;
+  text-align:center;
+  padding:13px;
+  font-size:11px;
 }
 
+/* RESPONSIVE */
 
-/* =========================
-   MOBILE RESPONSIVENESS
-========================= */
+@media(max-width:850px) {
+  .class-grid { grid-template-columns:repeat(4,minmax(0,1fr)); }
+  .info-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .subject-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
 
-@media (max-width: 900px) {
+  .menu-button { display:block; }
 
-    .class-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
+  .nav-inner {
+    flex-wrap:wrap;
+    padding:8px 0;
+  }
 
-    .subject-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+  .nav-links {
+    display:none;
+    width:100%;
+  }
 
-    .info-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+  .nav-links.open { display:flex; }
 
-    .menu-button {
-        display: block;
-    }
-
-    .nav-inner {
-        flex-wrap: wrap;
-    }
-
-    .nav-links {
-        display: none;
-        width: 100%;
-    }
-
-    .nav-links.open {
-        display: flex;
-    }
-
-    .nav-links a {
-        width: calc(50% - 5px);
-    }
-
+  .nav-links a { width:calc(50% - 5px); }
 }
 
-@media (max-width: 600px) {
+@media(max-width:560px) {
+  .header-tag { display:none; }
+  .brand h1 { font-size:21px; }
 
-    .header-tag {
-        display: none;
-    }
+  .main-grid,
+  .info-grid,
+  .resource-grid,
+  .footer-inner {
+    grid-template-columns:1fr;
+  }
 
-    .logo-text h1 {
-        font-size: 21px;
-    }
+  .class-grid { gap:7px; }
 
-    .hero {
-        padding: 30px 22px;
-    }
+  .class-card strong { font-size:22px; }
+  .class-card span { font-size:10px; }
 
-    .hero h2 {
-        font-size: 31px;
-    }
-
-    .main-grid,
-    .info-grid,
-    .resource-grid,
-    .footer-inner {
-        grid-template-columns: 1fr;
-    }
-
-    .class-grid {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 8px;
-    }
-
-    .subject-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .current-box {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .section-heading h2 {
-        font-size: 24px;
-    }
-
-    .container {
-        padding-left: 14px;
-        padding-right: 14px;
-    }
-
+  .subject-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
 }
-
 </style>
-
 </head>
 
 <body>
 
-
-<!-- ANNOUNCEMENT -->
-
 <div class="announcement">
-
-<strong>ORIENT CLASSES</strong>
-
-&nbsp; | &nbsp;
-
-Complete NCERT Class 6–12
-
-&nbsp; | &nbsp;
-
-BPSC Preparation
-
-&nbsp; | &nbsp;
-
-Current Affairs
-
+  <strong>ORIENT CLASSES</strong> |
+  Complete NCERT 6–12 | BPSC Preparation | Current Affairs
 </div>
 
-
-<!-- HEADER -->
-
-<header class="header">
-
-<div class="header-inner">
-
-<a href="#home" class="logo-area">
-
-<div class="logo">OC</div>
-
-<div class="logo-text">
-
-<h1>ORIENT CLASSES</h1>
-
-<p>LEARN • PRACTISE • SUCCEED</p>
-
-</div>
-
-</a>
-
-<div class="header-tag">
-
-Your Learning Journey Starts Here
-
-</div>
-
-</div>
-
+<header class="header" id="home">
+  <div class="header-inner">
+    <a href="#home" class="brand">
+      <div class="logo">OC</div>
+      <div>
+        <h1>ORIENT CLASSES</h1>
+        <p>LEARN • PRACTISE • SUCCEED</p>
+      </div>
+    </a>
+    <div class="header-tag">Your Learning Journey Starts Here</div>
+  </div>
 </header>
 
-
-<!-- NAVIGATION -->
-
 <nav class="navbar">
+  <div class="nav-inner">
+    <button class="menu-button" id="menuButton"
+      aria-expanded="false" aria-controls="navLinks">☰ Menu</button>
 
-<div class="nav-inner">
-
-<button
-class="menu-button"
-id="menuButton"
-aria-expanded="false"
-aria-controls="navLinks">
-
-☰ Menu
-
-</button>
-
-<div class="nav-links" id="navLinks">
-
-<a href="#home">Home</a>
-
-<a href="#ncert">NCERT Class 6–12</a>
-
-<a href="#bpsc">BPSC Preparation</a>
-
-<a href="#current-affairs">Current Affairs</a>
-
-<a href="#notes">Notes & Practice</a>
-
-</div>
-
-</div>
-
+    <div class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#ncert">NCERT Class 6–12</a>
+      <a href="#bpsc">BPSC Preparation</a>
+      <a href="#current-affairs">Current Affairs</a>
+      <a href="#notes">Notes & Downloads</a>
+    </div>
+  </div>
 </nav>
 
-
-<main class="container" id="home">
-
-
-<!-- HERO -->
-
-<section class="hero">
-
-<div class="hero-label">
-
-Your Online Learning Platform
-
-</div>
-
-<h2>
-
-Build Your Foundation.<br>
-
-<span>Prepare for Your Future.</span>
-
-</h2>
-
-<p>
-
-Welcome to Orient Classes — your learning destination
-for complete NCERT study resources from Class 6 to 12
-and comprehensive BPSC preparation.
-
-Learn concepts, revise with notes, practise questions
-and stay updated with current affairs.
-
-</p>
-
-<div class="hero-buttons">
-
-<a href="#ncert" class="button button-gold">
-
-Explore NCERT Classes →
-
-</a>
-
-<a href="#bpsc" class="button button-outline">
-
-Start BPSC Preparation →
-
-</a>
-
-</div>
-
-</section>
-
-
-<!-- MAIN LEARNING PATHS -->
-
-<section class="section" id="learning-paths">
-
-<div class="section-heading">
-
-<small>OUR MAIN FOCUS</small>
-
-<h2>Choose Your Learning Path</h2>
-
-<p>
-
-Two major learning sections designed for your academic
-and competitive examination goals.
-
-</p>
-
-</div>
-
-
-<div class="main-grid">
-
-
-<!-- NCERT -->
-
-<article class="main-card ncert-card">
-
-<div class="card-icon">📚</div>
-
-<h3>Complete NCERT — Class 6 to 12</h3>
-
-<p>
-
-Build strong fundamentals through structured
-NCERT-based learning. Explore class-wise subjects,
-chapter notes, practice questions, tests and
-downloadable resources.
-
-</p>
-
-<div class="tags">
-
-<span>Class 6–12</span>
-
-<span>Chapter Notes</span>
-
-<span>MCQs</span>
-
-<span>Tests</span>
-
-<span>Downloads</span>
-
-</div>
-
-<a href="#ncert" class="button button-blue">
-
-Explore NCERT →
-
-</a>
-
-</article>
-
-
-<!-- BPSC -->
-
-<article class="main-card bpsc-card">
-
-<div class="card-icon">🎯</div>
-
-<h3>Complete BPSC Preparation</h3>
-
-<p>
-
-Prepare systematically with the official syllabus,
-post-wise vacancies, salary details, previous-year
-cut-offs, question papers, subject notes and
-current affairs.
-
-</p>
-
-<div class="tags">
-
-<span>Latest Syllabus</span>
-
-<span>Vacancies</span>
-
-<span>Salary</span>
-
-<span>Cut-offs</span>
-
-<span>Current Affairs</span>
-
-</div>
-
-<a href="#bpsc" class="button button-blue">
-
-Explore BPSC →
-
-</a>
-
-</article>
-
-
-</div>
-
-</section>
-
-
-
-<!-- NCERT CLASSES -->
-
-<section class="section" id="ncert">
-
-<div class="section-heading">
-
-<small>SCHOOL EDUCATION</small>
-
-<h2>NCERT Complete Study — Class 6 to 12</h2>
-
-<p>
-
-Select your class to explore the available learning
-resources.
-
-</p>
-
-</div>
-
-
-<div class="class-grid">
-
-
-<a class="class-card" href="Class_6.html">
-
-<strong>6</strong>
-
-<span>Class Six</span>
-
-<small>Explore →</small>
-
-</a>
-
-
-<a class="class-card" href="Class_7.html">
-
-<strong>7</strong>
-
-<span>Class Seven</span>
-
-<small>Explore →</small>
-
-</a>
-
-
-<a class="class-card" href="Class_8.html">
-
-<strong>8</strong>
-
-<span>Class Eight</span>
-
-<small>Explore →</small>
-
-</a>
-
-
-<a class="class-card" href="Class_9_Social_Science.html">
-
-<strong>9</strong>
-
-<span>Class Nine</span>
-
-<small>Explore →</small>
-
-</a>
-
-
-<a class="class-card" href="Social_Science_10.html">
-
-<strong>10</strong>
-
-<span>Class Ten</span>
-
-<small>Explore →</small>
-
-</a>
-
-
-<a class="class-card" href="Class_11.html">
-
-<strong>11</strong>
-
-<span>Class Eleven</span>
-
-<small>Explore →</small>
-
-</a>
-
-
-<a class="class-card" href="Class_12.html">
-
-<strong>12</strong>
-
-<span>Class Twelve</span>
-
-<small>Explore →</small>
-
-</a>
-
-
-</div>
-
-</section>
-
-
-
-<!-- BPSC -->
-
-<section class="section" id="bpsc">
-
-<div class="section-heading">
-
-<small>BIHAR PUBLIC SERVICE COMMISSION</small>
-
-<h2>BPSC Complete Preparation Centre</h2>
-
-<p>
-
-Everything an aspirant needs to understand the
-examination and prepare systematically.
-
-</p>
-
-</div>
-
-
-<div class="bpsc-intro">
-
-<h3>Prepare with the Right Information</h3>
-
-<p>
-
-Explore exam-wise information, official notifications,
-syllabus-based notes, previous-year papers,
-practice sets and revision resources.
-
-Recruitment information and cut-offs should always
-be checked against the relevant official notification
-and examination year.
-
-</p>
-
-<a href="BPSC.html" class="button button-blue">
-
-Open BPSC Section →
-
-</a>
-
-</div>
-
-
-
-<div class="info-grid">
-
-
-<!-- SYLLABUS -->
-
-<article class="info-card">
-
-<div class="info-icon">📋</div>
-
-<h3>Latest Syllabus & Exam Pattern</h3>
-
-<p>
-
-Prelims, Mains, examination structure, marking scheme
-and preparation roadmap.
-
-</p>
-
-<a href="BPSC.html#syllabus">
-
-View Syllabus →
-
-</a>
-
-</article>
-
-
-
-<!-- VACANCIES -->
-
-<article class="info-card">
-
-<div class="info-icon">🏛️</div>
-
-<h3>Vacancies & Posts</h3>
-
-<p>
-
-Post-wise vacancies, eligibility, age limits and
-selection stages for relevant recruitment exams.
-
-</p>
-
-<a href="BPSC.html#vacancies">
-
-View Vacancies →
-
-</a>
-
-</article>
-
-
-
-<!-- SALARY -->
-
-<article class="info-card">
-
-<div class="info-icon">💰</div>
-
-<h3>Salary & Pay Scale</h3>
-
-<p>
-
-Post-wise pay scale, pay level and applicable
-allowances.
-
-</p>
-
-<a href="BPSC.html#salary">
-
-Explore Salary →
-
-</a>
-
-</article>
-
-
-
-<!-- CUT OFF -->
-
-<article class="info-card">
-
-<div class="info-icon">📊</div>
-
-<h3>Previous Year Cut-offs</h3>
-
-<p>
-
-Prelims, Mains and final cut-off information,
-organised by examination year and category
-where available.
-
-</p>
-
-<a href="BPSC.html#cutoff">
-
-View Cut-offs →
-
-</a>
-
-</article>
-
-
-
-<!-- PYQ -->
-
-<article class="info-card">
-
-<div class="info-icon">📝</div>
-
-<h3>Previous Year Papers</h3>
-
-<p>
-
-Previous examination papers, answer keys and
-question practice.
-
-</p>
-
-<a href="BPSC.html#previous-papers">
-
-Practise PYQs →
-
-</a>
-
-</article>
-
-
-
-<!-- NOTES -->
-
-<article class="info-card">
-
-<div class="info-icon">📚</div>
-
-<h3>All Subjects Notes</h3>
-
-<p>
-
-History, Geography, Polity, Economy, Science,
-Bihar GK, Environment and Aptitude.
-
-</p>
-
-<a href="BPSC.html#subject-notes">
-
-Browse Subject Notes →
-
-</a>
-
-</article>
-
-
-</div>
-
-</section>
-
-
-
-<!-- BPSC SUBJECTS -->
-
-<section class="section" id="subject-notes">
-
-<div class="section-heading">
-
-<small>SUBJECT-WISE PREPARATION</small>
-
-<h2>BPSC Subject Notes & Practice</h2>
-
-<p>
-
-Study each subject systematically with notes,
-revision material and practice questions.
-
-</p>
-
-</div>
-
-
-<div class="subject-grid">
-
-
-<article class="subject-card">
-
-<h3>🏺 Indian History</h3>
-
-<p>Ancient, Medieval and Modern Indian History.</p>
-
-<a href="BPSC.html#history">Explore History →</a>
-
-</article>
-
-
-<article class="subject-card">
-
-<h3>🌍 Geography</h3>
-
-<p>Indian Geography, World Geography and Bihar Geography.</p>
-
-<a href="BPSC.html#geography">Explore Geography →</a>
-
-</article>
-
-
-<article class="subject-card">
-
-<h3>⚖️ Indian Polity</h3>
-
-<p>Constitution, Parliament, Judiciary and Governance.</p>
-
-<a href="BPSC.html#polity">Explore Polity →</a>
-
-</article>
-
-
-<article class="subject-card">
-
-<h3>📈 Indian Economy</h3>
-
-<p>Economic concepts, development and government policies.</p>
-
-<a href="BPSC.html#economy">Explore Economy →</a>
-
-</article>
-
-
-<article class="subject-card">
-
-<h3>🔬 General Science</h3>
-
-<p>Physics, Chemistry, Biology and everyday science.</p>
-
-<a href="BPSC.html#science">Explore Science →</a>
-
-</article>
-
-
-<article class="subject-card">
-
-<h3>🏞️ Bihar Special GK</h3>
-
-<p>Bihar history, geography, culture and economy.</p>
-
-<a href="BPSC.html#bihar-gk">Explore Bihar GK →</a>
-
-</article>
-
-
-<article class="subject-card">
-
-<h3>🌱 Environment</h3>
-
-<p>Ecology, biodiversity, conservation and climate change.</p>
-
-<a href="BPSC.html#environment">Explore Environment →</a>
-
-</article>
-
-
-<article class="subject-card">
-
-<h3>🧮 Aptitude & Reasoning</h3>
-
-<p>Numerical ability, logical reasoning and practice.</p>
-
-<a href="BPSC.html#aptitude">Explore Aptitude →</a>
-
-</article>
-
-
-</div>
-
-</section>
-
-
-
-<!-- CURRENT AFFAIRS -->
-
-<section class="section" id="current-affairs">
-
-<div class="section-heading">
-
-<small>STAY UPDATED</small>
-
-<h2>Current Affairs</h2>
-
-<p>
-
-A dedicated section for daily and monthly competitive
-exam preparation.
-
-</p>
-
-</div>
-
-
-<div class="current-box">
-
-<div>
-
-<h3>Current Affairs for BPSC</h3>
-
-<p>
-
-Read daily current affairs, monthly compilations,
-Bihar current affairs, important government schemes,
-reports, awards, appointments, national and
-international events, and exam-oriented MCQs.
-
-</p>
-
-<a href="Current_Affairs.html" class="button button-blue">
-
-Open Current Affairs →
-
-</a>
-
-</div>
-
-
-<div class="current-badge">
-
-DAILY NOTES<br>
-
-MONTHLY PDF<br>
-
-MCQs & QUIZZES
-
-</div>
-
-
-</div>
-
-</section>
-
-
-
-<!-- NOTES AND DOWNLOADS -->
-
-<section class="section" id="notes">
-
-<div class="section-heading">
-
-<small>LEARN • PRACTISE • REVISE</small>
-
-<h2>Notes, Tests & Downloads</h2>
-
-<p>
-
-Learn a concept, practise questions and revise
-regularly.
-
-</p>
-
-</div>
-
-
-<div class="resource-grid">
-
-
-<article class="resource-card">
-
-<div class="resource-label">Study</div>
-
-<h3>Chapter-wise Notes</h3>
-
-<p>
-
-NCERT chapter notes and BPSC subject-wise
-study material.
-
-</p>
-
-<a href="#ncert">Browse Learning Resources →</a>
-
-</article>
-
-
-<article class="resource-card">
-
-<div class="resource-label">Practice</div>
-
-<h3>MCQs & Test Papers</h3>
-
-<p>
-
-Practise topic-wise questions and available
-test papers to assess your preparation.
-
-</p>
-
-<a href="Class_9_Social_Science_Test.html">
-
-Open Available Test →
-
-</a>
-
-</article>
-
-
-<article class="resource-card">
-
-<div class="resource-label">Downloads</div>
-
-<h3>PDF Download Centre</h3>
-
-<p>
-
-Find available notes, worksheets, question papers
-and revision material.
-
-</p>
-
-<a href="Downloads.html">
-
-Open Downloads →
-
-</a>
-
-</article>
-
-
-</div>
-
-</section>
-
-
-
-<!-- IMPORTANT NOTICE -->
-
-<div class="section">
-
-<div class="bpsc-intro">
-
-<h3>Important Information for Aspirants</h3>
-
-<p>
-
-BPSC vacancies, eligibility conditions, syllabus,
-exam dates, salary rules and cut-offs may vary by
-recruitment and examination year.
-
-Always verify time-sensitive information against
-the relevant official BPSC notification before
-relying on it.
-
-</p>
-
-</div>
-
-</div>
-
+<main class="container">
+
+  <!-- INTRODUCTION -->
+
+  <section class="hero">
+    <div class="eyebrow">Your Online Learning Platform</div>
+    <h2>Build Your Foundation.<br><span>Prepare for Your Future.</span></h2>
+    <p>
+      Welcome to Orient Classes. Explore complete NCERT learning
+      resources for Classes 6–12 and focused BPSC preparation,
+      including syllabus, recruitment information, subject notes,
+      practice questions and current affairs.
+    </p>
+    <div class="actions">
+      <a class="btn btn-gold" href="#ncert">Explore NCERT →</a>
+      <a class="btn btn-white" href="#bpsc">Explore BPSC →</a>
+    </div>
+  </section>
+
+  <!-- MAIN LEARNING PATHS -->
+
+  <section class="section">
+    <div class="section-heading">
+      <small>OUR MAIN FOCUS</small>
+      <h2>Choose Your Learning Path</h2>
+      <p>Two focused learning programmes for school students and competitive exam aspirants.</p>
+    </div>
+
+    <div class="grid main-grid">
+      <article class="card course-card">
+        <div class="card-icon">📚</div>
+        <h3>Complete NCERT — Class 6 to 12</h3>
+        <p>
+          Learn chapter by chapter with subject notes, concept
+          explanations, MCQs, tests and study material.
+        </p>
+        <div class="tags">
+          <span>Classes 6–12</span>
+          <span>Chapter Notes</span>
+          <span>MCQs</span>
+          <span>Tests</span>
+        </div>
+        <a class="btn btn-blue" href="#ncert">Explore Classes →</a>
+      </article>
+
+      <article class="card course-card bpsc">
+        <div class="card-icon">🎯</div>
+        <h3>Complete BPSC Preparation</h3>
+        <p>
+          Access exam information, syllabus, vacancies, salary,
+          previous-year cut-offs, question papers and subject notes.
+        </p>
+        <div class="tags">
+          <span>Syllabus</span>
+          <span>Vacancies</span>
+          <span>Salary</span>
+          <span>Cut-offs</span>
+        </div>
+        <a class="btn btn-blue" href="#bpsc">Start Preparation →</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- NCERT -->
+
+  <section class="section" id="ncert">
+    <div class="section-heading">
+      <small>SCHOOL EDUCATION</small>
+      <h2>NCERT Complete Study — Class 6 to 12</h2>
+      <p>Select a class to explore its learning resources.</p>
+    </div>
+
+    <div class="grid class-grid">
+      <a class="class-card" href="Class_6.html"><strong>6</strong><span>Class Six</span><small>Explore →</small></a>
+      <a class="class-card" href="Class_7.html"><strong>7</strong><span>Class Seven</span><small>Explore →</small></a>
+      <a class="class-card" href="Class_8.html"><strong>8</strong><span>Class Eight</span><small>Explore →</small></a>
+      <a class="class-card" href="Class_9_Social_Science.html"><strong>9</strong><span>Class Nine</span><small>Explore →</small></a>
+      <a class="class-card" href="Social_Science_10.html"><strong>10</strong><span>Class Ten</span><small>Explore →</small></a>
+      <a class="class-card" href="Class_11.html"><strong>11</strong><span>Class Eleven</span><small>Explore →</small></a>
+      <a class="class-card" href="Class_12.html"><strong>12</strong><span>Class Twelve</span><small>Explore →</small></a>
+    </div>
+  </section>
+
+  <!-- BPSC -->
+
+  <section class="section" id="bpsc">
+    <div class="section-heading">
+      <small>BIHAR PUBLIC SERVICE COMMISSION</small>
+      <h2>BPSC Preparation Centre</h2>
+      <p>Find examination information and organised study material.</p>
+    </div>
+
+    <div class="card">
+      <h3>Prepare with the Right Information</h3>
+      <p>
+        Study the relevant official syllabus, understand recruitment
+        requirements and practise using subject notes and previous-year
+        questions. Information should be verified against the notification
+        for the relevant examination.
+      </p>
+      <a class="btn btn-blue" href="BPSC.html">Open BPSC Section →</a>
+    </div>
+
+    <div class="grid info-grid" style="margin-top:15px">
+      <article class="card info-card">
+        <div class="card-icon">📋</div>
+        <h3>Latest Syllabus</h3>
+        <p>Exam pattern, syllabus, marking scheme and selection stages.</p>
+        <a href="BPSC.html#syllabus">View Syllabus →</a>
+      </article>
+
+      <article class="card info-card">
+        <div class="card-icon">🏛️</div>
+        <h3>Vacancies & Posts</h3>
+        <p>Post-wise vacancy details and eligibility requirements.</p>
+        <a href="BPSC.html#vacancies">View Vacancies →</a>
+      </article>
+
+      <article class="card info-card">
+        <div class="card-icon">💰</div>
+        <h3>Salary & Pay Scale</h3>
+        <p>Pay scales, pay levels and applicable allowances.</p>
+        <a href="BPSC.html#salary">View Salary →</a>
+      </article>
+
+      <article class="card info-card">
+        <div class="card-icon">📊</div>
+        <h3>Previous Year Cut-offs</h3>
+        <p>Prelims, Mains and final cut-offs by exam year and category.</p>
+        <a href="BPSC.html#cutoff">View Cut-offs →</a>
+      </article>
+
+      <article class="card info-card">
+        <div class="card-icon">📝</div>
+        <h3>Previous Year Papers</h3>
+        <p>Question papers, available answer keys and exam practice.</p>
+        <a href="BPSC.html#previous-papers">Practise PYQs →</a>
+      </article>
+
+      <article class="card info-card">
+        <div class="card-icon">📚</div>
+        <h3>Subject-wise Notes</h3>
+        <p>History, Geography, Polity, Economy, Science and Bihar GK.</p>
+        <a href="BPSC.html#subject-notes">Explore Notes →</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- SUBJECTS -->
+
+  <section class="section" id="subject-notes">
+    <div class="section-heading">
+      <small>SUBJECT-WISE LEARNING</small>
+      <h2>BPSC Subjects</h2>
+      <p>Organise preparation by subject and topic.</p>
+    </div>
+
+    <div class="grid subject-grid">
+      <article class="subject-card">
+        <h3>🏺 Indian History</h3>
+        <p>Ancient, Medieval and Modern History.</p>
+        <a href="BPSC.html#history">Explore →</a>
+      </article>
+
+      <article class="subject-card">
+        <h3>🌍 Geography</h3>
+        <p>India, World and Bihar Geography.</p>
+        <a href="BPSC.html#geography">Explore →</a>
+      </article>
+
+      <article class="subject-card">
+        <h3>⚖️ Indian Polity</h3>
+        <p>Constitution, Parliament and Governance.</p>
+        <a href="BPSC.html#polity">Explore →</a>
+      </article>
+
+      <article class="subject-card">
+        <h3>📈 Economy</h3>
+        <p>Economic concepts and government policies.</p>
+        <a href="BPSC.html#economy">Explore →</a>
+      </article>
+
+      <article class="subject-card">
+        <h3>🔬 General Science</h3>
+        <p>Physics, Chemistry and Biology.</p>
+        <a href="BPSC.html#science">Explore →</a>
+      </article>
+
+      <article class="subject-card">
+        <h3>🏞️ Bihar GK</h3>
+        <p>Bihar history, culture, geography and economy.</p>
+        <a href="BPSC.html#bihar-gk">Explore →</a>
+      </article>
+
+      <article class="subject-card">
+        <h3>🌱 Environment</h3>
+        <p>Ecology, biodiversity and climate change.</p>
+        <a href="BPSC.html#environment">Explore →</a>
+      </article>
+
+      <article class="subject-card">
+        <h3>🧮 Aptitude</h3>
+        <p>Numerical ability and logical reasoning.</p>
+        <a href="BPSC.html#aptitude">Explore →</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- CURRENT AFFAIRS -->
+
+  <section class="section" id="current-affairs">
+    <div class="section-heading">
+      <small>STAY UPDATED</small>
+      <h2>Current Affairs</h2>
+      <p>A dedicated section for competitive examination preparation.</p>
+    </div>
+
+    <div class="current-box">
+      <h3>Current Affairs for BPSC</h3>
+      <p>
+        Daily and monthly updates, Bihar current affairs, government
+        schemes, reports, awards, appointments, national and international
+        events, and exam-oriented MCQs.
+      </p>
+      <a href="Current_Affairs.html" class="btn btn-blue">Open Current Affairs →</a>
+    </div>
+  </section>
+
+  <!-- RESOURCES -->
+
+  <section class="section" id="notes">
+    <div class="section-heading">
+      <small>STUDY RESOURCES</small>
+      <h2>Notes, Tests & Downloads</h2>
+      <p>Learn, practise and revise using the available study material.</p>
+    </div>
+
+    <div class="grid resource-grid">
+      <article class="card resource-card">
+        <div class="eyebrow" style="color:#2864ad">STUDY</div>
+        <h3>Chapter-wise Notes</h3>
+        <p>NCERT chapter notes and BPSC subject study material.</p>
+        <a href="#ncert">Browse Resources →</a>
+      </article>
+
+      <article class="card resource-card">
+        <div class="eyebrow" style="color:#2864ad">PRACTICE</div>
+        <h3>MCQs & Tests</h3>
+        <p>Topic-wise questions and available test papers.</p>
+        <a href="Class_9_Social_Science_Test.html">Open Test →</a>
+      </article>
+
+      <article class="card resource-card">
+        <div class="eyebrow" style="color:#2864ad">DOWNLOAD</div>
+        <h3>PDF Download Centre</h3>
+        <p>Find available notes, worksheets and question papers.</p>
+        <a href="Downloads.html">Open Downloads →</a>
+      </article>
+    </div>
+  </section>
+
+  <div class="notice">
+    Important: BPSC vacancies, syllabus, eligibility, salary and cut-offs
+    may change by recruitment year. Verify examination-specific details
+    against official notifications.
+  </div>
 
 </main>
 
-
-
-<!-- FOOTER -->
-
 <footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <h3>Orient Classes</h3>
+      <p>
+        A learning platform for NCERT Classes 6–12 and BPSC aspirants.
+        Build strong concepts through consistent study and practice.
+      </p>
+      <strong>Learn • Practise • Succeed</strong>
+    </div>
 
-<div class="footer-inner">
+    <div>
+      <h3>NCERT</h3>
+      <a href="#ncert">Classes 6–12</a>
+      <a href="Class_9_Social_Science.html">Class 9</a>
+      <a href="Social_Science_10.html">Class 10</a>
+      <a href="Downloads.html">Downloads</a>
+    </div>
 
+    <div>
+      <h3>BPSC</h3>
+      <a href="BPSC.html#syllabus">Syllabus</a>
+      <a href="BPSC.html#vacancies">Vacancies</a>
+      <a href="BPSC.html#salary">Salary</a>
+      <a href="BPSC.html#cutoff">Cut-offs</a>
+      <a href="Current_Affairs.html">Current Affairs</a>
+    </div>
+  </div>
 
-<div>
-
-<h3>Orient Classes</h3>
-
-<p>
-
-A learning platform for NCERT Classes 6–12 and
-BPSC aspirants.
-
-Learn concepts, practise consistently and build
-confidence step by step.
-
-</p>
-
-<p><strong>Learn • Practise • Succeed</strong></p>
-
-</div>
-
-
-
-<div>
-
-<h3>NCERT Learning</h3>
-
-<a href="#ncert">Classes 6–12</a>
-
-<a href="Class_9_Social_Science.html">
-Class 9 Social Science
-</a>
-
-<a href="Social_Science_10.html">
-Class 10 Social Science
-</a>
-
-<a href="Downloads.html">
-Downloads
-</a>
-
-</div>
-
-
-
-<div>
-
-<h3>BPSC Preparation</h3>
-
-<a href="BPSC.html#syllabus">Syllabus & Pattern</a>
-
-<a href="BPSC.html#vacancies">Vacancies & Posts</a>
-
-<a href="BPSC.html#salary">Salary Details</a>
-
-<a href="BPSC.html#cutoff">Previous Cut-offs</a>
-
-<a href="Current_Affairs.html">Current Affairs</a>
-
-</div>
-
-
-</div>
-
-
-<div class="footer-bottom">
-
-© <span id="year"></span> Orient Classes.
-Keep Learning and Keep Growing.
-
-</div>
-
+  <div class="footer-bottom">
+    © <span id="year"></span> Orient Classes. All rights reserved.
+  </div>
 </footer>
 
-
-
-<!-- JAVASCRIPT -->
-
 <script>
-
-"use strict";
-
-/* Mobile Menu */
-
 const menuButton = document.getElementById("menuButton");
-
 const navLinks = document.getElementById("navLinks");
 
-menuButton.addEventListener("click", function() {
-
-    const isOpen = navLinks.classList.toggle("open");
-
-    menuButton.setAttribute(
-        "aria-expanded",
-        String(isOpen)
-    );
-
-    menuButton.textContent = isOpen
-        ? "✕ Close Menu"
-        : "☰ Menu";
-
+menuButton.addEventListener("click", () => {
+  const isOpen = navLinks.classList.toggle("open");
+  menuButton.setAttribute("aria-expanded", String(isOpen));
+  menuButton.textContent = isOpen ? "✕ Close Menu" : "☰ Menu";
 });
 
-
-/* Close Mobile Menu After Clicking */
-
-navLinks.querySelectorAll("a").forEach(function(link) {
-
-    link.addEventListener("click", function() {
-
-        navLinks.classList.remove("open");
-
-        menuButton.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-        menuButton.textContent = "☰ Menu";
-
-    });
-
+navLinks.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+    menuButton.setAttribute("aria-expanded", "false");
+    menuButton.textContent = "☰ Menu";
+  });
 });
 
-
-/* Automatic Copyright Year */
-
-document.getElementById("year").textContent =
-    new Date().getFullYear();
-
+document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 
-
 </body>
-
 </html>
