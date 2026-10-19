@@ -4,8 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#102b50">
-<meta name="description" content="Orient Classes offers NCERT Classes 6–12 and BPSC preparation, syllabus, vacancies, salary, previous year cut-offs, notes and current affairs.">
-<title>Orient Classes | NCERT & BPSC</title>
+<meta name="description" content="Orient Classes offers NCERT Classes 6–12 and BPSC preparation, latest syllabus, vacancies, salary, previous year cut-offs, notes and current affairs.">
+
+<title>Orient Classes | NCERT & BPSC Preparation</title>
 
 <style>
 :root {
@@ -20,7 +21,9 @@
   --white:#fff;
 }
 
-* { box-sizing:border-box; }
+* {
+  box-sizing:border-box;
+}
 
 html {
   scroll-behavior:smooth;
@@ -35,14 +38,22 @@ body {
   line-height:1.6;
 }
 
-a { text-decoration:none; color:inherit; }
+a {
+  text-decoration:none;
+  color:inherit;
+}
 
-button { font:inherit; cursor:pointer; }
+button {
+  font:inherit;
+  cursor:pointer;
+}
 
 .container {
   width:min(1160px,92%);
   margin:auto;
 }
+
+/* ANNOUNCEMENT */
 
 .announcement {
   background:#091b32;
@@ -52,7 +63,9 @@ button { font:inherit; cursor:pointer; }
   font-size:12px;
 }
 
-.announcement strong { color:var(--gold); }
+.announcement strong {
+  color:var(--gold);
+}
 
 /* HEADER */
 
@@ -183,7 +196,9 @@ button { font:inherit; cursor:pointer; }
   margin:14px 0;
 }
 
-.hero h2 span { color:var(--gold); }
+.hero h2 span {
+  color:var(--gold);
+}
 
 .hero p {
   max-width:700px;
@@ -204,6 +219,7 @@ button { font:inherit; cursor:pointer; }
   border-radius:8px;
   font-size:12px;
   font-weight:bold;
+  text-align:center;
 }
 
 .btn-gold {
@@ -221,11 +237,19 @@ button { font:inherit; cursor:pointer; }
   color:white;
 }
 
+.btn:hover {
+  opacity:.88;
+}
+
 /* SECTIONS */
 
-.section { margin-top:38px; }
+.section {
+  margin-top:38px;
+}
 
-.section-heading { margin-bottom:18px; }
+.section-heading {
+  margin-bottom:18px;
+}
 
 .section-heading small {
   color:var(--blue);
@@ -246,7 +270,7 @@ button { font:inherit; cursor:pointer; }
   margin:0;
 }
 
-/* MAIN COURSES */
+/* GRIDS AND CARDS */
 
 .grid {
   display:grid;
@@ -268,9 +292,13 @@ button { font:inherit; cursor:pointer; }
   border-top:4px solid var(--teal);
 }
 
-.course-card.bpsc { border-top-color:var(--gold); }
+.course-card.bpsc {
+  border-top-color:var(--gold);
+}
 
-.card-icon { font-size:27px; }
+.card-icon {
+  font-size:27px;
+}
 
 .card h3 {
   color:var(--navy);
@@ -299,7 +327,7 @@ button { font:inherit; cursor:pointer; }
   font-weight:bold;
 }
 
-/* CLASS SELECTOR */
+/* NCERT CLASS SELECTOR */
 
 .class-grid {
   grid-template-columns:repeat(7,minmax(0,1fr));
@@ -314,7 +342,9 @@ button { font:inherit; cursor:pointer; }
   transition:transform .2s;
 }
 
-.class-card:hover { transform:translateY(-3px); }
+.class-card:hover {
+  transform:translateY(-3px);
+}
 
 .class-card strong {
   display:block;
@@ -341,9 +371,13 @@ button { font:inherit; cursor:pointer; }
   grid-template-columns:repeat(3,minmax(0,1fr));
 }
 
-.info-card { padding:18px; }
+.info-card {
+  padding:18px;
+}
 
-.info-card h3 { font-size:15px; }
+.info-card h3 {
+  font-size:15px;
+}
 
 .info-card p {
   font-size:12px;
@@ -356,6 +390,47 @@ button { font:inherit; cursor:pointer; }
   color:var(--blue);
   font-size:12px;
   font-weight:bold;
+}
+
+/* SYLLABUS HIGHLIGHT */
+
+.syllabus-card {
+  border:2px solid #b9d3f5;
+  background:linear-gradient(135deg,#ffffff,#edf5ff);
+}
+
+.syllabus-card:hover {
+  border-color:var(--blue);
+}
+
+.syllabus-card .card-icon {
+  color:var(--blue);
+}
+
+/* MOCK TEST HIGHLIGHT */
+
+.mock-card {
+  border:2px solid #f0b3b3;
+  background:#fff7f7;
+  animation:mockPulse 1.8s infinite;
+}
+
+.mock-card h3 {
+  color:#b91c1c;
+}
+
+.mock-card a {
+  color:#b91c1c;
+  font-weight:bold;
+}
+
+@keyframes mockPulse {
+  0%,100% {
+    box-shadow:0 0 0 0 #dc262620;
+  }
+  50% {
+    box-shadow:0 0 0 5px #dc262600;
+  }
 }
 
 /* SUBJECTS */
@@ -408,9 +483,13 @@ button { font:inherit; cursor:pointer; }
   grid-template-columns:repeat(3,minmax(0,1fr));
 }
 
-.resource-card h3 { font-size:16px; }
+.resource-card h3 {
+  font-size:16px;
+}
 
-.resource-card p { font-size:12px; }
+.resource-card p {
+  font-size:12px;
+}
 
 /* NOTICE */
 
@@ -456,7 +535,9 @@ button { font:inherit; cursor:pointer; }
   margin:7px 0;
 }
 
-.footer a:hover { color:var(--gold); }
+.footer a:hover {
+  color:var(--gold);
+}
 
 .footer-bottom {
   border-top:1px solid #ffffff20;
@@ -468,11 +549,21 @@ button { font:inherit; cursor:pointer; }
 /* RESPONSIVE */
 
 @media(max-width:850px) {
-  .class-grid { grid-template-columns:repeat(4,minmax(0,1fr)); }
-  .info-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
-  .subject-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .class-grid {
+    grid-template-columns:repeat(4,minmax(0,1fr));
+  }
 
-  .menu-button { display:block; }
+  .info-grid {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .subject-grid {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .menu-button {
+    display:block;
+  }
 
   .nav-inner {
     flex-wrap:wrap;
@@ -484,14 +575,23 @@ button { font:inherit; cursor:pointer; }
     width:100%;
   }
 
-  .nav-links.open { display:flex; }
+  .nav-links.open {
+    display:flex;
+  }
 
-  .nav-links a { width:calc(50% - 5px); }
+  .nav-links a {
+    width:calc(50% - 5px);
+  }
 }
 
 @media(max-width:560px) {
-  .header-tag { display:none; }
-  .brand h1 { font-size:21px; }
+  .header-tag {
+    display:none;
+  }
+
+  .brand h1 {
+    font-size:21px;
+  }
 
   .main-grid,
   .info-grid,
@@ -500,12 +600,30 @@ button { font:inherit; cursor:pointer; }
     grid-template-columns:1fr;
   }
 
-  .class-grid { gap:7px; }
+  .class-grid {
+    gap:7px;
+  }
 
-  .class-card strong { font-size:22px; }
-  .class-card span { font-size:10px; }
+  .class-card strong {
+    font-size:22px;
+  }
 
-  .subject-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .class-card span {
+    font-size:10px;
+  }
+
+  .subject-grid {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  *,
+  *::before,
+  *::after {
+    animation:none !important;
+    scroll-behavior:auto !important;
+  }
 }
 </style>
 </head>
@@ -519,48 +637,79 @@ button { font:inherit; cursor:pointer; }
 
 <header class="header" id="home">
   <div class="header-inner">
-    <a href="#home" class="brand">
+    <a href="index.html" class="brand">
       <div class="logo">OC</div>
       <div>
         <h1>ORIENT CLASSES</h1>
         <p>LEARN • PRACTISE • SUCCEED</p>
       </div>
     </a>
-    <div class="header-tag">Your Learning Journey Starts Here</div>
+
+    <div class="header-tag">
+      Your Learning Journey Starts Here
+    </div>
   </div>
 </header>
 
+<!-- NAVIGATION -->
+
 <nav class="navbar">
   <div class="nav-inner">
-    <button class="menu-button" id="menuButton"
-      aria-expanded="false" aria-controls="navLinks">☰ Menu</button>
+
+    <button class="menu-button"
+      id="menuButton"
+      aria-expanded="false"
+      aria-controls="navLinks">
+      ☰ Menu
+    </button>
 
     <div class="nav-links" id="navLinks">
-      <a href="#home">Home</a>
+      <a href="index.html">Home</a>
       <a href="#ncert">NCERT Class 6–12</a>
       <a href="#bpsc">BPSC Preparation</a>
-      <a href="#current-affairs">Current Affairs</a>
+
+      <!-- DIRECT LATEST SYLLABUS LINK -->
+      <a href="BPSC_Syllabus.html">BPSC Latest Syllabus</a>
+
+      <a href="BPSC_Mock_Tests.html">BPSC Mock Tests</a>
+      <a href="Current_Affairs.html">Current Affairs</a>
       <a href="#notes">Notes & Downloads</a>
     </div>
+
   </div>
 </nav>
 
 <main class="container">
 
-  <!-- INTRODUCTION -->
+  <!-- HERO -->
 
   <section class="hero">
     <div class="eyebrow">Your Online Learning Platform</div>
-    <h2>Build Your Foundation.<br><span>Prepare for Your Future.</span></h2>
+
+    <h2>
+      Build Your Foundation.<br>
+      <span>Prepare for Your Future.</span>
+    </h2>
+
     <p>
       Welcome to Orient Classes. Explore complete NCERT learning
       resources for Classes 6–12 and focused BPSC preparation,
-      including syllabus, recruitment information, subject notes,
-      practice questions and current affairs.
+      including the latest syllabus, recruitment information,
+      subject notes, mock tests and current affairs.
     </p>
+
     <div class="actions">
-      <a class="btn btn-gold" href="#ncert">Explore NCERT →</a>
-      <a class="btn btn-white" href="#bpsc">Explore BPSC →</a>
+      <a class="btn btn-gold" href="#ncert">
+        Explore NCERT →
+      </a>
+
+      <a class="btn btn-white" href="#bpsc">
+        Explore BPSC →
+      </a>
+
+      <a class="btn btn-white" href="BPSC_Syllabus.html">
+        BPSC Latest Syllabus →
+      </a>
     </div>
   </section>
 
@@ -570,41 +719,60 @@ button { font:inherit; cursor:pointer; }
     <div class="section-heading">
       <small>OUR MAIN FOCUS</small>
       <h2>Choose Your Learning Path</h2>
-      <p>Two focused learning programmes for school students and competitive exam aspirants.</p>
+      <p>
+        Two focused learning programmes for school students
+        and competitive examination aspirants.
+      </p>
     </div>
 
     <div class="grid main-grid">
+
       <article class="card course-card">
         <div class="card-icon">📚</div>
+
         <h3>Complete NCERT — Class 6 to 12</h3>
+
         <p>
-          Learn chapter by chapter with subject notes, concept
-          explanations, MCQs, tests and study material.
+          Learn chapter by chapter with subject notes,
+          concept explanations, MCQs, tests and study material.
         </p>
+
         <div class="tags">
           <span>Classes 6–12</span>
           <span>Chapter Notes</span>
           <span>MCQs</span>
           <span>Tests</span>
         </div>
-        <a class="btn btn-blue" href="#ncert">Explore Classes →</a>
+
+        <a class="btn btn-blue" href="#ncert">
+          Explore Classes →
+        </a>
       </article>
 
       <article class="card course-card bpsc">
         <div class="card-icon">🎯</div>
+
         <h3>Complete BPSC Preparation</h3>
+
         <p>
-          Access exam information, syllabus, vacancies, salary,
-          previous-year cut-offs, question papers and subject notes.
+          Access the latest syllabus, exam pattern, vacancies,
+          salary, previous-year cut-offs, question papers,
+          mock tests and subject notes.
         </p>
+
         <div class="tags">
-          <span>Syllabus</span>
+          <span>Latest Syllabus</span>
           <span>Vacancies</span>
           <span>Salary</span>
           <span>Cut-offs</span>
+          <span>Mock Tests</span>
         </div>
-        <a class="btn btn-blue" href="#bpsc">Start Preparation →</a>
+
+        <a class="btn btn-blue" href="BPSC_Syllabus.html">
+          Open BPSC Latest Syllabus →
+        </a>
       </article>
+
     </div>
   </section>
 
@@ -618,215 +786,419 @@ button { font:inherit; cursor:pointer; }
     </div>
 
     <div class="grid class-grid">
-      <a class="class-card" href="Class_6.html"><strong>6</strong><span>Class Six</span><small>Explore →</small></a>
-      <a class="class-card" href="Class_7.html"><strong>7</strong><span>Class Seven</span><small>Explore →</small></a>
-      <a class="class-card" href="Class_8.html"><strong>8</strong><span>Class Eight</span><small>Explore →</small></a>
-      <a class="class-card" href="Class_9_Social_Science.html"><strong>9</strong><span>Class Nine</span><small>Explore →</small></a>
-      <a class="class-card" href="Social_Science_10.html"><strong>10</strong><span>Class Ten</span><small>Explore →</small></a>
-      <a class="class-card" href="Class_11.html"><strong>11</strong><span>Class Eleven</span><small>Explore →</small></a>
-      <a class="class-card" href="Class_12.html"><strong>12</strong><span>Class Twelve</span><small>Explore →</small></a>
+
+      <a class="class-card" href="Class_6.html">
+        <strong>6</strong>
+        <span>Class Six</span>
+        <small>Explore →</small>
+      </a>
+
+      <a class="class-card" href="Class_7.html">
+        <strong>7</strong>
+        <span>Class Seven</span>
+        <small>Explore →</small>
+      </a>
+
+      <a class="class-card" href="Class_8.html">
+        <strong>8</strong>
+        <span>Class Eight</span>
+        <small>Explore →</small>
+      </a>
+
+      <a class="class-card" href="Class_9_Social_Science.html">
+        <strong>9</strong>
+        <span>Class Nine</span>
+        <small>Explore →</small>
+      </a>
+
+      <a class="class-card" href="Social_Science_10.html">
+        <strong>10</strong>
+        <span>Class Ten</span>
+        <small>Explore →</small>
+      </a>
+
+      <a class="class-card" href="Class_11.html">
+        <strong>11</strong>
+        <span>Class Eleven</span>
+        <small>Explore →</small>
+      </a>
+
+      <a class="class-card" href="Class_12.html">
+        <strong>12</strong>
+        <span>Class Twelve</span>
+        <small>Explore →</small>
+      </a>
+
     </div>
   </section>
 
   <!-- BPSC -->
 
   <section class="section" id="bpsc">
+
     <div class="section-heading">
       <small>BIHAR PUBLIC SERVICE COMMISSION</small>
       <h2>BPSC Preparation Centre</h2>
-      <p>Find examination information and organised study material.</p>
+      <p>
+        Find examination information and organised study material
+        in one place.
+      </p>
     </div>
 
     <div class="card">
       <h3>Prepare with the Right Information</h3>
+
       <p>
-        Study the relevant official syllabus, understand recruitment
-        requirements and practise using subject notes and previous-year
-        questions. Information should be verified against the notification
-        for the relevant examination.
+        Study the official syllabus, understand recruitment
+        requirements and practise using subject notes,
+        mock tests and previous-year questions.
       </p>
-      <a class="btn btn-blue" href="BPSC.html">Open BPSC Section →</a>
+
+      <div class="actions" style="margin-top:15px">
+
+        <a class="btn btn-blue" href="BPSC_Syllabus.html">
+          📘 Latest Syllabus →
+        </a>
+
+        <a class="btn btn-blue" href="BPSC_Mock_Tests.html">
+          📝 Take Mock Tests →
+        </a>
+
+      </div>
     </div>
 
     <div class="grid info-grid" style="margin-top:15px">
-      <article class="card info-card">
+
+      <!-- SYLLABUS -->
+
+      <article class="card info-card syllabus-card">
         <div class="card-icon">📋</div>
-        <h3>Latest Syllabus</h3>
-        <p>Exam pattern, syllabus, marking scheme and selection stages.</p>
-        <a href="BPSC.html#syllabus">View Syllabus →</a>
+
+        <h3>BPSC Latest Syllabus</h3>
+
+        <p>
+          Exam pattern, syllabus, marking scheme,
+          subjects and selection stages.
+        </p>
+
+        <a href="BPSC_Syllabus.html">
+          View Latest Syllabus →
+        </a>
       </article>
+
+      <!-- VACANCY -->
 
       <article class="card info-card">
         <div class="card-icon">🏛️</div>
+
         <h3>Vacancies & Posts</h3>
-        <p>Post-wise vacancy details and eligibility requirements.</p>
-        <a href="BPSC.html#vacancies">View Vacancies →</a>
+
+        <p>
+          Post-wise vacancy details and eligibility requirements.
+        </p>
+
+        <a href="BPSC_Vacancy.html">
+          View Vacancies →
+        </a>
       </article>
+
+      <!-- SALARY -->
 
       <article class="card info-card">
         <div class="card-icon">💰</div>
+
         <h3>Salary & Pay Scale</h3>
-        <p>Pay scales, pay levels and applicable allowances.</p>
-        <a href="BPSC.html#salary">View Salary →</a>
+
+        <p>
+          Pay scales, pay levels and applicable allowances.
+        </p>
+
+        <a href="BPSC_Salary.html">
+          View Salary →
+        </a>
       </article>
+
+      <!-- CUTOFF -->
 
       <article class="card info-card">
         <div class="card-icon">📊</div>
-        <h3>Previous Year Cut-offs</h3>
-        <p>Prelims, Mains and final cut-offs by exam year and category.</p>
-        <a href="BPSC.html#cutoff">View Cut-offs →</a>
+
+        <h3>Previous Year Cut-Offs</h3>
+
+        <p>
+          Prelims, Mains and final cut-offs by examination
+          year and category.
+        </p>
+
+        <a href="BPSC_Cutoff.html">
+          View Cut-Offs →
+        </a>
       </article>
 
+      <!-- PREVIOUS PAPERS -->
+
       <article class="card info-card">
-        <div class="card-icon">📝</div>
+        <div class="card-icon">📄</div>
+
         <h3>Previous Year Papers</h3>
-        <p>Question papers, available answer keys and exam practice.</p>
-        <a href="BPSC.html#previous-papers">Practise PYQs →</a>
+
+        <p>
+          Question papers, available answer keys
+          and examination practice.
+        </p>
+
+        <a href="BPSC_Previous_Year_Papers.html">
+          Practise Previous Papers →
+        </a>
       </article>
+
+      <!-- SUBJECT NOTES -->
 
       <article class="card info-card">
         <div class="card-icon">📚</div>
+
         <h3>Subject-wise Notes</h3>
-        <p>History, Geography, Polity, Economy, Science and Bihar GK.</p>
-        <a href="BPSC.html#subject-notes">Explore Notes →</a>
+
+        <p>
+          History, Geography, Polity, Economy,
+          Science and Bihar GK.
+        </p>
+
+        <a href="#subject-notes">
+          Explore Notes →
+        </a>
       </article>
+
+      <!-- BLINKING MOCK TEST CARD -->
+
+      <article class="card info-card mock-card">
+        <div class="card-icon">🚀</div>
+
+        <h3>BPSC Mock Test Series</h3>
+
+        <p>
+          Practise objective questions and improve
+          your exam preparation.
+        </p>
+
+        <a href="BPSC_Mock_Tests.html">
+          Start Mock Test →
+        </a>
+      </article>
+
+      <!-- CURRENT AFFAIRS -->
+
+      <article class="card info-card">
+        <div class="card-icon">📰</div>
+
+        <h3>Current Affairs</h3>
+
+        <p>
+          Daily and monthly current affairs
+          for competitive examinations.
+        </p>
+
+        <a href="Current_Affairs.html">
+          Read Current Affairs →
+        </a>
+      </article>
+
+      <!-- PREPARATION STRATEGY -->
+
+      <article class="card info-card">
+        <div class="card-icon">🎯</div>
+
+        <h3>Preparation Strategy</h3>
+
+        <p>
+          Study plans, revision methods and
+          examination preparation guidance.
+        </p>
+
+        <a href="BPSC_Preparation.html">
+          View Strategy →
+        </a>
+      </article>
+
     </div>
   </section>
 
-  <!-- SUBJECTS -->
+  <!-- BPSC SUBJECTS -->
 
   <section class="section" id="subject-notes">
+
     <div class="section-heading">
       <small>SUBJECT-WISE LEARNING</small>
       <h2>BPSC Subjects</h2>
-      <p>Organise preparation by subject and topic.</p>
+      <p>Organise your preparation by subject and topic.</p>
     </div>
 
     <div class="grid subject-grid">
+
       <article class="subject-card">
         <h3>🏺 Indian History</h3>
         <p>Ancient, Medieval and Modern History.</p>
-        <a href="BPSC.html#history">Explore →</a>
+        <a href="BPSC_History.html">Explore →</a>
       </article>
 
       <article class="subject-card">
         <h3>🌍 Geography</h3>
         <p>India, World and Bihar Geography.</p>
-        <a href="BPSC.html#geography">Explore →</a>
+        <a href="BPSC_Geography.html">Explore →</a>
       </article>
 
       <article class="subject-card">
         <h3>⚖️ Indian Polity</h3>
         <p>Constitution, Parliament and Governance.</p>
-        <a href="BPSC.html#polity">Explore →</a>
+        <a href="BPSC_Polity.html">Explore →</a>
       </article>
 
       <article class="subject-card">
         <h3>📈 Economy</h3>
         <p>Economic concepts and government policies.</p>
-        <a href="BPSC.html#economy">Explore →</a>
+        <a href="BPSC_Economy.html">Explore →</a>
       </article>
 
       <article class="subject-card">
         <h3>🔬 General Science</h3>
         <p>Physics, Chemistry and Biology.</p>
-        <a href="BPSC.html#science">Explore →</a>
+        <a href="BPSC_Science.html">Explore →</a>
       </article>
 
       <article class="subject-card">
         <h3>🏞️ Bihar GK</h3>
         <p>Bihar history, culture, geography and economy.</p>
-        <a href="BPSC.html#bihar-gk">Explore →</a>
+        <a href="Bihar_GK.html">Explore →</a>
       </article>
 
       <article class="subject-card">
         <h3>🌱 Environment</h3>
         <p>Ecology, biodiversity and climate change.</p>
-        <a href="BPSC.html#environment">Explore →</a>
+        <a href="BPSC_Environment.html">Explore →</a>
       </article>
 
       <article class="subject-card">
         <h3>🧮 Aptitude</h3>
         <p>Numerical ability and logical reasoning.</p>
-        <a href="BPSC.html#aptitude">Explore →</a>
+        <a href="BPSC_Aptitude.html">Explore →</a>
       </article>
+
     </div>
   </section>
 
   <!-- CURRENT AFFAIRS -->
 
   <section class="section" id="current-affairs">
+
     <div class="section-heading">
       <small>STAY UPDATED</small>
       <h2>Current Affairs</h2>
-      <p>A dedicated section for competitive examination preparation.</p>
+      <p>
+        A dedicated section for competitive examination preparation.
+      </p>
     </div>
 
     <div class="current-box">
       <h3>Current Affairs for BPSC</h3>
+
       <p>
-        Daily and monthly updates, Bihar current affairs, government
-        schemes, reports, awards, appointments, national and international
-        events, and exam-oriented MCQs.
+        Daily and monthly updates, Bihar current affairs,
+        government schemes, reports, awards, appointments,
+        national and international events, and exam-oriented MCQs.
       </p>
-      <a href="Current_Affairs.html" class="btn btn-blue">Open Current Affairs →</a>
+
+      <a href="Current_Affairs.html" class="btn btn-blue">
+        Open Current Affairs →
+      </a>
     </div>
+
   </section>
 
   <!-- RESOURCES -->
 
   <section class="section" id="notes">
+
     <div class="section-heading">
       <small>STUDY RESOURCES</small>
       <h2>Notes, Tests & Downloads</h2>
-      <p>Learn, practise and revise using the available study material.</p>
+      <p>
+        Learn, practise and revise using the available study material.
+      </p>
     </div>
 
     <div class="grid resource-grid">
+
       <article class="card resource-card">
         <div class="eyebrow" style="color:#2864ad">STUDY</div>
+
         <h3>Chapter-wise Notes</h3>
-        <p>NCERT chapter notes and BPSC subject study material.</p>
+
+        <p>
+          NCERT chapter notes and BPSC subject study material.
+        </p>
+
         <a href="#ncert">Browse Resources →</a>
       </article>
 
       <article class="card resource-card">
         <div class="eyebrow" style="color:#2864ad">PRACTICE</div>
-        <h3>MCQs & Tests</h3>
-        <p>Topic-wise questions and available test papers.</p>
-        <a href="Class_9_Social_Science_Test.html">Open Test →</a>
+
+        <h3>BPSC Mock Tests</h3>
+
+        <p>
+          Practise BPSC objective questions through available mock tests.
+        </p>
+
+        <a href="BPSC_Mock_Tests.html">
+          Open BPSC Mock Tests →
+        </a>
       </article>
 
       <article class="card resource-card">
         <div class="eyebrow" style="color:#2864ad">DOWNLOAD</div>
+
         <h3>PDF Download Centre</h3>
-        <p>Find available notes, worksheets and question papers.</p>
-        <a href="Downloads.html">Open Downloads →</a>
+
+        <p>
+          Find available notes, worksheets and question papers.
+        </p>
+
+        <a href="Downloads.html">
+          Open Downloads →
+        </a>
       </article>
+
     </div>
   </section>
 
   <div class="notice">
-    Important: BPSC vacancies, syllabus, eligibility, salary and cut-offs
-    may change by recruitment year. Verify examination-specific details
-    against official notifications.
+    Important: BPSC vacancies, syllabus, eligibility, salary and
+    cut-offs may change by recruitment year. Verify examination-specific
+    details against official notifications.
   </div>
 
 </main>
 
+<!-- FOOTER -->
+
 <footer class="footer">
+
   <div class="footer-inner">
+
     <div>
       <h3>Orient Classes</h3>
+
       <p>
         A learning platform for NCERT Classes 6–12 and BPSC aspirants.
         Build strong concepts through consistent study and practice.
       </p>
+
       <strong>Learn • Practise • Succeed</strong>
     </div>
 
     <div>
       <h3>NCERT</h3>
+
       <a href="#ncert">Classes 6–12</a>
       <a href="Class_9_Social_Science.html">Class 9</a>
       <a href="Social_Science_10.html">Class 10</a>
@@ -835,17 +1207,22 @@ button { font:inherit; cursor:pointer; }
 
     <div>
       <h3>BPSC</h3>
-      <a href="BPSC.html#syllabus">Syllabus</a>
-      <a href="BPSC.html#vacancies">Vacancies</a>
-      <a href="BPSC.html#salary">Salary</a>
-      <a href="BPSC.html#cutoff">Cut-offs</a>
+
+      <a href="BPSC_Syllabus.html">Latest Syllabus</a>
+      <a href="BPSC_Vacancy.html">Vacancies</a>
+      <a href="BPSC_Salary.html">Salary</a>
+      <a href="BPSC_Cutoff.html">Previous Year Cut-Offs</a>
+      <a href="BPSC_Previous_Year_Papers.html">Previous Year Papers</a>
+      <a href="BPSC_Mock_Tests.html">Mock Tests</a>
       <a href="Current_Affairs.html">Current Affairs</a>
     </div>
+
   </div>
 
   <div class="footer-bottom">
     © <span id="year"></span> Orient Classes. All rights reserved.
   </div>
+
 </footer>
 
 <script>
@@ -854,19 +1231,26 @@ const navLinks = document.getElementById("navLinks");
 
 menuButton.addEventListener("click", () => {
   const isOpen = navLinks.classList.toggle("open");
+
   menuButton.setAttribute("aria-expanded", String(isOpen));
-  menuButton.textContent = isOpen ? "✕ Close Menu" : "☰ Menu";
+
+  menuButton.textContent = isOpen
+    ? "✕ Close Menu"
+    : "☰ Menu";
 });
 
 navLinks.querySelectorAll("a").forEach(link => {
   link.addEventListener("click", () => {
     navLinks.classList.remove("open");
+
     menuButton.setAttribute("aria-expanded", "false");
+
     menuButton.textContent = "☰ Menu";
   });
 });
 
-document.getElementById("year").textContent = new Date().getFullYear();
+document.getElementById("year").textContent =
+  new Date().getFullYear();
 </script>
 
 </body>
