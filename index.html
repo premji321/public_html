@@ -5,33 +5,34 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#102b50">
 
-<meta name="description" content="Orient Classes NCERT Classes 6–12 and BPSC Preparation Portal">
+<meta name="description" content="Orient Classes NCERT Class 6 to 12, BPSC preparation, syllabus, mock tests, subject notes and current affairs.">
 
 <title>Orient Classes | NCERT & BPSC Preparation</title>
 
 <style>
-:root {
+:root{
   --navy:#102b50;
   --blue:#2864ad;
+  --blue2:#3478f6;
   --gold:#ffc928;
   --teal:#13a89e;
   --bg:#f3f6fb;
   --text:#24344b;
   --muted:#68778b;
   --border:#e2e9f3;
-  --white:#fff;
+  --white:#ffffff;
 }
 
-* {
+*{
   box-sizing:border-box;
 }
 
-html {
+html{
   scroll-behavior:smooth;
-  scroll-padding-top:80px;
+  scroll-padding-top:75px;
 }
 
-body {
+body{
   margin:0;
   font-family:Arial,Helvetica,sans-serif;
   background:var(--bg);
@@ -39,43 +40,43 @@ body {
   line-height:1.6;
 }
 
-a {
-  text-decoration:none;
+a{
   color:inherit;
+  text-decoration:none;
 }
 
-button {
+button{
   font:inherit;
   cursor:pointer;
 }
 
-.container {
+.container{
   width:min(1160px,92%);
   margin:auto;
 }
 
-/* ANNOUNCEMENT */
+/* TOP ANNOUNCEMENT */
 
-.announcement {
+.announcement{
   background:#091b32;
   color:white;
   text-align:center;
-  padding:7px;
+  padding:7px 10px;
   font-size:11px;
 }
 
-.announcement strong {
+.announcement strong{
   color:var(--gold);
 }
 
 /* HEADER */
 
-.header {
-  background:linear-gradient(120deg,var(--navy),#245b99);
+.header{
+  background:linear-gradient(120deg,#102b50,#245b99);
   color:white;
 }
 
-.header-inner {
+.header-inner{
   width:min(1160px,92%);
   margin:auto;
   padding:17px 0;
@@ -85,47 +86,47 @@ button {
   gap:15px;
 }
 
-.brand {
+.brand{
   display:flex;
   align-items:center;
   gap:11px;
 }
 
-.logo {
-  width:45px;
-  height:45px;
+.logo{
+  width:47px;
+  height:47px;
   display:grid;
   place-items:center;
   background:var(--gold);
   color:var(--navy);
-  border-radius:11px;
+  border-radius:12px;
   font-size:20px;
   font-weight:900;
 }
 
-.brand h1 {
+.brand h1{
   font-size:23px;
   margin:0;
   letter-spacing:1px;
 }
 
-.brand p {
+.brand p{
   font-size:9px;
   letter-spacing:2px;
-  margin:2px 0 0;
+  margin:3px 0 0;
   color:#dce9fa;
 }
 
-.header-tag {
+.header-tag{
   font-size:11px;
   border:1px solid #ffffff66;
   border-radius:8px;
-  padding:8px 12px;
+  padding:9px 12px;
 }
 
 /* NAVIGATION */
 
-.navbar {
+.navbar{
   position:sticky;
   top:0;
   z-index:100;
@@ -134,36 +135,36 @@ button {
   box-shadow:0 3px 12px #102b500b;
 }
 
-.nav-inner {
+.nav-inner{
   width:min(1160px,92%);
   margin:auto;
   display:flex;
   align-items:center;
+  justify-content:space-between;
   gap:10px;
   min-height:55px;
 }
 
-.nav-links {
+.nav-links{
   display:flex;
   align-items:center;
   flex-wrap:wrap;
   gap:4px;
 }
 
-.nav-links a {
-  display:block;
+.nav-links a{
   padding:9px 11px;
   font-size:11px;
   font-weight:bold;
-  border-radius:6px;
+  border-radius:7px;
 }
 
-.nav-links a:hover {
+.nav-links a:hover{
   background:#edf4ff;
   color:var(--blue);
 }
 
-.menu-button {
+.menu-button{
   display:none;
   border:0;
   padding:9px 12px;
@@ -175,15 +176,15 @@ button {
 
 /* HERO */
 
-.hero {
+.hero{
   margin-top:24px;
-  padding:clamp(25px,5vw,48px);
-  border-radius:16px;
+  padding:clamp(25px,5vw,52px);
+  border-radius:17px;
   color:white;
   background:linear-gradient(115deg,#102b50,#1d4d87,#2864ad);
 }
 
-.eyebrow {
+.eyebrow{
   color:#b9dcff;
   font-size:10px;
   font-weight:bold;
@@ -191,30 +192,30 @@ button {
   text-transform:uppercase;
 }
 
-.hero h2 {
-  font-size:clamp(29px,5vw,45px);
+.hero h2{
+  font-size:clamp(29px,5vw,46px);
   line-height:1.2;
   margin:13px 0;
 }
 
-.hero h2 span {
+.hero h2 span{
   color:var(--gold);
 }
 
-.hero p {
+.hero p{
   max-width:700px;
   color:#e0ebfa;
   font-size:13px;
   margin-bottom:22px;
 }
 
-.actions {
+.actions{
   display:flex;
   flex-wrap:wrap;
   gap:9px;
 }
 
-.btn {
+.btn{
   display:inline-block;
   padding:10px 14px;
   border-radius:7px;
@@ -222,51 +223,56 @@ button {
   font-weight:bold;
   text-align:center;
   border:0;
+  transition:background .2s,transform .2s;
 }
 
-.btn-gold {
+.btn:hover{
+  transform:translateY(-2px);
+}
+
+.btn-gold{
   background:var(--gold);
   color:var(--navy);
 }
 
-.btn-white {
+.btn-white{
   background:white;
   color:var(--navy);
 }
 
-.btn-blue {
+.btn-blue{
   background:var(--navy);
   color:white;
 }
 
-.btn:hover {
-  opacity:.88;
+.btn-blue:hover{
+  background:var(--blue);
 }
 
 /* SECTIONS */
 
-.section {
-  margin-top:35px;
+.section{
+  margin-top:34px;
 }
 
-.section-heading {
-  margin-bottom:16px;
+.section-heading{
+  margin-bottom:17px;
 }
 
-.section-heading small {
+.section-heading small{
   color:var(--blue);
   font-weight:bold;
   font-size:10px;
   letter-spacing:1.6px;
 }
 
-.section-heading h2 {
+.section-heading h2{
   color:var(--navy);
   font-size:clamp(22px,3vw,29px);
   margin:5px 0;
 }
 
-.section-heading p {
+.section-heading p{
   color:var(--muted);
   font-size:12px;
   margin:0;
@@ -274,53 +280,53 @@ button {
 
 /* GRIDS */
 
-.grid {
+.grid{
   display:grid;
-  gap:13px;
+  gap:14px;
 }
 
-.main-grid {
+.main-grid{
   grid-template-columns:repeat(2,minmax(0,1fr));
 }
 
-.card {
+.card{
   background:white;
   border:1px solid var(--border);
   border-radius:13px;
-  padding:19px;
+  padding:20px;
 }
 
-.course-card {
+.course-card{
   border-top:4px solid var(--teal);
 }
 
-.course-card.bpsc {
+.course-card.bpsc{
   border-top-color:var(--gold);
 }
 
-.card-icon {
+.card-icon{
   font-size:25px;
 }
 
-.card h3 {
+.card h3{
   color:var(--navy);
   margin:8px 0;
   font-size:17px;
 }
 
-.card p {
+.card p{
   color:var(--muted);
   font-size:12px;
 }
 
-.tags {
+.tags{
   display:flex;
   flex-wrap:wrap;
   gap:6px;
-  margin:13px 0;
+  margin:14px 0;
 }
 
-.tags span {
+.tags span{
   padding:4px 7px;
   background:#f0f5fb;
   border:1px solid var(--border);
@@ -329,160 +335,161 @@ button {
   font-weight:bold;
 }
 
-/* NCERT CLASS CARDS */
+/* NCERT CLASS BUTTONS */
 
-.class-grid {
+.class-grid{
   grid-template-columns:repeat(7,minmax(0,1fr));
 }
 
-.class-card {
+.class-card{
   display:block;
   text-align:center;
-  padding:14px 4px;
+  padding:15px 5px;
   border:1px solid var(--border);
   border-radius:11px;
   background:white;
-  transition:transform .2s,border-color .2s;
+  transition:transform .2s,border-color .2s,box-shadow .2s;
 }
 
-.class-card:hover {
+.class-card:hover{
   transform:translateY(-3px);
-  border-color:#9bbcf0;
-  background:#f8fbff;
+  border-color:#9cbce9;
+  box-shadow:0 5px 16px #102b5010;
 }
 
-.class-card strong {
+.class-card strong{
   display:block;
   color:var(--navy);
   font-size:25px;
 }
 
-.class-card span {
+.class-card span{
   display:block;
   color:var(--muted);
   font-size:10px;
 }
 
-.class-card small {
+.class-card small{
   display:block;
   margin-top:5px;
   color:var(--teal);
-  font-size:10px;
   font-weight:bold;
+  font-size:10px;
 }
 
 /* BPSC CARDS */
 
-.info-grid {
+.info-grid{
   grid-template-columns:repeat(3,minmax(0,1fr));
 }
 
-.info-card {
+.info-card{
   padding:17px;
 }
 
-.info-card h3 {
+.info-card h3{
   font-size:14px;
 }
 
-.info-card p {
+.info-card p{
   font-size:11px;
-  min-height:45px;
+  min-height:43px;
 }
 
 .info-card a,
 .subject-card a,
-.resource-card a {
+.resource-card a{
   color:var(--blue);
   font-size:11px;
   font-weight:bold;
 }
 
-.syllabus-card {
+.syllabus-card{
   border:2px solid #b9d3f5;
   background:linear-gradient(135deg,#fff,#edf5ff);
 }
 
-.mock-card {
+.mock-card{
   border:2px solid #f0b3b3;
   background:#fff7f7;
   animation:mockPulse 1.8s infinite;
 }
 
 .mock-card h3,
-.mock-card a {
+.mock-card a{
   color:#b91c1c;
 }
 
-@keyframes mockPulse {
-  0%,100% {
+@keyframes mockPulse{
+  0%,100%{
     box-shadow:0 0 0 0 #dc262620;
   }
-  50% {
+  50%{
     box-shadow:0 0 0 5px #dc262600;
   }
 }
 
-/* BPSC SUBJECTS */
+/* SUBJECTS */
 
-.subject-grid {
+.subject-grid{
   grid-template-columns:repeat(4,minmax(0,1fr));
 }
 
-.subject-card {
+.subject-card{
   background:white;
-  padding:14px;
+  padding:15px;
   border:1px solid var(--border);
-  border-radius:10px;
+  border-radius:11px;
 }
 
-.subject-card h3 {
+.subject-card h3{
   color:var(--navy);
   font-size:13px;
   margin:0 0 5px;
 }
 
-.subject-card p {
+.subject-card p{
   color:var(--muted);
   font-size:10px;
 }
 
 /* CURRENT AFFAIRS */
 
-.current-box {
+.current-box{
   background:linear-gradient(120deg,#e7f7f5,#eff5ff);
   border:1px solid #cde6e3;
   border-radius:13px;
-  padding:21px;
+  padding:22px;
 }
 
-.current-box h3 {
+.current-box h3{
   color:var(--navy);
   margin-top:0;
 }
 
-.current-box p {
+.current-box p{
   color:var(--muted);
   font-size:12px;
+  max-width:800px;
 }
 
 /* RESOURCES */
 
-.resource-grid {
+.resource-grid{
   grid-template-columns:repeat(3,minmax(0,1fr));
 }
 
-.resource-card h3 {
+.resource-card h3{
   font-size:15px;
 }
 
-.resource-card p {
+.resource-card p{
   font-size:11px;
 }
 
 /* NOTICE */
 
-.notice {
+.notice{
   margin-top:20px;
   padding:13px;
   border-left:4px solid var(--gold);
@@ -493,42 +500,42 @@ button {
 
 /* FOOTER */
 
-.footer {
+.footer{
   margin-top:40px;
   background:#091b32;
   color:#dce8f8;
 }
 
-.footer-inner {
+.footer-inner{
   width:min(1160px,92%);
   margin:auto;
   padding:28px 0;
   display:grid;
   grid-template-columns:2fr 1fr 1fr;
-  gap:24px;
+  gap:25px;
 }
 
-.footer h3 {
+.footer h3{
   color:white;
   font-size:14px;
 }
 
 .footer p,
-.footer a {
+.footer a{
   font-size:11px;
   color:#bdcde2;
 }
 
-.footer a {
+.footer a{
   display:block;
   margin:7px 0;
 }
 
-.footer a:hover {
+.footer a:hover{
   color:var(--gold);
 }
 
-.footer-bottom {
+.footer-bottom{
   border-top:1px solid #ffffff20;
   text-align:center;
   padding:12px;
@@ -537,82 +544,94 @@ button {
 
 /* RESPONSIVE */
 
-@media(max-width:850px) {
+@media(max-width:850px){
 
-  .class-grid {
+  .class-grid{
     grid-template-columns:repeat(4,minmax(0,1fr));
   }
 
-  .info-grid {
+  .info-grid{
     grid-template-columns:repeat(2,minmax(0,1fr));
   }
 
-  .subject-grid {
+  .subject-grid{
     grid-template-columns:repeat(2,minmax(0,1fr));
   }
 
-  .menu-button {
+  .menu-button{
     display:block;
   }
 
-  .nav-inner {
+  .nav-inner{
     flex-wrap:wrap;
     padding:8px 0;
   }
 
-  .nav-links {
+  .nav-links{
     display:none;
     width:100%;
   }
 
-  .nav-links.open {
+  .nav-links.open{
     display:flex;
   }
 
-  .nav-links a {
+  .nav-links a{
     width:calc(50% - 5px);
   }
 }
 
-@media(max-width:560px) {
+@media(max-width:560px){
 
-  .header-tag {
+  .header-tag{
     display:none;
   }
 
-  .brand h1 {
-    font-size:19px;
+  .brand h1{
+    font-size:20px;
+  }
+
+  .brand p{
+    font-size:8px;
   }
 
   .main-grid,
   .info-grid,
   .resource-grid,
-  .footer-inner {
+  .footer-inner{
     grid-template-columns:1fr;
   }
 
-  .class-grid {
+  .class-grid{
     gap:7px;
   }
 
-  .class-card strong {
+  .class-card{
+    padding:12px 3px;
+  }
+
+  .class-card strong{
     font-size:21px;
   }
 
   .class-card span,
-  .class-card small {
+  .class-card small{
     font-size:9px;
   }
 
-  .subject-grid {
+  .subject-grid{
     grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .hero p{
+    font-size:12px;
   }
 }
 
-@media(prefers-reduced-motion:reduce) {
+@media(prefers-reduced-motion:reduce){
   *,
   *::before,
-  *::after {
+  *::after{
     animation:none!important;
     scroll-behavior:auto!important;
   }
@@ -625,8 +644,10 @@ button {
 <!-- ANNOUNCEMENT -->
 
 <div class="announcement">
-  <strong>ORIENT CLASSES</strong> |
-  Complete NCERT 6–12 | BPSC Preparation | Current Affairs
+  <strong>ORIENT CLASSES</strong>
+  | Complete NCERT 6–12
+  | BPSC Preparation
+  | Current Affairs
 </div>
 
 <!-- HEADER -->
@@ -636,12 +657,14 @@ button {
   <div class="header-inner">
 
     <a href="index.html" class="brand">
+
       <div class="logo">OC</div>
 
       <div>
         <h1>ORIENT CLASSES</h1>
         <p>LEARN • PRACTISE • SUCCEED</p>
       </div>
+
     </a>
 
     <div class="header-tag">
@@ -662,7 +685,8 @@ button {
       class="menu-button"
       id="menuButton"
       aria-expanded="false"
-      aria-controls="navLinks">
+      aria-controls="navLinks"
+      type="button">
 
       ☰ Menu
 
@@ -671,8 +695,6 @@ button {
     <div class="nav-links" id="navLinks">
 
       <a href="index.html">Home</a>
-
-      <!-- NCERT NAVIGATION OPENS NCERT INDEX -->
 
       <a href="ncert_index.html">NCERT Class 6–12</a>
 
@@ -690,9 +712,7 @@ button {
         Current Affairs
       </a>
 
-      <a href="#notes">
-        Notes & Downloads
-      </a>
+      <a href="#notes">Notes & Downloads</a>
 
     </div>
 
@@ -716,15 +736,13 @@ button {
     </h2>
 
     <p>
-      Welcome to Orient Classes. Explore NCERT resources for
-      Classes 6–12 and focused BPSC preparation, including
-      syllabus, recruitment information, subject notes,
-      mock tests and current affairs.
+      Welcome to Orient Classes. Explore NCERT learning resources
+      for Classes 6–12 and focused BPSC preparation, including
+      syllabus, recruitment information, subject notes, mock tests
+      and current affairs.
     </p>
 
     <div class="actions">
-
-      <!-- UPDATED NCERT LINK -->
 
       <a class="btn btn-gold" href="ncert_index.html">
         Explore NCERT →
@@ -779,10 +797,8 @@ button {
           <span>Tests</span>
         </div>
 
-        <!-- UPDATED BUTTON -->
-
         <a class="btn btn-blue" href="ncert_index.html">
-          Explore Classes →
+          Explore NCERT Classes →
         </a>
 
       </article>
@@ -794,9 +810,8 @@ button {
         <h3>Complete BPSC Preparation</h3>
 
         <p>
-          Access the latest syllabus, exam pattern, vacancies,
-          salary, previous-year cut-offs, question papers,
-          mock tests and subject notes.
+          Access syllabus, exam pattern, vacancies, salary,
+          previous-year cut-offs, question papers and mock tests.
         </p>
 
         <div class="tags">
@@ -808,7 +823,7 @@ button {
         </div>
 
         <a class="btn btn-blue" href="BPSC_Syllabus.html">
-          Open BPSC Latest Syllabus →
+          Open BPSC Preparation →
         </a>
 
       </article>
@@ -828,72 +843,85 @@ button {
       <h2>NCERT Complete Study — Class 6 to 12</h2>
 
       <p>
-        Select any class to open its corresponding NCERT page.
+        Click any class to open the NCERT portal with
+        the selected class section expanded.
       </p>
 
     </div>
 
     <div class="grid class-grid">
 
-      <!-- CLASS 6 -->
+      <a class="class-card" href="ncert_index.html?class=6">
 
-      <a class="class-card" href="Class_6.html">
         <strong>6</strong>
+
         <span>Class Six</span>
+
         <small>Explore →</small>
+
       </a>
 
-      <!-- CLASS 7 -->
+      <a class="class-card" href="ncert_index.html?class=7">
 
-      <a class="class-card" href="Class_7.html">
         <strong>7</strong>
+
         <span>Class Seven</span>
+
         <small>Explore →</small>
+
       </a>
 
-      <!-- CLASS 8 -->
+      <a class="class-card" href="ncert_index.html?class=8">
 
-      <a class="class-card" href="Class_8.html">
         <strong>8</strong>
+
         <span>Class Eight</span>
+
         <small>Explore →</small>
+
       </a>
 
-      <!-- CLASS 9 -->
+      <a class="class-card" href="ncert_index.html?class=9">
 
-      <a class="class-card" href="Class_9_Social_Science.html">
         <strong>9</strong>
+
         <span>Class Nine</span>
+
         <small>Explore →</small>
+
       </a>
 
-      <!-- CLASS 10 -->
+      <a class="class-card" href="ncert_index.html?class=10">
 
-      <a class="class-card" href="Social_Science_10.html">
         <strong>10</strong>
+
         <span>Class Ten</span>
+
         <small>Explore →</small>
+
       </a>
 
-      <!-- CLASS 11 -->
+      <a class="class-card" href="ncert_index.html?class=11">
 
-      <a class="class-card" href="Class_11.html">
         <strong>11</strong>
+
         <span>Class Eleven</span>
+
         <small>Explore →</small>
+
       </a>
 
-      <!-- CLASS 12 -->
+      <a class="class-card" href="ncert_index.html?class=12">
 
-      <a class="class-card" href="Class_12.html">
         <strong>12</strong>
+
         <span>Class Twelve</span>
+
         <small>Explore →</small>
+
       </a>
 
     </div>
-
-    <!-- EXTRA NCERT BUTTON -->
 
     <div style="margin-top:18px">
 
@@ -905,7 +933,7 @@ button {
 
   </section>
 
-  <!-- BPSC -->
+  <!-- BPSC PREPARATION -->
 
   <section class="section" id="bpsc">
 
@@ -928,7 +956,7 @@ button {
 
       <p>
         Study the syllabus, understand recruitment requirements
-        and practise with subject notes, mock tests and
+        and practise using subject notes, mock tests and
         previous-year questions.
       </p>
 
@@ -946,7 +974,7 @@ button {
 
     </div>
 
-    <div class="grid info-grid" style="margin-top:14px">
+    <div class="grid info-grid" style="margin-top:15px">
 
       <article class="card info-card syllabus-card">
 
@@ -1004,8 +1032,7 @@ button {
         <h3>Previous Year Cut-Offs</h3>
 
         <p>
-          Prelims, Mains and final cut-offs by examination
-          year and category.
+          Prelims, Mains and final cut-offs by examination year.
         </p>
 
         <a href="BPSC_Cutoff.html">
@@ -1021,8 +1048,7 @@ button {
         <h3>Previous Year Papers</h3>
 
         <p>
-          Question papers, available answer keys
-          and examination practice.
+          Question papers and examination practice resources.
         </p>
 
         <a href="BPSC_Previous_Year_Papers.html">
@@ -1038,8 +1064,7 @@ button {
         <h3>Subject-wise Notes</h3>
 
         <p>
-          History, Geography, Polity, Economy,
-          Science and Bihar GK.
+          History, Geography, Polity, Economy, Science and Bihar GK.
         </p>
 
         <a href="#subject-notes">
@@ -1055,8 +1080,7 @@ button {
         <h3>BPSC Mock Test Series</h3>
 
         <p>
-          Practise objective questions and improve
-          your exam preparation.
+          Practise objective questions and improve your preparation.
         </p>
 
         <a href="BPSC_Mock_Tests.html">
@@ -1072,8 +1096,7 @@ button {
         <h3>Current Affairs</h3>
 
         <p>
-          Daily and monthly current affairs for
-          competitive examinations.
+          Daily and monthly current affairs for competitive exams.
         </p>
 
         <a href="Current_Affairs.html">
@@ -1089,8 +1112,7 @@ button {
         <h3>Preparation Strategy</h3>
 
         <p>
-          Study plans, revision methods and
-          examination preparation guidance.
+          Study plans, revision methods and exam preparation guidance.
         </p>
 
         <a href="BPSC_Preparation.html">
@@ -1103,7 +1125,7 @@ button {
 
   </section>
 
-  <!-- SUBJECT-WISE NOTES -->
+  <!-- BPSC SUBJECTS -->
 
   <section class="section" id="subject-notes">
 
@@ -1207,7 +1229,7 @@ button {
 
   </section>
 
-  <!-- NOTES AND DOWNLOADS -->
+  <!-- STUDY RESOURCES -->
 
   <section class="section" id="notes">
 
@@ -1218,7 +1240,7 @@ button {
       <h2>Notes, Tests & Downloads</h2>
 
       <p>
-        Learn, practise and revise using the available study material.
+        Learn, practise and revise using available study material.
       </p>
 
     </div>
@@ -1238,7 +1260,7 @@ button {
         </p>
 
         <a href="ncert_index.html">
-          Browse NCERT Resources →
+          Browse Resources →
         </a>
 
       </article>
@@ -1252,11 +1274,11 @@ button {
         <h3>BPSC Mock Tests</h3>
 
         <p>
-          Practise BPSC objective questions through available mock tests.
+          Practise objective questions through available mock tests.
         </p>
 
         <a href="BPSC_Mock_Tests.html">
-          Open BPSC Mock Tests →
+          Open Mock Tests →
         </a>
 
       </article>
@@ -1282,6 +1304,8 @@ button {
     </div>
 
   </section>
+
+  <!-- NOTICE -->
 
   <div class="notice">
 
@@ -1316,21 +1340,13 @@ button {
 
       <h3>NCERT</h3>
 
-      <a href="ncert_index.html">
-        Classes 6–12
-      </a>
+      <a href="ncert_index.html">Classes 6–12</a>
 
-      <a href="Class_9_Social_Science.html">
-        Class 9
-      </a>
+      <a href="ncert_index.html?class=9">Class 9</a>
 
-      <a href="Social_Science_10.html">
-        Class 10
-      </a>
+      <a href="ncert_index.html?class=10">Class 10</a>
 
-      <a href="Downloads.html">
-        Downloads
-      </a>
+      <a href="Downloads.html">Downloads</a>
 
     </div>
 
@@ -1338,33 +1354,19 @@ button {
 
       <h3>BPSC</h3>
 
-      <a href="BPSC_Syllabus.html">
-        Latest Syllabus
-      </a>
+      <a href="BPSC_Syllabus.html">Latest Syllabus</a>
 
-      <a href="BPSC_Vacancy.html">
-        Vacancies
-      </a>
+      <a href="BPSC_Vacancy.html">Vacancies</a>
 
-      <a href="BPSC_Salary.html">
-        Salary
-      </a>
+      <a href="BPSC_Salary.html">Salary</a>
 
-      <a href="BPSC_Cutoff.html">
-        Previous Year Cut-Offs
-      </a>
+      <a href="BPSC_Cutoff.html">Previous Year Cut-Offs</a>
 
-      <a href="BPSC_Previous_Year_Papers.html">
-        Previous Year Papers
-      </a>
+      <a href="BPSC_Previous_Year_Papers.html">Previous Year Papers</a>
 
-      <a href="BPSC_Mock_Tests.html">
-        Mock Tests
-      </a>
+      <a href="BPSC_Mock_Tests.html">Mock Tests</a>
 
-      <a href="Current_Affairs.html">
-        Current Affairs
-      </a>
+      <a href="Current_Affairs.html">Current Affairs</a>
 
     </div>
 
@@ -1380,12 +1382,15 @@ button {
 
 <script>
 
-/* MOBILE MENU */
+/* =========================================
+   MOBILE NAVIGATION
+   ========================================= */
 
 const menuButton = document.getElementById("menuButton");
+
 const navLinks = document.getElementById("navLinks");
 
-menuButton.addEventListener("click", () => {
+menuButton.addEventListener("click", function(){
 
   const isOpen = navLinks.classList.toggle("open");
 
@@ -1400,15 +1405,15 @@ menuButton.addEventListener("click", () => {
 
 });
 
-/* CLOSE MENU AFTER NAVIGATION */
+/* Close mobile menu after clicking a link */
 
-navLinks.querySelectorAll("a").forEach(link => {
+navLinks.querySelectorAll("a").forEach(function(link){
 
-  link.addEventListener("click", () => {
+  link.addEventListener("click", function(){
 
     navLinks.classList.remove("open");
 
-    menuButton.setAttribute("aria-expanded", "false");
+    menuButton.setAttribute("aria-expanded","false");
 
     menuButton.textContent = "☰ Menu";
 
@@ -1416,7 +1421,9 @@ navLinks.querySelectorAll("a").forEach(link => {
 
 });
 
-/* CURRENT YEAR */
+/* =========================================
+   AUTOMATIC FOOTER YEAR
+   ========================================= */
 
 document.getElementById("year").textContent =
   new Date().getFullYear();
