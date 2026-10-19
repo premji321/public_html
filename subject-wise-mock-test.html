@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BPSC Subject-wise Mock Tests</title>
+<style>
+:root{
+  --navy:#10264b;
+  --blue:#2459c4;
+  --blue2:#3478f6;
+  --pale:#edf4ff;
+  --line:#e1e8f2;
+  --ink:#202c40;
+  --muted:#69788e;
+  --gold:#f5bd4f;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:#f3f6fb;
+  color:var(--ink);
+  font-family:Segoe UI,Arial,sans-serif;
+}
+header{
+  padding:24px clamp(16px,4vw,42px);
+  color:#fff;
+  background:linear-gradient(120deg,#0b1d3a,#1c4c91,#2563eb);
+}
+.header-inner{max-width:1250px;margin:auto}
+header h1{margin:0;font-size:clamp(24px,3vw,34px)}
+header p{margin:7px 0 0;color:#dbeafe;line-height:1.6;font-size:14px}
+.container{max-width:1250px;margin:28px auto;padding:0 18px 35px}
+.intro{
+  display:flex;justify-content:space-between;align-items:center;gap:20px;
+  margin-bottom:22px;flex-wrap:wrap
+}
+.intro h2{margin:0 0 7px;color:var(--navy);font-size:clamp(22px,3vw,29px)}
+.intro p{margin:0;color:var(--muted);line-height:1.6}
+.back-link{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  background:#fff;border:1px solid var(--line);border-radius:9px;
+  padding:11px 15px;color:var(--navy);font-weight:750;text-decoration:none;
+}
+.back-link:hover{background:var(--pale);border-color:#aac8ff}
+.section-title{
+  display:flex;align-items:center;gap:10px;margin:28px 0 14px;
+  color:var(--navy);font-size:19px
+}
+.section-title:after{content:"";height:1px;background:var(--line);flex:1}
+.test-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+.test-card{
+  display:flex;flex-direction:column;min-height:265px;background:#fff;
+  border:1px solid var(--line);border-radius:15px;overflow:hidden;
+  box-shadow:0 7px 22px #10264b0b;transition:transform .18s,box-shadow .18s
+}
+.test-card:hover{transform:translateY(-3px);box-shadow:0 12px 28px #10264b17}
+.card-top{padding:18px 18px 14px;background:linear-gradient(135deg,#f3f7ff,#fff);border-bottom:1px solid var(--line)}
+.card-icon{
+  display:grid;place-items:center;width:45px;height:45px;border-radius:12px;
+  background:#e4edff;font-size:23px;margin-bottom:12px
+}
+.card-top h3{margin:0;color:#1d3558;font-size:18px}
+.card-top p{margin:7px 0 0;color:var(--muted);font-size:13px;line-height:1.5}
+.card-body{padding:15px 18px;display:flex;flex-direction:column;flex:1}
+.features{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:16px}
+.feature{
+  background:#f2f5fa;color:#53647b;border:1px solid #e5eaf2;
+  border-radius:6px;padding:5px 7px;font-size:11px;font-weight:700
+}
+.card-bottom{margin-top:auto}
+.attempt-btn{
+  width:100%;display:flex;align-items:center;justify-content:center;gap:8px;
+  padding:12px 14px;border:0;border-radius:9px;cursor:pointer;
+  color:#fff;font-size:13px;font-weight:800;
+  background:linear-gradient(110deg,#2459c4,#3478f6);
+  box-shadow:0 4px 0 #183d92;transition:transform .15s,filter .15s
+}
+.attempt-btn:hover{filter:brightness(1.06);transform:translateY(-1px)}
+.attempt-btn:active{transform:translateY(2px);box-shadow:0 2px 0 #183d92}
+.note{
+  margin-top:24px;padding:14px 16px;background:#fff8e8;
+  border:1px solid #f4dfaa;border-radius:10px;color:#71531c;
+  font-size:13px;line-height:1.65
+}
+footer{text-align:center;color:#8a96a7;padding:0 15px 25px;font-size:12px}
+@media(max-width:900px){.test-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:580px){
+  .container{padding:0 12px 25px;margin:20px auto}
+  .test-grid{grid-template-columns:1fr}
+  .test-card{min-height:0}
+  .intro{align-items:flex-start}
+  .back-link{width:100%}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <h1>📚 BPSC Subject-wise Mock Tests</h1>
+    <p>Practise one subject at a time • Strengthen concepts • Improve accuracy</p>
+  </div>
+</header>
+
+<main class="container">
+  <div class="intro">
+    <div>
+      <h2>Choose Your Subject</h2>
+      <p>Select a subject box and click <strong>Attempt Mock Test</strong> to open its test.</p>
+    </div>
+    <a class="back-link" href="index.html">← Back to BPSC Study Portal</a>
+  </div>
+
+  <h2 class="section-title">General Studies Subjects</h2>
+
+  <div class="test-grid">
+    <article class="test-card">
+      <div class="card-top">
+        <div class="card-icon">🏛️</div>
+        <h3>History</h3>
+        <p>Ancient, Medieval and Modern Indian History</p>
+      </div>
+      <div class="card-body">
+        <div class="features"><span class="feature">MCQ Practice</span><span class="feature">Topic-wise Revision</span></div>
+        <div class="card-bottom"><button class="attempt-btn" onclick="attemptTest('History','history-mock-test.html')">Attempt Mock Test →</button></div>
+      </div>
+    </article>
+
+    <article class="test-card">
+      <div class="card-top">
+        <div class="card-icon">🌍</div>
+        <h3>Geography</h3>
+        <p>Physical, Indian and World Geography</p>
+      </div>
+      <div class="card-body">
+        <div class="features"><span class="feature">MCQ Practice</span><span class="feature">Map-based Topics</span></div>
+        <div class="card-bottom"><button class="attempt-btn" onclick="attemptTest('Geography','geography-mock-test.html')">Attempt Mock Test →</button></div>
+      </div>
+    </article>
+
+    <article class="test-card">
+      <div class="card-top">
+        <div class="card-icon">⚖️</div>
+        <h3>Indian Polity</h3>
+        <p>Constitution, Fundamental Rights, Parliament and Governance</p>
+      </div>
+      <div class="card-body">
+        <div class="features"><span class="feature">Constitution</span><span class="feature">Governance</span></div>
+        <div class="card-bottom"><button class="attempt-btn" onclick="attemptTest('Indian Polity','polity-mock-test.html')">Attempt Mock Test →</button></div>
+      </div>
+    </article>
+
+    <article class="test-card">
+      <div class="card-top">
+        <div class="card-icon">💹</div>
+        <h3>Indian Economy</h3>
+        <p>National income, banking, budget, inflation and development</p>
+      </div>
+      <div class="card-body">
+        <div class="features"><span class="feature">Economy Basics</span><span class="feature">Current Concepts</span></div>
+        <div class="card-bottom"><button class="attempt-btn" onclick="attemptTest('Indian Economy','economy-mock-test.html')">Attempt Mock Test →</button></div>
+      </div>
+    </article>
+
+    <article class="test-card">
+      <div class="card-top">
+        <div class="card-icon">🔬</div>
+        <h3>General Science</h3>
+        <p>Physics, Chemistry, Biology and everyday science</p>
+      </div>
+      <div class="card-body">
+        <div class="features"><span class="feature">Physics</span><span class="feature">Chemistry</span><span class="feature">Biology</span></div>
+        <div class="card-bottom"><button class="attempt-btn" onclick="attemptTest('General Science','science-mock-test.html')">Attempt Mock Test →</button></div>
+      </div>
+    </article>
+
+    <article class="test-card">
+      <div class="card-top">
+        <div class="card-icon">🦅</div>
+        <h3>Bihar Special</h3>
+        <p>Bihar history, geography, economy, culture and administration</p>
+      </div>
+      <div class="card-body">
+        <div class="features"><span class="feature">Bihar GK</span><span class="feature">State Focus</span></div>
+        <div class="card-bottom"><button class="attempt-btn" onclick="attemptTest('Bihar Special','bihar-special-mock-test.html')">Attempt Mock Test →</button></div>
+      </div>
+    </article>
+
+    <article class="test-card">
+      <div class="card-top">
+        <div class="card-icon">🌱</div>
+        <h3>Environment</h3>
+        <p>Ecology, biodiversity, climate change and environmental conventions</p>
+      </div>
+      <div class="card-body">
+        <div class="features"><span class="feature">Ecology</span><span class="feature">Environment</span></div>
+        <div class="card-bottom"><button class="attempt-btn" onclick="attemptTest('Environment','environment-mock-test.html')">Attempt Mock Test →</button></div>
+      </div>
+    </article>
+
+    <article class="test-card">
+      <div class="card-top">
+        <div class="card-icon">📰</div>
+        <h3>Current Affairs</h3>
+        <p>National, international, Bihar and important government updates</p>
+      </div>
+      <div class="card-body">
+        <div class="features"><span class="feature">Current Events</span><span class="feature">Revision</span></div>
+        <div class="card-bottom"><button class="attempt-btn" onclick="attemptTest('Current Affairs','current-affairs-mock-test.html')">Attempt Mock Test →</button></div>
+      </div>
+    </article>
+
+    <article class="test-card">
+      <div class="card-top">
+        <div class="card-icon">📊</div>
+        <h3>General Knowledge</h3>
+        <p>Mixed general knowledge and static GK practice</p>
+      </div>
+      <div class="card-body">
+        <div class="features"><span class="feature">Mixed MCQs</span><span class="feature">Quick Practice</span></div>
+        <div class="card-bottom"><button class="attempt-btn" onclick="attemptTest('General Knowledge','general-knowledge-mock-test.html')">Attempt Mock Test →</button></div>
+      </div>
+    </article>
+  </div>
+
+  <div class="note">
+    <strong>Note:</strong> This page is the subject-wise test menu. Each button is connected to a separate HTML filename.
+    Create and upload the corresponding test files in the same folder to make the buttons open actual questions.
+  </div>
+</main>
+
+<footer>BPSC Study Portal • Subject-wise Practice</footer>
+
+<script>
+function attemptTest(subject, file){
+  // Open the selected subject's test page.
+  // Replace the filename below if your project uses a different file structure.
+  window.location.href = file;
+}
+</script>
+</body>
+</html>
