@@ -1,1 +1,1229 @@
-hh
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BPSC 72nd CCE 2026 - Simplified Syllabus</title>
+
+<style>
+:root {
+    --navy: #173765;
+    --blue: #245ea8;
+    --gold: #f5c542;
+    --text: #243247;
+    --border: #dce4ef;
+    --background: #f4f7fb;
+    --green: #167647;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--background);
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    line-height: 1.65;
+}
+
+.page {
+    max-width: 1150px;
+    margin: auto;
+    background: white;
+    min-height: 100vh;
+}
+
+/* HEADER */
+
+.hero {
+    background: linear-gradient(130deg, #122b50, #2868ae);
+    color: white;
+    padding: 30px 24px;
+    border-bottom: 5px solid var(--gold);
+}
+
+.hero .tag {
+    display: inline-block;
+    background: var(--gold);
+    color: #172b48;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.hero h1 {
+    font-size: clamp(27px, 4.5vw, 42px);
+    line-height: 1.2;
+    margin: 12px 0 8px;
+}
+
+.hero p {
+    margin: 5px 0;
+    color: #e9f1ff;
+}
+
+.hero .subtitle {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* QUICK NAVIGATION */
+
+.toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: white;
+    border-bottom: 1px solid var(--border);
+    padding: 10px 16px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.toolbar a {
+    font-size: 13px;
+    text-decoration: none;
+    color: var(--navy);
+    font-weight: bold;
+    background: #edf3fc;
+    border-radius: 6px;
+    padding: 8px 11px;
+}
+
+.toolbar a:hover {
+    background: #dce9fb;
+}
+
+/* MAIN CONTENT */
+
+.content {
+    padding: 24px;
+}
+
+.part {
+    margin-bottom: 35px;
+    scroll-margin-top: 75px;
+}
+
+.part-title {
+    font-size: clamp(22px, 3.5vw, 30px);
+    color: var(--navy);
+    padding: 10px 14px;
+    background: #edf4ff;
+    border-left: 5px solid var(--blue);
+    border-radius: 5px;
+    margin: 0 0 18px;
+}
+
+h3 {
+    color: var(--blue);
+    font-size: 21px;
+    margin: 24px 0 9px;
+}
+
+h4 {
+    color: #314b70;
+    font-size: 17px;
+    margin: 17px 0 6px;
+}
+
+p {
+    margin: 9px 0;
+}
+
+ul, ol {
+    padding-left: 24px;
+    margin: 8px 0 15px;
+}
+
+li {
+    margin: 4px 0;
+}
+
+/* CARDS */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.card {
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 15px;
+    background: white;
+}
+
+.card h3 {
+    margin: 0 0 7px;
+    font-size: 18px;
+}
+
+.card ul {
+    margin-bottom: 0;
+}
+
+/* TABLES */
+
+.table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    margin: 12px 0 18px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 560px;
+    font-size: 14px;
+}
+
+th {
+    background: var(--navy);
+    color: white;
+    text-align: left;
+    padding: 11px 12px;
+}
+
+td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+}
+
+tbody tr:nth-child(even) {
+    background: #f6f9fe;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.total td {
+    background: #e7f0ff;
+    font-weight: bold;
+    color: var(--navy);
+}
+
+/* IMPORTANT NOTES */
+
+.callout {
+    padding: 14px 16px;
+    border-left: 5px solid #e1ac25;
+    background: #fff8e4;
+    border-radius: 5px;
+    margin: 16px 0;
+}
+
+.callout strong {
+    color: #7a5700;
+}
+
+.info {
+    padding: 13px 16px;
+    background: #effaf3;
+    border-left: 5px solid var(--green);
+    border-radius: 5px;
+    margin: 14px 0;
+}
+
+.subject-mark {
+    display: inline-block;
+    background: #eaf2ff;
+    color: #174a82;
+    border-radius: 20px;
+    padding: 3px 9px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.priority-high {
+    color: #b92029;
+    font-weight: bold;
+}
+
+.priority-regular {
+    color: #875900;
+    font-weight: bold;
+}
+
+/* FOOTER */
+
+.footer {
+    background: #122947;
+    color: #e7effa;
+    text-align: center;
+    padding: 18px;
+    font-size: 12px;
+}
+
+.footer p {
+    margin: 4px;
+}
+
+/* MOBILE RESPONSIVE */
+
+@media (max-width: 720px) {
+    .hero {
+        padding: 25px 17px;
+    }
+
+    .content {
+        padding: 14px;
+    }
+
+    .toolbar {
+        gap: 6px;
+        padding: 8px;
+    }
+
+    .toolbar a {
+        font-size: 12px;
+        padding: 7px 8px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+}
+
+@media print {
+    body {
+        background: white;
+    }
+
+    .toolbar {
+        display: none;
+    }
+
+    .card {
+        break-inside: avoid;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+<!-- HEADER -->
+
+<header class="hero">
+    <span class="tag">BPSC STUDY PORTAL • 2026</span>
+
+    <h1>BPSC 72nd CCE 2026</h1>
+
+    <p class="subtitle">
+        Simplified and Effective Syllabus
+    </p>
+
+    <p>
+        Preliminary Examination • GS Paper I • GS Paper II
+        • Essay • General Hindi
+    </p>
+</header>
+
+<!-- NAVIGATION -->
+
+<nav class="toolbar">
+    <a href="#prelims">Prelims</a>
+    <a href="#gs1">GS Paper I</a>
+    <a href="#gs2">GS Paper II</a>
+    <a href="#essay">Essay</a>
+    <a href="#hindi">General Hindi</a>
+    <a href="#priority">Preparation Priority</a>
+</nav>
+
+<main class="content">
+
+<div class="callout">
+    <strong>Important:</strong>
+    This simplified syllabus is organised to reduce unnecessary detail
+    and prioritise subjects according to the marks distribution provided
+    in the reference. Verify the final examination pattern, marks and
+    syllabus against the official 72nd CCE notification.
+</div>
+
+<!-- ================= PRELIMS ================= -->
+
+<section class="part" id="prelims">
+
+<h2 class="part-title">
+    PART I: PRELIMINARY EXAMINATION
+</h2>
+
+<h3>1. Examination Pattern</h3>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+    <th>Particulars</th>
+    <th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td>Paper</td>
+    <td>General Studies</td>
+</tr>
+<tr>
+    <td>Question Type</td>
+    <td>Objective (MCQs)</td>
+</tr>
+<tr>
+    <td>Total Marks</td>
+    <td>150</td>
+</tr>
+<tr>
+    <td>Duration</td>
+    <td>2 Hours</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h3>2. Simplified Detailed Syllabus</h3>
+
+<div class="grid">
+
+<div class="card">
+<h3>A. History of India and Bihar</h3>
+
+<h4>Ancient India</h4>
+<p>
+Indus Valley Civilization, Vedic Age, Jainism, Buddhism,
+Mauryan Empire and Gupta Empire.
+</p>
+
+<h4>Medieval India</h4>
+<p>
+Delhi Sultanate, Mughal Empire, Bhakti and Sufi movements.
+</p>
+
+<h4>Modern India</h4>
+<p>
+British expansion, Revolt of 1857, socio-religious reform
+movements and the Indian National Movement.
+</p>
+
+<h4>History of Bihar</h4>
+<p>
+Ancient Magadha, Nalanda, Santhal Uprising, Kunwar Singh,
+Champaran Satyagraha and Bihar's contribution to the freedom struggle.
+</p>
+</div>
+
+<div class="card">
+<h3>B. Geography of India and Bihar</h3>
+<ul>
+<li>Physical features: mountains, plateaus and plains.</li>
+<li>Rivers, drainage systems and the Indian monsoon.</li>
+<li>Climate, soils and natural vegetation.</li>
+<li>Agriculture, irrigation, minerals and industries.</li>
+<li>Population, migration and urbanisation.</li>
+<li>Bihar's rivers, flood-prone regions, agricultural patterns
+and natural resources.</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>C. Indian Polity</h3>
+<ul>
+<li>Constitution, Preamble and salient features.</li>
+<li>Fundamental Rights, Directive Principles and Fundamental Duties.</li>
+<li>President, Prime Minister and Parliament.</li>
+<li>Governor, Chief Minister and State Legislature.</li>
+<li>Supreme Court, High Courts and judicial review.</li>
+<li>Constitutional bodies, elections and Panchayati Raj.</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>D. Indian Economy and Bihar Economy</h3>
+<ul>
+<li>GDP, inflation, poverty and unemployment.</li>
+<li>Economic planning, Five-Year Plans and NITI Aayog.</li>
+<li>Agriculture, industries, banking and government budgets.</li>
+<li>Economic development, inclusive growth and infrastructure.</li>
+<li>Bihar's economy, agriculture, industrial development,
+migration and employment.</li>
+<li>Bihar Budget, Economic Survey and government development schemes.</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>E. General Science and Technology</h3>
+<ul>
+<li>Basic school-level Physics, Chemistry and Biology.</li>
+<li>Human body, nutrition, diseases and genetics.</li>
+<li>Space technology, computers, biotechnology and artificial intelligence.</li>
+<li>Environment, biodiversity, climate change and renewable energy.</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>F. Current Affairs</h3>
+<ul>
+<li>National and international events.</li>
+<li>Government policies and schemes.</li>
+<li>Awards, appointments, reports and important developments.</li>
+<li>Science and technology, environment and international relations.</li>
+<li>Bihar government initiatives, budget and important state developments.</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>G. General Mental Ability</h3>
+<ul>
+<li>Number series, analogy and classification.</li>
+<li>Coding-decoding and logical reasoning.</li>
+<li>Basic numerical reasoning.</li>
+<li>Simple data interpretation.</li>
+</ul>
+</div>
+
+</div>
+</section>
+
+<!-- ================= GS PAPER I ================= -->
+
+<section class="part" id="gs1">
+
+<h2 class="part-title">
+    PART II: MAIN EXAMINATION
+</h2>
+
+<h3>1. General Mains Pattern</h3>
+
+<p>
+The following table reproduces the structure and marks
+provided in the reference material.
+</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+    <th>Paper</th>
+    <th>Total Marks</th>
+    <th>Duration</th>
+    <th>Nature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td>General Studies Paper I</td>
+    <td>300</td>
+    <td>As prescribed</td>
+    <td>Merit-oriented</td>
+</tr>
+<tr>
+    <td>General Studies Paper II</td>
+    <td>300</td>
+    <td>As prescribed</td>
+    <td>Merit-oriented</td>
+</tr>
+<tr>
+    <td>Essay Paper</td>
+    <td>300</td>
+    <td>3 Hours</td>
+    <td>Merit-oriented</td>
+</tr>
+<tr>
+    <td>General Hindi</td>
+    <td>100</td>
+    <td>3 Hours</td>
+    <td>Qualifying</td>
+</tr>
+<tr>
+    <td>Optional Subject</td>
+    <td>Verify current rules</td>
+    <td>Verify current rules</td>
+    <td>As prescribed</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="callout">
+<strong>Note:</strong>
+Confirm the exact papers, duration, marks and optional-subject
+requirements in the official notification applicable to the 72nd CCE.
+</div>
+
+<h3>2. General Studies Paper I — 300 Marks</h3>
+
+<h4>Marks Distribution</h4>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+    <th>Section</th>
+    <th>Subject</th>
+    <th>Marks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td>A</td>
+    <td>Modern History of India and Indian Culture</td>
+    <td>114</td>
+</tr>
+<tr>
+    <td>B</td>
+    <td>Current Events of National and International Importance</td>
+    <td>114</td>
+</tr>
+<tr>
+    <td>C</td>
+    <td>Statistical Analysis, Graphs and Diagrams</td>
+    <td>72</td>
+</tr>
+<tr class="total">
+    <td></td>
+    <td>Total</td>
+    <td>300</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h3>A. Modern History of India and Indian Culture — 114 Marks</h3>
+
+<h4>1. Modern Indian History</h4>
+<ul>
+<li>British expansion and establishment of colonial rule.</li>
+<li>British administrative and economic policies.</li>
+<li>Revolt of 1857.</li>
+<li>Socio-religious reform movements.</li>
+<li>Rise of Indian nationalism.</li>
+<li>Formation and development of the Indian National Congress.</li>
+<li>Swadeshi and revolutionary movements.</li>
+<li>Gandhian movements and the freedom struggle.</li>
+<li>Constitutional developments and Independence.</li>
+</ul>
+
+<h4>2. Bihar's Contribution to the Freedom Struggle</h4>
+<ul>
+<li>Santhal Uprising (1855–56).</li>
+<li>Revolt of 1857 and Kunwar Singh.</li>
+<li>Birsa Munda and tribal resistance.</li>
+<li>Champaran Satyagraha (1917).</li>
+<li>Non-Cooperation and Civil Disobedience movements.</li>
+<li>Quit India Movement in Bihar.</li>
+<li>Role of Dr. Rajendra Prasad, Jayaprakash Narayan
+and other important leaders.</li>
+</ul>
+
+<h4>3. Western Education in Bihar</h4>
+<ul>
+<li>Introduction of Western education under British rule.</li>
+<li>Development of schools, colleges and universities.</li>
+<li>Expansion of technical and professional education.</li>
+<li>Rise of the educated middle class.</li>
+<li>Impact of education on political awareness and social reform.</li>
+</ul>
+
+<h4>4. Indian Art and Culture</h4>
+<ul>
+<li>Mauryan art and architecture.</li>
+<li>Gupta art and culture.</li>
+<li>Pala art and Buddhist heritage.</li>
+<li>Patna Kalam painting.</li>
+<li>Nalanda and Vikramashila.</li>
+<li>Important cultural traditions and heritage sites of Bihar.</li>
+</ul>
+
+<h4>5. Important Personalities</h4>
+<p>
+Mahatma Gandhi, Rabindranath Tagore, Jawaharlal Nehru,
+Dr. Rajendra Prasad and other important personalities associated
+with modern India and Bihar.
+</p>
+
+<h3>B. Current Events — 114 Marks</h3>
+
+<div class="grid">
+
+<div class="card">
+<h3>National Current Affairs</h3>
+<ul>
+<li>Government policies, schemes and legislation.</li>
+<li>Important constitutional and legal developments.</li>
+<li>Economy, budget and major reports.</li>
+<li>Education, healthcare and social issues.</li>
+<li>Science and technology.</li>
+<li>Environment and climate change.</li>
+<li>Awards, appointments and important national events.</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>International Current Affairs</h3>
+<ul>
+<li>International organisations.</li>
+<li>India's foreign relations.</li>
+<li>International summits and agreements.</li>
+<li>Major global political and economic developments.</li>
+<li>International reports and important events.</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Bihar Current Affairs</h3>
+<ul>
+<li>Bihar government schemes.</li>
+<li>Bihar Budget and Economic Survey.</li>
+<li>Infrastructure and development projects.</li>
+<li>Education, healthcare and agricultural initiatives.</li>
+<li>Important appointments, awards and state developments.</li>
+</ul>
+</div>
+
+</div>
+
+<h3>C. Statistical Analysis, Graphs and Diagrams — 72 Marks</h3>
+
+<ul>
+<li>Interpretation of tables and statistical data.</li>
+<li>Bar graphs, line graphs and pie charts.</li>
+<li>Percentages, ratios and growth rates.</li>
+<li>Comparison of datasets.</li>
+<li>Identification of trends and patterns.</li>
+<li>Drawing conclusions from data.</li>
+<li>Identifying errors, limitations and inconsistencies.</li>
+</ul>
+
+<div class="info">
+<strong>Preparation focus:</strong>
+Practise data interpretation regularly and learn to draw accurate
+conclusions from statistical information.
+</div>
+
+</section>
+
+<!-- ================= GS PAPER II ================= -->
+
+<section class="part" id="gs2">
+
+<h2 class="part-title">
+    3. GENERAL STUDIES PAPER II — 300 MARKS
+</h2>
+
+<h3>Marks Distribution</h3>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+    <th>Section</th>
+    <th>Subject</th>
+    <th>Marks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td>A</td>
+    <td>Indian Polity</td>
+    <td>114</td>
+</tr>
+<tr>
+    <td>B</td>
+    <td>Indian Economy and Geography (India and Bihar)</td>
+    <td>114</td>
+</tr>
+<tr>
+    <td>C</td>
+    <td>Role and Impact of Science and Technology in Development</td>
+    <td>72</td>
+</tr>
+<tr class="total">
+    <td></td>
+    <td>Total</td>
+    <td>300</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h3>A. Indian Polity — 114 Marks</h3>
+
+<h4>1. Constitution of India</h4>
+<ul>
+<li>Preamble and salient features.</li>
+<li>Fundamental Rights.</li>
+<li>Directive Principles of State Policy.</li>
+<li>Fundamental Duties.</li>
+<li>Constitutional amendments.</li>
+<li>Basic Structure Doctrine.</li>
+</ul>
+
+<h4>2. Structure of Government</h4>
+<ul>
+<li>President and Vice-President.</li>
+<li>Prime Minister and Council of Ministers.</li>
+<li>Parliament and its functions.</li>
+<li>Supreme Court and High Courts.</li>
+<li>Governor and Chief Minister.</li>
+<li>State Legislature.</li>
+</ul>
+
+<h4>3. Federalism and Governance</h4>
+<ul>
+<li>Centre-State relations.</li>
+<li>Legislative, administrative and financial relations.</li>
+<li>Constitutional bodies.</li>
+<li>Election Commission and Finance Commission.</li>
+<li>Public Service Commissions.</li>
+<li>Judicial review.</li>
+<li>Good governance and accountability.</li>
+</ul>
+
+<h4>4. Bihar Polity and Administration</h4>
+<ul>
+<li>Political and administrative structure of Bihar.</li>
+<li>Governor and Chief Minister.</li>
+<li>Legislative Assembly and Legislative Council.</li>
+<li>District administration.</li>
+<li>Panchayati Raj and urban local government.</li>
+<li>State-level governance initiatives.</li>
+</ul>
+
+<h3>B. Indian Economy and Geography — 114 Marks</h3>
+
+<h4>1. Indian Economy</h4>
+<ul>
+<li>Economic planning, Five-Year Plans and NITI Aayog.</li>
+<li>GDP, inflation, poverty and unemployment.</li>
+<li>Agriculture and rural development.</li>
+<li>Industry and service sectors.</li>
+<li>Banking and monetary policy.</li>
+<li>Government budget and taxation.</li>
+<li>Inclusive growth and infrastructure.</li>
+</ul>
+
+<h4>2. Bihar Economy</h4>
+<ul>
+<li>Economic structure and development.</li>
+<li>Agriculture, irrigation and rural development.</li>
+<li>Industrial development and entrepreneurship.</li>
+<li>Poverty, unemployment and migration.</li>
+<li>Infrastructure and connectivity.</li>
+<li>Education and healthcare indicators.</li>
+<li>Bihar Budget and Economic Survey.</li>
+<li>Major development schemes.</li>
+</ul>
+
+<h4>3. Geography of India</h4>
+<ul>
+<li>Physical divisions of India.</li>
+<li>Himalayan region, Northern Plains and Peninsular Plateau.</li>
+<li>Rivers and drainage systems.</li>
+<li>Climate and monsoon.</li>
+<li>Soil, agriculture and natural resources.</li>
+<li>Minerals and industries.</li>
+<li>Population, migration and urbanisation.</li>
+</ul>
+
+<h4>4. Geography of Bihar</h4>
+<ul>
+<li>Physical divisions and the Ganga Plain.</li>
+<li>Major rivers: Ganga, Kosi, Gandak, Son and other river systems.</li>
+<li>Climate, rainfall and soil.</li>
+<li>Agricultural regions and irrigation.</li>
+<li>Natural resources and industries.</li>
+<li>Flood-prone areas and disaster management.</li>
+<li>Population, urbanisation and transport.</li>
+</ul>
+
+<h3>C. Role and Impact of Science and Technology — 72 Marks</h3>
+
+<div class="grid">
+
+<div class="card">
+<h3>1. Science and Technology in India</h3>
+<ul>
+<li>Scientific research and innovation.</li>
+<li>Space technology and satellites.</li>
+<li>Information technology and artificial intelligence.</li>
+<li>Biotechnology.</li>
+<li>Agricultural technology.</li>
+<li>Industrial automation.</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>2. Applied Science and Technology</h3>
+<ul>
+<li>Renewable energy.</li>
+<li>Digital payments and e-governance.</li>
+<li>Medical technology.</li>
+<li>Communication technology.</li>
+<li>Environmental technology.</li>
+<li>Disaster forecasting and management.</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>3. Impact on Development</h3>
+<ul>
+<li>Agricultural productivity.</li>
+<li>Economic growth and employment.</li>
+<li>Healthcare and education.</li>
+<li>Digital transformation.</li>
+<li>Environmental sustainability.</li>
+<li>Digital divide and cybersecurity.</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>4. Science and Technology in Bihar</h3>
+<ul>
+<li>Digital governance.</li>
+<li>Agricultural technology.</li>
+<li>Flood forecasting and monitoring.</li>
+<li>Renewable energy.</li>
+<li>Digital education and healthcare.</li>
+<li>Technology in infrastructure and rural development.</li>
+</ul>
+</div>
+
+</div>
+
+<div class="info">
+<strong>Preparation focus:</strong>
+Emphasise practical applications, current examples,
+development outcomes and challenges.
+</div>
+
+</section>
+
+<!-- ================= ESSAY ================= -->
+
+<section class="part" id="essay">
+
+<h2 class="part-title">
+    4. ESSAY PAPER — 300 MARKS
+</h2>
+
+<p>
+The Essay paper should be prepared separately because it tests analytical
+thinking, structured writing and the ability to present balanced arguments.
+</p>
+
+<h3>A. Moral and Philosophical Essays</h3>
+<p>
+Truth, honesty and integrity; ethics in public life; discipline and
+responsibility; knowledge, wisdom and education; justice and equality;
+leadership and human values.
+</p>
+
+<h3>B. Hypothetical Essays</h3>
+<p>
+Ethical dilemmas in administration; decision-making during a crisis;
+balancing public interest and individual rights; disaster management;
+resolving social conflicts; balancing development and environmental protection.
+</p>
+
+<h3>C. Social, Economic, Political, Religious and Administrative Issues</h3>
+
+<div class="grid">
+
+<div class="card">
+<h3>Social Issues</h3>
+<p>
+Education and literacy, women empowerment, poverty and inequality,
+youth and employment, social justice and harmony.
+</p>
+</div>
+
+<div class="card">
+<h3>Economic Issues</h3>
+<p>
+Economic development, agriculture and rural development,
+unemployment and migration, industrialisation, inclusive growth.
+</p>
+</div>
+
+<div class="card">
+<h3>Political and Administrative Issues</h3>
+<p>
+Democracy and constitutional values, good governance,
+transparency and accountability, corruption and administrative reforms,
+citizen participation.
+</p>
+</div>
+
+<div class="card">
+<h3>Religious and Cultural Issues</h3>
+<p>
+Secularism, religious harmony, cultural diversity
+and preservation of heritage.
+</p>
+</div>
+
+</div>
+
+<h3>D. Self-Reliant India and Digital India</h3>
+<ul>
+<li>Atmanirbhar Bharat.</li>
+<li>Domestic manufacturing.</li>
+<li>Entrepreneurship and employment.</li>
+<li>Digital governance.</li>
+<li>Digital literacy and financial inclusion.</li>
+<li>Technology and rural development.</li>
+</ul>
+
+<h3>E. Problems, Solutions and Possibilities of Bihar</h3>
+
+<div class="grid">
+
+<div class="card">
+<h3>Problems</h3>
+<ul>
+<li>Poverty and unemployment.</li>
+<li>Migration.</li>
+<li>Floods and agricultural challenges.</li>
+<li>Industrial underdevelopment.</li>
+<li>Education and healthcare gaps.</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Solutions and Possibilities</h3>
+<ul>
+<li>Agricultural modernisation.</li>
+<li>Industrial development.</li>
+<li>Skill development.</li>
+<li>Infrastructure expansion.</li>
+<li>Tourism and cultural heritage.</li>
+<li>Digital governance.</li>
+<li>Employment generation and human development.</li>
+</ul>
+</div>
+
+</div>
+
+<h3>F. Popular Proverbs and Sayings of Bihar</h3>
+<ul>
+<li>Bhojpuri proverbs.</li>
+<li>Maithili sayings.</li>
+<li>Magahi sayings.</li>
+<li>Folk wisdom related to morality, agriculture, education and social life.</li>
+<li>Meaning, interpretation and contemporary relevance of popular sayings.</li>
+</ul>
+
+<h3>Essay Writing Structure</h3>
+<ol>
+<li>Introduction.</li>
+<li>Background and context.</li>
+<li>Main arguments.</li>
+<li>Relevant examples and facts.</li>
+<li>Problems and challenges.</li>
+<li>Solutions and way forward.</li>
+<li>Balanced conclusion.</li>
+</ol>
+
+</section>
+
+<!-- ================= GENERAL HINDI ================= -->
+
+<section class="part" id="hindi">
+
+<h2 class="part-title">
+    5. GENERAL HINDI — 100 MARKS
+</h2>
+
+<span class="subject-mark">QUALIFYING PAPER</span>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+    <th>Component</th>
+    <th>Marks Shown in Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td>Essay (Nibandh)</td>
+    <td>30</td>
+</tr>
+<tr>
+    <td>Grammar</td>
+    <td>30</td>
+</tr>
+<tr>
+    <td>Sentence Formation</td>
+    <td>25</td>
+</tr>
+<tr>
+    <td>Precis Writing</td>
+    <td>15</td>
+</tr>
+<tr class="total">
+    <td>Total</td>
+    <td>100</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h3>Simplified Syllabus</h3>
+<ul>
+<li>Essay writing.</li>
+<li>Hindi grammar.</li>
+<li>Sentence formation and correction.</li>
+<li>Precis writing.</li>
+<li>Vocabulary and correct usage.</li>
+</ul>
+
+<div class="callout">
+<strong>Important:</strong>
+Verify the exact qualifying threshold and paper requirements
+from the applicable official notification.
+</div>
+
+</section>
+
+<!-- ================= PRIORITY ================= -->
+
+<section class="part" id="priority">
+
+<h2 class="part-title">
+    PART III: PREPARATION PRIORITY BASED ON MARKS
+</h2>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+    <th>Paper / Section</th>
+    <th>Marks</th>
+    <th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td>GS Paper I: History and Culture</td>
+    <td>114</td>
+    <td class="priority-high">High</td>
+</tr>
+<tr>
+    <td>GS Paper I: Current Affairs</td>
+    <td>114</td>
+    <td class="priority-high">High</td>
+</tr>
+<tr>
+    <td>GS Paper I: Statistical Analysis</td>
+    <td>72</td>
+    <td class="priority-regular">Regular practice</td>
+</tr>
+<tr>
+    <td>GS Paper II: Indian Polity</td>
+    <td>114</td>
+    <td class="priority-high">High</td>
+</tr>
+<tr>
+    <td>GS Paper II: Economy and Geography</td>
+    <td>114</td>
+    <td class="priority-high">High</td>
+</tr>
+<tr>
+    <td>GS Paper II: Science and Technology</td>
+    <td>72</td>
+    <td class="priority-regular">Regular revision and application</td>
+</tr>
+<tr>
+    <td>Essay</td>
+    <td>300</td>
+    <td class="priority-high">Continuous writing practice</td>
+</tr>
+<tr>
+    <td>General Hindi</td>
+    <td>100</td>
+    <td class="priority-regular">Qualifying preparation</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h3>Recommended Study Method</h3>
+
+<div class="grid">
+
+<div class="card">
+<h3>For Prelims</h3>
+<p>
+Focus on facts, basic concepts, MCQs and revision.
+</p>
+</div>
+
+<div class="card">
+<h3>For Mains</h3>
+<p>
+Focus on conceptual understanding, analytical answers,
+Bihar-specific examples and structured writing.
+</p>
+</div>
+
+<div class="card">
+<h3>For Essay</h3>
+<p>
+Practise complete essays with relevant facts, arguments,
+examples, solutions and conclusions.
+</p>
+</div>
+
+<div class="card">
+<h3>Integrated Preparation</h3>
+<p>
+Prepare common subjects for Prelims and Mains together,
+but practise each examination's question format separately.
+</p>
+</div>
+
+</div>
+
+<div class="info">
+<strong>Final advice:</strong>
+Use the marks distribution from your reference as a planning guide
+and follow the official 72nd CCE notification wherever the details differ.
+</div>
+
+</section>
+
+</main>
+
+<footer class="footer">
+<p><strong>BPSC Study Portal</strong> • 72nd CCE 2026 Simplified Syllabus</p>
+<p>
+Prepared for study planning. Confirm syllabus, marks and qualifying
+rules through the applicable official notification.
+</p>
+</footer>
+
+</div>
+
+</body>
+</html>
