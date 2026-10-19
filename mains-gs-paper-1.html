@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BPSC Mains GS Paper I | 69th & 70th PYQ</title>
+
+<style>
+:root {
+    --navy: #10264b;
+    --blue: #2459c4;
+    --light-blue: #edf4ff;
+    --green: #198754;
+    --light-green: #eaf7ef;
+    --orange: #f59e0b;
+    --background: #f4f7fb;
+    --text: #263449;
+    --muted: #64748b;
+    --border: #dbe3ef;
+    --white: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.7;
+}
+
+/* HEADER */
+
+.header {
+    background: linear-gradient(135deg, #10264b, #2459c4);
+    color: white;
+    padding: 30px 18px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 27px;
+    margin-bottom: 8px;
+}
+
+.header p {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* PAGE CONTAINER */
+
+.container {
+    max-width: 1050px;
+    margin: 25px auto;
+    padding: 0 15px;
+}
+
+/* NAVIGATION */
+
+.nav-buttons {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.nav-buttons button {
+    flex: 1;
+    padding: 13px;
+    border: none;
+    border-radius: 8px;
+    background: white;
+    color: var(--navy);
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.nav-buttons button.active {
+    background: var(--blue);
+    color: white;
+}
+
+/* EXAM CARD */
+
+.exam-card {
+    background: white;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(16,38,75,0.07);
+}
+
+.exam-header {
+    background: var(--navy);
+    color: white;
+    padding: 22px;
+}
+
+.exam-header h2 {
+    font-size: 23px;
+    margin-bottom: 8px;
+}
+
+.exam-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    font-size: 14px;
+}
+
+/* SECTION */
+
+.section {
+    padding: 22px;
+    border-bottom: 1px solid var(--border);
+}
+
+.section-title {
+    color: var(--blue);
+    font-size: 20px;
+    margin-bottom: 18px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--light-blue);
+}
+
+.section-title span {
+    font-size: 14px;
+    color: var(--muted);
+}
+
+/* QUESTIONS */
+
+.question {
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 17px;
+    margin-bottom: 15px;
+    background: white;
+}
+
+.question h3 {
+    color: var(--navy);
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+.question p {
+    margin-bottom: 12px;
+}
+
+.subquestion {
+    padding: 12px 14px;
+    margin: 10px 0;
+    background: #f8fafc;
+    border-left: 3px solid var(--blue);
+    border-radius: 4px;
+}
+
+.subquestion strong {
+    color: var(--navy);
+}
+
+.marks {
+    display: inline-block;
+    background: var(--light-blue);
+    color: var(--blue);
+    font-size: 12px;
+    font-weight: bold;
+    padding: 3px 9px;
+    border-radius: 20px;
+    margin-left: 5px;
+}
+
+.or {
+    text-align: center;
+    font-weight: bold;
+    color: var(--orange);
+    margin: 12px 0;
+}
+
+/* SHORT NOTES */
+
+.note-item {
+    padding: 11px 0;
+    border-bottom: 1px dashed var(--border);
+}
+
+.note-item:last-child {
+    border-bottom: none;
+}
+
+/* FOOTER */
+
+.footer {
+    text-align: center;
+    padding: 25px 15px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* PRINT */
+
+@media print {
+    body {
+        background: white;
+    }
+
+    .header {
+        background: white;
+        color: black;
+        border-bottom: 2px solid black;
+    }
+
+    .nav-buttons {
+        display: none;
+    }
+
+    .exam-card {
+        box-shadow: none;
+        border: 1px solid #ccc;
+        break-inside: avoid;
+    }
+
+    .question {
+        break-inside: avoid;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    .header h1 {
+        font-size: 21px;
+    }
+
+    .exam-header h2 {
+        font-size: 19px;
+    }
+
+    .section {
+        padding: 14px;
+    }
+
+    .section-title {
+        font-size: 17px;
+    }
+
+    .question {
+        padding: 13px;
+    }
+
+    .nav-buttons button {
+        font-size: 13px;
+        padding: 11px 5px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+    <h1>BPSC MAINS PYQ PORTAL</h1>
+    <p>General Studies Paper I | 69th &amp; 70th BPSC</p>
+    <p>Previous Year Question Papers</p>
+</header>
+
+<main class="container">
+
+    <div class="nav-buttons">
+        <button class="active" onclick="showPaper('paper70', this)">
+            70th BPSC
+        </button>
+
+        <button onclick="showPaper('paper69', this)">
+            69th BPSC
+        </button>
+
+        <button onclick="window.print()">
+            Print / PDF
+        </button>
+    </div>
+
+    <!-- ================================== -->
+    <!-- 70TH BPSC -->
+    <!-- ================================== -->
+
+    <div class="exam-card" id="paper70">
+
+        <div class="exam-header">
+            <h2>70th BPSC General Studies Paper–I</h2>
+
+            <div class="exam-meta">
+                <span>Time Allowed: 3 Hours</span>
+                <span>Full Marks: 300</span>
+            </div>
+        </div>
+
+        <!-- SECTION I -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                Section I <span>— 114 Marks</span>
+            </h2>
+
+            <div class="question">
+                <h3>Question 1. Write short notes on the following:</h3>
+
+                <div class="note-item">
+                    (a) The Indian Councils Act, 1861.
+                    <span class="marks">8 Marks</span>
+                </div>
+
+                <div class="note-item">
+                    (b) Role of Bihar in the Quit India Movement.
+                    <span class="marks">8 Marks</span>
+                </div>
+
+                <div class="note-item">
+                    (c) Santhal Uprising.
+                    <span class="marks">8 Marks</span>
+                </div>
+
+                <div class="note-item">
+                    (d) Patna Kalam Painting.
+                    <span class="marks">7 Marks</span>
+                </div>
+
+                <div class="note-item">
+                    (e) Art and Architecture of the Mauryan Age.
+                    <span class="marks">7 Marks</span>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>Question 2</h3>
+
+                <div class="subquestion">
+                    <strong>(a)</strong>
+                    Describe the Champaran Indigo Movement and explain
+                    its impact on the Indian freedom struggle.
+                    <span class="marks">38 Marks</span>
+                </div>
+
+                <div class="or">OR</div>
+
+                <div class="subquestion">
+                    <strong>(b)</strong>
+                    To what extent were British policies responsible for
+                    the emergence of the Indian National Movement? Explain.
+                    <span class="marks">38 Marks</span>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>Question 3</h3>
+
+                <div class="subquestion">
+                    <strong>(a)</strong>
+                    Examine the expansion of Western education in Bihar
+                    from the mid-nineteenth century onwards.
+                    <span class="marks">38 Marks</span>
+                </div>
+
+                <div class="or">OR</div>
+
+                <div class="subquestion">
+                    <strong>(b)</strong>
+                    Assess the constructive works of Mahatma Gandhi.
+                    <span class="marks">38 Marks</span>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- SECTION II -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                Section II <span>— 114 Marks</span>
+            </h2>
+
+            <div class="question">
+                <h3>Question 4. Answer the following questions:</h3>
+
+                <div class="subquestion">
+                    <strong>(a)</strong>
+                    Discuss the prospects for unity and coalition politics
+                    among opposition parties following the defeat of the
+                    Aam Aadmi Party in the 2025 Delhi Assembly elections.
+                    <span class="marks">8 Marks</span>
+                </div>
+
+                <div class="subquestion">
+                    <strong>(b)</strong>
+                    The Russia–Ukraine war has completed three years.
+                    Explain the causes of the war and discuss its effects
+                    on world politics.
+                    <span class="marks">8 Marks</span>
+                </div>
+
+                <div class="subquestion">
+                    <strong>(c)</strong>
+                    The Maha Kumbh Mela was organised in India from
+                    13 January to 26 February 2025. How did this event
+                    symbolise Indian culture, religious faith and social
+                    harmony? Explain with examples.
+                    <span class="marks">8 Marks</span>
+                </div>
+
+                <div class="subquestion">
+                    <strong>(d)</strong>
+                    Explain in detail the need for and importance of a
+                    caste-based census in Bihar.
+                    <span class="marks">7 Marks</span>
+                </div>
+
+                <div class="subquestion">
+                    <strong>(e)</strong>
+                    Analyse the likely future of the United States at the
+                    national and international levels under the leadership
+                    of newly elected President Donald Trump.
+                    <span class="marks">7 Marks</span>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>Question 5</h3>
+
+                <div class="subquestion">
+                    <strong>(a)</strong>
+                    Uttarakhand has become the first state in independent
+                    India to implement a Uniform Civil Code. Explain the
+                    Uniform Civil Code in this context. Also discuss,
+                    with examples, the changes it may bring to Indian
+                    society in the social, cultural, religious and legal
+                    spheres.
+                    <span class="marks">38 Marks</span>
+                </div>
+
+                <div class="or">OR</div>
+
+                <div class="subquestion">
+                    <strong>(b)</strong>
+                    Discuss the constitutional provisions governing
+                    President's Rule in India. Explain the reasons for
+                    the recent imposition of President's Rule in Manipur
+                    and evaluate its effectiveness in contemporary times.
+                    <span class="marks">38 Marks</span>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>Question 6</h3>
+
+                <div class="subquestion">
+                    <strong>(a)</strong>
+                    Discuss the concept of "One Nation, One Election"
+                    and its implications for India's federal structure.
+                    What are the potential advantages and disadvantages
+                    of synchronising elections to the Lok Sabha and
+                    State Legislative Assemblies? Analyse.
+                    <span class="marks">38 Marks</span>
+                </div>
+
+                <div class="or">OR</div>
+
+                <div class="subquestion">
+                    <strong>(b)</strong>
+                    Discuss the increasing participation of women in
+                    Indian politics and society, with special reference
+                    to the Women's Reservation Act, 2023
+                    (Nari Shakti Vandan Adhiniyam). Analyse the potential
+                    social, economic and political changes associated
+                    with its implementation.
+                    <span class="marks">38 Marks</span>
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+
+    <!-- ================================== -->
+    <!-- 69TH BPSC -->
+    <!-- ================================== -->
+
+    <div class="exam-card" id="paper69" style="display:none;">
+
+        <div class="exam-header">
+            <h2>69th BPSC General Studies Paper–I</h2>
+
+            <div class="exam-meta">
+                <span>Time Allowed: 3 Hours</span>
+                <span>Full Marks: 300</span>
+            </div>
+        </div>
+
+        <!-- SECTION I -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                Section I <span>— 114 Marks</span>
+            </h2>
+
+            <div class="question">
+                <h3>Question 1. Write short notes on the following:</h3>
+
+                <div class="note-item">
+                    (a) Indian Councils Act, 1892.
+                    <span class="marks">8 Marks</span>
+                </div>
+
+                <div class="note-item">
+                    (b) Santhal Uprising.
+                    <span class="marks">8 Marks</span>
+                </div>
+
+                <div class="note-item">
+                    (c) Champaran Satyagraha.
+                    <span class="marks">8 Marks</span>
+                </div>
+
+                <div class="note-item">
+                    (d) Art and Architecture of the Mauryan Period.
+                    <span class="marks">7 Marks</span>
+                </div>
+
+                <div class="note-item">
+                    (e) Cave Paintings of Eastern India in the Ancient Period.
+                    <span class="marks">7 Marks</span>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>Question 2</h3>
+
+                <div class="subquestion">
+                    <strong>(a)</strong>
+                    "Bihar has been the centre of learning and spiritualism
+                    since ancient times." Explain in detail.
+                    <span class="marks">38 Marks</span>
+                </div>
+
+                <div class="or">OR</div>
+
+                <div class="subquestion">
+                    <strong>(b)</strong>
+                    Evaluate the Champaran Indigo Movement and explain
+                    its impact on the Indian freedom struggle.
+                    <span class="marks">38 Marks</span>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>Question 3</h3>
+
+                <div class="subquestion">
+                    <strong>(a)</strong>
+                    Critically examine the contribution of the Moderate
+                    Phase of the Indian National Congress Movement.
+                    <span class="marks">38 Marks</span>
+                </div>
+
+                <div class="or">OR</div>
+
+                <div class="subquestion">
+                    <strong>(b)</strong>
+                    Trace the development of modern education in Bihar
+                    and its impact.
+                    <span class="marks">38 Marks</span>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- SECTION II -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                Section II <span>— 114 Marks</span>
+            </h2>
+
+            <div class="question">
+                <h3>Question 4. Answer the following questions:</h3>
+
+                <div class="subquestion">
+                    <strong>(a)</strong>
+                    Explain the concerns of the Supreme Court of India
+                    regarding the elimination of gender stereotypes.
+                    <span class="marks">8 Marks</span>
+                </div>
+
+                <div class="subquestion">
+                    <strong>(b)</strong>
+                    Examine the relevance of the Bharatiya Nagarik
+                    Suraksha Sanhita, 2023, to the Indian system of
+                    governance.
+                    <span class="marks">8 Marks</span>
+                </div>
+
+                <div class="subquestion">
+                    <strong>(c)</strong>
+                    Evaluate the role of Artificial Intelligence in the
+                    decision-making processes of legislative institutions.
+                    <span class="marks">8 Marks</span>
+                </div>
+
+                <div class="subquestion">
+                    <strong>(d)</strong>
+                    Describe the parameters and impacts of the Global
+                    Wage Report, 2022–23.
+                    <span class="marks">7 Marks</span>
+                </div>
+
+                <div class="subquestion">
+                    <strong>(e)</strong>
+                    What are the key provisions of the Foreign Trade
+                    Policy, 2023, regarding export promotion initiatives
+                    in India?
+                    <span class="marks">7 Marks</span>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>Question 5</h3>
+
+                <div class="subquestion">
+                    <strong>(a)</strong>
+                    Provide a brief overview of the Manipur crisis.
+                    In your view, what could be the potential repercussions
+                    of this ethno-religious conflict for the landscape
+                    of national politics? Comment.
+                    <span class="marks">38 Marks</span>
+                </div>
+
+                <div class="or">OR</div>
+
+                <div class="subquestion">
+                    <strong>(b)</strong>
+                    How does India's leadership within the G20 reflect
+                    its commitment to upholding the ancient philosophy
+                    of "Vasudhaiva Kutumbakam" ("The World Is One Family")?
+                    Examine how India's approach aligns with this
+                    philosophy and contributes to global cooperation
+                    and development through its role in the G20.
+                    <span class="marks">38 Marks</span>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>Question 6</h3>
+
+                <div class="subquestion">
+                    <strong>(a)</strong>
+                    What could be the potential positive and negative
+                    societal consequences of introducing a Uniform
+                    Civil Code in India, considering its rich diversity?
+                    Explain.
+                    <span class="marks">38 Marks</span>
+                </div>
+
+                <div class="or">OR</div>
+
+                <div class="subquestion">
+                    <strong>(b)</strong>
+                    How does India's growing status as an emerging
+                    space power align with its ambitions and achievements
+                    in space exploration, particularly in the context
+                    of ISRO's Chandrayaan-3 mission? Discuss the mission's
+                    objectives and its role in India's journey towards
+                    becoming a prominent player in the global space arena.
+                    <span class="marks">38 Marks</span>
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+</main>
+
+<footer class="footer">
+    <p>BPSC Study Portal | Previous Year Question Papers</p>
+    <p>69th &amp; 70th BPSC — General Studies Paper I</p>
+</footer>
+
+<script>
+function showPaper(paperId, button) {
+
+    document.getElementById("paper69").style.display = "none";
+    document.getElementById("paper70").style.display = "none";
+
+    document.getElementById(paperId).style.display = "block";
+
+    const buttons = document.querySelectorAll(".nav-buttons button");
+
+    buttons.forEach(function(btn) {
+        btn.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+</script>
+
+</body>
+</html>
