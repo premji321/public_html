@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BPSC GS Paper-II | 69th & 70th PYQ</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #123b68;
+    --secondary: #176b87;
+    --background: #f2f5f9;
+    --white: #ffffff;
+    --text: #243247;
+    --border: #dbe3ec;
+    --accent: #f0a500;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.7;
+}
+
+header {
+    background: linear-gradient(135deg, #102f54, #176b87);
+    color: white;
+    padding: 28px 15px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 27px;
+    margin-bottom: 6px;
+}
+
+header p {
+    font-size: 14px;
+    opacity: 0.95;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 25px auto;
+    padding: 0 15px;
+}
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.tab-button,
+.print-button {
+    border: none;
+    padding: 11px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.tab-button {
+    background: #dce6f0;
+    color: var(--primary);
+}
+
+.tab-button.active {
+    background: var(--primary);
+    color: white;
+}
+
+.print-button {
+    background: var(--accent);
+    color: #17202a;
+}
+
+.paper {
+    display: none;
+}
+
+.paper.active {
+    display: block;
+}
+
+.paper-heading {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.paper-heading h2 {
+    color: var(--primary);
+    margin-bottom: 8px;
+}
+
+.paper-info {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 14px;
+}
+
+.info-badge {
+    background: #eaf1f8;
+    padding: 5px 12px;
+    border-radius: 5px;
+}
+
+.section {
+    margin-bottom: 25px;
+}
+
+.section-title {
+    background: var(--primary);
+    color: white;
+    padding: 12px 16px;
+    border-radius: 7px 7px 0 0;
+    font-size: 18px;
+}
+
+.section-description {
+    background: #e3edf7;
+    padding: 10px 15px;
+    font-size: 13px;
+    border: 1px solid var(--border);
+}
+
+.question-list {
+    background: white;
+    border: 1px solid var(--border);
+    border-top: none;
+    border-radius: 0 0 7px 7px;
+    padding: 8px 18px;
+}
+
+.question {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 15px 0;
+    border-bottom: 1px solid #e8edf3;
+}
+
+.question:last-child {
+    border-bottom: none;
+}
+
+.question-number {
+    min-width: 31px;
+    height: 31px;
+    background: #eaf1f8;
+    color: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.question-content {
+    flex: 1;
+}
+
+.question-text {
+    font-size: 15px;
+}
+
+.question-meta {
+    margin-top: 7px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.marks {
+    display: inline-block;
+    background: #e2f5e9;
+    color: #176536;
+    padding: 2px 9px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.or-label {
+    display: inline-block;
+    background: #fff0d6;
+    color: #875500;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.footer {
+    text-align: center;
+    padding: 22px 10px;
+    color: #657387;
+    font-size: 13px;
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 22px;
+    }
+
+    .toolbar {
+        align-items: stretch;
+    }
+
+    .tabs {
+        width: 100%;
+    }
+
+    .tab-button {
+        flex: 1;
+        padding: 10px;
+    }
+
+    .print-button {
+        width: 100%;
+    }
+
+    .question-list {
+        padding: 5px 12px;
+    }
+
+    .question-text {
+        font-size: 14px;
+    }
+}
+
+@media print {
+    body {
+        background: white;
+        color: black;
+    }
+
+    header {
+        background: white;
+        color: black;
+        border-bottom: 2px solid black;
+    }
+
+    .toolbar,
+    .footer {
+        display: none;
+    }
+
+    .container {
+        max-width: 100%;
+        margin: 10px auto;
+    }
+
+    .paper {
+        display: block !important;
+    }
+
+    .paper-heading,
+    .section-title,
+    .section-description,
+    .question-list {
+        border: 1px solid #999;
+    }
+
+    .section-title {
+        background: #eeeeee !important;
+        color: black !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .question {
+        break-inside: avoid;
+    }
+
+    .section {
+        break-inside: avoid;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>BPSC STUDY PORTAL</h1>
+    <p>69th &amp; 70th BPSC Combined Competitive Examination</p>
+    <p>General Studies — Paper II | Previous Year Questions</p>
+</header>
+
+<div class="container">
+
+    <div class="toolbar">
+        <div class="tabs">
+            <button class="tab-button active"
+                    onclick="showPaper('paper70', this)">
+                70th BPSC
+            </button>
+
+            <button class="tab-button"
+                    onclick="showPaper('paper69', this)">
+                69th BPSC
+            </button>
+        </div>
+
+        <button class="print-button" onclick="window.print()">
+            Print / Save as PDF
+        </button>
+    </div>
+
+
+    <!-- ====================================== -->
+    <!-- 70TH BPSC GENERAL STUDIES PAPER II     -->
+    <!-- ====================================== -->
+
+    <div id="paper70" class="paper active">
+
+        <div class="paper-heading">
+            <h2>70th BPSC — General Studies Paper II</h2>
+
+            <div class="paper-info">
+                <span class="info-badge">Time: 3 Hours</span>
+                <span class="info-badge">Full Marks: 300</span>
+                <span class="info-badge">Mains Examination</span>
+            </div>
+        </div>
+
+
+        <!-- SECTION I -->
+
+        <div class="section">
+
+            <h3 class="section-title">
+                Section I — 114 Marks
+            </h3>
+
+            <div class="section-description">
+                Answer the following questions as directed.
+                Follow the marks allotted to each question.
+            </div>
+
+            <div class="question-list">
+
+                <div class="question">
+                    <span class="question-number">1</span>
+                    <div class="question-content">
+                        <div class="question-text">
+                            Explain why Article 32 is called the
+                            “Heart and Soul of the Constitution of India”.
+                        </div>
+                        <div class="question-meta">
+                            <span class="marks">8 Marks</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="question-number">2</span>
+                    <div class="question-content">
+                        <div class="question-text">
+                            Analyse the statement “Criminalisation of
+                            politics and politicisation of criminals”
+                            in the context of Bihar.
+                        </div>
+                        <div class="question-meta">
+                            <span class="marks">8 Marks</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add the remaining Section I questions here
+                     using the same question-block structure. -->
+
+            </div>
+        </div>
+
+
+        <!-- SECTION II -->
+
+        <div class="section">
+
+            <h3 class="section-title">
+                Section II — 114 Marks
+            </h3>
+
+            <div class="section-description">
+                Answer the questions according to the instructions
+                and marks specified in the original question paper.
+            </div>
+
+            <div class="question-list">
+
+                <!-- Add the complete Section II questions here. -->
+
+                <div class="question">
+                    <span class="question-number">1</span>
+                    <div class="question-content">
+                        <div class="question-text">
+                            Write your Section II question here.
+                        </div>
+                        <div class="question-meta">
+                            <span class="marks">Marks as prescribed</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- SECTION III -->
+
+        <div class="section">
+
+            <h3 class="section-title">
+                Section III — 72 Marks
+            </h3>
+
+            <div class="section-description">
+                Answer the following questions as directed.
+            </div>
+
+            <div class="question-list">
+
+                <!-- Add the complete Section III questions here. -->
+
+                <div class="question">
+                    <span class="question-number">1</span>
+                    <div class="question-content">
+                        <div class="question-text">
+                            Write your Section III question here.
+                        </div>
+                        <div class="question-meta">
+                            <span class="marks">Marks as prescribed</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- ====================================== -->
+    <!-- 69TH BPSC GENERAL STUDIES PAPER II     -->
+    <!-- ====================================== -->
+
+    <div id="paper69" class="paper">
+
+        <div class="paper-heading">
+            <h2>69th BPSC — General Studies Paper II</h2>
+
+            <div class="paper-info">
+                <span class="info-badge">Time: 3 Hours</span>
+                <span class="info-badge">Full Marks: 300</span>
+                <span class="info-badge">Mains Examination</span>
+            </div>
+        </div>
+
+
+        <!-- SECTION I -->
+
+        <div class="section">
+
+            <h3 class="section-title">
+                Section I
+            </h3>
+
+            <div class="section-description">
+                Answer the following questions as directed.
+            </div>
+
+            <div class="question-list">
+
+                <!-- Add the complete 69th BPSC Section I questions here. -->
+
+                <div class="question">
+                    <span class="question-number">1</span>
+                    <div class="question-content">
+                        <div class="question-text">
+                            Write your first question from the 69th
+                            BPSC General Studies Paper II here.
+                        </div>
+                        <div class="question-meta">
+                            <span class="marks">Marks as prescribed</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- SECTION II -->
+
+        <div class="section">
+
+            <h3 class="section-title">
+                Section II
+            </h3>
+
+            <div class="section-description">
+                Answer the questions according to the original paper.
+            </div>
+
+            <div class="question-list">
+
+                <!-- Add the complete 69th BPSC Section II questions here. -->
+
+                <div class="question">
+                    <span class="question-number">1</span>
+                    <div class="question-content">
+                        <div class="question-text">
+                            Write your Section II question here.
+                        </div>
+                        <div class="question-meta">
+                            <span class="marks">Marks as prescribed</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- SECTION III -->
+
+        <div class="section">
+
+            <h3 class="section-title">
+                Section III
+            </h3>
+
+            <div class="section-description">
+                Answer the questions as directed in the original paper.
+            </div>
+
+            <div class="question-list">
+
+                <!-- Add the complete 69th BPSC Section III questions here. -->
+
+                <div class="question">
+                    <span class="question-number">1</span>
+                    <div class="question-content">
+                        <div class="question-text">
+                            Write your Section III question here.
+                        </div>
+                        <div class="question-meta">
+                            <span class="marks">Marks as prescribed</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="footer">
+    BPSC Study Portal | General Studies Paper II | Previous Year Questions
+</div>
+
+
+<script>
+function showPaper(paperId, button) {
+
+    // Hide all question papers
+    document.querySelectorAll(".paper").forEach(function(paper) {
+        paper.classList.remove("active");
+    });
+
+    // Remove active state from all tab buttons
+    document.querySelectorAll(".tab-button").forEach(function(tab) {
+        tab.classList.remove("active");
+    });
+
+    // Display the selected question paper
+    document.getElementById(paperId).classList.add("active");
+
+    // Highlight the selected tab
+    button.classList.add("active");
+
+    // Scroll to the top of the question paper
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+</script>
+
+</body>
+</html>
