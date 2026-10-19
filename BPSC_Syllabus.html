@@ -3,130 +3,117 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#102b50">
 
-<title>BPSC Latest Syllabus & Mock Tests | Orient Classes</title>
+<meta name="description" content="BPSC examination syllabus with subject-wise topics for preliminary and main examinations.">
 
-<meta name="description"
-content="BPSC syllabus, exam pattern, mock tests, vacancies, salary, cut-off, previous year papers and subject-wise notes by Orient Classes.">
+<title>BPSC Syllabus | Orient Classes</title>
 
 <style>
 :root {
-    --navy: #102747;
-    --blue: #1769aa;
-    --gold: #f4b942;
-    --bg: #f4f7fb;
-    --text: #26364a;
-    --muted: #68778a;
-    --border: #dce5ef;
+    --navy: #102b50;
+    --blue: #2864ad;
+    --gold: #ffc928;
+    --bg: #f3f6fb;
+    --text: #24344b;
+    --muted: #68778b;
+    --border: #e2e9f3;
     --white: #ffffff;
-    --green: #14804a;
-    --red: #d93636;
 }
 
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 90px;
+    scroll-padding-top: 85px;
 }
 
 body {
+    margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     background: var(--bg);
     color: var(--text);
-    line-height: 1.6;
+    line-height: 1.7;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
 /* HEADER */
 
 .header {
-    background: var(--navy);
-    color: var(--white);
-    min-height: 70px;
-    padding: 14px 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 15px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 3px 12px #10274722;
+    background: linear-gradient(120deg, var(--navy), #245b99);
+    color: white;
+    padding: 17px 0;
 }
 
-.logo {
-    color: white;
-    text-decoration: none;
+.header-inner {
+    width: min(1150px, 92%);
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.brand {
     font-size: 23px;
     font-weight: 800;
+    letter-spacing: 1px;
 }
 
-.logo span {
+.brand span {
     color: var(--gold);
 }
 
-.header-actions {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
 .home-link {
-    background: var(--blue);
-    color: white;
-    padding: 9px 15px;
+    background: white;
+    color: var(--navy);
+    padding: 9px 14px;
     border-radius: 7px;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-.menu-toggle {
-    display: none;
-    background: transparent;
-    border: 1px solid #ffffff66;
-    color: white;
-    padding: 7px 12px;
-    border-radius: 6px;
-    font-size: 21px;
-    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
 }
 
 /* LAYOUT */
 
 .layout {
+    width: min(1350px, 100%);
+    margin: auto;
     display: grid;
-    grid-template-columns: 265px minmax(0, 1fr);
-    min-height: calc(100vh - 70px);
+    grid-template-columns: 245px minmax(0, 1fr);
+    align-items: start;
 }
 
-/* SIDEBAR */
+/* LEFT SIDEBAR */
 
 .sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
     background: white;
     border-right: 1px solid var(--border);
-    padding: 22px 14px;
-    height: calc(100vh - 70px);
-    position: sticky;
-    top: 70px;
-    overflow-y: auto;
+    padding: 22px 13px;
 }
 
 .sidebar-title {
+    padding: 0 11px 13px;
     font-size: 12px;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
     font-weight: 800;
-    padding: 0 12px;
-    margin-bottom: 12px;
+    color: var(--muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 .menu-list {
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .menu-list li {
@@ -134,477 +121,194 @@ body {
 }
 
 .menu-list a {
-    display: flex;
-    align-items: center;
-    gap: 9px;
-    padding: 11px 12px;
-    color: var(--text);
-    text-decoration: none;
-    font-size: 14px;
+    display: block;
+    padding: 11px;
     border-radius: 7px;
-    transition: background 0.2s;
+    font-size: 13px;
+    color: var(--text);
 }
 
 .menu-list a:hover,
 .menu-list a.active {
     background: #eaf3ff;
     color: var(--blue);
-    font-weight: 700;
-}
-
-.menu-list .section-label {
-    font-size: 11px;
-    color: var(--muted);
-    padding: 18px 12px 5px;
-    font-weight: 800;
-    text-transform: uppercase;
-}
-
-/* BLINKING MOCK TEST LINK */
-
-.mock-menu-link {
-    color: white !important;
-    font-weight: 800 !important;
-    background: var(--red);
-    border: 1px solid #b91c1c;
-    box-shadow: 0 0 0 0 #d9363660;
-    animation: mockPulse 1.5s infinite;
-}
-
-.mock-menu-link:hover {
-    background: #b91c1c !important;
-    color: white !important;
-}
-
-.new-badge {
-    margin-left: auto;
-    background: white;
-    color: var(--red);
-    padding: 1px 6px;
-    border-radius: 10px;
-    font-size: 10px;
-    font-weight: 800;
-}
-
-@keyframes mockPulse {
-    0% {
-        box-shadow: 0 0 0 0 #d9363660;
-        transform: scale(1);
-    }
-    50% {
-        box-shadow: 0 0 0 5px #d9363600;
-        transform: scale(1.015);
-    }
-    100% {
-        box-shadow: 0 0 0 0 #d9363600;
-        transform: scale(1);
-    }
+    font-weight: bold;
 }
 
 /* MAIN CONTENT */
 
 .content {
     min-width: 0;
-    padding: 30px;
-    max-width: 1250px;
-    width: 100%;
-    margin: 0 auto;
+    padding: 28px;
 }
 
 .breadcrumb {
-    font-size: 13px;
+    font-size: 12px;
     color: var(--muted);
-    margin-bottom: 18px;
+    margin-bottom: 20px;
 }
 
 .breadcrumb a {
     color: var(--blue);
-    text-decoration: none;
 }
 
-/* HERO */
+/* PAGE TITLE */
 
-.hero {
-    background: linear-gradient(125deg, #102747, #1769aa);
+.page-title {
+    background: linear-gradient(120deg, var(--navy), #2864ad);
     color: white;
-    padding: 35px;
-    border-radius: 15px;
+    padding: 32px;
+    border-radius: 14px;
     margin-bottom: 25px;
 }
 
-.hero-label {
-    display: inline-block;
-    background: #ffffff20;
-    padding: 5px 11px;
-    border-radius: 20px;
-    font-size: 12px;
-    margin-bottom: 12px;
+.page-title small {
+    color: #c7e1ff;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    font-weight: bold;
 }
 
-.hero h1 {
-    font-size: clamp(27px, 3vw, 39px);
-    line-height: 1.25;
-    margin-bottom: 14px;
+.page-title h1 {
+    margin: 10px 0;
+    font-size: clamp(27px, 4vw, 38px);
+    line-height: 1.3;
 }
 
-.hero p {
-    max-width: 720px;
-    color: #e5efff;
-    font-size: 15px;
-}
-
-.hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 22px;
-}
-
-.btn {
-    display: inline-block;
-    padding: 11px 17px;
-    border-radius: 7px;
-    text-decoration: none;
+.page-title p {
+    color: #e0ebfa;
     font-size: 14px;
-    font-weight: 700;
+    margin-bottom: 0;
 }
 
-.btn-light {
-    background: white;
-    color: var(--navy);
-}
-
-.btn-outline {
-    border: 1px solid #ffffff80;
-    color: white;
-}
-
-/* MOCK TEST FEATURE CARD */
-
-.mock-feature {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 22px;
-    background: linear-gradient(115deg, #fff4f4, #ffffff);
-    border: 2px solid #f2b5b5;
-    border-radius: 14px;
-    padding: 24px;
-    margin-bottom: 28px;
-    animation: cardPulse 2.5s infinite;
-}
-
-@keyframes cardPulse {
-    0%, 100% {
-        border-color: #f2b5b5;
-    }
-    50% {
-        border-color: #d93636;
-    }
-}
-
-.mock-feature h2 {
-    color: #b91c1c;
-    font-size: 23px;
-    margin-bottom: 7px;
-}
-
-.mock-feature p {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.mock-button {
-    flex-shrink: 0;
-    display: inline-block;
-    background: var(--red);
-    color: white;
-    padding: 13px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 800;
-    animation: buttonPulse 1.5s infinite;
-}
-
-.mock-button:hover {
-    background: #b91c1c;
-}
-
-@keyframes buttonPulse {
-    0%, 100% {
-        box-shadow: 0 0 0 0 #d9363650;
-    }
-    50% {
-        box-shadow: 0 0 0 7px #d9363600;
-    }
-}
-
-/* QUICK CARDS */
-
-.quick-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 15px;
-    margin-bottom: 30px;
-}
-
-.quick-card {
-    display: block;
-    background: white;
-    padding: 19px;
-    border: 1px solid var(--border);
-    border-radius: 11px;
-    text-decoration: none;
-    color: var(--text);
-    transition: 0.2s;
-}
-
-.quick-card:hover {
-    transform: translateY(-3px);
-    border-color: var(--blue);
-    box-shadow: 0 6px 18px #1027470d;
-}
-
-.quick-icon {
-    font-size: 26px;
-    margin-bottom: 8px;
-}
-
-.quick-card h3 {
-    font-size: 16px;
-    margin-bottom: 5px;
-}
-
-.quick-card p {
-    font-size: 13px;
-    color: var(--muted);
-}
-
-/* SECTIONS */
+/* SYLLABUS SECTIONS */
 
 .section {
     background: white;
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: 25px;
-    margin-bottom: 24px;
-    scroll-margin-top: 90px;
+    margin-bottom: 22px;
+    scroll-margin-top: 20px;
 }
 
 .section h2 {
     color: var(--navy);
     font-size: 23px;
-    margin-bottom: 8px;
+    margin: 0 0 8px;
 }
 
 .section-intro {
     color: var(--muted);
-    font-size: 14px;
-    margin-bottom: 20px;
+    font-size: 13px;
+    margin: 0 0 20px;
 }
 
-.notice-box {
-    background: #eaf3ff;
-    border-left: 4px solid var(--blue);
-    padding: 14px 16px;
-    border-radius: 5px;
-    font-size: 14px;
-    margin: 16px 0;
+.topic-list {
+    padding-left: 22px;
+    margin: 0;
 }
 
-.info-box {
+.topic-list li {
+    margin-bottom: 9px;
+    font-size: 14px;
+}
+
+.subject-card {
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 17px;
+    margin-bottom: 13px;
+}
+
+.subject-card h3 {
+    color: var(--blue);
+    margin: 0 0 10px;
+    font-size: 17px;
+}
+
+.subject-card ul {
+    padding-left: 21px;
+    margin: 0;
+}
+
+.subject-card li {
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+/* NOTE */
+
+.note {
     background: #fff8e8;
     border-left: 4px solid var(--gold);
-    padding: 14px 16px;
     border-radius: 5px;
-    font-size: 14px;
-    margin: 16px 0;
-}
-
-.data-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 14px;
-    font-size: 14px;
-}
-
-.data-table th,
-.data-table td {
-    border: 1px solid var(--border);
-    padding: 12px;
-    text-align: left;
-    vertical-align: top;
-}
-
-.data-table th {
-    background: #eaf3ff;
-    color: var(--navy);
-}
-
-.data-table tr:nth-child(even) {
-    background: #fafcff;
-}
-
-.topic-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-}
-
-.topic-card {
-    border: 1px solid var(--border);
-    padding: 15px;
-    border-radius: 8px;
-}
-
-.topic-card h3 {
-    color: var(--blue);
-    font-size: 16px;
-    margin-bottom: 5px;
-}
-
-.topic-card p {
-    color: var(--muted);
+    padding: 14px 16px;
     font-size: 13px;
+    margin-bottom: 22px;
 }
 
-.action-link {
-    display: inline-block;
-    margin-top: 13px;
-    color: var(--blue);
-    font-size: 14px;
-    font-weight: 700;
-    text-decoration: none;
-}
-
-.action-link:hover {
-    text-decoration: underline;
-}
-
-.subject-list {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
-    list-style: none;
-}
-
-.subject-list a {
-    display: block;
-    padding: 12px;
-    background: #f7faff;
-    border: 1px solid var(--border);
-    border-radius: 7px;
-    color: var(--text);
-    text-decoration: none;
-    font-size: 14px;
-}
-
-.subject-list a:hover {
-    color: var(--blue);
-    border-color: var(--blue);
-}
+/* FOOTER */
 
 .footer {
     text-align: center;
-    padding: 24px;
+    padding: 20px;
     color: var(--muted);
-    font-size: 13px;
+    font-size: 12px;
 }
 
-/* RESPONSIVE */
+/* MOBILE */
 
-@media (max-width: 900px) {
+.mobile-menu-button {
+    display: none;
+    background: var(--navy);
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 7px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+@media (max-width: 800px) {
     .layout {
         grid-template-columns: 1fr;
     }
 
     .sidebar {
         display: none;
+        position: static;
+        width: 100%;
         height: auto;
-        max-height: 70vh;
-        position: fixed;
-        top: 70px;
-        left: 0;
-        width: 290px;
-        z-index: 999;
-        box-shadow: 8px 10px 25px #0002;
+        max-height: 65vh;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
     }
 
     .sidebar.open {
         display: block;
     }
 
-    .menu-toggle {
-        display: inline-block;
+    .mobile-menu-button {
+        display: block;
     }
 
     .content {
-        padding: 20px;
+        padding: 16px;
     }
 
-    .quick-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
-@media (max-width: 560px) {
-    .header {
-        padding: 12px 15px;
-    }
-
-    .logo {
-        font-size: 19px;
-    }
-
-    .home-link {
-        display: none;
-    }
-
-    .content {
-        padding: 13px;
-    }
-
-    .hero {
-        padding: 24px 20px;
+    .page-title {
+        padding: 24px;
     }
 
     .section {
-        padding: 18px;
-    }
-
-    .quick-grid,
-    .topic-grid,
-    .subject-list {
-        grid-template-columns: 1fr;
-    }
-
-    .mock-feature {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .mock-button {
-        width: 100%;
-        text-align: center;
-    }
-
-    .data-table {
-        font-size: 12px;
-    }
-
-    .data-table th,
-    .data-table td {
-        padding: 8px;
+        padding: 19px;
     }
 }
 
-/* Respect reduced-motion preferences */
 @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation: none !important;
-        scroll-behavior: auto !important;
+    html {
+        scroll-behavior: auto;
     }
 }
 </style>
@@ -613,454 +317,372 @@ body {
 <body>
 
 <header class="header">
-    <button class="menu-toggle"
-            id="menuToggle"
-            aria-label="Open navigation menu"
-            aria-expanded="false">☰</button>
+    <div class="header-inner">
+        <a class="brand" href="index.html">
+            ORIENT <span>CLASSES</span>
+        </a>
 
-    <a class="logo" href="index.html">
-        ORIENT <span>CLASSES</span>
-    </a>
-
-    <div class="header-actions">
-        <a class="home-link" href="index.html">← Main Website</a>
+        <a class="home-link" href="index.html">
+            ← Home
+        </a>
     </div>
 </header>
 
 <div class="layout">
 
-    <!-- LEFT SIDEBAR -->
+    <!-- LEFT NAVIGATION -->
 
     <aside class="sidebar" id="sidebar">
 
-        <div class="sidebar-title">BPSC Study Menu</div>
+        <div class="sidebar-title">
+            BPSC Syllabus
+        </div>
 
         <ul class="menu-list">
-
-            <li><a href="BPSC.html">🏠 BPSC Home</a></li>
-
-            <li class="section-label">Exam Information</li>
-
-            <li><a class="active" href="BPSC_Syllabus.html">📘 Latest Syllabus</a></li>
-            <li><a href="#exam-pattern">📝 Exam Pattern</a></li>
-            <li><a href="BPSC_Notifications.html">🔔 Latest Notifications</a></li>
-            <li><a href="BPSC_Vacancy.html">🏢 Vacancy & Posts</a></li>
-            <li><a href="BPSC_Salary.html">💰 Salary & Pay Scale</a></li>
-
-            <li class="section-label">Practice Zone</li>
-
-            <li>
-                <a class="mock-menu-link" href="BPSC_Mock_Tests.html">
-                    🚀 MOCK TESTS
-                    <span class="new-badge">START</span>
-                </a>
-            </li>
-
-            <li><a href="BPSC_Cutoff.html">📊 Previous Year Cut-Off</a></li>
-            <li><a href="BPSC_Previous_Year_Papers.html">📄 Previous Year Papers</a></li>
-            <li><a href="BPSC_Mains_Papers.html">✍️ Mains Question Papers</a></li>
-
-            <li class="section-label">Study Material</li>
-
-            <li><a href="#subjects">📚 Subject-wise Notes</a></li>
-            <li><a href="Current_Affairs.html">📰 Current Affairs</a></li>
-            <li><a href="Bihar_GK.html">🗺️ Bihar GK</a></li>
-            <li><a href="BPSC_Preparation.html">🎯 Preparation Strategy</a></li>
-
-            <li class="section-label">On This Page</li>
-
-            <li><a href="#overview">📌 Syllabus Overview</a></li>
-            <li><a href="#prelims">📖 Prelims Syllabus</a></li>
-            <li><a href="#mains">📑 Mains Syllabus</a></li>
-            <li><a href="#important-links">🔗 Important Links</a></li>
-
+            <li><a class="active" href="#overview">Syllabus Overview</a></li>
+            <li><a href="#prelims">Preliminary Syllabus</a></li>
+            <li><a href="#history">History</a></li>
+            <li><a href="#geography">Geography</a></li>
+            <li><a href="#polity">Indian Polity</a></li>
+            <li><a href="#economy">Indian Economy</a></li>
+            <li><a href="#science">General Science</a></li>
+            <li><a href="#current-affairs">Current Affairs</a></li>
+            <li><a href="#bihar">Bihar Special</a></li>
+            <li><a href="#environment">Environment</a></li>
+            <li><a href="#mains">Main Examination</a></li>
         </ul>
+
     </aside>
 
-    <!-- MAIN CONTENT -->
+    <!-- SYLLABUS CONTENT -->
 
     <main class="content">
 
+        <button class="mobile-menu-button"
+                id="menuButton"
+                aria-expanded="false">
+            ☰ Syllabus Contents
+        </button>
+
         <div class="breadcrumb">
-            <a href="index.html">Home</a> /
-            <a href="BPSC.html">BPSC</a> /
-            Latest Syllabus
+            <a href="index.html">Home</a> / BPSC / Syllabus
         </div>
 
-        <section class="hero" id="overview">
-            <span class="hero-label">ORIENT CLASSES • BPSC PREPARATION</span>
+        <section class="page-title" id="overview">
+            <small>BIHAR PUBLIC SERVICE COMMISSION</small>
 
-            <h1>BPSC Latest Syllabus<br>& Exam Pattern</h1>
+            <h1>BPSC Examination Syllabus</h1>
 
             <p>
-                Prepare for BPSC examinations with syllabus details,
-                exam pattern, mock tests, previous year papers,
-                cut-offs and subject-wise study material.
+                Subject-wise syllabus for systematic examination
+                preparation. Select a topic from the left menu
+                to navigate directly to that section.
             </p>
-
-            <div class="hero-actions">
-                <a class="btn btn-light" href="#prelims">Explore Syllabus</a>
-                <a class="btn btn-outline" href="BPSC_Cutoff.html">Previous Year Cut-Off</a>
-            </div>
         </section>
 
-        <!-- BLINKING MOCK TEST SECTION -->
-
-        <section class="mock-feature">
-            <div>
-                <h2>🚀 BPSC MOCK TEST SERIES</h2>
-                <p>
-                    Practice with mock tests, check your answers and
-                    improve your preparation. Choose a test and begin
-                    when you are ready.
-                </p>
-            </div>
-
-            <a class="mock-button" href="BPSC_Mock_Tests.html">
-                TAKE MOCK TEST →
-            </a>
-        </section>
-
-        <!-- QUICK LINKS -->
-
-        <div class="quick-grid">
-
-            <a class="quick-card" href="#prelims">
-                <div class="quick-icon">📘</div>
-                <h3>Prelims Syllabus</h3>
-                <p>Explore preliminary examination topics.</p>
-            </a>
-
-            <a class="quick-card" href="#mains">
-                <div class="quick-icon">📚</div>
-                <h3>Mains Syllabus</h3>
-                <p>Review mains examination preparation areas.</p>
-            </a>
-
-            <a class="quick-card" href="BPSC_Vacancy.html">
-                <div class="quick-icon">🏢</div>
-                <h3>Vacancies & Posts</h3>
-                <p>Check recruitment and post information.</p>
-            </a>
-
-            <a class="quick-card" href="BPSC_Salary.html">
-                <div class="quick-icon">💰</div>
-                <h3>Salary Details</h3>
-                <p>Explore pay scales and applicable allowances.</p>
-            </a>
-
-            <a class="quick-card" href="BPSC_Cutoff.html">
-                <div class="quick-icon">📊</div>
-                <h3>Previous Cut-Off</h3>
-                <p>Review cut-off information.</p>
-            </a>
-
-            <a class="quick-card" href="Current_Affairs.html">
-                <div class="quick-icon">📰</div>
-                <h3>Current Affairs</h3>
-                <p>Revise important current affairs.</p>
-            </a>
-
+        <div class="note">
+            <strong>Important:</strong>
+            BPSC conducts different examinations for different posts.
+            The syllabus below is a general study outline, not a
+            verified, universal syllabus for every BPSC recruitment.
+            Refer to the official notification for the examination
+            you are preparing for.
         </div>
-
-        <!-- OVERVIEW -->
-
-        <section class="section">
-            <h2>BPSC Syllabus Overview</h2>
-
-            <p class="section-intro">
-                The exact examination structure depends on the
-                particular BPSC recruitment and its official notification.
-            </p>
-
-            <div class="notice-box">
-                <strong>Important:</strong>
-                Different BPSC recruitments may have different syllabi,
-                paper structures and marking schemes. Check the official
-                notification for your target examination.
-            </div>
-
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>Stage</th>
-                        <th>Preparation</th>
-                        <th>What to verify</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Preliminary Examination</td>
-                        <td>General Studies and notified subjects</td>
-                        <td>Marks, duration, subjects and negative marking</td>
-                    </tr>
-                    <tr>
-                        <td>Main Examination</td>
-                        <td>Prescribed written papers</td>
-                        <td>Paper count, compulsory subjects and qualifying rules</td>
-                    </tr>
-                    <tr>
-                        <td>Interview / Final Selection</td>
-                        <td>As applicable to the recruitment</td>
-                        <td>Selection stages and merit calculation</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="info-box">
-                Update the syllabus against the latest official
-                advertisement before publishing it as final.
-            </div>
-        </section>
-
-        <!-- EXAM PATTERN -->
-
-        <section class="section" id="exam-pattern">
-            <h2>BPSC Exam Pattern</h2>
-
-            <p class="section-intro">
-                Confirm the exact exam pattern from the notification
-                for the particular examination.
-            </p>
-
-            <div class="topic-grid">
-                <div class="topic-card">
-                    <h3>Preliminary Stage</h3>
-                    <p>Subjects, question count, marks, duration and negative marking.</p>
-                </div>
-
-                <div class="topic-card">
-                    <h3>Main Examination</h3>
-                    <p>Compulsory papers, descriptive format and qualifying criteria.</p>
-                </div>
-
-                <div class="topic-card">
-                    <h3>Interview / Assessment</h3>
-                    <p>Check whether the recruitment includes an interview or another stage.</p>
-                </div>
-
-                <div class="topic-card">
-                    <h3>Final Merit List</h3>
-                    <p>Verify which stages and marks count towards final selection.</p>
-                </div>
-            </div>
-        </section>
 
         <!-- PRELIMS -->
 
         <section class="section" id="prelims">
-            <h2>BPSC Preliminary Syllabus</h2>
+            <h2>Preliminary Examination</h2>
 
             <p class="section-intro">
-                These are common General Studies preparation areas.
-                Check the official syllabus for the target examination.
+                General Studies preparation areas commonly studied
+                by BPSC aspirants.
             </p>
 
-            <div class="topic-grid">
-                <div class="topic-card">
-                    <h3>1. History of India</h3>
-                    <p>Ancient, Medieval and Modern India, Revolt of 1857 and the National Movement.</p>
-                </div>
+            <ol class="topic-list">
+                <li>History of India and the Indian National Movement.</li>
+                <li>Geography of India and the world, with emphasis on Bihar where prescribed.</li>
+                <li>Indian Polity and Constitution.</li>
+                <li>Indian Economy and economic development.</li>
+                <li>General Science and everyday scientific knowledge.</li>
+                <li>Important national and international current affairs.</li>
+                <li>General knowledge of Bihar, including its history, geography and culture.</li>
+                <li>Environment and other topics specified in the relevant official syllabus.</li>
+            </ol>
+        </section>
 
-                <div class="topic-card">
-                    <h3>2. Geography</h3>
-                    <p>Physical and Indian Geography, rivers, climate, agriculture and population.</p>
-                </div>
+        <!-- HISTORY -->
 
-                <div class="topic-card">
-                    <h3>3. Indian Polity</h3>
-                    <p>Constitution, Fundamental Rights, Parliament, judiciary and governance.</p>
-                </div>
+        <section class="section" id="history">
+            <h2>1. History of India</h2>
 
-                <div class="topic-card">
-                    <h3>4. Indian Economy</h3>
-                    <p>Banking, inflation, budget, taxation, poverty and economic development.</p>
-                </div>
-
-                <div class="topic-card">
-                    <h3>5. General Science</h3>
-                    <p>Physics, Chemistry, Biology and everyday science.</p>
-                </div>
-
-                <div class="topic-card">
-                    <h3>6. Current Affairs</h3>
-                    <p>National events, international events, government schemes, awards and sports.</p>
-                </div>
-
-                <div class="topic-card">
-                    <h3>7. Bihar Special</h3>
-                    <p>Bihar's history, geography, culture, economy and administration.</p>
-                </div>
-
-                <div class="topic-card">
-                    <h3>8. Environment</h3>
-                    <p>Biodiversity, climate change, ecosystems and conservation.</p>
-                </div>
+            <div class="subject-card">
+                <h3>Ancient India</h3>
+                <ul>
+                    <li>Prehistoric cultures and the Indus Valley Civilisation.</li>
+                    <li>Vedic period and the rise of Mahajanapadas.</li>
+                    <li>Buddhism, Jainism and other religious movements.</li>
+                    <li>Rise of Magadha, Mauryan Empire and Ashoka.</li>
+                    <li>Gupta Empire and post-Gupta developments.</li>
+                    <li>Ancient Indian art, architecture, literature and education.</li>
+                </ul>
             </div>
+
+            <div class="subject-card">
+                <h3>Medieval India</h3>
+                <ul>
+                    <li>Early medieval kingdoms and regional powers.</li>
+                    <li>Delhi Sultanate: major dynasties and administration.</li>
+                    <li>Mughal Empire: rulers, administration and culture.</li>
+                    <li>Bhakti and Sufi movements.</li>
+                    <li>Marathas and other regional powers.</li>
+                </ul>
+            </div>
+
+            <div class="subject-card">
+                <h3>Modern India</h3>
+                <ul>
+                    <li>Arrival of European trading companies.</li>
+                    <li>Expansion of British power in India.</li>
+                    <li>Governor-Generals and major administrative changes.</li>
+                    <li>Revolt of 1857: causes, leaders and consequences.</li>
+                    <li>Socio-religious reform movements.</li>
+                    <li>Formation of the Indian National Congress.</li>
+                    <li>National Movement, Gandhian movements and revolutionary activities.</li>
+                    <li>Independence, Partition and constitutional developments.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- GEOGRAPHY -->
+
+        <section class="section" id="geography">
+            <h2>2. Geography</h2>
+
+            <div class="subject-card">
+                <h3>Physical Geography</h3>
+                <ul>
+                    <li>Earth's structure, rocks and landforms.</li>
+                    <li>Mountains, plateaus, plains and drainage systems.</li>
+                    <li>Atmosphere, climate, winds and rainfall.</li>
+                    <li>Oceans, ocean currents and natural vegetation.</li>
+                </ul>
+            </div>
+
+            <div class="subject-card">
+                <h3>Geography of India</h3>
+                <ul>
+                    <li>Physiographic divisions of India.</li>
+                    <li>Major rivers and drainage systems.</li>
+                    <li>Climate, monsoon and soil types.</li>
+                    <li>Agriculture, minerals, industries and transport.</li>
+                    <li>Population distribution and urbanisation.</li>
+                </ul>
+            </div>
+
+            <div class="subject-card">
+                <h3>Geography of Bihar</h3>
+                <ul>
+                    <li>Geographical location and physical divisions.</li>
+                    <li>Major rivers, tributaries and flood-prone regions.</li>
+                    <li>Climate, soil, agriculture and irrigation.</li>
+                    <li>Natural resources and population distribution.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- POLITY -->
+
+        <section class="section" id="polity">
+            <h2>3. Indian Polity and Constitution</h2>
+
+            <ul class="topic-list">
+                <li>Historical background and making of the Constitution.</li>
+                <li>Preamble and salient features of the Constitution.</li>
+                <li>Fundamental Rights, Duties and Directive Principles.</li>
+                <li>President, Vice-President and Prime Minister.</li>
+                <li>Parliament and the legislative process.</li>
+                <li>Supreme Court, High Courts and judicial review.</li>
+                <li>Centre-State relations and federalism.</li>
+                <li>Governor, Chief Minister and State Legislature.</li>
+                <li>Local government, Panchayati Raj and municipalities.</li>
+                <li>Constitutional bodies, elections and public administration.</li>
+            </ul>
+        </section>
+
+        <!-- ECONOMY -->
+
+        <section class="section" id="economy">
+            <h2>4. Indian Economy</h2>
+
+            <ul class="topic-list">
+                <li>Basic concepts of economics.</li>
+                <li>National income and economic growth.</li>
+                <li>Planning and economic development in India.</li>
+                <li>Inflation, unemployment and poverty.</li>
+                <li>Banking system and monetary policy.</li>
+                <li>Fiscal policy, taxation and the Union Budget.</li>
+                <li>Agriculture, industry and the services sector.</li>
+                <li>Government welfare schemes and development programmes.</li>
+                <li>Bihar's economy, agriculture and development challenges.</li>
+            </ul>
+        </section>
+
+        <!-- SCIENCE -->
+
+        <section class="section" id="science">
+            <h2>5. General Science</h2>
+
+            <div class="subject-card">
+                <h3>Physics</h3>
+                <ul>
+                    <li>Motion, force, work, energy and power.</li>
+                    <li>Heat, light, sound and electricity.</li>
+                    <li>Magnetism and common scientific instruments.</li>
+                </ul>
+            </div>
+
+            <div class="subject-card">
+                <h3>Chemistry</h3>
+                <ul>
+                    <li>Elements, compounds and mixtures.</li>
+                    <li>Atoms, molecules, acids, bases and salts.</li>
+                    <li>Metals, non-metals and common chemical reactions.</li>
+                </ul>
+            </div>
+
+            <div class="subject-card">
+                <h3>Biology</h3>
+                <ul>
+                    <li>Cell structure and basic life processes.</li>
+                    <li>Human body systems, nutrition and diseases.</li>
+                    <li>Plants, animals, heredity and biodiversity.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- CURRENT AFFAIRS -->
+
+        <section class="section" id="current-affairs">
+            <h2>6. Current Affairs</h2>
+
+            <ul class="topic-list">
+                <li>Important national and international developments.</li>
+                <li>Government policies and schemes.</li>
+                <li>Reports, indices and major publications.</li>
+                <li>Important appointments, awards and honours.</li>
+                <li>Sports, science and technology developments.</li>
+                <li>Important events related to Bihar.</li>
+            </ul>
+        </section>
+
+        <!-- BIHAR -->
+
+        <section class="section" id="bihar">
+            <h2>7. Bihar Special</h2>
+
+            <ul class="topic-list">
+                <li>Ancient history of Bihar and Magadha.</li>
+                <li>Bihar's role in the Indian freedom struggle.</li>
+                <li>Important historical places and personalities.</li>
+                <li>Geography, rivers, climate and natural resources.</li>
+                <li>Agriculture, industries and the state economy.</li>
+                <li>Culture, languages, festivals, art and heritage.</li>
+                <li>Administrative structure and development programmes.</li>
+            </ul>
+        </section>
+
+        <!-- ENVIRONMENT -->
+
+        <section class="section" id="environment">
+            <h2>8. Environment and Ecology</h2>
+
+            <ul class="topic-list">
+                <li>Ecosystems and ecological relationships.</li>
+                <li>Biodiversity and conservation.</li>
+                <li>Climate change and global warming.</li>
+                <li>Air, water and soil pollution.</li>
+                <li>National parks, wildlife sanctuaries and protected areas.</li>
+                <li>Renewable energy and sustainable development.</li>
+                <li>Environmental laws and relevant national initiatives.</li>
+            </ul>
         </section>
 
         <!-- MAINS -->
 
         <section class="section" id="mains">
-            <h2>BPSC Mains Syllabus</h2>
+            <h2>Main Examination</h2>
 
             <p class="section-intro">
-                The exact mains papers depend on the recruitment.
-                Confirm the requirements from its official notification.
+                Main examination papers vary according to the
+                particular BPSC recruitment. The following is a
+                broad preparation outline, not a universal paper structure.
             </p>
 
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>Preparation Area</th>
-                        <th>Topics to Review</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Language</td>
-                        <td>Language paper as prescribed in the notification.</td>
-                    </tr>
-                    <tr>
-                        <td>General Studies</td>
-                        <td>History, geography, polity, economy, science and current affairs.</td>
-                    </tr>
-                    <tr>
-                        <td>Analytical Preparation</td>
-                        <td>Answer writing, governance, social issues and relevant state topics.</td>
-                    </tr>
-                    <tr>
-                        <td>Additional Papers</td>
-                        <td>Prepare optional or additional papers only when required.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+            <div class="subject-card">
+                <h3>Language Paper</h3>
+                <ul>
+                    <li>Grammar and language usage.</li>
+                    <li>Comprehension and vocabulary.</li>
+                    <li>Precis, composition or other prescribed components.</li>
+                </ul>
+            </div>
 
-        <!-- SUBJECT NOTES -->
+            <div class="subject-card">
+                <h3>General Studies</h3>
+                <ul>
+                    <li>Indian history and the freedom movement.</li>
+                    <li>Geography of India and relevant state topics.</li>
+                    <li>Indian Constitution, polity and governance.</li>
+                    <li>Economy, development and social issues.</li>
+                    <li>Science, technology and current affairs.</li>
+                </ul>
+            </div>
 
-        <section class="section" id="subjects">
-            <h2>BPSC Subject-wise Notes</h2>
+            <div class="subject-card">
+                <h3>Answer Writing</h3>
+                <ul>
+                    <li>Clear introductions and structured answers.</li>
+                    <li>Use of relevant facts, examples and explanations.</li>
+                    <li>Balanced conclusions and time management.</li>
+                </ul>
+            </div>
 
-            <p class="section-intro">
-                Select a subject to access its notes and study material.
-            </p>
-
-            <ul class="subject-list">
-                <li><a href="BPSC_History.html">📕 History Notes</a></li>
-                <li><a href="BPSC_Geography.html">🌍 Geography Notes</a></li>
-                <li><a href="BPSC_Polity.html">⚖️ Indian Polity Notes</a></li>
-                <li><a href="BPSC_Economy.html">📈 Economics Notes</a></li>
-                <li><a href="BPSC_Science.html">🔬 General Science Notes</a></li>
-                <li><a href="Bihar_GK.html">🗺️ Bihar GK Notes</a></li>
-                <li><a href="BPSC_Environment.html">🌱 Environment Notes</a></li>
-                <li><a href="Current_Affairs.html">📰 Current Affairs</a></li>
-            </ul>
-        </section>
-
-        <!-- IMPORTANT LINKS -->
-
-        <section class="section" id="important-links">
-            <h2>Important BPSC Resources</h2>
-
-            <div class="topic-grid">
-
-                <div class="topic-card">
-                    <h3>Mock Test Series</h3>
-                    <p>Open the practice section and select an available test.</p>
-                    <a class="action-link" href="BPSC_Mock_Tests.html">
-                        Start Mock Tests →
-                    </a>
-                </div>
-
-                <div class="topic-card">
-                    <h3>Vacancies & Posts</h3>
-                    <p>Recruitment advertisements and advertised posts.</p>
-                    <a class="action-link" href="BPSC_Vacancy.html">
-                        View Vacancies →
-                    </a>
-                </div>
-
-                <div class="topic-card">
-                    <h3>Salary & Pay Scale</h3>
-                    <p>Post-wise pay information and allowances.</p>
-                    <a class="action-link" href="BPSC_Salary.html">
-                        View Salary →
-                    </a>
-                </div>
-
-                <div class="topic-card">
-                    <h3>Previous Year Cut-Off</h3>
-                    <p>Review previous examination cut-off information.</p>
-                    <a class="action-link" href="BPSC_Cutoff.html">
-                        View Cut-Off →
-                    </a>
-                </div>
-
-                <div class="topic-card">
-                    <h3>Previous Year Papers</h3>
-                    <p>Access papers and practice material.</p>
-                    <a class="action-link" href="BPSC_Previous_Year_Papers.html">
-                        View Papers →
-                    </a>
-                </div>
-
-                <div class="topic-card">
-                    <h3>Current Affairs</h3>
-                    <p>Revise important current affairs.</p>
-                    <a class="action-link" href="Current_Affairs.html">
-                        Read Current Affairs →
-                    </a>
-                </div>
-
+            <div class="note">
+                The exact papers, marks, qualifying rules and topics
+                must be confirmed from the official notification
+                for the relevant BPSC examination.
             </div>
         </section>
 
-        <!-- OFFICIAL WEBSITE -->
-
-        <section class="section">
-            <h2>Official BPSC Website</h2>
-
-            <p>
-                Check official advertisements, syllabus, notices,
-                answer keys and results on the Bihar Public Service
-                Commission website.
-            </p>
-
-            <a class="action-link"
-               href="https://bpsc.bihar.gov.in/"
-               target="_blank"
-               rel="noopener noreferrer">
-                Visit Official BPSC Website →
-            </a>
-        </section>
-
         <footer class="footer">
-            <p>
-                © <span id="year"></span> Orient Classes |
-                BPSC Study & Preparation Portal
-            </p>
-            <p>Verify recruitment-specific information from official notices.</p>
+            © <span id="year"></span> Orient Classes
         </footer>
 
     </main>
 </div>
 
 <script>
-const menuToggle = document.getElementById("menuToggle");
+const menuButton = document.getElementById("menuButton");
 const sidebar = document.getElementById("sidebar");
 
-menuToggle.addEventListener("click", () => {
+menuButton.addEventListener("click", () => {
     const isOpen = sidebar.classList.toggle("open");
-    menuToggle.setAttribute("aria-expanded", String(isOpen));
-    menuToggle.textContent = isOpen ? "✕" : "☰";
+
+    menuButton.setAttribute("aria-expanded", String(isOpen));
+
+    menuButton.textContent = isOpen
+        ? "✕ Close Syllabus Contents"
+        : "☰ Syllabus Contents";
 });
 
 sidebar.querySelectorAll("a").forEach(link => {
     link.addEventListener("click", () => {
         sidebar.classList.remove("open");
-        menuToggle.setAttribute("aria-expanded", "false");
-        menuToggle.textContent = "☰";
+
+        menuButton.setAttribute("aria-expanded", "false");
+
+        menuButton.textContent = "☰ Syllabus Contents";
     });
 });
 
