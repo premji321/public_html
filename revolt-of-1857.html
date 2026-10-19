@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Revolt of 1857 | Orient Classes</title>
+
+<style>
+:root {
+    --navy: #10264b;
+    --blue: #173f78;
+    --gold: #f4c542;
+    --light: #f3f6fb;
+    --white: #ffffff;
+    --text: #253247;
+    --border: #dce4ef;
+    --green: #137547;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--light);
+    color: var(--text);
+    line-height: 1.75;
+}
+
+/* HEADER */
+
+.top-header {
+    background: linear-gradient(120deg, var(--navy), var(--blue));
+    color: white;
+    padding: 24px 20px;
+    border-bottom: 4px solid var(--gold);
+}
+
+.header-inner {
+    max-width: 1400px;
+    margin: auto;
+}
+
+.brand {
+    font-size: 27px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.brand span {
+    color: var(--gold);
+}
+
+.header-subtitle {
+    margin-top: 5px;
+    color: #e0e9f7;
+    font-size: 14px;
+}
+
+/* PAGE LAYOUT */
+
+.layout {
+    display: flex;
+    align-items: flex-start;
+    max-width: 1500px;
+    margin: auto;
+    min-height: 100vh;
+}
+
+/* BPSC NAVIGATION */
+
+.sidebar {
+    width: 270px;
+    flex-shrink: 0;
+    background: var(--navy);
+    color: white;
+    min-height: 100vh;
+    padding: 18px 12px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.sidebar-title {
+    color: var(--gold);
+    font-size: 19px;
+    font-weight: bold;
+    padding: 8px 12px 15px;
+    border-bottom: 1px solid #405477;
+    margin-bottom: 12px;
+}
+
+.nav-link,
+.sidebar summary {
+    display: block;
+    color: #edf3ff;
+    padding: 10px 12px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.nav-link:hover,
+.sidebar summary:hover {
+    background: #284d7e;
+    color: var(--gold);
+}
+
+.sidebar details {
+    margin: 3px 0;
+}
+
+.sidebar details details {
+    margin-left: 9px;
+}
+
+.sidebar summary {
+    list-style-position: inside;
+    font-weight: 600;
+}
+
+.sidebar .sub-link {
+    display: block;
+    padding: 7px 10px 7px 20px;
+    margin: 2px 0;
+    color: #d8e4f5;
+    text-decoration: none;
+    font-size: 13px;
+    border-radius: 5px;
+}
+
+.sidebar .sub-link:hover {
+    background: #284d7e;
+    color: var(--gold);
+}
+
+.sidebar .active {
+    background: #31588c;
+    color: var(--gold);
+    border-left: 4px solid var(--gold);
+}
+
+.mock-button {
+    display: block;
+    margin: 18px 5px 8px;
+    padding: 12px 10px;
+    text-align: center;
+    background: #dc2626;
+    color: white;
+    text-decoration: none;
+    border-radius: 7px;
+    font-weight: bold;
+}
+
+.mock-button:hover {
+    background: #b91c1c;
+}
+
+/* MAIN CONTENT */
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+    padding: 25px;
+}
+
+.content-card {
+    max-width: 1050px;
+    margin: auto;
+    background: white;
+    padding: 32px;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(16, 38, 75, 0.08);
+}
+
+.page-label {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 5px;
+    background: #e8effb;
+    color: var(--blue);
+    font-weight: bold;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+h1 {
+    color: var(--navy);
+    line-height: 1.3;
+    font-size: 32px;
+    margin: 15px 0 5px;
+}
+
+h2 {
+    color: var(--navy);
+    font-size: 23px;
+    margin-top: 38px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--gold);
+}
+
+h3 {
+    color: var(--blue);
+    margin-top: 25px;
+    font-size: 18px;
+}
+
+p {
+    margin: 12px 0;
+}
+
+li {
+    margin-bottom: 7px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0 25px;
+    font-size: 14px;
+}
+
+th {
+    background: var(--navy);
+    color: white;
+    text-align: left;
+}
+
+th, td {
+    padding: 11px 12px;
+    border: 1px solid var(--border);
+    vertical-align: top;
+}
+
+tbody tr:nth-child(even) {
+    background: #f5f8fc;
+}
+
+.callout {
+    margin: 20px 0;
+    padding: 15px 18px;
+    border-left: 5px solid var(--gold);
+    background: #fff9e6;
+    border-radius: 4px;
+}
+
+.exam-point {
+    margin: 18px 0;
+    padding: 15px 18px;
+    background: #eaf3ff;
+    border-left: 5px solid #2563eb;
+    border-radius: 4px;
+}
+
+.success-point {
+    margin: 18px 0;
+    padding: 15px 18px;
+    background: #eaf8ef;
+    border-left: 5px solid var(--green);
+    border-radius: 4px;
+}
+
+.fact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.fact-box {
+    padding: 15px;
+    background: #f4f7fc;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.fact-box strong {
+    display: block;
+    color: var(--blue);
+    margin-bottom: 4px;
+}
+
+.toc {
+    background: #f5f8fc;
+    padding: 18px 24px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin: 22px 0;
+}
+
+.toc a {
+    color: var(--blue);
+    text-decoration: none;
+}
+
+.toc a:hover {
+    text-decoration: underline;
+}
+
+.question {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 17px;
+    margin: 18px 0;
+}
+
+.question p {
+    margin-top: 0;
+}
+
+.answer {
+    margin-top: 10px;
+    color: #12653a;
+    font-weight: bold;
+}
+
+.footer {
+    margin-top: 35px;
+    padding: 20px;
+    text-align: center;
+    background: var(--navy);
+    color: #e4ecf9;
+    font-size: 13px;
+    border-radius: 8px;
+}
+
+.back-top {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 9px 14px;
+    background: var(--blue);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+    .layout {
+        display: block;
+    }
+
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        min-height: auto;
+        max-height: 420px;
+    }
+
+    .main-content {
+        padding: 12px;
+    }
+
+    .content-card {
+        padding: 18px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    h2 {
+        font-size: 21px;
+    }
+
+    .fact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: normal;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="top-header">
+    <div class="header-inner">
+        <div class="brand">ORIENT <span>CLASSES</span></div>
+        <div class="header-subtitle">
+            BPSC & UPSC Preparation | Modern Indian History
+        </div>
+    </div>
+</header>
+
+<div class="layout">
+
+<!-- BPSC NAVIGATION PANEL -->
+
+<aside class="sidebar">
+
+    <div class="sidebar-title">BPSC NAVIGATION</div>
+
+    <a class="nav-link" href="index.html">⌂ Home Page</a>
+
+    <a class="nav-link" href="BPSC_Syllabus.html">📘 Syllabus</a>
+
+    <a class="nav-link" href="BPSC_Exam_Pattern.html">📋 Exam Pattern</a>
+
+    <a class="nav-link" href="BPSC_Cutoff.html">📊 Cut-Off Trends</a>
+
+    <a class="nav-link" href="BPSC_Vacancy.html">📢 Vacancies</a>
+
+    <a class="nav-link" href="BPSC_Prelims_PYQ.html">📝 Prelims PYQ</a>
+
+    <a class="nav-link" href="BPSC_Mains_PYQ.html">📚 Mains PYQ</a>
+
+    <details open>
+        <summary>📖 Subject-wise Notes</summary>
+
+        <details>
+            <summary>Modern Indian History</summary>
+
+            <a class="sub-link" href="revolt-of-1857.html">
+                The Revolt of 1857
+            </a>
+
+            <a class="sub-link" href="national-movement.html">
+                National Movement
+            </a>
+
+            <a class="sub-link" href="governor-generals.html">
+                Governor-Generals & Viceroys
+            </a>
+
+            <a class="sub-link" href="british-expansion.html">
+                British Expansion
+            </a>
+        </details>
+
+        <details>
+            <summary>Indian Polity</summary>
+
+            <a class="sub-link" href="preamble.html">Preamble</a>
+
+            <a class="sub-link" href="fundamental-rights.html">
+                Fundamental Rights
+            </a>
+
+            <a class="sub-link" href="fundamental-duties.html">
+                Fundamental Duties
+            </a>
+
+            <a class="sub-link" href="directive-principles.html">
+                Directive Principles
+            </a>
+        </details>
+
+        <details>
+            <summary>Ancient Indian History</summary>
+
+            <a class="sub-link" href="indus-valley.html">
+                Indus Valley Civilization
+            </a>
+
+            <a class="sub-link" href="mauryan-empire.html">
+                Mauryan Empire
+            </a>
+
+            <a class="sub-link" href="gupta-empire.html">
+                Gupta Empire
+            </a>
+        </details>
+
+        <details>
+            <summary>Indian Geography</summary>
+
+            <a class="sub-link" href="indian-geography.html">
+                Indian Geography
+            </a>
+
+            <a class="sub-link" href="drainage-system.html">
+                Drainage System
+            </a>
+        </details>
+
+        <details>
+            <summary>Indian Economy</summary>
+
+            <a class="sub-link" href="indian-economy.html">
+                Basic Concepts
+            </a>
+        </details>
+    </details>
+
+    <a class="nav-link" href="Current_Affairs.html">
+        📰 Current Affairs
+    </a>
+
+    <a class="mock-button" href="BPSC_Mock_Tests.html">
+        🔴 MOCK TESTS
+    </a>
+
+</aside>
+
+
+<!-- MAIN NOTES CONTENT -->
+
+<main class="main-content">
+
+<article class="content-card" id="top">
+
+<span class="page-label">Modern Indian History</span>
+
+<h1>THE REVOLT OF 1857</h1>
+
+<p>
+<strong>Complete Notes for BPSC & UPSC Prelims</strong>
+</p>
+
+<div class="fact-grid">
+    <div class="fact-box">
+        <strong>Subject</strong>
+        Modern Indian History
+    </div>
+
+    <div class="fact-box">
+        <strong>Difficulty Level</strong>
+        Advanced
+    </div>
+
+    <div class="fact-box">
+        <strong>Focus</strong>
+        Causes, leaders, centres and chronology
+    </div>
+
+    <div class="fact-box">
+        <strong>Exam Target</strong>
+        BPSC & UPSC Prelims
+    </div>
+</div>
+
+<div class="toc">
+    <strong>CONTENTS</strong>
+    <ol>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#background">Background</a></li>
+        <li><a href="#causes">Causes of the Revolt</a></li>
+        <li><a href="#centres">Major Centres and Leaders</a></li>
+        <li><a href="#failure">Why the Revolt Failed</a></li>
+        <li><a href="#nature">Nature and Historical Interpretations</a></li>
+        <li><a href="#consequences">Consequences of the Revolt</a></li>
+        <li><a href="#viceroys">Governor-Generals and Viceroys</a></li>
+        <li><a href="#dates">Important Dates</a></li>
+        <li><a href="#questions">BPSC Prelims Questions</a></li>
+        <li><a href="#revision">Final Revision</a></li>
+    </ol>
+</div>
+
+
+<!-- SECTION 1 -->
+
+<h2 id="introduction">1. Introduction</h2>
+
+<p>
+The Revolt of 1857 was a major uprising against British rule in India.
+It began as a revolt of Indian soldiers (sepoys) in the Bengal Army
+but developed into a broader rebellion involving rulers, peasants,
+zamindars and sections of the civilian population in several regions.
+</p>
+
+<p>
+It challenged the authority of the East India Company and ultimately
+led to the transfer of Indian administration to the British Crown in 1858.
+</p>
+
+<table>
+<thead>
+<tr>
+<th>Particular</th>
+<th>Information</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Beginning of the major revolt</td><td>10 May 1857</td></tr>
+<tr><td>First major outbreak</td><td>Meerut</td></tr>
+<tr><td>March towards Delhi</td><td>11 May 1857</td></tr>
+<tr><td>Mughal emperor</td><td>Bahadur Shah II (Bahadur Shah Zafar)</td></tr>
+<tr><td>Governor-General</td><td>Lord Canning</td></tr>
+<tr><td>British monarch</td><td>Queen Victoria</td></tr>
+<tr><td>End of Company rule</td><td>Government of India Act, 1858</td></tr>
+<tr><td>Nature</td><td>Military uprising that developed into a wider rebellion in several regions</td></tr>
+</tbody>
+</table>
+
+<div class="exam-point">
+<strong>EXAM POINT:</strong>
+The revolt did not begin simultaneously throughout India.
+Its intensity and participation varied considerably from region to region.
+</div>
+
+
+<!-- SECTION 2 -->
+
+<h2 id="background">2. Background of the Revolt</h2>
+
+<p>
+By the middle of the nineteenth century, the East India Company had
+expanded its territorial control across large parts of India.
+British expansion created resentment among different sections of society.
+</p>
+
+<p>The principal sources of discontent included:</p>
+
+<ol>
+<li>Annexation of Indian kingdoms.</li>
+<li>Displacement of rulers and traditional elites.</li>
+<li>Exploitative land-revenue arrangements.</li>
+<li>Economic difficulties among peasants and artisans.</li>
+<li>Discontent among Indian soldiers.</li>
+<li>Fear of interference in religious and social customs.</li>
+<li>Racial discrimination and exclusion from higher positions.</li>
+</ol>
+
+<p>
+These grievances combined to create an atmosphere of widespread dissatisfaction.
+</p>
+
+
+<!-- SECTION 3 -->
+
+<h2 id="causes">3. Causes of the Revolt of 1857</h2>
+
+<p>The causes can be classified into five major categories.</p>
+
+<h3>A. Political Causes</h3>
+
+<h3>1. Doctrine of Lapse</h3>
+
+<p>
+The Doctrine of Lapse was aggressively applied during the tenure of
+Lord Dalhousie (1848–1856).
+Under this policy, the British refused to recognise certain adopted
+heirs as legitimate successors to rulers of states considered dependent
+on British authority.
+</p>
+
+<p>
+When a ruler died without a recognised natural male heir, the state
+could be annexed under the policy.
+</p>
+
+<table>
+<thead>
+<tr><th>State</th><th>Year</th></tr>
+</thead>
+<tbody>
+<tr><td>Satara</td><td>1848</td></tr>
+<tr><td>Sambalpur</td><td>1849</td></tr>
+<tr><td>Jhansi</td><td>1854</td></tr>
+<tr><td>Nagpur</td><td>1854</td></tr>
+</tbody>
+</table>
+
+<div class="exam-point">
+<strong>IMPORTANT DISTINCTION:</strong>
+Awadh was annexed in 1856 on the grounds of alleged misgovernment,
+not under the Doctrine of Lapse.
+</div>
+
+<h3>2. Annexation of Awadh, 1856</h3>
+
+<p>
+Awadh was annexed during Lord Dalhousie's tenure. The British accused
+Nawab Wajid Ali Shah's administration of misgovernment.
+</p>
+
+<ul>
+<li>Displacement of the Nawab.</li>
+<li>Loss of privileges for sections of the aristocracy.</li>
+<li>Discontent among taluqdars.</li>
+<li>Resentment among soldiers, many of whom had connections with Awadh.</li>
+</ul>
+
+<p>Awadh subsequently became one of the major centres of the revolt.</p>
+
+<h3>3. Disrespect Towards Indian Rulers</h3>
+
+<p>
+The treatment of former ruling families and the weakening of traditional
+political authority created dissatisfaction.
+Nana Sahib, the adopted son of the last Peshwa Baji Rao II, was denied
+continuation of his father's pension. He later became a prominent leader
+of the revolt at Kanpur.
+</p>
+
+
+<h3>B. Economic Causes</h3>
+
+<h3>1. Peasants</h3>
+<ul>
+<li>Heavy land-revenue demands created financial pressure.</li>
+<li>Failure to pay revenue could result in the loss of land.</li>
+<li>Moneylenders gained influence over indebted peasants.</li>
+<li>Revenue collection frequently intensified rural distress.</li>
+</ul>
+
+<h3>2. Artisans and Craftspeople</h3>
+<ul>
+<li>Competition from machine-made British textiles.</li>
+<li>Decline in the patronage of traditional rulers.</li>
+<li>Disruption of established handicraft markets.</li>
+</ul>
+
+<h3>3. Zamindars and Taluqdars</h3>
+
+<p>
+Annexations and changes in land-revenue administration deprived some
+landholders of their privileges. In Awadh, the displacement of taluqdars
+contributed significantly to rural discontent.
+</p>
+
+<h3>4. Traditional Elites</h3>
+
+<p>
+The decline of royal courts reduced employment and patronage available
+to soldiers, artists, craftspeople and administrators.
+</p>
+
+<div class="exam-point">
+<strong>EXAM POINT:</strong>
+Economic grievances were important, but they did not produce identical
+responses across all regions.
+</div>
+
+
+<h3>C. Military Causes</h3>
+
+<p>The revolt initially emerged among Indian soldiers serving in the Company's army.</p>
+
+<table>
+<thead>
+<tr><th>Grievance</th><th>Explanation</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>Pay and allowances</td>
+<td>Indian soldiers often received lower pay and fewer privileges than British counterparts.</td>
+</tr>
+<tr>
+<td>Discrimination</td>
+<td>Indians faced restrictions on promotion and generally lacked access to the highest military commands.</td>
+</tr>
+<tr>
+<td>General Service Enlistment Act, 1856</td>
+<td>New recruits were required to accept the possibility of overseas service.</td>
+</tr>
+<tr>
+<td>Loss of traditional privileges</td>
+<td>Changes in allowances and service conditions created resentment.</td>
+</tr>
+<tr>
+<td>Religious fears</td>
+<td>Rumours spread that the British intended to undermine Indian religions and customs.</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3>D. Religious and Social Causes</h3>
+
+<ul>
+<li>Christian missionary activities generated suspicion among some sections.</li>
+<li>Certain British policies were interpreted as interference in established customs.</li>
+<li>Changes in education and administration created anxiety about cultural identity.</li>
+<li>Rumours circulated that the British intended to convert Indians to Christianity.</li>
+</ul>
+
+<p>
+However, the revolt was not simply a religious uprising. Political,
+economic and military grievances were equally important.
+</p>
+
+
+<h3>E. Immediate Cause: Greased-Cartridge Controversy</h3>
+
+<p>
+The immediate trigger was the introduction of the Pattern 1853 Enfield rifle.
+Its cartridge was opened by biting off one end before loading.
+</p>
+
+<p>
+Rumours spread that the cartridges were greased with cow and pig fat.
+This offended religious sensitivities: cows were sacred to many Hindus,
+while pigs were considered unclean by Muslims.
+</p>
+
+<table>
+<thead>
+<tr><th>Date</th><th>Event</th><th>Significance</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>26 February 1857</td>
+<td>Cartridge-related discontent at Berhampore</td>
+<td>Early indication of unrest</td>
+</tr>
+<tr>
+<td>29 March 1857</td>
+<td>Mangal Pandey attacked British officers at Barrackpore</td>
+<td>Symbolic early episode of resistance</td>
+</tr>
+<tr>
+<td>8 April 1857</td>
+<td>Mangal Pandey was executed</td>
+<td>Increased tension</td>
+</tr>
+<tr>
+<td>24 April 1857</td>
+<td>Soldiers at Meerut refused to use the cartridges</td>
+<td>Immediate military confrontation</td>
+</tr>
+<tr>
+<td>9 May 1857</td>
+<td>85 troopers were punished and imprisoned at Meerut</td>
+<td>Trigger for the outbreak</td>
+</tr>
+<tr>
+<td>10 May 1857</td>
+<td>Soldiers revolted at Meerut</td>
+<td>Beginning of the major uprising</td>
+</tr>
+<tr>
+<td>11 May 1857</td>
+<td>Rebels reached Delhi</td>
+<td>Bahadur Shah II became the symbolic leader</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout">
+<strong>BPSC FACT:</strong>
+Mangal Pandey's action occurred at Barrackpore in March 1857,
+but the major revolt began at Meerut on 10 May 1857.
+</div>
+
+
+<!-- SECTION 4 -->
+
+<h2 id="centres">4. Major Centres and Leaders of the Revolt</h2>
+
+<table>
+<thead>
+<tr><th>Centre</th><th>Leader</th><th>Important Information</th></tr>
+</thead>
+<tbody>
+<tr><td>Delhi</td><td>Bahadur Shah II</td><td>Symbolic leader of the revolt</td></tr>
+<tr><td>Kanpur</td><td>Nana Sahib</td><td>Associated with the former Peshwa family</td></tr>
+<tr><td>Kanpur</td><td>Tantia Tope</td><td>Important military leader</td></tr>
+<tr><td>Lucknow</td><td>Begum Hazrat Mahal</td><td>Led resistance against British rule in Awadh</td></tr>
+<tr><td>Jhansi</td><td>Rani Lakshmibai</td><td>Major leader in central India</td></tr>
+<tr><td>Jagdishpur, Bihar</td><td>Kunwar Singh</td><td>Prominent leader in Bihar</td></tr>
+<tr><td>Bareilly</td><td>Khan Bahadur Khan</td><td>Led resistance in Rohilkhand</td></tr>
+<tr><td>Faizabad</td><td>Maulvi Ahmadullah Shah</td><td>Important religious and military leader</td></tr>
+<tr><td>Allahabad</td><td>Liaquat Ali</td><td>Led the uprising in the region</td></tr>
+<tr><td>Assam</td><td>Maniram Dewan</td><td>Associated with resistance to British rule in Assam</td></tr>
+</tbody>
+</table>
+
+<h3>A. Delhi</h3>
+
+<p>
+After the outbreak at Meerut, rebels reached Delhi on 11 May 1857.
+They declared the ageing Mughal emperor Bahadur Shah II their symbolic leader.
+Delhi became an important political centre of the revolt.
+</p>
+
+<p>
+The British recaptured Delhi in September 1857. Bahadur Shah II was
+subsequently arrested, tried and exiled to Rangoon, where he died in 1862.
+</p>
+
+<h3>B. Kanpur</h3>
+
+<p>
+Nana Sahib emerged as the principal rebel leader at Kanpur.
+Tantia Tope played a major military role in the campaign.
+After the British recovered Kanpur, Tantia Tope continued resistance
+through mobile military operations. He was captured and executed in 1859.
+</p>
+
+<h3>C. Lucknow and Awadh</h3>
+
+<p>
+Lucknow became a major centre of resistance. Begum Hazrat Mahal,
+the wife of Wajid Ali Shah, led opposition to British rule.
+Her son, Birjis Qadr, was proclaimed ruler.
+</p>
+
+<p>
+The resistance drew support from sections of the former royal establishment,
+taluqdars, soldiers and civilians.
+</p>
+
+<h3>D. Jhansi</h3>
+
+<p>
+Rani Lakshmibai became one of the most prominent figures of the revolt.
+Her kingdom had been annexed in 1854 under the Doctrine of Lapse.
+She fought against British forces and later joined the struggle in central India.
+She died fighting near Gwalior in June 1858.
+</p>
+
+<h3>E. Bihar: Kunwar Singh</h3>
+
+<p>
+Kunwar Singh, the zamindar of Jagdishpur in present-day Bihar,
+was one of the leading figures of the revolt.
+</p>
+
+<ul>
+<li>He was approximately 80 years old in 1857.</li>
+<li>He belonged to a landed aristocratic family.</li>
+<li>He led resistance against British forces in Bihar.</li>
+<li>Jagdishpur became an important centre of his activities.</li>
+<li>He regained control of Jagdishpur in April 1858.</li>
+<li>He died on 26 April 1858.</li>
+</ul>
+
+<p>
+His brother Amar Singh continued resistance after his death.
+</p>
+
+<div class="success-point">
+<strong>BPSC SPECIAL FOCUS:</strong>
+Kunwar Singh is among the most important personalities to study
+for Bihar-specific questions on the Revolt of 1857.
+</div>
+
+
+<!-- SECTION 5 -->
+
+<h2 id="failure">5. Why Did the Revolt Fail?</h2>
+
+<table>
+<thead>
+<tr><th>Reason</th><th>Explanation</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>Lack of unified leadership</td>
+<td>There was no single central authority coordinating all rebel forces.</td>
+</tr>
+<tr>
+<td>Limited geographical spread</td>
+<td>The revolt was strongest in northern and central India.</td>
+</tr>
+<tr>
+<td>Lack of a common programme</td>
+<td>Different groups participated for different reasons.</td>
+</tr>
+<tr>
+<td>British military advantages</td>
+<td>The British possessed advantages in organisation, communications and reinforcements.</td>
+</tr>
+<tr>
+<td>Support from some Indian rulers</td>
+<td>Several princely states supported the British or remained neutral.</td>
+</tr>
+<tr>
+<td>Limited resources</td>
+<td>The rebels faced difficulties obtaining weapons, ammunition, funds and supplies.</td>
+</tr>
+<tr>
+<td>Lack of coordination</td>
+<td>Rebel forces did not coordinate their operations effectively across different centres.</td>
+</tr>
+</tbody>
+</table>
+
+<div class="exam-point">
+<strong>EXAM CONCLUSION:</strong>
+The revolt failed because of fragmented leadership, uneven participation,
+limited coordination and British military advantages—not because the rebels
+lacked courage or popular grievances.
+</div>
+
+
+<!-- SECTION 6 -->
+
+<h2 id="nature">6. Nature of the Revolt: Historical Interpretations</h2>
+
+<table>
+<thead>
+<tr><th>Interpretation</th><th>Explanation</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>Sepoy Mutiny</td>
+<td>Emphasises the role of Indian soldiers in initiating the revolt.</td>
+</tr>
+<tr>
+<td>Popular rebellion</td>
+<td>Highlights civilian, peasant, taluqdari and displaced-elite participation in several regions.</td>
+</tr>
+<tr>
+<td>First War of Independence</td>
+<td>Emphasises its anti-colonial character and later nationalist significance.</td>
+</tr>
+<tr>
+<td>Regional and varied uprising</td>
+<td>Recognises that participation, objectives and intensity differed across India.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Important Historians and Writers</h3>
+
+<ul>
+<li><strong>V. D. Savarkar:</strong> Popularised the interpretation of the revolt as the First War of Indian Independence through his 1909 work.</li>
+<li><strong>S. N. Sen:</strong> His work <em>Eighteen Fifty-Seven</em> examined the revolt's causes and development.</li>
+<li><strong>R. C. Majumdar:</strong> Emphasised the varied nature of the uprising and challenged the idea that it was uniformly a national war of independence.</li>
+</ul>
+
+<div class="callout">
+<strong>EXAM CAUTION:</strong>
+There is no single interpretation accepted by every historian.
+The revolt's character must be assessed regionally and historically.
+</div>
+
+
+<!-- SECTION 7 -->
+
+<h2 id="consequences">7. Consequences of the Revolt of 1857</h2>
+
+<h3>A. End of East India Company Rule</h3>
+
+<p>
+The Government of India Act, 1858 transferred the administration of India
+from the East India Company to the British Crown. The Company's governing
+role ended.
+</p>
+
+<h3>B. Queen Victoria's Proclamation, 1858</h3>
+
+<p>The proclamation announced the new framework of Crown rule. It included assurances concerning:</p>
+
+<ul>
+<li>Respect for religious beliefs and practices.</li>
+<li>Non-interference in religious matters, subject to the proclamation's terms.</li>
+<li>Respect for treaties with Indian princes.</li>
+<li>Equal treatment under the law.</li>
+<li>Eligibility for public employment subject to qualifications and other conditions.</li>
+</ul>
+
+<p>
+These assurances did not establish equality in practice or end colonial discrimination.
+</p>
+
+<h3>C. Secretary of State for India</h3>
+
+<p>
+The Act of 1858 created the office of the Secretary of State for India,
+a member of the British Cabinet. The Secretary of State was assisted
+by a Council of India. This strengthened direct control from Britain.
+</p>
+
+<h3>D. Governor-General and Viceroy</h3>
+
+<p>
+Lord Canning became the first Viceroy of India under Crown rule.
+The Governor-General continued to administer British India, while
+the title Viceroy emphasised his role as the Crown's representative.
+</p>
+
+<h3>E. Changes in the Army</h3>
+
+<ul>
+<li>Increasing the proportion of British soldiers in key formations.</li>
+<li>Greater control over artillery.</li>
+<li>Recruitment policies favouring selected communities and regions.</li>
+<li>Greater emphasis on preventing unified resistance among Indian soldiers.</li>
+</ul>
+
+<h3>F. Policy Towards Princely States</h3>
+
+<p>
+The British became more cautious about annexing princely states.
+They increasingly relied on alliances with Indian princes to maintain
+imperial control. The recognition of adoption rights was also addressed
+in subsequent Crown policy towards princely states.
+</p>
+
+<h3>G. Changes in British Attitudes</h3>
+
+<p>
+The revolt increased racial suspicion and hostility between many British
+officials and Indians. Colonial administration increasingly emphasised
+security and the preservation of British authority.
+</p>
+
+
+<!-- SECTION 8 -->
+
+<h2 id="viceroys">8. Important Governor-Generals and Viceroys</h2>
+
+<table>
+<thead>
+<tr><th>Personality</th><th>Tenure</th><th>Important Association</th></tr>
+</thead>
+<tbody>
+<tr><td>Warren Hastings</td><td>1773–1785 as Governor-General of Bengal</td><td>First Governor-General of Bengal</td></tr>
+<tr><td>Lord Cornwallis</td><td>1786–1793; second tenure 1805</td><td>Permanent Settlement, 1793</td></tr>
+<tr><td>Lord Wellesley</td><td>1798–1805</td><td>Subsidiary Alliance</td></tr>
+<tr><td>Lord William Bentinck</td><td>1828–1835</td><td>Abolition of sati; first Governor-General of India</td></tr>
+<tr><td>Lord Dalhousie</td><td>1848–1856</td><td>Doctrine of Lapse; annexations</td></tr>
+<tr><td>Lord Canning</td><td>1856–1862</td><td>Governor-General during the revolt; first Viceroy under Crown rule</td></tr>
+<tr><td>Lord Lytton</td><td>1876–1880</td><td>Vernacular Press Act, 1878</td></tr>
+<tr><td>Lord Ripon</td><td>1880–1884</td><td>Local self-government reforms; repeal of Vernacular Press Act</td></tr>
+<tr><td>Lord Curzon</td><td>1899–1905</td><td>Partition of Bengal, 1905</td></tr>
+<tr><td>Lord Minto II</td><td>1905–1910</td><td>Morley–Minto Reforms, 1909</td></tr>
+<tr><td>Lord Hardinge II</td><td>1910–1916</td><td>Capital transfer announcement, 1911</td></tr>
+<tr><td>Lord Chelmsford</td><td>1916–1921</td><td>Government of India Act, 1919</td></tr>
+<tr><td>Lord Irwin</td><td>1926–1931</td><td>Gandhi–Irwin Pact, 1931</td></tr>
+<tr><td>Lord Linlithgow</td><td>1936–1943</td><td>August Offer; Quit India Movement</td></tr>
+<tr><td>Lord Wavell</td><td>1943–1947</td><td>Cabinet Mission, 1946</td></tr>
+<tr><td>Lord Mountbatten</td><td>1947–1948 as Viceroy/Governor-General</td><td>Last Viceroy; transfer of power</td></tr>
+</tbody>
+</table>
+
+
+<!-- SECTION 9 -->
+
+<h2 id="dates">9. Important Dates: Chronology</h2>
+
+<table>
+<thead>
+<tr><th>Year/Date</th><th>Event</th></tr>
+</thead>
+<tbody>
+<tr><td>1848</td><td>Annexation of Satara under the Doctrine of Lapse</td></tr>
+<tr><td>1854</td><td>Annexation of Jhansi</td></tr>
+<tr><td>1856</td><td>Annexation of Awadh</td></tr>
+<tr><td>26 February 1857</td><td>Early cartridge-related unrest at Berhampore</td></tr>
+<tr><td>29 March 1857</td><td>Mangal Pandey's action at Barrackpore</td></tr>
+<tr><td>8 April 1857</td><td>Execution of Mangal Pandey</td></tr>
+<tr><td>9 May 1857</td><td>Punishment of soldiers at Meerut</td></tr>
+<tr><td>10 May 1857</td><td>Major outbreak at Meerut</td></tr>
+<tr><td>11 May 1857</td><td>Rebels reached Delhi</td></tr>
+<tr><td>September 1857</td><td>British recaptured Delhi</td></tr>
+<tr><td>June 1858</td><td>Rani Lakshmibai died fighting near Gwalior</td></tr>
+<tr><td>1858</td><td>Government of India Act</td></tr>
+<tr><td>1858</td><td>Queen Victoria's Proclamation</td></tr>
+<tr><td>1859</td><td>Tantia Tope executed</td></tr>
+<tr><td>1862</td><td>Bahadur Shah II died in Rangoon</td></tr>
+</tbody>
+</table>
+
+
+<!-- SECTION 10 -->
+
+<h2 id="questions">10. BPSC Prelims: High-Probability Questions</h2>
+
+<div class="question">
+<p><strong>Q1. The Revolt of 1857 began at:</strong></p>
+<p>A) Delhi<br>B) Meerut<br>C) Kanpur<br>D) Lucknow</p>
+<details>
+<summary>Show Answer</summary>
+<div class="answer">Answer: B) Meerut</div>
+</details>
+</div>
+
+<div class="question">
+<p><strong>Q2. Who was the Mughal emperor during the Revolt of 1857?</strong></p>
+<p>A) Akbar II<br>B) Shah Alam II<br>C) Bahadur Shah II<br>D) Farrukhsiyar</p>
+<details>
+<summary>Show Answer</summary>
+<div class="answer">Answer: C) Bahadur Shah II</div>
+</details>
+</div>
+
+<div class="question">
+<p><strong>Q3. Awadh was annexed in 1856 on the grounds of:</strong></p>
+<p>A) Doctrine of Lapse<br>B) Alleged misgovernment<br>C) Subsidiary Alliance for the first time<br>D) Failure to pay customs duties</p>
+<details>
+<summary>Show Answer</summary>
+<div class="answer">Answer: B) Alleged misgovernment</div>
+</details>
+</div>
+
+<div class="question">
+<p><strong>Q4. Who led the revolt in Bihar?</strong></p>
+<p>A) Nana Sahib<br>B) Kunwar Singh<br>C) Khan Bahadur Khan<br>D) Maulvi Ahmadullah Shah</p>
+<details>
+<summary>Show Answer</summary>
+<div class="answer">Answer: B) Kunwar Singh</div>
+</details>
+</div>
+
+<div class="question">
+<p><strong>Q5. Who was the Governor-General when the revolt began?</strong></p>
+<p>A) Lord Dalhousie<br>B) Lord Canning<br>C) Lord Ripon<br>D) Lord Curzon</p>
+<details>
+<summary>Show Answer</summary>
+<div class="answer">Answer: B) Lord Canning</div>
+</details>
+</div>
+
+<div class="question">
+<p><strong>Q6. The Government of India Act, 1858 transferred administration to:</strong></p>
+<p>A) The Mughal emperor<br>B) The British Crown<br>C) The Indian National Congress<br>D) The princely states</p>
+<details>
+<summary>Show Answer</summary>
+<div class="answer">Answer: B) The British Crown</div>
+</details>
+</div>
+
+<div class="question">
+<p><strong>Q7. Who led the resistance at Lucknow?</strong></p>
+<p>A) Rani Lakshmibai<br>B) Begum Hazrat Mahal<br>C) Annie Besant<br>D) Sarojini Naidu</p>
+<details>
+<summary>Show Answer</summary>
+<div class="answer">Answer: B) Begum Hazrat Mahal</div>
+</details>
+</div>
+
+<div class="question">
+<p><strong>Q8. The Doctrine of Lapse was most closely associated with:</strong></p>
+<p>A) Lord Ripon<br>B) Lord Dalhousie<br>C) Lord Curzon<br>D) Lord Wavell</p>
+<details>
+<summary>Show Answer</summary>
+<div class="answer">Answer: B) Lord Dalhousie</div>
+</details>
+</div>
+
+<div class="question">
+<p><strong>Q9. Which of the following was the immediate trigger of the revolt?</strong></p>
+<p>A) The Rowlatt Act<br>B) The Vernacular Press Act<br>C) The greased-cartridge controversy<br>D) The Partition of Bengal</p>
+<details>
+<summary>Show Answer</summary>
+<div class="answer">Answer: C) The greased-cartridge controversy</div>
+</details>
+</div>
+
+<div class="question">
+<p><strong>Q10. Who became the first Viceroy of India under Crown rule?</strong></p>
+<p>A) Lord Dalhousie<br>B) Lord Canning<br>C) Lord Mountbatten<br>D) Lord Ripon</p>
+<details>
+<summary>Show Answer</summary>
+<div class="answer">Answer: B) Lord Canning</div>
+</details>
+</div>
+
+
+<!-- SECTION 11 -->
+
+<h2 id="revision">11. Final Revision: Remember These 10 Facts</h2>
+
+<ol>
+<li><strong>10 May 1857:</strong> Major outbreak at Meerut.</li>
+<li><strong>11 May 1857:</strong> Rebels reached Delhi.</li>
+<li><strong>Bahadur Shah II:</strong> Symbolic leader of the revolt.</li>
+<li><strong>Mangal Pandey:</strong> Associated with Barrackpore.</li>
+<li><strong>Rani Lakshmibai:</strong> Leader associated with Jhansi.</li>
+<li><strong>Begum Hazrat Mahal:</strong> Leader associated with Lucknow.</li>
+<li><strong>Kunwar Singh:</strong> Major leader in Bihar.</li>
+<li><strong>Lord Dalhousie:</strong> Associated with the Doctrine of Lapse.</li>
+<li><strong>Lord Canning:</strong> Governor-General during the revolt and first Viceroy under Crown rule.</li>
+<li><strong>Government of India Act, 1858:</strong> Ended Company rule and transferred administration to the British Crown.</li>
+</ol>
+
+<h3>BPSC Strategy</h3>
+
+<p>For this topic, prioritise three areas:</p>
+
+<ul>
+<li><strong>Chronology:</strong> Events before, during and after May 1857.</li>
+<li><strong>Leader–Centre matching:</strong> Especially Kunwar Singh, Rani Lakshmibai, Nana Sahib and Begum Hazrat Mahal.</li>
+<li><strong>Consequences:</strong> Government of India Act, 1858; Queen Victoria's Proclamation; and changes in the army and administration.</li>
+</ul>
+
+<div class="success-point">
+<strong>THE MOST IMPORTANT DISTINCTION:</strong>
+The Revolt of 1857 ended the East India Company's governing authority,
+but it did not end British colonial rule in India.
+</div>
+
+<a class="back-top" href="#top">↑ Back to Top</a>
+
+<div class="footer">
+    <strong>ORIENT CLASSES</strong><br>
+    BPSC & UPSC Preparation | Modern Indian History<br>
+    Learn • Revise • Practise
+</div>
+
+</article>
+</main>
+</div>
+
+</body>
+</html>
