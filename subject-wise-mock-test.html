@@ -4,242 +4,1190 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>BPSC Subject-wise Mock Tests</title>
+
 <style>
-:root{
-  --navy:#10264b;
-  --blue:#2459c4;
-  --blue2:#3478f6;
-  --pale:#edf4ff;
-  --line:#e1e8f2;
-  --ink:#202c40;
-  --muted:#69788e;
-  --gold:#f5bd4f;
+:root {
+  --navy: #10264b;
+  --blue: #2459c4;
+  --blue2: #3478f6;
+  --line: #e1e8f2;
+  --ink: #202c40;
+  --muted: #69788e;
 }
-*{box-sizing:border-box}
-body{
-  margin:0;
-  background:#f3f6fb;
-  color:var(--ink);
-  font-family:Segoe UI,Arial,sans-serif;
+
+* {
+  box-sizing: border-box;
 }
-header{
-  padding:24px clamp(16px,4vw,42px);
-  color:#fff;
-  background:linear-gradient(120deg,#0b1d3a,#1c4c91,#2563eb);
+
+body {
+  margin: 0;
+  background: #f3f6fb;
+  color: var(--ink);
+  font-family: Segoe UI, Arial, sans-serif;
 }
-.header-inner{max-width:1250px;margin:auto}
-header h1{margin:0;font-size:clamp(24px,3vw,34px)}
-header p{margin:7px 0 0;color:#dbeafe;line-height:1.6;font-size:14px}
-.container{max-width:1250px;margin:28px auto;padding:0 18px 35px}
-.intro{
-  display:flex;justify-content:space-between;align-items:center;gap:20px;
-  margin-bottom:22px;flex-wrap:wrap
+
+/* HEADER */
+
+header {
+  padding: 24px clamp(16px, 4vw, 40px);
+  color: white;
+  background: linear-gradient(120deg, #0b1d3a, #1c4c91, #2563eb);
 }
-.intro h2{margin:0 0 7px;color:var(--navy);font-size:clamp(22px,3vw,29px)}
-.intro p{margin:0;color:var(--muted);line-height:1.6}
-.back-link{
-  display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  background:#fff;border:1px solid var(--line);border-radius:9px;
-  padding:11px 15px;color:var(--navy);font-weight:750;text-decoration:none;
+
+.header-inner {
+  max-width: 1250px;
+  margin: auto;
 }
-.back-link:hover{background:var(--pale);border-color:#aac8ff}
-.section-title{
-  display:flex;align-items:center;gap:10px;margin:28px 0 14px;
-  color:var(--navy);font-size:19px
+
+header h1 {
+  margin: 0;
+  font-size: clamp(24px, 3vw, 34px);
 }
-.section-title:after{content:"";height:1px;background:var(--line);flex:1}
-.test-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
-.test-card{
-  display:flex;flex-direction:column;min-height:265px;background:#fff;
-  border:1px solid var(--line);border-radius:15px;overflow:hidden;
-  box-shadow:0 7px 22px #10264b0b;transition:transform .18s,box-shadow .18s
+
+header p {
+  margin: 7px 0 0;
+  color: #dbeafe;
+  line-height: 1.6;
+  font-size: 14px;
 }
-.test-card:hover{transform:translateY(-3px);box-shadow:0 12px 28px #10264b17}
-.card-top{padding:18px 18px 14px;background:linear-gradient(135deg,#f3f7ff,#fff);border-bottom:1px solid var(--line)}
-.card-icon{
-  display:grid;place-items:center;width:45px;height:45px;border-radius:12px;
-  background:#e4edff;font-size:23px;margin-bottom:12px
+
+/* MAIN */
+
+.container {
+  max-width: 1250px;
+  margin: 28px auto;
+  padding: 0 18px 35px;
 }
-.card-top h3{margin:0;color:#1d3558;font-size:18px}
-.card-top p{margin:7px 0 0;color:var(--muted);font-size:13px;line-height:1.5}
-.card-body{padding:15px 18px;display:flex;flex-direction:column;flex:1}
-.features{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:16px}
-.feature{
-  background:#f2f5fa;color:#53647b;border:1px solid #e5eaf2;
-  border-radius:6px;padding:5px 7px;font-size:11px;font-weight:700
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
 }
-.card-bottom{margin-top:auto}
-.attempt-btn{
-  width:100%;display:flex;align-items:center;justify-content:center;gap:8px;
-  padding:12px 14px;border:0;border-radius:9px;cursor:pointer;
-  color:#fff;font-size:13px;font-weight:800;
-  background:linear-gradient(110deg,#2459c4,#3478f6);
-  box-shadow:0 4px 0 #183d92;transition:transform .15s,filter .15s
+
+.topbar h2 {
+  margin: 0 0 7px;
+  color: var(--navy);
+  font-size: 27px;
 }
-.attempt-btn:hover{filter:brightness(1.06);transform:translateY(-1px)}
-.attempt-btn:active{transform:translateY(2px);box-shadow:0 2px 0 #183d92}
-.note{
-  margin-top:24px;padding:14px 16px;background:#fff8e8;
-  border:1px solid #f4dfaa;border-radius:10px;color:#71531c;
-  font-size:13px;line-height:1.65
+
+.topbar p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
 }
-footer{text-align:center;color:#8a96a7;padding:0 15px 25px;font-size:12px}
-@media(max-width:900px){.test-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:580px){
-  .container{padding:0 12px 25px;margin:20px auto}
-  .test-grid{grid-template-columns:1fr}
-  .test-card{min-height:0}
-  .intro{align-items:flex-start}
-  .back-link{width:100%}
+
+.back-button {
+  display: inline-block;
+  padding: 11px 15px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: white;
+  color: var(--navy);
+  font-size: 13px;
+  font-weight: 750;
+  text-decoration: none;
 }
-@media(prefers-reduced-motion:reduce){
-  *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+
+/* SUBJECT SECTION */
+
+.subject-section {
+  margin-bottom: 35px;
+  scroll-margin-top: 15px;
+}
+
+.subject-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #dce7f8;
+  color: var(--navy);
+  font-size: 22px;
+}
+
+.subject-heading .subject-icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 11px;
+  background: #e5edff;
+  font-size: 23px;
+}
+
+.subject-heading small {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* MOCK TEST GRID */
+
+.test-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 17px;
+}
+
+.test-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 255px;
+  overflow: hidden;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  box-shadow: 0 6px 20px #10264b0b;
+  transition: transform .2s, box-shadow .2s;
+}
+
+.test-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px #10264b16;
+}
+
+/* CARD TOP */
+
+.card-content {
+  flex: 1;
+  padding: 19px 18px 15px;
+}
+
+.test-number {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 5px 9px;
+  border-radius: 6px;
+  background: #e8f0ff;
+  color: #2459c4;
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: .3px;
+}
+
+.test-card h3 {
+  margin: 0 0 9px;
+  color: #243957;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.test-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* TEST DETAILS */
+
+.test-details {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+.detail-tag {
+  padding: 5px 7px;
+  border: 1px solid #e6ebf3;
+  border-radius: 6px;
+  background: #f7f9fc;
+  color: #52647f;
+  font-size: 10px;
+  font-weight: 750;
+}
+
+/* ATTEMPT BUTTON AREA */
+
+.card-footer {
+  padding: 13px 16px 16px;
+  border-top: 1px solid var(--line);
+  background: #fbfcff;
+}
+
+.attempt-button {
+  width: 100%;
+  padding: 12px 10px;
+  border: 0;
+  border-radius: 8px;
+  background: linear-gradient(110deg, #2459c4, #3478f6);
+  box-shadow: 0 3px 0 #183d92;
+  color: white;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform .15s, filter .15s;
+}
+
+.attempt-button:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+
+.attempt-button:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #183d92;
+}
+
+/* NOTICE */
+
+.note {
+  margin-top: 25px;
+  padding: 14px 16px;
+  border: 1px solid #f4dfaa;
+  border-radius: 10px;
+  background: #fff8e8;
+  color: #71531c;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+footer {
+  padding: 0 15px 25px;
+  color: #8a96a7;
+  text-align: center;
+  font-size: 12px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .test-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 580px) {
+  .container {
+    margin: 20px auto;
+    padding: 0 12px 25px;
+  }
+
+  .test-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .test-card {
+    min-height: 0;
+  }
+
+  .topbar {
+    align-items: flex-start;
+  }
+
+  .back-button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
 }
 </style>
 </head>
+
 <body>
+
 <header>
   <div class="header-inner">
     <h1>📚 BPSC Subject-wise Mock Tests</h1>
-    <p>Practise one subject at a time • Strengthen concepts • Improve accuracy</p>
+    <p>Practice subject by subject • Attempt multiple tests • Improve your score</p>
   </div>
 </header>
 
 <main class="container">
-  <div class="intro">
+
+  <div class="topbar">
     <div>
-      <h2>Choose Your Subject</h2>
-      <p>Select a subject box and click <strong>Attempt Mock Test</strong> to open its test.</p>
+      <h2>Choose Your Mock Test</h2>
+      <p>हर विषय में कई टेस्ट दिए गए हैं। अपना टेस्ट चुनें और Attempt Mock Test पर क्लिक करें।</p>
     </div>
-    <a class="back-link" href="index.html">← Back to BPSC Study Portal</a>
+
+    <a class="back-button" href="index.html">
+      ← Back to BPSC Study Portal
+    </a>
   </div>
 
-  <h2 class="section-title">General Studies Subjects</h2>
+  <!-- ================= HISTORY ================= -->
 
-  <div class="test-grid">
-    <article class="test-card">
-      <div class="card-top">
-        <div class="card-icon">🏛️</div>
-        <h3>History</h3>
-        <p>Ancient, Medieval and Modern Indian History</p>
-      </div>
-      <div class="card-body">
-        <div class="features"><span class="feature">MCQ Practice</span><span class="feature">Topic-wise Revision</span></div>
-        <div class="card-bottom"><button class="attempt-btn" onclick="attemptTest('History','history-mock-test.html')">Attempt Mock Test →</button></div>
-      </div>
-    </article>
+  <section class="subject-section" id="history">
 
-    <article class="test-card">
-      <div class="card-top">
-        <div class="card-icon">🌍</div>
-        <h3>Geography</h3>
-        <p>Physical, Indian and World Geography</p>
-      </div>
-      <div class="card-body">
-        <div class="features"><span class="feature">MCQ Practice</span><span class="feature">Map-based Topics</span></div>
-        <div class="card-bottom"><button class="attempt-btn" onclick="attemptTest('Geography','geography-mock-test.html')">Attempt Mock Test →</button></div>
-      </div>
-    </article>
+    <h2 class="subject-heading">
+      <span class="subject-icon">🏛️</span>
+      <span>
+        History
+        <small>Ancient • Medieval • Modern History</small>
+      </span>
+    </h2>
 
-    <article class="test-card">
-      <div class="card-top">
-        <div class="card-icon">⚖️</div>
-        <h3>Indian Polity</h3>
-        <p>Constitution, Fundamental Rights, Parliament and Governance</p>
-      </div>
-      <div class="card-body">
-        <div class="features"><span class="feature">Constitution</span><span class="feature">Governance</span></div>
-        <div class="card-bottom"><button class="attempt-btn" onclick="attemptTest('Indian Polity','polity-mock-test.html')">Attempt Mock Test →</button></div>
-      </div>
-    </article>
+    <div class="test-grid">
 
-    <article class="test-card">
-      <div class="card-top">
-        <div class="card-icon">💹</div>
-        <h3>Indian Economy</h3>
-        <p>National income, banking, budget, inflation and development</p>
-      </div>
-      <div class="card-body">
-        <div class="features"><span class="feature">Economy Basics</span><span class="feature">Current Concepts</span></div>
-        <div class="card-bottom"><button class="attempt-btn" onclick="attemptTest('Indian Economy','economy-mock-test.html')">Attempt Mock Test →</button></div>
-      </div>
-    </article>
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">HISTORY TEST 01</span>
+          <h3>Ancient History – Mock Test 1</h3>
+          <p>Indus Valley Civilization, Vedic Period, Buddhism, Jainism and Mahajanapadas.</p>
+          <div class="test-details">
+            <span class="detail-tag">50 MCQs</span>
+            <span class="detail-tag">Ancient History</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('History Test 1','history-mock-test-1.html')">
+            Attempt Mock Test 1 →
+          </button>
+        </div>
+      </article>
 
-    <article class="test-card">
-      <div class="card-top">
-        <div class="card-icon">🔬</div>
-        <h3>General Science</h3>
-        <p>Physics, Chemistry, Biology and everyday science</p>
-      </div>
-      <div class="card-body">
-        <div class="features"><span class="feature">Physics</span><span class="feature">Chemistry</span><span class="feature">Biology</span></div>
-        <div class="card-bottom"><button class="attempt-btn" onclick="attemptTest('General Science','science-mock-test.html')">Attempt Mock Test →</button></div>
-      </div>
-    </article>
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">HISTORY TEST 02</span>
+          <h3>Ancient History – Mock Test 2</h3>
+          <p>Mauryan Empire, Gupta Empire, administration, art, culture and other important topics.</p>
+          <div class="test-details">
+            <span class="detail-tag">50 MCQs</span>
+            <span class="detail-tag">Ancient History</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('History Test 2','history-mock-test-2.html')">
+            Attempt Mock Test 2 →
+          </button>
+        </div>
+      </article>
 
-    <article class="test-card">
-      <div class="card-top">
-        <div class="card-icon">🦅</div>
-        <h3>Bihar Special</h3>
-        <p>Bihar history, geography, economy, culture and administration</p>
-      </div>
-      <div class="card-body">
-        <div class="features"><span class="feature">Bihar GK</span><span class="feature">State Focus</span></div>
-        <div class="card-bottom"><button class="attempt-btn" onclick="attemptTest('Bihar Special','bihar-special-mock-test.html')">Attempt Mock Test →</button></div>
-      </div>
-    </article>
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">HISTORY TEST 03</span>
+          <h3>Medieval History – Mock Test 1</h3>
+          <p>Delhi Sultanate, Mughal Empire, Bhakti Movement and Sufi Movement.</p>
+          <div class="test-details">
+            <span class="detail-tag">50 MCQs</span>
+            <span class="detail-tag">Medieval History</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('History Test 3','history-mock-test-3.html')">
+            Attempt Mock Test 3 →
+          </button>
+        </div>
+      </article>
 
-    <article class="test-card">
-      <div class="card-top">
-        <div class="card-icon">🌱</div>
-        <h3>Environment</h3>
-        <p>Ecology, biodiversity, climate change and environmental conventions</p>
-      </div>
-      <div class="card-body">
-        <div class="features"><span class="feature">Ecology</span><span class="feature">Environment</span></div>
-        <div class="card-bottom"><button class="attempt-btn" onclick="attemptTest('Environment','environment-mock-test.html')">Attempt Mock Test →</button></div>
-      </div>
-    </article>
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">HISTORY TEST 04</span>
+          <h3>Medieval History – Mock Test 2</h3>
+          <p>Medieval administration, important rulers, regional kingdoms and cultural developments.</p>
+          <div class="test-details">
+            <span class="detail-tag">50 MCQs</span>
+            <span class="detail-tag">Medieval History</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('History Test 4','history-mock-test-4.html')">
+            Attempt Mock Test 4 →
+          </button>
+        </div>
+      </article>
 
-    <article class="test-card">
-      <div class="card-top">
-        <div class="card-icon">📰</div>
-        <h3>Current Affairs</h3>
-        <p>National, international, Bihar and important government updates</p>
-      </div>
-      <div class="card-body">
-        <div class="features"><span class="feature">Current Events</span><span class="feature">Revision</span></div>
-        <div class="card-bottom"><button class="attempt-btn" onclick="attemptTest('Current Affairs','current-affairs-mock-test.html')">Attempt Mock Test →</button></div>
-      </div>
-    </article>
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">HISTORY TEST 05</span>
+          <h3>Modern History – Mock Test 1</h3>
+          <p>British expansion, Revolt of 1857, reform movements and Indian National Congress.</p>
+          <div class="test-details">
+            <span class="detail-tag">50 MCQs</span>
+            <span class="detail-tag">Modern History</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('History Test 5','history-mock-test-5.html')">
+            Attempt Mock Test 5 →
+          </button>
+        </div>
+      </article>
 
-    <article class="test-card">
-      <div class="card-top">
-        <div class="card-icon">📊</div>
-        <h3>General Knowledge</h3>
-        <p>Mixed general knowledge and static GK practice</p>
-      </div>
-      <div class="card-body">
-        <div class="features"><span class="feature">Mixed MCQs</span><span class="feature">Quick Practice</span></div>
-        <div class="card-bottom"><button class="attempt-btn" onclick="attemptTest('General Knowledge','general-knowledge-mock-test.html')">Attempt Mock Test →</button></div>
-      </div>
-    </article>
-  </div>
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">HISTORY TEST 06</span>
+          <h3>Modern History – Mock Test 2</h3>
+          <p>Gandhian movements, freedom struggle, revolutionary activities and independence.</p>
+          <div class="test-details">
+            <span class="detail-tag">50 MCQs</span>
+            <span class="detail-tag">Modern History</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('History Test 6','history-mock-test-6.html')">
+            Attempt Mock Test 6 →
+          </button>
+        </div>
+      </article>
+
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">HISTORY TEST 07</span>
+          <h3>History – Mixed Mock Test 1</h3>
+          <p>Mixed questions from Ancient, Medieval and Modern Indian History.</p>
+          <div class="test-details">
+            <span class="detail-tag">100 MCQs</span>
+            <span class="detail-tag">Mixed History</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('History Test 7','history-mock-test-7.html')">
+            Attempt Mock Test 7 →
+          </button>
+        </div>
+      </article>
+
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">HISTORY TEST 08</span>
+          <h3>History – Mixed Mock Test 2</h3>
+          <p>Comprehensive revision covering important historical events and personalities.</p>
+          <div class="test-details">
+            <span class="detail-tag">100 MCQs</span>
+            <span class="detail-tag">Mixed History</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('History Test 8','history-mock-test-8.html')">
+            Attempt Mock Test 8 →
+          </button>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ================= GEOGRAPHY ================= -->
+
+  <section class="subject-section" id="geography">
+
+    <h2 class="subject-heading">
+      <span class="subject-icon">🌍</span>
+      <span>
+        Geography
+        <small>Physical • Indian • World Geography</small>
+      </span>
+    </h2>
+
+    <div class="test-grid">
+
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">GEOGRAPHY TEST 01</span>
+          <h3>Physical Geography – Mock Test 1</h3>
+          <p>Earth, solar system, rocks, landforms and geomorphology.</p>
+          <div class="test-details">
+            <span class="detail-tag">50 MCQs</span>
+            <span class="detail-tag">Physical Geography</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('Geography Test 1','geography-mock-test-1.html')">Attempt Mock Test 1 →</button>
+        </div>
+      </article>
+
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">GEOGRAPHY TEST 02</span>
+          <h3>Physical Geography – Mock Test 2</h3>
+          <p>Atmosphere, winds, climate, oceans and natural processes.</p>
+          <div class="test-details">
+            <span class="detail-tag">50 MCQs</span>
+            <span class="detail-tag">Physical Geography</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('Geography Test 2','geography-mock-test-2.html')">Attempt Mock Test 2 →</button>
+        </div>
+      </article>
+
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">GEOGRAPHY TEST 03</span>
+          <h3>Indian Geography – Mock Test 1</h3>
+          <p>Physiographic divisions, drainage system, climate and soils of India.</p>
+          <div class="test-details">
+            <span class="detail-tag">50 MCQs</span>
+            <span class="detail-tag">Indian Geography</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('Geography Test 3','geography-mock-test-3.html')">Attempt Mock Test 3 →</button>
+        </div>
+      </article>
+
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">GEOGRAPHY TEST 04</span>
+          <h3>Indian Geography – Mock Test 2</h3>
+          <p>Agriculture, minerals, industries, population and transport.</p>
+          <div class="test-details">
+            <span class="detail-tag">50 MCQs</span>
+            <span class="detail-tag">Indian Geography</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('Geography Test 4','geography-mock-test-4.html')">Attempt Mock Test 4 →</button>
+        </div>
+      </article>
+
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">GEOGRAPHY TEST 05</span>
+          <h3>World Geography – Mock Test 1</h3>
+          <p>Continents, oceans, important locations and world resources.</p>
+          <div class="test-details">
+            <span class="detail-tag">50 MCQs</span>
+            <span class="detail-tag">World Geography</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('Geography Test 5','geography-mock-test-5.html')">Attempt Mock Test 5 →</button>
+        </div>
+      </article>
+
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">GEOGRAPHY TEST 06</span>
+          <h3>Geography – Mixed Mock Test</h3>
+          <p>Combined revision of physical, Indian and world geography.</p>
+          <div class="test-details">
+            <span class="detail-tag">100 MCQs</span>
+            <span class="detail-tag">Mixed Geography</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('Geography Test 6','geography-mock-test-6.html')">Attempt Mock Test 6 →</button>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ================= POLITY ================= -->
+
+  <section class="subject-section" id="polity">
+
+    <h2 class="subject-heading">
+      <span class="subject-icon">⚖️</span>
+      <span>
+        Indian Polity
+        <small>Constitution • Parliament • Governance</small>
+      </span>
+    </h2>
+
+    <div class="test-grid">
+
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">POLITY TEST 01</span>
+          <h3>Constitution – Mock Test 1</h3>
+          <p>Constituent Assembly, Preamble, features and citizenship.</p>
+          <div class="test-details"><span class="detail-tag">50 MCQs</span><span class="detail-tag">Constitution</span></div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('Polity Test 1','polity-mock-test-1.html')">Attempt Mock Test 1 →</button>
+        </div>
+      </article>
+
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">POLITY TEST 02</span>
+          <h3>Fundamental Rights – Mock Test 2</h3>
+          <p>Fundamental Rights, Directive Principles and Fundamental Duties.</p>
+          <div class="test-details"><span class="detail-tag">50 MCQs</span><span class="detail-tag">Rights & Duties</span></div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('Polity Test 2','polity-mock-test-2.html')">Attempt Mock Test 2 →</button>
+        </div>
+      </article>
+
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">POLITY TEST 03</span>
+          <h3>Union Government – Mock Test 3</h3>
+          <p>President, Prime Minister, Council of Ministers and Parliament.</p>
+          <div class="test-details"><span class="detail-tag">50 MCQs</span><span class="detail-tag">Union Government</span></div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('Polity Test 3','polity-mock-test-3.html')">Attempt Mock Test 3 →</button>
+        </div>
+      </article>
+
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">POLITY TEST 04</span>
+          <h3>Judiciary – Mock Test 4</h3>
+          <p>Supreme Court, High Courts, judicial review and writs.</p>
+          <div class="test-details"><span class="detail-tag">50 MCQs</span><span class="detail-tag">Judiciary</span></div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('Polity Test 4','polity-mock-test-4.html')">Attempt Mock Test 4 →</button>
+        </div>
+      </article>
+
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">POLITY TEST 05</span>
+          <h3>State Government – Mock Test 5</h3>
+          <p>Governor, Chief Minister, State Legislature and local government.</p>
+          <div class="test-details"><span class="detail-tag">50 MCQs</span><span class="detail-tag">State Government</span></div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('Polity Test 5','polity-mock-test-5.html')">Attempt Mock Test 5 →</button>
+        </div>
+      </article>
+
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">POLITY TEST 06</span>
+          <h3>Polity – Mixed Mock Test</h3>
+          <p>Mixed questions on constitutional bodies and Indian governance.</p>
+          <div class="test-details"><span class="detail-tag">100 MCQs</span><span class="detail-tag">Mixed Polity</span></div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('Polity Test 6','polity-mock-test-6.html')">Attempt Mock Test 6 →</button>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ================= ECONOMY ================= -->
+
+  <section class="subject-section" id="economy">
+
+    <h2 class="subject-heading">
+      <span class="subject-icon">💹</span>
+      <span>
+        Indian Economy
+        <small>Basic Concepts • Banking • Development</small>
+      </span>
+    </h2>
+
+    <div class="test-grid">
+
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">ECONOMY TEST 01</span>
+          <h3>Basic Concepts – Mock Test 1</h3>
+          <p>GDP, national income, economic sectors and basic concepts.</p>
+          <div class="test-details"><span class="detail-tag">50 MCQs</span><span class="detail-tag">Economy Basics</span></div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('Economy Test 1','economy-mock-test-1.html')">Attempt Mock Test 1 →</button>
+        </div>
+      </article>
+
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">ECONOMY TEST 02</span>
+          <h3>Banking – Mock Test 2</h3>
+          <p>RBI, commercial banks, monetary policy and financial inclusion.</p>
+          <div class="test-details"><span class="detail-tag">50 MCQs</span><span class="detail-tag">Banking</span></div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('Economy Test 2','economy-mock-test-2.html')">Attempt Mock Test 2 →</button>
+        </div>
+      </article>
+
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">ECONOMY TEST 03</span>
+          <h3>Budget and Taxation – Mock Test 3</h3>
+          <p>Union Budget, taxation, fiscal policy and public expenditure.</p>
+          <div class="test-details"><span class="detail-tag">50 MCQs</span><span class="detail-tag">Budget</span></div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('Economy Test 3','economy-mock-test-3.html')">Attempt Mock Test 3 →</button>
+        </div>
+      </article>
+
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">ECONOMY TEST 04</span>
+          <h3>Development – Mock Test 4</h3>
+          <p>Poverty, unemployment, inclusive growth and human development.</p>
+          <div class="test-details"><span class="detail-tag">50 MCQs</span><span class="detail-tag">Development</span></div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('Economy Test 4','economy-mock-test-4.html')">Attempt Mock Test 4 →</button>
+        </div>
+      </article>
+
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">ECONOMY TEST 05</span>
+          <h3>Planning – Mock Test 5</h3>
+          <p>Economic planning, NITI Aayog and major development programmes.</p>
+          <div class="test-details"><span class="detail-tag">50 MCQs</span><span class="detail-tag">Planning</span></div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('Economy Test 5','economy-mock-test-5.html')">Attempt Mock Test 5 →</button>
+        </div>
+      </article>
+
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">ECONOMY TEST 06</span>
+          <h3>Economy – Mixed Mock Test</h3>
+          <p>Mixed questions covering the major Indian economy topics.</p>
+          <div class="test-details"><span class="detail-tag">100 MCQs</span><span class="detail-tag">Mixed Economy</span></div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('Economy Test 6','economy-mock-test-6.html')">Attempt Mock Test 6 →</button>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ================= GENERAL SCIENCE ================= -->
+
+  <section class="subject-section" id="science">
+
+    <h2 class="subject-heading">
+      <span class="subject-icon">🔬</span>
+      <span>
+        General Science
+        <small>Biology • Physics • Chemistry</small>
+      </span>
+    </h2>
+
+    <div class="test-grid">
+
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">SCIENCE TEST 01</span>
+          <h3>Biology – Mock Test 1</h3>
+          <p>Cell biology, human body systems, nutrition and diseases.</p>
+          <div class="test-details"><span class="detail-tag">50 MCQs</span><span class="detail-tag">Biology</span></div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('Science Test 1','science-mock-test-1.html')">Attempt Mock Test 1 →</button>
+        </div>
+      </article>
+
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">SCIENCE TEST 02</span>
+          <h3>Physics – Mock Test 2</h3>
+          <p>Motion, force, work, energy, light, sound and electricity.</p>
+          <div class="test-details"><span class="detail-tag">50 MCQs</span><span class="detail-tag">Physics</span></div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('Science Test 2','science-mock-test-2.html')">Attempt Mock Test 2 →</button>
+        </div>
+      </article>
+
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">SCIENCE TEST 03</span>
+          <h3>Chemistry – Mock Test 3</h3>
+          <p>Atoms, molecules, chemical reactions, acids, bases and metals.</p>
+          <div class="test-details"><span class="detail-tag">50 MCQs</span><span class="detail-tag">Chemistry</span></div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('Science Test 3','science-mock-test-3.html')">Attempt Mock Test 3 →</button>
+        </div>
+      </article>
+
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">SCIENCE TEST 04</span>
+          <h3>Human Body – Mock Test 4</h3>
+          <p>Digestive, nervous, circulatory, respiratory and excretory systems.</p>
+          <div class="test-details"><span class="detail-tag">50 MCQs</span><span class="detail-tag">Human Biology</span></div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('Science Test 4','science-mock-test-4.html')">Attempt Mock Test 4 →</button>
+        </div>
+      </article>
+
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">SCIENCE TEST 05</span>
+          <h3>Everyday Science – Mock Test 5</h3>
+          <p>Scientific principles and their applications in everyday life.</p>
+          <div class="test-details"><span class="detail-tag">50 MCQs</span><span class="detail-tag">Applied Science</span></div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('Science Test 5','science-mock-test-5.html')">Attempt Mock Test 5 →</button>
+        </div>
+      </article>
+
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">SCIENCE TEST 06</span>
+          <h3>Science – Mixed Mock Test</h3>
+          <p>Combined practice of Biology, Physics and Chemistry.</p>
+          <div class="test-details"><span class="detail-tag">100 MCQs</span><span class="detail-tag">Mixed Science</span></div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('Science Test 6','science-mock-test-6.html')">Attempt Mock Test 6 →</button>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ================= BIHAR SPECIAL ================= -->
+
+  <section class="subject-section" id="bihar">
+
+    <h2 class="subject-heading">
+      <span class="subject-icon">🦅</span>
+      <span>
+        Bihar Special
+        <small>Bihar History • Geography • Economy • Culture</small>
+      </span>
+    </h2>
+
+    <div class="test-grid">
+
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">BIHAR TEST 01</span>
+          <h3>Bihar History – Mock Test 1</h3>
+          <p>Ancient Bihar, Magadha, important rulers and historical sites.</p>
+          <div class="test-details"><span class="detail-tag">50 MCQs</span><span class="detail-tag">History</span></div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('Bihar Test 1','bihar-mock-test-1.html')">Attempt Mock Test 1 →</button>
+        </div>
+      </article>
+
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">BIHAR TEST 02</span>
+          <h3>Bihar Geography – Mock Test 2</h3>
+          <p>Rivers, climate, soil, agriculture and physical divisions of Bihar.</p>
+          <div class="test-details"><span class="detail-tag">50 MCQs</span><span class="detail-tag">Geography</span></div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('Bihar Test 2','bihar-mock-test-2.html')">Attempt Mock Test 2 →</button>
+        </div>
+      </article>
+
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">BIHAR TEST 03</span>
+          <h3>Bihar Economy – Mock Test 3</h3>
+          <p>Agriculture, industries, development indicators and state economy.</p>
+          <div class="test-details"><span class="detail-tag">50 MCQs</span><span class="detail-tag">Economy</span></div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('Bihar Test 3','bihar-mock-test-3.html')">Attempt Mock Test 3 →</button>
+        </div>
+      </article>
+
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">BIHAR TEST 04</span>
+          <h3>Bihar Culture – Mock Test 4</h3>
+          <p>Art, festivals, folk traditions, literature and heritage.</p>
+          <div class="test-details"><span class="detail-tag">50 MCQs</span><span class="detail-tag">Culture</span></div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('Bihar Test 4','bihar-mock-test-4.html')">Attempt Mock Test 4 →</button>
+        </div>
+      </article>
+
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">BIHAR TEST 05</span>
+          <h3>Bihar Polity – Mock Test 5</h3>
+          <p>State administration, local government and important state schemes.</p>
+          <div class="test-details"><span class="detail-tag">50 MCQs</span><span class="detail-tag">Administration</span></div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('Bihar Test 5','bihar-mock-test-5.html')">Attempt Mock Test 5 →</button>
+        </div>
+      </article>
+
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">BIHAR TEST 06</span>
+          <h3>Bihar Special – Mixed Mock Test</h3>
+          <p>Combined revision of Bihar history, geography, economy and culture.</p>
+          <div class="test-details"><span class="detail-tag">100 MCQs</span><span class="detail-tag">Mixed Bihar GK</span></div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('Bihar Test 6','bihar-mock-test-6.html')">Attempt Mock Test 6 →</button>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ================= ENVIRONMENT ================= -->
+
+  <section class="subject-section" id="environment">
+
+    <h2 class="subject-heading">
+      <span class="subject-icon">🌱</span>
+      <span>
+        Environment
+        <small>Ecology • Biodiversity • Climate Change</small>
+      </span>
+    </h2>
+
+    <div class="test-grid">
+
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">ENVIRONMENT TEST 01</span>
+          <h3>Ecology – Mock Test 1</h3>
+          <p>Ecosystems, food chains, food webs and ecological pyramids.</p>
+          <div class="test-details"><span class="detail-tag">50 MCQs</span><span class="detail-tag">Ecology</span></div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('Environment Test 1','environment-mock-test-1.html')">Attempt Mock Test 1 →</button>
+        </div>
+      </article>
+
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">ENVIRONMENT TEST 02</span>
+          <h3>Biodiversity – Mock Test 2</h3>
+          <p>Conservation, protected areas, national parks and wildlife.</p>
+          <div class="test-details"><span class="detail-tag">50 MCQs</span><span class="detail-tag">Biodiversity</span></div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('Environment Test 2','environment-mock-test-2.html')">Attempt Mock Test 2 →</button>
+        </div>
+      </article>
+
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">ENVIRONMENT TEST 03</span>
+          <h3>Climate Change – Mock Test 3</h3>
+          <p>Global warming, greenhouse gases and climate agreements.</p>
+          <div class="test-details"><span class="detail-tag">50 MCQs</span><span class="detail-tag">Climate</span></div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('Environment Test 3','environment-mock-test-3.html')">Attempt Mock Test 3 →</button>
+        </div>
+      </article>
+
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">ENVIRONMENT TEST 04</span>
+          <h3>Pollution – Mock Test 4</h3>
+          <p>Air, water, soil, noise pollution and waste management.</p>
+          <div class="test-details"><span class="detail-tag">50 MCQs</span><span class="detail-tag">Pollution</span></div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('Environment Test 4','environment-mock-test-4.html')">Attempt Mock Test 4 →</button>
+        </div>
+      </article>
+
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">ENVIRONMENT TEST 05</span>
+          <h3>Conventions – Mock Test 5</h3>
+          <p>Important environmental conventions, protocols and institutions.</p>
+          <div class="test-details"><span class="detail-tag">50 MCQs</span><span class="detail-tag">Conventions</span></div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('Environment Test 5','environment-mock-test-5.html')">Attempt Mock Test 5 →</button>
+        </div>
+      </article>
+
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">ENVIRONMENT TEST 06</span>
+          <h3>Environment – Mixed Mock Test</h3>
+          <p>Combined practice covering major environmental topics.</p>
+          <div class="test-details"><span class="detail-tag">100 MCQs</span><span class="detail-tag">Mixed Environment</span></div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('Environment Test 6','environment-mock-test-6.html')">Attempt Mock Test 6 →</button>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ================= CURRENT AFFAIRS ================= -->
+
+  <section class="subject-section" id="current-affairs">
+
+    <h2 class="subject-heading">
+      <span class="subject-icon">📰</span>
+      <span>
+        Current Affairs
+        <small>National • International • Bihar</small>
+      </span>
+    </h2>
+
+    <div class="test-grid">
+
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">CURRENT AFFAIRS TEST 01</span>
+          <h3>National Affairs – Mock Test 1</h3>
+          <p>Important national events, policies, appointments and awards.</p>
+          <div class="test-details"><span class="detail-tag">50 MCQs</span><span class="detail-tag">National</span></div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('Current Affairs Test 1','current-affairs-mock-test-1.html')">Attempt Mock Test 1 →</button>
+        </div>
+      </article>
+
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">CURRENT AFFAIRS TEST 02</span>
+          <h3>International Affairs – Mock Test 2</h3>
+          <p>International organisations, summits and major global developments.</p>
+          <div class="test-details"><span class="detail-tag">50 MCQs</span><span class="detail-tag">International</span></div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('Current Affairs Test 2','current-affairs-mock-test-2.html')">Attempt Mock Test 2 →</button>
+        </div>
+      </article>
+
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">CURRENT AFFAIRS TEST 03</span>
+          <h3>Bihar Current Affairs – Mock Test 3</h3>
+          <p>Important recent events, schemes and developments in Bihar.</p>
+          <div class="test-details"><span class="detail-tag">50 MCQs</span><span class="detail-tag">Bihar</span></div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('Current Affairs Test 3','current-affairs-mock-test-3.html')">Attempt Mock Test 3 →</button>
+        </div>
+      </article>
+
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">CURRENT AFFAIRS TEST 04</span>
+          <h3>Science and Technology – Mock Test 4</h3>
+          <p>Space, technology, science developments and important missions.</p>
+          <div class="test-details"><span class="detail-tag">50 MCQs</span><span class="detail-tag">Science & Tech</span></div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('Current Affairs Test 4','current-affairs-mock-test-4.html')">Attempt Mock Test 4 →</button>
+        </div>
+      </article>
+
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">CURRENT AFFAIRS TEST 05</span>
+          <h3>Reports and Awards – Mock Test 5</h3>
+          <p>Important reports, indices, awards and recognitions.</p>
+          <div class="test-details"><span class="detail-tag">50 MCQs</span><span class="detail-tag">Reports & Awards</span></div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('Current Affairs Test 5','current-affairs-mock-test-5.html')">Attempt Mock Test 5 →</button>
+        </div>
+      </article>
+
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">CURRENT AFFAIRS TEST 06</span>
+          <h3>Current Affairs – Mixed Mock Test</h3>
+          <p>Combined current affairs practice for BPSC preparation.</p>
+          <div class="test-details"><span class="detail-tag">100 MCQs</span><span class="detail-tag">Mixed Topics</span></div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('Current Affairs Test 6','current-affairs-mock-test-6.html')">Attempt Mock Test 6 →</button>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ================= GENERAL KNOWLEDGE ================= -->
+
+  <section class="subject-section" id="general-knowledge">
+
+    <h2 class="subject-heading">
+      <span class="subject-icon">📊</span>
+      <span>
+        General Knowledge
+        <small>Static GK • Mixed Questions</small>
+      </span>
+    </h2>
+
+    <div class="test-grid">
+
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">GK TEST 01</span>
+          <h3>Static GK – Mock Test 1</h3>
+          <p>Important facts, places, institutions and general knowledge.</p>
+          <div class="test-details"><span class="detail-tag">50 MCQs</span><span class="detail-tag">Static GK</span></div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('GK Test 1','general-knowledge-mock-test-1.html')">Attempt Mock Test 1 →</button>
+        </div>
+      </article>
+
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">GK TEST 02</span>
+          <h3>General Knowledge – Mock Test 2</h3>
+          <p>Mixed general knowledge questions for competitive examinations.</p>
+          <div class="test-details"><span class="detail-tag">50 MCQs</span><span class="detail-tag">Mixed GK</span></div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('GK Test 2','general-knowledge-mock-test-2.html')">Attempt Mock Test 2 →</button>
+        </div>
+      </article>
+
+      <article class="test-card">
+        <div class="card-content">
+          <span class="test-number">GK TEST 03</span>
+          <h3>General Knowledge – Mock Test 3</h3>
+          <p>Revision set with a mixture of important static GK topics.</p>
+          <div class="test-details"><span class="detail-tag">100 MCQs</span><span class="detail-tag">Revision</span></div>
+        </div>
+        <div class="card-footer">
+          <button class="attempt-button" onclick="attemptTest('GK Test 3','general-knowledge-mock-test-3.html')">Attempt Mock Test 3 →</button>
+        </div>
+      </article>
+
+    </div>
+  </section>
 
   <div class="note">
-    <strong>Note:</strong> This page is the subject-wise test menu. Each button is connected to a separate HTML filename.
-    Create and upload the corresponding test files in the same folder to make the buttons open actual questions.
+    <strong>Important:</strong> यह पेज अलग-अलग विषयों के अनेक Mock Test के बॉक्स दिखाता है।
+    प्रत्येक बटन अपने नाम वाली अलग HTML फाइल खोलता है। वास्तविक प्रश्न, टाइमर और रिजल्ट चलाने के लिए
+    संबंधित टेस्ट फाइलें भी बनाकर इसी फोल्डर में अपलोड करें।
   </div>
+
 </main>
 
-<footer>BPSC Study Portal • Subject-wise Practice</footer>
+<footer>
+  BPSC Study Portal • Subject-wise Mock Test Collection
+</footer>
 
 <script>
-function attemptTest(subject, file){
-  // Open the selected subject's test page.
-  // Replace the filename below if your project uses a different file structure.
-  window.location.href = file;
+function attemptTest(testName, fileName) {
+  // Open the selected test file.
+  // Ensure that the matching HTML file exists in this folder.
+  window.location.href = fileName;
 }
 </script>
+
 </body>
 </html>
