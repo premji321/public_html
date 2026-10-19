@@ -5,129 +5,254 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>BPSC Study Portal</title>
 <style>
-:root{--navy:#10264b;--blue:#2459c4;--pale:#edf4ff;--line:#e1e8f2;--ink:#202c40;--muted:#69788e}
-*{box-sizing:border-box}body{margin:0;background:#f3f6fb;color:var(--ink);font-family:Segoe UI,Arial,sans-serif}
-header{padding:24px clamp(16px,4vw,44px);color:#fff;background:linear-gradient(120deg,#0b1d3a,#1c4c91,#2563eb)}
-header h1{margin:0;font-size:clamp(24px,3vw,34px)}header p{margin:7px 0 0;color:#dbeafe}
-.navwrap{position:sticky;top:0;z-index:5;background:white;padding:11px;box-shadow:0 4px 18px #10264b12}
-.topnav{display:flex;gap:8px;overflow-x:auto;max-width:1500px;margin:auto}
-.top-tab{white-space:nowrap;border:1px solid var(--line);border-radius:9px;background:#f8fafc;padding:11px 14px;font-weight:700;color:#34435a;cursor:pointer}
-.top-tab.active,.top-tab:hover{background:var(--navy);color:white}
-.shell{max-width:1500px;margin:22px auto;padding:0 18px}.dashboard{display:grid;grid-template-columns:285px minmax(0,1fr);gap:18px}
-.sidebar,.main{background:white;border:1px solid var(--line);border-radius:15px;overflow:hidden;box-shadow:0 6px 24px #10264b0a}
-.sidehead{padding:17px;background:linear-gradient(120deg,#f8fbff,#eaf2ff);border-bottom:1px solid var(--line)}.sidehead h2{margin:0;font-size:18px;color:var(--navy)}.sidehead p{margin:6px 0 0;color:var(--muted);font-size:12px}
-.tree{padding:12px;max-height:calc(100vh - 200px);overflow:auto}.label{padding:9px;font-size:11px;font-weight:800;letter-spacing:1px;color:#8491a5;text-transform:uppercase}
-.subject,.division,.chapter{display:flex;gap:8px;align-items:center;width:100%;text-align:left;border:0;border-radius:8px;cursor:pointer;font-size:13px;line-height:1.4}
-.subject{padding:11px 9px;margin:3px 0;background:white;color:#27364d;font-weight:750}.subject:hover,.subject.active{background:var(--pale);color:#1746a2}
-.subject .arrow{margin-left:auto}.subtree{margin:2px 0 8px 10px;padding-left:10px;border-left:2px solid #e1eaf8}
-.division{padding:9px;margin:3px 0;background:#f8fafc;color:#40516a;font-weight:650}.division:hover,.division.active{background:#eaf2ff;color:#1d4ed8}
-.chapterlist{margin:3px 0 8px 10px;padding-left:10px;border-left:2px solid #dbeafe}
-.chapter{padding:8px;margin:2px 0;background:white;color:#58667a;font-size:12px}.chapter:hover,.chapter.active{background:#fff4dc;color:#744900;font-weight:700}
-.num{min-width:20px;color:#8491a5;font-size:10px}
-.panelhead{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:17px 21px;border-bottom:1px solid var(--line);font-size:12px;color:var(--muted)}.panelhead strong{color:var(--navy)}
-.pill{background:#e8f8f1;color:#087f5b;padding:7px 10px;border-radius:99px;font-weight:800;white-space:nowrap}
-.area{padding:clamp(16px,3vw,30px)}.welcome h2,.placeholder h2{margin:0 0 10px;color:var(--navy);font-size:clamp(24px,3vw,32px)}.lead{max-width:800px;color:var(--muted);line-height:1.7}
-.hero{padding:24px;border-radius:14px;background:linear-gradient(120deg,#10264b,#2459c4);color:white;margin:20px 0}.hero h3{margin:0 0 8px;font-size:22px}.hero p{margin:0;color:#dbeafe;line-height:1.6}
-.stats,.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0}.stat,.card{border:1px solid var(--line);border-radius:12px;padding:16px;background:white}.stat strong{display:block;color:var(--blue);font-size:24px}.stat span,.card p{color:var(--muted);font-size:13px}.card h3{margin:0 0 7px}
+:root{
+  --navy:#10264b;--blue:#2459c4;--blue2:#3478f6;--pale:#edf4ff;
+  --line:#e1e8f2;--ink:#202c40;--muted:#69788e;--gold:#f5bd4f;
+}
+*{box-sizing:border-box}
+body{margin:0;background:#f3f6fb;color:var(--ink);font-family:Segoe UI,Arial,sans-serif}
+header{padding:23px clamp(16px,3vw,36px);color:#fff;background:linear-gradient(120deg,#0b1d3a,#1c4c91,#2563eb)}
+.brand{display:flex;align-items:center;gap:13px}
+.logo{width:49px;height:49px;display:grid;place-items:center;border-radius:14px;background:#ffffff20;border:1px solid #ffffff38;font-size:25px}
+header h1{margin:0;font-size:clamp(23px,3vw,32px)}header p{margin:6px 0 0;color:#dbeafe;font-size:13px}
+.shell{max-width:1550px;margin:22px auto;padding:0 18px}
+.dashboard{display:grid;grid-template-columns:290px minmax(0,1fr);gap:18px;align-items:start}
+.sidebar,.main{background:#fff;border:1px solid var(--line);border-radius:15px;overflow:hidden;box-shadow:0 6px 24px #10264b0b}
+.sidehead{padding:17px;background:linear-gradient(120deg,#f8fbff,#eaf2ff);border-bottom:1px solid var(--line)}
+.sidehead h2{margin:0;font-size:18px;color:var(--navy)}.sidehead p{margin:6px 0 0;color:var(--muted);font-size:12px}
+.sidebar-scroll{padding:12px;max-height:calc(100vh - 150px);overflow:auto}
+.nav-label{padding:10px 9px 5px;font-size:10px;font-weight:800;letter-spacing:1.1px;color:#8793a6;text-transform:uppercase}
+.nav-item{width:100%;display:flex;align-items:center;gap:10px;text-align:left;padding:11px 10px;margin:3px 0;border:1px solid transparent;border-radius:9px;background:white;color:#2c3b52;font-size:13px;font-weight:700;cursor:pointer;transition:background .18s,border-color .18s,transform .18s}
+.nav-item .nav-icon{width:23px;text-align:center;font-size:16px}
+.nav-item .chevron{margin-left:auto;color:#8a97aa}
+.nav-item:hover{background:#f0f5ff;border-color:#d7e5ff;color:#1746a2}
+.nav-item.active{background:#eaf2ff;border-color:#c9dcff;color:#1746a2}
+.nav-item.mock-btn{
+  margin-top:13px;position:relative;isolation:isolate;overflow:hidden;
+  color:#fff;border:0;background:linear-gradient(110deg,#7c3aed,#2563eb,#0ea5e9);
+  box-shadow:0 5px 0 #183d92,0 9px 18px #2563eb35;
+  animation:mockPulse 2.5s ease-in-out infinite;
+}
+.nav-item.mock-btn:before{content:"";position:absolute;top:-60%;left:-75%;width:45%;height:220%;background:#ffffff42;transform:rotate(22deg);animation:shine 3.4s ease-in-out infinite;z-index:-1}
+.nav-item.mock-btn:hover{transform:translateY(-2px);box-shadow:0 7px 0 #183d92,0 13px 22px #2563eb48;color:#fff}
+.nav-item.mock-btn .nav-icon{font-size:19px}
+.mock-tag{margin-left:auto;font-size:9px;letter-spacing:.5px;background:#ffffff30;border:1px solid #ffffff50;border-radius:99px;padding:4px 6px}
+@keyframes shine{0%,45%{left:-75%}75%,100%{left:140%}}
+@keyframes mockPulse{0%,100%{box-shadow:0 5px 0 #183d92,0 8px 16px #2563eb25}50%{box-shadow:0 5px 0 #183d92,0 8px 22px #7c3aed65}}
+.subject-tree{display:none;margin:3px 0 8px 11px;padding-left:10px;border-left:2px solid #dce8fb}
+.subject-tree.open{display:block}
+.subject-btn,.division-btn,.chapter-btn{width:100%;display:flex;align-items:center;gap:8px;text-align:left;border:0;border-radius:8px;cursor:pointer;line-height:1.4}
+.subject-btn{padding:10px;margin:3px 0;background:#f8fafc;color:#34445d;font-size:12px;font-weight:750}
+.subject-btn:hover,.subject-btn.active{background:#eaf2ff;color:#1746a2}
+.subject-btn .arrow{margin-left:auto;transition:transform .15s}
+.subject-btn.open .arrow{transform:rotate(90deg)}
+.division-list{display:none;margin:2px 0 6px 9px;padding-left:9px;border-left:2px solid #e6edf8}
+.division-btn{padding:8px;margin:2px 0;background:#fff;color:#506078;font-size:12px;font-weight:650}
+.division-btn:hover,.division-btn.active{background:#f0f5ff;color:#1d4ed8}
+.chapter-list{display:none;margin:2px 0 7px 9px;padding-left:9px;border-left:2px solid #dbeafe}
+.chapter-btn{padding:7px 6px;margin:2px 0;background:#fff;color:#647188;font-size:11px}
+.chapter-btn:hover,.chapter-btn.active{background:#fff4dc;color:#754a00;font-weight:750}
+.chapter-num{min-width:18px;color:#8995a8;font-size:10px}
+.panelhead{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:17px 21px;border-bottom:1px solid var(--line);font-size:12px;color:var(--muted)}
+.panelhead strong{color:var(--navy)}
+.pill{background:#e8f8f1;color:#087f5b;padding:7px 10px;border-radius:99px;font-weight:800;white-space:nowrap;font-size:10px}
+.content-area{padding:clamp(16px,3vw,30px)}
+.welcome h2,.placeholder h2{margin:0 0 10px;color:var(--navy);font-size:clamp(24px,3vw,32px)}
+.lead{max-width:850px;color:var(--muted);line-height:1.7}
+.hero{padding:25px;border-radius:14px;background:linear-gradient(120deg,#10264b,#2459c4);color:#fff;margin:20px 0}
+.hero h3{margin:0 0 8px;font-size:22px}.hero p{margin:0;color:#dbeafe;line-height:1.65}
+.stats,.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0}
+.stat,.card{border:1px solid var(--line);border-radius:12px;padding:16px;background:#fff}
+.stat strong{display:block;color:var(--blue);font-size:24px}.stat span,.card p{color:var(--muted);font-size:13px}
+.card h3{margin:0 0 7px;color:#243957}
 .note{margin-top:18px;background:#fff8e8;border:1px solid #f4dfaa;color:#71531c;padding:13px 15px;border-radius:10px;line-height:1.6;font-size:13px}
-#contentFrame{width:100%;height:calc(100vh - 250px);min-height:620px;border:1px solid var(--line);border-radius:10px;background:#fff;display:block}.mobilebtn{display:none;background:var(--navy);color:#fff;border:0;border-radius:8px;padding:10px 13px;margin-bottom:12px}
+#contentFrame{width:100%;height:calc(100vh - 230px);min-height:620px;border:1px solid var(--line);border-radius:10px;background:#fff;display:block}
+.mobile-nav-btn{display:none;background:var(--navy);color:#fff;border:0;border-radius:8px;padding:10px 13px;margin-bottom:12px;font-weight:700}
 footer{text-align:center;color:#8a96a7;padding:0 15px 25px;font-size:12px}
-@media(max-width:900px){.dashboard{grid-template-columns:1fr}.sidebar{display:none}.sidebar.mobile-open{display:block}.mobilebtn{display:inline-block}.tree{max-height:420px}#contentFrame{height:75vh;min-height:520px}}
-@media(max-width:560px){.shell{padding:0 10px;margin:12px auto}.stats,.cards{grid-template-columns:1fr}.panelhead{align-items:flex-start;flex-direction:column}.area{padding:15px}}
+@media(max-width:900px){
+ .dashboard{grid-template-columns:1fr}.sidebar{display:none}.sidebar.mobile-open{display:block}
+ .mobile-nav-btn{display:inline-block}.sidebar-scroll{max-height:430px}
+ #contentFrame{height:75vh;min-height:520px}
+}
+@media(max-width:560px){
+ .shell{padding:0 10px;margin:12px auto}.stats,.cards{grid-template-columns:1fr}
+ .panelhead{align-items:flex-start;flex-direction:column}.content-area{padding:15px}
+}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
 </style>
 </head>
 <body>
-<header><h1>📘 BPSC Study Portal</h1><p>Syllabus • Exam Pattern • PYQ • Subject Notes • Current Affairs • Mock Test</p></header>
-<div class="navwrap"><nav class="topnav" id="topnav">
-<button class="top-tab active" data-page="Home" onclick="openPage('Home',this)">⌂ Home</button>
-<button class="top-tab" data-page="Syllabus" onclick="openPage('Syllabus',this)">Syllabus</button>
-<button class="top-tab" data-page="Exam Pattern" onclick="openPage('Exam Pattern',this)">Exam Pattern</button>
-<button class="top-tab" data-page="Cutoff Trend" onclick="openPage('Cutoff Trend',this)">Cutoff Trend</button>
-<button class="top-tab" data-page="Prelim PYQ" onclick="openPage('Prelim PYQ',this)">Prelim PYQ</button>
-<button class="top-tab" data-page="Mains PYQ" onclick="openPage('Mains PYQ',this)">Mains PYQ</button>
-<button class="top-tab" data-page="Latest Vacancy" onclick="openPage('Latest Vacancy',this)">Latest Vacancy</button>
-<button class="top-tab" data-page="Subject Notes" onclick="openPage('Subject Notes',this)">Subject Notes</button>
-<button class="top-tab" data-page="Current Affairs" onclick="openPage('Current Affairs',this)">Current Affairs</button>
-<button class="top-tab" data-page="Mock Test" onclick="openPage('Mock Test',this)">Mock Test</button>
-</nav></div>
+<header>
+ <div class="brand">
+  <div class="logo">📘</div>
+  <div><h1>BPSC Study Portal</h1><p>Syllabus • Exam Resources • Subject Notes • Practice</p></div>
+ </div>
+</header>
+
 <div class="shell">
-<button class="mobilebtn" onclick="document.getElementById('sidebar').classList.toggle('mobile-open')">☰ Show Subject Navigation</button>
-<div class="dashboard">
-<aside class="sidebar" id="sidebar"><div class="sidehead"><h2>📚 Subject Notes Explorer</h2><p>Subject → Division → Chapter</p></div><div class="tree" id="tree"><div class="label">Subjects</div></div></aside>
-<main class="main">
-<div class="panelhead"><div id="breadcrumb">BPSC Portal / <strong>Home</strong></div><div class="pill">● Separate HTML file loader</div></div>
-<div class="area">
-<section id="welcome" class="welcome"><h2>Welcome to BPSC Study Portal</h2><p class="lead">A beautiful, organised dashboard for BPSC exam resources. Choose a top section or open a subject, division and chapter from the left navigation. Chapter content is loaded from a separate HTML file stored in your GitHub website folder.</p>
-<div class="hero"><h3>Prepare smart. Revise systematically.</h3><p>Keep each chapter in its own HTML file. The navigation stays on this page while the selected file is displayed in the content panel.</p></div>
-<div class="stats"><div class="stat"><strong>10</strong><span>Main portal sections</span></div><div class="stat"><strong>7</strong><span>Subject categories</span></div><div class="stat"><strong>3</strong><span>History divisions</span></div></div>
-<div class="cards"><div class="card"><h3>📋 Exam Resources</h3><p>Syllabus, exam pattern, cutoff trend and vacancy information.</p></div><div class="card"><h3>📖 Chapter Notes</h3><p>Subject → division → chapter. Each chapter loads from its own HTML file.</p></div><div class="card"><h3>✍️ Practice</h3><p>Prelim PYQ, Mains PYQ and mock tests.</p></div></div>
-<div class="note"><b>Important:</b> The HTML file must exist in the same folder as this portal, and the filename must match exactly. GitHub Pages/Netlify will then serve it in the right content panel.</div></section>
-<section id="placeholder" class="placeholder" style="display:none"><h2 id="placeholderTitle"></h2><p class="lead" id="placeholderLead"></p><div class="note" id="placeholderNote"></div></section>
-<section id="frameSection" style="display:none"><iframe id="contentFrame" title="BPSC content"></iframe><p style="font-size:12px;color:#69788e">Content is loaded from a separate HTML file. The left navigation remains part of this portal.</p></section>
-</div></main></div></div><footer>BPSC Study Portal • Customisable GitHub HTML website</footer>
+ <button class="mobile-nav-btn" onclick="toggleSidebar()">☰ Open Navigation</button>
+ <div class="dashboard">
+  <aside class="sidebar" id="sidebar">
+   <div class="sidehead"><h2>🧭 BPSC Navigation</h2><p>Choose a section or explore chapter notes</p></div>
+   <div class="sidebar-scroll">
+    <div class="nav-label">Main Menu</div>
+    <button class="nav-item active" data-page="Home" onclick="openPage('Home',this)"><span class="nav-icon">⌂</span>Home</button>
+    <button class="nav-item" data-page="Syllabus" onclick="openPage('Syllabus',this)"><span class="nav-icon">▤</span>Syllabus</button>
+    <button class="nav-item" data-page="Exam Pattern" onclick="openPage('Exam Pattern',this)"><span class="nav-icon">☷</span>Exam Pattern</button>
+    <button class="nav-item" data-page="Cutoff Trend" onclick="openPage('Cutoff Trend',this)"><span class="nav-icon">↗</span>Cutoff Trend</button>
+    <button class="nav-item" data-page="Prelim PYQ" onclick="openPage('Prelim PYQ',this)"><span class="nav-icon">✎</span>Prelim PYQ</button>
+    <button class="nav-item" data-page="Mains PYQ" onclick="openPage('Mains PYQ',this)"><span class="nav-icon">✎</span>Mains PYQ</button>
+    <button class="nav-item" data-page="Latest Vacancy" onclick="openPage('Latest Vacancy',this)"><span class="nav-icon">▣</span>Latest Vacancy</button>
+    <button class="nav-item" data-page="Current Affairs" onclick="openPage('Current Affairs',this)"><span class="nav-icon">◷</span>Current Affairs</button>
+
+    <div class="nav-label">Study Material</div>
+    <button class="nav-item" id="subjectNotesButton" onclick="toggleSubjectTree(this)"><span class="nav-icon">📚</span>Subject Notes<span class="chevron">⌄</span></button>
+    <div id="subjectTree" class="subject-tree"></div>
+
+    <button class="nav-item mock-btn" data-page="Mock Test" onclick="openPage('Mock Test',this)">
+      <span class="nav-icon">🎯</span><span>Attempt Mock Test</span><span class="mock-tag">PRACTICE</span>
+    </button>
+   </div>
+  </aside>
+
+  <main class="main">
+   <div class="panelhead"><div id="breadcrumb">BPSC Portal / <strong>Home</strong></div><div class="pill">● Separate HTML content loader</div></div>
+   <div class="content-area">
+    <section id="welcome" class="welcome">
+     <h2>Welcome to BPSC Study Portal</h2>
+     <p class="lead">A single place to organise your BPSC preparation. Use the vertical navigation on the left to open exam resources, or expand Subject Notes to browse subject → division → chapter.</p>
+     <div class="hero"><h3>Prepare smart. Revise systematically.</h3><p>Each section and chapter can be stored in its own HTML file on GitHub. When clicked, its file opens in this content area while the left navigation stays in place.</p></div>
+     <div class="stats">
+      <div class="stat"><strong>9</strong><span>Exam and study sections</span></div>
+      <div class="stat"><strong>7</strong><span>Subject categories</span></div>
+      <div class="stat"><strong>3</strong><span>History divisions</span></div>
+     </div>
+     <div class="cards">
+      <div class="card"><h3>📋 Exam Resources</h3><p>Syllabus, exam pattern, cutoff trend, PYQs and latest vacancy.</p></div>
+      <div class="card"><h3>📖 Subject Notes</h3><p>Expand a subject, select its division, and click the chapter you want to study.</p></div>
+      <div class="card"><h3>🎯 Mock Test</h3><p>Use the highlighted practice button to open the mock-test section.</p></div>
+     </div>
+     <div class="note"><strong>Important:</strong> Each linked HTML file must be uploaded to the same folder as this portal, with exactly the filename configured in the code.</div>
+    </section>
+    <section id="placeholder" style="display:none"><h2 id="placeholderTitle"></h2><p class="lead" id="placeholderLead"></p><div class="note" id="placeholderNote"></div></section>
+    <section id="frameSection" style="display:none"><iframe id="contentFrame" title="BPSC content" src="about:blank"></iframe><p style="font-size:12px;color:#69788e">The selected file is displayed here. The left navigation remains on this page.</p></section>
+   </div>
+  </main>
+ </div>
+</div>
+<footer>BPSC Study Portal • Vertical navigation layout</footer>
+
 <script>
 const sectionFiles={
-"Syllabus":"syllabus.html","Exam Pattern":"exam-pattern.html","Cutoff Trend":"cutoff-trend.html",
-"Prelim PYQ":"prelim-pyq.html","Mains PYQ":"mains-pyq.html","Latest Vacancy":"latest-vacancy.html",
-"Current Affairs":"current-affairs.html","Mock Test":"mock-test.html"
+ "Syllabus":"syllabus.html",
+ "Exam Pattern":"exam-pattern.html",
+ "Cutoff Trend":"cutoff-trend.html",
+ "Prelim PYQ":"prelim-pyq.html",
+ "Mains PYQ":"mains-pyq.html",
+ "Latest Vacancy":"latest-vacancy.html",
+ "Current Affairs":"current-affairs.html",
+ "Mock Test":"mock-test.html"
 };
+
 const subjects=[
-{name:"History",icon:"🏛️",divisions:[
-{name:"Ancient History",chapters:[["Indus Valley Civilization","indus-valley-civilization.html"],["Vedic Period","vedic-period.html"],["Mahajanapadas and Buddhism","mahajanapadas-buddhism.html"],["Mauryan Empire","mauryan-empire.html"],["Gupta Empire","gupta-empire.html"]]},
-{name:"Medieval History",chapters:[["Delhi Sultanate","delhi-sultanate.html"],["Mughal Empire","mughal-empire.html"],["Bhakti and Sufi Movements","bhakti-sufi-movements.html"],["Vijayanagara Empire","vijayanagara-empire.html"]]},
-{name:"Modern History",chapters:[["Revolt of 1857","revolt-of-1857.html"],["Governor-Generals and Viceroys","governor-generals-viceroys.html"],["Socio-Religious Reform Movements","socio-religious-reform-movements.html"],["Indian National Congress","indian-national-congress.html"],["National Movement and Gandhian Era","national-movement-gandhian-era.html"]]}]},
-{name:"Geography",icon:"🌍",divisions:[
-{name:"Physical Geography",chapters:[["Earth and Solar System","earth-solar-system.html"],["Geomorphology","geomorphology.html"],["Climatology","climatology.html"],["Oceanography","oceanography.html"]]},
-{name:"Indian Geography",chapters:[["Physiographic Divisions of India","physiographic-divisions-india.html"],["Drainage System","drainage-system.html"],["Climate of India","climate-of-india.html"],["Soils and Natural Vegetation","soils-natural-vegetation.html"],["Agriculture and Minerals","agriculture-minerals-india.html"]]},
-{name:"World Geography",chapters:[["Continents and Oceans","continents-oceans.html"],["Resources and Industries","resources-industries.html"]]}]},
-{name:"Polity",icon:"⚖️",divisions:[
-{name:"Constitutional Foundations",chapters:[["Making of the Constitution","making-of-constitution.html"],["Preamble and Salient Features","preamble-salient-features.html"],["Fundamental Rights","fundamental-rights.html"],["Directive Principles and Duties","dpsp-fundamental-duties.html"]]},
-{name:"Union Government",chapters:[["President and Vice-President","president-vice-president.html"],["Prime Minister and Council of Ministers","prime-minister-council-ministers.html"],["Parliament","parliament.html"],["Supreme Court","supreme-court.html"]]},
-{name:"State and Local Government",chapters:[["Governor and Chief Minister","governor-chief-minister.html"],["State Legislature","state-legislature.html"],["Panchayati Raj","panchayati-raj.html"],["Constitutional Bodies","constitutional-bodies.html"]]}]},
-{name:"Economy",icon:"💹",divisions:[
-{name:"Basic Concepts",chapters:[["Basic Concepts of Economy","basic-concepts-economy.html"],["National Income","national-income.html"],["Inflation and Unemployment","inflation-unemployment.html"]]},
-{name:"Indian Economy",chapters:[["Planning and NITI Aayog","planning-niti-aayog.html"],["Banking and Monetary Policy","banking-monetary-policy.html"],["Budget and Taxation","budget-taxation.html"],["Poverty and Inclusive Growth","poverty-inclusive-growth.html"]]}]},
-{name:"Science",icon:"🔬",divisions:[
-{name:"Biology",chapters:[["Cell","cell.html"],["Human Digestive System","digestive-system.html"],["Human Nervous System","nervous-system.html"],["Circulatory System","circulatory-system.html"],["Diseases and Immunity","diseases-immunity.html"]]},
-{name:"Physics",chapters:[["Motion and Force","motion-force.html"],["Work, Energy and Power","work-energy-power.html"],["Light","light.html"],["Electricity","electricity.html"]]},
-{name:"Chemistry",chapters:[["Atoms and Molecules","atoms-molecules.html"],["Acids, Bases and Salts","acids-bases-salts.html"],["Metals and Non-metals","metals-nonmetals.html"]]}]},
-{name:"Bihar Special",icon:"🦅",divisions:[
-{name:"Bihar History and Culture",chapters:[["Ancient Bihar","ancient-bihar.html"],["Modern Bihar and Freedom Movement","modern-bihar-freedom-movement.html"],["Bihar Art and Culture","bihar-art-culture.html"]]},
-{name:"Bihar Geography",chapters:[["Rivers and Physical Divisions of Bihar","bihar-rivers-geography.html"],["Climate, Soil and Agriculture","bihar-climate-soil-agriculture.html"]]},
-{name:"Bihar Economy and Polity",chapters:[["Bihar Economy","bihar-economy.html"],["Government Schemes of Bihar","bihar-government-schemes.html"],["Administrative Structure of Bihar","bihar-administration.html"]]}]},
-{name:"Environment",icon:"🌱",divisions:[{name:"Ecology and Environment",chapters:[["Ecosystem and Biodiversity","ecosystem-biodiversity.html"],["Climate Change","climate-change.html"],["Pollution","pollution.html"],["Environmental Conventions","environmental-conventions.html"]]}]}
+ {name:"History",icon:"🏛️",divisions:[
+  {name:"Ancient History",chapters:[["Indus Valley Civilization","indus-valley-civilization.html"],["Vedic Period","vedic-period.html"],["Mahajanapadas and Buddhism","mahajanapadas-buddhism.html"],["Mauryan Empire","mauryan-empire.html"],["Gupta Empire","gupta-empire.html"]]},
+  {name:"Medieval History",chapters:[["Delhi Sultanate","delhi-sultanate.html"],["Mughal Empire","mughal-empire.html"],["Bhakti and Sufi Movements","bhakti-sufi-movements.html"],["Vijayanagara Empire","vijayanagara-empire.html"]]},
+  {name:"Modern History",chapters:[["Revolt of 1857","revolt-of-1857.html"],["Governor-Generals and Viceroys","governor-generals-viceroys.html"],["Socio-Religious Reform Movements","socio-religious-reform-movements.html"],["Indian National Congress","indian-national-congress.html"],["National Movement and Gandhian Era","national-movement-gandhian-era.html"]]}
+ ]},
+ {name:"Geography",icon:"🌍",divisions:[
+  {name:"Physical Geography",chapters:[["Earth and Solar System","earth-solar-system.html"],["Geomorphology","geomorphology.html"],["Climatology","climatology.html"],["Oceanography","oceanography.html"]]},
+  {name:"Indian Geography",chapters:[["Physiographic Divisions of India","physiographic-divisions-india.html"],["Drainage System","drainage-system.html"],["Climate of India","climate-of-india.html"],["Soils and Natural Vegetation","soils-natural-vegetation.html"],["Agriculture and Minerals","agriculture-minerals-india.html"]]},
+  {name:"World Geography",chapters:[["Continents and Oceans","continents-oceans.html"],["Resources and Industries","resources-industries.html"]]}
+ ]},
+ {name:"Polity",icon:"⚖️",divisions:[
+  {name:"Constitutional Foundations",chapters:[["Making of the Constitution","making-of-constitution.html"],["Preamble and Salient Features","preamble-salient-features.html"],["Fundamental Rights","fundamental-rights.html"],["Directive Principles and Duties","dpsp-fundamental-duties.html"]]},
+  {name:"Union Government",chapters:[["President and Vice-President","president-vice-president.html"],["Prime Minister and Council of Ministers","prime-minister-council-ministers.html"],["Parliament","parliament.html"],["Supreme Court","supreme-court.html"]]},
+  {name:"State and Local Government",chapters:[["Governor and Chief Minister","governor-chief-minister.html"],["State Legislature","state-legislature.html"],["Panchayati Raj","panchayati-raj.html"],["Constitutional Bodies","constitutional-bodies.html"]]}
+ ]},
+ {name:"Economy",icon:"💹",divisions:[
+  {name:"Basic Concepts",chapters:[["Basic Concepts of Economy","basic-concepts-economy.html"],["National Income","national-income.html"],["Inflation and Unemployment","inflation-unemployment.html"]]},
+  {name:"Indian Economy",chapters:[["Planning and NITI Aayog","planning-niti-aayog.html"],["Banking and Monetary Policy","banking-monetary-policy.html"],["Budget and Taxation","budget-taxation.html"],["Poverty and Inclusive Growth","poverty-inclusive-growth.html"]]}
+ ]},
+ {name:"Science",icon:"🔬",divisions:[
+  {name:"Biology",chapters:[["Cell","cell.html"],["Human Digestive System","digestive-system.html"],["Human Nervous System","nervous-system.html"],["Circulatory System","circulatory-system.html"],["Diseases and Immunity","diseases-immunity.html"]]},
+  {name:"Physics",chapters:[["Motion and Force","motion-force.html"],["Work, Energy and Power","work-energy-power.html"],["Light","light.html"],["Electricity","electricity.html"]]},
+  {name:"Chemistry",chapters:[["Atoms and Molecules","atoms-molecules.html"],["Acids, Bases and Salts","acids-bases-salts.html"],["Metals and Non-metals","metals-nonmetals.html"]]}
+ ]},
+ {name:"Bihar Special",icon:"🦅",divisions:[
+  {name:"Bihar History and Culture",chapters:[["Ancient Bihar","ancient-bihar.html"],["Modern Bihar and Freedom Movement","modern-bihar-freedom-movement.html"],["Bihar Art and Culture","bihar-art-culture.html"]]},
+  {name:"Bihar Geography",chapters:[["Rivers and Physical Divisions of Bihar","bihar-rivers-geography.html"],["Climate, Soil and Agriculture","bihar-climate-soil-agriculture.html"]]},
+  {name:"Bihar Economy and Polity",chapters:[["Bihar Economy","bihar-economy.html"],["Government Schemes of Bihar","bihar-government-schemes.html"],["Administrative Structure of Bihar","bihar-administration.html"]]}
+ ]},
+ {name:"Environment",icon:"🌱",divisions:[
+  {name:"Ecology and Environment",chapters:[["Ecosystem and Biodiversity","ecosystem-biodiversity.html"],["Climate Change","climate-change.html"],["Pollution","pollution.html"],["Environmental Conventions","environmental-conventions.html"]]}
+ ]}
 ];
-const tree=document.getElementById("tree");
+
+const tree=document.getElementById("subjectTree");
 subjects.forEach(subject=>{
- const sb=document.createElement("button");sb.className="subject";sb.innerHTML=`<span>${subject.icon}</span>${subject.name}<span class="arrow">›</span>`;
- const st=document.createElement("div");st.className="subtree";st.style.display="none";
- sb.onclick=()=>{let open=st.style.display==="none";st.style.display=open?"block":"none";sb.classList.toggle("open",open);sb.classList.toggle("active",open)};
+ const sb=document.createElement("button");sb.className="subject-btn";sb.innerHTML=`<span>${subject.icon}</span><span>${subject.name}</span><span class="arrow">›</span>`;
+ const st=document.createElement("div");st.className="division-list";st.style.display="none";
+ sb.onclick=()=>{const open=st.style.display==="none";st.style.display=open?"block":"none";sb.classList.toggle("open",open);sb.classList.toggle("active",open)};
  subject.divisions.forEach(division=>{
-  const db=document.createElement("button");db.className="division";db.innerHTML=`<span>▸</span>${division.name}`;
-  const cl=document.createElement("div");cl.className="chapterlist";cl.style.display="none";
-  db.onclick=()=>{let open=cl.style.display==="none";cl.style.display=open?"block":"none";db.classList.toggle("active",open)};
-  division.chapters.forEach((chapter,i)=>{
-   const cb=document.createElement("button");cb.className="chapter";cb.innerHTML=`<span class="num">${String(i+1).padStart(2,"0")}</span><span>${chapter[0]}</span>`;
+  const db=document.createElement("button");db.className="division-btn";db.innerHTML=`<span>▸</span><span>${division.name}</span>`;
+  const cl=document.createElement("div");cl.className="chapter-list";cl.style.display="none";
+  db.onclick=()=>{const open=cl.style.display==="none";cl.style.display=open?"block":"none";db.classList.toggle("active",open)};
+  division.chapters.forEach((chapter,index)=>{
+   const cb=document.createElement("button");cb.className="chapter-btn";cb.innerHTML=`<span class="chapter-num">${String(index+1).padStart(2,"0")}</span><span>${chapter[0]}</span>`;
    cb.onclick=()=>loadFile(chapter[0],chapter[1],`Subject Notes / ${subject.name} / ${division.name} / ${chapter[0]}`,cb);
    cl.appendChild(cb);
-  });st.appendChild(db);st.appendChild(cl);
- });tree.appendChild(sb);tree.appendChild(st);
+  });
+  st.appendChild(db);st.appendChild(cl);
+ });
+ tree.appendChild(sb);tree.appendChild(st);
 });
-function setTop(page){document.querySelectorAll(".top-tab").forEach(b=>b.classList.toggle("active",b.dataset.page===page))}
-function showSectionFrame(title,file,breadcrumb){
- document.getElementById("welcome").style.display="none";document.getElementById("placeholder").style.display="none";
- document.getElementById("frameSection").style.display="block";document.getElementById("breadcrumb").innerHTML=`BPSC Portal / <strong>${breadcrumb||title}</strong>`;
- document.getElementById("contentFrame").src=file;document.getElementById("sidebar").classList.remove("mobile-open");
+
+function toggleSubjectTree(button){
+ const tree=document.getElementById("subjectTree");
+ const open=!tree.classList.contains("open");
+ tree.classList.toggle("open",open);button.classList.toggle("active",open);
+ button.querySelector(".chevron").textContent=open?"⌃":"⌄";
 }
-function openPage(page){
- setTop(page);
- if(page==="Home"){document.getElementById("welcome").style.display="block";document.getElementById("placeholder").style.display="none";document.getElementById("frameSection").style.display="none";document.getElementById("breadcrumb").innerHTML='BPSC Portal / <strong>Home</strong>';document.getElementById("contentFrame").src="about:blank";return}
- if(page==="Subject Notes"){document.getElementById("welcome").style.display="none";document.getElementById("placeholder").style.display="block";document.getElementById("frameSection").style.display="none";document.getElementById("placeholderTitle").textContent="Subject Notes";document.getElementById("placeholderLead").textContent="Select a subject from the left panel, expand a division, then click a chapter to load its separate HTML file.";document.getElementById("placeholderNote").textContent="Subject → Division → Chapter. The chapter HTML file is displayed in the right-side panel.";document.getElementById("breadcrumb").innerHTML='BPSC Portal / <strong>Subject Notes</strong>';return}
- showSectionFrame(page,sectionFiles[page],page);
+function activateNav(page){
+ document.querySelectorAll(".nav-item[data-page]").forEach(b=>b.classList.toggle("active",b.dataset.page===page));
 }
-function loadFile(title,file,path,button){
- setTop("Subject Notes");showSectionFrame(title,file,path);
- document.querySelectorAll(".chapter").forEach(b=>b.classList.remove("active"));button.classList.add("active");
+function showFrame(title,file,crumb){
+ document.getElementById("welcome").style.display="none";
+ document.getElementById("placeholder").style.display="none";
+ document.getElementById("frameSection").style.display="block";
+ document.getElementById("breadcrumb").innerHTML=`BPSC Portal / <strong>${crumb||title}</strong>`;
+ document.getElementById("contentFrame").src=file;
+ document.getElementById("sidebar").classList.remove("mobile-open");
 }
+function openPage(page,button){
+ activateNav(page);
+ if(page==="Home"){
+  document.getElementById("welcome").style.display="block";
+  document.getElementById("placeholder").style.display="none";
+  document.getElementById("frameSection").style.display="none";
+  document.getElementById("contentFrame").src="about:blank";
+  document.getElementById("breadcrumb").innerHTML='BPSC Portal / <strong>Home</strong>';
+ }else if(page==="Subject Notes"){
+  document.getElementById("welcome").style.display="none";
+  document.getElementById("frameSection").style.display="none";
+  document.getElementById("placeholder").style.display="block";
+  document.getElementById("placeholderTitle").textContent="Subject Notes";
+  document.getElementById("placeholderLead").textContent="Choose a subject in the left navigation, expand a division, then click a chapter. The selected chapter will open in this panel.";
+  document.getElementById("placeholderNote").textContent="Subject → Division → Chapter. Each chapter is connected to its own HTML file.";
+  document.getElementById("breadcrumb").innerHTML='BPSC Portal / <strong>Subject Notes</strong>';
+ }else{
+  showFrame(page,sectionFiles[page],page);
+ }
+ document.getElementById("sidebar").classList.remove("mobile-open");
+}
+function loadFile(title,file,crumb,button){
+ activateNav("Subject Notes");
+ document.querySelectorAll(".chapter-btn").forEach(b=>b.classList.remove("active"));
+ button.classList.add("active");
+ showFrame(title,file,crumb);
+}
+function toggleSidebar(){document.getElementById("sidebar").classList.toggle("mobile-open")}
 </script>
-</body></html>
+</body>
+</html>
