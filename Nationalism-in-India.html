@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#10264b">
+
+<title>Student Sign In | Orient Classes</title>
+
+<style>
+:root {
+    --navy: #10264b;
+    --blue: #2459c4;
+    --blue2: #3478f6;
+    --text: #1e293b;
+    --muted: #64748b;
+    --border: #dbe4f0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(circle at top left, #dbeafe, transparent 40%),
+        #f4f7fc;
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* HEADER */
+
+header {
+    background: linear-gradient(135deg, #10264b, #2459c4);
+    color: white;
+    padding: 18px 5%;
+    box-shadow: 0 4px 18px rgba(16, 38, 75, .15);
+}
+
+.header-inner {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: .4px;
+}
+
+.logo span {
+    color: #ffd166;
+}
+
+.header-tagline {
+    font-size: 12px;
+    opacity: .85;
+    margin-top: 3px;
+}
+
+.home-link {
+    color: white;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,.4);
+    border-radius: 9px;
+    padding: 9px 13px;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.home-link:hover {
+    background: rgba(255,255,255,.12);
+}
+
+/* MAIN */
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 35px 16px;
+}
+
+.login-wrapper {
+    width: 100%;
+    max-width: 460px;
+}
+
+.welcome {
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+.welcome-icon {
+    width: 68px;
+    height: 68px;
+    margin: 0 auto 12px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #2459c4, #3478f6);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    box-shadow: 0 8px 22px rgba(36, 89, 196, .2);
+}
+
+.welcome h1 {
+    color: var(--navy);
+    font-size: 29px;
+    margin-bottom: 7px;
+}
+
+.welcome p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* CARD */
+
+.login-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 28px;
+    box-shadow: 0 12px 35px rgba(16, 38, 75, .08);
+}
+
+.card-heading {
+    margin-bottom: 22px;
+}
+
+.card-heading h2 {
+    color: var(--navy);
+    font-size: 21px;
+    margin-bottom: 5px;
+}
+
+.card-heading p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* FORM */
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: #334155;
+    margin-bottom: 7px;
+}
+
+.input-wrap {
+    position: relative;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: #fbfdff;
+    color: var(--text);
+    font-size: 14px;
+    outline: none;
+    transition: border-color .2s, box-shadow .2s;
+}
+
+input:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(36, 89, 196, .12);
+}
+
+.password-input {
+    padding-right: 70px !important;
+}
+
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    border: none;
+    background: transparent;
+    color: var(--blue);
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px;
+}
+
+/* FORGOT PASSWORD */
+
+.forgot-row {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -6px;
+    margin-bottom: 20px;
+}
+
+.forgot-row button {
+    background: transparent;
+    border: none;
+    color: var(--blue);
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.forgot-row button:hover {
+    text-decoration: underline;
+}
+
+/* BUTTON */
+
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #2459c4, #3478f6);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(36, 89, 196, .18);
+    transition: .2s;
+}
+
+.submit-btn:hover {
+    background: var(--navy);
+    transform: translateY(-1px);
+}
+
+.submit-btn:disabled {
+    opacity: .65;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* MESSAGES */
+
+.message {
+    display: none;
+    padding: 12px;
+    border-radius: 9px;
+    margin-bottom: 16px;
+    font-size: 13px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.message.success {
+    display: block;
+    background: #dcfce7;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+}
+
+.message.error {
+    display: block;
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+}
+
+.message.info {
+    display: block;
+    background: #eff6ff;
+    color: #1d4ed8;
+    border: 1px solid #bfdbfe;
+}
+
+/* SIGNUP LINK */
+
+.signup-row {
+    text-align: center;
+    margin-top: 22px;
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.signup-row a {
+    color: var(--blue);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.signup-row a:hover {
+    text-decoration: underline;
+}
+
+/* FOOTER */
+
+footer {
+    background: #0b1730;
+    color: white;
+    text-align: center;
+    padding: 19px 12px;
+    font-size: 12px;
+}
+
+footer p {
+    margin: 4px 0;
+    opacity: .85;
+}
+
+/* ACCESSIBILITY */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+    outline: 3px solid #f59e0b;
+    outline-offset: 3px;
+}
+
+/* MOBILE */
+
+@media (max-width: 500px) {
+    header {
+        padding: 15px 16px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .home-link {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+
+    main {
+        padding: 25px 13px;
+        align-items: flex-start;
+    }
+
+    .welcome h1 {
+        font-size: 25px;
+    }
+
+    .login-card {
+        padding: 21px 17px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+    <div class="header-inner">
+
+        <div>
+            <div class="logo">
+                ORIENT <span>CLASSES</span>
+            </div>
+
+            <div class="header-tagline">
+                Learn Smart • Practice More • Achieve More
+            </div>
+        </div>
+
+        <a class="home-link" href="index.html">
+            ← Home
+        </a>
+
+    </div>
+</header>
+
+<!-- MAIN -->
+
+<main>
+
+    <div class="login-wrapper">
+
+        <div class="welcome">
+
+            <div class="welcome-icon">🎓</div>
+
+            <h1>Welcome Back!</h1>
+
+            <p>
+                Sign in to continue your learning journey.
+            </p>
+
+        </div>
+
+        <section class="login-card">
+
+            <div class="card-heading">
+                <h2>Student Sign In</h2>
+
+                <p>
+                    Enter your registered email and password.
+                </p>
+            </div>
+
+            <div
+                id="message"
+                class="message"
+                role="status"
+                aria-live="polite"
+            ></div>
+
+            <form id="loginForm">
+
+                <!-- EMAIL -->
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="student@example.com"
+                        autocomplete="email"
+                        maxlength="254"
+                        required
+                    >
+
+                </div>
+
+                <!-- PASSWORD -->
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <div class="input-wrap">
+
+                        <input
+                            class="password-input"
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                        <button
+                            class="toggle-password"
+                            type="button"
+                            id="togglePassword"
+                        >
+                            Show
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <!-- FORGOT PASSWORD -->
+
+                <div class="forgot-row">
+
+                    <button
+                        type="button"
+                        id="forgotPassword"
+                    >
+                        Forgot Password?
+                    </button>
+
+                </div>
+
+                <!-- SUBMIT -->
+
+                <button
+                    type="submit"
+                    class="submit-btn"
+                    id="submitBtn"
+                >
+                    SIGN IN →
+                </button>
+
+            </form>
+
+            <div class="signup-row">
+                Don't have an account?
+                <a href="signup.html">Create Account</a>
+            </div>
+
+        </section>
+
+    </div>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p><strong>ORIENT CLASSES</strong></p>
+
+    <p>Online Learning and Mock Test Platform</p>
+
+    <p>© <span id="year"></span> Orient Classes</p>
+
+</footer>
+
+<!-- SUPABASE AUTHENTICATION -->
+
+<script type="module">
+
+import {
+    createClient
+} from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
+
+const SUPABASE_URL =
+    "https://gzbrnltdgllojscssvaz.supabase.co";
+
+const SUPABASE_PUBLISHABLE_KEY =
+    "sb_publishable_DxbDKXhi7JOZf0aGMoOhZQ_9sMTscVZ";
+
+const supabase = createClient(
+    SUPABASE_URL,
+    SUPABASE_PUBLISHABLE_KEY
+);
+
+const form = document.getElementById("loginForm");
+const submitBtn = document.getElementById("submitBtn");
+const messageBox = document.getElementById("message");
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+/* SHOW / HIDE PASSWORD */
+
+document.getElementById("togglePassword")
+    .addEventListener("click", () => {
+
+        const passwordInput =
+            document.getElementById("password");
+
+        const isHidden =
+            passwordInput.type === "password";
+
+        passwordInput.type =
+            isHidden ? "text" : "password";
+
+        document.getElementById("togglePassword")
+            .textContent = isHidden ? "Hide" : "Show";
+    });
+
+/* MESSAGE */
+
+function showMessage(text, type = "info") {
+
+    messageBox.className = "message " + type;
+    messageBox.textContent = text;
+
+    messageBox.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest"
+    });
+}
+
+/* SIGN IN */
+
+form.addEventListener("submit", async event => {
+
+    event.preventDefault();
+
+    messageBox.className = "message";
+    messageBox.textContent = "";
+
+    const email = document
+        .getElementById("email")
+        .value
+        .trim();
+
+    const password = document
+        .getElementById("password")
+        .value;
+
+    if (!email || !password) {
+
+        showMessage(
+            "Please enter your email and password.",
+            "error"
+        );
+
+        return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "SIGNING IN...";
+
+    try {
+
+        const {
+            data,
+            error
+        } = await supabase.auth.signInWithPassword({
+
+            email: email,
+            password: password
+
+        });
+
+        if (error) {
+            throw error;
+        }
+
+        if (!data.session || !data.user) {
+
+            showMessage(
+                "Sign in could not be completed. Please try again.",
+                "error"
+            );
+
+            return;
+        }
+
+        showMessage(
+            "Sign in successful! Opening your dashboard...",
+            "success"
+        );
+
+        /*
+         * The session is stored by Supabase's client.
+         * The dashboard must verify the session again.
+         */
+
+        window.location.replace("dashboard.html");
+
+    } catch (error) {
+
+        console.error("Sign-in error:", error);
+
+        const errorText =
+            String(error?.message || "").toLowerCase();
+
+        let message =
+            "Unable to sign in. Please check your details and try again.";
+
+        if (
+            errorText.includes("email not confirmed") ||
+            errorText.includes("email_not_confirmed")
+        ) {
+
+            message =
+                "Please verify your email address using the link sent to your inbox before signing in.";
+
+        } else if (
+            errorText.includes("invalid login credentials")
+        ) {
+
+            message =
+                "Incorrect email or password. Please check your details.";
+
+        } else if (
+            errorText.includes("rate limit") ||
+            errorText.includes("too many requests")
+        ) {
+
+            message =
+                "Too many attempts. Please wait and try again.";
+
+        } else if (
+            errorText.includes("fetch") ||
+            errorText.includes("network")
+        ) {
+
+            message =
+                "Unable to connect. Check your internet connection and try again.";
+
+        }
+
+        showMessage(message, "error");
+
+    } finally {
+
+        submitBtn.disabled = false;
+        submitBtn.textContent = "SIGN IN →";
+
+    }
+
+});
+
+/* FORGOT PASSWORD */
+
+document.getElementById("forgotPassword")
+    .addEventListener("click", async () => {
+
+        const email = document
+            .getElementById("email")
+            .value
+            .trim();
+
+        if (!email) {
+
+            showMessage(
+                "Please enter your registered email address first.",
+                "info"
+            );
+
+            document.getElementById("email").focus();
+
+            return;
+        }
+
+        const button =
+            document.getElementById("forgotPassword");
+
+        button.disabled = true;
+
+        try {
+
+            const redirectTo =
+                window.location.origin + "/login.html";
+
+            const {
+                error
+            } = await supabase.auth.resetPasswordForEmail(
+                email,
+                {
+                    redirectTo: redirectTo
+                }
+            );
+
+            if (error) {
+                throw error;
+            }
+
+            showMessage(
+                "If an account exists for this email and password recovery is available, a recovery email will be sent. Please check your inbox and Spam folder.",
+                "success"
+            );
+
+        } catch (error) {
+
+            console.error("Password recovery error:", error);
+
+            showMessage(
+                "Unable to request password recovery right now. Please try again later.",
+                "error"
+            );
+
+        } finally {
+
+            button.disabled = false;
+
+        }
+
+    });
+
+</script>
+
+</body>
+</html>
