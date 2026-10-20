@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#10264b">
 
-<title>Student Sign Up | Orient Classes</title>
+<title>Student Registration | Orient Classes</title>
 
 <style>
 :root {
@@ -14,11 +14,9 @@
     --blue: #2459c4;
     --blue2: #3478f6;
     --green: #16864a;
-    --light: #f2f6ff;
     --text: #1e293b;
     --muted: #64748b;
     --border: #dbe4f0;
-    --danger: #b91c1c;
 }
 
 * {
@@ -131,7 +129,7 @@ main {
     font-size: 14px;
 }
 
-/* CARD */
+/* SIGNUP CARD */
 
 .signup-card {
     background: white;
@@ -174,7 +172,9 @@ label {
     position: relative;
 }
 
-input {
+input[type="text"],
+input[type="email"],
+input[type="password"] {
     width: 100%;
     padding: 13px 14px;
     border: 1px solid var(--border);
@@ -192,7 +192,7 @@ input:focus {
 }
 
 .password-input {
-    padding-right: 70px;
+    padding-right: 70px !important;
 }
 
 .toggle-password {
@@ -216,7 +216,7 @@ input:focus {
     color: var(--muted);
 }
 
-/* CHECKBOX */
+/* TERMS */
 
 .terms-row {
     display: flex;
@@ -242,12 +242,7 @@ input:focus {
     font-size: 12px;
 }
 
-.terms-row a {
-    color: var(--blue);
-    text-decoration: none;
-}
-
-/* BUTTON */
+/* SUBMIT BUTTON */
 
 .submit-btn {
     width: 100%;
@@ -274,7 +269,7 @@ input:focus {
     transform: none;
 }
 
-/* MESSAGES */
+/* MESSAGE */
 
 .message {
     display: none;
@@ -326,23 +321,6 @@ input:focus {
     text-decoration: underline;
 }
 
-/* SECURITY INFO */
-
-.security-note {
-    margin-top: 18px;
-    padding: 13px;
-    border-radius: 10px;
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    font-size: 12px;
-    color: #475569;
-    line-height: 1.6;
-}
-
-.security-note strong {
-    color: var(--navy);
-}
-
 /* FOOTER */
 
 footer {
@@ -370,6 +348,7 @@ input:focus-visible {
 /* MOBILE */
 
 @media (max-width: 500px) {
+
     header {
         padding: 15px 16px;
     }
@@ -460,8 +439,6 @@ input:focus-visible {
 
             <form id="signupForm">
 
-                <!-- FULL NAME -->
-
                 <div class="form-group">
 
                     <label for="fullName">
@@ -481,8 +458,6 @@ input:focus-visible {
 
                 </div>
 
-                <!-- EMAIL -->
-
                 <div class="form-group">
 
                     <label for="email">
@@ -500,8 +475,6 @@ input:focus-visible {
                     >
 
                 </div>
-
-                <!-- PASSWORD -->
 
                 <div class="form-group">
 
@@ -527,7 +500,6 @@ input:focus-visible {
                             class="toggle-password"
                             type="button"
                             data-target="password"
-                            aria-label="Show or hide password"
                         >
                             Show
                         </button>
@@ -539,8 +511,6 @@ input:focus-visible {
                     </span>
 
                 </div>
-
-                <!-- CONFIRM PASSWORD -->
 
                 <div class="form-group">
 
@@ -566,7 +536,6 @@ input:focus-visible {
                             class="toggle-password"
                             type="button"
                             data-target="confirmPassword"
-                            aria-label="Show or hide confirmation password"
                         >
                             Show
                         </button>
@@ -574,8 +543,6 @@ input:focus-visible {
                     </div>
 
                 </div>
-
-                <!-- TERMS -->
 
                 <div class="terms-row">
 
@@ -592,8 +559,6 @@ input:focus-visible {
 
                 </div>
 
-                <!-- SUBMIT -->
-
                 <button
                     type="submit"
                     class="submit-btn"
@@ -605,24 +570,8 @@ input:focus-visible {
             </form>
 
             <div class="login-row">
-
                 Already have an account?
-
-                <a href="login.html">
-                    Sign In
-                </a>
-
-            </div>
-
-            <div class="security-note">
-
-                🔒 <strong>Your account security matters.</strong>
-
-                <br>
-
-                Your password is handled by Supabase Authentication.
-                Never share your password with anyone.
-
+                <a href="login.html">Sign In</a>
             </div>
 
         </section>
@@ -643,23 +592,13 @@ input:focus-visible {
 
 </footer>
 
-<!-- SUPABASE AUTHENTICATION -->
+<!-- SUPABASE -->
 
 <script type="module">
 
 import {
     createClient
 } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
-
-/*
- * ORIENT CLASSES SUPABASE CONFIGURATION
- *
- * Project URL and Publishable Key are intended
- * for browser-side use.
- *
- * Never place a Supabase Secret / service_role key
- * in this file.
- */
 
 const SUPABASE_URL =
     "https://gzbrnltdgllojscssvaz.supabase.co";
@@ -704,7 +643,6 @@ document.querySelectorAll(".toggle-password").forEach(button => {
 function showMessage(text, type = "info") {
 
     messageBox.className = "message " + type;
-
     messageBox.textContent = text;
 
     messageBox.scrollIntoView({
@@ -712,48 +650,6 @@ function showMessage(text, type = "info") {
         block: "nearest"
     });
 
-}
-
-/* SUPABASE ERROR HANDLING */
-
-function friendlyError(error) {
-
-    const text = String(error?.message || "").toLowerCase();
-
-    if (
-        text.includes("already registered") ||
-        text.includes("already exists")
-    ) {
-        return "This email may already be registered. Please try signing in.";
-    }
-
-    if (
-        text.includes("password") &&
-        (
-            text.includes("weak") ||
-            text.includes("short") ||
-            text.includes("least")
-        )
-    ) {
-        return "Please choose a stronger password with at least 8 characters.";
-    }
-
-    if (
-        text.includes("rate limit") ||
-        text.includes("too many requests")
-    ) {
-        return "Too many attempts. Please wait a little and try again.";
-    }
-
-    if (
-        text.includes("fetch") ||
-        text.includes("network")
-    ) {
-        return "Unable to connect. Check your internet connection and try again.";
-    }
-
-    return error?.message ||
-        "Registration failed. Please try again.";
 }
 
 /* SIGN UP */
@@ -782,10 +678,6 @@ form.addEventListener("submit", async event => {
     const confirmPassword = document
         .getElementById("confirmPassword")
         .value;
-
-    const termsAccepted = document
-        .getElementById("terms")
-        .checked;
 
     if (fullName.length < 2) {
 
@@ -817,7 +709,7 @@ form.addEventListener("submit", async event => {
         return;
     }
 
-    if (!termsAccepted) {
+    if (!document.getElementById("terms").checked) {
 
         showMessage(
             "Please accept the terms to continue.",
@@ -828,14 +720,12 @@ form.addEventListener("submit", async event => {
     }
 
     submitBtn.disabled = true;
-
     submitBtn.textContent = "CREATING ACCOUNT...";
 
     try {
 
         const emailRedirectTo =
-            window.location.origin +
-            "/login.html";
+            window.location.origin + "/login.html";
 
         const {
             data,
@@ -862,18 +752,12 @@ form.addEventListener("submit", async event => {
             throw error;
         }
 
-        /*
-         * When email confirmation is enabled,
-         * Supabase normally returns a user but no session
-         * until the email is verified.
-         */
-
         if (data.user && !data.session) {
 
             showMessage(
-                "Your account registration request was received. " +
+                "Your registration request was successful. " +
                 "Please check your email and click the verification link " +
-                "before signing in. If you do not see the email, check Spam.",
+                "before signing in. Check your Spam folder if necessary.",
                 "success"
             );
 
@@ -881,14 +765,9 @@ form.addEventListener("submit", async event => {
 
         } else if (data.user && data.session) {
 
-            /*
-             * Some projects allow signup without email confirmation.
-             * Redirect to login/dashboard only after checking session.
-             */
-
             showMessage(
                 "Your account has been created successfully. " +
-                "You can now open the Sign In page.",
+                "You can now sign in to your account.",
                 "success"
             );
 
@@ -907,15 +786,47 @@ form.addEventListener("submit", async event => {
 
         console.error("Signup error:", error);
 
-        showMessage(
-            friendlyError(error),
-            "error"
-        );
+        const errorText =
+            String(error?.message || "").toLowerCase();
+
+        let message =
+            "Registration failed. Please try again.";
+
+        if (
+            errorText.includes("already registered") ||
+            errorText.includes("already exists")
+        ) {
+
+            message =
+                "This email may already be registered. Please try signing in.";
+
+        } else if (
+            errorText.includes("rate limit") ||
+            errorText.includes("too many requests")
+        ) {
+
+            message =
+                "Too many attempts. Please wait and try again.";
+
+        } else if (
+            errorText.includes("fetch") ||
+            errorText.includes("network")
+        ) {
+
+            message =
+                "Unable to connect. Check your internet connection and try again.";
+
+        } else if (error?.message) {
+
+            message = error.message;
+
+        }
+
+        showMessage(message, "error");
 
     } finally {
 
         submitBtn.disabled = false;
-
         submitBtn.textContent = "CREATE ACCOUNT →";
 
     }
