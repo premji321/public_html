@@ -4,13 +4,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <meta name="theme-color" content="#10264b">
 
 <title>Mock Test Series | Orient Classes</title>
 
 <style>
-
 :root {
     --navy: #10264b;
     --blue: #2459c4;
@@ -26,6 +24,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -103,20 +105,22 @@ header {
     margin-top: 5px;
 }
 
-/* PRICE INFO */
+/* PRICE BANNER */
 
 .price-banner {
     background: white;
     border: 1px solid var(--border);
     border-radius: 14px;
-    padding: 15px;
+    padding: 17px;
     text-align: center;
     margin-bottom: 25px;
     box-shadow: 0 4px 14px rgba(16, 38, 75, .04);
+    font-size: 14px;
 }
 
 .price-banner strong {
     color: var(--green);
+    font-size: 18px;
 }
 
 /* TEST GRID */
@@ -128,7 +132,6 @@ header {
 }
 
 .test-card {
-    position: relative;
     background: white;
     border: 1px solid var(--border);
     border-radius: 18px;
@@ -199,16 +202,9 @@ header {
 }
 
 .price {
-    font-size: 26px;
+    font-size: 24px;
     font-weight: bold;
     color: var(--navy);
-}
-
-.old-price {
-    color: #94a3b8;
-    text-decoration: line-through;
-    font-size: 14px;
-    margin-left: 5px;
 }
 
 .badge {
@@ -229,11 +225,6 @@ header {
     color: #9a5200;
 }
 
-.badge-unlocked {
-    background: #dcfce7;
-    color: #166534;
-}
-
 /* BUTTONS */
 
 .btn {
@@ -248,15 +239,6 @@ header {
     cursor: pointer;
     text-decoration: none;
     transition: .2s;
-}
-
-.btn-primary {
-    background: var(--blue);
-    color: white;
-}
-
-.btn-primary:hover {
-    background: var(--navy);
 }
 
 .btn-green {
@@ -290,9 +272,10 @@ a:focus-visible {
     background: linear-gradient(135deg, #10264b, #2459c4);
     color: white;
     border-radius: 18px;
-    padding: 28px 22px;
+    padding: 30px 22px;
     margin-top: 30px;
     text-align: center;
+    box-shadow: 0 8px 25px rgba(16, 38, 75, .12);
 }
 
 .payment-panel h2 {
@@ -302,14 +285,15 @@ a:focus-visible {
 
 .payment-panel p {
     font-size: 14px;
-    opacity: .9;
-    margin-bottom: 17px;
+    opacity: .95;
+    margin: 8px 0 17px;
 }
 
 .payment-price {
-    font-size: 35px;
+    font-size: 40px;
     font-weight: bold;
     margin-bottom: 18px;
+    color: #ffd166;
 }
 
 .payment-button {
@@ -321,13 +305,18 @@ a:focus-visible {
     border-radius: 10px;
     text-decoration: none;
     font-weight: bold;
-    border: none;
-    cursor: pointer;
     font-size: 16px;
+    transition: .2s;
 }
 
 .payment-button:hover {
     background: #ffbf3f;
+    transform: translateY(-2px);
+}
+
+.payment-note {
+    font-size: 12px !important;
+    margin-top: 15px !important;
 }
 
 /* STATUS */
@@ -391,7 +380,6 @@ footer a {
 /* RESPONSIVE */
 
 @media (max-width: 600px) {
-
     .test-grid {
         grid-template-columns: 1fr;
         gap: 18px;
@@ -417,8 +405,10 @@ footer a {
         font-size: 23px;
     }
 
+    .payment-panel h2 {
+        font-size: 22px;
+    }
 }
-
 </style>
 </head>
 
@@ -427,7 +417,6 @@ footer a {
 <!-- HEADER -->
 
 <header>
-
     <div class="header-inner">
 
         <div class="logo">
@@ -439,61 +428,48 @@ footer a {
         </div>
 
         <div class="hero">
-
             <h1>Online Mock Test Series</h1>
 
             <p>
                 Practice with quality questions and improve your exam preparation.
             </p>
-
         </div>
 
     </div>
-
 </header>
-
 
 <!-- MAIN -->
 
 <main class="container">
 
     <div class="section-heading">
-
         <h2>Choose Your Mock Test</h2>
 
         <p>
-            Start with our free trial and unlock premium tests.
+            Start with our free trial and unlock three premium tests for just ₹5.
         </p>
-
     </div>
-
 
     <div class="price-banner">
-
         🎯 First Mock Test is <strong>100% FREE</strong>.
-
-        Unlock the remaining three tests with one payment.
-
+        <br>
+        Unlock all three premium tests for only <strong>₹5 TOTAL</strong>.
     </div>
-
 
     <!-- TEST CARDS -->
 
     <div class="test-grid">
-
 
         <!-- TEST 1 FREE -->
 
         <article class="test-card">
 
             <div class="card-top">
-
                 <div class="card-icon">🎯</div>
 
                 <span class="badge badge-free">
                     FREE TRIAL
                 </span>
-
             </div>
 
             <div class="card-body">
@@ -507,43 +483,31 @@ footer a {
                 </p>
 
                 <div class="details">
-
                     <span>📝 25 Questions</span>
-
                     <span>⏱️ 30 Minutes</span>
-
                 </div>
 
                 <div class="price-row">
-
                     <div class="price">FREE</div>
-
                 </div>
 
-                <a
-                    class="btn btn-green"
-                    href="trial-test.html"
-                >
+                <a class="btn btn-green" href="trial-test.html">
                     START FREE TEST →
                 </a>
 
             </div>
-
         </article>
 
-
-        <!-- TEST 2 LOCKED -->
+        <!-- TEST 2 PREMIUM -->
 
         <article class="test-card">
 
             <div class="card-top">
-
                 <div class="card-icon">🔒</div>
 
                 <span class="badge badge-locked">
                     PREMIUM
                 </span>
-
             </div>
 
             <div class="card-body">
@@ -553,47 +517,35 @@ footer a {
                 <h3>Premium Mock Test 02</h3>
 
                 <p class="description">
-                    Practice important exam questions with a complete mock test.
+                    Practice important examination questions with a complete mock test.
                 </p>
 
                 <div class="details">
-
                     <span>📝 50 Questions</span>
-
                     <span>⏱️ 60 Minutes</span>
-
                 </div>
 
                 <div class="price-row">
-
-                    <div class="price">₹10</div>
-
+                    <div class="price">Included in ₹5</div>
                 </div>
 
-                <button
-                    class="btn btn-locked"
-                    onclick="showLockedMessage()"
-                >
+                <button class="btn btn-locked" onclick="showLockedMessage()">
                     🔒 LOCKED — UNLOCK TO START
                 </button>
 
             </div>
-
         </article>
 
-
-        <!-- TEST 3 LOCKED -->
+        <!-- TEST 3 PREMIUM -->
 
         <article class="test-card">
 
             <div class="card-top">
-
                 <div class="card-icon">🔒</div>
 
                 <span class="badge badge-locked">
                     PREMIUM
                 </span>
-
             </div>
 
             <div class="card-body">
@@ -603,47 +555,35 @@ footer a {
                 <h3>Premium Mock Test 03</h3>
 
                 <p class="description">
-                    Test your knowledge and prepare for the next examination.
+                    Test your knowledge and prepare for your next examination.
                 </p>
 
                 <div class="details">
-
                     <span>📝 50 Questions</span>
-
                     <span>⏱️ 60 Minutes</span>
-
                 </div>
 
                 <div class="price-row">
-
-                    <div class="price">₹10</div>
-
+                    <div class="price">Included in ₹5</div>
                 </div>
 
-                <button
-                    class="btn btn-locked"
-                    onclick="showLockedMessage()"
-                >
+                <button class="btn btn-locked" onclick="showLockedMessage()">
                     🔒 LOCKED — UNLOCK TO START
                 </button>
 
             </div>
-
         </article>
 
-
-        <!-- TEST 4 LOCKED -->
+        <!-- TEST 4 PREMIUM -->
 
         <article class="test-card">
 
             <div class="card-top">
-
                 <div class="card-icon">🔒</div>
 
                 <span class="badge badge-locked">
                     PREMIUM
                 </span>
-
             </div>
 
             <div class="card-body">
@@ -653,37 +593,26 @@ footer a {
                 <h3>Premium Mock Test 04</h3>
 
                 <p class="description">
-                    Improve your speed, accuracy and exam preparation.
+                    Improve your speed, accuracy and examination preparation.
                 </p>
 
                 <div class="details">
-
                     <span>📝 50 Questions</span>
-
                     <span>⏱️ 60 Minutes</span>
-
                 </div>
 
                 <div class="price-row">
-
-                    <div class="price">₹10</div>
-
+                    <div class="price">Included in ₹5</div>
                 </div>
 
-                <button
-                    class="btn btn-locked"
-                    onclick="showLockedMessage()"
-                >
+                <button class="btn btn-locked" onclick="showLockedMessage()">
                     🔒 LOCKED — UNLOCK TO START
                 </button>
 
             </div>
-
         </article>
 
-
     </div>
-
 
     <!-- PAYMENT PANEL -->
 
@@ -693,25 +622,25 @@ footer a {
 
         <p>
             Get access to Mock Test 02, 03 and 04 with one payment.
+            <br>
+            No recurring subscription. Pay just ₹5.
         </p>
 
-        <div class="payment-price">₹20</div>
+        <div class="payment-price">₹5 ONLY</div>
 
-        <!--
-        IMPORTANT:
-        Replace PAYMENT_LINK_PLACEHOLDER with your approved
-        payment link only after configuring your gateway.
-
-        A payment link alone does not securely unlock tests.
-        Add backend payment verification before going live.
-        -->
-
-        <button
+        <a
             class="payment-button"
-            onclick="startPayment()"
+            href="https://cfpe.me/orientclasses"
+            target="_blank"
+            rel="noopener noreferrer"
         >
-            💳 PAY ₹20 & UNLOCK ALL TESTS
-        </button>
+            💳 PAY ₹5 & UNLOCK ALL TESTS
+        </a>
+
+        <p class="payment-note">
+            After payment, keep your payment confirmation.
+            Premium access requires payment verification.
+        </p>
 
         <div
             class="status-message"
@@ -722,7 +651,6 @@ footer a {
 
     </section>
 
-
     <!-- HOW IT WORKS -->
 
     <section class="instructions">
@@ -730,54 +658,57 @@ footer a {
         <h3>📌 How It Works</h3>
 
         <ol>
-
             <li>
                 Start with Mock Test 01 for free.
             </li>
 
             <li>
-                Purchase access to all three premium mock tests.
+                Click the payment button to open the payment page.
             </li>
 
             <li>
-                Your payment must be verified successfully.
+                Pay ₹5 for all three premium mock tests.
             </li>
 
             <li>
-                After verification, premium tests become available.
+                Keep your payment confirmation for reference.
             </li>
 
+            <li>
+                Premium tests will be available after your payment has been verified and access has been configured.
+            </li>
         </ol>
 
     </section>
 
 </main>
 
-
 <!-- FOOTER -->
 
 <footer>
-
     <p><strong>ORIENT CLASSES</strong></p>
 
     <p>Online Learning and Mock Test Platform</p>
 
     <p>Practice Today, Succeed Tomorrow!</p>
-
 </footer>
-
 
 <script>
 
 /*
- * FRONTEND PREVIEW
+ * PAYMENT INFORMATION
  *
- * This page does not process real payments.
- * Do not unlock tests based only on a button click,
- * a redirect, or a browser-stored payment flag.
+ * Payment URL:
+ * https://cfpe.me/orientclasses
  *
- * Real unlocking requires a backend to verify the
- * payment with your payment gateway.
+ * This page opens the payment link.
+ * It does not independently verify payment.
+ *
+ * Do not unlock premium tests only because a user
+ * clicks the payment button or returns to this page.
+ *
+ * Secure automatic unlocking requires a backend
+ * that verifies the payment with the payment provider.
  */
 
 function showLockedMessage() {
@@ -787,30 +718,12 @@ function showLockedMessage() {
     message.style.display = "block";
 
     message.textContent =
-        "This premium test is locked. Please complete the payment process. Automatic unlocking will work after secure payment verification is configured.";
+        "This premium test is locked. Pay ₹5 using the payment button above. Access will be granted after your payment has been verified.";
 
     message.scrollIntoView({
         behavior: "smooth",
         block: "center"
     });
-
-}
-
-
-function startPayment() {
-
-    const message = document.getElementById("paymentMessage");
-
-    message.style.display = "block";
-
-    message.textContent =
-        "The payment gateway has not been connected yet. Once your merchant account is approved, we will connect the Pay Now button and set up secure automatic unlocking.";
-
-    message.scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-    });
-
 }
 
 </script>
