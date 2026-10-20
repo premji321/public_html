@@ -8,12 +8,16 @@
 
 <title>Mock Test Series | Orient Classes</title>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <style>
 :root {
     --navy: #10264b;
     --blue: #2459c4;
     --blue2: #3478f6;
     --green: #16864a;
+    --red: #dc2626;
+    --gold: #ffd166;
     --light: #f2f6ff;
     --text: #1e293b;
     --muted: #64748b;
@@ -26,10 +30,6 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 body {
     font-family: Arial, Helvetica, sans-serif;
     background: #f4f7fc;
@@ -37,12 +37,10 @@ body {
     line-height: 1.6;
 }
 
-/* HEADER */
-
 header {
     background: linear-gradient(135deg, #10264b, #2459c4);
     color: white;
-    padding: 24px 16px 35px;
+    padding: 22px 16px 35px;
 }
 
 .header-inner {
@@ -50,43 +48,139 @@ header {
     margin: auto;
 }
 
+.header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
 .logo {
     font-size: 25px;
-    font-weight: bold;
-    letter-spacing: .5px;
+    font-weight: 800;
 }
 
 .logo span {
-    color: #ffd166;
+    color: var(--gold);
 }
 
 .tagline {
     font-size: 13px;
     opacity: .9;
-    margin-top: 3px;
+}
+
+.header-actions {
+    display: flex;
+    gap: 9px;
+    flex-wrap: wrap;
+}
+
+.header-btn {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    border: 1px solid rgba(255,255,255,.45);
+    border-radius: 9px;
+    padding: 8px 12px;
+    font-size: 13px;
+    background: transparent;
+    cursor: pointer;
+}
+
+.header-btn:hover {
+    background: rgba(255,255,255,.12);
 }
 
 .hero {
     text-align: center;
-    padding-top: 30px;
+    padding-top: 35px;
 }
 
 .hero h1 {
-    font-size: clamp(27px, 5vw, 42px);
+    font-size: clamp(28px, 5vw, 43px);
     line-height: 1.2;
     margin-bottom: 12px;
 }
 
 .hero p {
     font-size: 15px;
-    opacity: .9;
+    opacity: .92;
 }
-
-/* MAIN */
 
 .container {
     width: min(1100px, 92%);
     margin: 28px auto 50px;
+}
+
+.user-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    background: white;
+    border: 1px solid var(--border);
+    padding: 18px 20px;
+    border-radius: 14px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 14px rgba(16,38,75,.04);
+}
+
+.user-panel h2 {
+    color: var(--navy);
+    font-size: 18px;
+}
+
+.user-panel p {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.access-badge {
+    display: inline-block;
+    padding: 7px 12px;
+    border-radius: 25px;
+    font-size: 12px;
+    font-weight: bold;
+    background: #fff0d9;
+    color: #9a5200;
+}
+
+.access-badge.unlocked {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.status-box {
+    display: none;
+    padding: 14px 16px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+.status-box.show {
+    display: block;
+}
+
+.status-box.info {
+    background: #eff6ff;
+    color: #1d4ed8;
+    border: 1px solid #bfdbfe;
+}
+
+.status-box.success {
+    background: #dcfce7;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+}
+
+.status-box.error {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
 }
 
 .section-heading {
@@ -96,7 +190,7 @@ header {
 
 .section-heading h2 {
     color: var(--navy);
-    font-size: 26px;
+    font-size: 27px;
 }
 
 .section-heading p {
@@ -105,8 +199,6 @@ header {
     margin-top: 5px;
 }
 
-/* PRICE BANNER */
-
 .price-banner {
     background: white;
     border: 1px solid var(--border);
@@ -114,7 +206,7 @@ header {
     padding: 17px;
     text-align: center;
     margin-bottom: 25px;
-    box-shadow: 0 4px 14px rgba(16, 38, 75, .04);
+    box-shadow: 0 4px 14px rgba(16,38,75,.04);
     font-size: 14px;
 }
 
@@ -122,8 +214,6 @@ header {
     color: var(--green);
     font-size: 18px;
 }
-
-/* TEST GRID */
 
 .test-grid {
     display: grid;
@@ -136,13 +226,13 @@ header {
     border: 1px solid var(--border);
     border-radius: 18px;
     overflow: hidden;
-    box-shadow: 0 5px 20px rgba(16, 38, 75, .06);
+    box-shadow: 0 5px 20px rgba(16,38,75,.06);
     transition: transform .2s, box-shadow .2s;
 }
 
 .test-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 28px rgba(16, 38, 75, .10);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba(16,38,75,.1);
 }
 
 .card-top {
@@ -202,7 +292,7 @@ header {
 }
 
 .price {
-    font-size: 24px;
+    font-size: 21px;
     font-weight: bold;
     color: var(--navy);
 }
@@ -225,7 +315,10 @@ header {
     color: #9a5200;
 }
 
-/* BUTTONS */
+.badge-unlocked {
+    background: #dcfce7;
+    color: #166534;
+}
 
 .btn {
     display: block;
@@ -253,20 +346,16 @@ header {
 .btn-locked {
     background: #e2e8f0;
     color: #475569;
-    cursor: pointer;
 }
 
-.btn-locked:hover {
-    background: #cbd5e1;
+.btn-blue {
+    background: var(--blue);
+    color: white;
 }
 
-button:focus-visible,
-a:focus-visible {
-    outline: 3px solid #f59e0b;
-    outline-offset: 3px;
+.btn-blue:hover {
+    background: var(--navy);
 }
-
-/* PAYMENT PANEL */
 
 .payment-panel {
     background: linear-gradient(135deg, #10264b, #2459c4);
@@ -275,7 +364,7 @@ a:focus-visible {
     padding: 30px 22px;
     margin-top: 30px;
     text-align: center;
-    box-shadow: 0 8px 25px rgba(16, 38, 75, .12);
+    box-shadow: 0 8px 25px rgba(16,38,75,.12);
 }
 
 .payment-panel h2 {
@@ -293,14 +382,14 @@ a:focus-visible {
     font-size: 40px;
     font-weight: bold;
     margin-bottom: 18px;
-    color: #ffd166;
+    color: var(--gold);
 }
 
 .payment-button {
     display: inline-block;
     width: min(100%, 340px);
-    background: #ffd166;
-    color: #10264b;
+    background: var(--gold);
+    color: var(--navy);
     padding: 15px;
     border-radius: 10px;
     text-decoration: none;
@@ -311,28 +400,12 @@ a:focus-visible {
 
 .payment-button:hover {
     background: #ffbf3f;
-    transform: translateY(-2px);
 }
 
 .payment-note {
     font-size: 12px !important;
     margin-top: 15px !important;
 }
-
-/* STATUS */
-
-.status-message {
-    display: none;
-    margin-top: 18px;
-    padding: 15px;
-    border-radius: 10px;
-    background: #fff7ed;
-    color: #9a3412;
-    font-size: 14px;
-    text-align: left;
-}
-
-/* INSTRUCTIONS */
 
 .instructions {
     margin-top: 30px;
@@ -357,8 +430,6 @@ a:focus-visible {
     font-size: 14px;
 }
 
-/* FOOTER */
-
 footer {
     background: #0b1730;
     color: white;
@@ -373,11 +444,9 @@ footer p {
 }
 
 footer a {
-    color: #ffd166;
+    color: var(--gold);
     text-decoration: none;
 }
-
-/* RESPONSIVE */
 
 @media (max-width: 600px) {
     .test-grid {
@@ -414,22 +483,28 @@ footer a {
 
 <body>
 
-<!-- HEADER -->
-
 <header>
     <div class="header-inner">
 
-        <div class="logo">
-            ORIENT <span>CLASSES</span>
-        </div>
+        <div class="header-top">
+            <div>
+                <div class="logo">ORIENT <span>CLASSES</span></div>
+                <div class="tagline">
+                    Learn Smart • Practice More • Achieve More
+                </div>
+            </div>
 
-        <div class="tagline">
-            Learn Smart • Practice More • Achieve More
+            <div class="header-actions">
+                <a class="header-btn" href="index.html">← Home</a>
+                <a class="header-btn" href="dashboard.html">My Dashboard</a>
+                <button class="header-btn" id="logoutBtn" type="button">
+                    Logout
+                </button>
+            </div>
         </div>
 
         <div class="hero">
             <h1>Online Mock Test Series</h1>
-
             <p>
                 Practice with quality questions and improve your exam preparation.
             </p>
@@ -438,44 +513,48 @@ footer a {
     </div>
 </header>
 
-<!-- MAIN -->
-
 <main class="container">
+
+    <section class="user-panel">
+        <div>
+            <h2 id="studentGreeting">Welcome, Student!</h2>
+            <p id="studentEmail">Checking your account...</p>
+        </div>
+
+        <span class="access-badge" id="accessBadge">
+            CHECKING ACCESS...
+        </span>
+    </section>
+
+    <div class="status-box info show" id="statusBox" role="status" aria-live="polite">
+        Checking your login and Premium Access...
+    </div>
 
     <div class="section-heading">
         <h2>Choose Your Mock Test</h2>
-
         <p>
-            Start with our free trial and unlock three premium tests for just ₹5.
+            First test free. Unlock three premium tests for ₹5 total.
         </p>
     </div>
 
     <div class="price-banner">
         🎯 First Mock Test is <strong>100% FREE</strong>.
         <br>
-        Unlock all three premium tests for only <strong>₹5 TOTAL</strong>.
+        Unlock all three premium tests for <strong>₹5 TOTAL</strong>.
     </div>
-
-    <!-- TEST CARDS -->
 
     <div class="test-grid">
 
-        <!-- TEST 1 FREE -->
+        <!-- FREE TEST -->
 
         <article class="test-card">
-
             <div class="card-top">
                 <div class="card-icon">🎯</div>
-
-                <span class="badge badge-free">
-                    FREE TRIAL
-                </span>
+                <span class="badge badge-free">FREE TRIAL</span>
             </div>
 
             <div class="card-body">
-
                 <div class="test-number">Mock Test 01</div>
-
                 <h3>Free Trial Test</h3>
 
                 <p class="description">
@@ -494,26 +573,19 @@ footer a {
                 <a class="btn btn-green" href="trial-test.html">
                     START FREE TEST →
                 </a>
-
             </div>
         </article>
 
-        <!-- TEST 2 PREMIUM -->
+        <!-- PREMIUM TEST 02 -->
 
         <article class="test-card">
-
             <div class="card-top">
-                <div class="card-icon">🔒</div>
-
-                <span class="badge badge-locked">
-                    PREMIUM
-                </span>
+                <div class="card-icon" id="icon2">🔒</div>
+                <span class="badge badge-locked" id="badge2">PREMIUM</span>
             </div>
 
             <div class="card-body">
-
                 <div class="test-number">Mock Test 02</div>
-
                 <h3>Premium Mock Test 02</h3>
 
                 <p class="description">
@@ -529,29 +601,22 @@ footer a {
                     <div class="price">Included in ₹5</div>
                 </div>
 
-                <button class="btn btn-locked" onclick="showLockedMessage()">
+                <a class="btn btn-locked premium-link" data-test="2" href="#">
                     🔒 LOCKED — UNLOCK TO START
-                </button>
-
+                </a>
             </div>
         </article>
 
-        <!-- TEST 3 PREMIUM -->
+        <!-- PREMIUM TEST 03 -->
 
         <article class="test-card">
-
             <div class="card-top">
-                <div class="card-icon">🔒</div>
-
-                <span class="badge badge-locked">
-                    PREMIUM
-                </span>
+                <div class="card-icon" id="icon3">🔒</div>
+                <span class="badge badge-locked" id="badge3">PREMIUM</span>
             </div>
 
             <div class="card-body">
-
                 <div class="test-number">Mock Test 03</div>
-
                 <h3>Premium Mock Test 03</h3>
 
                 <p class="description">
@@ -567,29 +632,22 @@ footer a {
                     <div class="price">Included in ₹5</div>
                 </div>
 
-                <button class="btn btn-locked" onclick="showLockedMessage()">
+                <a class="btn btn-locked premium-link" data-test="3" href="#">
                     🔒 LOCKED — UNLOCK TO START
-                </button>
-
+                </a>
             </div>
         </article>
 
-        <!-- TEST 4 PREMIUM -->
+        <!-- PREMIUM TEST 04 -->
 
         <article class="test-card">
-
             <div class="card-top">
-                <div class="card-icon">🔒</div>
-
-                <span class="badge badge-locked">
-                    PREMIUM
-                </span>
+                <div class="card-icon" id="icon4">🔒</div>
+                <span class="badge badge-locked" id="badge4">PREMIUM</span>
             </div>
 
             <div class="card-body">
-
                 <div class="test-number">Mock Test 04</div>
-
                 <h3>Premium Mock Test 04</h3>
 
                 <p class="description">
@@ -605,10 +663,9 @@ footer a {
                     <div class="price">Included in ₹5</div>
                 </div>
 
-                <button class="btn btn-locked" onclick="showLockedMessage()">
+                <a class="btn btn-locked premium-link" data-test="4" href="#">
                     🔒 LOCKED — UNLOCK TO START
-                </button>
-
+                </a>
             </div>
         </article>
 
@@ -617,10 +674,9 @@ footer a {
     <!-- PAYMENT PANEL -->
 
     <section class="payment-panel">
+        <h2 id="paymentHeading">Unlock All Premium Tests</h2>
 
-        <h2>Unlock All Premium Tests</h2>
-
-        <p>
+        <p id="paymentDescription">
             Get access to Mock Test 02, 03 and 04 with one payment.
             <br>
             No recurring subscription. Pay just ₹5.
@@ -630,6 +686,7 @@ footer a {
 
         <a
             class="payment-button"
+            id="paymentButton"
             href="https://cfpe.me/orientclasses"
             target="_blank"
             rel="noopener noreferrer"
@@ -637,95 +694,326 @@ footer a {
             💳 PAY ₹5 & UNLOCK ALL TESTS
         </a>
 
-        <p class="payment-note">
-            After payment, keep your payment confirmation.
-            Premium access requires payment verification.
+        <p class="payment-note" id="paymentNote">
+            Premium access becomes available after payment verification.
         </p>
-
-        <div
-            class="status-message"
-            id="paymentMessage"
-            role="status"
-            aria-live="polite"
-        ></div>
-
     </section>
 
-    <!-- HOW IT WORKS -->
-
     <section class="instructions">
-
         <h3>📌 How It Works</h3>
 
         <ol>
-            <li>
-                Start with Mock Test 01 for free.
-            </li>
-
-            <li>
-                Click the payment button to open the payment page.
-            </li>
-
-            <li>
-                Pay ₹5 for all three premium mock tests.
-            </li>
-
-            <li>
-                Keep your payment confirmation for reference.
-            </li>
-
-            <li>
-                Premium tests will be available after your payment has been verified and access has been configured.
-            </li>
+            <li>Sign in using your registered student account.</li>
+            <li>Start Mock Test 01 for free.</li>
+            <li>Pay ₹5 using the payment button.</li>
+            <li>Wait for Cashfree payment verification.</li>
+            <li>Premium tests unlock after your access is confirmed.</li>
         </ol>
-
     </section>
 
 </main>
 
-<!-- FOOTER -->
-
 <footer>
     <p><strong>ORIENT CLASSES</strong></p>
-
     <p>Online Learning and Mock Test Platform</p>
-
     <p>Practice Today, Succeed Tomorrow!</p>
 </footer>
 
 <script>
+(async function () {
 
-/*
- * PAYMENT INFORMATION
- *
- * Payment URL:
- * https://cfpe.me/orientclasses
- *
- * This page opens the payment link.
- * It does not independently verify payment.
- *
- * Do not unlock premium tests only because a user
- * clicks the payment button or returns to this page.
- *
- * Secure automatic unlocking requires a backend
- * that verifies the payment with the payment provider.
- */
+    const SUPABASE_URL =
+        "https://gzbrnltdgllojscssvaz.supabase.co";
 
-function showLockedMessage() {
+    const SUPABASE_PUBLISHABLE_KEY =
+        "sb_publishable_DxbDKXhi7JOZf0aGMoOhZQ_9sMTscVZ";
 
-    const message = document.getElementById("paymentMessage");
+    const supabase = window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_PUBLISHABLE_KEY
+    );
 
-    message.style.display = "block";
+    const statusBox = document.getElementById("statusBox");
+    const accessBadge = document.getElementById("accessBadge");
+    const studentGreeting = document.getElementById("studentGreeting");
+    const studentEmail = document.getElementById("studentEmail");
+    const paymentButton = document.getElementById("paymentButton");
+    const paymentHeading = document.getElementById("paymentHeading");
+    const paymentDescription = document.getElementById("paymentDescription");
+    const paymentNote = document.getElementById("paymentNote");
+    const logoutBtn = document.getElementById("logoutBtn");
 
-    message.textContent =
-        "This premium test is locked. Pay ₹5 using the payment button above. Access will be granted after your payment has been verified.";
+    let premiumUnlocked = false;
 
-    message.scrollIntoView({
-        behavior: "smooth",
-        block: "center"
+    function showStatus(message, type = "info") {
+        statusBox.textContent = message;
+        statusBox.className = "status-box show " + type;
+    }
+
+    function setPremiumAccess(unlocked) {
+
+        premiumUnlocked = unlocked;
+
+        accessBadge.textContent = unlocked
+            ? "PREMIUM UNLOCKED"
+            : "PREMIUM LOCKED";
+
+        accessBadge.className = unlocked
+            ? "access-badge unlocked"
+            : "access-badge";
+
+        [2, 3, 4].forEach(number => {
+
+            const link = document.querySelector(
+                '.premium-link[data-test="' + number + '"]'
+            );
+
+            const badge = document.getElementById("badge" + number);
+            const icon = document.getElementById("icon" + number);
+
+            if (unlocked) {
+
+                link.className = "btn btn-green premium-link";
+                link.textContent = "START PREMIUM TEST →";
+
+                /*
+                 * Update these filenames to your actual
+                 * premium test HTML filenames.
+                 */
+
+                link.href = "premium-test-" + number + ".html";
+
+                badge.className = "badge badge-unlocked";
+                badge.textContent = "UNLOCKED";
+                icon.textContent = "📝";
+
+            } else {
+
+                link.className = "btn btn-locked premium-link";
+                link.textContent = "🔒 LOCKED — UNLOCK TO START";
+                link.href = "#";
+
+                badge.className = "badge badge-locked";
+                badge.textContent = "PREMIUM";
+                icon.textContent = "🔒";
+            }
+        });
+
+        if (unlocked) {
+
+            paymentHeading.textContent = "Premium Access Active";
+
+            paymentDescription.textContent =
+                "Your account has Premium Access. You can start all three premium tests.";
+
+            paymentButton.style.display = "none";
+
+            paymentNote.textContent =
+                "Premium Access has been found in your account.";
+
+            showStatus(
+                "Your Premium Access is active. All premium tests are unlocked.",
+                "success"
+            );
+
+        } else {
+
+            paymentHeading.textContent = "Unlock All Premium Tests";
+
+            paymentDescription.textContent =
+                "Get access to Mock Test 02, 03 and 04 for one payment of ₹5.";
+
+            paymentButton.style.display = "inline-block";
+
+            paymentNote.textContent =
+                "Payment must be verified before Premium Access is activated.";
+
+            showStatus(
+                "Your account does not currently have verified Premium Access.",
+                "info"
+            );
+        }
+    }
+
+    /* CHECK AUTHENTICATION */
+
+    const { data: sessionData, error: sessionError } =
+        await supabase.auth.getSession();
+
+    if (sessionError) {
+
+        showStatus(
+            "Unable to check your login session. Please reload the page.",
+            "error"
+        );
+
+        return;
+    }
+
+    const user = sessionData.session?.user;
+
+    if (!user) {
+
+        window.location.replace("login.html");
+        return;
+    }
+
+    studentEmail.textContent = user.email || "";
+
+    /* LOAD STUDENT NAME */
+
+    try {
+
+        const { data: profile } = await supabase
+            .from("profiles")
+            .select("full_name")
+            .eq("id", user.id)
+            .maybeSingle();
+
+        if (profile && profile.full_name) {
+            studentGreeting.textContent =
+                "Welcome, " + profile.full_name + "!";
+        } else {
+            studentGreeting.textContent = "Welcome, Student!";
+        }
+
+    } catch (error) {
+
+        console.warn("Could not load student profile:", error);
+
+        studentGreeting.textContent = "Welcome, Student!";
+    }
+
+    /* CHECK PREMIUM ACCESS */
+
+    try {
+
+        const { data, error } = await supabase
+            .from("premium_access")
+            .select("payment_status, has_access")
+            .eq("student_id", user.id)
+            .eq("payment_status", "success")
+            .eq("has_access", true)
+            .limit(1);
+
+        if (error) {
+
+            console.error("Premium access query error:", error);
+
+            setPremiumAccess(false);
+
+            showStatus(
+                "Unable to verify Premium Access from the database. Please try again or contact support.",
+                "error"
+            );
+
+            return;
+        }
+
+        const hasAccess = Array.isArray(data) && data.length > 0;
+
+        setPremiumAccess(hasAccess);
+
+    } catch (error) {
+
+        console.error("Premium access error:", error);
+
+        setPremiumAccess(false);
+
+        showStatus(
+            "Could not verify Premium Access. Please try again later.",
+            "error"
+        );
+    }
+
+    /*
+     * MANUAL STATUS REFRESH
+     *
+     * This button does not verify payment with Cashfree.
+     * It only reloads the current database access status.
+     */
+
+    const refreshButton = document.createElement("button");
+
+    refreshButton.type = "button";
+    refreshButton.className = "btn btn-blue";
+    refreshButton.textContent = "REFRESH PREMIUM STATUS";
+    refreshButton.style.marginTop = "14px";
+    refreshButton.style.maxWidth = "340px";
+    refreshButton.style.marginLeft = "auto";
+    refreshButton.style.marginRight = "auto";
+
+    refreshButton.addEventListener("click", async () => {
+
+        refreshButton.disabled = true;
+        refreshButton.textContent = "CHECKING...";
+
+        try {
+
+            const { data, error } = await supabase
+                .from("premium_access")
+                .select("payment_status, has_access")
+                .eq("student_id", user.id)
+                .eq("payment_status", "success")
+                .eq("has_access", true)
+                .limit(1);
+
+            if (error) {
+                throw error;
+            }
+
+            const hasAccess =
+                Array.isArray(data) && data.length > 0;
+
+            setPremiumAccess(hasAccess);
+
+        } catch (error) {
+
+            console.error(error);
+
+            showStatus(
+                "Unable to refresh Premium Access. Please try again.",
+                "error"
+            );
+
+        } finally {
+
+            refreshButton.disabled = false;
+            refreshButton.textContent = "REFRESH PREMIUM STATUS";
+
+        }
     });
-}
 
+    document.querySelector(".payment-panel").appendChild(refreshButton);
+
+    /* LOGOUT */
+
+    logoutBtn.addEventListener("click", async () => {
+
+        logoutBtn.disabled = true;
+        logoutBtn.textContent = "Logging out...";
+
+        const { error } = await supabase.auth.signOut();
+
+        if (error) {
+
+            console.error("Logout error:", error);
+
+            logoutBtn.disabled = false;
+            logoutBtn.textContent = "Logout";
+
+            showStatus(
+                "Could not log out. Please try again.",
+                "error"
+            );
+
+            return;
+        }
+
+        window.location.replace("login.html");
+    });
+
+})();
 </script>
 
 </body>
