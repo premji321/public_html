@@ -35,8 +35,6 @@ body {
     flex-direction: column;
 }
 
-/* HEADER */
-
 header {
     background: linear-gradient(135deg, #10264b, #2459c4);
     color: white;
@@ -83,8 +81,6 @@ header {
     background: rgba(255,255,255,.12);
 }
 
-/* MAIN */
-
 main {
     flex: 1;
     display: flex;
@@ -126,9 +122,8 @@ main {
 .welcome p {
     color: var(--muted);
     font-size: 14px;
+    line-height: 1.6;
 }
-
-/* CARD */
 
 .login-card {
     background: white;
@@ -151,9 +146,8 @@ main {
 .card-heading p {
     color: var(--muted);
     font-size: 13px;
+    line-height: 1.6;
 }
-
-/* FORM */
 
 .form-group {
     margin-bottom: 18px;
@@ -208,8 +202,6 @@ input:focus {
     padding: 5px;
 }
 
-/* FORGOT PASSWORD */
-
 .forgot-row {
     display: flex;
     justify-content: flex-end;
@@ -228,8 +220,6 @@ input:focus {
 .forgot-row button:hover {
     text-decoration: underline;
 }
-
-/* BUTTON */
 
 .submit-btn {
     width: 100%;
@@ -256,40 +246,39 @@ input:focus {
     transform: none;
 }
 
-/* MESSAGES */
-
 .message {
     display: none;
     padding: 12px;
     border-radius: 9px;
     margin-bottom: 16px;
     font-size: 13px;
-    line-height: 1.5;
+    line-height: 1.6;
     overflow-wrap: anywhere;
 }
 
-.message.success {
+.message.success,
+.message.error,
+.message.info {
     display: block;
+}
+
+.message.success {
     background: #dcfce7;
     color: #166534;
     border: 1px solid #bbf7d0;
 }
 
 .message.error {
-    display: block;
     background: #fee2e2;
     color: #991b1b;
     border: 1px solid #fecaca;
 }
 
 .message.info {
-    display: block;
     background: #eff6ff;
     color: #1d4ed8;
     border: 1px solid #bfdbfe;
 }
-
-/* SIGNUP LINK */
 
 .signup-row {
     text-align: center;
@@ -308,8 +297,6 @@ input:focus {
     text-decoration: underline;
 }
 
-/* FOOTER */
-
 footer {
     background: #0b1730;
     color: white;
@@ -323,16 +310,12 @@ footer p {
     opacity: .85;
 }
 
-/* ACCESSIBILITY */
-
 button:focus-visible,
 a:focus-visible,
 input:focus-visible {
     outline: 3px solid #f59e0b;
     outline-offset: 3px;
 }
-
-/* MOBILE */
 
 @media (max-width: 500px) {
     header {
@@ -366,8 +349,6 @@ input:focus-visible {
 
 <body>
 
-<!-- HEADER -->
-
 <header>
     <div class="header-inner">
 
@@ -388,14 +369,10 @@ input:focus-visible {
     </div>
 </header>
 
-<!-- MAIN -->
-
 <main>
-
     <div class="login-wrapper">
 
         <div class="welcome">
-
             <div class="welcome-icon">🎓</div>
 
             <h1>Welcome Back!</h1>
@@ -403,7 +380,6 @@ input:focus-visible {
             <p>
                 Sign in to continue your learning journey.
             </p>
-
         </div>
 
         <section class="login-card">
@@ -425,13 +401,8 @@ input:focus-visible {
 
             <form id="loginForm">
 
-                <!-- EMAIL -->
-
                 <div class="form-group">
-
-                    <label for="email">
-                        Email Address
-                    </label>
+                    <label for="email">Email Address</label>
 
                     <input
                         type="email"
@@ -442,16 +413,10 @@ input:focus-visible {
                         maxlength="254"
                         required
                     >
-
                 </div>
 
-                <!-- PASSWORD -->
-
                 <div class="form-group">
-
-                    <label for="password">
-                        Password
-                    </label>
+                    <label for="password">Password</label>
 
                     <div class="input-wrap">
 
@@ -469,28 +434,19 @@ input:focus-visible {
                             class="toggle-password"
                             type="button"
                             id="togglePassword"
+                            aria-label="Show password"
                         >
                             Show
                         </button>
 
                     </div>
-
                 </div>
-
-                <!-- FORGOT PASSWORD -->
 
                 <div class="forgot-row">
-
-                    <button
-                        type="button"
-                        id="forgotPassword"
-                    >
+                    <button type="button" id="forgotPassword">
                         Forgot Password?
                     </button>
-
                 </div>
-
-                <!-- SUBMIT -->
 
                 <button
                     type="submit"
@@ -508,30 +464,22 @@ input:focus-visible {
             </div>
 
         </section>
-
     </div>
-
 </main>
 
-<!-- FOOTER -->
-
 <footer>
-
     <p><strong>ORIENT CLASSES</strong></p>
-
     <p>Online Learning and Mock Test Platform</p>
-
     <p>© <span id="year"></span> Orient Classes</p>
-
 </footer>
-
-<!-- SUPABASE AUTHENTICATION -->
 
 <script type="module">
 
 import {
     createClient
 } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
+
+/* SUPABASE CONFIGURATION */
 
 const SUPABASE_URL =
     "https://gzbrnltdgllojscssvaz.supabase.co";
@@ -544,66 +492,102 @@ const supabase = createClient(
     SUPABASE_PUBLISHABLE_KEY
 );
 
+/* ELEMENTS */
+
 const form = document.getElementById("loginForm");
+const emailInput = document.getElementById("email");
+const passwordInput = document.getElementById("password");
 const submitBtn = document.getElementById("submitBtn");
 const messageBox = document.getElementById("message");
+const forgotBtn = document.getElementById("forgotPassword");
+const togglePasswordBtn = document.getElementById("togglePassword");
 
 document.getElementById("year").textContent =
     new Date().getFullYear();
 
-/* SHOW / HIDE PASSWORD */
+/* SAFE DASHBOARD REDIRECT */
 
-document.getElementById("togglePassword")
-    .addEventListener("click", () => {
-
-        const passwordInput =
-            document.getElementById("password");
-
-        const isHidden =
-            passwordInput.type === "password";
-
-        passwordInput.type =
-            isHidden ? "text" : "password";
-
-        document.getElementById("togglePassword")
-            .textContent = isHidden ? "Hide" : "Show";
-    });
+function openDashboard() {
+    window.location.replace("./dashboard.html");
+}
 
 /* MESSAGE */
 
 function showMessage(text, type = "info") {
-
     messageBox.className = "message " + type;
     messageBox.textContent = text;
-
-    messageBox.scrollIntoView({
-        behavior: "smooth",
-        block: "nearest"
-    });
 }
+
+/* SHOW / HIDE PASSWORD */
+
+togglePasswordBtn.addEventListener("click", () => {
+
+    const isHidden = passwordInput.type === "password";
+
+    passwordInput.type = isHidden ? "text" : "password";
+
+    togglePasswordBtn.textContent = isHidden ? "Hide" : "Show";
+
+    togglePasswordBtn.setAttribute(
+        "aria-label",
+        isHidden ? "Hide password" : "Show password"
+    );
+});
+
+/*
+ * IF ALREADY LOGGED IN:
+ * Send the student directly to dashboard.html.
+ */
+
+async function checkExistingSession() {
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "CHECKING SESSION...";
+
+    try {
+
+        const { data, error } =
+            await supabase.auth.getSession();
+
+        if (error) {
+            throw error;
+        }
+
+        if (data.session && data.session.user) {
+            openDashboard();
+            return;
+        }
+
+    } catch (error) {
+
+        console.error("Session check error:", error);
+
+    } finally {
+
+        submitBtn.disabled = false;
+        submitBtn.textContent = "SIGN IN →";
+
+    }
+}
+
+checkExistingSession();
 
 /* SIGN IN */
 
-form.addEventListener("submit", async event => {
+form.addEventListener("submit", async (event) => {
 
     event.preventDefault();
 
+    showMessage("", "info");
     messageBox.className = "message";
-    messageBox.textContent = "";
 
-    const email = document
-        .getElementById("email")
-        .value
-        .trim();
-
-    const password = document
-        .getElementById("password")
-        .value;
+    const email = emailInput.value.trim();
+    const password = passwordInput.value;
 
     if (!email || !password) {
 
         showMessage(
-            "Please enter your email and password.",
+            "Please enter your registered email and password.",
             "error"
         );
 
@@ -615,15 +599,11 @@ form.addEventListener("submit", async event => {
 
     try {
 
-        const {
-            data,
-            error
-        } = await supabase.auth.signInWithPassword({
-
-            email: email,
-            password: password
-
-        });
+        const { data, error } =
+            await supabase.auth.signInWithPassword({
+                email,
+                password
+            });
 
         if (error) {
             throw error;
@@ -645,11 +625,11 @@ form.addEventListener("submit", async event => {
         );
 
         /*
-         * The session is stored by Supabase's client.
-         * The dashboard must verify the session again.
+         * Supabase stores the login session.
+         * dashboard.html must independently verify it.
          */
 
-        window.location.replace("dashboard.html");
+        window.location.replace("./dashboard.html");
 
     } catch (error) {
 
@@ -682,7 +662,7 @@ form.addEventListener("submit", async event => {
         ) {
 
             message =
-                "Too many attempts. Please wait and try again.";
+                "Too many attempts. Please wait a little and try again.";
 
         } else if (
             errorText.includes("fetch") ||
@@ -690,7 +670,7 @@ form.addEventListener("submit", async event => {
         ) {
 
             message =
-                "Unable to connect. Check your internet connection and try again.";
+                "Unable to connect. Please check your internet connection and try again.";
 
         }
 
@@ -707,70 +687,63 @@ form.addEventListener("submit", async event => {
 
 /* FORGOT PASSWORD */
 
-document.getElementById("forgotPassword")
-    .addEventListener("click", async () => {
+forgotBtn.addEventListener("click", async () => {
 
-        const email = document
-            .getElementById("email")
-            .value
-            .trim();
+    const email = emailInput.value.trim();
 
-        if (!email) {
+    if (!email) {
 
-            showMessage(
-                "Please enter your registered email address first.",
-                "info"
-            );
+        showMessage(
+            "Please enter your registered email address first.",
+            "info"
+        );
 
-            document.getElementById("email").focus();
+        emailInput.focus();
+        return;
+    }
 
-            return;
-        }
+    forgotBtn.disabled = true;
+    forgotBtn.textContent = "SENDING...";
 
-        const button =
-            document.getElementById("forgotPassword");
+    try {
 
-        button.disabled = true;
+        const redirectTo =
+            window.location.origin + "/login.html";
 
-        try {
-
-            const redirectTo =
-                window.location.origin + "/login.html";
-
-            const {
-                error
-            } = await supabase.auth.resetPasswordForEmail(
+        const { error } =
+            await supabase.auth.resetPasswordForEmail(
                 email,
                 {
-                    redirectTo: redirectTo
+                    redirectTo
                 }
             );
 
-            if (error) {
-                throw error;
-            }
-
-            showMessage(
-                "If an account exists for this email and password recovery is available, a recovery email will be sent. Please check your inbox and Spam folder.",
-                "success"
-            );
-
-        } catch (error) {
-
-            console.error("Password recovery error:", error);
-
-            showMessage(
-                "Unable to request password recovery right now. Please try again later.",
-                "error"
-            );
-
-        } finally {
-
-            button.disabled = false;
-
+        if (error) {
+            throw error;
         }
 
-    });
+        showMessage(
+            "If an account exists for this email, a password recovery email will be sent. Please check your inbox and Spam folder.",
+            "success"
+        );
+
+    } catch (error) {
+
+        console.error("Password recovery error:", error);
+
+        showMessage(
+            "Unable to request password recovery right now. Please try again later.",
+            "error"
+        );
+
+    } finally {
+
+        forgotBtn.disabled = false;
+        forgotBtn.textContent = "Forgot Password?";
+
+    }
+
+});
 
 </script>
 
