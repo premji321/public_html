@@ -20,6 +20,7 @@
   --white:#fff;
   --green:#16834a;
   --gold:#fff5d8;
+  --red:#c62828;
 }
 
 *{box-sizing:border-box}
@@ -236,7 +237,7 @@ input:focus-visible{
   text-transform:uppercase;
 }
 
-/* CLASS MENU */
+/* NAVIGATION */
 
 .class-group,
 .section-group,
@@ -333,8 +334,6 @@ button[aria-expanded="true"] .subject-arrow{
   padding:8px;
 }
 
-/* CHAPTER NAVIGATION */
-
 .chapter-nav{
   display:none;
   padding:3px 0 5px 8px;
@@ -371,7 +370,7 @@ button[aria-expanded="true"] .subject-arrow{
   text-align:center;
 }
 
-/* MAIN CONTENT */
+/* MAIN */
 
 .content-area{
   min-width:0;
@@ -404,8 +403,6 @@ button[aria-expanded="true"] .subject-arrow{
 .page{display:none}
 .page.active{display:block}
 
-/* HOME */
-
 .home-title{
   margin:0 0 10px;
   color:var(--navy);
@@ -419,7 +416,8 @@ button[aria-expanded="true"] .subject-arrow{
   font-size:13px;
 }
 
-.hero-banner{
+.hero-banner,
+.page-banner{
   padding:23px;
   margin-bottom:20px;
   border-radius:12px;
@@ -427,12 +425,14 @@ button[aria-expanded="true"] .subject-arrow{
   background:linear-gradient(120deg,#10264b,#2459c4);
 }
 
-.hero-banner h2{
+.hero-banner h2,
+.page-banner h2{
   margin:0 0 8px;
-  font-size:21px;
+  font-size:22px;
 }
 
-.hero-banner p{
+.hero-banner p,
+.page-banner p{
   margin:0;
   color:#e0ebff;
   font-size:12px;
@@ -476,114 +476,61 @@ button[aria-expanded="true"] .subject-arrow{
   font-size:12px;
 }
 
-/* CLASS CARDS */
+/* CARDS */
 
-.class-grid{
+.class-grid,
+.section-grid,
+.subject-grid{
   display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
   gap:12px;
 }
 
-.class-card{
+.class-card,
+.section-card,
+.subject-card{
   padding:17px;
   border:1px solid var(--line);
   border-radius:11px;
   background:white;
-  transition:transform .2s,border-color .2s;
+  min-width:0;
 }
 
-.class-card:hover{
-  transform:translateY(-3px);
+.class-card:hover,
+.section-card:hover,
+.subject-card:hover{
   border-color:#b8cef4;
 }
 
 .class-card-icon{font-size:24px}
 
-.class-card h3{
-  margin:7px 0 4px;
+.class-card h3,
+.section-card h3,
+.subject-card h3{
+  margin:7px 0;
   color:var(--navy);
-  font-size:16px;
+  font-size:15px;
+  overflow-wrap:anywhere;
 }
 
-.class-card p{
-  margin:0 0 12px;
-  color:var(--muted);
-  font-size:10px;
-}
-
-.class-card button,
-.subject-card button,
-.section-card button{
-  width:100%;
-  padding:9px;
-  border:0;
-  border-radius:6px;
-  background:#edf4ff;
-  color:#2459c4;
-  font-size:10px;
-  font-weight:800;
-}
-
-/* BANNERS */
-
-.page-banner{
-  padding:21px;
-  border-radius:11px;
-  color:white;
-  background:linear-gradient(120deg,#10264b,#2459c4);
-  margin-bottom:20px;
-}
-
-.page-banner h2{
-  margin:0 0 6px;
-  font-size:23px;
-}
-
-.page-banner p{
-  margin:0;
-  color:#dbeafe;
-  font-size:12px;
-}
-
-/* CARDS */
-
-.subject-grid,
-.section-grid{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:12px;
-}
-
-.subject-card,
-.section-card{
-  padding:17px;
-  border:1px solid var(--line);
-  border-radius:10px;
-  background:white;
-}
-
-.subject-card h3,
-.section-card h3{
-  margin:0 0 8px;
-  color:#173c78;
-  font-size:16px;
-}
-
-.subject-card p,
-.section-card p{
+.class-card p,
+.section-card p,
+.subject-card p{
   margin:0 0 12px;
   color:var(--muted);
   font-size:11px;
 }
 
-.section-tag{
-  display:inline-block;
-  padding:4px 8px;
-  margin-bottom:8px;
-  border-radius:5px;
-  background:#eaf1ff;
+.class-card button,
+.section-card button,
+.subject-card button{
+  width:100%;
+  padding:10px;
+  border:0;
+  border-radius:6px;
+  background:#edf4ff;
   color:#2459c4;
-  font-size:9px;
+  font-size:11px;
   font-weight:800;
 }
 
@@ -611,7 +558,6 @@ button[aria-expanded="true"] .subject-arrow{
   font-size:12px;
   line-height:1.5;
   overflow-wrap:anywhere;
-  transition:background .2s,border-color .2s;
 }
 
 .chapter-card:hover{
@@ -632,18 +578,113 @@ button[aria-expanded="true"] .subject-arrow{
   font-weight:900;
 }
 
-.chapter-card-title{
-  display:block;
-  min-width:0;
+/* CHAPTER READER */
+
+.chapter-reader{
+  border:1px solid var(--line);
+  border-radius:12px;
+  overflow:hidden;
 }
 
-/* ACTIONS */
+.chapter-reader-heading{
+  padding:22px;
+  color:white;
+  background:linear-gradient(120deg,#10264b,#2459c4);
+}
 
-.content-actions{
+.chapter-reader-heading h2{
+  margin:0 0 5px;
+  font-size:clamp(22px,3vw,30px);
+}
+
+.chapter-reader-heading p{
+  margin:0;
+  font-size:12px;
+  color:#dbeafe;
+}
+
+.chapter-actions{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:10px;
+  padding:15px;
+  background:#f8faff;
+  border-bottom:1px solid var(--line);
+}
+
+.chapter-action{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  min-height:88px;
+  padding:12px 8px;
+  border:1px solid #d8e4f5;
+  border-radius:9px;
+  background:white;
+  color:var(--navy);
+  text-align:center;
+  font-size:11px;
+  font-weight:800;
+  transition:transform .2s,box-shadow .2s;
+}
+
+.chapter-action:hover{
+  transform:translateY(-2px);
+  box-shadow:0 5px 15px #10264b12;
+}
+
+.chapter-action .action-icon{
+  font-size:24px;
+  margin-bottom:6px;
+}
+
+.chapter-action.ncert{
+  background:#eaf1ff;
+  border-color:#c7d9fa;
+  color:#17469b;
+}
+
+.chapter-action.notes{
+  background:#e9f8ef;
+  border-color:#bfe6cc;
+  color:#146b3a;
+}
+
+.chapter-action.mcq{
+  background:#fff5df;
+  border-color:#f0d79c;
+  color:#805300;
+}
+
+.chapter-content{
+  padding:22px;
+}
+
+.chapter-content h3{
+  color:var(--navy);
+}
+
+.chapter-content p{
+  color:#52627a;
+  font-size:14px;
+}
+
+.chapter-info{
+  padding:14px;
+  border:1px solid #f0d79c;
+  border-radius:8px;
+  background:#fff9e9;
+  color:#76551a;
+  font-size:12px;
+  margin:15px 0;
+}
+
+.reader-toolbar{
   display:flex;
   flex-wrap:wrap;
-  gap:9px;
-  margin-top:20px;
+  gap:8px;
+  padding:0 22px 22px;
 }
 
 .action-button{
@@ -675,21 +716,97 @@ button[aria-expanded="true"] .subject-arrow{
   text-align:center;
 }
 
+/* MCQ */
+
+.quiz-box{
+  padding:20px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:white;
+}
+
+.quiz-progress{
+  color:var(--muted);
+  font-size:12px;
+  margin-bottom:10px;
+}
+
+.quiz-question{
+  font-size:18px;
+  color:var(--navy);
+  margin:10px 0 18px;
+}
+
+.quiz-option{
+  display:block;
+  width:100%;
+  margin:8px 0;
+  padding:12px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:white;
+  text-align:left;
+  font-size:13px;
+}
+
+.quiz-option:hover{
+  background:var(--pale);
+  border-color:#b8cef4;
+}
+
+.quiz-option.correct{
+  background:#e8f7ed;
+  border-color:#58ad75;
+}
+
+.quiz-option.incorrect{
+  background:#fff0f0;
+  border-color:#e5a2a2;
+}
+
+.quiz-feedback{
+  margin:12px 0;
+  font-weight:800;
+  font-size:13px;
+}
+
+.quiz-buttons{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:15px;
+}
+
+.quiz-result{
+  padding:20px;
+  background:#edf4ff;
+  border-radius:10px;
+  text-align:center;
+}
+
+.quiz-result strong{
+  display:block;
+  font-size:32px;
+  color:#2459c4;
+}
+
 /* RESPONSIVE */
 
-@media(max-width:950px){
+@media(max-width:1050px){
   .app-layout{
     grid-template-columns:250px minmax(0,1fr);
     gap:10px;
     padding:0 9px;
   }
 
-  .class-grid{
+  .class-grid,
+  .section-grid,
+  .subject-grid{
     grid-template-columns:repeat(2,minmax(0,1fr));
   }
 }
 
-@media(max-width:600px){
+@media(max-width:650px){
   .top-header{padding:12px}
   .header-title h1{font-size:18px}
   .header-title p{font-size:10px}
@@ -707,8 +824,7 @@ button[aria-expanded="true"] .subject-arrow{
     max-height:none;
   }
 
-  .sidebar-scroll{max-height:450px}
-
+  .sidebar-scroll{max-height:400px}
   .content-area{width:100%}
   .content-inner{padding:15px}
 
@@ -718,14 +834,27 @@ button[aria-expanded="true"] .subject-arrow{
   .stat-card span{font-size:9px}
 
   .class-grid,
-  .subject-grid,
   .section-grid,
+  .subject-grid,
   .chapter-list{
     grid-template-columns:1fr;
   }
 
-  .hero-banner{padding:17px}
-  .hero-banner h2{font-size:18px}
+  .chapter-actions{
+    grid-template-columns:1fr;
+  }
+
+  .chapter-action{
+    flex-direction:row;
+    gap:10px;
+    min-height:58px;
+  }
+
+  .chapter-action .action-icon{
+    margin:0;
+  }
+
+  .chapter-content{padding:15px}
 }
 
 @media(prefers-reduced-motion:reduce){
@@ -743,7 +872,6 @@ button[aria-expanded="true"] .subject-arrow{
 <header class="top-header">
   <div class="header-inner">
     <div class="logo">📚</div>
-
     <div class="header-title">
       <h1>Orient Classes — NCERT Study Portal</h1>
       <p>NCERT Explore • Old NCERT • Class 6–12</p>
@@ -778,11 +906,9 @@ button[aria-expanded="true"] .subject-arrow{
     </div>
 
     <div class="sidebar-search">
-      <input
-        type="search"
-        id="searchInput"
-        placeholder="Search class, section, chapter..."
-        aria-label="Search classes, sections, subjects and chapters">
+      <input type="search" id="searchInput"
+        placeholder="Search class, subject, chapter..."
+        aria-label="Search chapters">
     </div>
 
     <div class="sidebar-tools">
@@ -791,15 +917,11 @@ button[aria-expanded="true"] .subject-arrow{
     </div>
 
     <div class="sidebar-scroll">
-
       <div class="menu-label">Classes & Chapter Index</div>
-
       <div id="leftIndex"></div>
-
       <div id="noResults" class="no-results">
         No matching results found.
       </div>
-
     </div>
 
   </aside>
@@ -817,21 +939,20 @@ button[aria-expanded="true"] .subject-arrow{
         <h2 class="home-title">Welcome to NCERT Study Portal</h2>
 
         <p class="home-description">
-          Explore the NCERT chapter index for Classes 6 to 12.
-          Classes 6, 7 and 8 contain separate NCERT Explore
-          and Old NCERT sections.
+          Explore NCERT chapters for Classes 6 to 12.
+          Select your class and click any chapter to open it
+          inside this same webpage.
         </p>
 
         <div class="hero-banner">
           <h2>Learn Chapter by Chapter</h2>
           <p>
-            Select your class, choose a textbook section,
-            and open the chapter you want to study.
+            Open the chapter, download its PDF, read notes,
+            and attempt MCQs without leaving this page.
           </p>
         </div>
 
         <div class="stats-grid">
-
           <div class="stat-card">
             <strong id="classCount">0</strong>
             <span>Classes</span>
@@ -839,18 +960,16 @@ button[aria-expanded="true"] .subject-arrow{
 
           <div class="stat-card">
             <strong id="sectionCount">0</strong>
-            <span>Textbook Sections</span>
+            <span>Textbook Categories</span>
           </div>
 
           <div class="stat-card">
             <strong id="chapterCount">0</strong>
             <span>Indexed Chapters</span>
           </div>
-
         </div>
 
         <h2 class="section-title">Select Your Class</h2>
-
         <p class="section-description">
           Choose a class below or use the left-side navigation.
         </p>
@@ -860,13 +979,9 @@ button[aria-expanded="true"] .subject-arrow{
       </section>
 
       <section class="page" id="dynamicPage">
-
         <h2 class="section-title" id="pageTitle"></h2>
-
         <p class="section-description" id="pageSubtitle"></p>
-
         <div id="pageBody"></div>
-
       </section>
 
     </div>
@@ -876,824 +991,669 @@ button[aria-expanded="true"] .subject-arrow{
     </div>
 
   </main>
-
 </div>
 
 <script>
 
-/* ==================================================
-   CHAPTER FILE NAME GENERATOR
-   ================================================== */
-
-function slugifyChapter(name){
-
-  return name
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g,"")
-    .toLowerCase()
-    .trim()
-    .replace(/&/g," and ")
-    .replace(/[^a-z0-9]+/g,"-")
-    .replace(/^-+|-+$/g,"");
-
-}
-
-function getChapterFileName(name){
-  return slugifyChapter(name)+".html";
-}
-
-/*
-  IMPORTANT:
-  A chapter such as "Panchayati Raj" opens:
-  panchayati-raj.html
-
-  Place the chapter HTML files in the same folder as
-  this index, or update getChapterFileName() to match
-  your website's folder structure.
-*/
-
-/* ==================================================
-   NCERT INDEX DATA
-
-   Classes 6–8:
-   NCERT Explore and Old NCERT are separate.
-
-   Classes 9–12:
-   The existing subject-based index is retained.
-   ================================================== */
+/* =====================================================
+   1. NCERT DATA
+   Classes 6–12 and the original chapter index
+   ===================================================== */
 
 const ncertData = [
 
-/* ==================================================
-   CLASS 6
-   ================================================== */
-
 {
-  className:"Class 6",
-
-  sections:[
-
+ className:"Class 6",
+ sections:[
+  {
+   name:"NCERT Explore",
+   icon:"📘",
+   books:[
     {
-      name:"NCERT Explore",
-      icon:"📘",
-      books:[
-
-        {
-          name:"Exploring Society: India and Beyond",
-          chapters:[
-            "Locating Places on the Earth",
-            "Oceans and Continents",
-            "Landforms and Life",
-            "Timeline and Sources of History",
-            "India, That Is Bharat",
-            "The Beginnings of Indian Civilisation",
-            "India's Cultural Roots",
-            "Unity in Diversity, or 'Many in the One'",
-            "Family and Community",
-            "Grassroots Democracy — Part 1: Governance",
-            "Grassroots Democracy — Part 2: Local Government in Rural Areas",
-            "Grassroots Democracy — Part 3: Local Government in Urban Areas",
-            "The Value of Work",
-            "Economic Activities Around Us"
-          ]
-        }
-
-      ]
+     name:"Exploring Society: India and Beyond",
+     chapters:[
+      "Locating Places on the Earth",
+      "Oceans and Continents",
+      "Landforms and Life",
+      "Timeline and Sources of History",
+      "India, That Is Bharat",
+      "The Beginnings of Indian Civilisation",
+      "India's Cultural Roots",
+      "Unity in Diversity, or 'Many in the One'",
+      "Family and Community",
+      "Grassroots Democracy — Part 1: Governance",
+      "Grassroots Democracy — Part 2: Local Government in Rural Areas",
+      "Grassroots Democracy — Part 3: Local Government in Urban Areas",
+      "The Value of Work",
+      "Economic Activities Around Us"
+     ]
+    }
+   ]
+  },
+  {
+   name:"Old NCERT",
+   icon:"📚",
+   books:[
+    {
+     name:"History — Our Pasts-I",
+     chapters:[
+      "What, Where, How and When?",
+      "On the Trail of the Earliest People",
+      "From Gathering to Growing Food",
+      "In the Earliest Cities",
+      "What Books and Burials Tell Us",
+      "Kingdoms, Kings and an Early Republic",
+      "New Questions and Ideas",
+      "Ashoka, the Emperor Who Gave Up War",
+      "Vital Villages, Thriving Towns",
+      "Traders, Kings and Pilgrims",
+      "New Empires and Kingdoms",
+      "Buildings, Paintings and Books"
+     ]
     },
-
     {
-      name:"Old NCERT",
-      icon:"📚",
-      books:[
-
-        {
-          name:"History — Our Pasts-I",
-          chapters:[
-            "What, Where, How and When?",
-            "On the Trail of the Earliest People",
-            "From Gathering to Growing Food",
-            "In the Earliest Cities",
-            "What Books and Burials Tell Us",
-            "Kingdoms, Kings and an Early Republic",
-            "New Questions and Ideas",
-            "Ashoka, the Emperor Who Gave Up War",
-            "Vital Villages, Thriving Towns",
-            "Traders, Kings and Pilgrims",
-            "New Empires and Kingdoms",
-            "Buildings, Paintings and Books"
-          ]
-        },
-
-        {
-          name:"Geography — The Earth: Our Habitat",
-          chapters:[
-            "The Earth in the Solar System",
-            "Globe: Latitudes and Longitudes",
-            "Motions of the Earth",
-            "Maps",
-            "Major Domains of the Earth",
-            "Major Landforms of the Earth",
-            "Our Country—India",
-            "India: Climate, Vegetation and Wildlife"
-          ]
-        },
-
-        {
-          name:"Civics — Social and Political Life-I",
-          chapters:[
-            "Understanding Diversity",
-            "Diversity and Discrimination",
-            "What Is Government?",
-            "Key Elements of a Democratic Government",
-            "Panchayati Raj",
-            "Rural Administration",
-            "Urban Administration",
-            "Rural Livelihoods",
-            "Urban Livelihoods"
-          ]
-        }
-
-      ]
-    }
-
-  ]
-},
-
-/* ==================================================
-   CLASS 7
-   ================================================== */
-
-{
-  className:"Class 7",
-
-  sections:[
-
-    {
-      name:"NCERT Explore",
-      icon:"📘",
-
-      books:[
-
-        {
-          name:"Part 1 — Exploring Society: India and Beyond",
-
-          chapters:[
-            "Geographical Diversity of India",
-            "Understanding the Weather",
-            "Climates of India",
-            "New Beginnings: Cities and States",
-            "The Rise of Empires",
-            "The Age of Reorganisation",
-            "The Gupta Era: An Age of Tireless Creativity",
-            "How the Land Becomes Sacred",
-            "From the Rulers to the Ruled: Types of Governments",
-            "The Constitution of India: An Introduction",
-            "From Barter to Money",
-            "Understanding Markets"
-          ]
-        },
-
-        {
-          name:"Part 2 — Exploring Society: India and Beyond",
-
-          chapters:[
-            "The Story of Indian Farming",
-            "India and Her Neighbours",
-            "Empires and Kingdoms: 6th to 10th Centuries",
-            "Turning Tides: 11th and 12th Centuries",
-            "India, a Home to Many",
-            "The State, the Government, and You",
-            "Infrastructure: Engine of India's Development",
-            "Banks and the Magic of Finance"
-          ]
-        }
-
-      ]
+     name:"Geography — The Earth: Our Habitat",
+     chapters:[
+      "The Earth in the Solar System",
+      "Globe: Latitudes and Longitudes",
+      "Motions of the Earth",
+      "Maps",
+      "Major Domains of the Earth",
+      "Major Landforms of the Earth",
+      "Our Country—India",
+      "India: Climate, Vegetation and Wildlife"
+     ]
     },
-
     {
-      name:"Old NCERT",
-      icon:"📚",
-
-      books:[
-
-        {
-          name:"History — Our Pasts-II",
-
-          chapters:[
-            "Tracing Changes Through a Thousand Years",
-            "New Kings and Kingdoms",
-            "The Delhi Sultans",
-            "The Mughal Empire",
-            "Rulers and Buildings",
-            "Towns, Traders and Craftspersons",
-            "Tribes, Nomads and Settled Communities",
-            "Devotional Paths to the Divine",
-            "The Making of Regional Cultures",
-            "Eighteenth-Century Political Formations"
-          ]
-        },
-
-        {
-          name:"Geography — Our Environment",
-
-          chapters:[
-            "Environment",
-            "Inside Our Earth",
-            "Our Changing Earth",
-            "Air",
-            "Water",
-            "Natural Vegetation and Wildlife",
-            "Human Environment—Settlement, Transport and Communication",
-            "Human Environment Interactions: The Tropical and Subtropical Region",
-            "Life in the Temperate Grasslands",
-            "Life in the Deserts"
-          ]
-        },
-
-        {
-          name:"Civics — Social and Political Life-II",
-
-          chapters:[
-            "On Equality",
-            "Role of the Government in Health",
-            "How the State Government Works",
-            "Growing Up as Boys and Girls",
-            "Women Change the World",
-            "Understanding Media",
-            "Understanding Advertising",
-            "Markets Around Us",
-            "A Shirt in the Market",
-            "Struggles for Equality"
-          ]
-        }
-
-      ]
+     name:"Civics — Social and Political Life-I",
+     chapters:[
+      "Understanding Diversity",
+      "Diversity and Discrimination",
+      "What Is Government?",
+      "Key Elements of a Democratic Government",
+      "Panchayati Raj",
+      "Rural Administration",
+      "Urban Administration",
+      "Rural Livelihoods",
+      "Urban Livelihoods"
+     ]
     }
-
-  ]
+   ]
+  }
+ ]
 },
 
-/* ==================================================
-   CLASS 8
-   ================================================== */
-
 {
-  className:"Class 8",
-
-  sections:[
-
+ className:"Class 7",
+ sections:[
+  {
+   name:"NCERT Explore",
+   icon:"📘",
+   books:[
     {
-      name:"NCERT Explore",
-      icon:"📘",
-
-      books:[
-
-        {
-          name:"Part 1 — Exploring Society: India and Beyond",
-
-          chapters:[
-            "Natural Resources and Their Use",
-            "Reshaping India's Political Map",
-            "The Rise of the Marathas",
-            "The Colonial Era in India",
-            "Universal Franchise and India's Electoral System",
-            "The Parliamentary System: Legislature and Executive",
-            "Factors of Production"
-          ]
-        },
-
-        {
-          name:"Part 2 — Exploring Society: India and Beyond",
-
-          chapters:[
-            "World Geography: Some Glimpses",
-            "India's Long Road to Independence",
-            "A Journey Through Indian Architecture",
-            "The Role of the Judiciary in Our Society",
-            "Citizenship: Rights and Duties",
-            "Dynamics of Population",
-            "India's Urban Landscape",
-            "Cultural Currents: 13th to 17th Centuries"
-          ]
-        }
-
-      ]
+     name:"Part 1 — Exploring Society: India and Beyond",
+     chapters:[
+      "Geographical Diversity of India",
+      "Understanding the Weather",
+      "Climates of India",
+      "New Beginnings: Cities and States",
+      "The Rise of Empires",
+      "The Age of Reorganisation",
+      "The Gupta Era: An Age of Tireless Creativity",
+      "How the Land Becomes Sacred",
+      "From the Rulers to the Ruled: Types of Governments",
+      "The Constitution of India: An Introduction",
+      "From Barter to Money",
+      "Understanding Markets"
+     ]
     },
-
     {
-      name:"Old NCERT",
-      icon:"📚",
-
-      books:[
-
-        {
-          name:"History — Our Pasts-III",
-
-          chapters:[
-            "How, When and Where",
-            "From Trade to Territory",
-            "Ruling the Countryside",
-            "Tribals, Dikus and the Vision of a Golden Age",
-            "When People Rebel: 1857 and After",
-            "Colonialism and the City",
-            "Weavers, Iron Smelters and Factory Owners",
-            "Civilising the Native, Educating the Nation",
-            "Women, Caste and Reform",
-            "The Changing World of Visual Arts",
-            "The Making of the National Movement: 1870s–1947",
-            "India After Independence"
-          ]
-        },
-
-        {
-          name:"Geography — Resources and Development",
-
-          chapters:[
-            "Resources",
-            "Land, Soil, Water, Natural Vegetation and Wildlife Resources",
-            "Mineral and Power Resources",
-            "Agriculture",
-            "Industries",
-            "Human Resources"
-          ]
-        },
-
-        {
-          name:"Civics — Social and Political Life-III",
-
-          chapters:[
-            "The Indian Constitution",
-            "Understanding Secularism",
-            "Why Do We Need a Parliament?",
-            "Understanding Laws",
-            "Judiciary",
-            "Understanding Our Criminal Justice System",
-            "Understanding Marginalisation",
-            "Confronting Marginalisation",
-            "Public Facilities",
-            "Law and Social Justice"
-          ]
-        }
-
-      ]
+     name:"Part 2 — Exploring Society: India and Beyond",
+     chapters:[
+      "The Story of Indian Farming",
+      "India and Her Neighbours",
+      "Empires and Kingdoms: 6th to 10th Centuries",
+      "Turning Tides: 11th and 12th Centuries",
+      "India, a Home to Many",
+      "The State, the Government, and You",
+      "Infrastructure: Engine of India's Development",
+      "Banks and the Magic of Finance"
+     ]
     }
-
-  ]
+   ]
+  },
+  {
+   name:"Old NCERT",
+   icon:"📚",
+   books:[
+    {
+     name:"History — Our Pasts-II",
+     chapters:[
+      "Tracing Changes Through a Thousand Years",
+      "New Kings and Kingdoms",
+      "The Delhi Sultans",
+      "The Mughal Empire",
+      "Rulers and Buildings",
+      "Towns, Traders and Craftspersons",
+      "Tribes, Nomads and Settled Communities",
+      "Devotional Paths to the Divine",
+      "The Making of Regional Cultures",
+      "Eighteenth-Century Political Formations"
+     ]
+    },
+    {
+     name:"Geography — Our Environment",
+     chapters:[
+      "Environment",
+      "Inside Our Earth",
+      "Our Changing Earth",
+      "Air",
+      "Water",
+      "Natural Vegetation and Wildlife",
+      "Human Environment—Settlement, Transport and Communication",
+      "Human Environment Interactions: The Tropical and Subtropical Region",
+      "Life in the Temperate Grasslands",
+      "Life in the Deserts"
+     ]
+    },
+    {
+     name:"Civics — Social and Political Life-II",
+     chapters:[
+      "On Equality",
+      "Role of the Government in Health",
+      "How the State Government Works",
+      "Growing Up as Boys and Girls",
+      "Women Change the World",
+      "Understanding Media",
+      "Understanding Advertising",
+      "Markets Around Us",
+      "A Shirt in the Market",
+      "Struggles for Equality"
+     ]
+    }
+   ]
+  }
+ ]
 },
 
-/* ==================================================
-   CLASS 9
-   ================================================== */
-
 {
-  className:"Class 9",
-
-  sections:[
-
+ className:"Class 8",
+ sections:[
+  {
+   name:"NCERT Explore",
+   icon:"📘",
+   books:[
     {
-      name:"Subject Index",
-      icon:"📚",
-
-      books:[
-
-        {
-          name:"Science",
-
-          chapters:[
-            "Exploration: Entering the World of Secondary Science",
-            "Cell: The Building Block of Life",
-            "Tissues in Action",
-            "Describing Motion Around Us",
-            "Exploring Mixtures and Their Separation",
-            "How Forces Affect Motion",
-            "Work, Energy, and Simple Machines",
-            "Journey Inside the Atom",
-            "Atomic Foundations of Matter",
-            "Sound Waves: Characteristics and Applications",
-            "Reproduction: How Life Continues",
-            "Patterns in Life: Diversity and Classification",
-            "Earth as a System: Energy, Matter, and Life"
-          ]
-        },
-
-        {
-          name:"History",
-
-          chapters:[
-            "Early Humans and Beginning of Civilisation",
-            "State and Society up to 1000 CE",
-            "Resistance and Resilience (1000–1700 CE)"
-          ]
-        },
-
-        {
-          name:"Geography",
-
-          chapters:[
-            "Understanding Social Science",
-            "Shaping of the Earth's Surface",
-            "Atmosphere and Climate",
-            "Oceans and Life",
-            "Life on Earth"
-          ]
-        },
-
-        {
-          name:"Political Science",
-
-          chapters:[
-            "Democracy",
-            "Elections",
-            "Governance and Public Policy"
-          ]
-        },
-
-        {
-          name:"Economics",
-
-          chapters:[
-            "Building Blocks in Economics: The Problem of Choice",
-            "The Price Puzzle: What Drives the Market",
-            "Managing Your Personal Finances",
-            "From Ideas to Startups"
-          ]
-        }
-
-      ]
+     name:"Part 1 — Exploring Society: India and Beyond",
+     chapters:[
+      "Natural Resources and Their Use",
+      "Reshaping India's Political Map",
+      "The Rise of the Marathas",
+      "The Colonial Era in India",
+      "Universal Franchise and India's Electoral System",
+      "The Parliamentary System: Legislature and Executive",
+      "Factors of Production"
+     ]
+    },
+    {
+     name:"Part 2 — Exploring Society: India and Beyond",
+     chapters:[
+      "World Geography: Some Glimpses",
+      "India's Long Road to Independence",
+      "A Journey Through Indian Architecture",
+      "The Role of the Judiciary in Our Society",
+      "Citizenship: Rights and Duties",
+      "Dynamics of Population",
+      "India's Urban Landscape",
+      "Cultural Currents: 13th to 17th Centuries"
+     ]
     }
-
-  ]
+   ]
+  },
+  {
+   name:"Old NCERT",
+   icon:"📚",
+   books:[
+    {
+     name:"History — Our Pasts-III",
+     chapters:[
+      "How, When and Where",
+      "From Trade to Territory",
+      "Ruling the Countryside",
+      "Tribals, Dikus and the Vision of a Golden Age",
+      "When People Rebel: 1857 and After",
+      "Colonialism and the City",
+      "Weavers, Iron Smelters and Factory Owners",
+      "Civilising the Native, Educating the Nation",
+      "Women, Caste and Reform",
+      "The Changing World of Visual Arts",
+      "The Making of the National Movement: 1870s–1947",
+      "India After Independence"
+     ]
+    },
+    {
+     name:"Geography — Resources and Development",
+     chapters:[
+      "Resources",
+      "Land, Soil, Water, Natural Vegetation and Wildlife Resources",
+      "Mineral and Power Resources",
+      "Agriculture",
+      "Industries",
+      "Human Resources"
+     ]
+    },
+    {
+     name:"Civics — Social and Political Life-III",
+     chapters:[
+      "The Indian Constitution",
+      "Understanding Secularism",
+      "Why Do We Need a Parliament?",
+      "Understanding Laws",
+      "Judiciary",
+      "Understanding Our Criminal Justice System",
+      "Understanding Marginalisation",
+      "Confronting Marginalisation",
+      "Public Facilities",
+      "Law and Social Justice"
+     ]
+    }
+   ]
+  }
+ ]
 },
 
-/* ==================================================
-   CLASS 10
-   ================================================== */
-
 {
-  className:"Class 10",
-
-  sections:[
-
+ className:"Class 9",
+ sections:[
+  {
+   name:"Subject Index",
+   icon:"📚",
+   books:[
     {
-      name:"Subject Index",
-      icon:"📚",
-
-      books:[
-
-        {
-          name:"Science",
-
-          chapters:[
-            "Chemical Reactions and Equations",
-            "Acids, Bases and Salts",
-            "Metals and Non-metals",
-            "Carbon and Its Compounds",
-            "Periodic Classification of Elements",
-            "Life Processes",
-            "Control and Coordination",
-            "How Do Organisms Reproduce?",
-            "Heredity and Evolution",
-            "Light—Reflection and Refraction",
-            "The Human Eye and the Colourful World",
-            "Electricity",
-            "Magnetic Effects of Electric Current",
-            "Sources of Energy",
-            "Our Environment",
-            "Sustainable Management of Natural Resources"
-          ]
-        },
-
-        {
-          name:"History",
-
-          chapters:[
-            "The Rise of Nationalism in Europe",
-            "Nationalism in India",
-            "The Making of a Global World",
-            "The Age of Industrialisation",
-            "Print Culture and the Modern World"
-          ]
-        },
-
-        {
-          name:"Geography",
-
-          chapters:[
-            "Resources and Development",
-            "Forest and Wildlife Resources",
-            "Water Resources",
-            "Agriculture",
-            "Minerals and Energy Resources",
-            "Manufacturing Industries",
-            "Lifelines of National Economy"
-          ]
-        },
-
-        {
-          name:"Political Science",
-
-          chapters:[
-            "Power Sharing",
-            "Federalism",
-            "Gender, Religion and Caste",
-            "Political Parties",
-            "Outcomes of Democracy",
-            "Challenges to Democracy"
-          ]
-        },
-
-        {
-          name:"Economics",
-
-          chapters:[
-            "Development",
-            "Sectors of the Indian Economy",
-            "Money and Credit",
-            "Globalisation and the Indian Economy",
-            "Consumer Rights"
-          ]
-        }
-
-      ]
+     name:"Science",
+     chapters:[
+      "Exploration: Entering the World of Secondary Science",
+      "Cell: The Building Block of Life",
+      "Tissues in Action",
+      "Describing Motion Around Us",
+      "Exploring Mixtures and Their Separation",
+      "How Forces Affect Motion",
+      "Work, Energy, and Simple Machines",
+      "Journey Inside the Atom",
+      "Atomic Foundations of Matter",
+      "Sound Waves: Characteristics and Applications",
+      "Reproduction: How Life Continues",
+      "Patterns in Life: Diversity and Classification",
+      "Earth as a System: Energy, Matter, and Life"
+     ]
+    },
+    {
+     name:"History",
+     chapters:[
+      "Early Humans and Beginning of Civilisation",
+      "State and Society up to 1000 CE",
+      "Resistance and Resilience (1000–1700 CE)"
+     ]
+    },
+    {
+     name:"Geography",
+     chapters:[
+      "Understanding Social Science",
+      "Shaping of the Earth's Surface",
+      "Atmosphere and Climate",
+      "Oceans and Life",
+      "Life on Earth"
+     ]
+    },
+    {
+     name:"Political Science",
+     chapters:[
+      "Democracy",
+      "Elections",
+      "Governance and Public Policy"
+     ]
+    },
+    {
+     name:"Economics",
+     chapters:[
+      "Building Blocks in Economics: The Problem of Choice",
+      "The Price Puzzle: What Drives the Market",
+      "Managing Your Personal Finances",
+      "From Ideas to Startups"
+     ]
     }
-
-  ]
+   ]
+  }
+ ]
 },
 
-/* ==================================================
-   CLASS 11
-   ================================================== */
-
 {
-  className:"Class 11",
-
-  sections:[
-
+ className:"Class 10",
+ sections:[
+  {
+   name:"Subject Index",
+   icon:"📚",
+   books:[
     {
-      name:"Subject Index",
-      icon:"📚",
-
-      books:[
-
-        {
-          name:"History — Themes in World History",
-
-          chapters:[
-            "Writing and City Life",
-            "An Empire Across Three Continents",
-            "Nomadic Empires",
-            "The Three Orders",
-            "Changing Cultural Traditions",
-            "Displacing Indigenous Peoples",
-            "Paths to Modernisation"
-          ]
-        },
-
-        {
-          name:"Geography — Fundamentals of Physical Geography",
-
-          chapters:[
-            "Geography as a Discipline",
-            "The Origin and Evolution of the Earth",
-            "Interior of the Earth",
-            "Distribution of Oceans and Continents",
-            "Minerals and Rocks",
-            "Geomorphic Processes",
-            "Landforms and Their Evolution",
-            "Composition and Structure of Atmosphere",
-            "Solar Radiation, Heat Balance and Temperature",
-            "Atmospheric Circulation and Weather Systems",
-            "Water in the Atmosphere",
-            "World Climate and Climate Change",
-            "Water (Oceans)",
-            "Movements of Ocean Water",
-            "Life on the Earth",
-            "Biodiversity and Conservation"
-          ]
-        },
-
-        {
-          name:"Geography — India: Physical Environment",
-
-          chapters:[
-            "India—Location",
-            "Structure and Physiography",
-            "Drainage System",
-            "Climate",
-            "Natural Vegetation",
-            "Soils",
-            "Natural Hazards and Disasters"
-          ]
-        },
-
-        {
-          name:"Political Science — Indian Constitution at Work",
-
-          chapters:[
-            "Constitution: Why and How?",
-            "Rights in the Indian Constitution",
-            "Election and Representation",
-            "Executive",
-            "Legislature",
-            "Judiciary",
-            "Federalism",
-            "Local Governments",
-            "Constitution as a Living Document",
-            "The Philosophy of the Constitution"
-          ]
-        },
-
-        {
-          name:"Political Science — Political Theory",
-
-          chapters:[
-            "Political Theory: An Introduction",
-            "Freedom",
-            "Equality",
-            "Social Justice",
-            "Rights",
-            "Citizenship",
-            "Nationalism",
-            "Secularism",
-            "Peace",
-            "Development"
-          ]
-        },
-
-        {
-          name:"Economics — Indian Economic Development",
-
-          chapters:[
-            "Indian Economy on the Eve of Independence",
-            "Indian Economy (1950–1990)",
-            "Liberalisation, Privatisation and Globalisation: An Appraisal",
-            "Poverty",
-            "Human Capital Formation in India",
-            "Rural Development",
-            "Employment: Growth, Informalisation and Other Issues",
-            "Infrastructure",
-            "Environment and Sustainable Development",
-            "Comparative Development Experiences of India and its Neighbours"
-          ]
-        }
-
-      ]
+     name:"Science",
+     chapters:[
+      "Chemical Reactions and Equations",
+      "Acids, Bases and Salts",
+      "Metals and Non-metals",
+      "Carbon and Its Compounds",
+      "Periodic Classification of Elements",
+      "Life Processes",
+      "Control and Coordination",
+      "How Do Organisms Reproduce?",
+      "Heredity and Evolution",
+      "Light—Reflection and Refraction",
+      "The Human Eye and the Colourful World",
+      "Electricity",
+      "Magnetic Effects of Electric Current",
+      "Sources of Energy",
+      "Our Environment",
+      "Sustainable Management of Natural Resources"
+     ]
+    },
+    {
+     name:"History",
+     chapters:[
+      "The Rise of Nationalism in Europe",
+      "Nationalism in India",
+      "The Making of a Global World",
+      "The Age of Industrialisation",
+      "Print Culture and the Modern World"
+     ]
+    },
+    {
+     name:"Geography",
+     chapters:[
+      "Resources and Development",
+      "Forest and Wildlife Resources",
+      "Water Resources",
+      "Agriculture",
+      "Minerals and Energy Resources",
+      "Manufacturing Industries",
+      "Lifelines of National Economy"
+     ]
+    },
+    {
+     name:"Political Science",
+     chapters:[
+      "Power Sharing",
+      "Federalism",
+      "Gender, Religion and Caste",
+      "Political Parties",
+      "Outcomes of Democracy",
+      "Challenges to Democracy"
+     ]
+    },
+    {
+     name:"Economics",
+     chapters:[
+      "Development",
+      "Sectors of the Indian Economy",
+      "Money and Credit",
+      "Globalisation and the Indian Economy",
+      "Consumer Rights"
+     ]
     }
-
-  ]
+   ]
+  }
+ ]
 },
 
-/* ==================================================
-   CLASS 12
-   ================================================== */
+{
+ className:"Class 11",
+ sections:[
+  {
+   name:"Subject Index",
+   icon:"📚",
+   books:[
+    {
+     name:"History — Themes in World History",
+     chapters:[
+      "Writing and City Life",
+      "An Empire Across Three Continents",
+      "Nomadic Empires",
+      "The Three Orders",
+      "Changing Cultural Traditions",
+      "Displacing Indigenous Peoples",
+      "Paths to Modernisation"
+     ]
+    },
+    {
+     name:"Geography — Fundamentals of Physical Geography",
+     chapters:[
+      "Geography as a Discipline",
+      "The Origin and Evolution of the Earth",
+      "Interior of the Earth",
+      "Distribution of Oceans and Continents",
+      "Minerals and Rocks",
+      "Geomorphic Processes",
+      "Landforms and Their Evolution",
+      "Composition and Structure of Atmosphere",
+      "Solar Radiation, Heat Balance and Temperature",
+      "Atmospheric Circulation and Weather Systems",
+      "Water in the Atmosphere",
+      "World Climate and Climate Change",
+      "Water (Oceans)",
+      "Movements of Ocean Water",
+      "Life on the Earth",
+      "Biodiversity and Conservation"
+     ]
+    },
+    {
+     name:"Geography — India: Physical Environment",
+     chapters:[
+      "India—Location",
+      "Structure and Physiography",
+      "Drainage System",
+      "Climate",
+      "Natural Vegetation",
+      "Soils",
+      "Natural Hazards and Disasters"
+     ]
+    },
+    {
+     name:"Political Science — Indian Constitution at Work",
+     chapters:[
+      "Constitution: Why and How?",
+      "Rights in the Indian Constitution",
+      "Election and Representation",
+      "Executive",
+      "Legislature",
+      "Judiciary",
+      "Federalism",
+      "Local Governments",
+      "Constitution as a Living Document",
+      "The Philosophy of the Constitution"
+     ]
+    },
+    {
+     name:"Political Science — Political Theory",
+     chapters:[
+      "Political Theory: An Introduction",
+      "Freedom",
+      "Equality",
+      "Social Justice",
+      "Rights",
+      "Citizenship",
+      "Nationalism",
+      "Secularism",
+      "Peace",
+      "Development"
+     ]
+    },
+    {
+     name:"Economics — Indian Economic Development",
+     chapters:[
+      "Indian Economy on the Eve of Independence",
+      "Indian Economy (1950–1990)",
+      "Liberalisation, Privatisation and Globalisation: An Appraisal",
+      "Poverty",
+      "Human Capital Formation in India",
+      "Rural Development",
+      "Employment: Growth, Informalisation and Other Issues",
+      "Infrastructure",
+      "Environment and Sustainable Development",
+      "Comparative Development Experiences of India and its Neighbours"
+     ]
+    }
+   ]
+  }
+ ]
+},
 
 {
-  className:"Class 12",
-
-  sections:[
-
+ className:"Class 12",
+ sections:[
+  {
+   name:"Subject Index",
+   icon:"📚",
+   books:[
     {
-      name:"Subject Index",
-      icon:"📚",
-
-      books:[
-
-        {
-          name:"History — Themes in Indian History Part I",
-
-          chapters:[
-            "Bricks, Beads and Bones: The Harappan Civilisation",
-            "Kings, Farmers and Towns: Early States and Economies",
-            "Kinship, Caste and Class: Early Societies",
-            "Thinkers, Beliefs and Buildings: Cultural Developments"
-          ]
-        },
-
-        {
-          name:"History — Themes in Indian History Part II",
-
-          chapters:[
-            "Through the Eyes of Travellers",
-            "Bhakti-Sufi Traditions",
-            "An Imperial Capital: Vijayanagara",
-            "Peasants, Zamindars and the State"
-          ]
-        },
-
-        {
-          name:"History — Themes in Indian History Part III",
-
-          chapters:[
-            "Colonialism and the Countryside",
-            "Rebels and the Raj: The Revolt of 1857",
-            "Mahatma Gandhi and the Nationalist Movement",
-            "Framing the Constitution"
-          ]
-        },
-
-        {
-          name:"Geography — Fundamentals of Human Geography",
-
-          chapters:[
-            "Human Geography: Nature and Scope",
-            "The World Population: Distribution, Density and Growth",
-            "Population Composition",
-            "Human Development",
-            "Primary Activities",
-            "Secondary Activities",
-            "Tertiary and Quaternary Activities",
-            "Transport and Communication",
-            "International Trade",
-            "Human Settlements"
-          ]
-        },
-
-        {
-          name:"Geography — India: People and Economy",
-
-          chapters:[
-            "Population: Distribution, Density, Growth and Composition",
-            "Migration: Types, Causes and Consequences",
-            "Human Development",
-            "Human Settlements",
-            "Land Resources and Agriculture",
-            "Water Resources",
-            "Mineral and Energy Resources",
-            "Manufacturing Industries",
-            "Planning and Sustainable Development in Indian Context",
-            "Transport and Communication",
-            "International Trade",
-            "Geographical Perspective on Selected Issues and Problems"
-          ]
-        },
-
-        {
-          name:"Political Science — Contemporary World Politics",
-
-          chapters:[
-            "The End of Bipolarity",
-            "Contemporary Centres of Power",
-            "Contemporary South Asia",
-            "International Organisations",
-            "Security in the Contemporary World",
-            "Environment and Natural Resources",
-            "Globalisation"
-          ]
-        },
-
-        {
-          name:"Political Science — Politics in India Since Independence",
-
-          chapters:[
-            "Challenges of Nation-Building",
-            "Era of One-Party Dominance",
-            "Politics of Planned Development",
-            "India's External Relations",
-            "Challenges to and Restoration of the Congress System",
-            "The Crisis of the Democratic Order",
-            "Regional Aspirations",
-            "Recent Developments in Indian Politics"
-          ]
-        },
-
-        {
-          name:"Economics — Introductory Macroeconomics",
-
-          chapters:[
-            "Introduction",
-            "National Income Accounting",
-            "Money and Banking",
-            "Determination of Income and Employment",
-            "Government Budget and the Economy",
-            "Open Economy Macroeconomics"
-          ]
-        },
-
-        {
-          name:"Economics — Introductory Microeconomics",
-
-          chapters:[
-            "Introduction",
-            "Theory of Consumer Behaviour",
-            "Production and Costs",
-            "The Theory of the Firm under Perfect Competition",
-            "Market Equilibrium",
-            "Non-competitive Markets"
-          ]
-        }
-
-      ]
+     name:"History — Themes in Indian History Part I",
+     chapters:[
+      "Bricks, Beads and Bones: The Harappan Civilisation",
+      "Kings, Farmers and Towns: Early States and Economies",
+      "Kinship, Caste and Class: Early Societies",
+      "Thinkers, Beliefs and Buildings: Cultural Developments"
+     ]
+    },
+    {
+     name:"History — Themes in Indian History Part II",
+     chapters:[
+      "Through the Eyes of Travellers",
+      "Bhakti-Sufi Traditions",
+      "An Imperial Capital: Vijayanagara",
+      "Peasants, Zamindars and the State"
+     ]
+    },
+    {
+     name:"History — Themes in Indian History Part III",
+     chapters:[
+      "Colonialism and the Countryside",
+      "Rebels and the Raj: The Revolt of 1857",
+      "Mahatma Gandhi and the Nationalist Movement",
+      "Framing the Constitution"
+     ]
+    },
+    {
+     name:"Geography — Fundamentals of Human Geography",
+     chapters:[
+      "Human Geography: Nature and Scope",
+      "The World Population: Distribution, Density and Growth",
+      "Population Composition",
+      "Human Development",
+      "Primary Activities",
+      "Secondary Activities",
+      "Tertiary and Quaternary Activities",
+      "Transport and Communication",
+      "International Trade",
+      "Human Settlements"
+     ]
+    },
+    {
+     name:"Geography — India: People and Economy",
+     chapters:[
+      "Population: Distribution, Density, Growth and Composition",
+      "Migration: Types, Causes and Consequences",
+      "Human Development",
+      "Human Settlements",
+      "Land Resources and Agriculture",
+      "Water Resources",
+      "Mineral and Energy Resources",
+      "Manufacturing Industries",
+      "Planning and Sustainable Development in Indian Context",
+      "Transport and Communication",
+      "International Trade",
+      "Geographical Perspective on Selected Issues and Problems"
+     ]
+    },
+    {
+     name:"Political Science — Contemporary World Politics",
+     chapters:[
+      "The End of Bipolarity",
+      "Contemporary Centres of Power",
+      "Contemporary South Asia",
+      "International Organisations",
+      "Security in the Contemporary World",
+      "Environment and Natural Resources",
+      "Globalisation"
+     ]
+    },
+    {
+     name:"Political Science — Politics in India Since Independence",
+     chapters:[
+      "Challenges of Nation-Building",
+      "Era of One-Party Dominance",
+      "Politics of Planned Development",
+      "India's External Relations",
+      "Challenges to and Restoration of the Congress System",
+      "The Crisis of the Democratic Order",
+      "Regional Aspirations",
+      "Recent Developments in Indian Politics"
+     ]
+    },
+    {
+     name:"Economics — Introductory Macroeconomics",
+     chapters:[
+      "Introduction",
+      "National Income Accounting",
+      "Money and Banking",
+      "Determination of Income and Employment",
+      "Government Budget and the Economy",
+      "Open Economy Macroeconomics"
+     ]
+    },
+    {
+     name:"Economics — Introductory Microeconomics",
+     chapters:[
+      "Introduction",
+      "Theory of Consumer Behaviour",
+      "Production and Costs",
+      "The Theory of the Firm under Perfect Competition",
+      "Market Equilibrium",
+      "Non-competitive Markets"
+     ]
     }
-
-  ]
+   ]
+  }
+ ]
 }
 
 ];
 
-/* ==================================================
-   GENERAL HELPERS
-   ================================================== */
+/* =====================================================
+   2. CHAPTER RESOURCE CONFIGURATION
+
+   Add actual PDF links here.
+
+   Example:
+   "Print Culture and the Modern World":{
+      ncert:"https://ncert.nic.in/textbook/pdf/jess105.pdf",
+      notes:"pdf/print-culture-notes.pdf",
+      mcq:[ ... ]
+   }
+
+   Until a URL is added, the page will explain that the
+   resource has not yet been configured.
+   ===================================================== */
+
+const chapterResources = {
+
+  "Print Culture and the Modern World":{
+    ncert:"",
+    notes:"",
+    mcq:[]
+  }
+
+};
+
+/* =====================================================
+   3. HELPERS
+   ===================================================== */
 
 const leftIndex=document.getElementById("leftIndex");
 const searchInput=document.getElementById("searchInput");
@@ -1706,19 +1666,17 @@ const pageSubtitle=document.getElementById("pageSubtitle");
 const pageBody=document.getElementById("pageBody");
 const breadcrumb=document.getElementById("breadcrumb");
 
-function makeElement(tag,className,text){
+let currentChapter=null;
+let quizState=null;
 
-  const el=document.createElement(tag);
-
-  if(className) el.className=className;
-  if(text!==undefined) el.textContent=text;
-
-  return el;
-
+function el(tag,className,text){
+  const node=document.createElement(tag);
+  if(className) node.className=className;
+  if(text!==undefined) node.textContent=text;
+  return node;
 }
 
-function escapeHTML(value){
-
+function safe(value){
   return String(value).replace(/[&<>"']/g,char=>({
     "&":"&amp;",
     "<":"&lt;",
@@ -1726,139 +1684,66 @@ function escapeHTML(value){
     '"':"&quot;",
     "'":"&#39;"
   })[char]);
-
 }
 
-function escapeJS(value){
-
-  return String(value)
-    .replace(/\\/g,"\\\\")
-    .replace(/'/g,"\\'")
-    .replace(/\r/g,"")
-    .replace(/\n/g,"\\n");
-
-}
-
-function classChapterCount(classData){
-
-  return classData.sections.reduce((sum,section)=>{
-
-    return sum+section.books.reduce((bookSum,book)=>{
-
-      return bookSum+book.chapters.length;
-
-    },0);
-
-  },0);
-
-}
-
-function classSectionCount(classData){
-
-  return classData.sections.length;
-
-}
-
-function totalSections(){
-
-  return ncertData.reduce((sum,classData)=>{
-
-    return sum+classData.sections.reduce((sectionSum,section)=>{
-
-      return sectionSum+section.books.length;
-
-    },0);
-
-  },0);
-
+function classChapterCount(data){
+  return data.sections.reduce((sum,section)=>
+    sum+section.books.reduce((n,book)=>n+book.chapters.length,0),0);
 }
 
 function totalChapters(){
-
-  return ncertData.reduce((sum,classData)=>{
-
-    return sum+classChapterCount(classData);
-
-  },0);
-
+  return ncertData.reduce((sum,data)=>sum+classChapterCount(data),0);
 }
 
-function findClass(className){
+function totalBooks(){
+  return ncertData.reduce((sum,data)=>
+    sum+data.sections.reduce((n,section)=>n+section.books.length,0),0);
+}
 
-  return ncertData.find(item=>item.className===className)||null;
-
+function findClass(name){
+  return ncertData.find(data=>data.className===name);
 }
 
 function findSection(className,sectionName){
-
-  const classData=findClass(className);
-
-  if(!classData) return null;
-
-  return classData.sections.find(
-    section=>section.name===sectionName
-  )||null;
-
+  const data=findClass(className);
+  return data?.sections.find(section=>section.name===sectionName);
 }
 
 function findBook(className,sectionName,bookName){
-
   const section=findSection(className,sectionName);
-
-  if(!section) return null;
-
-  return section.books.find(
-    book=>book.name===bookName
-  )||null;
-
+  return section?.books.find(book=>book.name===bookName);
 }
 
-/* ==================================================
-   BREADCRUMB AND PAGE NAVIGATION
-   ================================================== */
+function getResources(chapterName){
+  return chapterResources[chapterName]||{
+    ncert:"",
+    notes:"",
+    mcq:[]
+  };
+}
+
+/* =====================================================
+   4. PAGE NAVIGATION
+   ===================================================== */
 
 function setBreadcrumb(parts){
-
   breadcrumb.replaceChildren();
-
-  breadcrumb.appendChild(
-    document.createTextNode("Orient Classes / ")
-  );
+  breadcrumb.appendChild(document.createTextNode("Orient Classes / "));
 
   parts.forEach((part,index)=>{
-
-    if(index>0){
-
-      breadcrumb.appendChild(
-        document.createTextNode(" / ")
-      );
-
-    }
-
-    breadcrumb.appendChild(
-      makeElement("span","",part)
-    );
-
+    if(index) breadcrumb.appendChild(document.createTextNode(" / "));
+    breadcrumb.appendChild(el("span","",part));
   });
-
 }
 
 function showHome(){
-
   homePage.classList.add("active");
   dynamicPage.classList.remove("active");
-
   setBreadcrumb(["NCERT Home"]);
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-
+  window.scrollTo({top:0,behavior:"smooth"});
 }
 
-function showPage(title,subtitle,html,crumbParts){
-
+function showPage(title,subtitle,html,crumbs){
   homePage.classList.remove("active");
   dynamicPage.classList.add("active");
 
@@ -1866,916 +1751,798 @@ function showPage(title,subtitle,html,crumbParts){
   pageSubtitle.textContent=subtitle;
   pageBody.innerHTML=html;
 
-  setBreadcrumb(crumbParts);
+  setBreadcrumb(crumbs);
 
   document.querySelector(".content-area").scrollIntoView({
     behavior:"smooth",
     block:"start"
   });
-
 }
 
-/* ==================================================
-   OPEN CHAPTER FILE
-   ================================================== */
+/* =====================================================
+   5. HOME CLASS CARDS
+   ===================================================== */
 
-function openChapterFile(chapterName){
+function buildClassCards(){
+  const holder=document.getElementById("classCards");
+  holder.replaceChildren();
 
-  const fileName=getChapterFileName(chapterName);
+  ncertData.forEach(data=>{
+    const card=el("article","class-card");
 
-  window.location.href=fileName;
+    card.appendChild(el("div","class-card-icon","📚"));
+    card.appendChild(el("h3","",data.className));
+    card.appendChild(el("p","",
+      `${data.sections.length} sections • ${classChapterCount(data)} chapters`
+    ));
 
+    const button=el("button","","Explore "+data.className+" →");
+    button.type="button";
+    button.addEventListener("click",()=>showClass(data.className));
+
+    card.appendChild(button);
+    holder.appendChild(card);
+  });
 }
 
-/* ==================================================
-   CHAPTER CARD HTML
-   ================================================== */
+/* =====================================================
+   6. CLASS PAGE
+   ===================================================== */
 
-function buildChapterCards(book){
+function showClass(className){
+  const data=findClass(className);
+  if(!data) return;
 
-  let html="";
+  let html=`
+    <div class="page-banner">
+      <h2>📚 ${safe(className)}</h2>
+      <p>Select a textbook section to explore its chapters.</p>
+    </div>
 
-  book.chapters.forEach((chapter,index)=>{
+    <div class="stats-grid">
+      <div class="stat-card">
+        <strong>${data.sections.length}</strong>
+        <span>Sections</span>
+      </div>
+      <div class="stat-card">
+        <strong>${classChapterCount(data)}</strong>
+        <span>Indexed Chapters</span>
+      </div>
+      <div class="stat-card">
+        <strong>${data.sections.reduce((n,s)=>n+s.books.length,0)}</strong>
+        <span>Books / Categories</span>
+      </div>
+    </div>
+
+    <h3 class="section-title">Select a Section</h3>
+    <div class="section-grid">
+  `;
+
+  data.sections.forEach(section=>{
+    const count=section.books.reduce((n,book)=>n+book.chapters.length,0);
 
     html+=`
+      <article class="section-card">
+        <h3>${section.icon||"📚"} ${safe(section.name)}</h3>
+        <p>${section.books.length} categories • ${count} chapters</p>
+        <button type="button"
+          data-action="section"
+          data-class="${safe(className)}"
+          data-section="${safe(section.name)}">
+          Explore Section →
+        </button>
+      </article>
+    `;
+  });
 
-      <button
-        class="chapter-card"
-        type="button"
-        aria-label="Open ${escapeHTML(chapter)}"
-        onclick="openChapterFile('${escapeJS(chapter)}')">
+  html+="</div>";
+
+  showPage(className+" — Chapter Index",
+    "Select a section to view its books and chapters.",
+    html,[className]);
+}
+
+/* =====================================================
+   7. SECTION PAGE
+   ===================================================== */
+
+function showSection(className,sectionName){
+  const section=findSection(className,sectionName);
+  if(!section) return;
+
+  let html=`
+    <div class="page-banner">
+      <h2>${section.icon||"📚"} ${safe(section.name)}</h2>
+      <p>${safe(className)} • Select a book to view its chapter index.</p>
+    </div>
+    <div class="section-grid">
+  `;
+
+  section.books.forEach(book=>{
+    html+=`
+      <article class="section-card">
+        <h3>${safe(book.name)}</h3>
+        <p>${book.chapters.length} chapters</p>
+        <button type="button"
+          data-action="book"
+          data-class="${safe(className)}"
+          data-section="${safe(sectionName)}"
+          data-book="${safe(book.name)}">
+          View Chapter Index →
+        </button>
+      </article>
+    `;
+  });
+
+  html+=`
+    </div>
+    <div class="reader-toolbar">
+      <button class="action-button" data-action="class"
+        data-class="${safe(className)}">← Back to Class</button>
+      <button class="action-button" data-action="home">🏠 NCERT Home</button>
+    </div>
+  `;
+
+  showPage(className+" — "+section.name,
+    "Choose a textbook or category.",html,[className,section.name]);
+}
+
+/* =====================================================
+   8. BOOK / CHAPTER INDEX
+   ===================================================== */
+
+function showBook(className,sectionName,bookName){
+  const book=findBook(className,sectionName,bookName);
+  if(!book) return;
+
+  let html=`
+    <div class="page-banner">
+      <h2>📖 ${safe(book.name)}</h2>
+      <p>${safe(className)} • ${safe(sectionName)}</p>
+    </div>
+
+    <h3 class="section-title">Chapter Index</h3>
+    <p class="section-description">
+      Click any chapter to open it inside this same webpage.
+    </p>
+
+    <div class="chapter-list">
+  `;
+
+  book.chapters.forEach((chapter,index)=>{
+    html+=`
+      <button class="chapter-card" type="button"
+        data-action="chapter"
+        data-class="${safe(className)}"
+        data-section="${safe(sectionName)}"
+        data-book="${safe(bookName)}"
+        data-chapter="${safe(chapter)}">
 
         <span class="chapter-card-number">
           ${String(index+1).padStart(2,"0")}
         </span>
 
-        <span class="chapter-card-title">
-          ${escapeHTML(chapter)}
-        </span>
-
+        <span>${safe(chapter)}</span>
       </button>
-
     `;
-
   });
-
-  return html;
-
-}
-
-/* ==================================================
-   CLASS PAGE
-   ================================================== */
-
-function showClass(className){
-
-  const classData=findClass(className);
-
-  if(!classData) return;
-
-  let html=`
-
-    <div class="page-banner">
-
-      <h2>📚 ${escapeHTML(className)}</h2>
-
-      <p>
-        Select a textbook section to explore its chapters.
-      </p>
-
-    </div>
-
-    <div class="stats-grid">
-
-      <div class="stat-card">
-        <strong>${classData.sections.length}</strong>
-        <span>Sections</span>
-      </div>
-
-      <div class="stat-card">
-        <strong>${classChapterCount(classData)}</strong>
-        <span>Indexed Chapters</span>
-      </div>
-
-      <div class="stat-card">
-        <strong>${classData.sections.reduce((n,s)=>n+s.books.length,0)}</strong>
-        <span>Textbooks / Categories</span>
-      </div>
-
-    </div>
-
-    <h3 class="section-title">Select a Section</h3>
-
-    <p class="section-description">
-      Choose NCERT Explore or Old NCERT.
-    </p>
-
-    <div class="section-grid">
-
-  `;
-
-  classData.sections.forEach(section=>{
-
-    const chapterCount=section.books.reduce(
-      (sum,book)=>sum+book.chapters.length,
-      0
-    );
-
-    html+=`
-
-      <article class="section-card">
-
-        <span class="section-tag">
-          ${escapeHTML(className)}
-        </span>
-
-        <h3>
-          ${section.icon||"📚"}
-          ${escapeHTML(section.name)}
-        </h3>
-
-        <p>
-          ${section.books.length} textbook categories
-          • ${chapterCount} chapters
-        </p>
-
-        <button
-          type="button"
-          onclick="showSection(
-            '${escapeJS(className)}',
-            '${escapeJS(section.name)}'
-          )">
-
-          Explore Section →
-
-        </button>
-
-      </article>
-
-    `;
-
-  });
-
-  html+="</div>";
-
-  showPage(
-    className+" — Chapter Index",
-    "Select a section to view the textbook and chapter index.",
-    html,
-    [className]
-  );
-
-}
-
-/* ==================================================
-   SECTION PAGE
-   ================================================== */
-
-function showSection(className,sectionName){
-
-  const section=findSection(className,sectionName);
-
-  if(!section) return;
-
-  let html=`
-
-    <div class="page-banner">
-
-      <h2>
-        ${section.icon||"📚"}
-        ${escapeHTML(section.name)}
-      </h2>
-
-      <p>
-        ${escapeHTML(className)}
-        • Select a textbook to view its chapter index.
-      </p>
-
-    </div>
-
-    <div class="section-grid">
-
-  `;
-
-  section.books.forEach(book=>{
-
-    html+=`
-
-      <article class="section-card">
-
-        <h3>${escapeHTML(book.name)}</h3>
-
-        <p>
-          ${book.chapters.length} chapters
-        </p>
-
-        <button
-          type="button"
-          onclick="showBook(
-            '${escapeJS(className)}',
-            '${escapeJS(sectionName)}',
-            '${escapeJS(book.name)}'
-          )">
-
-          View Chapter Index →
-
-        </button>
-
-      </article>
-
-    `;
-
-  });
-
-  html+="</div>";
 
   html+=`
-
-    <div class="content-actions">
-
-      <button class="action-button" type="button"
-        onclick="showClass('${escapeJS(className)}')">
-
-        ← Back to ${escapeHTML(className)}
-
-      </button>
-
-      <button class="action-button" type="button"
-        onclick="showHome()">
-
-        🏠 NCERT Home
-
-      </button>
-
     </div>
+    <div class="reader-toolbar">
+      <button class="action-button" data-action="section"
+        data-class="${safe(className)}"
+        data-section="${safe(sectionName)}">← Back to Section</button>
 
+      <button class="action-button" data-action="class"
+        data-class="${safe(className)}">← Back to Class</button>
+
+      <button class="action-button" data-action="home">🏠 NCERT Home</button>
+    </div>
   `;
 
-  showPage(
-    className+" — "+section.name,
-    "Choose a textbook or category.",
-    html,
-    [className,section.name]
-  );
-
+  showPage(book.name,
+    `${className} • ${sectionName} • ${book.chapters.length} chapters`,
+    html,[className,sectionName,book.name]);
 }
 
-/* ==================================================
-   BOOK / CHAPTER INDEX PAGE
-   ================================================== */
+/* =====================================================
+   9. OPEN CHAPTER INSIDE THE SAME WEBPAGE
+   ===================================================== */
 
-function showBook(className,sectionName,bookName){
+function openChapter(className,sectionName,bookName,chapterName){
 
-  const book=findBook(className,sectionName,bookName);
+  currentChapter={
+    className,
+    sectionName,
+    bookName,
+    chapterName
+  };
 
-  if(!book) return;
+  const resources=getResources(chapterName);
+
+  const ncertButton=resources.ncert
+    ? `<a class="chapter-action ncert"
+          href="${safe(resources.ncert)}"
+          target="_blank" rel="noopener">
+          <span class="action-icon">📘</span>
+          <span>NCERT Chapter PDF</span>
+       </a>`
+    : `<button class="chapter-action ncert"
+          type="button" data-action="resource-message"
+          data-kind="NCERT Chapter PDF">
+          <span class="action-icon">📘</span>
+          <span>NCERT Chapter PDF</span>
+       </button>`;
+
+  const notesButton=resources.notes
+    ? `<a class="chapter-action notes"
+          href="${safe(resources.notes)}"
+          target="_blank" rel="noopener">
+          <span class="action-icon">📝</span>
+          <span>Notes PDF</span>
+       </a>`
+    : `<button class="chapter-action notes"
+          type="button" data-action="resource-message"
+          data-kind="Notes PDF">
+          <span class="action-icon">📝</span>
+          <span>Notes PDF</span>
+       </button>`;
 
   let html=`
+    <article class="chapter-reader">
 
-    <div class="page-banner">
+      <div class="chapter-reader-heading">
+        <h2>${safe(chapterName)}</h2>
+        <p>${safe(className)} • ${safe(sectionName)} • ${safe(bookName)}</p>
+      </div>
 
-      <h2>📖 ${escapeHTML(book.name)}</h2>
+      <div class="chapter-actions">
+        ${ncertButton}
+        ${notesButton}
+        <button class="chapter-action mcq" type="button"
+          data-action="quiz">
+          <span class="action-icon">✍️</span>
+          <span>Attempt MCQ — 25 Questions</span>
+        </button>
+      </div>
 
-      <p>
-        ${escapeHTML(className)}
-        • ${escapeHTML(sectionName)}
-      </p>
+      <div class="chapter-content">
+        <h3>Chapter Study Area</h3>
 
-    </div>
+        <p>
+          You have opened this chapter inside the NCERT Study Portal.
+          Use the three buttons above to access the textbook PDF,
+          notes PDF, or chapter MCQ test.
+        </p>
 
-    <h3 class="section-title">Chapter Index</h3>
+        <div class="chapter-info">
+          <strong>Resource information:</strong>
+          The NCERT PDF and Notes PDF buttons need their actual
+          PDF links to be configured for this chapter.
+          The MCQ section needs its questions and answers to be added.
+        </div>
 
-    <p class="section-description">
-      Click any chapter to open its separate HTML page.
-    </p>
+        <h3>Chapter Details</h3>
+        <p><strong>Class:</strong> ${safe(className)}</p>
+        <p><strong>Book:</strong> ${safe(bookName)}</p>
+        <p><strong>Chapter:</strong> ${safe(chapterName)}</p>
 
-    <div class="chapter-list">
+        <p>
+          To display full chapter notes here, add the chapter's
+          HTML content to the chapter content configuration.
+        </p>
+      </div>
 
-      ${buildChapterCards(book)}
+      <div class="reader-toolbar">
+        <button class="action-button" data-action="book"
+          data-class="${safe(className)}"
+          data-section="${safe(sectionName)}"
+          data-book="${safe(bookName)}">
+          ← Back to Chapter Index
+        </button>
 
-    </div>
+        <button class="action-button" data-action="class"
+          data-class="${safe(className)}">
+          Back to Class
+        </button>
 
-    <div class="content-actions">
+        <button class="action-button" data-action="home">
+          🏠 NCERT Home
+        </button>
+      </div>
 
-      <button class="action-button" type="button"
-        onclick="showSection(
-          '${escapeJS(className)}',
-          '${escapeJS(sectionName)}'
-        )">
-
-        ← Back to Section
-
-      </button>
-
-      <button class="action-button" type="button"
-        onclick="showClass('${escapeJS(className)}')">
-
-        ← Back to Class
-
-      </button>
-
-      <button class="action-button" type="button"
-        onclick="showHome()">
-
-        🏠 NCERT Home
-
-      </button>
-
-    </div>
-
+    </article>
   `;
 
-  showPage(
-    book.name,
-    className+" • "+sectionName+" • "+book.chapters.length+" chapters",
-    html,
-    [className,sectionName,book.name]
-  );
+  showPage(chapterName,
+    `${className} • ${sectionName} • Study Resources`,
+    html,[className,sectionName,bookName,chapterName]);
 
+  history.replaceState(
+    {chapter:chapterName},
+    "",
+    "#chapter="+encodeURIComponent(chapterName)
+  );
 }
 
-/* ==================================================
-   BUILD SIDEBAR INDEX
-   ================================================== */
+/* =====================================================
+   10. MCQ ENGINE
+
+   Configure up to 25 questions for each chapter.
+
+   Question format:
+   {
+     q:"Question text",
+     options:["A","B","C","D"],
+     answer:0,
+     explanation:"Explanation"
+   }
+
+   answer is the zero-based correct option index.
+   ===================================================== */
+
+function startQuiz(){
+
+  const chapter=currentChapter?.chapterName;
+  if(!chapter) return;
+
+  const questions=getResources(chapter).mcq||[];
+
+  if(questions.length===0){
+    showPage(
+      chapter+" — MCQ Test",
+      "Chapter-wise practice test",
+      `
+        <div class="empty-message">
+          <h3>MCQ questions are not configured yet.</h3>
+          <p>
+            Add the 25 MCQ questions for this chapter inside
+            the chapterResources configuration to activate
+            the full test.
+          </p>
+          <button class="action-button" data-action="back-chapter">
+            ← Back to Chapter
+          </button>
+        </div>
+      `,
+      [currentChapter.className,chapter,"MCQ Test"]
+    );
+    return;
+  }
+
+  quizState={
+    questions:questions.slice(0,25),
+    index:0,
+    score:0,
+    answered:false
+  };
+
+  renderQuestion();
+}
+
+function renderQuestion(){
+
+  const state=quizState;
+  const item=state.questions[state.index];
+
+  if(!item){
+    showPage(
+      "MCQ Result",
+      "Your chapter practice test is complete.",
+      `
+        <div class="quiz-result">
+          <h2>Test Completed!</h2>
+          <strong>${state.score}/${state.questions.length}</strong>
+          <p>Your final score</p>
+          <button class="action-button" data-action="back-chapter">
+            Back to Chapter
+          </button>
+        </div>
+      `,
+      [currentChapter.className,currentChapter.chapterName,"Result"]
+    );
+    return;
+  }
+
+  let html=`
+    <div class="quiz-box">
+      <div class="quiz-progress">
+        Question ${state.index+1} of ${state.questions.length}
+      </div>
+
+      <div class="quiz-question">${safe(item.q)}</div>
+
+      <div id="quizOptions">
+  `;
+
+  item.options.forEach((option,index)=>{
+    html+=`
+      <button type="button" class="quiz-option"
+        data-action="answer" data-answer="${index}">
+        ${String.fromCharCode(65+index)}. ${safe(option)}
+      </button>
+    `;
+  });
+
+  html+=`
+      </div>
+
+      <div id="quizFeedback" class="quiz-feedback" aria-live="polite"></div>
+
+      <div class="quiz-buttons">
+        <button class="action-button" data-action="next-question" disabled>
+          ${state.index===state.questions.length-1?"Finish Test":"Next Question →"}
+        </button>
+        <button class="action-button" data-action="back-chapter">
+          Exit Test
+        </button>
+      </div>
+    </div>
+  `;
+
+  showPage(currentChapter.chapterName+" — MCQ Test",
+    "Choose the correct answer.",
+    html,[currentChapter.className,currentChapter.chapterName,"MCQ Test"]);
+}
+
+function chooseAnswer(selected){
+
+  if(!quizState||quizState.answered) return;
+
+  const item=quizState.questions[quizState.index];
+  quizState.answered=true;
+
+  const correct=Number(selected)===Number(item.answer);
+
+  if(correct) quizState.score++;
+
+  document.querySelectorAll(".quiz-option").forEach((button,index)=>{
+    button.disabled=true;
+
+    if(index===Number(item.answer)){
+      button.classList.add("correct");
+    }else if(index===Number(selected)){
+      button.classList.add("incorrect");
+    }
+  });
+
+  const feedback=document.getElementById("quizFeedback");
+
+  feedback.textContent=correct
+    ? "Correct answer! "+(item.explanation||"")
+    : "Incorrect. Correct answer: "+
+      item.options[item.answer]+". "+(item.explanation||"");
+
+  const next=document.querySelector('[data-action="next-question"]');
+  if(next) next.disabled=false;
+}
+
+/* =====================================================
+   11. SIDEBAR INDEX
+   ===================================================== */
 
 function buildIndex(){
 
   leftIndex.replaceChildren();
 
-  ncertData.forEach(classData=>{
+  ncertData.forEach(data=>{
 
-    const classGroup=makeElement("div","class-group");
+    const classGroup=el("div","class-group");
+    classGroup.dataset.search=data.className.toLowerCase();
 
-    classGroup.dataset.search=
-      classData.className.toLowerCase();
-
-    const classButton=makeElement("button","class-button");
-
+    const classButton=el("button","class-button");
     classButton.type="button";
     classButton.setAttribute("aria-expanded","false");
 
-    const number=makeElement(
-      "span",
-      "class-number",
-      classData.className.replace("Class ","")
+    classButton.append(
+      el("span","class-number",data.className.replace("Class ","")),
+      el("span","",data.className),
+      el("span","class-arrow","⌄")
     );
 
-    const title=makeElement(
-      "span",
-      "",
-      classData.className
-    );
-
-    const arrow=makeElement(
-      "span",
-      "class-arrow",
-      "⌄"
-    );
-
-    classButton.append(number,title,arrow);
-
-    const classSubmenu=makeElement(
-      "div",
-      "class-submenu"
-    );
+    const classSub=el("div","class-submenu");
 
     classButton.addEventListener("click",()=>{
-
-      const open=!classSubmenu.classList.contains("open");
-
-      classSubmenu.classList.toggle("open",open);
-
-      classButton.setAttribute(
-        "aria-expanded",
-        String(open)
-      );
-
+      const open=!classSub.classList.contains("open");
+      classSub.classList.toggle("open",open);
+      classButton.setAttribute("aria-expanded",String(open));
       classButton.classList.toggle("active",open);
-
-      showClass(classData.className);
-
+      showClass(data.className);
     });
 
-    classData.sections.forEach(section=>{
+    data.sections.forEach(section=>{
 
-      const sectionGroup=makeElement(
-        "div",
-        "section-group"
-      );
+      const sectionGroup=el("div","section-group");
+      sectionGroup.dataset.search=section.name.toLowerCase();
 
-      sectionGroup.dataset.search=
-        section.name.toLowerCase();
-
-      const sectionButton=makeElement(
-        "button",
-        "section-button"
-      );
-
+      const sectionButton=el("button","section-button");
       sectionButton.type="button";
-
-      sectionButton.setAttribute(
-        "aria-expanded",
-        "false"
-      );
-
-      const sectionIcon=makeElement(
-        "span",
-        "section-icon",
-        section.icon||"📚"
-      );
-
-      const sectionTitle=makeElement(
-        "span",
-        "",
-        section.name
-      );
-
-      const sectionArrow=makeElement(
-        "span",
-        "section-arrow",
-        "⌄"
-      );
+      sectionButton.setAttribute("aria-expanded","false");
 
       sectionButton.append(
-        sectionIcon,
-        sectionTitle,
-        sectionArrow
+        el("span","section-icon",section.icon||"📚"),
+        el("span","",section.name),
+        el("span","section-arrow","⌄")
       );
 
-      const sectionSubmenu=makeElement(
-        "div",
-        "section-submenu"
-      );
+      const sectionSub=el("div","section-submenu");
 
       sectionButton.addEventListener("click",()=>{
-
-        const open=!sectionSubmenu.classList.contains("open");
-
-        sectionSubmenu.classList.toggle("open",open);
-
-        sectionButton.setAttribute(
-          "aria-expanded",
-          String(open)
-        );
-
+        const open=!sectionSub.classList.contains("open");
+        sectionSub.classList.toggle("open",open);
+        sectionButton.setAttribute("aria-expanded",String(open));
         sectionButton.classList.toggle("active",open);
-
-        showSection(
-          classData.className,
-          section.name
-        );
-
+        showSection(data.className,section.name);
       });
 
       section.books.forEach(book=>{
 
-        const subjectGroup=makeElement(
-          "div",
-          "subject-group"
-        );
+        const subjectGroup=el("div","subject-group");
+        subjectGroup.dataset.search=book.name.toLowerCase();
 
-        subjectGroup.dataset.search=
-          book.name.toLowerCase();
-
-        const subjectButton=makeElement(
-          "button",
-          "subject-button"
-        );
-
+        const subjectButton=el("button","subject-button");
         subjectButton.type="button";
-
-        subjectButton.setAttribute(
-          "aria-expanded",
-          "false"
-        );
-
-        const bookIcon=makeElement(
-          "span",
-          "",
-          "📖"
-        );
-
-        const bookTitle=makeElement(
-          "span",
-          "",
-          book.name
-        );
-
-        const subjectArrow=makeElement(
-          "span",
-          "subject-arrow",
-          "⌄"
-        );
+        subjectButton.setAttribute("aria-expanded","false");
 
         subjectButton.append(
-          bookIcon,
-          bookTitle,
-          subjectArrow
+          el("span","","📖"),
+          el("span","",book.name),
+          el("span","subject-arrow","⌄")
         );
 
-        const chapterNav=makeElement(
-          "div",
-          "chapter-nav"
-        );
+        const chapterNav=el("div","chapter-nav");
 
         book.chapters.forEach(chapter=>{
 
-          const chapterButton=makeElement(
-            "button",
-            "chapter-link",
-            chapter
-          );
+          const link=el("button","chapter-link",chapter);
+          link.type="button";
+          link.dataset.search=chapter.toLowerCase();
 
-          chapterButton.type="button";
-
-          chapterButton.dataset.search=
-            chapter.toLowerCase();
-
-          chapterButton.addEventListener("click",()=>{
-
-            showBook(
-              classData.className,
-              section.name,
-              book.name
-            );
-
+          link.addEventListener("click",()=>{
+            openChapter(data.className,section.name,book.name,chapter);
           });
 
-          chapterNav.appendChild(chapterButton);
-
+          chapterNav.appendChild(link);
         });
 
         subjectButton.addEventListener("click",()=>{
-
           const open=!chapterNav.classList.contains("open");
-
           chapterNav.classList.toggle("open",open);
-
-          subjectButton.setAttribute(
-            "aria-expanded",
-            String(open)
-          );
-
+          subjectButton.setAttribute("aria-expanded",String(open));
           subjectButton.classList.toggle("active",open);
-
-          showBook(
-            classData.className,
-            section.name,
-            book.name
-          );
-
+          showBook(data.className,section.name,book.name);
         });
 
-        subjectGroup.append(
-          subjectButton,
-          chapterNav
-        );
-
-        sectionSubmenu.appendChild(subjectGroup);
-
+        subjectGroup.append(subjectButton,chapterNav);
+        sectionSub.appendChild(subjectGroup);
       });
 
-      sectionGroup.append(
-        sectionButton,
-        sectionSubmenu
-      );
-
-      classSubmenu.appendChild(sectionGroup);
-
+      sectionGroup.append(sectionButton,sectionSub);
+      classSub.appendChild(sectionGroup);
     });
 
-    classGroup.append(
-      classButton,
-      classSubmenu
-    );
-
+    classGroup.append(classButton,classSub);
     leftIndex.appendChild(classGroup);
-
   });
-
 }
 
-/* ==================================================
-   HOME CLASS CARDS
-   ================================================== */
+/* =====================================================
+   12. EVENT DELEGATION
+   ===================================================== */
 
-function buildClassCards(){
+document.addEventListener("click",event=>{
 
-  const classCards=document.getElementById("classCards");
+  const button=event.target.closest("[data-action]");
+  if(!button) return;
 
-  classCards.replaceChildren();
+  const action=button.dataset.action;
 
-  ncertData.forEach(classData=>{
+  if(action==="home"){
+    showHome();
+  }
 
-    const card=makeElement("article","class-card");
+  if(action==="class"){
+    showClass(button.dataset.class);
+  }
 
-    const icon=makeElement(
-      "div",
-      "class-card-icon",
-      "📚"
+  if(action==="section"){
+    showSection(button.dataset.class,button.dataset.section);
+  }
+
+  if(action==="book"){
+    showBook(
+      button.dataset.class,
+      button.dataset.section,
+      button.dataset.book
     );
+  }
 
-    const title=makeElement(
-      "h3",
-      "",
-      classData.className
+  if(action==="chapter"){
+    openChapter(
+      button.dataset.class,
+      button.dataset.section,
+      button.dataset.book,
+      button.dataset.chapter
     );
+  }
 
-    const description=makeElement(
-      "p",
-      "",
-      `${classData.sections.length} sections • ${classChapterCount(classData)} chapters`
+  if(action==="quiz"){
+    startQuiz();
+  }
+
+  if(action==="answer"){
+    chooseAnswer(button.dataset.answer);
+  }
+
+  if(action==="next-question"){
+    if(!quizState||!quizState.answered) return;
+    quizState.index++;
+    quizState.answered=false;
+    renderQuestion();
+  }
+
+  if(action==="back-chapter"&&currentChapter){
+    openChapter(
+      currentChapter.className,
+      currentChapter.sectionName,
+      currentChapter.bookName,
+      currentChapter.chapterName
     );
+  }
 
-    const button=makeElement(
-      "button",
-      "",
-      "Explore "+classData.className+" →"
+  if(action==="resource-message"){
+    alert(
+      button.dataset.kind+
+      " का PDF लिंक अभी इस अध्याय के लिए सेट नहीं किया गया है।"+
+      "\n\nchapterResources में इसका सही URL जोड़ें।"
     );
+  }
+});
 
-    button.type="button";
-
-    button.addEventListener("click",()=>{
-
-      const group=[...document.querySelectorAll(".class-group")]
-        .find(item=>
-          item.dataset.search===
-          classData.className.toLowerCase()
-        );
-
-      if(group){
-
-        const classButton=
-          group.querySelector(".class-button");
-
-        const submenu=
-          group.querySelector(".class-submenu");
-
-        submenu.classList.add("open");
-
-        classButton.setAttribute(
-          "aria-expanded",
-          "true"
-        );
-
-        classButton.classList.add("active");
-
-      }
-
-      showClass(classData.className);
-
-    });
-
-    card.append(
-      icon,
-      title,
-      description,
-      button
-    );
-
-    classCards.appendChild(card);
-
-  });
-
-}
-
-/* ==================================================
-   SEARCH
-   ================================================== */
+/* =====================================================
+   13. SEARCH
+   ===================================================== */
 
 searchInput.addEventListener("input",()=>{
 
   const query=searchInput.value.trim().toLowerCase();
-
-  let matchCount=0;
+  let visibleClasses=0;
 
   document.querySelectorAll(".class-group").forEach(classGroup=>{
 
-    const classMatch=
-      classGroup.dataset.search.includes(query);
-
+    const classMatch=classGroup.dataset.search.includes(query);
     let classHasMatch=false;
 
     classGroup.querySelectorAll(".section-group").forEach(sectionGroup=>{
 
-      const sectionMatch=
-        sectionGroup.dataset.search.includes(query);
-
+      const sectionMatch=sectionGroup.dataset.search.includes(query);
       let sectionHasMatch=false;
 
       sectionGroup.querySelectorAll(".subject-group").forEach(subjectGroup=>{
 
-        const bookMatch=
-          subjectGroup.dataset.search.includes(query);
-
+        const bookMatch=subjectGroup.dataset.search.includes(query);
         let bookHasMatch=false;
 
-        subjectGroup.querySelectorAll(".chapter-link").forEach(chapter=>{
+        subjectGroup.querySelectorAll(".chapter-link").forEach(link=>{
 
-          const chapterMatch=
-            chapter.dataset.search.includes(query);
+          const chapterMatch=link.dataset.search.includes(query);
+          const visible=!query||classMatch||sectionMatch||bookMatch||chapterMatch;
 
-          const showChapter=
-            !query||classMatch||sectionMatch||bookMatch||chapterMatch;
+          link.style.display=visible?"block":"none";
 
-          chapter.style.display=
-            showChapter?"block":"none";
-
-          if(showChapter) bookHasMatch=true;
-
+          if(visible) bookHasMatch=true;
         });
 
-        const showBook=
-          !query||classMatch||sectionMatch||bookMatch||bookHasMatch;
+        const visibleBook=!query||classMatch||sectionMatch||bookMatch||bookHasMatch;
+        subjectGroup.style.display=visibleBook?"block":"none";
 
-        subjectGroup.style.display=
-          showBook?"block":"none";
-
-        if(query&&showBook){
-
-          subjectGroup.querySelector(".chapter-nav")
-            .classList.add("open");
-
-          subjectGroup.querySelector(".subject-button")
-            .setAttribute("aria-expanded","true");
-
+        if(query&&visibleBook){
+          subjectGroup.querySelector(".chapter-nav").classList.add("open");
+          subjectGroup.querySelector(".subject-button").setAttribute("aria-expanded","true");
         }
 
-        if(showBook) sectionHasMatch=true;
-
+        if(visibleBook) sectionHasMatch=true;
       });
 
-      const showSection=
-        !query||classMatch||sectionMatch||sectionHasMatch;
+      const visibleSection=!query||classMatch||sectionMatch||sectionHasMatch;
+      sectionGroup.style.display=visibleSection?"block":"none";
 
-      sectionGroup.style.display=
-        showSection?"block":"none";
-
-      if(query&&showSection){
-
-        sectionGroup.querySelector(".section-submenu")
-          .classList.add("open");
-
-        sectionGroup.querySelector(".section-button")
-          .setAttribute("aria-expanded","true");
-
+      if(query&&visibleSection){
+        sectionGroup.querySelector(".section-submenu").classList.add("open");
+        sectionGroup.querySelector(".section-button").setAttribute("aria-expanded","true");
       }
 
-      if(showSection) classHasMatch=true;
-
+      if(visibleSection) classHasMatch=true;
     });
 
-    const showClass=
-      !query||classMatch||classHasMatch;
+    const visibleClass=!query||classMatch||classHasMatch;
+    classGroup.style.display=visibleClass?"block":"none";
 
-    classGroup.style.display=
-      showClass?"block":"none";
+    if(visibleClass) visibleClasses++;
 
-    if(showClass) matchCount++;
-
-    if(query&&showClass){
-
-      classGroup.querySelector(".class-submenu")
-        .classList.add("open");
-
-      classGroup.querySelector(".class-button")
-        .setAttribute("aria-expanded","true");
-
+    if(query&&visibleClass){
+      classGroup.querySelector(".class-submenu").classList.add("open");
+      classGroup.querySelector(".class-button").setAttribute("aria-expanded","true");
     }
-
   });
 
-  noResults.style.display=
-    matchCount===0?"block":"none";
-
+  noResults.style.display=visibleClasses===0?"block":"none";
 });
 
-/* ==================================================
-   EXPAND / COLLAPSE
-   ================================================== */
+/* =====================================================
+   14. EXPAND / COLLAPSE
+   ===================================================== */
 
 function expandAll(){
 
   document.querySelectorAll(".class-group").forEach(group=>{
-
     if(group.style.display==="none") return;
-
-    group.querySelector(".class-submenu")
-      .classList.add("open");
-
-    group.querySelector(".class-button")
-      .setAttribute("aria-expanded","true");
-
+    group.querySelector(".class-submenu").classList.add("open");
+    group.querySelector(".class-button").setAttribute("aria-expanded","true");
   });
 
   document.querySelectorAll(".section-group").forEach(group=>{
-
     if(group.style.display==="none") return;
-
-    group.querySelector(".section-submenu")
-      .classList.add("open");
-
-    group.querySelector(".section-button")
-      .setAttribute("aria-expanded","true");
-
+    group.querySelector(".section-submenu").classList.add("open");
+    group.querySelector(".section-button").setAttribute("aria-expanded","true");
   });
 
   document.querySelectorAll(".subject-group").forEach(group=>{
-
     if(group.style.display==="none") return;
-
-    group.querySelector(".chapter-nav")
-      .classList.add("open");
-
-    group.querySelector(".subject-button")
-      .setAttribute("aria-expanded","true");
-
+    group.querySelector(".chapter-nav").classList.add("open");
+    group.querySelector(".subject-button").setAttribute("aria-expanded","true");
   });
-
 }
 
 function collapseAll(){
 
   document.querySelectorAll(
     ".class-submenu,.section-submenu,.chapter-nav"
-  ).forEach(panel=>{
-
-    panel.classList.remove("open");
-
-  });
+  ).forEach(panel=>panel.classList.remove("open"));
 
   document.querySelectorAll(
     ".class-button,.section-button,.subject-button"
   ).forEach(button=>{
-
-    button.setAttribute(
-      "aria-expanded",
-      "false"
-    );
-
+    button.setAttribute("aria-expanded","false");
     button.classList.remove("active");
-
   });
-
 }
 
-document.getElementById("expandButton")
-  .addEventListener("click",expandAll);
+document.getElementById("expandButton").addEventListener("click",expandAll);
+document.getElementById("collapseButton").addEventListener("click",collapseAll);
 
-document.getElementById("collapseButton")
-  .addEventListener("click",collapseAll);
+/* =====================================================
+   15. NCERT HOME
+   ===================================================== */
 
-/* ==================================================
-   NCERT HOME BUTTON
-   ================================================== */
+document.getElementById("ncertHomeButton").addEventListener("click",()=>{
 
-document.getElementById("ncertHomeButton")
-  .addEventListener("click",()=>{
+  searchInput.value="";
 
-    searchInput.value="";
+  document.querySelectorAll(
+    ".class-group,.section-group,.subject-group"
+  ).forEach(group=>group.style.display="block");
 
-    document.querySelectorAll(
-      ".class-group,.section-group,.subject-group"
-    ).forEach(group=>{
+  document.querySelectorAll(".chapter-link")
+    .forEach(link=>link.style.display="block");
 
-      group.style.display="block";
+  noResults.style.display="none";
+  collapseAll();
+  showHome();
+});
 
-    });
-
-    document.querySelectorAll(".chapter-link")
-      .forEach(chapter=>{
-
-        chapter.style.display="block";
-
-      });
-
-    noResults.style.display="none";
-
-    collapseAll();
-
-    showHome();
-
-  });
-
-/* ==================================================
-   INITIALISE
-   ================================================== */
+/* =====================================================
+   16. INITIALISE
+   ===================================================== */
 
 buildIndex();
-
 buildClassCards();
 
-document.getElementById("classCount").textContent=
-  ncertData.length;
-
-document.getElementById("sectionCount").textContent=
-  totalSections();
-
-document.getElementById("chapterCount").textContent=
-  totalChapters();
-
-document.getElementById("year").textContent=
-  new Date().getFullYear();
+document.getElementById("classCount").textContent=ncertData.length;
+document.getElementById("sectionCount").textContent=totalBooks();
+document.getElementById("chapterCount").textContent=totalChapters();
+document.getElementById("year").textContent=new Date().getFullYear();
 
 </script>
 
