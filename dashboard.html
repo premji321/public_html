@@ -1,0 +1,1597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#102b50">
+
+<title>Student Dashboard | Orient Classes</title>
+
+<style>
+:root{
+  --navy:#102b50;
+  --blue:#2864ad;
+  --blue2:#3478f6;
+  --gold:#ffc928;
+  --teal:#13a89e;
+  --bg:#f3f6fb;
+  --text:#24344b;
+  --muted:#68778b;
+  --border:#e2e9f3;
+  --white:#ffffff;
+  --green:#15803d;
+  --red:#b91c1c;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:85px;
+}
+
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button{
+  font:inherit;
+  cursor:pointer;
+}
+
+.container{
+  width:min(1160px,92%);
+  margin:auto;
+}
+
+.hidden{
+  display:none!important;
+}
+
+/* TOP BAR */
+
+.announcement{
+  background:#091b32;
+  color:white;
+  padding:8px 12px;
+  text-align:center;
+  font-size:11px;
+}
+
+.announcement strong{
+  color:var(--gold);
+}
+
+/* HEADER */
+
+.header{
+  color:white;
+  background:linear-gradient(120deg,#102b50,#245b99);
+}
+
+.header-inner{
+  width:min(1160px,92%);
+  margin:auto;
+  padding:18px 0;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.logo{
+  width:48px;
+  height:48px;
+  display:grid;
+  place-items:center;
+  background:var(--gold);
+  color:var(--navy);
+  border-radius:12px;
+  font-size:20px;
+  font-weight:900;
+}
+
+.brand h1{
+  font-size:22px;
+  margin:0;
+  letter-spacing:1px;
+}
+
+.brand p{
+  font-size:9px;
+  letter-spacing:2px;
+  margin:3px 0 0;
+  color:#dce9fa;
+}
+
+.header-user{
+  text-align:right;
+  font-size:12px;
+}
+
+.header-user strong{
+  display:block;
+  font-size:15px;
+  color:var(--gold);
+}
+
+.header-user span{
+  color:#dce9fa;
+  font-size:10px;
+}
+
+/* NAVIGATION */
+
+.navbar{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:white;
+  border-bottom:1px solid var(--border);
+  box-shadow:0 3px 12px #102b500b;
+}
+
+.nav-inner{
+  width:min(1160px,92%);
+  margin:auto;
+  min-height:55px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:5px;
+}
+
+.nav-links a{
+  padding:9px 11px;
+  font-size:11px;
+  font-weight:bold;
+  border-radius:7px;
+}
+
+.nav-links a:hover{
+  background:#edf4ff;
+  color:var(--blue);
+}
+
+.logout-btn{
+  border:0;
+  background:#fee2e2;
+  color:#991b1b;
+  padding:9px 13px;
+  border-radius:7px;
+  font-weight:bold;
+  font-size:11px;
+}
+
+.menu-button{
+  display:none;
+  border:0;
+  padding:9px 12px;
+  border-radius:7px;
+  background:#edf4ff;
+  color:var(--navy);
+  font-weight:bold;
+}
+
+/* WELCOME */
+
+.welcome{
+  margin-top:25px;
+  padding:clamp(23px,4vw,42px);
+  border-radius:17px;
+  color:white;
+  background:linear-gradient(115deg,#102b50,#1d4d87,#2864ad);
+  position:relative;
+  overflow:hidden;
+}
+
+.welcome:after{
+  content:"OC";
+  position:absolute;
+  right:25px;
+  bottom:-38px;
+  font-size:140px;
+  font-weight:900;
+  color:#ffffff0b;
+  pointer-events:none;
+}
+
+.eyebrow{
+  font-size:10px;
+  letter-spacing:2px;
+  color:#b9dcff;
+  font-weight:bold;
+  text-transform:uppercase;
+}
+
+.welcome h2{
+  font-size:clamp(26px,4vw,38px);
+  line-height:1.25;
+  margin:10px 0;
+}
+
+.welcome h2 span{
+  color:var(--gold);
+}
+
+.welcome p{
+  color:#e0ebfa;
+  font-size:12px;
+  max-width:650px;
+}
+
+.actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+  margin-top:18px;
+}
+
+.btn{
+  display:inline-block;
+  padding:10px 14px;
+  border-radius:7px;
+  font-size:11px;
+  font-weight:bold;
+  text-align:center;
+  border:0;
+}
+
+.btn-gold{
+  background:var(--gold);
+  color:var(--navy);
+}
+
+.btn-white{
+  background:white;
+  color:var(--navy);
+}
+
+.btn-blue{
+  background:var(--navy);
+  color:white;
+}
+
+.btn-light{
+  background:#edf4ff;
+  color:var(--blue);
+}
+
+/* STATUS MESSAGES */
+
+.message{
+  margin-top:15px;
+  padding:12px 14px;
+  border-radius:8px;
+  background:white;
+  border:1px solid var(--border);
+  font-size:12px;
+}
+
+.message.error{
+  background:#fff1f2;
+  border-color:#fecdd3;
+  color:#9f1239;
+}
+
+.message.success{
+  background:#f0fdf4;
+  border-color:#bbf7d0;
+  color:#166534;
+}
+
+/* SECTIONS */
+
+.section{
+  margin-top:32px;
+}
+
+.section-heading{
+  margin-bottom:16px;
+}
+
+.section-heading small{
+  color:var(--blue);
+  font-weight:bold;
+  font-size:10px;
+  letter-spacing:1.6px;
+}
+
+.section-heading h2{
+  color:var(--navy);
+  font-size:clamp(21px,3vw,28px);
+  margin:5px 0;
+}
+
+.section-heading p{
+  color:var(--muted);
+  font-size:12px;
+  margin:0;
+}
+
+/* STAT CARDS */
+
+.grid{
+  display:grid;
+  gap:14px;
+}
+
+.stats-grid{
+  grid-template-columns:repeat(4,minmax(0,1fr));
+}
+
+.stat-card{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:19px;
+  border-top:4px solid var(--teal);
+}
+
+.stat-card:nth-child(2){
+  border-top-color:var(--blue);
+}
+
+.stat-card:nth-child(3){
+  border-top-color:var(--gold);
+}
+
+.stat-card:nth-child(4){
+  border-top-color:#8b5cf6;
+}
+
+.stat-icon{
+  font-size:24px;
+}
+
+.stat-card h3{
+  color:var(--muted);
+  font-size:11px;
+  margin:8px 0 4px;
+}
+
+.stat-value{
+  color:var(--navy);
+  font-size:25px;
+  font-weight:900;
+  overflow-wrap:anywhere;
+}
+
+.stat-note{
+  color:var(--muted);
+  font-size:10px;
+}
+
+/* CONTENT CARDS */
+
+.main-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+}
+
+.card{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:13px;
+  padding:20px;
+  min-width:0;
+}
+
+.card h3{
+  color:var(--navy);
+  margin:0 0 9px;
+  font-size:16px;
+}
+
+.card p{
+  color:var(--muted);
+  font-size:12px;
+}
+
+/* PROFILE */
+
+.profile-list{
+  display:grid;
+  gap:0;
+}
+
+.profile-row{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  padding:11px 0;
+  border-bottom:1px solid var(--border);
+  font-size:12px;
+}
+
+.profile-row:last-child{
+  border-bottom:0;
+}
+
+.profile-row span{
+  color:var(--muted);
+}
+
+.profile-row strong{
+  text-align:right;
+  overflow-wrap:anywhere;
+  max-width:65%;
+}
+
+/* ACCESS */
+
+.access-box{
+  padding:16px;
+  background:#f8fafc;
+  border:1px solid var(--border);
+  border-radius:10px;
+}
+
+.status{
+  display:inline-block;
+  padding:5px 9px;
+  border-radius:30px;
+  font-size:10px;
+  font-weight:bold;
+}
+
+.status.active{
+  background:#dcfce7;
+  color:#166534;
+}
+
+.status.pending{
+  background:#fef3c7;
+  color:#92400e;
+}
+
+.status.inactive{
+  background:#fee2e2;
+  color:#991b1b;
+}
+
+.access-box p{
+  margin-bottom:0;
+}
+
+/* QUICK LINKS */
+
+.quick-grid{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+}
+
+.quick-card{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:18px;
+}
+
+.quick-card .icon{
+  font-size:26px;
+}
+
+.quick-card h3{
+  color:var(--navy);
+  font-size:15px;
+  margin:7px 0;
+}
+
+.quick-card p{
+  font-size:11px;
+  color:var(--muted);
+}
+
+.quick-card a{
+  color:var(--blue);
+  font-size:11px;
+  font-weight:bold;
+}
+
+/* TABLES */
+
+.table-wrap{
+  width:100%;
+  overflow-x:auto;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:600px;
+  font-size:11px;
+}
+
+th{
+  background:#edf4ff;
+  color:var(--navy);
+  text-align:left;
+  padding:12px;
+  white-space:nowrap;
+}
+
+td{
+  padding:12px;
+  border-bottom:1px solid var(--border);
+  white-space:nowrap;
+}
+
+.empty{
+  color:var(--muted);
+  font-size:12px;
+  padding:15px 0;
+}
+
+.loading{
+  color:var(--muted);
+  font-size:12px;
+}
+
+/* FOOTER */
+
+.footer{
+  margin-top:40px;
+  background:#091b32;
+  color:#dce8f8;
+}
+
+.footer-inner{
+  width:min(1160px,92%);
+  margin:auto;
+  padding:27px 0;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:25px;
+}
+
+.footer h3{
+  color:white;
+  font-size:14px;
+}
+
+.footer p,
+.footer a{
+  font-size:11px;
+  color:#bdcde2;
+}
+
+.footer a{
+  display:block;
+  margin:7px 0;
+}
+
+.footer-bottom{
+  border-top:1px solid #ffffff20;
+  text-align:center;
+  padding:12px;
+  font-size:10px;
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+  .stats-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .quick-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .menu-button{
+    display:block;
+  }
+
+  .nav-inner{
+    flex-wrap:wrap;
+    padding:8px 0;
+  }
+
+  .nav-links{
+    display:none;
+    width:100%;
+  }
+
+  .nav-links.open{
+    display:flex;
+  }
+
+  .nav-links a{
+    width:calc(50% - 5px);
+  }
+}
+
+@media(max-width:560px){
+
+  .header-user{
+    max-width:130px;
+    overflow-wrap:anywhere;
+  }
+
+  .brand h1{
+    font-size:18px;
+  }
+
+  .brand p{
+    font-size:7px;
+    letter-spacing:1px;
+  }
+
+  .main-grid,
+  .quick-grid,
+  .footer-inner{
+    grid-template-columns:1fr;
+  }
+
+  .card{
+    padding:16px;
+  }
+
+  .welcome h2{
+    font-size:27px;
+  }
+
+  .stat-card{
+    padding:14px;
+  }
+
+  .stat-value{
+    font-size:22px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,
+  *::before,
+  *::after{
+    animation:none!important;
+    scroll-behavior:auto!important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="announcement">
+  <strong>ORIENT CLASSES</strong>
+  | STUDENT DASHBOARD
+  | LEARN • PRACTISE • SUCCEED
+</div>
+
+<header class="header">
+  <div class="header-inner">
+
+    <a href="index.html" class="brand">
+      <div class="logo">OC</div>
+      <div>
+        <h1>ORIENT CLASSES</h1>
+        <p>STUDENT LEARNING PORTAL</p>
+      </div>
+    </a>
+
+    <div class="header-user">
+      <strong id="headerName">Loading...</strong>
+      <span id="headerEmail">Checking account</span>
+    </div>
+
+  </div>
+</header>
+
+<nav class="navbar">
+  <div class="nav-inner">
+
+    <button class="menu-button" id="menuButton"
+      aria-expanded="false" aria-controls="navLinks" type="button">
+      ☰ Menu
+    </button>
+
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="ncert_index.html">NCERT Classes</a>
+      <a href="BPSC_Syllabus.html">BPSC Syllabus</a>
+      <a href="BPSC_Mock_Tests.html">Mock Tests</a>
+      <a href="#my-activity">My Activity</a>
+      <a href="#my-payments">My Payments</a>
+      <a href="#my-profile">My Profile</a>
+    </div>
+
+    <button class="logout-btn" id="logoutButton" type="button">
+      Logout
+    </button>
+
+  </div>
+</nav>
+
+<main class="container">
+
+  <!-- WELCOME -->
+
+  <section class="welcome">
+    <div class="eyebrow">YOUR PERSONAL LEARNING SPACE</div>
+
+    <h2>
+      Welcome back,<br>
+      <span id="welcomeName">Student</span>!
+    </h2>
+
+    <p>
+      Track your learning progress, review your test attempts,
+      check your payment history and access your study resources
+      from one place.
+    </p>
+
+    <div class="actions">
+      <a class="btn btn-gold" href="ncert_index.html">
+        Explore NCERT →
+      </a>
+
+      <a class="btn btn-white" href="BPSC_Mock_Tests.html">
+        Take a Mock Test →
+      </a>
+
+      <a class="btn btn-white" href="BPSC_Syllabus.html">
+        BPSC Syllabus →
+      </a>
+    </div>
+  </section>
+
+  <div id="pageMessage" class="message hidden" role="status"></div>
+
+  <!-- STATS -->
+
+  <section class="section">
+    <div class="section-heading">
+      <small>YOUR PROGRESS</small>
+      <h2>My Learning Overview</h2>
+      <p>Your personal activity summary from Orient Classes.</p>
+    </div>
+
+    <div class="grid stats-grid">
+
+      <article class="stat-card">
+        <div class="stat-icon">📝</div>
+        <h3>Tests Attempted</h3>
+        <div class="stat-value" id="testsCount">—</div>
+        <div class="stat-note">Recorded attempts</div>
+      </article>
+
+      <article class="stat-card">
+        <div class="stat-icon">📊</div>
+        <h3>Average Score</h3>
+        <div class="stat-value" id="averageScore">—</div>
+        <div class="stat-note">Based on recorded tests</div>
+      </article>
+
+      <article class="stat-card">
+        <div class="stat-icon">💳</div>
+        <h3>Successful Payments</h3>
+        <div class="stat-value" id="paymentsCount">—</div>
+        <div class="stat-note">Verified payment records</div>
+      </article>
+
+      <article class="stat-card">
+        <div class="stat-icon">🔐</div>
+        <h3>Premium Access</h3>
+        <div class="stat-value" id="premiumSummary">—</div>
+        <div class="stat-note">Your current access status</div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- QUICK LINKS -->
+
+  <section class="section">
+    <div class="section-heading">
+      <small>CONTINUE LEARNING</small>
+      <h2>Quick Access</h2>
+      <p>Open your study resources directly.</p>
+    </div>
+
+    <div class="grid quick-grid">
+
+      <article class="quick-card">
+        <div class="icon">📚</div>
+        <h3>NCERT Study Portal</h3>
+        <p>Open classes, chapters and study resources.</p>
+        <a href="ncert_index.html">Open NCERT →</a>
+      </article>
+
+      <article class="quick-card">
+        <div class="icon">🎯</div>
+        <h3>BPSC Preparation</h3>
+        <p>Review syllabus, topics and preparation resources.</p>
+        <a href="BPSC_Syllabus.html">Open Syllabus →</a>
+      </article>
+
+      <article class="quick-card">
+        <div class="icon">📝</div>
+        <h3>Mock Tests</h3>
+        <p>Practise questions and review your results.</p>
+        <a href="BPSC_Mock_Tests.html">Open Mock Tests →</a>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- PREMIUM -->
+
+  <section class="section" id="premium">
+    <div class="section-heading">
+      <small>MEMBERSHIP</small>
+      <h2>My Premium Access</h2>
+      <p>Your premium status is read from your own database record.</p>
+    </div>
+
+    <article class="card">
+      <div class="access-box">
+
+        <h3>Orient Classes Premium Tests</h3>
+
+        <p>
+          Access is shown as active only when your Supabase record
+          contains a successful payment status and an enabled access flag.
+        </p>
+
+        <p>
+          Status:
+          <span id="premiumStatus" class="status pending">
+            Checking...
+          </span>
+        </p>
+
+        <p id="premiumDetails">
+          Checking your account's premium access.
+        </p>
+
+        <div class="actions">
+          <a class="btn btn-blue" href="BPSC_Mock_Tests.html">
+            Open Mock Tests →
+          </a>
+
+          <button class="btn btn-light" id="refreshButton" type="button">
+            Refresh Status
+          </button>
+        </div>
+
+      </div>
+    </article>
+  </section>
+
+  <!-- ACTIVITY -->
+
+  <section class="section" id="my-activity">
+    <div class="section-heading">
+      <small>TEST HISTORY</small>
+      <h2>My Test Activity</h2>
+      <p>Only test records associated with your account are requested.</p>
+    </div>
+
+    <article class="card">
+      <h3>Recent Test Attempts</h3>
+
+      <div id="testsLoading" class="loading">
+        Loading test history...
+      </div>
+
+      <div id="testsEmpty" class="empty hidden">
+        No test attempts have been recorded for this account yet.
+      </div>
+
+      <div class="table-wrap">
+        <table id="testsTable" class="hidden">
+          <thead>
+            <tr>
+              <th>Test</th>
+              <th>Score</th>
+              <th>Total Questions</th>
+              <th>Percentage</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody id="testsTableBody"></tbody>
+        </table>
+      </div>
+    </article>
+  </section>
+
+  <!-- PAYMENTS -->
+
+  <section class="section" id="my-payments">
+    <div class="section-heading">
+      <small>PAYMENT RECORDS</small>
+      <h2>My Payments</h2>
+      <p>Payment history associated with your signed-in account.</p>
+    </div>
+
+    <article class="card">
+      <h3>Recent Transactions</h3>
+
+      <div id="paymentsLoading" class="loading">
+        Loading payment history...
+      </div>
+
+      <div id="paymentsEmpty" class="empty hidden">
+        No payment records are available for this account yet.
+      </div>
+
+      <div class="table-wrap">
+        <table id="paymentsTable" class="hidden">
+          <thead>
+            <tr>
+              <th>Order ID</th>
+              <th>Amount</th>
+              <th>Status</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody id="paymentsTableBody"></tbody>
+        </table>
+      </div>
+    </article>
+  </section>
+
+  <!-- PROFILE -->
+
+  <section class="section" id="my-profile">
+    <div class="section-heading">
+      <small>ACCOUNT INFORMATION</small>
+      <h2>My Profile</h2>
+      <p>Account information from your authenticated session.</p>
+    </div>
+
+    <div class="grid main-grid">
+
+      <article class="card">
+        <h3>Personal Details</h3>
+
+        <div class="profile-list">
+          <div class="profile-row">
+            <span>Full Name</span>
+            <strong id="profileName">Loading...</strong>
+          </div>
+
+          <div class="profile-row">
+            <span>Email</span>
+            <strong id="profileEmail">Loading...</strong>
+          </div>
+
+          <div class="profile-row">
+            <span>Account Created</span>
+            <strong id="profileCreated">—</strong>
+          </div>
+
+          <div class="profile-row">
+            <span>Email Verified</span>
+            <strong id="profileVerified">—</strong>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3>Account Security</h3>
+
+        <p>
+          Your account is connected to Supabase Authentication.
+          Never share your password or secret API keys with anyone.
+        </p>
+
+        <p>
+          If you use a shared device, log out when you finish studying.
+        </p>
+
+        <button class="logout-btn" id="logoutButton2" type="button">
+          Logout Securely
+        </button>
+      </article>
+
+    </div>
+  </section>
+
+  <div class="message">
+    <strong>Privacy:</strong>
+    This page requests records associated with your signed-in user.
+    Database Row Level Security must also be configured correctly.
+    A dashboard alone does not grant or secure premium access.
+  </div>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+
+    <div>
+      <h3>Orient Classes</h3>
+      <p>
+        Your learning space for NCERT Classes 6–12 and BPSC preparation.
+      </p>
+      <strong>Learn • Practise • Succeed</strong>
+    </div>
+
+    <div>
+      <h3>Study</h3>
+      <a href="index.html">Home</a>
+      <a href="ncert_index.html">NCERT Portal</a>
+      <a href="BPSC_Syllabus.html">BPSC Syllabus</a>
+    </div>
+
+    <div>
+      <h3>Practice</h3>
+      <a href="BPSC_Mock_Tests.html">Mock Tests</a>
+      <a href="Current_Affairs.html">Current Affairs</a>
+      <a href="Downloads.html">Downloads</a>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © <span id="year"></span> Orient Classes. All rights reserved.
+  </div>
+</footer>
+
+<script type="module">
+import { createClient } from
+  "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
+
+/* ==========================================
+   SUPABASE CONFIGURATION
+   Use your existing project URL and publishable key.
+   Never put a service_role key in browser code.
+   ========================================== */
+
+const SUPABASE_URL = "https://gzbrnltdgllojscssvaz.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY =
+  "sb_publishable_DxbDKXhi7JOZf0aGMoOhZQ_9sMTscVZ";
+
+const supabase = createClient(
+  SUPABASE_URL,
+  SUPABASE_PUBLISHABLE_KEY
+);
+
+/* ==========================================
+   ELEMENT HELPERS
+   ========================================== */
+
+const $ = id => document.getElementById(id);
+
+function showMessage(message, type = "") {
+  const box = $("pageMessage");
+  box.textContent = message;
+  box.className = "message" + (type ? " " + type : "");
+}
+
+function hideMessage() {
+  $("pageMessage").classList.add("hidden");
+}
+
+function setText(id, value) {
+  $(id).textContent =
+    value === null || value === undefined || value === ""
+      ? "—"
+      : String(value);
+}
+
+function escapeHTML(value) {
+  return String(value ?? "").replace(/[&<>"']/g, character => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  })[character]);
+}
+
+function formatDate(value) {
+  if (!value) return "—";
+
+  const date = new Date(value);
+
+  if (Number.isNaN(date.getTime())) return "—";
+
+  return date.toLocaleString("en-IN", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric"
+  });
+}
+
+function formatMoney(value) {
+  const amount = Number(value);
+
+  if (!Number.isFinite(amount)) return "—";
+
+  return new Intl.NumberFormat("en-IN", {
+    style: "currency",
+    currency: "INR",
+    maximumFractionDigits: 2
+  }).format(amount);
+}
+
+function normaliseStatus(value) {
+  return String(value ?? "").trim().toLowerCase();
+}
+
+/* ==========================================
+   MOBILE NAVIGATION
+   ========================================== */
+
+const menuButton = $("menuButton");
+const navLinks = $("navLinks");
+
+menuButton.addEventListener("click", () => {
+  const opened = navLinks.classList.toggle("open");
+
+  menuButton.setAttribute("aria-expanded", String(opened));
+
+  menuButton.textContent = opened
+    ? "✕ Close Menu"
+    : "☰ Menu";
+});
+
+navLinks.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+    menuButton.setAttribute("aria-expanded", "false");
+    menuButton.textContent = "☰ Menu";
+  });
+});
+
+$("year").textContent = new Date().getFullYear();
+
+/* ==========================================
+   SIGNED-IN USER
+   ========================================== */
+
+let currentUser = null;
+
+async function requireUser() {
+  const {
+    data: { session },
+    error: sessionError
+  } = await supabase.auth.getSession();
+
+  if (sessionError) {
+    throw new Error("Unable to check your login session.");
+  }
+
+  if (!session) {
+    window.location.replace("login.html");
+    return null;
+  }
+
+  const {
+    data: { user },
+    error
+  } = await supabase.auth.getUser();
+
+  if (error || !user) {
+    await supabase.auth.signOut();
+    window.location.replace("login.html");
+    return null;
+  }
+
+  currentUser = user;
+
+  return user;
+}
+
+/* ==========================================
+   PROFILE
+   ========================================== */
+
+async function loadProfile(user) {
+  const metadata = user.user_metadata || {};
+
+  let fullName =
+    metadata.full_name ||
+    metadata.name ||
+    metadata.fullName ||
+    "";
+
+  /*
+    This expects profiles.id to match auth.users.id.
+    If your profiles table uses different column names,
+    adjust this query to your actual schema.
+  */
+
+  const { data, error } = await supabase
+    .from("profiles")
+    .select("*")
+    .eq("id", user.id)
+    .maybeSingle();
+
+  if (!error && data) {
+    fullName =
+      data.full_name ||
+      data.name ||
+      data.student_name ||
+      fullName;
+  } else if (error) {
+    console.warn("Profile lookup:", error.message);
+  }
+
+  if (!fullName) {
+    fullName = user.email
+      ? user.email.split("@")[0]
+      : "Student";
+  }
+
+  setText("headerName", fullName);
+  setText("headerEmail", user.email);
+  setText("welcomeName", fullName);
+  setText("profileName", fullName);
+  setText("profileEmail", user.email);
+  setText("profileCreated", formatDate(user.created_at));
+
+  setText(
+    "profileVerified",
+    user.email_confirmed_at ? "Verified" : "Not verified"
+  );
+}
+
+/* ==========================================
+   TEST HISTORY
+   Expected columns:
+   student_id, test_code, score,
+   total_questions, attempted_at
+   ========================================== */
+
+async function loadTests(user) {
+  $("testsLoading").classList.remove("hidden");
+  $("testsEmpty").classList.add("hidden");
+  $("testsTable").classList.add("hidden");
+
+  /*
+    The query intentionally filters by the signed-in user's ID.
+    RLS must also enforce the same ownership rule in the database.
+  */
+
+  const { data, error } = await supabase
+    .from("test_results")
+    .select("*")
+    .eq("student_id", user.id)
+    .order("attempted_at", { ascending: false })
+    .limit(100);
+
+  $("testsLoading").classList.add("hidden");
+
+  if (error) {
+    console.error("Test history:", error.message);
+    $("testsEmpty").classList.remove("hidden");
+    $("testsEmpty").textContent =
+      "Test history could not be loaded. Please check your test_results columns and RLS policies.";
+    setText("testsCount", "—");
+    setText("averageScore", "—");
+    return;
+  }
+
+  const rows = data || [];
+
+  setText("testsCount", rows.length);
+
+  let totalPercent = 0;
+  let validScores = 0;
+
+  const tbody = $("testsTableBody");
+  tbody.replaceChildren();
+
+  rows.forEach(row => {
+    const score = Number(row.score);
+    const total = Number(row.total_questions);
+
+    const percent =
+      Number.isFinite(score) &&
+      Number.isFinite(total) &&
+      total > 0
+        ? (score / total) * 100
+        : null;
+
+    if (percent !== null) {
+      totalPercent += percent;
+      validScores++;
+    }
+
+    const tr = document.createElement("tr");
+
+    const values = [
+      row.test_code || row.test_name || "Mock Test",
+      Number.isFinite(score) ? String(score) : "—",
+      Number.isFinite(total) ? String(total) : "—",
+      percent === null ? "—" : percent.toFixed(1) + "%",
+      formatDate(row.attempted_at || row.created_at)
+    ];
+
+    values.forEach(value => {
+      const td = document.createElement("td");
+      td.textContent = value;
+      tr.appendChild(td);
+    });
+
+    tbody.appendChild(tr);
+  });
+
+  setText(
+    "averageScore",
+    validScores
+      ? (totalPercent / validScores).toFixed(1) + "%"
+      : "—"
+  );
+
+  if (!rows.length) {
+    $("testsEmpty").classList.remove("hidden");
+  } else {
+    $("testsTable").classList.remove("hidden");
+  }
+}
+
+/* ==========================================
+   PAYMENT HISTORY
+   Expected columns:
+   user_id, order_id, amount, status, created_at
+   ========================================== */
+
+async function loadPayments(user) {
+  $("paymentsLoading").classList.remove("hidden");
+  $("paymentsEmpty").classList.add("hidden");
+  $("paymentsTable").classList.add("hidden");
+
+  const { data, error } = await supabase
+    .from("payments")
+    .select("*")
+    .eq("user_id", user.id)
+    .order("created_at", { ascending: false })
+    .limit(100);
+
+  $("paymentsLoading").classList.add("hidden");
+
+  if (error) {
+    console.error("Payment history:", error.message);
+
+    $("paymentsEmpty").classList.remove("hidden");
+    $("paymentsEmpty").textContent =
+      "Payment history could not be loaded. Please check the payments table columns and RLS policies.";
+
+    setText("paymentsCount", "—");
+    return;
+  }
+
+  const rows = data || [];
+
+  const successful = rows.filter(row =>
+    ["success", "paid", "completed"].includes(
+      normaliseStatus(row.status)
+    )
+  );
+
+  setText("paymentsCount", successful.length);
+
+  const tbody = $("paymentsTableBody");
+  tbody.replaceChildren();
+
+  rows.forEach(row => {
+    const tr = document.createElement("tr");
+
+    const status = normaliseStatus(row.status);
+
+    const values = [
+      row.order_id || row.payment_order_id || "—",
+      formatMoney(row.amount ?? row.payment_amount),
+      status ? status.toUpperCase() : "PENDING",
+      formatDate(row.created_at)
+    ];
+
+    values.forEach(value => {
+      const td = document.createElement("td");
+      td.textContent = value;
+      tr.appendChild(td);
+    });
+
+    tbody.appendChild(tr);
+  });
+
+  if (!rows.length) {
+    $("paymentsEmpty").classList.remove("hidden");
+  } else {
+    $("paymentsTable").classList.remove("hidden");
+  }
+}
+
+/* ==========================================
+   PREMIUM ACCESS
+   Uses your existing premium_access columns:
+   student_id, payment_status, has_access
+   ========================================== */
+
+async function loadPremium(user) {
+  const badge = $("premiumStatus");
+
+  badge.textContent = "Checking...";
+  badge.className = "status pending";
+
+  /*
+    A successful payment alone is not enough.
+    Both payment_status and has_access must indicate approval.
+  */
+
+  const { data, error } = await supabase
+    .from("premium_access")
+    .select("payment_status, has_access, payment_amount, created_at")
+    .eq("student_id", user.id)
+    .limit(100);
+
+  if (error) {
+    console.error("Premium status:", error.message);
+
+    badge.textContent = "UNAVAILABLE";
+    badge.className = "status pending";
+
+    $("premiumDetails").textContent =
+      "Premium status could not be checked. Please verify the table columns and RLS policies.";
+
+    setText("premiumSummary", "—");
+    return;
+  }
+
+  const rows = data || [];
+
+  const activeRecord = rows.find(row =>
+    row.has_access === true &&
+    ["success", "paid", "completed"].includes(
+      normaliseStatus(row.payment_status)
+    )
+  );
+
+  if (activeRecord) {
+    badge.textContent = "ACTIVE";
+    badge.className = "status active";
+
+    $("premiumDetails").textContent =
+      "Premium access is active for this account.";
+
+    setText("premiumSummary", "Active");
+  } else {
+    badge.textContent = "NOT ACTIVE";
+    badge.className = "status inactive";
+
+    $("premiumDetails").textContent =
+      "No active premium entitlement was found. If you have paid, contact support for verification.";
+
+    setText("premiumSummary", "Inactive");
+  }
+}
+
+/* ==========================================
+   REFRESH
+   ========================================== */
+
+async function refreshDashboard() {
+  hideMessage();
+
+  if (!currentUser) return;
+
+  $("refreshButton").disabled = true;
+  $("refreshButton").textContent = "Refreshing...";
+
+  try {
+    await Promise.all([
+      loadTests(currentUser),
+      loadPayments(currentUser),
+      loadPremium(currentUser)
+    ]);
+
+    showMessage(
+      "Your dashboard data has been refreshed.",
+      "success"
+    );
+  } catch (error) {
+    console.error(error);
+    showMessage(
+      "Some dashboard information could not be loaded.",
+      "error"
+    );
+  } finally {
+    $("refreshButton").disabled = false;
+    $("refreshButton").textContent = "Refresh Status";
+  }
+}
+
+$("refreshButton").addEventListener(
+  "click",
+  refreshDashboard
+);
+
+/* ==========================================
+   LOGOUT
+   ========================================== */
+
+async function logout() {
+  $("logoutButton").disabled = true;
+  $("logoutButton2").disabled = true;
+
+  const { error } = await supabase.auth.signOut();
+
+  if (error) {
+    showMessage(
+      "Logout failed. Please try again.",
+      "error"
+    );
+
+    $("logoutButton").disabled = false;
+    $("logoutButton2").disabled = false;
+    return;
+  }
+
+  window.location.replace("login.html");
+}
+
+$("logoutButton").addEventListener("click", logout);
+$("logoutButton2").addEventListener("click", logout);
+
+/* ==========================================
+   INITIAL LOAD
+   ========================================== */
+
+async function initialiseDashboard() {
+  try {
+    const user = await requireUser();
+
+    if (!user) return;
+
+    await loadProfile(user);
+
+    await Promise.all([
+      loadTests(user),
+      loadPayments(user),
+      loadPremium(user)
+    ]);
+
+  } catch (error) {
+    console.error("Dashboard initialisation:", error);
+
+    showMessage(
+      "Unable to load your dashboard. Please log in again.",
+      "error"
+    );
+  }
+}
+
+initialiseDashboard();
+
+/* ==========================================
+   AUTH STATE CHANGES
+   ========================================== */
+
+supabase.auth.onAuthStateChange((event, session) => {
+  if (event === "SIGNED_OUT" || !session) {
+    window.location.replace("login.html");
+  }
+});
+</script>
+
+</body>
+</html>
