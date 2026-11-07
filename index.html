@@ -8,16 +8,15 @@
 
 <style>
 :root {
-    --bg: #10151e;
-    --sidebar: #151c27;
-    --header: #1b2431;
-    --hover: #25344a;
-    --active: #204c7c;
-    --border: #303d4e;
-    --text: #e5edf7;
-    --muted: #91a2b8;
-    --blue: #60a5fa;
-    --yellow: #f5c451;
+    --bg: #f4f6fb;
+    --panel: #ffffff;
+    --text: #20283a;
+    --muted: #8992a5;
+    --border: #e8ebf2;
+    --primary: #4968dc;
+    --primary-light: #edf1ff;
+    --hover: #f5f7fc;
+    --sidebar-width: 330px;
 }
 
 * {
@@ -34,185 +33,59 @@ body {
     overflow: hidden;
 }
 
+/* Main layout */
 
-
-
-/* PREMIUM DROPDOWN TREE */
-
-.node {
-    margin: 4px 0;
-}
-
-.node-row {
+.app {
     display: flex;
-    align-items: center;
-    gap: 10px;
-    min-height: 40px;
-    padding: 9px 11px;
-    border-radius: 9px;
-    cursor: pointer;
-    color: #dce6f3;
-    transition: background .2s, border-color .2s;
-    border: 1px solid transparent;
+    height: 100vh;
+    width: 100%;
 }
 
-.node-row:hover {
-    background: #263950;
-    border-color: #344d68;
+/* Sidebar */
+
+.sidebar {
+    width: var(--sidebar-width);
+    min-width: var(--sidebar-width);
+    background: var(--panel);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
 }
 
-.node-row.active {
-    background: linear-gradient(100deg,#244d77,#1b3552);
-    border-color: #416b96;
-}
-
-.arrow {
-    width: 15px;
-    flex-shrink: 0;
-    color: #9bb5d2;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform .25s ease;
-}
-
-.node-row.expanded .arrow {
-    transform: rotate(90deg);
-}
-
-.children {
-    display: grid;
-    grid-template-rows: 0fr;
-    opacity: 0;
-    margin-left: 14px;
-    padding-left: 12px;
-    border-left: 1px solid #394e68;
-    transition: grid-template-rows .28s ease,
-                opacity .2s ease;
-}
-
-.children > .children-inner {
-    overflow: hidden;
-}
-
-.children.open {
-    grid-template-rows: 1fr;
-    opacity: 1;
-    padding-top: 4px;
-    padding-bottom: 4px;
-}
-
-.folder-count {
-    margin-left: auto;
-    padding: 3px 8px;
-    background: #293e58;
-    color: #b8d0ed;
-    border-radius: 20px;
-    font-size: 10px;
-}
-
-
-
-
-
-
-
-/* HEADER */
-
-header {
-    height: 62px;
-    background: var(--header);
+.sidebar-header {
+    padding: 22px 18px 16px;
     border-bottom: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 17px;
 }
 
 .brand {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 19px;
-    font-weight: bold;
+    gap: 11px;
+    margin-bottom: 20px;
 }
 
 .brand-icon {
-    font-size: 25px;
-}
-
-.header-actions {
+    width: 42px;
+    height: 42px;
+    border-radius: 13px;
+    background: linear-gradient(135deg, #4968dc, #758cf5);
     display: flex;
     align-items: center;
-    gap: 8px;
-}
-
-button {
-    border: none;
-    outline: none;
-    cursor: pointer;
-    border-radius: 7px;
-    padding: 10px 13px;
-    background: #2877cf;
+    justify-content: center;
     color: white;
-    font-size: 13px;
-    transition: .2s;
+    font-size: 21px;
 }
 
-button:hover {
-    background: #1763b5;
+.brand h2 {
+    font-size: 18px;
+    font-weight: 750;
 }
 
-.github-btn {
-    background: #343f50;
-}
-
-.menu-btn {
-    display: none;
-    background: #343f50;
-}
-
-/* MAIN LAYOUT */
-
-.app {
-    display: flex;
-    height: calc(100vh - 62px);
-}
-
-/* LEFT SIDEBAR */
-
-.sidebar {
-    width: 310px;
-    min-width: 270px;
-    background: var(--sidebar);
-    border-right: 1px solid var(--border);
-    display: flex;
-    flex-direction: column;
-}
-
-.sidebar-heading {
-    padding: 17px 15px 12px;
-}
-
-.heading-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 14px;
-}
-
-.heading-row h3 {
-    font-size: 12px;
-    letter-spacing: 1.3px;
-    color: #b8c7db;
-}
-
-.online {
-    color: #4ade80;
-    font-size: 10px;
-    background: #183b31;
-    padding: 5px 8px;
-    border-radius: 20px;
+.brand p {
+    color: var(--muted);
+    font-size: 11px;
+    margin-top: 4px;
 }
 
 .search-box {
@@ -221,152 +94,227 @@ button:hover {
 
 .search-box input {
     width: 100%;
-    padding: 12px 12px 12px 35px;
-    border-radius: 8px;
-    background: #202b3a;
-    color: white;
-    border: 1px solid #37475c;
+    padding: 12px 13px 12px 38px;
+    border: 1px solid var(--border);
+    background: #f8f9fc;
+    border-radius: 10px;
     outline: none;
     font-size: 13px;
 }
 
 .search-box input:focus {
-    border-color: #5298e9;
+    border-color: var(--primary);
+    background: white;
 }
 
 .search-icon {
     position: absolute;
-    left: 12px;
+    left: 13px;
     top: 11px;
-    color: #9aabc1;
-}
-
-.stats {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 13px;
     color: var(--muted);
+}
+
+.tree-heading {
+    padding: 19px 18px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tree-heading span {
+    font-size: 10px;
+    font-weight: 750;
+    letter-spacing: 1px;
+    color: var(--muted);
+}
+
+.tree-heading button {
+    border: none;
+    background: transparent;
+    color: var(--primary);
     font-size: 11px;
+    cursor: pointer;
 }
 
-/* TREE */
+/* Tree container */
 
-.tree {
+.tree-container {
     flex: 1;
-    overflow: auto;
-    padding: 8px 10px 20px;
+    overflow-y: auto;
+    padding: 5px 10px 20px;
 }
 
-.tree::-webkit-scrollbar,
-.viewer::-webkit-scrollbar {
-    width: 6px;
+.tree-container::-webkit-scrollbar {
+    width: 5px;
 }
 
-.tree::-webkit-scrollbar-thumb,
-.viewer::-webkit-scrollbar-thumb {
-    background: #39485c;
+.tree-container::-webkit-scrollbar-thumb {
+    background: #d9deea;
     border-radius: 10px;
 }
 
+/* Root folder */
+
+.root-label {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 11px 10px;
+    margin-bottom: 7px;
+    border-radius: 10px;
+    background: #f1f4ff;
+    color: #3d59c7;
+    font-size: 13px;
+    font-weight: 750;
+}
+
+.root-label .root-icon {
+    font-size: 18px;
+}
+
+/* Tree nodes */
+
 .node {
-    margin: 2px 0;
+    width: 100%;
 }
 
 .node-row {
     display: flex;
     align-items: center;
     gap: 8px;
-    min-height: 36px;
+    min-height: 39px;
     padding: 7px 9px;
-    border: 1px solid transparent;
-    border-radius: 8px;
+    border-radius: 9px;
     cursor: pointer;
-    transition: background .18s, border-color .18s;
-    font-size: 13px;
-    color: #d9e3f0;
+    user-select: none;
+    transition: background 0.2s ease, color 0.2s ease;
+    position: relative;
 }
 
 .node-row:hover {
     background: var(--hover);
-    border-color: #344861;
 }
 
-.node-row.active {
-    background: linear-gradient(110deg,#204d7c,#19375a);
-    border-color: #3b76ad;
-    color: #fff;
+.node-row.selected-file {
+    background: var(--primary-light);
+    color: #3554c7;
+    font-weight: 700;
+}
+
+.node-row.expanded {
+    color: #3e59c6;
+    font-weight: 700;
+    background: #f7f8ff;
 }
 
 .arrow {
-    width: 12px;
-    flex-shrink: 0;
-    font-size: 11px;
-    color: #91a8c3;
+    width: 15px;
+    min-width: 15px;
     text-align: center;
+    color: #9aa3b5;
+    font-size: 20px;
+    line-height: 15px;
+    transform: rotate(0deg);
+    transition: transform 0.25s ease;
 }
 
-.icon {
-    width: 21px;
-    flex-shrink: 0;
+.node-row.expanded .arrow {
+    transform: rotate(90deg);
+    color: var(--primary);
+}
+
+.node-icon {
+    width: 20px;
+    min-width: 20px;
     text-align: center;
-    font-size: 17px;
+    font-size: 16px;
 }
 
-.folder-name {
-    font-weight: 600;
+.node-name {
+    flex: 1;
+    min-width: 0;
+    font-size: 12.5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.file-name {
-    font-weight: 400;
-    font-size: 12px;
-}
-
-.folder-count {
-    margin-left: auto;
+.file-count {
+    min-width: 21px;
+    height: 20px;
+    padding: 0 6px;
+    border-radius: 6px;
+    background: #f0f2f7;
+    color: #818ba0;
     font-size: 10px;
-    color: #aec5e2;
-    background: #293e58;
-    border-radius: 12px;
-    padding: 3px 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.node-row.active .folder-count {
-    background: #38699a;
-    color: white;
+.node-row.expanded .file-count {
+    background: #e6ebff;
+    color: #4968dc;
 }
+
+/* Animated dropdown */
 
 .children {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition:
+        grid-template-rows 0.3s ease,
+        opacity 0.25s ease;
+}
+
+.children.open {
+    grid-template-rows: 1fr;
+    opacity: 1;
+}
+
+.children-inner {
+    min-height: 0;
+    overflow: hidden;
+}
+
+/* Indentation guide */
+
+.children-inner > .node {
     margin-left: 15px;
-    padding-left: 9px;
-    border-left: 1px solid #39495e;
+    padding-left: 8px;
+    border-left: 1px solid #e8ebf3;
 }
 
-.hidden {
-    display: none !important;
+.loading,
+.empty-state {
+    padding: 22px 12px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.7;
 }
-
-.file-row {
-    min-height: 33px;
-}
-
-.file-row:hover {
-    background: #202f42;
-}
-
-.file-row.active {
-    background: #244f7b;
-}
-
-/* SIDEBAR FOOTER */
 
 .sidebar-footer {
-    padding: 11px 14px;
+    padding: 13px 17px;
     border-top: 1px solid var(--border);
-    color: #8799b0;
-    font-size: 11px;
+    color: var(--muted);
+    font-size: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* RIGHT PANEL */
+.status-dot {
+    width: 7px;
+    height: 7px;
+    display: inline-block;
+    border-radius: 50%;
+    background: #28b77a;
+    margin-right: 5px;
+}
+
+/* Main content */
 
 .main {
     flex: 1;
@@ -375,10 +323,85 @@ button:hover {
     flex-direction: column;
 }
 
-.toolbar {
-    min-height: 51px;
-    padding: 8px 15px;
-    background: #19222f;
+.topbar {
+    height: 66px;
+    min-height: 66px;
+    background: white;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 22px;
+    gap: 12px;
+}
+
+.topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+.topbar h3 {
+    font-size: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.topbar p {
+    color: var(--muted);
+    font-size: 10px;
+    margin-top: 4px;
+}
+
+.top-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.action-btn {
+    border: 1px solid var(--border);
+    background: white;
+    padding: 9px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #59647a;
+    font-size: 11px;
+}
+
+.action-btn:hover {
+    background: var(--hover);
+}
+
+.menu-btn {
+    display: none;
+}
+
+/* Preview */
+
+.preview {
+    flex: 1;
+    overflow: hidden;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+.preview-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.preview-header {
+    min-height: 45px;
+    padding: 10px 16px;
     border-bottom: 1px solid var(--border);
     display: flex;
     align-items: center;
@@ -386,320 +409,276 @@ button:hover {
     gap: 10px;
 }
 
-.breadcrumb {
+.preview-header span {
     font-size: 12px;
-    color: #a9bbd1;
-    overflow-wrap: anywhere;
+    font-weight: 700;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
-.toolbar-actions {
-    display: flex;
-    gap: 7px;
-    flex-shrink: 0;
-}
-
-.small-btn {
-    background: #34445a;
-    padding: 8px 10px;
-    font-size: 11px;
-}
-
-/* CONTENT VIEWER */
-
-.viewer {
+.preview-content {
     flex: 1;
     min-height: 0;
     overflow: auto;
-    background: #fff;
-    color: #222;
+    position: relative;
 }
 
-.viewer iframe {
+.preview-content iframe {
     width: 100%;
     height: 100%;
-    min-height: 100%;
     border: none;
-    display: block;
     background: white;
 }
 
-.viewer pre {
-    margin: 0;
-    padding: 22px;
-    color: #263445;
-    background: white;
-    font-size: 13px;
-    line-height: 1.8;
+.preview-content img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+    margin: auto;
+}
+
+.text-preview {
+    padding: 24px;
     white-space: pre-wrap;
     overflow-wrap: anywhere;
+    font-family: Consolas, monospace;
+    font-size: 13px;
+    line-height: 1.7;
 }
 
 .welcome {
     height: 100%;
-    min-height: 300px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     text-align: center;
     padding: 25px;
-    color: #6c7e94;
-    background: #f5f7fa;
 }
 
 .welcome-icon {
-    font-size: 65px;
-    margin-bottom: 17px;
+    width: 76px;
+    height: 76px;
+    background: #edf1ff;
+    color: var(--primary);
+    border-radius: 23px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    margin-bottom: 20px;
 }
 
 .welcome h2 {
-    color: #25364b;
-    margin-bottom: 10px;
+    font-size: 21px;
+    margin-bottom: 9px;
 }
 
 .welcome p {
+    color: var(--muted);
     font-size: 13px;
-    line-height: 1.8;
+    max-width: 370px;
+    line-height: 1.7;
 }
 
-.preview-image {
-    max-width: 95%;
-    max-height: 95%;
-    display: block;
-    margin: 15px auto;
-    object-fit: contain;
-}
-
-.error {
-    padding: 20px;
-    color: #e66;
-    font-size: 13px;
-}
-
-.loading {
-    padding: 30px;
-    color: #387ec4;
+.preview-message {
+    padding: 25px;
     text-align: center;
-}
-
-.empty {
-    color: #8da0b8;
-    padding: 20px;
-    text-align: center;
+    color: var(--muted);
     font-size: 13px;
 }
 
-/* RESPONSIVE */
+/* Mobile */
 
-@media(max-width:750px) {
-
+@media(max-width: 700px) {
     .sidebar {
-        width: 43%;
-        min-width: 0;
-    }
-
-    .node-row {
-        gap: 5px;
-        padding: 7px 5px;
-        font-size: 11px;
-    }
-
-    .folder-count {
-        font-size: 9px;
-        padding: 2px 5px;
-    }
-
-    .toolbar {
-        flex-wrap: wrap;
-    }
-
-    .brand {
-        font-size: 16px;
-    }
-
-}
-
-@media(max-width:520px) {
-
-    .menu-btn {
-        display: block;
-    }
-
-    .sidebar {
-        position: absolute;
-        z-index: 20;
-        top: 62px;
+        position: fixed;
+        top: 0;
         bottom: 0;
         left: 0;
-        width: 82%;
-        max-width: 320px;
-        box-shadow: 5px 0 25px #0008;
+        width: min(86%, 340px);
+        min-width: 0;
+        transform: translateX(-105%);
+        transition: transform 0.3s ease;
+        box-shadow: 8px 0 25px rgba(0,0,0,0.08);
     }
 
-    .sidebar.closed {
-        display: none;
+    .sidebar.mobile-open {
+        transform: translateX(0);
     }
 
-    .brand {
-        font-size: 15px;
+    .menu-btn {
+        display: inline-block;
     }
 
-    header {
-        padding: 0 10px;
+    .topbar {
+        padding: 0 12px;
+        height: 60px;
+        min-height: 60px;
     }
 
-    .github-btn {
-        display: none;
+    .topbar h3 {
+        font-size: 13px;
     }
 
-    .toolbar {
-        padding: 9px;
+    .action-btn {
+        padding: 8px;
+        font-size: 10px;
     }
 
+    .preview {
+        padding: 10px;
+    }
+
+    .preview-header {
+        padding: 10px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
-
-<header>
-
-    <div style="display:flex;align-items:center;gap:10px">
-
-        <button class="menu-btn" onclick="toggleSidebar()">☰</button>
-
-        <div class="brand">
-            <span class="brand-icon">📚</span>
-            BPSC Explorer
-        </div>
-
-    </div>
-
-    <div class="header-actions">
-
-        <button onclick="loadRepository()">↻ Refresh</button>
-
-        <button class="github-btn"
-        onclick="window.open('https://github.com/premji321/public_html','_blank')">
-            GitHub ↗
-        </button>
-
-    </div>
-
-</header>
-
-
 <div class="app">
 
-    <!-- LEFT PANEL -->
+    <!-- SIDEBAR -->
 
     <aside class="sidebar" id="sidebar">
 
-        <div class="sidebar-heading">
+        <div class="sidebar-header">
 
-            <div class="heading-row">
-
-                <h3>BPSC STUDY LIBRARY</h3>
-
-                <span class="online" id="onlineStatus">
-                    CONNECTING
-                </span>
-
+            <div class="brand">
+                <div class="brand-icon">📚</div>
+                <div>
+                    <h2>BPSC Explorer</h2>
+                    <p>Study Notes & Resources</p>
+                </div>
             </div>
 
             <div class="search-box">
-
                 <span class="search-icon">⌕</span>
-
                 <input
-                    type="search"
-                    id="search"
+                    type="text"
+                    id="searchInput"
                     placeholder="Search folders and files..."
                     oninput="searchTree(this.value)"
                 >
-
-            </div>
-
-            <div class="stats">
-
-                <span id="folderStats">0 FOLDERS</span>
-
-                <span id="fileStats">0 FILES</span>
-
             </div>
 
         </div>
 
+        <div class="tree-heading">
+            <span>FOLDER NAVIGATION</span>
+            <button onclick="toggleAll()">Expand / Collapse</button>
+        </div>
 
-        <div class="tree" id="tree">
+        <div class="tree-container" id="treeContainer">
 
-            <div class="loading">Loading GitHub Repository...</div>
+            <div class="loading">
+                <div>⏳</div>
+                Loading your GitHub folders...
+            </div>
 
         </div>
 
-
-        <div class="sidebar-footer" id="status">
-            Connecting to GitHub...
+        <div class="sidebar-footer">
+            <span><i class="status-dot"></i> GitHub Connected</span>
+            <span id="fileStats">Loading...</span>
         </div>
 
     </aside>
 
-
-    <!-- RIGHT CONTENT PANEL -->
+    <!-- MAIN AREA -->
 
     <main class="main">
 
-        <div class="toolbar">
+        <header class="topbar">
 
-            <div class="breadcrumb" id="filePath">
-                BPSC / Home
+            <div class="topbar-left">
+
+                <button
+                    class="action-btn menu-btn"
+                    onclick="toggleSidebar()"
+                >☰</button>
+
+                <div>
+                    <h3 id="currentTitle">Welcome to BPSC Explorer</h3>
+                    <p id="currentPath">Select a file from the folder navigation</p>
+                </div>
+
             </div>
 
-            <div class="toolbar-actions">
+            <div class="top-actions">
 
-                <button class="small-btn" onclick="openOriginal()">
-                    ↗ Original
+                <button class="action-btn" onclick="loadRepository()">
+                    ↻ Refresh
+                </button>
+
+                <button
+                    class="action-btn"
+                    onclick="openOnGitHub()"
+                >
+                    GitHub ↗
                 </button>
 
             </div>
 
-        </div>
+        </header>
 
+        <section class="preview">
 
-        <div class="viewer" id="viewer">
+            <div class="preview-card">
 
-            <div class="welcome">
+                <div class="preview-header">
+                    <span id="previewTitle">Content Preview</span>
+                    <button
+                        class="action-btn"
+                        id="openFileBtn"
+                        style="display:none"
+                        onclick="openOriginalFile()"
+                    >
+                        Open Original ↗
+                    </button>
+                </div>
 
-                <div class="welcome-icon">📂</div>
+                <div class="preview-content" id="previewContent">
 
-                <h2>Welcome to BPSC Library</h2>
+                    <div class="welcome">
 
-                <p>
-                    Your complete study material is organized here.
-                    <br>
-                    Select a folder or file from the left panel.
-                </p>
+                        <div class="welcome-icon">📖</div>
+
+                        <h2>BPSC Study Library</h2>
+
+                        <p>
+                            Select any subject, chapter, HTML note,
+                            PDF or image from the left navigation panel
+                            to view its content here.
+                        </p>
+
+                    </div>
+
+                </div>
 
             </div>
 
-        </div>
+        </section>
 
     </main>
 
 </div>
 
-
 <script>
 
-// ===========================================
-// GITHUB CONFIGURATION
-// ===========================================
+/* ==================================
+   GITHUB CONFIGURATION
+================================== */
 
 const OWNER = "premji321";
 const REPO = "public_html";
 const BRANCH = "main";
+
 const ROOT_FOLDER = "bpsc";
 
 const API_URL =
@@ -708,491 +687,494 @@ const API_URL =
 const RAW_URL =
 `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/`;
 
+const GITHUB_URL =
+`https://github.com/${OWNER}/${REPO}/tree/${BRANCH}/${ROOT_FOLDER}`;
+
+
+/* ==================================
+   GLOBAL VARIABLES
+================================== */
+
 let repositoryTree = null;
 let selectedFile = null;
-let fileCount = 0;
-let folderCount = 0;
+let allFoldersExpanded = false;
 
 
-// ===========================================
-// LOAD REPOSITORY
-// ===========================================
+/* ==================================
+   HELPER FUNCTIONS
+================================== */
 
-async function loadRepository() {
+function escapeHTML(value) {
+    return String(value).replace(/[&<>"']/g, char => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+    })[char]);
+}
 
-    const treeElement = document.getElementById("tree");
+function getRawURL(path) {
+    return RAW_URL + path
+        .split("/")
+        .map(part => encodeURIComponent(part))
+        .join("/");
+}
 
-    treeElement.innerHTML =
-        '<div class="loading">⏳ Fetching GitHub folders...</div>';
+function getFileExtension(name) {
+    return name.includes(".")
+        ? name.split(".").pop().toLowerCase()
+        : "";
+}
 
-    document.getElementById("status").textContent =
-        "Loading repository data...";
 
-    document.getElementById("onlineStatus").textContent =
-        "CONNECTING";
+/* ==================================
+   BUILD TREE FROM GITHUB
+================================== */
 
-    try {
+function createFolder(name, path) {
+    return {
+        name,
+        path,
+        type: "folder",
+        children: {}
+    };
+}
 
-        const response = await fetch(API_URL);
+function createFile(name, path, size = 0) {
+    return {
+        name,
+        path,
+        type: "file",
+        size
+    };
+}
 
-        if (!response.ok) {
-            throw new Error("GitHub API Error: " + response.status);
+function buildRepositoryTree(items) {
+
+    const root = createFolder(ROOT_FOLDER, ROOT_FOLDER);
+
+    items.forEach(item => {
+
+        if (!item.path.startsWith(ROOT_FOLDER + "/")) {
+            return;
         }
 
-        const data = await response.json();
+        const parts = item.path.split("/");
 
-        if (data.truncated) {
-            throw new Error("GitHub returned an incomplete file tree.");
-        }
+        let current = root;
 
-        repositoryTree = {
-            name: ROOT_FOLDER,
-            path: ROOT_FOLDER,
-            type: "dir",
-            children: {}
-        };
+        for (let i = 1; i < parts.length; i++) {
 
-        fileCount = 0;
-        folderCount = 0;
+            const part = parts[i];
 
-        const files = data.tree.filter(item =>
-            item.path.startsWith(ROOT_FOLDER + "/")
-        );
+            const currentPath = parts
+                .slice(0, i + 1)
+                .join("/");
 
-        if (files.length === 0) {
-            throw new Error("BPSC folder not found.");
-        }
+            const isLast = i === parts.length - 1;
 
-        files.sort((a,b) => a.path.localeCompare(b.path));
+            if (isLast && item.type === "blob") {
 
-        files.forEach(item => {
+                current.children[part] =
+                    createFile(part, currentPath, item.size);
 
-            const parts = item.path.split("/");
+            } else {
 
-            let current = repositoryTree;
-
-            for (let i = 1; i < parts.length; i++) {
-
-                const name = parts[i];
-
-                const isLast = i === parts.length - 1;
-
-                if (!current.children[name]) {
-
-                    const type =
-                        isLast && item.type === "blob"
-                        ? "file"
-                        : "dir";
-
-                    current.children[name] = {
-                        name: name,
-                        path: parts.slice(0,i+1).join("/"),
-                        type: type,
-                        children: type === "dir" ? {} : undefined,
-                        sha: isLast ? item.sha : undefined,
-                        size: isLast ? item.size : undefined
-                    };
-
-                    if (type === "dir") {
-                        folderCount++;
-                    }
-
-                    if (type === "file") {
-                        fileCount++;
-                    }
-
+                if (!current.children[part]) {
+                    current.children[part] =
+                        createFolder(part, currentPath);
                 }
 
-                current = current.children[name];
-
+                current = current.children[part];
             }
+        }
 
-        });
-
-
-        // DISPLAY TREE
-
-        renderTree();
-
-        document.getElementById("folderStats").textContent =
-            folderCount + " FOLDERS";
-
-        document.getElementById("fileStats").textContent =
-            fileCount + " FILES";
-
-        document.getElementById("onlineStatus").textContent =
-            "● ONLINE";
-
-        document.getElementById("status").textContent =
-            "✓ Connected to GitHub • Branch: " + BRANCH;
-
-    }
-
-    catch(error) {
-
-        treeElement.innerHTML =
-            `<div class="error">${escapeHTML(error.message)}</div>`;
-
-        document.getElementById("status").textContent =
-            "Repository connection failed";
-
-        document.getElementById("onlineStatus").textContent =
-            "OFFLINE";
-
-    }
-
-}
-
-
-// ===========================================
-// RENDER ROOT TREE
-// ===========================================
-
-function renderTree() {
-
-    const container = document.getElementById("tree");
-
-    container.innerHTML = "";
-
-    if (!repositoryTree) return;
-
-    container.appendChild(createNode(repositoryTree, true));
-
-}
-
-
-// ===========================================
-// COUNT FILES INSIDE A FOLDER
-// ===========================================
-
-function countFiles(node) {
-
-    if (node.type === "file") {
-        return 1;
-    }
-
-    let count = 0;
-
-    Object.values(node.children || {}).forEach(child => {
-        count += countFiles(child);
     });
 
-    return count;
-
+    return root;
 }
 
 
-// ===========================================
-// CREATE BEAUTIFUL TREE NODES
-// ===========================================
+/* ==================================
+   COUNT FILES INSIDE FOLDERS
+================================== */
 
-function createNode(node, isRoot = false) {
+function countFiles(folder) {
 
-    const wrapper = document.createElement("div");
+    let total = 0;
 
-    wrapper.className = "node";
+    Object.values(folder.children || {}).forEach(item => {
 
-    const row = document.createElement("div");
-
-    row.className = "node-row";
-
-    const isFolder = node.type === "dir";
-
-    const arrow = document.createElement("span");
-
-    arrow.className = "arrow";
-
-    const icon = document.createElement("span");
-
-    icon.className = "icon";
-
-    const name = document.createElement("span");
-
-    name.className = isFolder ? "folder-name" : "file-name";
-
-    name.textContent = node.name;
-
-    row.append(arrow, icon, name);
-
-
-    if (isFolder) {
-
-        icon.textContent = "📁";
-
-        arrow.textContent = "▸";
-
-        const count = document.createElement("span");
-
-        count.className = "folder-count";
-
-        count.textContent = countFiles(node);
-
-        row.appendChild(count);
-
-
-        const children = document.createElement("div");
-
-        children.className = "children hidden";
-
-        const childNodes = Object.values(node.children || {})
-            .sort((a,b) => {
-
-                if (a.type !== b.type) {
-                    return a.type === "dir" ? -1 : 1;
-                }
-
-                return a.name.localeCompare(b.name);
-
-            });
-
-
-        childNodes.forEach(child => {
-
-            children.appendChild(createNode(child));
-
-        });
-
-
-        row.onclick = () => {
-
-            const closed = children.classList.toggle("hidden");
-
-            arrow.textContent = closed ? "▸" : "▾";
-
-            icon.textContent = closed ? "📁" : "📂";
-
-            row.classList.toggle("active", !closed);
-
-        };
-
-
-        wrapper.append(row, children);
-
-
-        if (isRoot) {
-
-            children.classList.remove("hidden");
-
-            arrow.textContent = "▾";
-
-            icon.textContent = "📂";
-
-            row.classList.add("active");
-
+        if (item.type === "file") {
+            total++;
+        } else {
+            total += countFiles(item);
         }
 
-    }
+    });
 
-    else {
-
-        icon.textContent = getFileIcon(node.name);
-
-        row.classList.add("file-row");
-
-        row.onclick = () => {
-
-            document.querySelectorAll(".node-row.active")
-                .forEach(element => {
-                    element.classList.remove("active");
-                });
-
-            row.classList.add("active");
-
-            openFile(node);
-
-            if (window.innerWidth <= 520) {
-
-                document.getElementById("sidebar")
-                    .classList.add("closed");
-
-            }
-
-        };
-
-        wrapper.appendChild(row);
-
-    }
-
-    return wrapper;
-
+    return total;
 }
 
 
-// ===========================================
-// FILE ICONS
-// ===========================================
+/* ==================================
+   SORT FOLDERS AND FILES
+================================== */
 
-function getFileIcon(filename) {
+function sortedChildren(folder) {
 
-    const ext = filename.split(".").pop().toLowerCase();
+    return Object.values(folder.children || {})
+        .sort((a, b) => {
+
+            if (a.type !== b.type) {
+                return a.type === "folder" ? -1 : 1;
+            }
+
+            return a.name.localeCompare(b.name);
+        });
+}
+
+
+/* ==================================
+   FILE ICONS
+================================== */
+
+function getFileIcon(name) {
+
+    const ext = getFileExtension(name);
 
     const icons = {
-
         html: "🌐",
         htm: "🌐",
         pdf: "📕",
+        jpg: "🖼️",
+        jpeg: "🖼️",
+        png: "🖼️",
+        webp: "🖼️",
+        gif: "🖼️",
+        svg: "🖼️",
         txt: "📄",
         md: "📝",
         css: "🎨",
         js: "⚙️",
         json: "📋",
-        jpg: "🖼️",
-        jpeg: "🖼️",
-        png: "🖼️",
-        gif: "🖼️",
-        webp: "🖼️",
-        svg: "🖼️"
-
+        doc: "📘",
+        docx: "📘",
+        xls: "📗",
+        xlsx: "📗",
+        ppt: "📙",
+        pptx: "📙"
     };
 
     return icons[ext] || "📄";
+}
+
+
+/* ==================================
+   RENDER ROOT AND TREE
+================================== */
+
+function renderTree() {
+
+    const container =
+        document.getElementById("treeContainer");
+
+    container.innerHTML = "";
+
+    if (!repositoryTree) {
+        container.innerHTML =
+            `<div class="empty-state">No folders available.</div>`;
+        return;
+    }
+
+    const rootLabel = document.createElement("div");
+
+    rootLabel.className = "root-label";
+
+    rootLabel.innerHTML = `
+        <span class="root-icon">📚</span>
+        <span>${escapeHTML(ROOT_FOLDER.toUpperCase())}</span>
+        <span style="margin-left:auto;font-size:10px">
+            ${countFiles(repositoryTree)} files
+        </span>
+    `;
+
+    container.appendChild(rootLabel);
+
+    const rootChildren = document.createElement("div");
+
+    rootChildren.className = "root-children";
+
+    sortedChildren(repositoryTree).forEach(item => {
+        rootChildren.appendChild(createNode(item, false));
+    });
+
+    container.appendChild(rootChildren);
 
 }
 
 
-// ===========================================
-// OPEN FILE IN RIGHT PANEL
-// ===========================================
+/* ==================================
+   CREATE FOLDER / FILE NODE
+================================== */
 
-async function openFile(file) {
+function createNode(item, initiallyOpen = false) {
+
+    const node = document.createElement("div");
+
+    node.className = "node";
+
+    const row = document.createElement("div");
+
+    row.className = "node-row";
+
+    const isFolder = item.type === "folder";
+
+    if (isFolder) {
+
+        const total = countFiles(item);
+
+        row.innerHTML = `
+            <span class="arrow">›</span>
+            <span class="node-icon">📁</span>
+            <span class="node-name">${escapeHTML(item.name)}</span>
+            <span class="file-count">${total}</span>
+        `;
+
+        const children = document.createElement("div");
+
+        children.className = "children";
+
+        const inner = document.createElement("div");
+
+        inner.className = "children-inner";
+
+        sortedChildren(item).forEach(child => {
+            inner.appendChild(createNode(child));
+        });
+
+        children.appendChild(inner);
+
+        if (initiallyOpen) {
+            children.classList.add("open");
+            row.classList.add("expanded");
+            row.querySelector(".node-icon").textContent = "📂";
+        }
+
+        row.addEventListener("click", () => {
+
+            const isOpen =
+                children.classList.toggle("open");
+
+            row.classList.toggle("expanded", isOpen);
+
+            row.querySelector(".node-icon").textContent =
+                isOpen ? "📂" : "📁";
+
+        });
+
+        node.appendChild(row);
+        node.appendChild(children);
+
+    } else {
+
+        row.innerHTML = `
+            <span class="arrow" style="visibility:hidden">›</span>
+            <span class="node-icon">${getFileIcon(item.name)}</span>
+            <span class="node-name">${escapeHTML(item.name)}</span>
+        `;
+
+        row.addEventListener("click", () => {
+            openFile(item, row);
+        });
+
+        node.appendChild(row);
+
+    }
+
+    return node;
+}
+
+
+/* ==================================
+   OPEN FILE IN PREVIEW
+================================== */
+
+async function openFile(file, clickedRow) {
 
     selectedFile = file;
 
-    document.getElementById("filePath").textContent =
-        file.path.replaceAll("/", "  /  ");
+    document
+        .querySelectorAll(".selected-file")
+        .forEach(element => {
+            element.classList.remove("selected-file");
+        });
 
-    const viewer = document.getElementById("viewer");
+    clickedRow.classList.add("selected-file");
 
-    const ext = file.name.split(".").pop().toLowerCase();
+    const title = document.getElementById("currentTitle");
+    const path = document.getElementById("currentPath");
+    const previewTitle = document.getElementById("previewTitle");
+    const preview = document.getElementById("previewContent");
+    const openButton = document.getElementById("openFileBtn");
 
-    const url = RAW_URL +
-        file.path.split("/")
-        .map(part => encodeURIComponent(part))
-        .join("/");
+    title.textContent = file.name;
+    path.textContent = file.path;
+    previewTitle.textContent = file.name;
 
-    viewer.innerHTML =
-        '<div class="loading">⏳ Loading file content...</div>';
+    openButton.style.display = "block";
 
+    preview.innerHTML = `
+        <div class="preview-message">
+            ⏳ Loading file...
+        </div>
+    `;
 
-    // PDF PREVIEW
-
-    if (ext === "pdf") {
-
-        const frame = document.createElement("iframe");
-
-        frame.src = url + "#toolbar=1";
-
-        viewer.replaceChildren(frame);
-
-        return;
-
-    }
-
-
-    // IMAGE PREVIEW
-
-    if (["jpg","jpeg","png","gif","webp","svg"].includes(ext)) {
-
-        const image = document.createElement("img");
-
-        image.src = url;
-
-        image.className = "preview-image";
-
-        viewer.replaceChildren(image);
-
-        return;
-
-    }
-
+    const ext = getFileExtension(file.name);
+    const url = getRawURL(file.path);
 
     try {
 
-        const response = await fetch(url);
+        if (["jpg", "jpeg", "png", "gif", "webp", "svg"].includes(ext)) {
 
-        if (!response.ok) {
-            throw new Error("Unable to load selected file.");
+            preview.innerHTML = `
+                <div style="
+                    width:100%;
+                    height:100%;
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                    padding:20px;
+                ">
+                    <img src="${url}" alt="${escapeHTML(file.name)}">
+                </div>
+            `;
+
         }
 
-        const content = await response.text();
+        else if (ext === "pdf") {
 
+            preview.innerHTML = `
+                <iframe
+                    src="${url}"
+                    title="${escapeHTML(file.name)}">
+                </iframe>
+            `;
 
-        // HTML PAGE PREVIEW
+        }
 
-        if (["html","htm"].includes(ext)) {
+        else if (["html", "htm"].includes(ext)) {
+
+            const response = await fetch(url);
+
+            if (!response.ok) {
+                throw new Error("Unable to load HTML file.");
+            }
+
+            let html = await response.text();
+
+            const baseURL =
+                RAW_URL + file.path.split("/").slice(0, -1).join("/") + "/";
+
+            const baseTag =
+                `<base href="${escapeHTML(baseURL)}">`;
+
+            if (/<head[^>]*>/i.test(html)) {
+
+                html = html.replace(
+                    /<head[^>]*>/i,
+                    match => match + baseTag
+                );
+
+            } else {
+
+                html = `
+                    <!DOCTYPE html>
+                    <html>
+                    <head>${baseTag}</head>
+                    <body>${html}</body>
+                    </html>
+                `;
+
+            }
+
+            preview.innerHTML = "";
 
             const frame = document.createElement("iframe");
 
-            // Preserve relative links to GitHub-hosted assets.
-            // Scripts remain disabled for safety.
-            frame.setAttribute("sandbox","allow-same-origin");
+            frame.setAttribute("sandbox", "allow-same-origin");
 
-            frame.srcdoc = addBaseURL(content, url);
+            frame.srcdoc = html;
 
-            viewer.replaceChildren(frame);
+            preview.appendChild(frame);
 
         }
 
+        else if (
+            ["txt", "md", "css", "js", "json", "xml", "csv"].includes(ext)
+        ) {
 
-        // TEXT / CODE PREVIEW
+            const response = await fetch(url);
+
+            if (!response.ok) {
+                throw new Error("Unable to load text file.");
+            }
+
+            const text = await response.text();
+
+            preview.innerHTML = `
+                <pre class="text-preview"></pre>
+            `;
+
+            preview.querySelector("pre").textContent = text;
+
+        }
 
         else {
 
-            const pre = document.createElement("pre");
-
-            pre.textContent = content;
-
-            viewer.replaceChildren(pre);
+            preview.innerHTML = `
+                <div class="welcome">
+                    <div class="welcome-icon">📄</div>
+                    <h2>${escapeHTML(file.name)}</h2>
+                    <p>
+                        Preview is not available for this file type.
+                        You can open the original file from GitHub.
+                    </p>
+                </div>
+            `;
 
         }
 
-    }
+        if (window.innerWidth <= 700) {
+            document.getElementById("sidebar")
+                .classList.remove("mobile-open");
+        }
 
-    catch(error) {
+    } catch (error) {
 
-        viewer.innerHTML =
-            `<div class="error">${escapeHTML(error.message)}</div>`;
+        preview.innerHTML = `
+            <div class="preview-message">
+                <h3>Unable to display this file</h3>
+                <p>${escapeHTML(error.message)}</p>
+                <p style="margin-top:10px">
+                    Check the GitHub file and try again.
+                </p>
+            </div>
+        `;
 
     }
 
 }
 
 
-// ===========================================
-// RESOLVE RELATIVE HTML ASSETS
-// ===========================================
+/* ==================================
+   OPEN ORIGINAL FILE
+================================== */
 
-function addBaseURL(html, url) {
+function openOriginalFile() {
 
-    const baseURL = url.substring(0, url.lastIndexOf("/") + 1);
-
-    const baseTag =
-        `<base href="${escapeHTML(baseURL)}">`;
-
-    if (/<head[^>]*>/i.test(html)) {
-
-        return html.replace(
-            /<head[^>]*>/i,
-            match => match + baseTag
-        );
-
-    }
-
-    return baseTag + html;
-
-}
-
-
-// ===========================================
-// OPEN ORIGINAL GITHUB FILE
-// ===========================================
-
-function openOriginal() {
-
-    if (!selectedFile) {
-        alert("Please select a file first.");
-        return;
-    }
+    if (!selectedFile) return;
 
     const url =
         `https://github.com/${OWNER}/${REPO}/blob/${BRANCH}/${selectedFile.path}`;
@@ -1201,168 +1183,249 @@ function openOriginal() {
 
 }
 
+function openOnGitHub() {
+    window.open(GITHUB_URL, "_blank");
+}
 
-// ===========================================
-// SEARCH TREE
-// ===========================================
+
+/* ==================================
+   SEARCH TREE
+================================== */
 
 function searchTree(query) {
 
-    query = query.trim().toLowerCase();
+    const value = query.trim().toLowerCase();
 
-    const nodes = document.querySelectorAll(".node");
+    const nodes = document.querySelectorAll(
+        "#treeContainer .node"
+    );
 
     nodes.forEach(node => {
-
         node.style.display = "";
-
-        const row = node.querySelector(":scope > .node-row");
-
-        if (!row) return;
-
-        const name = row.querySelector(
-            ".folder-name, .file-name"
-        );
-
-        node.dataset.match =
-            name.textContent.toLowerCase().includes(query)
-            ? "yes"
-            : "no";
-
     });
 
+    if (!value) {
 
-    if (!query) {
-
-        document.querySelectorAll(".children")
-            .forEach(child => child.classList.add("hidden"));
-
-        const rootChildren =
-            document.querySelector("#tree > .node > .children");
-
-        if (rootChildren) {
-            rootChildren.classList.remove("hidden");
-        }
-
-        document.querySelectorAll(".arrow").forEach(arrow => {
-            const node = arrow.closest(".node");
-            const child = node?.querySelector(":scope > .children");
-
-            arrow.textContent =
-                child && !child.classList.contains("hidden")
-                ? "▾"
-                : "▸";
+        document.querySelectorAll(
+            "#treeContainer .children"
+        ).forEach(children => {
+            children.classList.remove("open");
         });
 
-        document.querySelectorAll(".icon").forEach(icon => {
-            const node = icon.closest(".node");
-            const child = node?.querySelector(":scope > .children");
+        document.querySelectorAll(
+            "#treeContainer .node-row.expanded"
+        ).forEach(row => {
+            row.classList.remove("expanded");
 
-            if (child) {
-                icon.textContent =
-                    child.classList.contains("hidden")
-                    ? "📁"
-                    : "📂";
-            }
+            const icon = row.querySelector(".node-icon");
+
+            if (icon) icon.textContent = "📁";
         });
 
         return;
-
     }
-
-
-    // Hide nonmatching nodes and folders without matching descendants
 
     function filterNode(node) {
 
         const row = node.querySelector(":scope > .node-row");
 
+        if (!row) return false;
+
+        const nameElement =
+            row.querySelector(".node-name");
+
+        const ownMatch =
+            nameElement.textContent.toLowerCase().includes(value);
+
         const children =
             node.querySelector(":scope > .children");
 
-        let descendantMatch = false;
+        let childMatch = false;
 
         if (children) {
 
-            const childNodes =
-                children.querySelectorAll(":scope > .node");
+            const inner =
+                children.querySelector(":scope > .children-inner");
 
-            childNodes.forEach(child => {
+            Array.from(inner.children).forEach(child => {
 
-                if (filterNode(child)) {
-                    descendantMatch = true;
-                }
+                const matched = filterNode(child);
+
+                if (matched) childMatch = true;
 
             });
 
+            const shouldOpen = childMatch;
+
+            children.classList.toggle("open", shouldOpen);
+            row.classList.toggle("expanded", shouldOpen);
+
+            const icon = row.querySelector(".node-icon");
+
+            if (icon) {
+                icon.textContent = shouldOpen ? "📂" : "📁";
+            }
+
         }
 
-        const ownMatch = node.dataset.match === "yes";
-
-        const visible = ownMatch || descendantMatch;
+        const visible = ownMatch || childMatch;
 
         node.style.display = visible ? "" : "none";
 
-        if (children && descendantMatch) {
+        return visible;
+    }
 
-            children.classList.remove("hidden");
+    const rootChildren =
+        document.querySelector(".root-children");
 
-            const arrow = row.querySelector(".arrow");
-            const icon = row.querySelector(".icon");
+    if (rootChildren) {
+        Array.from(rootChildren.children).forEach(node => {
+            filterNode(node);
+        });
+    }
 
-            arrow.textContent = "▾";
-            icon.textContent = "📂";
+}
 
+
+/* ==================================
+   EXPAND / COLLAPSE ALL
+================================== */
+
+function toggleAll() {
+
+    allFoldersExpanded = !allFoldersExpanded;
+
+    document.querySelectorAll(
+        "#treeContainer .children"
+    ).forEach(children => {
+
+        children.classList.toggle(
+            "open",
+            allFoldersExpanded
+        );
+
+    });
+
+    document.querySelectorAll(
+        "#treeContainer .node-row"
+    ).forEach(row => {
+
+        const arrow = row.querySelector(".arrow");
+
+        if (!arrow || arrow.style.visibility === "hidden") {
+            return;
         }
 
-        return visible;
+        row.classList.toggle(
+            "expanded",
+            allFoldersExpanded
+        );
 
-    }
+        const icon = row.querySelector(".node-icon");
 
+        if (icon) {
+            icon.textContent =
+                allFoldersExpanded ? "📂" : "📁";
+        }
 
-    const root = document.querySelector("#tree > .node");
-
-    if (root) {
-        filterNode(root);
-    }
-
-}
-
-
-// ===========================================
-// SAFE HTML OUTPUT
-// ===========================================
-
-function escapeHTML(value) {
-
-    return String(value).replace(/[&<>"']/g, char => ({
-
-        "&": "&amp;",
-        "<": "&lt;",
-        ">": "&gt;",
-        '"': "&quot;",
-        "'": "&#39;"
-
-    })[char]);
+    });
 
 }
 
 
-// ===========================================
-// MOBILE SIDEBAR
-// ===========================================
+/* ==================================
+   MOBILE SIDEBAR
+================================== */
 
 function toggleSidebar() {
 
-    document.getElementById("sidebar")
-        .classList.toggle("closed");
+    document
+        .getElementById("sidebar")
+        .classList.toggle("mobile-open");
 
 }
 
 
-// ===========================================
-// START APPLICATION
-// ===========================================
+/* ==================================
+   LOAD GITHUB REPOSITORY
+================================== */
+
+async function loadRepository() {
+
+    const container =
+        document.getElementById("treeContainer");
+
+    container.innerHTML = `
+        <div class="loading">
+            ⏳ Connecting to GitHub...
+        </div>
+    `;
+
+    try {
+
+        const response = await fetch(API_URL, {
+            headers: {
+                "Accept": "application/vnd.github+json"
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error(
+                "GitHub API error: " + response.status
+            );
+        }
+
+        const data = await response.json();
+
+        if (data.truncated) {
+            throw new Error(
+                "Repository tree is too large for one GitHub response."
+            );
+        }
+
+        const items = data.tree || [];
+
+        repositoryTree = buildRepositoryTree(items);
+
+        renderTree();
+
+        const totalFiles = countFiles(repositoryTree);
+
+        document.getElementById("fileStats").textContent =
+            totalFiles + " files";
+
+        allFoldersExpanded = false;
+
+    } catch (error) {
+
+        container.innerHTML = `
+            <div class="empty-state">
+                <div style="font-size:25px;margin-bottom:10px">⚠️</div>
+                <strong>Unable to load folders</strong>
+                <p style="margin-top:8px">
+                    ${escapeHTML(error.message)}
+                </p>
+                <button
+                    class="action-btn"
+                    style="margin-top:15px"
+                    onclick="loadRepository()"
+                >
+                    Try Again
+                </button>
+            </div>
+        `;
+
+        document.getElementById("fileStats").textContent =
+            "Connection error";
+
+    }
+
+}
+
+
+/* ==================================
+   INITIALIZE
+================================== */
 
 loadRepository();
 
