@@ -5,32 +5,29 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Orient Classes | NCERT & BPSC Preparation</title>
-
-<meta name="description" content="Orient Classes - NCERT Class 6 to 12, BPSC preparation, chapter-wise notes, subject-wise study material, mock tests and current affairs.">
-
 <meta name="theme-color" content="#102b50">
 
-<link rel="manifest" href="/manifest.json">
+<title>BPSC Notes Library | Orient Classes</title>
+
+<meta name="description" content="Explore automatic subject-wise, topic-wise and chapter-wise BPSC notes at Orient Classes.">
 
 <style>
 
-/* =================================
-   GLOBAL SETTINGS
-================================= */
+/* =====================================
+   GLOBAL DESIGN
+===================================== */
 
 :root {
   --navy:#102b50;
   --blue:#2864ad;
-  --blue2:#3478f6;
+  --blue-light:#edf4ff;
   --gold:#ffc928;
-  --teal:#13a89e;
   --bg:#f3f6fb;
   --text:#24344b;
   --muted:#68778b;
   --border:#e2e9f3;
   --white:#ffffff;
+  --green:#16866e;
 }
 
 * {
@@ -39,7 +36,6 @@
 
 html {
   scroll-behavior:smooth;
-  scroll-padding-top:75px;
 }
 
 body {
@@ -51,638 +47,399 @@ body {
 }
 
 a {
-  color:inherit;
   text-decoration:none;
 }
 
-button {
-  font:inherit;
-  cursor:pointer;
-}
-
-.container {
-  width:min(1160px,92%);
-  margin:auto;
-}
-
-/* =================================
-   ANNOUNCEMENT
-================================= */
-
-.announcement {
-  background:#091b32;
-  color:white;
-  text-align:center;
-  padding:8px;
-  font-size:11px;
-}
-
-.announcement strong {
-  color:var(--gold);
-}
-
-/* =================================
+/* =====================================
    HEADER
-================================= */
+===================================== */
 
 .header {
   background:linear-gradient(120deg,#102b50,#245b99);
   color:white;
+  padding:24px 5%;
 }
 
 .header-inner {
-  width:min(1160px,92%);
+  max-width:1150px;
   margin:auto;
-  padding:17px 0;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:15px;
 }
 
-.brand {
-  display:flex;
-  align-items:center;
-  gap:11px;
-}
-
-.logo {
-  width:48px;
-  height:48px;
-  display:grid;
-  place-items:center;
-  background:var(--gold);
-  color:var(--navy);
-  border-radius:12px;
-  font-size:20px;
-  font-weight:900;
-}
-
-.brand h1 {
-  font-size:23px;
-  margin:0;
-  letter-spacing:1px;
-}
-
-.brand p {
-  font-size:9px;
-  letter-spacing:2px;
-  margin:3px 0 0;
+.home-link {
   color:#dce9fa;
+  font-size:12px;
 }
 
-.header-tag {
-  font-size:11px;
-  border:1px solid #ffffff66;
-  border-radius:8px;
-  padding:9px 12px;
-}
-
-/* =================================
-   NAVIGATION
-================================= */
-
-.navbar {
-  position:sticky;
-  top:0;
-  z-index:100;
-  background:white;
-  border-bottom:1px solid var(--border);
-  box-shadow:0 3px 12px #102b500b;
-}
-
-.nav-inner {
-  width:min(1160px,92%);
-  margin:auto;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  min-height:55px;
-}
-
-.nav-links {
-  display:flex;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:4px;
-}
-
-.nav-links a {
-  padding:9px 11px;
-  font-size:11px;
-  font-weight:bold;
-  border-radius:7px;
-}
-
-.nav-links a:hover {
-  background:#edf4ff;
-  color:var(--blue);
-}
-
-.menu-button {
-  display:none;
-  border:0;
-  padding:9px 12px;
-  border-radius:7px;
-  background:#edf4ff;
-  color:var(--navy);
-  font-weight:bold;
-}
-
-/* =================================
-   HERO
-================================= */
-
-.hero {
-  margin-top:24px;
-  padding:clamp(25px,5vw,52px);
-  border-radius:17px;
-  color:white;
-  background:linear-gradient(115deg,#102b50,#1d4d87,#2864ad);
-}
-
-.eyebrow {
-  color:#b9dcff;
-  font-size:10px;
-  font-weight:bold;
-  letter-spacing:2px;
-  text-transform:uppercase;
-}
-
-.hero h2 {
-  font-size:clamp(29px,5vw,46px);
-  line-height:1.2;
-  margin:13px 0;
-}
-
-.hero h2 span {
+.home-link:hover {
   color:var(--gold);
 }
 
-.hero p {
-  max-width:700px;
-  color:#e0ebfa;
-  font-size:13px;
-  margin-bottom:22px;
+.header h1 {
+  font-size:clamp(25px,4vw,36px);
+  margin:12px 0 3px;
 }
 
-.actions {
-  display:flex;
-  flex-wrap:wrap;
-  gap:9px;
-}
-
-.btn {
-  display:inline-block;
-  padding:10px 14px;
-  border-radius:7px;
-  font-size:11px;
-  font-weight:bold;
-  text-align:center;
-  border:0;
-  transition:.2s;
-}
-
-.btn:hover {
-  transform:translateY(-2px);
-}
-
-.btn-gold {
-  background:var(--gold);
-  color:var(--navy);
-}
-
-.btn-white {
-  background:white;
-  color:var(--navy);
-}
-
-.btn-blue {
-  background:var(--navy);
-  color:white;
-}
-
-.btn-blue:hover {
-  background:var(--blue);
-}
-
-/* =================================
-   SECTION HEADINGS
-================================= */
-
-.section {
-  margin-top:36px;
-}
-
-.section-heading {
-  margin-bottom:17px;
-}
-
-.section-heading small {
-  color:var(--blue);
-  font-weight:bold;
-  font-size:10px;
-  letter-spacing:1.6px;
-}
-
-.section-heading h2 {
-  color:var(--navy);
-  font-size:clamp(22px,3vw,29px);
-  margin:5px 0;
-}
-
-.section-heading p {
-  color:var(--muted);
+.header p {
+  color:#dce9fa;
   font-size:12px;
   margin:0;
 }
 
-/* =================================
-   GRIDS AND CARDS
-================================= */
+/* =====================================
+   MAIN CONTAINER
+===================================== */
 
-.grid {
+.container {
+  width:min(1150px,94%);
+  margin:25px auto;
+}
+
+/* =====================================
+   BREADCRUMB
+===================================== */
+
+.breadcrumb {
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:7px;
+  margin-bottom:15px;
+  color:var(--muted);
+  font-size:11px;
+}
+
+.breadcrumb a {
+  color:var(--blue);
+  font-weight:bold;
+}
+
+/* =====================================
+   TOOLBAR
+===================================== */
+
+.toolbar {
+  background:white;
+  border:1px solid var(--border);
+  border-radius:13px;
+  padding:18px;
+  margin-bottom:17px;
+}
+
+.search-box {
+  position:relative;
+}
+
+.search-box input {
+  width:100%;
+  padding:14px 15px;
+  border:1px solid var(--border);
+  border-radius:9px;
+  outline:none;
+  font-size:13px;
+  background:#fbfdff;
+}
+
+.search-box input:focus {
+  border-color:var(--blue);
+  box-shadow:0 0 0 3px #2864ad15;
+}
+
+.toolbar-actions {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:13px;
+}
+
+.action-btn {
+  border:0;
+  border-radius:7px;
+  padding:10px 13px;
+  background:var(--blue-light);
+  color:var(--navy);
+  font-size:11px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.action-btn:hover {
+  background:#dceaff;
+}
+
+.action-btn.primary {
+  background:var(--navy);
+  color:white;
+}
+
+.action-btn.primary:hover {
+  background:var(--blue);
+}
+
+.status {
+  margin-top:12px;
+  color:var(--muted);
+  font-size:11px;
+}
+
+.status.success {
+  color:var(--green);
+}
+
+.status.error {
+  color:#b91c1c;
+}
+
+/* =====================================
+   STATISTICS
+===================================== */
+
+.stats {
   display:grid;
-  gap:14px;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin-bottom:17px;
 }
 
-.main-grid {
-  grid-template-columns:repeat(2,minmax(0,1fr));
+.stat-card {
+  background:white;
+  border:1px solid var(--border);
+  border-radius:11px;
+  padding:13px;
+  text-align:center;
 }
 
-.card {
+.stat-card strong {
+  display:block;
+  color:var(--navy);
+  font-size:23px;
+}
+
+.stat-card span {
+  font-size:10px;
+  color:var(--muted);
+}
+
+/* =====================================
+   DIRECTORY PANEL
+===================================== */
+
+.directory {
   background:white;
   border:1px solid var(--border);
   border-radius:13px;
   padding:20px;
 }
 
-.course-card {
-  border-top:4px solid var(--teal);
-}
-
-.course-card.bpsc {
-  border-top-color:var(--gold);
-}
-
-.card-icon {
-  font-size:25px;
-}
-
-.card h3 {
-  color:var(--navy);
-  margin:8px 0;
-  font-size:17px;
-}
-
-.card p {
-  color:var(--muted);
-  font-size:12px;
-}
-
-.tags {
+.directory-heading {
   display:flex;
-  flex-wrap:wrap;
-  gap:6px;
-  margin:14px 0;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  padding-bottom:13px;
+  margin-bottom:14px;
+  border-bottom:1px solid var(--border);
 }
 
-.tags span {
-  padding:4px 7px;
-  background:#f0f5fb;
-  border:1px solid var(--border);
-  border-radius:5px;
-  font-size:9px;
-  font-weight:bold;
-}
-
-/* =================================
-   NCERT CLASSES
-================================= */
-
-.class-grid {
-  grid-template-columns:repeat(7,minmax(0,1fr));
-}
-
-.class-card {
-  display:block;
-  text-align:center;
-  padding:15px 5px;
-  border:1px solid var(--border);
-  border-radius:11px;
-  background:white;
-  transition:.2s;
-}
-
-.class-card:hover {
-  transform:translateY(-3px);
-  border-color:#9cbce9;
-  box-shadow:0 5px 16px #102b5010;
-}
-
-.class-card strong {
-  display:block;
+.directory-heading h2 {
   color:var(--navy);
-  font-size:25px;
+  font-size:17px;
+  margin:0;
 }
 
-.class-card span {
-  display:block;
-  color:var(--muted);
+.root-label {
   font-size:10px;
-}
-
-.class-card small {
-  display:block;
-  margin-top:5px;
-  color:var(--teal);
-  font-weight:bold;
-  font-size:10px;
-}
-
-/* =================================
-   BPSC INFORMATION CARDS
-================================= */
-
-.info-grid {
-  grid-template-columns:repeat(3,minmax(0,1fr));
-}
-
-.info-card {
-  padding:17px;
-}
-
-.info-card h3 {
-  font-size:14px;
-}
-
-.info-card p {
-  font-size:11px;
-  min-height:43px;
-}
-
-.info-card a,
-.subject-card a,
-.resource-card a {
   color:var(--blue);
-  font-size:11px;
-  font-weight:bold;
+  background:var(--blue-light);
+  border-radius:5px;
+  padding:5px 8px;
 }
 
-.syllabus-card {
-  border:2px solid #b9d3f5;
-  background:linear-gradient(135deg,#fff,#edf5ff);
+/* =====================================
+   TREE STRUCTURE
+===================================== */
+
+.tree-list {
+  list-style:none;
+  padding-left:19px;
+  margin:0;
+  border-left:1px solid var(--border);
 }
 
-.mock-card {
-  border:2px solid #f0b3b3;
-  background:#fff7f7;
+.tree-list.root {
+  padding:0;
+  border:0;
 }
 
-.mock-card h3,
-.mock-card a {
-  color:#b91c1c;
+.tree-item {
+  margin:5px 0;
+  min-width:0;
 }
 
-/* =================================
-   SUBJECT PORTAL
-================================= */
-
-.subject-grid {
-  grid-template-columns:repeat(4,minmax(0,1fr));
+.tree-row {
+  display:flex;
+  align-items:center;
+  gap:7px;
+  min-height:36px;
+  padding:5px 7px;
+  border-radius:7px;
+  min-width:0;
 }
 
-.subject-card {
-  background:white;
-  padding:17px;
-  border:1px solid var(--border);
-  border-radius:11px;
-  transition:.2s;
+.tree-row:hover {
+  background:#f0f5fc;
 }
 
-.subject-card:hover {
-  transform:translateY(-3px);
-  border-color:#9cbce9;
-  box-shadow:0 5px 15px #102b5010;
-}
+/* FOLDER BUTTON */
 
-.subject-card h3 {
+.folder-toggle {
+  display:flex;
+  flex:1;
+  min-width:0;
+  align-items:center;
+  gap:8px;
+  padding:4px;
+  border:0;
+  background:transparent;
   color:var(--navy);
-  font-size:14px;
-  margin:0 0 5px;
+  font-size:13px;
+  text-align:left;
+  cursor:pointer;
 }
 
-.subject-card p {
+.arrow {
+  width:13px;
+  flex-shrink:0;
   color:var(--muted);
-  font-size:10px;
-  min-height:32px;
+  transition:transform .2s;
 }
 
-/* =================================
-   NOTES SYSTEM INFORMATION
-================================= */
-
-.notes-info {
-  background:linear-gradient(120deg,#e7f7f5,#eff5ff);
-  border:1px solid #cde6e3;
-  border-radius:13px;
-  padding:22px;
+.folder-toggle[aria-expanded="true"] .arrow {
+  transform:rotate(90deg);
 }
 
-.notes-info h3 {
-  color:var(--navy);
-  margin-top:0;
+.folder-icon {
+  font-size:17px;
+  flex-shrink:0;
 }
 
-.notes-info p {
+.folder-name {
+  overflow-wrap:anywhere;
+}
+
+/* FILE LINKS */
+
+.file-link {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex:1;
+  min-width:0;
+  color:var(--blue);
+  font-size:12px;
+  overflow-wrap:anywhere;
+}
+
+.file-link:hover {
+  text-decoration:underline;
+}
+
+.file-icon {
+  flex-shrink:0;
+  font-size:16px;
+}
+
+/* ITEM COUNTS */
+
+.item-count {
+  color:var(--muted);
+  font-size:9px;
+  white-space:nowrap;
+  margin-left:auto;
+}
+
+/* EMPTY AND LOADING */
+
+.message {
+  padding:30px 12px;
+  text-align:center;
   color:var(--muted);
   font-size:12px;
 }
 
-/* =================================
-   CURRENT AFFAIRS
-================================= */
-
-.current-box {
-  background:linear-gradient(120deg,#e7f7f5,#eff5ff);
-  border:1px solid #cde6e3;
-  border-radius:13px;
-  padding:22px;
-}
-
-.current-box h3 {
+.message strong {
   color:var(--navy);
-  margin-top:0;
 }
 
-.current-box p {
-  color:var(--muted);
-  font-size:12px;
-  max-width:800px;
-}
-
-/* =================================
-   RESOURCES
-================================= */
-
-.resource-grid {
-  grid-template-columns:repeat(3,minmax(0,1fr));
-}
-
-.resource-card h3 {
-  font-size:15px;
-}
-
-.resource-card p {
-  font-size:11px;
-}
-
-/* =================================
-   NOTICE
-================================= */
-
-.notice {
-  margin-top:20px;
-  padding:13px;
-  border-left:4px solid var(--gold);
-  background:white;
-  color:var(--muted);
-  font-size:11px;
-}
-
-/* =================================
+/* =====================================
    FOOTER
-================================= */
+===================================== */
 
 .footer {
-  margin-top:40px;
+  margin-top:35px;
   background:#091b32;
-  color:#dce8f8;
-}
-
-.footer-inner {
-  width:min(1160px,92%);
-  margin:auto;
-  padding:28px 0;
-  display:grid;
-  grid-template-columns:2fr 1fr 1fr;
-  gap:25px;
-}
-
-.footer h3 {
-  color:white;
-  font-size:14px;
-}
-
-.footer p,
-.footer a {
-  font-size:11px;
   color:#bdcde2;
-}
-
-.footer a {
-  display:block;
-  margin:7px 0;
-}
-
-.footer a:hover {
-  color:var(--gold);
-}
-
-.footer-bottom {
-  border-top:1px solid #ffffff20;
+  padding:18px;
   text-align:center;
-  padding:12px;
-  font-size:10px;
+  font-size:11px;
 }
 
-/* =================================
-   RESPONSIVE DESIGN
-================================= */
+/* =====================================
+   MOBILE RESPONSIVE
+===================================== */
 
-@media(max-width:850px) {
+@media(max-width:600px) {
 
-  .class-grid {
-    grid-template-columns:repeat(4,minmax(0,1fr));
+  .header {
+    padding:20px 5%;
   }
 
-  .info-grid {
-    grid-template-columns:repeat(2,minmax(0,1fr));
+  .container {
+    width:94%;
+    margin:18px auto;
   }
 
-  .subject-grid {
-    grid-template-columns:repeat(2,minmax(0,1fr));
+  .toolbar,
+  .directory {
+    padding:13px;
   }
 
-  .menu-button {
-    display:block;
+  .tree-list {
+    padding-left:13px;
   }
 
-  .nav-inner {
-    flex-wrap:wrap;
-    padding:8px 0;
+  .tree-row {
+    padding:5px 2px;
   }
 
-  .nav-links {
-    display:none;
-    width:100%;
+  .folder-toggle {
+    font-size:12px;
+    gap:5px;
   }
 
-  .nav-links.open {
-    display:flex;
+  .file-link {
+    font-size:11px;
   }
 
-  .nav-links a {
-    width:calc(50% - 5px);
-  }
-}
-
-@media(max-width:560px) {
-
-  .header-tag {
-    display:none;
-  }
-
-  .brand h1 {
-    font-size:20px;
-  }
-
-  .brand p {
+  .item-count {
     font-size:8px;
   }
 
-  .main-grid,
-  .info-grid,
-  .resource-grid,
-  .footer-inner {
-    grid-template-columns:1fr;
+  .stats {
+    gap:6px;
   }
 
-  .class-grid {
-    gap:7px;
+  .stat-card {
+    padding:10px 4px;
   }
 
-  .class-card {
-    padding:12px 3px;
+  .stat-card strong {
+    font-size:20px;
   }
 
-  .class-card strong {
-    font-size:21px;
-  }
-
-  .class-card span,
-  .class-card small {
+  .stat-card span {
     font-size:9px;
   }
 
-  .subject-grid {
-    grid-template-columns:repeat(2,minmax(0,1fr));
-  }
-
-  .hero p {
-    font-size:12px;
-  }
 }
 
 @media(prefers-reduced-motion:reduce) {
@@ -690,9 +447,10 @@ button {
   *,
   *::before,
   *::after {
-    animation:none!important;
     scroll-behavior:auto!important;
+    transition:none!important;
   }
+
 }
 
 </style>
@@ -700,767 +458,822 @@ button {
 
 <body>
 
-<!-- =================================
-     ANNOUNCEMENT
-================================= -->
-
-<div class="announcement">
-  <strong>ORIENT CLASSES</strong>
-  | Complete NCERT 6–12
-  | BPSC Preparation
-  | Current Affairs
-</div>
-
-<!-- =================================
+<!-- =====================================
      HEADER
-================================= -->
+===================================== -->
 
-<header class="header" id="home">
+<header class="header">
 
   <div class="header-inner">
 
-    <a href="/index.html" class="brand">
-
-      <div class="logo">OC</div>
-
-      <div>
-        <h1>ORIENT CLASSES</h1>
-        <p>LEARN • PRACTISE • SUCCEED</p>
-      </div>
-
+    <a href="/index.html" class="home-link">
+      ← Back to Orient Classes
     </a>
 
-    <div class="header-tag">
-      Your Learning Journey Starts Here
-    </div>
+    <h1>📚 BPSC Subject Notes</h1>
+
+    <p>
+      Complete Subject-wise and Chapter-wise Digital Library
+    </p>
 
   </div>
 
 </header>
 
-<!-- =================================
-     NAVIGATION
-================================= -->
-
-<nav class="navbar">
-
-  <div class="nav-inner">
-
-    <button
-      class="menu-button"
-      id="menuButton"
-      aria-expanded="false"
-      aria-controls="navLinks"
-      type="button">
-
-      ☰ Menu
-
-    </button>
-
-    <div class="nav-links" id="navLinks">
-
-      <a href="/index.html">Home</a>
-
-      <a href="/ncert_index.html">NCERT Class 6–12</a>
-
-      <a href="#bpsc">BPSC Preparation</a>
-
-      <a href="/BPSC_Syllabus.html">
-        BPSC Syllabus
-      </a>
-
-      <a href="/BPSC_Mock_Tests.html">
-        Mock Tests
-      </a>
-
-      <a href="/Current_Affairs.html">
-        Current Affairs
-      </a>
-
-      <a href="#notes">Study Notes</a>
-
-    </div>
-
-  </div>
-
-</nav>
-
 <main class="container">
 
-<!-- =================================
-     HERO
-================================= -->
+  <!-- BREADCRUMB -->
 
-<section class="hero">
+  <div class="breadcrumb">
 
-  <div class="eyebrow">
-    Your Online Learning Platform
-  </div>
+    <a href="/index.html">Home</a>
 
-  <h2>
-    Build Your Foundation.<br>
-    <span>Prepare for Your Future.</span>
-  </h2>
+    <span>›</span>
 
-  <p>
-    Welcome to Orient Classes. Explore NCERT learning
-    resources for Classes 6–12 and focused BPSC preparation,
-    including syllabus, subject-wise notes, chapter-wise
-    study material, mock tests and current affairs.
-  </p>
+    <span>BPSC</span>
 
-  <div class="actions">
+    <span>›</span>
 
-    <a class="btn btn-gold" href="/ncert_index.html">
-      Explore NCERT →
-    </a>
-
-    <a class="btn btn-white" href="#bpsc">
-      Explore BPSC →
-    </a>
-
-    <a class="btn btn-white" href="#notes">
-      Explore Notes →
-    </a>
+    <span>Subject Notes</span>
 
   </div>
 
-</section>
+  <!-- SEARCH AND TOOLBAR -->
 
-<!-- =================================
-     LEARNING PATHS
-================================= -->
+  <section class="toolbar">
 
-<section class="section">
+    <div class="search-box">
 
-  <div class="section-heading">
-
-    <small>OUR MAIN FOCUS</small>
-
-    <h2>Choose Your Learning Path</h2>
-
-    <p>
-      Two focused learning programmes for school students
-      and competitive examination aspirants.
-    </p>
-
-  </div>
-
-  <div class="grid main-grid">
-
-    <article class="card course-card">
-
-      <div class="card-icon">📚</div>
-
-      <h3>Complete NCERT — Class 6 to 12</h3>
-
-      <p>
-        Learn chapter by chapter with subject notes,
-        concept explanations, MCQs, tests and study material.
-      </p>
-
-      <div class="tags">
-        <span>Classes 6–12</span>
-        <span>Chapter Notes</span>
-        <span>MCQs</span>
-        <span>Tests</span>
-      </div>
-
-      <a class="btn btn-blue" href="/ncert_index.html">
-        Explore NCERT Classes →
-      </a>
-
-    </article>
-
-    <article class="card course-card bpsc">
-
-      <div class="card-icon">🎯</div>
-
-      <h3>Complete BPSC Preparation</h3>
-
-      <p>
-        Access syllabus, exam pattern, vacancies, salary,
-        previous-year papers, subject notes and mock tests.
-      </p>
-
-      <div class="tags">
-        <span>Latest Syllabus</span>
-        <span>Vacancies</span>
-        <span>Salary</span>
-        <span>Cut-offs</span>
-        <span>Mock Tests</span>
-      </div>
-
-      <a class="btn btn-blue" href="#bpsc">
-        Open BPSC Preparation →
-      </a>
-
-    </article>
-
-  </div>
-
-</section>
-
-<!-- =================================
-     NCERT CLASSES
-================================= -->
-
-<section class="section" id="ncert">
-
-  <div class="section-heading">
-
-    <small>SCHOOL EDUCATION</small>
-
-    <h2>NCERT Complete Study — Class 6 to 12</h2>
-
-    <p>
-      Select your class to access the NCERT study portal.
-    </p>
-
-  </div>
-
-  <div class="grid class-grid">
-
-    <a class="class-card" href="/ncert_index.html?class=6">
-      <strong>6</strong>
-      <span>Class Six</span>
-      <small>Explore →</small>
-    </a>
-
-    <a class="class-card" href="/ncert_index.html?class=7">
-      <strong>7</strong>
-      <span>Class Seven</span>
-      <small>Explore →</small>
-    </a>
-
-    <a class="class-card" href="/ncert_index.html?class=8">
-      <strong>8</strong>
-      <span>Class Eight</span>
-      <small>Explore →</small>
-    </a>
-
-    <a class="class-card" href="/ncert_index.html?class=9">
-      <strong>9</strong>
-      <span>Class Nine</span>
-      <small>Explore →</small>
-    </a>
-
-    <a class="class-card" href="/ncert_index.html?class=10">
-      <strong>10</strong>
-      <span>Class Ten</span>
-      <small>Explore →</small>
-    </a>
-
-    <a class="class-card" href="/ncert_index.html?class=11">
-      <strong>11</strong>
-      <span>Class Eleven</span>
-      <small>Explore →</small>
-    </a>
-
-    <a class="class-card" href="/ncert_index.html?class=12">
-      <strong>12</strong>
-      <span>Class Twelve</span>
-      <small>Explore →</small>
-    </a>
-
-  </div>
-
-  <div style="margin-top:18px">
-
-    <a class="btn btn-blue" href="/ncert_index.html">
-      📘 Open Complete NCERT Index →
-    </a>
-
-  </div>
-
-</section>
-
-<!-- =================================
-     BPSC PREPARATION
-================================= -->
-
-<section class="section" id="bpsc">
-
-  <div class="section-heading">
-
-    <small>BIHAR PUBLIC SERVICE COMMISSION</small>
-
-    <h2>BPSC Preparation Centre</h2>
-
-    <p>
-      Examination information, study material and practice
-      resources in one place.
-    </p>
-
-  </div>
-
-  <div class="card">
-
-    <h3>Prepare with the Right Information</h3>
-
-    <p>
-      Understand the syllabus, examination pattern,
-      recruitment requirements and subject-wise topics.
-      Practise through mock tests and previous-year papers.
-    </p>
-
-    <div class="actions" style="margin-top:15px">
-
-      <a class="btn btn-blue" href="/BPSC_Syllabus.html">
-        📘 Latest Syllabus →
-      </a>
-
-      <a class="btn btn-blue" href="/BPSC_Mock_Tests.html">
-        📝 Take Mock Tests →
-      </a>
+      <input
+        type="search"
+        id="searchInput"
+        placeholder="🔍 Search Subject, Folder or Chapter..."
+        autocomplete="off"
+        aria-label="Search folders and notes">
 
     </div>
 
-  </div>
+    <div class="toolbar-actions">
 
-  <div class="grid info-grid" style="margin-top:15px">
+      <button class="action-btn" id="expandBtn">
+        ＋ Expand All
+      </button>
 
-    <article class="card info-card syllabus-card">
-      <div class="card-icon">📋</div>
-      <h3>BPSC Latest Syllabus</h3>
-      <p>Exam pattern, subjects, marking scheme and selection stages.</p>
-      <a href="/BPSC_Syllabus.html">View Syllabus →</a>
-    </article>
+      <button class="action-btn" id="collapseBtn">
+        − Collapse All
+      </button>
 
-    <article class="card info-card">
-      <div class="card-icon">🏛️</div>
-      <h3>Vacancies & Posts</h3>
-      <p>Post-wise vacancy details and eligibility requirements.</p>
-      <a href="/BPSC_Vacancy.html">View Vacancies →</a>
-    </article>
-
-    <article class="card info-card">
-      <div class="card-icon">💰</div>
-      <h3>Salary & Pay Scale</h3>
-      <p>Pay scales, pay levels and applicable allowances.</p>
-      <a href="/BPSC_Salary.html">View Salary →</a>
-    </article>
-
-    <article class="card info-card">
-      <div class="card-icon">📊</div>
-      <h3>Previous Year Cut-Offs</h3>
-      <p>Prelims, Mains and final cut-offs by examination year.</p>
-      <a href="/BPSC_Cutoff.html">View Cut-Offs →</a>
-    </article>
-
-    <article class="card info-card">
-      <div class="card-icon">📄</div>
-      <h3>Previous Year Papers</h3>
-      <p>Previous examination papers and practice resources.</p>
-      <a href="/BPSC_Previous_Year_Papers.html">Open Papers →</a>
-    </article>
-
-    <article class="card info-card">
-      <div class="card-icon">📚</div>
-      <h3>Subject-wise Notes</h3>
-      <p>History, Geography, Polity, Economy, Science and Bihar GK.</p>
-      <a href="#subject-notes">Explore Notes →</a>
-    </article>
-
-    <article class="card info-card mock-card">
-      <div class="card-icon">🚀</div>
-      <h3>BPSC Mock Test Series</h3>
-      <p>Practise objective questions and improve preparation.</p>
-      <a href="/BPSC_Mock_Tests.html">Start Mock Test →</a>
-    </article>
-
-    <article class="card info-card">
-      <div class="card-icon">📰</div>
-      <h3>Current Affairs</h3>
-      <p>Daily and monthly current affairs for competitive exams.</p>
-      <a href="/Current_Affairs.html">Read Current Affairs →</a>
-    </article>
-
-    <article class="card info-card">
-      <div class="card-icon">🎯</div>
-      <h3>Preparation Strategy</h3>
-      <p>Study plans, revision methods and exam guidance.</p>
-      <a href="/BPSC_Preparation.html">View Strategy →</a>
-    </article>
-
-  </div>
-
-</section>
-
-<!-- =================================
-     SUBJECT-WISE NOTES PORTAL
-================================= -->
-
-<section class="section" id="subject-notes">
-
-  <div class="section-heading">
-
-    <small>SUBJECT-WISE LEARNING</small>
-
-    <h2>BPSC Subject-wise Notes</h2>
-
-    <p>
-      Select a subject to explore its categories,
-      chapters and individual HTML notes.
-    </p>
-
-  </div>
-
-  <div class="grid subject-grid">
-
-    <article class="subject-card">
-      <h3>🏺 Indian History</h3>
-      <p>Ancient, Medieval and Modern History.</p>
-      <a href="/code/history/index.html">Open History Portal →</a>
-    </article>
-
-    <article class="subject-card">
-      <h3>🌍 Geography</h3>
-      <p>Physical, Indian, World and Bihar Geography.</p>
-      <a href="/code/geography/index.html">Open Geography Portal →</a>
-    </article>
-
-    <article class="subject-card">
-      <h3>⚖️ Indian Polity</h3>
-      <p>Constitution, Parliament and Governance.</p>
-      <a href="/code/polity/index.html">Open Polity Portal →</a>
-    </article>
-
-    <article class="subject-card">
-      <h3>📈 Economy</h3>
-      <p>Economic concepts, reports and government policies.</p>
-      <a href="/code/economy/index.html">Open Economy Portal →</a>
-    </article>
-
-    <article class="subject-card">
-      <h3>🔬 General Science</h3>
-      <p>Physics, Chemistry and Biology.</p>
-      <a href="/code/science/index.html">Open Science Portal →</a>
-    </article>
-
-    <article class="subject-card">
-      <h3>🏞️ Bihar GK</h3>
-      <p>Bihar history, culture, geography and economy.</p>
-      <a href="/code/bihar-gk/index.html">Open Bihar GK Portal →</a>
-    </article>
-
-    <article class="subject-card">
-      <h3>🌱 Environment</h3>
-      <p>Ecology, biodiversity and climate change.</p>
-      <a href="/code/environment/index.html">Open Environment Portal →</a>
-    </article>
-
-    <article class="subject-card">
-      <h3>🧮 Aptitude</h3>
-      <p>Numerical ability and logical reasoning.</p>
-      <a href="/code/aptitude/index.html">Open Aptitude Portal →</a>
-    </article>
-
-  </div>
-
-</section>
-
-<!-- =================================
-     NOTES SYSTEM
-================================= -->
-
-<section class="section" id="notes">
-
-  <div class="section-heading">
-
-    <small>ORGANIZED DIGITAL LIBRARY</small>
-
-    <h2>Chapter-wise Notes & Study Library</h2>
-
-    <p>
-      Every subject has its own folder and every chapter
-      has a separate HTML file.
-    </p>
-
-  </div>
-
-  <div class="notes-info">
-
-    <h3>📚 Explore Our Notes Library</h3>
-
-    <p>
-      Browse notes through a structured system:
-      Subject → Category → Chapter → Complete Notes.
-      Each chapter opens independently, making it easier
-      to study, revise and manage thousands of HTML files.
-    </p>
-
-    <div class="actions">
-
-      <a class="btn btn-blue" href="/code/history/index.html">
-        Explore History →
-      </a>
-
-      <a class="btn btn-blue" href="/code/geography/index.html">
-        Explore Geography →
-      </a>
-
-      <a class="btn btn-blue" href="/code/polity/index.html">
-        Explore Polity →
-      </a>
+      <button class="action-btn primary" id="refreshBtn">
+        ↻ Refresh Library
+      </button>
 
     </div>
 
-  </div>
+    <div class="status" id="status">
+      Connecting to GitHub Repository...
+    </div>
 
-</section>
+  </section>
 
-<!-- =================================
-     CURRENT AFFAIRS
-================================= -->
+  <!-- STATISTICS -->
 
-<section class="section" id="current-affairs">
+  <section class="stats">
 
-  <div class="section-heading">
+    <div class="stat-card">
+      <strong id="folderCount">0</strong>
+      <span>Total Folders</span>
+    </div>
 
-    <small>STAY UPDATED</small>
+    <div class="stat-card">
+      <strong id="pageCount">0</strong>
+      <span>HTML Pages</span>
+    </div>
 
-    <h2>Current Affairs</h2>
+    <div class="stat-card">
+      <strong id="subjectCount">0</strong>
+      <span>Subjects</span>
+    </div>
 
-    <p>
-      Dedicated resources for competitive examination preparation.
-    </p>
+  </section>
 
-  </div>
+  <!-- DIRECTORY -->
 
-  <div class="current-box">
+  <section class="directory">
 
-    <h3>Current Affairs for BPSC</h3>
+    <div class="directory-heading">
 
-    <p>
-      Daily and monthly updates, Bihar current affairs,
-      government schemes, reports, awards, appointments,
-      national and international events and exam-oriented MCQs.
-    </p>
+      <h2>📂 Complete Notes Directory</h2>
 
-    <a href="/Current_Affairs.html" class="btn btn-blue">
-      Open Current Affairs →
-    </a>
+      <span class="root-label">
+        BPSC / Subject-notes
+      </span>
 
-  </div>
+    </div>
 
-</section>
+    <div id="tree">
 
-<!-- =================================
-     STUDY RESOURCES
-================================= -->
-
-<section class="section">
-
-  <div class="section-heading">
-
-    <small>STUDY RESOURCES</small>
-
-    <h2>Notes, Tests & Downloads</h2>
-
-    <p>
-      Learn, practise and revise using available study material.
-    </p>
-
-  </div>
-
-  <div class="grid resource-grid">
-
-    <article class="card resource-card">
-
-      <div class="eyebrow" style="color:#2864ad">
-        STUDY
+      <div class="message">
+        Loading folders and notes...
       </div>
 
-      <h3>Chapter-wise Notes</h3>
+    </div>
 
-      <p>
-        NCERT chapter notes and BPSC subject study material.
-      </p>
-
-      <a href="/code/history/index.html">
-        Browse Notes →
-      </a>
-
-    </article>
-
-    <article class="card resource-card">
-
-      <div class="eyebrow" style="color:#2864ad">
-        PRACTICE
-      </div>
-
-      <h3>BPSC Mock Tests</h3>
-
-      <p>
-        Practise objective questions through available mock tests.
-      </p>
-
-      <a href="/BPSC_Mock_Tests.html">
-        Open Mock Tests →
-      </a>
-
-    </article>
-
-    <article class="card resource-card">
-
-      <div class="eyebrow" style="color:#2864ad">
-        DOWNLOAD
-      </div>
-
-      <h3>PDF Download Centre</h3>
-
-      <p>
-        Find available notes, worksheets and question papers.
-      </p>
-
-      <a href="/Downloads.html">
-        Open Downloads →
-      </a>
-
-    </article>
-
-  </div>
-
-</section>
-
-<!-- =================================
-     NOTICE
-================================= -->
-
-<div class="notice">
-
-  Important: BPSC vacancies, syllabus, eligibility,
-  salary and cut-offs may change by recruitment year.
-  Always verify examination-specific details against
-  official notifications.
-
-</div>
+  </section>
 
 </main>
 
-<!-- =================================
-     FOOTER
-================================= -->
+<!-- FOOTER -->
 
 <footer class="footer">
 
-  <div class="footer-inner">
+  © <span id="year"></span>
+  Orient Classes. All Rights Reserved.
 
-    <div>
-
-      <h3>Orient Classes</h3>
-
-      <p>
-        A learning platform for NCERT Classes 6–12
-        and BPSC aspirants. Build strong concepts through
-        consistent study and practice.
-      </p>
-
-      <strong>Learn • Practise • Succeed</strong>
-
-    </div>
-
-    <div>
-
-      <h3>NCERT</h3>
-
-      <a href="/ncert_index.html">Classes 6–12</a>
-      <a href="/ncert_index.html?class=9">Class 9</a>
-      <a href="/ncert_index.html?class=10">Class 10</a>
-      <a href="/Downloads.html">Downloads</a>
-
-    </div>
-
-    <div>
-
-      <h3>BPSC</h3>
-
-      <a href="/BPSC_Syllabus.html">Latest Syllabus</a>
-      <a href="/BPSC_Vacancy.html">Vacancies</a>
-      <a href="/BPSC_Salary.html">Salary</a>
-      <a href="/BPSC_Cutoff.html">Cut-Offs</a>
-      <a href="/BPSC_Previous_Year_Papers.html">Previous Papers</a>
-      <a href="/BPSC_Mock_Tests.html">Mock Tests</a>
-      <a href="/Current_Affairs.html">Current Affairs</a>
-
-    </div>
-
-  </div>
-
-  <div class="footer-bottom">
-
-    © <span id="year"></span>
-    Orient Classes. All rights reserved.
-
-  </div>
+  <br>
+  Learn • Practise • Succeed
 
 </footer>
 
-<!-- =================================
-     JAVASCRIPT
-================================= -->
 
 <script>
 
-/* MOBILE NAVIGATION */
+/* ==========================================
+   1. GITHUB CONFIGURATION
+========================================== */
 
-const menuButton = document.getElementById("menuButton");
-const navLinks = document.getElementById("navLinks");
+/*
+  GitHub Repository:
+  premji321/public_html
 
-menuButton.addEventListener("click", function() {
+  Automatic retrieval starts from:
+  BPSC/Subject-notes/
 
-  const isOpen = navLinks.classList.toggle("open");
+  No individual subject or chapter paths
+  need to be entered manually.
+*/
 
-  menuButton.setAttribute(
-    "aria-expanded",
-    String(isOpen)
-  );
+const GITHUB_OWNER = "premji321";
 
-  menuButton.textContent = isOpen
-    ? "✕ Close Menu"
-    : "☰ Menu";
+const GITHUB_REPO = "public_html";
 
-});
+const NOTES_ROOT = "BPSC/Subject-notes";
 
-/* CLOSE MENU AFTER CLICK */
+const EXPLORER_PATH =
+  "BPSC/Subject-notes/index.html";
 
-navLinks.querySelectorAll("a").forEach(function(link) {
 
-  link.addEventListener("click", function() {
+/* ==========================================
+   2. ELEMENT REFERENCES
+========================================== */
 
-    navLinks.classList.remove("open");
+const treeElement =
+  document.getElementById("tree");
 
-    menuButton.setAttribute(
-      "aria-expanded",
-      "false"
-    );
+const searchInput =
+  document.getElementById("searchInput");
 
-    menuButton.textContent = "☰ Menu";
+const statusElement =
+  document.getElementById("status");
 
-  });
+let originalTree = null;
 
-});
+let allEntries = [];
 
-/* AUTOMATIC FOOTER YEAR */
+let folderTotal = 0;
+
+let pageTotal = 0;
+
+
+/* ==========================================
+   3. CURRENT YEAR
+========================================== */
 
 document.getElementById("year").textContent =
   new Date().getFullYear();
 
-/* SERVICE WORKER */
 
-if ("serviceWorker" in navigator) {
+/* ==========================================
+   4. GITHUB API CONNECTION
+========================================== */
 
-  window.addEventListener("load", function() {
+async function fetchGitHubTree() {
 
-    navigator.serviceWorker.register("/service-worker.js")
-      .catch(function(error) {
-        console.error("Service Worker error:", error);
+  const repositoryURL =
+    `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}`;
+
+  // Detect the default branch automatically.
+
+  const repoResponse = await fetch(repositoryURL);
+
+  if (!repoResponse.ok) {
+
+    throw new Error(
+      "GitHub Repository access failed. Check repository visibility."
+    );
+
+  }
+
+  const repoData = await repoResponse.json();
+
+  const branch = repoData.default_branch;
+
+  // Retrieve the complete repository folder tree.
+
+  const treeURL =
+    `${repositoryURL}/git/trees/${encodeURIComponent(branch)}?recursive=1`;
+
+  const treeResponse = await fetch(treeURL);
+
+  if (!treeResponse.ok) {
+
+    throw new Error(
+      "Unable to retrieve GitHub folder structure."
+    );
+
+  }
+
+  const treeData = await treeResponse.json();
+
+  if (treeData.truncated) {
+
+    throw new Error(
+      "GitHub returned a truncated file tree. A paginated retrieval system is needed for this very large repository."
+    );
+
+  }
+
+  return treeData.tree;
+
+}
+
+
+/* ==========================================
+   5. BUILD AUTOMATIC FOLDER TREE
+========================================== */
+
+function buildFolderTree(entries) {
+
+  const root = {
+
+    name:"Subject Notes",
+
+    folders:{},
+
+    files:[]
+
+  };
+
+  const prefix = NOTES_ROOT + "/";
+
+  // Select HTML files located inside BPSC/Subject-notes.
+
+  const htmlFiles = entries.filter(entry => {
+
+    if (entry.type !== "blob") return false;
+
+    if (!entry.path.startsWith(prefix)) return false;
+
+    if (!entry.path.toLowerCase().endsWith(".html")) {
+      return false;
+    }
+
+    // Avoid listing this Explorer itself.
+
+    if (
+      entry.path.toLowerCase() ===
+      EXPLORER_PATH.toLowerCase()
+    ) {
+      return false;
+    }
+
+    return true;
+
+  });
+
+  htmlFiles.forEach(entry => {
+
+    const relativePath =
+      entry.path.substring(prefix.length);
+
+    const parts = relativePath.split("/");
+
+    const filename = parts.pop();
+
+    let current = root;
+
+    // Automatically create every nested folder.
+
+    parts.forEach(folderName => {
+
+      if (!current.folders[folderName]) {
+
+        current.folders[folderName] = {
+
+          name:folderName,
+
+          folders:{},
+
+          files:[]
+
+        };
+
+      }
+
+      current = current.folders[folderName];
+
+    });
+
+    // Add HTML page to its actual folder.
+
+    current.files.push({
+
+      name:filename,
+
+      path:entry.path
+
+    });
+
+  });
+
+  return root;
+
+}
+
+
+/* ==========================================
+   6. COUNT ALL FOLDERS AND HTML PAGES
+========================================== */
+
+function countItems(node) {
+
+  let folders = 0;
+
+  let files = node.files.length;
+
+  Object.values(node.folders).forEach(folder => {
+
+    const result = countItems(folder);
+
+    folders += 1 + result.folders;
+
+    files += result.files;
+
+  });
+
+  return {
+
+    folders,
+
+    files
+
+  };
+
+}
+
+
+/* ==========================================
+   7. SORT FOLDER AND FILE NAMES
+========================================== */
+
+function sortNames(a,b) {
+
+  return a.localeCompare(
+    b,
+    undefined,
+    {
+      numeric:true,
+      sensitivity:"base"
+    }
+  );
+
+}
+
+
+/* ==========================================
+   8. CREATE FOLDER TREE UI
+========================================== */
+
+function renderTree(node,isRoot=false,forceOpen=false,query="") {
+
+  const list = document.createElement("ul");
+
+  list.className = isRoot
+    ? "tree-list root"
+    : "tree-list";
+
+  const folderNames =
+    Object.keys(node.folders).sort(sortNames);
+
+  folderNames.forEach(folderName => {
+
+    const folder = node.folders[folderName];
+
+    const child = renderTree(
+      folder,
+      false,
+      forceOpen,
+      query
+    );
+
+    const hasFiles = folder.files.length > 0;
+
+    const matchesFolder =
+      query &&
+      folderName.toLowerCase().includes(query);
+
+    const hasMatchingChildren =
+      child.children.length > 0;
+
+    // During search, show matching folders
+    // and their matching descendants.
+
+    if (
+      query &&
+      !matchesFolder &&
+      !hasMatchingChildren
+    ) {
+      return;
+    }
+
+    const li = document.createElement("li");
+
+    li.className = "tree-item";
+
+    const row = document.createElement("div");
+
+    row.className = "tree-row";
+
+    const button = document.createElement("button");
+
+    button.type = "button";
+
+    button.className = "folder-toggle";
+
+    const arrow = document.createElement("span");
+
+    arrow.className = "arrow";
+
+    arrow.textContent = "▶";
+
+    const icon = document.createElement("span");
+
+    icon.className = "folder-icon";
+
+    icon.textContent =
+      forceOpen || matchesFolder || query
+        ? "📂"
+        : "📁";
+
+    const name = document.createElement("span");
+
+    name.className = "folder-name";
+
+    name.textContent = folderName;
+
+    button.append(arrow,icon,name);
+
+    const stats = countItems(folder);
+
+    const count = document.createElement("span");
+
+    count.className = "item-count";
+
+    count.textContent =
+      `${stats.files} pages`;
+
+    const openInitially =
+      forceOpen || Boolean(query);
+
+    button.setAttribute(
+      "aria-expanded",
+      String(openInitially)
+    );
+
+    child.hidden = !openInitially;
+
+    button.addEventListener("click",() => {
+
+      const isOpen = child.hidden;
+
+      child.hidden = !isOpen;
+
+      button.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+      );
+
+      icon.textContent =
+        isOpen ? "📂" : "📁";
+
+    });
+
+    row.append(button,count);
+
+    li.append(row,child);
+
+    list.append(li);
+
+  });
+
+
+  // Add all HTML pages in the current folder.
+
+  const files = [...node.files].sort(
+    (a,b) => sortNames(a.name,b.name)
+  );
+
+  files.forEach(file => {
+
+    const matchesFile =
+      !query ||
+      file.name.toLowerCase().includes(query);
+
+    if (!matchesFile) return;
+
+    const li = document.createElement("li");
+
+    li.className = "tree-item";
+
+    const row = document.createElement("div");
+
+    row.className = "tree-row";
+
+    const link = document.createElement("a");
+
+    link.className = "file-link";
+
+    // Encode each path segment separately.
+
+    const encodedPath = file.path
+      .split("/")
+      .map(segment => encodeURIComponent(segment))
+      .join("/");
+
+    link.href = "/" + encodedPath;
+
+    const icon = document.createElement("span");
+
+    icon.className = "file-icon";
+
+    icon.textContent = "📄";
+
+    const name = document.createElement("span");
+
+    name.textContent = file.name;
+
+    link.append(icon,name);
+
+    row.append(link);
+
+    li.append(row);
+
+    list.append(li);
+
+  });
+
+  return list;
+
+}
+
+
+/* ==========================================
+   9. LOAD THE COMPLETE LIBRARY
+========================================== */
+
+async function loadLibrary() {
+
+  statusElement.className = "status";
+
+  statusElement.textContent =
+    "Reading BPSC Folder from GitHub...";
+
+  treeElement.innerHTML = "";
+
+  const loading = document.createElement("div");
+
+  loading.className = "message";
+
+  loading.textContent =
+    "Please wait, loading your Notes Library...";
+
+  treeElement.append(loading);
+
+  try {
+
+    // Read repository automatically.
+
+    allEntries = await fetchGitHubTree();
+
+    // Build the Subject-notes folder hierarchy.
+
+    originalTree = buildFolderTree(allEntries);
+
+    // Calculate statistics.
+
+    const totals = countItems(originalTree);
+
+    folderTotal = totals.folders;
+
+    pageTotal = totals.files;
+
+    const subjectTotal =
+      Object.keys(originalTree.folders).length;
+
+    document.getElementById("folderCount").textContent =
+      folderTotal;
+
+    document.getElementById("pageCount").textContent =
+      pageTotal;
+
+    document.getElementById("subjectCount").textContent =
+      subjectTotal;
+
+    // Display folder tree.
+
+    displayLibrary();
+
+    statusElement.className = "status success";
+
+    statusElement.textContent =
+      "✓ Library successfully retrieved from GitHub.";
+
+  } catch(error) {
+
+    console.error(error);
+
+    treeElement.innerHTML = "";
+
+    const message = document.createElement("div");
+
+    message.className = "message";
+
+    const heading = document.createElement("strong");
+
+    heading.textContent =
+      "Unable to load Notes Library.";
+
+    const details = document.createElement("p");
+
+    details.textContent = error.message;
+
+    message.append(heading,details);
+
+    treeElement.append(message);
+
+    statusElement.className = "status error";
+
+    statusElement.textContent =
+      "Library loading failed. Check GitHub connection.";
+
+  }
+
+}
+
+
+/* ==========================================
+   10. DISPLAY LIBRARY
+========================================== */
+
+function displayLibrary() {
+
+  if (!originalTree) return;
+
+  const query =
+    searchInput.value.trim().toLowerCase();
+
+  const tree = renderTree(
+    originalTree,
+    true,
+    false,
+    query
+  );
+
+  treeElement.replaceChildren(tree);
+
+  if (pageTotal === 0) {
+
+    const message = document.createElement("div");
+
+    message.className = "message";
+
+    message.textContent =
+      "No HTML Notes found inside BPSC/Subject-notes.";
+
+    treeElement.append(message);
+
+  }
+
+  if (
+    query &&
+    tree.children.length === 0
+  ) {
+
+    const message = document.createElement("div");
+
+    message.className = "message";
+
+    message.textContent =
+      "No matching folders or HTML pages found.";
+
+    treeElement.append(message);
+
+  }
+
+}
+
+
+/* ==========================================
+   11. SEARCH
+========================================== */
+
+searchInput.addEventListener("input",function() {
+
+  displayLibrary();
+
+});
+
+
+/* ==========================================
+   12. EXPAND ALL
+========================================== */
+
+document.getElementById("expandBtn")
+  .addEventListener("click",function() {
+
+    treeElement.querySelectorAll(".folder-toggle")
+      .forEach(button => {
+
+        const child =
+          button.closest(".tree-item")
+          .querySelector(":scope > .tree-list");
+
+        if (!child) return;
+
+        child.hidden = false;
+
+        button.setAttribute(
+          "aria-expanded",
+          "true"
+        );
+
+        button.querySelector(".folder-icon")
+          .textContent = "📂";
+
       });
 
   });
 
-}
+
+/* ==========================================
+   13. COLLAPSE ALL
+========================================== */
+
+document.getElementById("collapseBtn")
+  .addEventListener("click",function() {
+
+    treeElement.querySelectorAll(".folder-toggle")
+      .forEach(button => {
+
+        const child =
+          button.closest(".tree-item")
+          .querySelector(":scope > .tree-list");
+
+        if (!child) return;
+
+        child.hidden = true;
+
+        button.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+        button.querySelector(".folder-icon")
+          .textContent = "📁";
+
+      });
+
+  });
+
+
+/* ==========================================
+   14. REFRESH LIBRARY
+========================================== */
+
+document.getElementById("refreshBtn")
+  .addEventListener("click",function() {
+
+    searchInput.value = "";
+
+    loadLibrary();
+
+  });
+
+
+/* ==========================================
+   15. START AUTOMATIC RETRIEVAL
+========================================== */
+
+loadLibrary();
 
 </script>
 
