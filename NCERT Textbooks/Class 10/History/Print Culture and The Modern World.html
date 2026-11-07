@@ -1,0 +1,2170 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Print Culture and the Modern World | Class 10 History</title>
+
+<style>
+:root{
+ --bg:#f3f6fc;
+ --panel:#ffffff;
+ --text:#202b3c;
+ --muted:#64748b;
+ --primary:#254f9e;
+ --secondary:#6c45b8;
+ --border:#dce4f0;
+ --soft:#eaf1ff;
+ --yellow:#fff176;
+ --green:#e7f7ed;
+ --red:#fff0ef;
+ --shadow:0 5px 22px rgba(20,40,80,.08);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{
+ margin:0;
+ background:var(--bg);
+ color:var(--text);
+ font-family:Arial,Helvetica,sans-serif;
+ line-height:1.75;
+}
+header{
+ background:linear-gradient(125deg,#142d59,#315ca9,#7046a5);
+ color:white;
+ padding:42px 20px;
+ text-align:center;
+}
+header h1{font-size:clamp(25px,4vw,42px);margin:0 0 10px}
+header p{margin:5px 0;color:#e6edff}
+.header-tags{margin-top:18px}
+.header-tags span{
+ display:inline-block;
+ background:#ffffff20;
+ border:1px solid #ffffff50;
+ border-radius:30px;
+ padding:5px 13px;
+ margin:4px;
+ font-size:13px;
+}
+.progress{
+ height:5px;
+ background:#dbe5f7;
+ position:sticky;
+ top:0;
+ z-index:1000;
+}
+#progressBar{
+ height:5px;
+ width:0;
+ background:#f2bd37;
+}
+.layout{
+ max-width:1500px;
+ margin:auto;
+ display:grid;
+ grid-template-columns:310px minmax(0,1fr);
+ gap:22px;
+ padding:22px;
+}
+.sidebar{
+ position:sticky;
+ top:18px;
+ height:calc(100vh - 36px);
+ overflow-y:auto;
+ background:var(--panel);
+ border:1px solid var(--border);
+ border-radius:15px;
+ padding:17px;
+ box-shadow:var(--shadow);
+}
+.sidebar h2{font-size:19px;margin:0 0 12px}
+.sidebar-tools{
+ display:flex;
+ gap:7px;
+ flex-wrap:wrap;
+ margin-bottom:12px;
+}
+button{
+ border:0;
+ border-radius:8px;
+ padding:9px 13px;
+ cursor:pointer;
+ font-weight:600;
+ background:var(--primary);
+ color:white;
+}
+button:hover{filter:brightness(1.12)}
+button.secondary{background:#e8edf7;color:#253b5d}
+button.purple{background:var(--secondary)}
+button.danger{background:#a83c3c}
+#tocList{padding:0;margin:0;list-style:none}
+#tocList li{margin:4px 0}
+#tocList a{
+ display:block;
+ padding:7px 9px;
+ border-radius:7px;
+ color:#30486e;
+ text-decoration:none;
+ font-size:13px;
+ line-height:1.45;
+}
+#tocList a:hover,#tocList a.active{
+ background:var(--soft);
+ color:#174b9a;
+ font-weight:bold;
+}
+.content{min-width:0}
+.mobile-toc{
+ display:none;
+ margin-bottom:15px;
+}
+.searchbar{
+ display:flex;
+ gap:8px;
+ margin-bottom:16px;
+}
+.searchbar input{
+ width:100%;
+ padding:13px 15px;
+ border:1px solid var(--border);
+ border-radius:9px;
+ font-size:15px;
+ outline:none;
+}
+.searchbar input:focus{border-color:var(--primary)}
+.toolbar{
+ display:flex;
+ flex-wrap:wrap;
+ gap:8px;
+ margin-bottom:17px;
+}
+.intro,.chapter-info,.section{
+ background:var(--panel);
+ border:1px solid var(--border);
+ border-radius:13px;
+ box-shadow:var(--shadow);
+}
+.intro{padding:22px;margin-bottom:18px}
+.intro h2{margin-top:0;color:var(--primary)}
+.chapter-info{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:12px;
+ padding:15px;
+ margin-bottom:18px;
+}
+.info-box{
+ background:var(--soft);
+ border-radius:9px;
+ padding:12px;
+ text-align:center;
+}
+.info-box strong{display:block;color:var(--primary)}
+.section{
+ margin-bottom:15px;
+ overflow:hidden;
+ scroll-margin-top:20px;
+}
+.section summary{
+ list-style:none;
+ cursor:pointer;
+ padding:17px 20px;
+ background:linear-gradient(90deg,#edf3ff,#fafbff);
+ border-bottom:1px solid transparent;
+ font-weight:700;
+ color:#1e427e;
+ font-size:17px;
+ display:flex;
+ align-items:center;
+ gap:12px;
+}
+.section summary::-webkit-details-marker{display:none}
+.section summary::after{
+ content:"+";
+ margin-left:auto;
+ font-size:24px;
+ color:var(--secondary);
+}
+.section[open] summary{
+ border-bottom-color:var(--border);
+}
+.section[open] summary::after{content:"−"}
+.section-body{padding:20px}
+.section-body h3{
+ color:#294e8e;
+ margin-top:25px;
+ border-left:4px solid #6a82c1;
+ padding-left:10px;
+}
+.section-body h4{color:#68459e;margin-bottom:5px}
+.section-body p{margin:8px 0}
+.section-body ul,.section-body ol{padding-left:25px}
+.section-body li{margin:5px 0}
+.section-body table{
+ width:100%;
+ border-collapse:collapse;
+ margin:15px 0;
+ font-size:14px;
+}
+.section-body th,.section-body td{
+ border:1px solid var(--border);
+ padding:9px 11px;
+ text-align:left;
+ vertical-align:top;
+}
+.section-body th{background:#eaf0fc;color:#203d70}
+.section-body tr:nth-child(even){background:#fafcff}
+.note{
+ background:#eef5ff;
+ border-left:4px solid #3768bd;
+ padding:13px 15px;
+ border-radius:7px;
+ margin:14px 0;
+}
+.exam{
+ background:var(--green);
+ border-left:4px solid #29985a;
+ padding:13px 15px;
+ border-radius:7px;
+ margin:14px 0;
+}
+.warning{
+ background:var(--red);
+ border-left:4px solid #d45b50;
+ padding:13px 15px;
+ border-radius:7px;
+ margin:14px 0;
+}
+.timeline{
+ border-left:3px solid #5476b8;
+ margin:15px 0 15px 9px;
+ padding-left:20px;
+}
+.timeline div{position:relative;margin:12px 0}
+.timeline div:before{
+ content:"";
+ width:11px;height:11px;
+ border-radius:50%;
+ background:#5476b8;
+ position:absolute;
+ left:-27px;top:8px;
+}
+.tag{
+ display:inline-block;
+ padding:3px 9px;
+ border-radius:20px;
+ background:#e8eaff;
+ color:#51439a;
+ font-size:12px;
+ font-weight:bold;
+}
+.question{
+ background:#f8faff;
+ border:1px solid var(--border);
+ border-radius:9px;
+ padding:13px;
+ margin:12px 0;
+}
+.answer{
+ margin-top:9px;
+ padding:12px;
+ background:#edf7f0;
+ border-radius:7px;
+}
+.answer strong{color:#237344}
+.hidden{display:none!important}
+mark{
+ background:var(--yellow);
+ color:#222;
+ padding:1px 2px;
+ border-radius:3px;
+}
+footer{
+ background:#182d51;
+ color:#eaf0ff;
+ text-align:center;
+ padding:25px;
+ margin-top:30px;
+}
+#topBtn{
+ position:fixed;
+ bottom:20px;
+ right:20px;
+ display:none;
+ border-radius:50%;
+ width:45px;height:45px;
+ font-size:20px;
+ z-index:100;
+}
+@media(max-width:950px){
+ .layout{grid-template-columns:1fr;padding:12px}
+ .sidebar{display:none;position:relative;top:0;height:auto;max-height:65vh}
+ .sidebar.show{display:block}
+ .mobile-toc{display:block}
+ .chapter-info{grid-template-columns:1fr}
+}
+@media print{
+ body{background:white}
+ .sidebar,.mobile-toc,.toolbar,.searchbar,#topBtn,.progress{display:none!important}
+ .layout{display:block;padding:0}
+ .section{box-shadow:none;break-inside:avoid}
+ .section:not([open]) .section-body{display:block}
+ .section summary::after{display:none}
+ header{background:#243b64!important;print-color-adjust:exact}
+}
+</style>
+</head>
+
+<body>
+
+<div class="progress"><div id="progressBar"></div></div>
+
+<header>
+ <h1>PRINT CULTURE AND THE MODERN WORLD</h1>
+ <p>Class 10 History | India and the Contemporary World – II</p>
+ <p>Chapter 5 | Complete Classified Study Notes</p>
+ <div class="header-tags">
+  <span>NCERT Based</span>
+  <span>Detailed Notes</span>
+  <span>Important Dates</span>
+  <span>Exam Preparation</span>
+  <span>Question Answers</span>
+ </div>
+</header>
+
+<div class="layout">
+
+<aside class="sidebar" id="sidebar">
+ <h2>📚 Table of Contents</h2>
+ <div class="sidebar-tools">
+  <button class="secondary" onclick="toggleAll(true)">Expand All</button>
+  <button class="secondary" onclick="toggleAll(false)">Collapse All</button>
+ </div>
+ <ul id="tocList"></ul>
+</aside>
+
+<main class="content">
+
+<div class="mobile-toc">
+ <button class="purple" onclick="toggleSidebar()">☰ Show / Hide Table of Contents</button>
+</div>
+
+<div class="searchbar">
+ <input id="searchInput" type="search"
+ placeholder="Search any word or topic... matching content will be highlighted">
+ <button onclick="clearSearch()">Clear</button>
+</div>
+
+<div class="toolbar">
+ <button onclick="toggleAll(true)">Expand All Topics</button>
+ <button class="secondary" onclick="toggleAll(false)">Collapse All</button>
+ <button class="purple" onclick="window.print()">Print Notes</button>
+</div>
+
+<div class="chapter-info">
+ <div class="info-box"><strong>Subject</strong>History</div>
+ <div class="info-box"><strong>Chapter</strong>Print Culture</div>
+ <div class="info-box"><strong>Coverage</strong>Complete Chapter Notes</div>
+</div>
+
+<div class="intro">
+ <h2>Chapter Introduction</h2>
+ <p>Print is present in almost every aspect of modern life. Books, journals,
+ newspapers, advertisements, calendars, diaries, theatre programmes,
+ official circulars, posters and printed images are all examples of print culture.</p>
+ <p>This chapter explains how printing developed in East Asia, spread to Europe
+ and reached India. It also examines how printing transformed education,
+ religion, society, politics, women's lives, working-class communities and
+ the growth of nationalism.</p>
+ <div class="note">
+  <strong>Central Theme:</strong> Print was not merely a new technology for
+  producing books. It transformed the circulation of knowledge, encouraged
+  debate, challenged established authority and helped shape the modern world.
+ </div>
+</div>
+
+<!-- SECTION 1 -->
+<details class="section" id="s1">
+<summary>1. THE FIRST PRINTED BOOKS – ORIGIN IN EAST ASIA</summary>
+<div class="section-body">
+
+<h3>1.1 Development of Printing in China</h3>
+<ul>
+ <li>The earliest print technology developed in China, Japan and Korea.</li>
+ <li>Initially, printing was done by hand using wooden blocks.</li>
+ <li>From AD 594 onwards, Chinese books were printed by rubbing paper against
+ an inked wooden block.</li>
+ <li>Paper was also invented in China.</li>
+ <li>Because the paper was thin and porous, both sides could not be printed easily.</li>
+ <li>Chinese books were therefore folded and stitched at the side in an accordion format.</li>
+ <li>Skilled craftsmen reproduced calligraphy with remarkable accuracy.</li>
+</ul>
+
+<h3>1.2 Role of the Imperial State in China</h3>
+<ul>
+ <li>The imperial state was the major producer of printed material for a long period.</li>
+ <li>China had a large bureaucratic system.</li>
+ <li>Officials were recruited through civil service examinations.</li>
+ <li>Textbooks for these examinations were printed in large numbers under state sponsorship.</li>
+ <li>From the sixteenth century, the number of examination candidates increased,
+ which increased the volume of printed material.</li>
+</ul>
+
+<h3>1.3 Expansion of Reading Culture in China</h3>
+<ul>
+ <li>By the seventeenth century, urban culture had developed.</li>
+ <li>Printing was no longer restricted to scholar-officials.</li>
+ <li>Merchants used printed material to collect trade information.</li>
+ <li>Reading increasingly became a leisure activity.</li>
+ <li>Readers preferred fictional narratives, poetry, autobiographies,
+ anthologies of literary masterpieces and romantic plays.</li>
+ <li>Rich women began reading and publishing poetry and plays.</li>
+ <li>Wives of scholar-officials published their works, while courtesans wrote about their lives.</li>
+ <li>Western printing techniques and mechanical presses were imported in the late nineteenth century.</li>
+ <li>Shanghai became a major centre of new print culture, especially for Western-style schools.</li>
+</ul>
+
+<h3>1.4 Print in Japan</h3>
+<ul>
+ <li>Buddhist missionaries from China introduced hand-printing technology into Japan around AD 768–770.</li>
+ <li>The oldest Japanese printed book mentioned in this chapter is the Buddhist
+ <em>Diamond Sutra</em>, printed in AD 868.</li>
+ <li>It contained six sheets of text and woodcut illustrations.</li>
+ <li>Pictures were also printed on textiles, playing cards and paper money.</li>
+ <li>In medieval Japan, poets and prose writers were regularly published.</li>
+ <li>Books became cheap and abundant.</li>
+</ul>
+
+<h3>1.5 Edo – The Development of Urban Print Culture</h3>
+<p>In the late eighteenth century, Edo, later known as Tokyo, developed a flourishing
+urban culture.</p>
+<p>Illustrated collections depicted artists, courtesans and teahouse gatherings.</p>
+<p>Libraries and bookstores contained books on:</p>
+<ul>
+ <li>Women and social life.</li>
+ <li>Musical instruments and calculations.</li>
+ <li>Tea ceremonies and flower arrangements.</li>
+ <li>Proper etiquette and cooking.</li>
+ <li>Famous places.</li>
+</ul>
+
+<h3>1.6 Kitagawa Utamaro and Ukiyo Prints</h3>
+<ul>
+ <li>Kitagawa Utamaro was born in Edo in 1753.</li>
+ <li>He became famous for an art form called <strong>ukiyo</strong>.</li>
+ <li>Ukiyo means pictures of the floating world.</li>
+ <li>It depicted ordinary human experiences, particularly urban experiences.</li>
+ <li>His prints travelled to the United States and Europe.</li>
+ <li>They influenced artists such as Manet, Monet and Van Gogh.</li>
+ <li>Publishers such as Tsutaya Juzaburo selected subjects and commissioned artists.</li>
+ <li>Woodblock carvers reproduced the artist's lines on wooden printing blocks.</li>
+ <li>The original drawing was destroyed during the carving process, and only prints survived.</li>
+</ul>
+
+<h3>1.7 Important Printing Examples</h3>
+<table>
+<tr><th>Example</th><th>Details</th></tr>
+<tr><td>Diamond Sutra</td><td>Japanese Buddhist book printed in AD 868.</td></tr>
+<tr><td>Tripitaka Koreana</td><td>Korean Buddhist scriptures engraved on about 80,000 woodblocks.</td></tr>
+<tr><td>Jikji</td><td>Korean book printed using movable metal type in the late fourteenth century.</td></tr>
+</table>
+<div class="exam">
+ <strong>UNESCO Facts:</strong> Jikji was inscribed on the UNESCO Memory of the World Register in 2001.
+ Tripitaka Koreana was inscribed in 2007.
+</div>
+</div>
+</details>
+
+<!-- SECTION 2 -->
+<details class="section" id="s2">
+<summary>2. PRINT COMES TO EUROPE</summary>
+<div class="section-body">
+
+<h3>2.1 Arrival of Paper and Printing Knowledge</h3>
+<ul>
+ <li>Silk and spices from China reached Europe through the Silk Route.</li>
+ <li>In the eleventh century, Chinese paper reached Europe through the same route.</li>
+ <li>Paper made the production of handwritten manuscripts possible.</li>
+ <li>Manuscripts were carefully written by scribes.</li>
+ <li>In 1295, Marco Polo returned to Italy after spending many years exploring China.</li>
+ <li>He brought knowledge of Chinese woodblock printing to Europe.</li>
+ <li>Italians began producing books using woodblocks.</li>
+ <li>The technology gradually spread to other European regions.</li>
+</ul>
+
+<h3>2.2 Handwritten and Printed Books</h3>
+<h4>Handwritten Luxury Books</h4>
+<ul>
+ <li>Luxury editions were written by hand on expensive vellum.</li>
+ <li>They were intended for aristocratic circles and wealthy monastic libraries.</li>
+ <li>Some wealthy people considered printed books cheap and vulgar.</li>
+</ul>
+<h4>Cheaper Printed Books</h4>
+<ul>
+ <li>Merchants and university students purchased cheaper printed copies.</li>
+ <li>Booksellers began exporting books to different countries.</li>
+ <li>Book fairs were organised in different places.</li>
+ <li>More than 50 scribes sometimes worked for one bookseller.</li>
+</ul>
+
+<h3>2.3 Limitations of Manuscripts</h3>
+<ol>
+ <li>Copying was expensive.</li>
+ <li>Production was laborious and time-consuming.</li>
+ <li>Manuscripts were fragile.</li>
+ <li>They were difficult to handle and carry.</li>
+ <li>Their circulation remained limited.</li>
+ <li>They could not satisfy the growing demand for books.</li>
+</ol>
+
+<h3>2.4 Growth of Woodblock Printing</h3>
+<ul>
+ <li>By the early fifteenth century, woodblocks were widely used in Europe.</li>
+ <li>They were used for printing textiles, playing cards and religious pictures.</li>
+ <li>There was a growing demand for faster and cheaper reproduction of texts.</li>
+ <li>A new printing technology became necessary.</li>
+</ul>
+
+<h3>2.5 Johann Gutenberg and the Printing Press</h3>
+<ul>
+ <li>Johann Gutenberg was the son of a merchant.</li>
+ <li>He grew up on a large agricultural estate.</li>
+ <li>He had seen wine and olive presses during childhood.</li>
+ <li>He learnt stone polishing and became a master goldsmith.</li>
+ <li>He acquired expertise in making lead moulds for trinkets.</li>
+ <li>He adapted existing technology to develop his printing press.</li>
+ <li>The olive press provided the model for the printing press.</li>
+ <li>Moulds were used to cast metal types for letters.</li>
+ <li>By 1448, Gutenberg had perfected the printing system.</li>
+ <li>His first printed book was the Bible.</li>
+ <li>About 180 copies were printed in approximately three years.</li>
+</ul>
+
+<h3>2.6 Features of the Gutenberg Press</h3>
+<ul>
+ <li>It used movable metal types.</li>
+ <li>Metal types were created for each of the 26 Roman alphabet characters.</li>
+ <li>The types could be rearranged to compose different words.</li>
+ <li>A screw and handle operated the press.</li>
+ <li>The platen pressed paper against the printing type.</li>
+ <li>It could print about 250 sheets on one side per hour.</li>
+ <li>It remained the basic printing technology for approximately 300 years.</li>
+</ul>
+
+<h3>2.7 Appearance of Early Printed Books</h3>
+<ul>
+ <li>Printed books initially resembled handwritten manuscripts.</li>
+ <li>Metal letters imitated ornamental handwriting.</li>
+ <li>Borders were decorated by hand.</li>
+ <li>Illustrations were painted manually.</li>
+ <li>Space was sometimes left for purchasers to choose their own decoration.</li>
+ <li>Different copies of Gutenberg's Bible were not exactly identical.</li>
+ <li>Colour was added by hand after printing.</li>
+</ul>
+
+<h3>2.8 Spread of Printing in Europe</h3>
+<ul>
+ <li>Between 1450 and 1550, printing presses were established in most European countries.</li>
+ <li>German printers travelled to other countries to establish new presses.</li>
+ <li>During the second half of the fifteenth century, around 20 million printed books entered European markets.</li>
+ <li>In the sixteenth century, the number increased to approximately 200 million.</li>
+</ul>
+<div class="exam">
+ <strong>Print Revolution:</strong> The shift from hand printing to mechanical printing is known as the Print Revolution.
+</div>
+
+<h3>2.9 Important Printing Terms</h3>
+<table>
+<tr><th>Term</th><th>Meaning</th></tr>
+<tr><td>Vellum</td><td>Parchment made from animal skin.</td></tr>
+<tr><td>Platen</td><td>A board pressed onto paper to create an impression from the type.</td></tr>
+<tr><td>Compositor</td><td>A person who composes text for printing.</td></tr>
+<tr><td>Galley</td><td>A metal frame in which types are laid and text is composed.</td></tr>
+<tr><td>Movable Type</td><td>Reusable individual letters arranged to create different texts.</td></tr>
+</table>
+</div>
+</details>
+
+<!-- SECTION 3 -->
+<details class="section" id="s3">
+<summary>3. THE PRINT REVOLUTION AND ITS IMPACT</summary>
+<div class="section-body">
+
+<h3>3.1 Meaning of the Print Revolution</h3>
+<p>The Print Revolution was not merely a new method of producing books.
+It transformed people's lives and their relationship with information,
+knowledge, institutions and authorities.</p>
+
+<h3>3.2 A New Reading Public</h3>
+<h4>Before Printing</h4>
+<ul>
+ <li>Reading was mainly restricted to elites.</li>
+ <li>Books were expensive and difficult to produce.</li>
+ <li>Common people depended on oral culture.</li>
+ <li>Sacred texts were read aloud.</li>
+ <li>Ballads were recited and folk tales were narrated.</li>
+ <li>Knowledge was transmitted orally.</li>
+</ul>
+<h4>After Printing</h4>
+<ul>
+ <li>Printing reduced the cost of books.</li>
+ <li>Production required less time and labour.</li>
+ <li>Multiple copies could be produced more easily.</li>
+ <li>Books reached a wider readership.</li>
+ <li>A new reading public emerged.</li>
+</ul>
+
+<div class="note">
+ <strong>Hearing Public:</strong> People who mainly received knowledge by listening.
+ <br>
+ <strong>Reading Public:</strong> People who accessed information through reading printed material.
+</div>
+
+<h3>3.3 Relationship Between Oral and Print Culture</h3>
+<ul>
+ <li>Literacy remained low in many European countries until the twentieth century.</li>
+ <li>Publishers wanted to reach people who could not read.</li>
+ <li>Popular ballads and folk tales were printed.</li>
+ <li>Books contained illustrations.</li>
+ <li>Printed stories were sung and recited at village gatherings and in town taverns.</li>
+ <li>Oral culture entered print, while printed material continued to be transmitted orally.</li>
+ <li>The distinction between hearing and reading cultures became blurred.</li>
+</ul>
+
+<h3>3.4 Religious Debates and Fear of Print</h3>
+<ul>
+ <li>Print allowed different opinions to circulate widely.</li>
+ <li>People could challenge established authorities.</li>
+ <li>Printed messages could persuade people to think differently and take action.</li>
+ <li>Some religious authorities and monarchs feared uncontrolled circulation of ideas.</li>
+ <li>They worried that rebellious and irreligious thoughts might spread.</li>
+ <li>They feared that the authority of established literature would be weakened.</li>
+</ul>
+
+<h3>3.5 Martin Luther and the Protestant Reformation</h3>
+<ul>
+ <li>In 1517, Martin Luther wrote the Ninety Five Theses.</li>
+ <li>He criticised many practices and rituals of the Roman Catholic Church.</li>
+ <li>A printed copy was posted on a church door in Wittenberg.</li>
+ <li>It challenged the Church to debate his ideas.</li>
+ <li>His writings were reproduced in large numbers and read widely.</li>
+ <li>This contributed to division within the Church and the beginning of the Protestant Reformation.</li>
+ <li>His translation of the New Testament sold 5,000 copies within a few weeks.</li>
+ <li>A second edition appeared within three months.</li>
+</ul>
+<div class="exam">
+ <strong>Protestant Reformation:</strong> A sixteenth-century movement to reform the Roman Catholic Church.
+ Martin Luther was one of its main reformers.
+</div>
+
+<h3>3.6 Print and Dissent – Menocchio</h3>
+<ul>
+ <li>Menocchio was a miller in Italy in the sixteenth century.</li>
+ <li>He read books available in his locality.</li>
+ <li>He developed his own interpretation of the Bible.</li>
+ <li>His views about God and Creation angered the Roman Catholic Church.</li>
+ <li>He was tried twice by the Inquisition and ultimately executed.</li>
+ <li>The Church imposed severe controls over publishers and booksellers.</li>
+ <li>It began maintaining an Index of Prohibited Books from 1558.</li>
+</ul>
+
+<h3>3.7 Erasmus and the Fear of Books</h3>
+<ul>
+ <li>Erasmus was a Latin scholar and Catholic reformer.</li>
+ <li>He criticised excesses within Catholicism but kept his distance from Luther.</li>
+ <li>In <em>Adages</em> (1508), he expressed anxiety about the large number of printed books.</li>
+ <li>He feared that worthless, ignorant, scandalous, irreligious and seditious books could harm scholarship.</li>
+ <li>He believed that excessive publication could reduce the value of useful books.</li>
+</ul>
+
+<h3>3.8 Important Terms</h3>
+<table>
+<tr><th>Term</th><th>Meaning</th></tr>
+<tr><td>Inquisition</td><td>Former Roman Catholic court for identifying and punishing heretics.</td></tr>
+<tr><td>Heretical</td><td>Beliefs that do not follow accepted Church teachings.</td></tr>
+<tr><td>Satiety</td><td>A state of being fulfilled beyond satisfaction.</td></tr>
+<tr><td>Seditious</td><td>Action, speech or writing seen as opposing the government.</td></tr>
+</table>
+</div>
+</details>
+
+<!-- SECTION 4 -->
+<details class="section" id="s4">
+<summary>4. THE READING MANIA IN EUROPE</summary>
+<div class="section-body">
+
+<h3>4.1 Growth of Literacy</h3>
+<ul>
+ <li>During the seventeenth and eighteenth centuries, literacy increased in most parts of Europe.</li>
+ <li>Churches of different denominations established village schools.</li>
+ <li>Education reached peasants and artisans.</li>
+ <li>By the end of the eighteenth century, literacy in some parts of Europe reached 60–80 per cent.</li>
+ <li>There was a widespread reading mania.</li>
+ <li>Printers produced books in increasing numbers.</li>
+</ul>
+
+<h3>4.2 New Forms of Popular Literature</h3>
+<table>
+<tr><th>Publication</th><th>Details</th></tr>
+<tr><td>Almanacs</td><td>Annual publications containing astronomical data, calendar information, movements of the sun and moon, tides and eclipses.</td></tr>
+<tr><td>Ballads</td><td>Historical accounts or folk tales in verse.</td></tr>
+<tr><td>Chapbooks</td><td>Pocket-sized books sold by travelling pedlars called chapmen.</td></tr>
+<tr><td>Penny Chapbooks</td><td>Cheap books sold for one penny in England.</td></tr>
+<tr><td>Bibliothèque Bleue</td><td>Low-priced French books printed on poor-quality paper and bound in cheap blue covers.</td></tr>
+<tr><td>Romances</td><td>Short entertaining stories, sometimes printed on four to six pages.</td></tr>
+<tr><td>Histories</td><td>Stories about the past.</td></tr>
+</table>
+
+<h3>4.3 Booksellers and Pedlars</h3>
+<ul>
+ <li>Booksellers employed pedlars to travel through villages.</li>
+ <li>They carried small books for sale.</li>
+ <li>Cheap publications made reading accessible to ordinary people.</li>
+ <li>In England, chapmen sold penny chapbooks.</li>
+</ul>
+
+<h3>4.4 Growth of Newspapers and Periodicals</h3>
+<ul>
+ <li>The periodical press developed from the early eighteenth century.</li>
+ <li>It combined current affairs with entertainment.</li>
+ <li>Newspapers and journals carried information about wars and trade.</li>
+ <li>They also reported developments in other places.</li>
+</ul>
+
+<h3>4.5 Spread of Scientific and Philosophical Ideas</h3>
+<ul>
+ <li>Scientific and philosophical ideas became more accessible.</li>
+ <li>Ancient and medieval scientific texts were compiled and published.</li>
+ <li>Maps and scientific diagrams were widely printed.</li>
+ <li>Isaac Newton's discoveries reached a wider scientific readership.</li>
+ <li>Writings of Thomas Paine, Voltaire and Jean-Jacques Rousseau were widely printed.</li>
+ <li>Ideas about science, reason and rationality entered popular literature.</li>
+</ul>
+
+<h3>4.6 James Lackington's Observation</h3>
+<p>In 1791, London publisher James Lackington recorded that book sales had
+increased greatly. Poor farmers and country people who had earlier spent
+winter evenings telling stories were now listening to their children read
+tales and romances.</p>
+
+<div class="exam">
+ <strong>Important names:</strong> Isaac Newton, Thomas Paine, Voltaire,
+ Jean-Jacques Rousseau and James Lackington.
+</div>
+</div>
+</details>
+
+<!-- SECTION 5 -->
+<details class="section" id="s5">
+<summary>5. PRINT CULTURE, ENLIGHTENMENT AND THE FRENCH REVOLUTION</summary>
+<div class="section-body">
+
+<h3>5.1 “Tremble, Therefore, Tyrants of the World!”</h3>
+<ul>
+ <li>By the mid-eighteenth century, many people believed books spread progress and enlightenment.</li>
+ <li>Books were seen as instruments to change society.</li>
+ <li>People believed books could challenge despotism and tyranny.</li>
+ <li>Reason and intellect were expected to replace superstition and arbitrary authority.</li>
+</ul>
+
+<h3>5.2 Louise-Sébastien Mercier</h3>
+<ul>
+ <li>He was a French novelist of the eighteenth century.</li>
+ <li>He believed the printing press was a powerful instrument of progress.</li>
+ <li>He considered public opinion a force capable of challenging despotism.</li>
+ <li>In his novels, heroes were transformed through reading.</li>
+ <li>He believed books could enlighten readers and challenge tyranny.</li>
+</ul>
+
+<h3>5.3 Print Culture and the French Revolution</h3>
+<p>Historians have presented three major arguments explaining how print
+culture helped create conditions for the French Revolution.</p>
+
+<h4>First: Spread of Enlightenment Ideas</h4>
+<ul>
+ <li>Print popularised the ideas of Enlightenment thinkers.</li>
+ <li>Writers criticised tradition, superstition and despotism.</li>
+ <li>They supported reason rather than custom.</li>
+ <li>They questioned the sacred authority of the Church.</li>
+ <li>They criticised the despotic power of the state.</li>
+ <li>Voltaire and Rousseau were widely read.</li>
+</ul>
+
+<h4>Second: Culture of Dialogue and Debate</h4>
+<ul>
+ <li>Print created a new public culture of debate.</li>
+ <li>Values, norms and institutions were re-evaluated.</li>
+ <li>People recognised the importance of questioning existing beliefs.</li>
+ <li>New ideas of social revolution emerged.</li>
+</ul>
+
+<h4>Third: Criticism of the Monarchy</h4>
+<ul>
+ <li>By the 1780s, literature mocking royalty became widespread.</li>
+ <li>Publications criticised the morality of the royal family.</li>
+ <li>Cartoons showed the monarchy enjoying luxury while ordinary people suffered.</li>
+ <li>Such literature sometimes circulated underground.</li>
+ <li>It contributed to hostile sentiments against the monarchy.</li>
+</ul>
+
+<h3>5.4 Did Print Directly Cause the French Revolution?</h3>
+<ul>
+ <li>People did not read only revolutionary literature.</li>
+ <li>They also encountered monarchical and Church propaganda.</li>
+ <li>They did not accept everything they read.</li>
+ <li>They interpreted ideas in their own ways.</li>
+ <li>Print did not directly control people's minds.</li>
+ <li>It opened up the possibility of thinking differently.</li>
+</ul>
+
+<div class="note">
+ <strong>Important conclusion:</strong> Print culture helped create an atmosphere
+ of questioning and debate, but it did not automatically or single-handedly
+ cause the French Revolution.
+</div>
+
+<h3>5.5 Cartoon of the French Revolution</h3>
+<p>The NCERT cartoon on the nobility and common people before the French
+Revolution depicts peasants, artisans and workers suffering while the nobility
+enjoyed life. Such images criticised social inequality and helped shape public opinion.</p>
+</div>
+</details>
+
+<!-- SECTION 6 -->
+<details class="section" id="s6">
+<summary>6. THE NINETEENTH CENTURY – CHILDREN, WOMEN AND WORKERS</summary>
+<div class="section-body">
+
+<h3>6.1 Expansion of Mass Literacy</h3>
+<ul>
+ <li>The nineteenth century saw major growth in literacy in Europe.</li>
+ <li>Children, women and workers became important new categories of readers.</li>
+ <li>Primary education became compulsory from the late nineteenth century.</li>
+</ul>
+
+<h3>6.2 Children and Print</h3>
+<ul>
+ <li>Children became an important reading group.</li>
+ <li>School textbooks became essential to publishers.</li>
+ <li>A children's press was established in France in 1857.</li>
+ <li>It published new works, fairy tales and folk tales.</li>
+</ul>
+
+<h3>6.3 Grimm Brothers</h3>
+<ul>
+ <li>The Grimm Brothers in Germany collected traditional folk tales from peasants.</li>
+ <li>The collection was published in 1812.</li>
+ <li>Stories were edited before publication.</li>
+ <li>Material considered unsuitable for children or vulgar to elites was removed.</li>
+ <li>Print preserved old tales but also changed their form.</li>
+</ul>
+
+<h3>6.4 Women as Readers and Writers</h3>
+<ul>
+ <li>Women became important readers as well as writers.</li>
+ <li>Penny magazines were especially intended for women.</li>
+ <li>Manuals taught proper behaviour and housekeeping.</li>
+ <li>Women became important readers of novels.</li>
+</ul>
+
+<h3>6.5 Important Women Novelists</h3>
+<ul>
+ <li>Jane Austen.</li>
+ <li>The Brontë sisters.</li>
+ <li>George Eliot.</li>
+</ul>
+<p>Their writings presented women as individuals with will, strength of
+personality, determination and the power to think.</p>
+
+<h3>6.6 Workers and Lending Libraries</h3>
+<ul>
+ <li>Lending libraries existed from the seventeenth century onwards.</li>
+ <li>In nineteenth-century England, they educated white-collar workers,
+ artisans and lower-middle-class people.</li>
+ <li>Working-class people sometimes educated themselves and wrote their own works.</li>
+ <li>As working hours gradually shortened from the mid-nineteenth century,
+ workers gained time for self-improvement.</li>
+ <li>They wrote political tracts and autobiographies.</li>
+</ul>
+
+<h3>6.7 Thomas Wood and Maxim Gorky</h3>
+<ul>
+ <li>Thomas Wood was a Yorkshire mechanic.</li>
+ <li>He rented old newspapers and read them by firelight because he could not afford candles.</li>
+ <li>Maxim Gorky's <em>My Childhood</em> and <em>My University</em> provide glimpses
+ of poor people's struggles to gain education and reading opportunities.</li>
+</ul>
+
+<h3>6.8 Penny Magazine</h3>
+<ul>
+ <li>Published in England between 1832 and 1835.</li>
+ <li>Published by the Society for the Diffusion of Useful Knowledge.</li>
+ <li>Aimed primarily at the working class.</li>
+</ul>
+
+<h3>6.9 Further Innovations in Printing Technology</h3>
+<table>
+<tr><th>Period</th><th>Development</th></tr>
+<tr><td>Late eighteenth century</td><td>Printing presses began to be made of metal.</td></tr>
+<tr><td>Mid-nineteenth century</td><td>Richard M. Hoe perfected the power-driven cylindrical press.</td></tr>
+<tr><td>Late nineteenth century</td><td>Offset press was developed.</td></tr>
+<tr><td>Early twentieth century</td><td>Electrically operated presses accelerated printing.</td></tr>
+</table>
+
+<h3>6.10 Richard M. Hoe's Cylindrical Press</h3>
+<ul>
+ <li>Perfected by Richard M. Hoe of New York.</li>
+ <li>Could print 8,000 sheets per hour.</li>
+ <li>Particularly useful for newspapers.</li>
+</ul>
+
+<h3>6.11 Offset Press and Other Improvements</h3>
+<ul>
+ <li>The offset press could print up to six colours at a time.</li>
+ <li>Paper-feeding methods improved.</li>
+ <li>Printing plates became better.</li>
+ <li>Automatic paper reels were introduced.</li>
+ <li>Photoelectric controls of colour registration were developed.</li>
+ <li>These improvements transformed the appearance of printed texts.</li>
+</ul>
+
+<h3>6.12 Marketing Strategies of Publishers</h3>
+<ul>
+ <li>Nineteenth-century periodicals published important novels in serial form.</li>
+ <li>In the 1920s, cheap popular works were sold in England as the Shilling Series.</li>
+ <li>Dust covers and book jackets became twentieth-century innovations.</li>
+ <li>During the Great Depression of the 1930s, publishers introduced cheap paperback editions to sustain sales.</li>
+ <li>Printed advertisements appeared on street walls, railway platforms and public buildings.</li>
+</ul>
+
+<h3>6.13 Advertisement and Public Opinion</h3>
+<p>Advertisements helped publishers and businesses attract readers and buyers.
+Printed notices and advertisements became a visible part of public spaces.
+People could respond differently to the same printed material.</p>
+</div>
+</details>
+
+<!-- SECTION 7 -->
+<details class="section" id="s7">
+<summary>7. INDIA AND THE WORLD OF PRINT</summary>
+<div class="section-body">
+
+<h3>7.1 Manuscripts Before the Age of Print</h3>
+<ul>
+ <li>India had a rich tradition of handwritten manuscripts.</li>
+ <li>Manuscripts were written in Sanskrit, Arabic, Persian and various vernacular languages.</li>
+ <li>They were copied on palm leaves or handmade paper.</li>
+ <li>Pages were sometimes beautifully illustrated.</li>
+ <li>They were preserved between wooden covers or sewn together.</li>
+ <li>Manuscripts continued to be produced until the late nineteenth century,
+ even after printing was introduced.</li>
+</ul>
+
+<h3>7.2 Limitations of Indian Manuscripts</h3>
+<ul>
+ <li>They were expensive and fragile.</li>
+ <li>They required careful handling.</li>
+ <li>Different writing styles made reading difficult.</li>
+ <li>They were not widely used in everyday life.</li>
+</ul>
+
+<h3>7.3 Pre-colonial Bengal and Learning</h3>
+<ul>
+ <li>Pre-colonial Bengal had an extensive network of village primary schools.</li>
+ <li>Students often learnt to write without reading texts.</li>
+ <li>Teachers dictated passages from memory.</li>
+ <li>Students wrote down the dictated passages.</li>
+ <li>Some became literate without actually reading books.</li>
+</ul>
+
+<h3>7.4 Introduction of the Printing Press in India</h3>
+<ul>
+ <li>The printing press first came to Goa with Portuguese missionaries in the mid-sixteenth century.</li>
+ <li>Jesuit priests learnt Konkani.</li>
+ <li>They printed several religious tracts.</li>
+ <li>By 1674, about 50 books had been printed in Konkani and Kanara languages.</li>
+ <li>Catholic priests printed the first Tamil book in 1579 at Cochin.</li>
+ <li>The first Malayalam book was printed in 1713.</li>
+ <li>By 1710, Dutch Protestant missionaries had printed 32 Tamil texts.</li>
+ <li>Many of these were translations of older works.</li>
+</ul>
+
+<h3>7.5 Beginning of English Printing in India</h3>
+<ul>
+ <li>The English-language press developed relatively late in India.</li>
+ <li>The East India Company began importing presses from the late seventeenth century.</li>
+ <li>In 1768, William Bolts placed a public notice in Calcutta about the need for a printing press.</li>
+ <li>Bolts left for England soon afterwards, and the proposal did not materialise.</li>
+</ul>
+
+<h3>7.6 James Augustus Hickey and Bengal Gazette</h3>
+<ul>
+ <li>In 1780, James Augustus Hickey began editing the Bengal Gazette.</li>
+ <li>It was a weekly magazine.</li>
+ <li>It described itself as a commercial paper open to all but influenced by none.</li>
+ <li>Hickey published advertisements, including advertisements concerning the import and sale of slaves.</li>
+ <li>He also published gossip about senior Company officials.</li>
+ <li>Governor-General Warren Hastings was angered by Hickey's publications.</li>
+ <li>Hastings persecuted Hickey and encouraged officially sanctioned newspapers.</li>
+</ul>
+
+<h3>7.7 Indian-Owned Newspapers</h3>
+<ul>
+ <li>By the end of the eighteenth century, several newspapers and journals appeared.</li>
+ <li>Indians also began publishing newspapers.</li>
+ <li>The first Indian weekly newspaper mentioned in the chapter was the Bengal Gazette published by Gangadhar Bhattacharya.</li>
+ <li>Gangadhar Bhattacharya was close to Rammohun Roy.</li>
+</ul>
+
+<div class="exam">
+ <strong>Important distinction:</strong> James Augustus Hickey began editing the Bengal Gazette in 1780.
+ Gangadhar Bhattacharya later brought out an Indian weekly Bengal Gazette.
+</div>
+</div>
+</details>
+
+<!-- SECTION 8 -->
+<details class="section" id="s8">
+<summary>8. RELIGIOUS REFORM AND PUBLIC DEBATES IN INDIA</summary>
+<div class="section-body">
+
+<h3>8.1 Development of Public Debates</h3>
+<ul>
+ <li>From the early nineteenth century, religious issues became subjects of intense debate.</li>
+ <li>Different groups interpreted religious beliefs in different ways.</li>
+ <li>Some groups criticised existing practices and demanded reform.</li>
+ <li>Other groups defended orthodox traditions.</li>
+ <li>Printed tracts and newspapers spread these arguments.</li>
+ <li>A wider public could participate in discussions.</li>
+</ul>
+
+<h3>8.2 Religious and Social Issues in Bengal</h3>
+<ul>
+ <li>Widow immolation.</li>
+ <li>Monotheism.</li>
+ <li>Brahmanical priesthood.</li>
+ <li>Idolatry.</li>
+</ul>
+<p>To reach wider audiences, ideas were published in the everyday spoken
+language of ordinary people.</p>
+
+<h3>8.3 Important Newspapers of Bengal and India</h3>
+<table>
+<tr><th>Newspaper</th><th>Year</th><th>Details</th></tr>
+<tr><td>Sambad Kaumudi</td><td>1821</td><td>Published by Rammohun Roy.</td></tr>
+<tr><td>Samachar Chandrika</td><td>—</td><td>Commissioned by Hindu orthodoxy to oppose Rammohun Roy's opinions.</td></tr>
+<tr><td>Jam-i-Jahan Nama</td><td>1822</td><td>Persian newspaper.</td></tr>
+<tr><td>Shamsul Akhbar</td><td>1822</td><td>Persian newspaper.</td></tr>
+<tr><td>Bombay Samachar</td><td>1822</td><td>Gujarati newspaper.</td></tr>
+</table>
+
+<h3>8.4 Muslim Religious Debates and Print</h3>
+<ul>
+ <li>Muslim ulama were concerned about the decline of Muslim dynasties.</li>
+ <li>They feared colonial rulers might encourage conversion.</li>
+ <li>They were concerned about possible changes to Muslim personal laws.</li>
+ <li>Cheap lithographic presses were used to publish religious literature.</li>
+ <li>Persian and Urdu translations of holy scriptures were printed.</li>
+ <li>Religious newspapers and tracts were circulated.</li>
+</ul>
+
+<h3>8.5 Deoband Seminary</h3>
+<ul>
+ <li>Founded in 1867.</li>
+ <li>Published thousands of fatwas.</li>
+ <li>Explained Islamic doctrines.</li>
+ <li>Guided Muslim readers on everyday religious conduct.</li>
+ <li>Different Muslim sects and seminaries published their own interpretations of faith.</li>
+ <li>Urdu print helped them conduct public religious debates.</li>
+</ul>
+
+<h3>8.6 Print and Hindu Religious Literature</h3>
+<ul>
+ <li>Print encouraged the reading of religious texts in vernacular languages.</li>
+ <li>The first printed edition of Tulsidas's Ramcharitmanas appeared in Calcutta in 1810.</li>
+ <li>Cheap lithographic editions spread through north Indian markets by the mid-nineteenth century.</li>
+</ul>
+
+<h3>8.7 Important Religious Publishing Presses</h3>
+<ul>
+ <li><strong>Naval Kishore Press:</strong> Lucknow.</li>
+ <li><strong>Shri Venkateshwar Press:</strong> Bombay.</li>
+ <li>From the 1880s, both published numerous religious texts in vernacular languages.</li>
+</ul>
+
+<h3>8.8 Impact of Printed Religious Texts</h3>
+<ul>
+ <li>Religious texts reached a wider population.</li>
+ <li>People could read them at different places and times.</li>
+ <li>Printed books could be read aloud to illiterate people.</li>
+ <li>Religious discussions and controversies increased.</li>
+ <li>Newspapers connected people from different regions.</li>
+ <li>Print helped create pan-Indian identities.</li>
+</ul>
+
+<h3>8.9 Why Newspapers?</h3>
+<p>Newspapers provided information on local interests, science, history,
+geography, antiquities, statistics, trade and public affairs.</p>
+<p>They also examined government policies and suggested improvements.
+Native newspapers and political associations could perform a role similar
+to the opposition in the British Parliament by critically examining government action.</p>
+
+<h3>8.10 Important Terms</h3>
+<table>
+<tr><th>Term</th><th>Meaning</th></tr>
+<tr><td>Ulama</td><td>Legal scholars of Islam and Sharia.</td></tr>
+<tr><td>Fatwa</td><td>A legal pronouncement on Islamic law, generally issued by a mufti.</td></tr>
+<tr><td>Monotheism</td><td>Belief in one God.</td></tr>
+<tr><td>Vernacular</td><td>Language spoken by ordinary people in a region.</td></tr>
+</table>
+</div>
+</details>
+
+<!-- SECTION 9 -->
+<details class="section" id="s9">
+<summary>9. NEW FORMS OF PUBLICATION</summary>
+<div class="section-body">
+
+<h3>9.1 Growth of New Literary Forms</h3>
+<ul>
+ <li>Printing created demand for new kinds of writing.</li>
+ <li>Readers wanted to see their own lives, emotions and relationships reflected in books.</li>
+ <li>The novel, which developed in Europe, became popular in India.</li>
+ <li>Indian novels developed distinctive Indian forms and styles.</li>
+ <li>Other forms included lyrics, short stories and essays on social and political issues.</li>
+</ul>
+
+<h3>9.2 Development of Visual Culture</h3>
+<ul>
+ <li>By the end of the nineteenth century, a new visual culture was developing.</li>
+ <li>Printing presses reproduced visual images in multiple copies.</li>
+ <li>Painters produced images for mass circulation.</li>
+ <li>Wood engravers made printing blocks.</li>
+ <li>Cheap prints and calendars became available in bazaars.</li>
+ <li>Poor people could buy prints to decorate their homes and workplaces.</li>
+ <li>These images shaped ideas about modernity, tradition, religion, politics, society and culture.</li>
+</ul>
+
+<h3>9.3 Raja Ravi Varma</h3>
+<ul>
+ <li>Raja Ravi Varma was an important painter.</li>
+ <li>He produced numerous mythological paintings.</li>
+ <li>His works were printed at the Ravi Varma Press.</li>
+ <li>His paintings became available to a much wider public through reproduction.</li>
+</ul>
+
+<h3>9.4 Cartoons and Caricatures</h3>
+<ul>
+ <li>From the 1870s, cartoons and caricatures appeared in newspapers and journals.</li>
+ <li>Some criticised educated Indians' fascination with Western clothing and tastes.</li>
+ <li>Some expressed fear about social change.</li>
+ <li>Imperial caricatures mocked nationalists.</li>
+ <li>Nationalist cartoons criticised imperial rule.</li>
+</ul>
+</div>
+</details>
+
+<!-- SECTION 10 -->
+<details class="section" id="s10">
+<summary>10. WOMEN AND PRINT</summary>
+<div class="section-body">
+
+<h3>10.1 Expansion of Women's Reading</h3>
+<ul>
+ <li>Women's lives and feelings began to be described in greater detail.</li>
+ <li>Women's reading increased in middle-class homes.</li>
+ <li>Liberal husbands and fathers educated women at home.</li>
+ <li>Women's schools were established in towns and cities after the mid-nineteenth century.</li>
+ <li>Journals published writings supporting women's education.</li>
+ <li>Some journals supplied syllabuses and reading material for home-based schooling.</li>
+</ul>
+
+<h3>10.2 Opposition to Women's Education</h3>
+<ul>
+ <li>Some conservative Hindus believed that a literate girl would become a widow.</li>
+ <li>Some Muslims feared educated women would be corrupted by Urdu romances.</li>
+ <li>Some women secretly learnt to read and write despite restrictions.</li>
+</ul>
+
+<h3>10.3 Rashsundari Debi</h3>
+<ul>
+ <li>She lived in East Bengal.</li>
+ <li>She was a young married woman in an orthodox household.</li>
+ <li>She secretly learnt to read in her kitchen.</li>
+ <li>She wrote the autobiography <em>Amar Jiban</em>.</li>
+ <li>It was published in 1876.</li>
+ <li>It was the first full-length autobiography published in Bengali.</li>
+</ul>
+
+<h3>10.4 Kailashbashini Debi</h3>
+<ul>
+ <li>From the 1860s, Bengali women such as Kailashbashini Debi wrote about women's lives.</li>
+ <li>She described women's confinement within homes.</li>
+ <li>She highlighted their lack of education.</li>
+ <li>She wrote about hard domestic labour and unjust treatment.</li>
+</ul>
+
+<h3>10.5 Tarabai Shinde</h3>
+<ul>
+ <li>She wrote in the 1880s.</li>
+ <li>She criticised the miserable conditions of upper-caste Hindu women.</li>
+ <li>She particularly highlighted the suffering of widows.</li>
+</ul>
+
+<h3>10.6 Pandita Ramabai</h3>
+<ul>
+ <li>She wrote about the suffering of upper-caste Hindu women.</li>
+ <li>Her writings expressed strong criticism of the condition of widows.</li>
+</ul>
+
+<h3>10.7 Growth of Hindi Printing</h3>
+<ul>
+ <li>Urdu, Tamil, Bengali and Marathi print cultures had developed earlier.</li>
+ <li>Hindi printing began seriously only from the 1870s.</li>
+ <li>A large part of Hindi print literature soon focused on women's education.</li>
+</ul>
+
+<h3>10.8 Begum Rokeya Sakhawat Hossain</h3>
+<ul>
+ <li>She was an educationist and literary figure.</li>
+ <li>In 1926, she addressed the Bengal Women's Education Conference.</li>
+ <li>She strongly criticised men who denied women education in the name of religion.</li>
+ <li>She argued that women had an equal right to education.</li>
+</ul>
+
+<h3>10.9 Women's Journals in the Early Twentieth Century</h3>
+<ul>
+ <li>Journals written for women and sometimes edited by women became popular.</li>
+ <li>They discussed women's education, widowhood and widow remarriage.</li>
+ <li>They covered the national movement.</li>
+ <li>Some offered household and fashion lessons.</li>
+ <li>They provided entertainment through short stories and serialised novels.</li>
+</ul>
+
+<h3>10.10 Print Culture in Punjab</h3>
+<ul>
+ <li>Folk literature was widely printed in Punjab from the early twentieth century.</li>
+ <li>Ram Chaddha published <em>Istri Dharm Vichar</em>.</li>
+ <li>The book taught women how to be obedient wives.</li>
+ <li>The Khalsa Tract Society published cheap booklets with similar messages.</li>
+ <li>Many were written as dialogues about the qualities of a good woman.</li>
+</ul>
+
+<h3>10.11 Battala in Bengal</h3>
+<ul>
+ <li>Battala was an area in central Calcutta devoted to popular book printing.</li>
+ <li>Cheap religious tracts and scriptures were sold there.</li>
+ <li>Some publications contained literature considered obscene or scandalous.</li>
+ <li>By the late nineteenth century, books were illustrated with woodcuts and coloured lithographs.</li>
+ <li>Pedlars carried Battala publications to homes.</li>
+ <li>This enabled women to read books during their leisure time.</li>
+</ul>
+
+<h3>10.12 Images and Social Anxiety</h3>
+<ul>
+ <li>Some woodcuts represented fear about changes in traditional family roles.</li>
+ <li>The image titled Ghor Kali depicted the destruction of traditional family relationships.</li>
+ <li>Another woodcut depicted an Indian couple in roles that challenged traditional expectations.</li>
+ <li>These images reflected anxiety about Western cultural influence and women's education.</li>
+</ul>
+</div>
+</details>
+
+<!-- SECTION 11 -->
+<details class="section" id="s11">
+<summary>11. PRINT AND THE POOR PEOPLE</summary>
+<div class="section-body">
+
+<h3>11.1 Cheap Books and Access to Reading</h3>
+<ul>
+ <li>Very cheap small books were brought to nineteenth-century Madras towns.</li>
+ <li>They were sold at crossroads and marketplaces.</li>
+ <li>Poor people travelling to markets could buy them.</li>
+ <li>Public libraries were established from the early twentieth century.</li>
+ <li>Libraries were mainly located in cities and towns, and sometimes in prosperous villages.</li>
+ <li>Rich local patrons sometimes established libraries to acquire prestige.</li>
+</ul>
+
+<h3>11.2 Print and Caste Discrimination</h3>
+<ul>
+ <li>From the late nineteenth century, caste discrimination was discussed in printed tracts and essays.</li>
+ <li>Local protest movements published journals and pamphlets.</li>
+ <li>These publications criticised ancient scriptures and imagined a more just future.</li>
+</ul>
+
+<h3>11.3 Jyotiba Phule</h3>
+<ul>
+ <li>He was a Maratha pioneer of low-caste protest movements.</li>
+ <li>He wrote <em>Gulamgiri</em> in 1871.</li>
+ <li>He criticised the injustices of the caste system.</li>
+</ul>
+
+<h3>11.4 B. R. Ambedkar</h3>
+<ul>
+ <li>He wrote powerfully against caste discrimination in Maharashtra.</li>
+ <li>His writings were read by people across India.</li>
+</ul>
+
+<h3>11.5 E. V. Ramaswamy Naicker – Periyar</h3>
+<ul>
+ <li>He was popularly known as Periyar.</li>
+ <li>He wrote against caste inequality in Madras.</li>
+ <li>His writings were read across India.</li>
+</ul>
+
+<h3>11.6 Workers and Print</h3>
+<ul>
+ <li>Factory workers were often overworked.</li>
+ <li>Many lacked the education needed to write about their experiences.</li>
+ <li>Some workers nevertheless used print to express their views.</li>
+</ul>
+
+<h3>11.7 Kashibaba</h3>
+<ul>
+ <li>He was a Kanpur millworker.</li>
+ <li>He wrote <em>Chhote Aur Bade Ka Sawal</em> in 1938.</li>
+ <li>The work explained the connection between caste and class exploitation.</li>
+</ul>
+
+<h3>11.8 Sudarshan Chakr</h3>
+<ul>
+ <li>He was another Kanpur millworker who wrote poetry.</li>
+ <li>His poems were written between 1935 and 1955.</li>
+ <li>They were collected in a book titled <em>Sacchi Kavitayan</em>.</li>
+</ul>
+
+<h3>11.9 Workers' Libraries</h3>
+<ul>
+ <li>By the 1930s, Bangalore cotton millworkers established libraries.</li>
+ <li>They followed the example of Bombay workers.</li>
+ <li>Social reformers sponsored these libraries.</li>
+ <li>The objectives included literacy and self-education.</li>
+ <li>Some libraries also propagated nationalism.</li>
+ <li>Reformers sometimes attempted to discourage excessive drinking among workers.</li>
+</ul>
+
+<h3>11.10 Lakshminath Bezbaruah</h3>
+<ul>
+ <li>He lived from 1868 to 1938.</li>
+ <li>He was an important figure in modern Assamese literature.</li>
+ <li>His notable work included <em>Burhi Aair Sadhu</em> (Grandma's Tales).</li>
+ <li>He wrote the popular song of Assam, <em>O Mor Apunar Desh</em>.</li>
+</ul>
+</div>
+</details>
+
+<!-- SECTION 12 -->
+<details class="section" id="s12">
+<summary>12. PRINT AND CENSORSHIP IN INDIA</summary>
+<div class="section-body">
+
+<h3>12.1 Early Colonial Censorship – Before 1798</h3>
+<ul>
+ <li>Before 1798, the East India Company was not very concerned with censorship.</li>
+ <li>Early restrictions were directed mainly against Englishmen in India who criticised Company misrule.</li>
+ <li>The Company feared that critics in England might use such reports against its trade monopoly in India.</li>
+</ul>
+
+<h3>12.2 Press Regulations in the 1820s</h3>
+<ul>
+ <li>The Calcutta Supreme Court passed regulations to control press freedom.</li>
+ <li>The Company encouraged newspapers that celebrated British rule.</li>
+</ul>
+
+<h3>12.3 Press Reforms of 1835</h3>
+<ul>
+ <li>Editors of English and vernacular newspapers submitted urgent petitions.</li>
+ <li>Governor-General Bentinck agreed to revise press laws.</li>
+ <li>Thomas Macaulay formulated new rules.</li>
+ <li>These rules restored earlier freedoms.</li>
+</ul>
+
+<h3>12.4 Changes After the Revolt of 1857</h3>
+<ul>
+ <li>After the Revolt of 1857, British attitudes towards press freedom changed.</li>
+ <li>Many Englishmen demanded strict control over the native press.</li>
+ <li>Vernacular newspapers became increasingly nationalist.</li>
+ <li>The colonial government began considering stringent controls.</li>
+</ul>
+
+<h3>12.5 Vernacular Press Act, 1878</h3>
+<div class="warning">
+ <strong>Very Important:</strong> The Vernacular Press Act was passed in 1878
+ and was modelled on the Irish Press Laws.
+</div>
+<p>Main provisions:</p>
+<ol>
+ <li>It gave the government extensive powers to censor reports and editorials in vernacular newspapers.</li>
+ <li>The government regularly monitored vernacular newspapers in different provinces.</li>
+ <li>If a report was considered seditious, the newspaper could receive a warning.</li>
+ <li>If the warning was ignored, the printing press could be seized.</li>
+ <li>Printing machinery could be confiscated.</li>
+</ol>
+
+<h3>12.6 Nationalist Newspapers and Government Repression</h3>
+<ul>
+ <li>Despite repressive measures, nationalist newspapers increased in number.</li>
+ <li>They reported colonial misrule.</li>
+ <li>They encouraged nationalist activities.</li>
+ <li>Attempts to suppress criticism provoked protests.</li>
+ <li>Protests were followed by further government persecution.</li>
+</ul>
+
+<h3>12.7 Bal Gangadhar Tilak and Kesari</h3>
+<ul>
+ <li>Punjab revolutionaries were deported in 1907.</li>
+ <li>Tilak wrote sympathetically about them in his newspaper <em>Kesari</em>.</li>
+ <li>He was imprisoned in 1908.</li>
+ <li>His imprisonment provoked widespread protests throughout India.</li>
+</ul>
+
+<h3>12.8 Loyalist Newspapers</h3>
+<ul>
+ <li>The colonial government sometimes found it difficult to recruit editors for loyalist newspapers.</li>
+ <li>Sanders, editor of <em>The Statesman</em>, questioned how much he would be paid for losing his freedom.</li>
+ <li><em>Friend of India</em> refused a government subsidy because it feared that accepting money would force obedience to government orders.</li>
+</ul>
+
+<h3>12.9 Censorship During the First World War</h3>
+<ul>
+ <li>The Defence of India Rules were used to control newspapers.</li>
+ <li>22 newspapers were required to furnish securities.</li>
+ <li>18 newspapers closed rather than comply with the orders.</li>
+</ul>
+
+<h3>12.10 Rowlatt and the Sedition Committee Report, 1919</h3>
+<ul>
+ <li>The Sedition Committee Report under Rowlatt strengthened controls.</li>
+ <li>Penalties were imposed on various newspapers.</li>
+</ul>
+
+<h3>12.11 Censorship During the Second World War</h3>
+<ul>
+ <li>The Defence of India Act allowed censorship of reports relating to war.</li>
+ <li>Reports concerning the Quit India Movement also came under its purview.</li>
+ <li>In August 1942, approximately 90 newspapers were suppressed.</li>
+</ul>
+
+<h3>12.12 Gandhi and Freedom of the Press</h3>
+<ul>
+ <li>In 1922, Gandhi argued that the struggle for Swaraj was also a struggle for freedom of expression.</li>
+ <li>He emphasised liberty of speech.</li>
+ <li>He emphasised liberty of the press.</li>
+ <li>He emphasised freedom of association.</li>
+ <li>He considered these freedoms essential for expressing and developing public opinion.</li>
+</ul>
+
+<div class="exam">
+ <strong>Key Point:</strong> The colonial government used censorship to suppress criticism,
+ while nationalist newspapers used print to expose colonial misrule and spread political awareness.
+</div>
+</div>
+</details>
+
+<!-- SECTION 13 -->
+<details class="section" id="s13">
+<summary>13. IMPORTANT PERSONALITIES AND THEIR CONTRIBUTIONS</summary>
+<div class="section-body">
+<table>
+<tr><th>Personality</th><th>Contribution</th></tr>
+<tr><td>Marco Polo</td><td>Returned to Italy in 1295 and carried knowledge of Chinese woodblock printing.</td></tr>
+<tr><td>Johann Gutenberg</td><td>Developed the European printing press and printed the Bible.</td></tr>
+<tr><td>Kitagawa Utamaro</td><td>Famous Japanese ukiyo artist.</td></tr>
+<tr><td>Martin Luther</td><td>Wrote Ninety Five Theses in 1517; supported print.</td></tr>
+<tr><td>Menocchio</td><td>Italian miller who developed his own interpretation of the Bible.</td></tr>
+<tr><td>Erasmus</td><td>Expressed anxiety about excessive and harmful printed books.</td></tr>
+<tr><td>Louise-Sébastien Mercier</td><td>Believed printing could spread enlightenment and challenge despotism.</td></tr>
+<tr><td>Voltaire</td><td>Enlightenment thinker whose writings criticised established authority.</td></tr>
+<tr><td>Jean-Jacques Rousseau</td><td>Enlightenment thinker whose ideas circulated through print.</td></tr>
+<tr><td>Isaac Newton</td><td>Scientific discoveries reached a wider readership through print.</td></tr>
+<tr><td>Grimm Brothers</td><td>Collected and published traditional folk tales.</td></tr>
+<tr><td>Richard M. Hoe</td><td>Perfected the power-driven cylindrical press.</td></tr>
+<tr><td>James Lackington</td><td>Recorded the growth of book sales in 1791.</td></tr>
+<tr><td>James Augustus Hickey</td><td>Began editing Bengal Gazette in 1780.</td></tr>
+<tr><td>Gangadhar Bhattacharya</td><td>Published the Indian weekly Bengal Gazette mentioned in NCERT.</td></tr>
+<tr><td>Warren Hastings</td><td>Persecuted Hickey and encouraged officially sanctioned newspapers.</td></tr>
+<tr><td>Rammohun Roy</td><td>Published Sambad Kaumudi.</td></tr>
+<tr><td>Raja Ravi Varma</td><td>Produced mythological paintings for mass circulation.</td></tr>
+<tr><td>Rashsundari Debi</td><td>Wrote Amar Jiban, published in 1876.</td></tr>
+<tr><td>Kailashbashini Debi</td><td>Wrote about women's suffering and confinement.</td></tr>
+<tr><td>Tarabai Shinde</td><td>Criticised the condition of upper-caste Hindu women.</td></tr>
+<tr><td>Pandita Ramabai</td><td>Wrote about the suffering of upper-caste Hindu women and widows.</td></tr>
+<tr><td>Begum Rokeya</td><td>Advocated women's education in 1926.</td></tr>
+<tr><td>Ram Chaddha</td><td>Published Istri Dharm Vichar.</td></tr>
+<tr><td>Jyotiba Phule</td><td>Wrote Gulamgiri in 1871.</td></tr>
+<tr><td>B. R. Ambedkar</td><td>Wrote against caste discrimination.</td></tr>
+<tr><td>E. V. Ramaswamy Naicker</td><td>Known as Periyar; criticised caste inequality.</td></tr>
+<tr><td>Kashibaba</td><td>Wrote Chhote Aur Bade Ka Sawal in 1938.</td></tr>
+<tr><td>Sudarshan Chakr</td><td>Kanpur millworker whose poems were collected in Sacchi Kavitayan.</td></tr>
+<tr><td>Lakshminath Bezbaruah</td><td>Modern Assamese literary figure; wrote Burhi Aair Sadhu and O Mor Apunar Desh.</td></tr>
+<tr><td>Bal Gangadhar Tilak</td><td>Wrote in Kesari and was imprisoned in 1908.</td></tr>
+<tr><td>Thomas Macaulay</td><td>Formulated revised press rules in 1835.</td></tr>
+<tr><td>Governor-General Bentinck</td><td>Agreed to revise press laws in 1835.</td></tr>
+<tr><td>Gandhi</td><td>Connected Swaraj with liberty of speech, press and association.</td></tr>
+</table>
+</div>
+</details>
+
+<!-- SECTION 14 -->
+<details class="section" id="s14">
+<summary>14. IMPORTANT BOOKS, NEWSPAPERS AND PUBLICATIONS</summary>
+<div class="section-body">
+<table>
+<tr><th>Book / Newspaper</th><th>Person / Association</th><th>Importance</th></tr>
+<tr><td>Diamond Sutra</td><td>Japanese Buddhist printing tradition</td><td>Printed in AD 868.</td></tr>
+<tr><td>Ninety Five Theses</td><td>Martin Luther</td><td>Criticism of Catholic Church practices, 1517.</td></tr>
+<tr><td>Adages</td><td>Erasmus</td><td>Published in 1508; expressed fear of excessive printing.</td></tr>
+<tr><td>Bibliothèque Bleue</td><td>French publishers</td><td>Cheap books with blue covers.</td></tr>
+<tr><td>Penny Magazine</td><td>Society for the Diffusion of Useful Knowledge</td><td>Published 1832–1835 for working-class readers.</td></tr>
+<tr><td>Bengal Gazette</td><td>James Augustus Hickey</td><td>English weekly magazine begun in 1780.</td></tr>
+<tr><td>Bengal Gazette</td><td>Gangadhar Bhattacharya</td><td>Indian weekly newspaper mentioned in NCERT.</td></tr>
+<tr><td>Sambad Kaumudi</td><td>Rammohun Roy</td><td>Published from 1821.</td></tr>
+<tr><td>Samachar Chandrika</td><td>Hindu orthodoxy</td><td>Opposed Rammohun Roy's opinions.</td></tr>
+<tr><td>Jam-i-Jahan Nama</td><td>—</td><td>Persian newspaper, 1822.</td></tr>
+<tr><td>Shamsul Akhbar</td><td>—</td><td>Persian newspaper, 1822.</td></tr>
+<tr><td>Bombay Samachar</td><td>—</td><td>Gujarati newspaper, 1822.</td></tr>
+<tr><td>Ramcharitmanas</td><td>Tulsidas</td><td>First printed edition appeared in Calcutta in 1810.</td></tr>
+<tr><td>Amar Jiban</td><td>Rashsundari Debi</td><td>First full-length Bengali autobiography, 1876.</td></tr>
+<tr><td>Istri Dharm Vichar</td><td>Ram Chaddha</td><td>Book about qualities of an obedient wife.</td></tr>
+<tr><td>Gulamgiri</td><td>Jyotiba Phule</td><td>Criticism of caste injustice, 1871.</td></tr>
+<tr><td>Chhote Aur Bade Ka Sawal</td><td>Kashibaba</td><td>Discussed caste and class exploitation, 1938.</td></tr>
+<tr><td>Sacchi Kavitayan</td><td>Sudarshan Chakr</td><td>Collection of poems by a Kanpur millworker.</td></tr>
+<tr><td>Burhi Aair Sadhu</td><td>Lakshminath Bezbaruah</td><td>Grandma's Tales.</td></tr>
+<tr><td>Keshari / Kesari</td><td>Bal Gangadhar Tilak</td><td>Newspaper in which he wrote about deported Punjab revolutionaries.</td></tr>
+</table>
+</div>
+</details>
+
+<!-- SECTION 15 -->
+<details class="section" id="s15">
+<summary>15. COMPLETE CHRONOLOGY AND IMPORTANT DATES</summary>
+<div class="section-body">
+<div class="timeline">
+<div><strong>AD 594:</strong> Woodblock printing used for books in China.</div>
+<div><strong>AD 768–770:</strong> Printing technology introduced into Japan.</div>
+<div><strong>AD 868:</strong> Diamond Sutra printed in Japan.</div>
+<div><strong>Mid-thirteenth century:</strong> Tripitaka Koreana woodblocks belong to this period.</div>
+<div><strong>Late fourteenth century:</strong> Jikji printed with movable metal type.</div>
+<div><strong>1295:</strong> Marco Polo returned to Italy.</div>
+<div><strong>1430s:</strong> Gutenberg developed the first-known European printing press.</div>
+<div><strong>1448:</strong> Gutenberg perfected his printing system.</div>
+<div><strong>1508:</strong> Erasmus published Adages.</div>
+<div><strong>1517:</strong> Martin Luther wrote Ninety Five Theses.</div>
+<div><strong>1558:</strong> Index of Prohibited Books began.</div>
+<div><strong>1579:</strong> First Tamil book printed at Cochin.</div>
+<div><strong>Mid-sixteenth century:</strong> Printing press introduced in Goa.</div>
+<div><strong>1674:</strong> About 50 Konkani and Kanara books had been printed.</div>
+<div><strong>1710:</strong> Dutch missionaries had printed 32 Tamil texts.</div>
+<div><strong>1713:</strong> First Malayalam book printed.</div>
+<div><strong>1780:</strong> Hickey began editing Bengal Gazette.</div>
+<div><strong>1791:</strong> James Lackington recorded growth in book sales.</div>
+<div><strong>1810:</strong> First printed edition of Ramcharitmanas appeared in Calcutta.</div>
+<div><strong>1812:</strong> Grimm Brothers' folk-tale collection published.</div>
+<div><strong>1821:</strong> Sambad Kaumudi published.</div>
+<div><strong>1822:</strong> Jam-i-Jahan Nama, Shamsul Akhbar and Bombay Samachar appeared.</div>
+<div><strong>1832–1835:</strong> Penny Magazine published.</div>
+<div><strong>1835:</strong> Press laws revised under Bentinck.</div>
+<div><strong>1857:</strong> Children's press established in France.</div>
+<div><strong>1867:</strong> Deoband Seminary founded.</div>
+<div><strong>1871:</strong> Gulamgiri written by Jyotiba Phule.</div>
+<div><strong>1876:</strong> Amar Jiban published.</div>
+<div><strong>1878:</strong> Vernacular Press Act passed.</div>
+<div><strong>1907:</strong> Punjab revolutionaries deported.</div>
+<div><strong>1908:</strong> Tilak imprisoned.</div>
+<div><strong>1922:</strong> Gandhi's statement on freedom of speech and press.</div>
+<div><strong>1926:</strong> Begum Rokeya advocated women's education.</div>
+<div><strong>1938:</strong> Kashibaba published Chhote Aur Bade Ka Sawal.</div>
+<div><strong>August 1942:</strong> About 90 newspapers suppressed.</div>
+</div>
+</div>
+</details>
+
+<!-- SECTION 16 -->
+<details class="section" id="s16">
+<summary>16. IMPORTANT COMPARISONS</summary>
+<div class="section-body">
+
+<h3>16.1 Before and After the Print Revolution</h3>
+<table>
+<tr><th>Before Print Revolution</th><th>After Print Revolution</th></tr>
+<tr><td>Books copied by hand.</td><td>Books produced mechanically.</td></tr>
+<tr><td>Books were expensive.</td><td>Books became comparatively cheaper.</td></tr>
+<tr><td>Circulation was limited.</td><td>Circulation increased.</td></tr>
+<tr><td>Reading was largely restricted to elites.</td><td>Wider sections of society gained access.</td></tr>
+<tr><td>Production was slow.</td><td>Production became faster.</td></tr>
+<tr><td>Oral culture was dominant.</td><td>Print and oral culture interacted.</td></tr>
+</table>
+
+<h3>16.2 Manuscripts and Printed Books</h3>
+<table>
+<tr><th>Manuscripts</th><th>Printed Books</th></tr>
+<tr><td>Written by hand.</td><td>Produced using printing technology.</td></tr>
+<tr><td>Copied on palm leaves or handmade paper.</td><td>Produced in multiple printed copies.</td></tr>
+<tr><td>Expensive and fragile.</td><td>Comparatively cheaper and more accessible.</td></tr>
+<tr><td>Limited circulation.</td><td>Wider circulation.</td></tr>
+<tr><td>Each copy required manual labour.</td><td>Multiple copies could be reproduced efficiently.</td></tr>
+</table>
+
+<h3>16.3 Woodblock and Movable Type Printing</h3>
+<table>
+<tr><th>Woodblock Printing</th><th>Movable Type Printing</th></tr>
+<tr><td>Text carved into wooden blocks.</td><td>Individual metal letters used.</td></tr>
+<tr><td>Blocks prepared for particular pages.</td><td>Letters rearranged to form different texts.</td></tr>
+<tr><td>New text required new blocks.</td><td>Types could be reused.</td></tr>
+<tr><td>Carving required time and labour.</td><td>Composition and printing became faster.</td></tr>
+</table>
+
+<h3>16.4 Hickey and Gangadhar Bhattacharya</h3>
+<table>
+<tr><th>James Augustus Hickey</th><th>Gangadhar Bhattacharya</th></tr>
+<tr><td>Started editing Bengal Gazette in 1780.</td><td>Published an Indian weekly Bengal Gazette.</td></tr>
+<tr><td>Associated with private English printing.</td><td>Associated with early Indian newspaper publishing.</td></tr>
+<tr><td>Published criticism and gossip about Company officials.</td><td>Was close to Rammohun Roy.</td></tr>
+</table>
+</div>
+</details>
+
+<!-- SECTION 17 -->
+<details class="section" id="s17">
+<summary>17. IMPORTANT TERMINOLOGY AND DEFINITIONS</summary>
+<div class="section-body">
+<table>
+<tr><th>Term</th><th>Definition</th></tr>
+<tr><td>Calligraphy</td><td>The art of beautiful and stylised writing.</td></tr>
+<tr><td>Vellum</td><td>Parchment made from animal skin.</td></tr>
+<tr><td>Platen</td><td>A board used to press paper against printing type.</td></tr>
+<tr><td>Compositor</td><td>A person who arranges text for printing.</td></tr>
+<tr><td>Galley</td><td>A metal frame in which printing types are laid.</td></tr>
+<tr><td>Ballad</td><td>A historical account or folk tale in verse.</td></tr>
+<tr><td>Tavern</td><td>A place where people gathered to eat, drink and exchange news.</td></tr>
+<tr><td>Protestant Reformation</td><td>A sixteenth-century movement to reform the Roman Catholic Church.</td></tr>
+<tr><td>Inquisition</td><td>A former Roman Catholic court for identifying and punishing heretics.</td></tr>
+<tr><td>Heretical</td><td>Beliefs contrary to accepted Church teachings.</td></tr>
+<tr><td>Satiety</td><td>A state of being fulfilled beyond satisfaction.</td></tr>
+<tr><td>Seditious</td><td>Action, speech or writing seen as opposing government authority.</td></tr>
+<tr><td>Denominations</td><td>Subgroups within a religion.</td></tr>
+<tr><td>Almanac</td><td>An annual publication giving astronomical and calendar information.</td></tr>
+<tr><td>Chapbook</td><td>A pocket-sized book sold by travelling pedlars.</td></tr>
+<tr><td>Despotism</td><td>A system of governance in which absolute power is exercised without effective checks.</td></tr>
+<tr><td>Ulama</td><td>Legal scholars of Islam and Sharia.</td></tr>
+<tr><td>Fatwa</td><td>A legal pronouncement on Islamic law.</td></tr>
+<tr><td>Ukiyo</td><td>Pictures of the floating world.</td></tr>
+<tr><td>Vernacular</td><td>The language spoken by ordinary people in a region.</td></tr>
+</table>
+</div>
+</details>
+
+<!-- SECTION 18 -->
+<details class="section" id="s18">
+<summary>18. IMPORTANT FACTS FOR QUICK REVISION</summary>
+<div class="section-body">
+<ol>
+ <li>Earliest print technology developed in China, Japan and Korea.</li>
+ <li>Chinese woodblock printing dates from AD 594.</li>
+ <li>Diamond Sutra was printed in AD 868.</li>
+ <li>Marco Polo returned to Italy in 1295.</li>
+ <li>Gutenberg perfected his printing system in 1448.</li>
+ <li>Gutenberg's first printed book was the Bible.</li>
+ <li>Martin Luther wrote Ninety Five Theses in 1517.</li>
+ <li>The Index of Prohibited Books began in 1558.</li>
+ <li>The first Tamil book in India was printed in 1579 at Cochin.</li>
+ <li>The printing press came to Goa in the mid-sixteenth century.</li>
+ <li>Hickey began editing Bengal Gazette in 1780.</li>
+ <li>Ramcharitmanas was printed in Calcutta in 1810.</li>
+ <li>Sambad Kaumudi began in 1821.</li>
+ <li>Deoband Seminary was founded in 1867.</li>
+ <li>Gulamgiri was written in 1871.</li>
+ <li>Amar Jiban was published in 1876.</li>
+ <li>Vernacular Press Act was passed in 1878.</li>
+ <li>Tilak was imprisoned in 1908.</li>
+ <li>Gandhi's statement on press freedom dates to 1922.</li>
+ <li>Begum Rokeya advocated women's education in 1926.</li>
+ <li>Kashibaba's book was published in 1938.</li>
+ <li>About 90 newspapers were suppressed in August 1942.</li>
+</ol>
+</div>
+</details>
+
+<!-- SECTION 19 -->
+<details class="section" id="s19">
+<summary>19. NCERT DISCUSSION QUESTIONS – WITH ANSWERS</summary>
+<div class="section-body">
+
+<div class="question">
+<h3>Q1. Why did some people in eighteenth-century Europe think that print culture would bring enlightenment and end despotism?</h3>
+<div class="answer">
+<strong>Answer:</strong>
+<ul>
+ <li>People believed books could spread knowledge, education and rational thinking.</li>
+ <li>Enlightenment thinkers such as Voltaire and Rousseau criticised superstition, traditional authority and despotism.</li>
+ <li>Printed books made their ideas accessible to a wider public.</li>
+ <li>Print encouraged discussion and debate about existing social and political institutions.</li>
+ <li>People began questioning the authority of the Church and absolute rulers.</li>
+ <li>Public opinion was increasingly seen as a force capable of challenging tyranny.</li>
+</ul>
+<strong>Conclusion:</strong> Print was considered a means of spreading reason, enlightenment and freedom.
+</div>
+</div>
+
+<div class="question">
+<h3>Q2. Why did some people fear the effect of easily available printed books? Give one example from Europe and one from India.</h3>
+<div class="answer">
+<strong>Answer:</strong>
+<p>Some people feared that uncontrolled printing could spread rebellious,
+irreligious and anti-authority ideas. They worried that ordinary people
+might question established religious and political institutions.</p>
+<strong>European example:</strong>
+<p>The Roman Catholic Church feared the spread of dissenting religious ideas.
+Menocchio developed his own interpretation of the Bible after reading
+printed books. The Church punished him and began maintaining the Index
+of Prohibited Books in 1558.</p>
+<strong>Indian example:</strong>
+<p>The British colonial government feared nationalist criticism in vernacular
+newspapers. It passed the Vernacular Press Act in 1878, which allowed
+censorship and the seizure of printing presses.</p>
+</div>
+</div>
+
+<div class="question">
+<h3>Q3. What were the effects of the spread of print culture for poor people in nineteenth-century India?</h3>
+<div class="answer">
+<strong>Answer:</strong>
+<ul>
+ <li>Cheap books became available in markets and at crossroads.</li>
+ <li>Poor people could purchase small books at affordable prices.</li>
+ <li>Public libraries expanded access to reading material.</li>
+ <li>Printed tracts and essays discussed caste discrimination.</li>
+ <li>Jyotiba Phule used print to criticise caste injustice through Gulamgiri.</li>
+ <li>Ambedkar and Periyar used writing to challenge caste inequality.</li>
+ <li>Workers such as Kashibaba and Sudarshan Chakr expressed their experiences through literature.</li>
+ <li>Workers' libraries encouraged literacy and self-education.</li>
+</ul>
+<strong>Conclusion:</strong> Print helped poor people gain access to knowledge,
+express their experiences and participate in social reform.
+</div>
+</div>
+
+<div class="question">
+<h3>Q4. Explain how print culture assisted the growth of nationalism in India.</h3>
+<div class="answer">
+<strong>Answer:</strong>
+<ul>
+ <li>Newspapers spread information about colonial policies and government actions.</li>
+ <li>Printed material exposed colonial misrule.</li>
+ <li>Nationalist newspapers encouraged political awareness.</li>
+ <li>Print connected people living in different regions of India.</li>
+ <li>Newspapers created discussion about common political issues.</li>
+ <li>Printed literature helped people question colonial authority.</li>
+ <li>Nationalist cartoons and caricatures criticised imperial rule.</li>
+ <li>Leaders such as Bal Gangadhar Tilak used newspapers like Kesari to express nationalist views.</li>
+ <li>Attempts to suppress the press often provoked protests.</li>
+</ul>
+<strong>Conclusion:</strong> Print helped spread political awareness, connect people
+and strengthen nationalist ideas.
+</div>
+</div>
+
+</div>
+</details>
+
+<!-- SECTION 20 -->
+<details class="section" id="s20">
+<summary>20. NCERT WRITE IN BRIEF – ALL QUESTIONS WITH ANSWERS</summary>
+<div class="section-body">
+
+<div class="question">
+<h3>Q1(a). Why did woodblock printing only come to Europe after 1295?</h3>
+<div class="answer">
+<strong>Answer:</strong>
+Woodblock printing had developed in China much earlier. In 1295, Marco Polo
+returned to Italy after exploring China and brought knowledge of Chinese
+woodblock printing. Italians then began producing books using woodblocks,
+and the technique gradually spread to other parts of Europe.
+</div>
+</div>
+
+<div class="question">
+<h3>Q1(b). Why was Martin Luther in favour of print and why did he praise it?</h3>
+<div class="answer">
+<strong>Answer:</strong>
+Martin Luther's religious ideas spread rapidly because his writings were
+printed and reproduced in large numbers. His Ninety Five Theses helped
+stimulate debate about the practices of the Roman Catholic Church.
+His translation of the New Testament also sold thousands of copies.
+He therefore considered printing a great gift because it helped spread
+religious ideas and reformist thinking.
+</div>
+</div>
+
+<div class="question">
+<h3>Q1(c). Why did the Roman Catholic Church begin keeping an Index of Prohibited Books from the mid-sixteenth century?</h3>
+<div class="answer">
+<strong>Answer:</strong>
+The Church feared that printed books would encourage people to develop
+individual interpretations of religion and question established beliefs.
+The case of Menocchio, an Italian miller who developed his own
+interpretation of the Bible, increased these concerns. The Church therefore
+imposed controls on publishers and booksellers and began maintaining
+the Index of Prohibited Books in 1558.
+</div>
+</div>
+
+<div class="question">
+<h3>Q1(d). Why did Gandhi say that the fight for Swaraj was a fight for liberty of speech, liberty of the press and freedom of association?</h3>
+<div class="answer">
+<strong>Answer:</strong>
+Gandhi believed that freedom of speech and the press was necessary for
+people to express opinions and criticise government policies. Freedom
+of association allowed people to organise and work together.
+The colonial government attempted to restrict these freedoms to suppress
+public opinion and nationalist activities. Therefore, Gandhi considered
+these freedoms essential to the struggle for Swaraj.
+</div>
+</div>
+
+<h3>Q2. Write short notes on the following.</h3>
+
+<div class="question">
+<h4>(a) The Gutenberg Press</h4>
+<div class="answer">
+<strong>Answer:</strong>
+Johann Gutenberg developed the first-known European printing press in the
+1430s and perfected his system by 1448. He adapted the olive press and
+used metal moulds to cast movable letters. His first printed book was the
+Bible. About 180 copies were produced in approximately three years.
+The press made book production faster and helped bring about the Print Revolution.
+</div>
+</div>
+
+<div class="question">
+<h4>(b) Erasmus's idea of the printed book</h4>
+<div class="answer">
+<strong>Answer:</strong>
+Erasmus was a Latin scholar and Catholic reformer. In his work
+<em>Adages</em> (1508), he expressed concern about the excessive number
+of printed books. He believed that although some books contained useful
+knowledge, many were foolish, ignorant, scandalous, irreligious or
+seditious. He feared that the large number of worthless books would
+damage scholarship and reduce the value of useful publications.
+</div>
+</div>
+
+<div class="question">
+<h4>(c) The Vernacular Press Act</h4>
+<div class="answer">
+<strong>Answer:</strong>
+The Vernacular Press Act was passed in 1878 by the British colonial
+government. It was modelled on the Irish Press Laws. It gave the
+government extensive powers to censor vernacular newspapers.
+Newspapers considered seditious could be warned. If they ignored
+the warning, their printing presses could be seized and their machinery
+confiscated. The Act was introduced to suppress nationalist criticism.
+</div>
+</div>
+
+<h3>Q3. What did the spread of print culture in nineteenth-century India mean to the following groups?</h3>
+
+<div class="question">
+<h4>(a) Women</h4>
+<div class="answer">
+<strong>Answer:</strong>
+<ul>
+ <li>Women gained greater access to reading material.</li>
+ <li>Journals encouraged women's education.</li>
+ <li>Women began writing autobiographies, novels and articles.</li>
+ <li>Writers such as Rashsundari Debi, Tarabai Shinde and Pandita Ramabai expressed women's experiences.</li>
+ <li>Publications discussed widowhood, widow remarriage and social restrictions.</li>
+ <li>Print helped women express their ideas and question social inequalities.</li>
+</ul>
+</div>
+</div>
+
+<div class="question">
+<h4>(b) The Poor</h4>
+<div class="answer">
+<strong>Answer:</strong>
+<ul>
+ <li>Cheap books became available in markets.</li>
+ <li>Public libraries expanded access to reading.</li>
+ <li>Printed literature spread awareness of caste discrimination.</li>
+ <li>Workers used print to express their experiences.</li>
+ <li>Workers' libraries encouraged literacy and self-education.</li>
+</ul>
+</div>
+</div>
+
+<div class="question">
+<h4>(c) Reformers</h4>
+<div class="answer">
+<strong>Answer:</strong>
+<ul>
+ <li>Reformers used print to spread social and religious reform ideas.</li>
+ <li>They criticised harmful social practices.</li>
+ <li>They published arguments in newspapers, books and pamphlets.</li>
+ <li>They reached a wider public.</li>
+ <li>They encouraged debate about caste, women's education and religious beliefs.</li>
+</ul>
+</div>
+</div>
+
+</div>
+</details>
+
+<!-- SECTION 21 -->
+<details class="section" id="s21">
+<summary>21. NCERT DISCUSS, PROJECT AND ACTIVITY QUESTIONS – ANSWERS</summary>
+<div class="section-body">
+
+<div class="question">
+<h3>Q1. Why did some people fear that the development of print could lead to the growth of dissenting ideas?</h3>
+<div class="answer">
+<strong>Answer:</strong>
+Print allowed ideas to circulate beyond the control of religious and
+political authorities. People could read different interpretations of
+religion and society. This could encourage criticism of traditional
+beliefs and institutions. Authorities feared that rebellious and
+irreligious ideas might spread, weakening their power.
+</div>
+</div>
+
+<div class="question">
+<h3>Q2. Why did some people in eighteenth-century Europe believe books could change the world?</h3>
+<div class="answer">
+<strong>Answer:</strong>
+Books spread scientific knowledge, rational thinking and Enlightenment
+ideas. They encouraged people to question superstition, despotism and
+traditional authority. Writers such as Voltaire and Rousseau helped
+popularise ideas of reason, equality and criticism of absolute power.
+</div>
+</div>
+
+<div class="question">
+<h3>Q3. What was the importance of the Penny Magazine?</h3>
+<div class="answer">
+<strong>Answer:</strong>
+The Penny Magazine was published in England between 1832 and 1835
+by the Society for the Diffusion of Useful Knowledge. It was aimed
+primarily at working-class readers and helped make reading material
+accessible to ordinary people.
+</div>
+</div>
+
+<div class="question">
+<h3>Q4. What was the role of Battala in the development of print culture?</h3>
+<div class="answer">
+<strong>Answer:</strong>
+Battala in central Calcutta became an important centre of popular book
+printing. It sold cheap religious tracts, scriptures and other popular
+literature. Books were often illustrated with woodcuts and coloured
+lithographs. Pedlars carried these books to homes, increasing access
+to printed material.
+</div>
+</div>
+
+<div class="question">
+<h3>Q5. What changes did printing bring to women's lives in India?</h3>
+<div class="answer">
+<strong>Answer:</strong>
+Printing encouraged women's education and reading. Journals discussed
+women's rights, widowhood, widow remarriage and social restrictions.
+Women began writing autobiographies and books about their lives.
+Print provided women with a platform to express their experiences
+and challenge social inequalities.
+</div>
+</div>
+
+<div class="question">
+<h3>Q6. How did print help the growth of anti-caste movements?</h3>
+<div class="answer">
+<strong>Answer:</strong>
+Printed books, essays and journals spread criticism of caste discrimination.
+Jyotiba Phule wrote Gulamgiri in 1871. B. R. Ambedkar and Periyar
+also used writing to challenge caste inequality. These publications
+helped spread anti-caste ideas across India.
+</div>
+</div>
+
+<div class="question">
+<h3>Q7. What changes took place in printing technology during the last hundred years?</h3>
+<div class="answer">
+<strong>Answer:</strong>
+Based on the technological developments discussed in the chapter,
+printing gradually shifted from manual presses to metal, power-driven
+and electrically operated machinery. Offset printing, improved paper
+feeding, better printing plates, automatic paper reels and colour
+registration controls increased speed and quality. Modern developments
+have further introduced digital composition, computer-based design,
+laser printing and high-speed digital production.
+<div class="note">
+The final examples of digital printing are additional modern context;
+the historical developments in the earlier part of the answer follow
+the NCERT chapter.
+</div>
+</div>
+</div>
+</details>
+
+<!-- SECTION 22 -->
+<details class="section" id="s22">
+<summary>22. FINAL CHAPTER SUMMARY AND CONCEPTUAL FLOW</summary>
+<div class="section-body">
+
+<h3>The Journey of Print Culture</h3>
+<div class="timeline">
+<div><strong>East Asia:</strong> China, Japan and Korea developed early hand-printing techniques.</div>
+<div><strong>Europe:</strong> Marco Polo carried knowledge of woodblock printing to Italy; Gutenberg developed the movable-type press.</div>
+<div><strong>Print Revolution:</strong> Books became cheaper and a wider reading public emerged.</div>
+<div><strong>Religion:</strong> Print encouraged religious debates and contributed to the Protestant Reformation.</div>
+<div><strong>Enlightenment:</strong> Printed books spread reason, scientific knowledge and criticism of despotism.</div>
+<div><strong>Social Change:</strong> Print expanded education and reading among children, women and workers.</div>
+<div><strong>India:</strong> Printing spread through missionaries, newspapers, religious publications and Indian publishers.</div>
+<div><strong>Reform:</strong> Print helped spread debates about caste, religion and women's education.</div>
+<div><strong>Nationalism:</strong> Newspapers and printed literature spread awareness of colonial rule.</div>
+<div><strong>Censorship:</strong> Colonial laws, especially the Vernacular Press Act of 1878, attempted to control the press.</div>
+</div>
+
+<div class="exam">
+ <h3>Most Important Conclusion</h3>
+ Print transformed the modern world by expanding access to knowledge,
+ encouraging debate, supporting social reform, challenging authority
+ and helping the growth of nationalism.
+</div>
+</div>
+</details>
+
+</main>
+</div>
+
+<footer>
+ <h3>PRINT CULTURE AND THE MODERN WORLD</h3>
+ <p>Class 10 History | Complete Classified Notes</p>
+ <p>NCERT-based learning resource</p>
+</footer>
+
+<button id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+const sections=[...document.querySelectorAll(".section")];
+const toc=document.getElementById("tocList");
+
+sections.forEach((section,index)=>{
+ const title=section.querySelector("summary").innerText;
+ const li=document.createElement("li");
+ const link=document.createElement("a");
+ link.href="#"+section.id;
+ link.textContent=title;
+ link.addEventListener("click",function(e){
+  e.preventDefault();
+  section.open=true;
+  section.scrollIntoView({behavior:"smooth",block:"start"});
+  document.querySelectorAll("#tocList a").forEach(a=>a.classList.remove("active"));
+  link.classList.add("active");
+  if(window.innerWidth<=950){
+   document.getElementById("sidebar").classList.remove("show");
+  }
+ });
+ li.appendChild(link);
+ toc.appendChild(li);
+});
+
+function toggleAll(open){
+ sections.forEach(section=>section.open=open);
+}
+
+function toggleSidebar(){
+ document.getElementById("sidebar").classList.toggle("show");
+}
+
+function clearSearch(){
+ document.getElementById("searchInput").value="";
+ document.querySelectorAll("mark").forEach(mark=>{
+  mark.replaceWith(document.createTextNode(mark.textContent));
+ });
+ document.querySelectorAll(".section").forEach(section=>{
+  section.classList.remove("hidden");
+ });
+}
+
+const searchInput=document.getElementById("searchInput");
+
+searchInput.addEventListener("input",function(){
+ const query=this.value.trim().toLowerCase();
+
+ document.querySelectorAll("mark").forEach(mark=>{
+  mark.replaceWith(document.createTextNode(mark.textContent));
+ });
+
+ if(!query){
+  sections.forEach(section=>section.classList.remove("hidden"));
+  return;
+ }
+
+ sections.forEach(section=>{
+  const text=section.innerText.toLowerCase();
+  const found=text.includes(query);
+  section.classList.toggle("hidden",!found);
+
+  if(found){
+   section.open=true;
+   highlightText(section,query);
+  }
+ });
+});
+
+function highlightText(root,query){
+ const walker=document.createTreeWalker(
+  root,
+  NodeFilter.SHOW_TEXT,
+  {
+   acceptNode(node){
+    if(!node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+    if(node.parentElement.closest("script,style,mark")) return NodeFilter.FILTER_REJECT;
+    return NodeFilter.FILTER_ACCEPT;
+   }
+  }
+ );
+
+ const nodes=[];
+ while(walker.nextNode()) nodes.push(walker.currentNode);
+
+ nodes.forEach(node=>{
+  const value=node.nodeValue;
+  const lower=value.toLowerCase();
+  const index=lower.indexOf(query);
+  if(index<0)return;
+
+  const fragment=document.createDocumentFragment();
+  let position=0;
+
+  while(true){
+   const found=lower.indexOf(query,position);
+   if(found<0)break;
+
+   fragment.appendChild(document.createTextNode(value.slice(position,found)));
+
+   const mark=document.createElement("mark");
+   mark.textContent=value.slice(found,found+query.length);
+   fragment.appendChild(mark);
+
+   position=found+query.length;
+  }
+
+  fragment.appendChild(document.createTextNode(value.slice(position)));
+  node.replaceWith(fragment);
+ });
+}
+
+window.addEventListener("scroll",()=>{
+ const total=document.documentElement.scrollHeight-window.innerHeight;
+ const progress=total>0?(window.scrollY/total)*100:0;
+ document.getElementById("progressBar").style.width=progress+"%";
+
+ const topBtn=document.getElementById("topBtn");
+ topBtn.style.display=window.scrollY>400?"block":"none";
+});
+</script>
+
+</body>
+</html>
