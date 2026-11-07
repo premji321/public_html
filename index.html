@@ -38,9 +38,7 @@ body {
     width: 100%;
 }
 
-/* ==================================
-   SIDEBAR
-================================== */
+/* SIDEBAR */
 
 .sidebar {
     width: 330px;
@@ -50,28 +48,33 @@ body {
     display: flex;
     flex-direction: column;
     z-index: 10;
+}
 
+/* ONLY NEW ADDITION: DESKTOP SIDEBAR TOGGLE */
+
+.sidebar {
     transition:
         width 0.3s ease,
         min-width 0.3s ease,
-        transform 0.3s ease,
-        opacity 0.25s ease;
+        transform 0.3s ease;
 }
 
-/* Desktop sidebar OFF */
-
-.sidebar.collapsed {
+.sidebar.desktop-hidden {
     width: 0;
     min-width: 0;
     overflow: hidden;
     border-right: none;
-    opacity: 0;
 }
+
+.panel-toggle-btn {
+    white-space: nowrap;
+}
+
+/* END NEW ADDITION */
 
 .sidebar-header {
     padding: 22px 18px 16px;
     border-bottom: 1px solid var(--border);
-    flex-shrink: 0;
 }
 
 .brand {
@@ -84,7 +87,6 @@ body {
 .brand-icon {
     width: 42px;
     height: 42px;
-    min-width: 42px;
     border-radius: 13px;
     background: linear-gradient(135deg, #4968dc, #758cf5);
     display: flex;
@@ -136,7 +138,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-shrink: 0;
 }
 
 .tree-heading span {
@@ -152,14 +153,12 @@ body {
     color: var(--primary);
     font-size: 11px;
     cursor: pointer;
-    white-space: nowrap;
 }
 
 .tree-container {
     flex: 1;
     overflow-y: auto;
     padding: 5px 10px 20px;
-    min-height: 0;
 }
 
 .tree-container::-webkit-scrollbar {
@@ -171,9 +170,7 @@ body {
     border-radius: 10px;
 }
 
-/* ==================================
-   ROOT FOLDERS
-================================== */
+/* ROOT FOLDERS */
 
 .root-section {
     margin-bottom: 10px;
@@ -227,9 +224,7 @@ body {
     border-radius: 6px;
 }
 
-/* ==================================
-   TREE NODES
-================================== */
+/* TREE NODES */
 
 .node {
     width: 100%;
@@ -312,9 +307,7 @@ body {
     color: #4968dc;
 }
 
-/* ==================================
-   ANIMATED DROPDOWN
-================================== */
+/* ANIMATED DROPDOWN */
 
 .children {
     display: grid;
@@ -341,9 +334,7 @@ body {
     border-left: 1px solid #e8ebf3;
 }
 
-/* ==================================
-   SIDEBAR FOOTER
-================================== */
+/* STATUS */
 
 .loading,
 .empty-state {
@@ -362,7 +353,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-shrink: 0;
 }
 
 .status-dot {
@@ -374,9 +364,7 @@ body {
     margin-right: 5px;
 }
 
-/* ==================================
-   MAIN CONTENT
-================================== */
+/* MAIN CONTENT */
 
 .main {
     flex: 1;
@@ -402,31 +390,6 @@ body {
     align-items: center;
     gap: 12px;
     min-width: 0;
-}
-
-/* SIDEBAR TOGGLE BUTTON */
-
-.toggle-sidebar-btn {
-    width: 38px;
-    height: 38px;
-    min-width: 38px;
-    border: 1px solid var(--border);
-    background: white;
-    border-radius: 9px;
-    cursor: pointer;
-    font-size: 19px;
-    color: #4968dc;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    transition: all 0.2s ease;
-}
-
-.toggle-sidebar-btn:hover {
-    background: #edf1ff;
-    border-color: #cbd5ff;
-    transform: scale(1.04);
 }
 
 .topbar h3 {
@@ -461,9 +424,11 @@ body {
     background: var(--hover);
 }
 
-/* ==================================
-   PREVIEW
-================================== */
+.menu-btn {
+    display: none;
+}
+
+/* PREVIEW */
 
 .preview {
     flex: 1;
@@ -471,7 +436,6 @@ body {
     padding: 18px;
     display: flex;
     flex-direction: column;
-    min-height: 0;
 }
 
 .preview-card {
@@ -576,9 +540,7 @@ body {
     font-size: 13px;
 }
 
-/* ==================================
-   MOBILE
-================================== */
+/* MOBILE */
 
 @media(max-width: 700px) {
 
@@ -598,8 +560,8 @@ body {
         transform: translateX(0);
     }
 
-    .sidebar.collapsed {
-        opacity: 1;
+    .menu-btn {
+        display: inline-block;
     }
 
     .topbar {
@@ -625,6 +587,16 @@ body {
         padding: 10px;
     }
 
+    /* ONLY NEW MOBILE OVERRIDE */
+
+    .panel-toggle-btn {
+        display: none;
+    }
+
+    .sidebar.desktop-hidden {
+        width: min(86%, 340px);
+        min-width: 0;
+    }
 }
 </style>
 </head>
@@ -641,7 +613,6 @@ body {
 
             <div class="brand">
                 <div class="brand-icon">📚</div>
-
                 <div>
                     <h2>Study Library</h2>
                     <p>BPSC & NCERT Resources</p>
@@ -650,7 +621,6 @@ body {
 
             <div class="search-box">
                 <span class="search-icon">⌕</span>
-
                 <input
                     type="text"
                     id="searchInput"
@@ -689,36 +659,31 @@ body {
 
             <div class="topbar-left">
 
-                <!-- SIDEBAR TOGGLE -->
+                <button
+                    class="action-btn menu-btn"
+                    onclick="toggleSidebar()"
+                >☰</button>
+
+                <!-- ONLY NEW BUTTON -->
 
                 <button
-                    class="toggle-sidebar-btn"
-                    id="sidebarToggle"
-                    onclick="toggleSidebar()"
+                    class="action-btn panel-toggle-btn"
+                    onclick="toggleDesktopSidebar()"
                     title="Show / Hide Sidebar"
-                    aria-label="Show or hide sidebar"
                 >
-                    ☰
+                    ☰ Panel
                 </button>
 
                 <div>
-                    <h3 id="currentTitle">
-                        Welcome to Study Library
-                    </h3>
-
-                    <p id="currentPath">
-                        Select a file from the folder navigation
-                    </p>
+                    <h3 id="currentTitle">Welcome to Study Library</h3>
+                    <p id="currentPath">Select a file from the folder navigation</p>
                 </div>
 
             </div>
 
             <div class="top-actions">
 
-                <button
-                    class="action-btn"
-                    onclick="loadRepository()"
-                >
+                <button class="action-btn" onclick="loadRepository()">
                     ↻ Refresh
                 </button>
 
@@ -738,10 +703,7 @@ body {
             <div class="preview-card">
 
                 <div class="preview-header">
-
-                    <span id="previewTitle">
-                        Content Preview
-                    </span>
+                    <span id="previewTitle">Content Preview</span>
 
                     <button
                         class="action-btn"
@@ -751,23 +713,18 @@ body {
                     >
                         Open Original ↗
                     </button>
-
                 </div>
 
                 <div class="preview-content" id="previewContent">
 
                     <div class="welcome">
-
                         <div class="welcome-icon">📖</div>
-
                         <h2>Welcome to Study Library</h2>
-
                         <p>
                             Explore BPSC notes and NCERT textbooks.
                             Select any subject, class, chapter, PDF,
                             HTML note or image from the left panel.
                         </p>
-
                     </div>
 
                 </div>
@@ -790,6 +747,11 @@ body {
 const OWNER = "premji321";
 const REPO = "public_html";
 const BRANCH = "main";
+
+/*
+  Both main folders are managed here.
+  GitHub folder paths are case-sensitive.
+*/
 
 const ROOT_FOLDERS = [
     {
@@ -821,45 +783,6 @@ const GITHUB_URL =
 let repositoryTrees = [];
 let selectedFile = null;
 let allFoldersExpanded = false;
-
-
-/* ==================================
-   SIDEBAR TOGGLE
-================================== */
-
-function toggleSidebar() {
-
-    const sidebar =
-        document.getElementById("sidebar");
-
-    const button =
-        document.getElementById("sidebarToggle");
-
-    if (window.innerWidth <= 700) {
-
-        sidebar.classList.toggle("mobile-open");
-
-        const isOpen =
-            sidebar.classList.contains("mobile-open");
-
-        button.textContent = isOpen ? "✕" : "☰";
-
-    } else {
-
-        sidebar.classList.toggle("collapsed");
-
-        const isOpen =
-            !sidebar.classList.contains("collapsed");
-
-        button.textContent = isOpen ? "☰" : "☰";
-
-        button.title = isOpen
-            ? "Hide Sidebar"
-            : "Show Sidebar";
-
-    }
-
-}
 
 
 /* ==================================
@@ -931,27 +854,19 @@ function createFile(name, path, size = 0) {
 function buildRepositoryTrees(items) {
 
     const roots = ROOT_FOLDERS.map(config => ({
-
         config,
-
         tree: createFolder(
             config.name,
             config.path,
             config.icon
         )
-
     }));
 
     items.forEach(item => {
 
         const rootEntry = roots.find(entry =>
-
             item.path === entry.config.path ||
-
-            item.path.startsWith(
-                entry.config.path + "/"
-            )
-
+            item.path.startsWith(entry.config.path + "/")
         );
 
         if (!rootEntry) return;
@@ -1017,13 +932,9 @@ function countFiles(folder) {
     Object.values(folder.children || {}).forEach(item => {
 
         if (item.type === "file") {
-
             total++;
-
         } else {
-
             total += countFiles(item);
-
         }
 
     });
@@ -1035,11 +946,8 @@ function countFiles(folder) {
 function getTotalFiles() {
 
     return repositoryTrees.reduce(
-
         (sum, entry) => sum + countFiles(entry.tree),
-
         0
-
     );
 
 }
@@ -1055,9 +963,7 @@ function sortedChildren(folder) {
         .sort((a, b) => {
 
             if (a.type !== b.type) {
-
                 return a.type === "folder" ? -1 : 1;
-
             }
 
             return a.name.localeCompare(b.name);
@@ -1143,8 +1049,6 @@ function renderTree() {
 
         section.className = "root-section";
 
-        section.dataset.icon = entry.config.icon;
-
         const row = document.createElement("div");
 
         row.className = "root-row";
@@ -1185,7 +1089,6 @@ function renderTree() {
         });
 
         section.appendChild(row);
-
         section.appendChild(children);
 
         container.appendChild(section);
@@ -1249,7 +1152,6 @@ function createNode(item) {
         });
 
         node.appendChild(row);
-
         node.appendChild(children);
 
     } else {
@@ -1286,9 +1188,7 @@ async function openFile(file, clickedRow) {
     document
         .querySelectorAll(".selected-file")
         .forEach(element => {
-
             element.classList.remove("selected-file");
-
         });
 
     clickedRow.classList.add("selected-file");
@@ -1331,9 +1231,7 @@ async function openFile(file, clickedRow) {
         /* IMAGE */
 
         if ([
-
             "jpg", "jpeg", "png", "gif", "webp", "svg"
-
         ].includes(ext)) {
 
             preview.innerHTML = `
@@ -1377,17 +1275,14 @@ async function openFile(file, clickedRow) {
             const response = await fetch(url);
 
             if (!response.ok) {
-
                 throw new Error("Unable to load HTML file.");
-
             }
 
             let html = await response.text();
 
             const baseURL =
                 RAW_URL +
-                file.path.split("/")
-                    .slice(0, -1)
+                file.path.split("/").slice(0, -1)
                     .map(part => encodeURIComponent(part))
                     .join("/") + "/";
 
@@ -1397,11 +1292,8 @@ async function openFile(file, clickedRow) {
             if (/<head[^>]*>/i.test(html)) {
 
                 html = html.replace(
-
                     /<head[^>]*>/i,
-
                     match => match + baseTag
-
                 );
 
             } else {
@@ -1420,10 +1312,7 @@ async function openFile(file, clickedRow) {
 
             const frame = document.createElement("iframe");
 
-            frame.setAttribute(
-                "sandbox",
-                "allow-same-origin"
-            );
+            frame.setAttribute("sandbox", "allow-same-origin");
 
             frame.srcdoc = html;
 
@@ -1434,17 +1323,13 @@ async function openFile(file, clickedRow) {
         /* TEXT FILES */
 
         else if ([
-
             "txt", "md", "css", "js", "json", "xml", "csv"
-
         ].includes(ext)) {
 
             const response = await fetch(url);
 
             if (!response.ok) {
-
                 throw new Error("Unable to load text file.");
-
             }
 
             const text = await response.text();
@@ -1463,7 +1348,6 @@ async function openFile(file, clickedRow) {
 
             preview.innerHTML = `
                 <div class="welcome">
-
                     <div class="welcome-icon">📄</div>
 
                     <h2>${escapeHTML(file.name)}</h2>
@@ -1472,7 +1356,6 @@ async function openFile(file, clickedRow) {
                         Preview is not available for this file type.
                         Open the original file from GitHub.
                     </p>
-
                 </div>
             `;
 
@@ -1483,10 +1366,6 @@ async function openFile(file, clickedRow) {
             document
                 .getElementById("sidebar")
                 .classList.remove("mobile-open");
-
-            document
-                .getElementById("sidebarToggle")
-                .textContent = "☰";
 
         }
 
@@ -1543,9 +1422,7 @@ function searchTree(query) {
         document.querySelectorAll(
             "#treeContainer .children"
         ).forEach(children => {
-
             children.classList.remove("open");
-
         });
 
         document.querySelectorAll(
@@ -1559,34 +1436,22 @@ function searchTree(query) {
             );
 
             if (icon) {
-
-                if (row.classList.contains("root-row")) {
-
-                    icon.textContent =
-                        row.closest(".root-section").dataset.icon;
-
-                } else {
-
-                    icon.textContent = "📁";
-
-                }
-
+                icon.textContent =
+                    row.classList.contains("root-row")
+                        ? (row.closest(".root-section")?.dataset.icon || "📁")
+                        : "📁";
             }
 
         });
 
         sections.forEach(section => {
-
             section.style.display = "";
-
         });
 
         document.querySelectorAll(
             "#treeContainer .node"
         ).forEach(node => {
-
             node.style.display = "";
-
         });
 
         return;
@@ -1601,8 +1466,7 @@ function searchTree(query) {
         if (!row) return false;
 
         const name =
-            row.querySelector(".node-name")
-                .textContent.toLowerCase();
+            row.querySelector(".node-name").textContent.toLowerCase();
 
         const ownMatch = name.includes(value);
 
@@ -1614,46 +1478,31 @@ function searchTree(query) {
         if (children) {
 
             const inner =
-                children.querySelector(
-                    ":scope > .children-inner"
-                );
+                children.querySelector(":scope > .children-inner");
 
             Array.from(inner.children).forEach(child => {
 
                 if (filterNode(child)) {
-
                     childMatch = true;
-
                 }
 
             });
 
-            children.classList.toggle(
-                "open",
-                childMatch
-            );
+            children.classList.toggle("open", childMatch);
 
-            row.classList.toggle(
-                "expanded",
-                childMatch
-            );
+            row.classList.toggle("expanded", childMatch);
 
-            const icon =
-                row.querySelector(".node-icon");
+            const icon = row.querySelector(".node-icon");
 
             if (icon) {
-
-                icon.textContent =
-                    childMatch ? "📂" : "📁";
-
+                icon.textContent = childMatch ? "📂" : "📁";
             }
 
         }
 
         const visible = ownMatch || childMatch;
 
-        node.style.display =
-            visible ? "" : "none";
+        node.style.display = visible ? "" : "none";
 
         return visible;
 
@@ -1668,9 +1517,7 @@ function searchTree(query) {
             section.querySelector(":scope > .children");
 
         const inner =
-            rootChildren.querySelector(
-                ":scope > .children-inner"
-            );
+            rootChildren.querySelector(":scope > .children-inner");
 
         const rootName =
             rootRow.querySelector(".root-name")
@@ -1681,9 +1528,7 @@ function searchTree(query) {
         Array.from(inner.children).forEach(node => {
 
             if (filterNode(node)) {
-
                 childMatch = true;
-
             }
 
         });
@@ -1692,21 +1537,15 @@ function searchTree(query) {
 
         const visible = ownMatch || childMatch;
 
-        section.style.display =
-            visible ? "" : "none";
+        section.style.display = visible ? "" : "none";
 
-        rootChildren.classList.toggle(
-            "open",
-            childMatch
-        );
+        rootChildren.classList.toggle("open", childMatch);
 
-        rootRow.classList.toggle(
-            "expanded",
-            childMatch
-        );
+        rootRow.classList.toggle("expanded", childMatch);
 
         rootRow.querySelector(".root-icon").textContent =
-            childMatch ? "📂" : section.dataset.icon;
+            childMatch ? "📂" :
+            section.dataset.icon || "📁";
 
     });
 
@@ -1736,8 +1575,7 @@ function toggleAll() {
         "#treeContainer .root-row, #treeContainer .node-row"
     ).forEach(row => {
 
-        const arrow =
-            row.querySelector(".arrow, .root-arrow");
+        const arrow = row.querySelector(".arrow, .root-arrow");
 
         if (!arrow) return;
 
@@ -1745,9 +1583,7 @@ function toggleAll() {
             row.classList.contains("node-row") &&
             arrow.style.visibility === "hidden"
         ) {
-
             return;
-
         }
 
         row.classList.toggle(
@@ -1766,10 +1602,12 @@ function toggleAll() {
                 const section =
                     row.closest(".root-section");
 
+                const rootName =
+                    section.querySelector(".root-name").textContent;
+
                 icon.textContent =
-                    allFoldersExpanded
-                        ? "📂"
-                        : section.dataset.icon;
+                    allFoldersExpanded ? "📂" :
+                    (rootName === "BPSC" ? "📚" : "📖");
 
             } else {
 
@@ -1781,6 +1619,34 @@ function toggleAll() {
         }
 
     });
+
+}
+
+
+/* ==================================
+   MOBILE SIDEBAR
+================================== */
+
+function toggleSidebar() {
+
+    document
+        .getElementById("sidebar")
+        .classList.toggle("mobile-open");
+
+}
+
+
+/* ==================================
+   ONLY NEW FUNCTION:
+   DESKTOP SIDEBAR TOGGLE
+================================== */
+
+function toggleDesktopSidebar() {
+
+    const sidebar =
+        document.getElementById("sidebar");
+
+    sidebar.classList.toggle("desktop-hidden");
 
 }
 
@@ -1805,9 +1671,7 @@ async function loadRepository() {
         const response = await fetch(API_URL, {
 
             headers: {
-
                 "Accept": "application/vnd.github+json"
-
             }
 
         });
@@ -1832,8 +1696,7 @@ async function loadRepository() {
 
         const items = data.tree || [];
 
-        repositoryTrees =
-            buildRepositoryTrees(items);
+        repositoryTrees = buildRepositoryTrees(items);
 
         renderTree();
 
@@ -1848,7 +1711,6 @@ async function loadRepository() {
 
         container.innerHTML = `
             <div class="empty-state">
-
                 <div style="font-size:25px;margin-bottom:10px">
                     ⚠️
                 </div>
@@ -1866,7 +1728,6 @@ async function loadRepository() {
                 >
                     Try Again
                 </button>
-
             </div>
         `;
 
