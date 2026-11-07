@@ -4,46 +4,168 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#123c69">
-<title>Orient Classes | Learning Portal</title>
+<title>BPSC File Explorer</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Arial,sans-serif;background:#f4f7fb;color:#263445;line-height:1.6}
-header{background:linear-gradient(120deg,#123c69,#1e6091);color:white}
-.navbar{max-width:1200px;margin:auto;padding:17px 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px}
-.logo{font-size:25px;font-weight:bold}
-.nav-links{display:flex;gap:20px;align-items:center}
-.nav-links a{color:white;text-decoration:none;font-weight:600}
-.nav-links a:hover{color:#ffd166}
-.menu-button{display:none;background:transparent;border:1px solid white;color:white;padding:7px 12px;border-radius:5px;font-size:18px}
-.hero{text-align:center;padding:75px 15px 85px}
-.hero h1{font-size:clamp(32px,5vw,48px);margin-bottom:15px}
-.hero p{max-width:680px;margin:auto;font-size:18px}
-.hero-button{display:inline-block;margin-top:25px;padding:12px 25px;background:#ffd166;color:#123c69;text-decoration:none;border-radius:6px;font-weight:bold}
-.container{width:90%;max-width:1150px;margin:auto}
-.section{padding:45px 0}
-.section-title{text-align:center;color:#123c69;font-size:29px;margin-bottom:28px}
-.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:20px}
-.card{background:white;padding:25px 18px;border-radius:12px;box-shadow:0 3px 14px #00000012;text-align:center;transition:.2s}
-.card:hover{transform:translateY(-5px);box-shadow:0 7px 20px #0000001c}
-.card h3{color:#123c69;margin-bottom:10px}
-.card p{color:#667085;font-size:14px}
-.card a{display:inline-block;margin-top:15px;background:#1e6091;color:white;padding:9px 17px;border-radius:5px;text-decoration:none}
-.card a:hover{background:#123c69}
-.feature-icon{font-size:35px;margin-bottom:10px}
-.bpsc-section{background:#eaf2f8;padding:45px 0}
-.bpsc-card{background:white;border-left:5px solid #1e6091;border-radius:10px;padding:28px;max-width:850px;margin:auto;text-align:center}
-.bpsc-card h2{color:#123c69;margin-bottom:10px}
-.bpsc-card a{display:inline-block;margin-top:18px;background:#123c69;color:white;text-decoration:none;padding:11px 22px;border-radius:6px}
-.about{max-width:850px;margin:auto;text-align:center;color:#566273}
-footer{background:#102c46;color:white;text-align:center;padding:25px 10px;margin-top:30px}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#101318;
+  color:#e8eaf0;
+}
+header{
+  height:65px;
+  background:#191e27;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 18px;
+  border-bottom:1px solid #303744;
+}
+.brand{font-size:20px;font-weight:bold}
+.header-right{display:flex;gap:10px}
+button{
+  border:0;
+  border-radius:7px;
+  padding:10px 14px;
+  background:#2879dc;
+  color:white;
+  cursor:pointer;
+}
+button:hover{background:#1765bf}
+.search{
+  width:100%;
+  padding:12px;
+  background:#202630;
+  color:white;
+  border:1px solid #394353;
+  border-radius:7px;
+  outline:none;
+}
+.app{
+  display:flex;
+  height:calc(100vh - 65px);
+}
+.sidebar{
+  width:310px;
+  min-width:250px;
+  background:#171c24;
+  border-right:1px solid #303744;
+  display:flex;
+  flex-direction:column;
+}
+.side-top{padding:15px}
+.stats{
+  color:#9ca8ba;
+  font-size:12px;
+  margin-top:12px;
+}
+.tree{
+  overflow:auto;
+  padding:5px 10px 20px;
+  flex:1;
+}
+.node{
+  margin:2px 0;
+}
+.node-row{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:9px 8px;
+  border-radius:6px;
+  cursor:pointer;
+  font-size:14px;
+  word-break:break-word;
+}
+.node-row:hover{background:#293443}
+.node-row.active{background:#214b7b}
+.children{
+  margin-left:16px;
+  padding-left:9px;
+  border-left:1px solid #3a4554;
+}
+.hidden{display:none!important}
+.icon{width:19px;flex-shrink:0}
+.main{
+  flex:1;
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+}
+.toolbar{
+  min-height:52px;
+  background:#171c24;
+  border-bottom:1px solid #303744;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:8px 15px;
+  gap:10px;
+}
+.path{
+  color:#a9b6c9;
+  font-size:13px;
+  overflow-wrap:anywhere;
+}
+.viewer{
+  flex:1;
+  overflow:auto;
+  background:#fff;
+  color:#222;
+  position:relative;
+}
+.viewer iframe{
+  width:100%;
+  height:100%;
+  border:0;
+  background:white;
+}
+.viewer pre{
+  margin:0;
+  padding:20px;
+  white-space:pre-wrap;
+  overflow-wrap:anywhere;
+  font-size:14px;
+  line-height:1.6;
+  background:#fff;
+  color:#222;
+}
+.welcome{
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:20px;
+  color:#526174;
+}
+.welcome h2{color:#24364c}
+.status{
+  font-size:12px;
+  color:#9ca8ba;
+  padding:10px 15px;
+  border-top:1px solid #303744;
+}
+.error{color:#d33}
+.mobile-menu{display:none}
 @media(max-width:700px){
-.menu-button{display:block}
-.navbar{align-items:center}
-.nav-links{display:none;width:100%;flex-direction:column;align-items:flex-start;padding:15px 0}
-.nav-links.show{display:flex}
-.hero{padding:55px 15px}
+  .sidebar{
+    position:absolute;
+    top:65px;
+    bottom:0;
+    left:0;
+    z-index:10;
+    width:82%;
+    max-width:320px;
+    box-shadow:5px 0 20px #0008;
+  }
+  .sidebar.closed{display:none}
+  .mobile-menu{display:block}
+  .brand{font-size:16px}
+  .toolbar{align-items:flex-start;flex-direction:column}
 }
 </style>
 </head>
@@ -51,149 +173,560 @@ footer{background:#102c46;color:white;text-align:center;padding:25px 10px;margin
 <body>
 
 <header>
-<nav class="navbar">
-    <div class="logo">Orient Classes</div>
-    <button class="menu-button" onclick="toggleMenu()" aria-label="Open menu">☰</button>
-    <div class="nav-links" id="navLinks">
-        <a href="#home" onclick="closeMenu()">Home</a>
-        <a href="#classes" onclick="closeMenu()">Study</a>
-        <a href="#features" onclick="closeMenu()">Features</a>
-        <a href="#bpsc" onclick="closeMenu()">BPSC</a>
-        <a href="#about" onclick="closeMenu()">About</a>
-    </div>
-</nav>
+  <div style="display:flex;align-items:center;gap:12px">
+    <button class="mobile-menu" onclick="toggleSidebar()">☰</button>
+    <div class="brand">📚 BPSC Explorer</div>
+  </div>
 
-<div class="hero" id="home">
-    <h1>Welcome to Orient Classes</h1>
-    <p>Your path to success begins here! Explore quality study materials, chapter-wise notes, MCQs and examination resources.</p>
-    <a class="hero-button" href="#classes">Explore Study Materials</a>
-</div>
+  <div class="header-right">
+    <button onclick="loadRepository()">↻ Refresh</button>
+    <button onclick="window.open('https://github.com/premji321/public_html','_blank')">
+      GitHub ↗
+    </button>
+  </div>
 </header>
 
-<main>
+<div class="app">
 
-<section class="section" id="classes">
-<div class="container">
-    <h2 class="section-title">Study Materials – Classes 6 to 12</h2>
-    <div class="card-grid">
+  <!-- LEFT PANEL -->
+  <aside class="sidebar" id="sidebar">
 
-        <div class="card">
-            <h3>Class 6</h3>
-            <p>NCERT Notes, Questions and Study Materials</p>
-            <a href="/Classes/Class-6/index.html">Explore</a>
-        </div>
+    <div class="side-top">
+      <input
+        class="search"
+        id="search"
+        placeholder="🔍 Search folders and files..."
+        oninput="searchTree(this.value)"
+      >
 
-        <div class="card">
-            <h3>Class 7</h3>
-            <p>NCERT Notes, Questions and Study Materials</p>
-            <a href="/Classes/Class-7/index.html">Explore</a>
-        </div>
+      <div class="stats" id="stats">
+        Connecting to GitHub...
+      </div>
+    </div>
 
-        <div class="card">
-            <h3>Class 8</h3>
-            <p>NCERT Notes, Questions and Study Materials</p>
-            <a href="/Classes/Class-8/index.html">Explore</a>
-        </div>
+    <div class="tree" id="tree">
+      Loading repository...
+    </div>
 
-        <div class="card">
-            <h3>Class 9</h3>
-            <p>NCERT Notes, Questions and Study Materials</p>
-            <a href="/Classes/Class-9/index.html">Explore</a>
-        </div>
+    <div class="status" id="status">
+      Initializing...
+    </div>
 
-        <div class="card">
-            <h3>Class 10</h3>
-            <p>NCERT Notes, Questions and Study Materials</p>
-            <a href="/Classes/Class-10/index.html">Explore</a>
-        </div>
+  </aside>
 
-        <div class="card">
-            <h3>Class 11</h3>
-            <p>Study Materials and Subject Resources</p>
-            <a href="/Classes/Class-11/index.html">Explore</a>
-        </div>
+  <!-- RIGHT PANEL -->
+  <main class="main">
 
-        <div class="card">
-            <h3>Class 12</h3>
-            <p>Study Materials and Subject Resources</p>
-            <a href="/Classes/Class-12/index.html">Explore</a>
-        </div>
+    <div class="toolbar">
+      <div class="path" id="filePath">BPSC / Home</div>
+
+      <div>
+        <button onclick="openOriginal()" style="background:#444f60">
+          Open Original ↗
+        </button>
+      </div>
+    </div>
+
+    <div class="viewer" id="viewer">
+
+      <div class="welcome">
+        <h2>📚 BPSC Study Explorer</h2>
+        <p>Select any folder or file from the left panel.</p>
+        <p>Your selected content will appear here.</p>
+      </div>
 
     </div>
+
+  </main>
+
 </div>
-</section>
-
-<section class="section" id="features">
-<div class="container">
-    <h2 class="section-title">Learning Resources</h2>
-    <div class="card-grid">
-
-        <div class="card">
-            <div class="feature-icon">📚</div>
-            <h3>Study Notes</h3>
-            <p>Chapter-wise notes for effective learning.</p>
-            <a href="#bpsc">Explore Notes</a>
-        </div>
-
-        <div class="card">
-            <div class="feature-icon">📝</div>
-            <h3>MCQ Practice</h3>
-            <p>Practice objective questions for examinations.</p>
-            <a href="/Tests/index.html">Practice</a>
-        </div>
-
-        <div class="card">
-            <div class="feature-icon">📄</div>
-            <h3>Downloads</h3>
-            <p>Access available PDFs and learning materials.</p>
-            <a href="/Downloads/index.html">Downloads</a>
-        </div>
-
-        <div class="card">
-            <div class="feature-icon">🎥</div>
-            <h3>Video Learning</h3>
-            <p>Learn important topics through educational videos.</p>
-            <a href="/Videos/index.html">Watch Videos</a>
-        </div>
-
-    </div>
-</div>
-</section>
-
-<section class="bpsc-section" id="bpsc">
-<div class="container">
-    <div class="bpsc-card">
-        <h2>BPSC Preparation Portal</h2>
-        <p>Explore all BPSC study materials, nested folders, HTML notes, PDFs and other files through one automatically generated library.</p>
-        <a href="/BPSC-Explorer.html">Open Complete BPSC Library</a>
-    </div>
-</div>
-</section>
-
-<section class="section" id="about">
-<div class="container">
-    <h2 class="section-title">About Orient Classes</h2>
-    <div class="about">
-        <p>Orient Classes is a learning platform designed to provide organised educational resources for school students and competitive examination aspirants. Our aim is to make learning systematic, accessible and effective through notes, practice questions and study materials.</p>
-    </div>
-</div>
-</section>
-
-</main>
-
-<footer>
-    <p>© <span id="year"></span> Orient Classes. All Rights Reserved.</p>
-    <p>Learn • Practice • Achieve</p>
-</footer>
 
 <script>
-function toggleMenu(){
-    document.getElementById("navLinks").classList.toggle("show");
+
+// ======================================
+// GITHUB CONFIGURATION
+// ======================================
+
+const OWNER = "premji321";
+const REPO = "public_html";
+const BRANCH = "main";
+
+// IMPORTANT: BPSC folder name is lowercase
+const ROOT_FOLDER = "bpsc";
+
+const API_URL =
+`https://api.github.com/repos/${OWNER}/${REPO}/git/trees/${BRANCH}?recursive=1`;
+
+const RAW_URL =
+`https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/`;
+
+let repositoryTree = {};
+let selectedFile = null;
+let allFiles = [];
+let fileCount = 0;
+let folderCount = 0;
+
+
+// ======================================
+// LOAD GITHUB REPOSITORY
+// ======================================
+
+async function loadRepository(){
+
+  const treeElement = document.getElementById("tree");
+  const status = document.getElementById("status");
+
+  treeElement.innerHTML = "Loading GitHub files...";
+  status.textContent = "Connecting to GitHub API...";
+
+  try{
+
+    const response = await fetch(API_URL);
+
+    if(!response.ok){
+      throw new Error("GitHub API Error: " + response.status);
+    }
+
+    const data = await response.json();
+
+    if(data.truncated){
+      throw new Error(
+        "GitHub returned an incomplete file tree. Please contact support."
+      );
+    }
+
+    repositoryTree = {
+      name: ROOT_FOLDER,
+      type: "dir",
+      path: ROOT_FOLDER,
+      children: {}
+    };
+
+    allFiles = [];
+    fileCount = 0;
+    folderCount = 0;
+
+    // Filter only BPSC directory
+    const items = data.tree.filter(item =>
+      item.path.startsWith(ROOT_FOLDER + "/")
+    );
+
+    if(items.length === 0){
+      throw new Error("BPSC folder not found in repository.");
+    }
+
+    items.sort((a,b)=>a.path.localeCompare(b.path));
+
+    items.forEach(item=>{
+
+      const parts = item.path.split("/");
+
+      if(parts[0] !== ROOT_FOLDER) return;
+
+      let current = repositoryTree;
+
+      for(let i=1;i<parts.length;i++){
+
+        const name = parts[i];
+        const isLast = i === parts.length-1;
+
+        if(!current.children[name]){
+
+          current.children[name] = {
+            name:name,
+            path:parts.slice(0,i+1).join("/"),
+            type:isLast && item.type === "blob"
+              ? "file"
+              : "dir",
+            children:{}
+          };
+
+          if(!isLast || item.type !== "blob"){
+            folderCount++;
+          }
+
+        }
+
+        current = current.children[name];
+
+        if(isLast && item.type === "blob"){
+          current.type = "file";
+          current.sha = item.sha;
+          current.size = item.size;
+          current.url = item.url;
+          current.children = undefined;
+          allFiles.push(current);
+          fileCount++;
+        }
+      }
+
+    });
+
+    renderTree(repositoryTree,treeElement);
+
+    document.getElementById("stats").textContent =
+      `${folderCount} folders • ${fileCount} files`;
+
+    status.textContent =
+      "✓ Connected to GitHub • Branch: " + BRANCH;
+
+  }
+  catch(error){
+
+    treeElement.innerHTML =
+      `<p class="error">${escapeHTML(error.message)}</p>`;
+
+    status.textContent = "Connection failed";
+
+  }
+
 }
-function closeMenu(){
-    document.getElementById("navLinks").classList.remove("show");
+
+
+// ======================================
+// DISPLAY HIERARCHICAL TREE
+// ======================================
+
+function renderTree(node,container){
+
+  container.innerHTML = "";
+
+  const root = document.createElement("div");
+
+  root.appendChild(createNode(node,true));
+
+  container.appendChild(root);
+
 }
-document.getElementById("year").textContent=new Date().getFullYear();
+
+
+function createNode(node,isRoot=false){
+
+  const wrapper = document.createElement("div");
+  wrapper.className = "node";
+
+  const row = document.createElement("div");
+  row.className = "node-row";
+
+  const isFolder = node.type === "dir";
+
+  const icon = document.createElement("span");
+  icon.className = "icon";
+  icon.textContent = isFolder ? "📁" : getIcon(node.name);
+
+  const name = document.createElement("span");
+  name.textContent = node.name;
+
+  const arrow = document.createElement("span");
+  arrow.textContent = isFolder ? "▸" : "";
+
+  row.append(arrow,icon,name);
+
+  wrapper.appendChild(row);
+
+  if(isFolder){
+
+    const children = document.createElement("div");
+    children.className = "children hidden";
+
+    const childNodes = Object.values(node.children || {})
+      .sort((a,b)=>{
+
+        if(a.type !== b.type){
+          return a.type === "dir" ? -1 : 1;
+        }
+
+        return a.name.localeCompare(b.name);
+      });
+
+    childNodes.forEach(child=>{
+      children.appendChild(createNode(child));
+    });
+
+    wrapper.appendChild(children);
+
+    row.onclick = ()=>{
+
+      const closed = children.classList.toggle("hidden");
+
+      arrow.textContent = closed ? "▸" : "▾";
+      icon.textContent = closed ? "📁" : "📂";
+
+      if(isRoot && !closed){
+        row.classList.add("active");
+      }
+    };
+
+    if(isRoot){
+      children.classList.remove("hidden");
+      arrow.textContent = "▾";
+      icon.textContent = "📂";
+    }
+
+  }else{
+
+    row.onclick = ()=>{
+
+      document.querySelectorAll(".node-row.active")
+        .forEach(el=>el.classList.remove("active"));
+
+      row.classList.add("active");
+
+      openFile(node);
+    };
+
+  }
+
+  return wrapper;
+
+}
+
+
+// ======================================
+// FILE ICONS
+// ======================================
+
+function getIcon(name){
+
+  const ext = name.split(".").pop().toLowerCase();
+
+  const icons = {
+    html:"🌐",
+    htm:"🌐",
+    pdf:"📕",
+    txt:"📄",
+    md:"📝",
+    json:"⚙️",
+    js:"📜",
+    css:"🎨",
+    png:"🖼️",
+    jpg:"🖼️",
+    jpeg:"🖼️",
+    webp:"🖼️",
+    svg:"🖼️"
+  };
+
+  return icons[ext] || "📄";
+
+}
+
+
+// ======================================
+// OPEN SELECTED FILE
+// ======================================
+
+async function openFile(file){
+
+  selectedFile = file;
+
+  document.getElementById("filePath").textContent =
+    file.path;
+
+  const viewer = document.getElementById("viewer");
+
+  const ext = file.name.split(".").pop().toLowerCase();
+
+  const url = RAW_URL +
+    file.path.split("/").map(encodeURIComponent).join("/");
+
+  viewer.innerHTML =
+    `<div class="welcome"><h2>Loading...</h2></div>`;
+
+  // PDF
+  if(ext === "pdf"){
+
+    viewer.innerHTML =
+      `<iframe src="${url}#toolbar=1"></iframe>`;
+
+    return;
+  }
+
+  // Images
+  if(["png","jpg","jpeg","gif","webp","svg"].includes(ext)){
+
+    const img = document.createElement("img");
+
+    img.src = url;
+    img.style.cssText =
+      "max-width:100%;max-height:100%;display:block;margin:auto";
+
+    viewer.innerHTML = "";
+    viewer.appendChild(img);
+
+    return;
+  }
+
+  try{
+
+    const response = await fetch(url);
+
+    if(!response.ok){
+      throw new Error("Unable to load file");
+    }
+
+    const content = await response.text();
+
+    // HTML PREVIEW
+    if(ext === "html" || ext === "htm"){
+
+      const frame = document.createElement("iframe");
+
+      // Isolated preview of repository HTML
+      frame.setAttribute("sandbox","allow-scripts allow-forms");
+      frame.srcdoc = content;
+
+      viewer.innerHTML = "";
+      viewer.appendChild(frame);
+
+    }
+
+    // TEXT AND SOURCE FILES
+    else{
+
+      const pre = document.createElement("pre");
+
+      pre.textContent = content;
+
+      viewer.innerHTML = "";
+      viewer.appendChild(pre);
+
+    }
+
+  }
+  catch(error){
+
+    viewer.innerHTML =
+      `<div class="welcome error">${escapeHTML(error.message)}</div>`;
+
+  }
+
+}
+
+
+// ======================================
+// OPEN ORIGINAL FILE
+// ======================================
+
+function openOriginal(){
+
+  if(!selectedFile) return;
+
+  const url =
+    `https://github.com/${OWNER}/${REPO}/blob/${BRANCH}/${selectedFile.path}`;
+
+  window.open(url,"_blank");
+
+}
+
+
+// ======================================
+// SEARCH FILES AND FOLDERS
+// ======================================
+
+function searchTree(query){
+
+  query = query.toLowerCase().trim();
+
+  const nodes = document.querySelectorAll(".node");
+
+  nodes.forEach(node=>{
+    node.classList.remove("search-hide");
+  });
+
+  if(!query) return;
+
+  nodes.forEach(node=>{
+
+    const row = node.querySelector(":scope > .node-row");
+
+    if(!row) return;
+
+    const name = row.innerText.toLowerCase();
+
+    if(!name.includes(query)){
+
+      const descendants =
+        node.querySelectorAll(".node-row");
+
+      const hasMatch =
+        [...descendants].some(el=>
+          el.innerText.toLowerCase().includes(query)
+        );
+
+      if(!hasMatch){
+        node.classList.add("search-hide");
+      }
+
+    }
+
+  });
+
+  document.querySelectorAll(".node.search-hide")
+    .forEach(node=>node.style.display="none");
+
+  document.querySelectorAll(".node:not(.search-hide)")
+    .forEach(node=>node.style.display="block");
+
+  // Ensure parent folders are visible
+  document.querySelectorAll(".node").forEach(node=>{
+
+    const child = node.querySelector(".node-row");
+
+    if(child && child.innerText.toLowerCase().includes(query)){
+      let parent = node.parentElement;
+
+      while(parent){
+
+        if(parent.classList.contains("node")){
+          parent.style.display="block";
+
+          const children =
+            parent.querySelector(":scope > .children");
+
+          if(children) children.classList.remove("hidden");
+        }
+
+        parent = parent.parentElement;
+      }
+
+    }
+
+  });
+
+}
+
+
+// ======================================
+// UTILITY FUNCTIONS
+// ======================================
+
+function escapeHTML(text){
+
+  return String(text).replace(/[&<>"']/g,char=>({
+    "&":"&amp;",
+    "<":"&lt;",
+    ">":"&gt;",
+    '"':"&quot;",
+    "'":"&#39;"
+  }[char]));
+
+}
+
+
+function toggleSidebar(){
+
+  document.getElementById("sidebar")
+    .classList.toggle("closed");
+
+}
+
+
+// ======================================
+// START APPLICATION
+// ======================================
+
+loadRepository();
+
 </script>
 
 </body>
