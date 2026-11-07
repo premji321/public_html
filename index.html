@@ -48,32 +48,66 @@ body {
     display: flex;
     flex-direction: column;
     z-index: 10;
+    position: relative;
+    transition: width 0.3s ease, min-width 0.3s ease;
 }
 
-/* ONLY NEW ADDITION: DESKTOP SIDEBAR TOGGLE */
+/* LEFT SIDEBAR TOGGLE BUTTON */
 
-.sidebar {
-    transition:
-        width 0.3s ease,
-        min-width 0.3s ease,
-        transform 0.3s ease;
+.sidebar-toggle-bar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 43px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 5px 12px;
+    z-index: 20;
+    pointer-events: none;
 }
 
-.sidebar.desktop-hidden {
-    width: 0;
-    min-width: 0;
+.sidebar-toggle-btn {
+    width: 31px;
+    height: 31px;
+    border: 1px solid var(--border);
+    background: white;
+    border-radius: 8px;
+    cursor: pointer;
+    color: var(--primary);
+    font-size: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: auto;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.sidebar-toggle-btn:hover {
+    background: var(--primary-light);
+}
+
+.sidebar.collapsed {
+    width: 56px;
+    min-width: 56px;
     overflow: hidden;
-    border-right: none;
 }
 
-.panel-toggle-btn {
-    white-space: nowrap;
+.sidebar.collapsed > :not(.sidebar-toggle-bar) {
+    display: none;
 }
 
-/* END NEW ADDITION */
+.sidebar.collapsed .sidebar-toggle-bar {
+    justify-content: center;
+    padding: 5px;
+}
+
+/* SIDEBAR HEADER */
 
 .sidebar-header {
     padding: 22px 18px 16px;
+    padding-right: 52px;
     border-bottom: 1px solid var(--border);
 }
 
@@ -560,6 +594,19 @@ body {
         transform: translateX(0);
     }
 
+    .sidebar.collapsed {
+        width: min(86%, 340px);
+        min-width: 0;
+    }
+
+    .sidebar.collapsed > :not(.sidebar-toggle-bar) {
+        display: flex;
+    }
+
+    .sidebar.collapsed .sidebar-toggle-bar {
+        justify-content: flex-end;
+    }
+
     .menu-btn {
         display: inline-block;
     }
@@ -586,17 +633,6 @@ body {
     .preview-header {
         padding: 10px;
     }
-
-    /* ONLY NEW MOBILE OVERRIDE */
-
-    .panel-toggle-btn {
-        display: none;
-    }
-
-    .sidebar.desktop-hidden {
-        width: min(86%, 340px);
-        min-width: 0;
-    }
 }
 </style>
 </head>
@@ -608,6 +644,18 @@ body {
     <!-- SIDEBAR -->
 
     <aside class="sidebar" id="sidebar">
+
+        <!-- LEFT SIDEBAR TOGGLE -->
+
+        <div class="sidebar-toggle-bar">
+            <button
+                class="sidebar-toggle-btn"
+                id="sidebarToggleBtn"
+                onclick="toggleDesktopSidebar()"
+                title="Hide Sidebar"
+                aria-label="Toggle Sidebar"
+            >☰</button>
+        </div>
 
         <div class="sidebar-header">
 
@@ -663,16 +711,6 @@ body {
                     class="action-btn menu-btn"
                     onclick="toggleSidebar()"
                 >☰</button>
-
-                <!-- ONLY NEW BUTTON -->
-
-                <button
-                    class="action-btn panel-toggle-btn"
-                    onclick="toggleDesktopSidebar()"
-                    title="Show / Hide Sidebar"
-                >
-                    ☰ Panel
-                </button>
 
                 <div>
                     <h3 id="currentTitle">Welcome to Study Library</h3>
@@ -747,11 +785,6 @@ body {
 const OWNER = "premji321";
 const REPO = "public_html";
 const BRANCH = "main";
-
-/*
-  Both main folders are managed here.
-  GitHub folder paths are case-sensitive.
-*/
 
 const ROOT_FOLDERS = [
     {
@@ -1178,6 +1211,117 @@ function createNode(item) {
 
 
 /* ==================================
+   TABLE OF CONTENTS NAVIGATION FIX
+================================== */
+
+function addNavigationFix(html) {
+
+    const navigationScript = `
+<script>
+(function() {
+
+    document.addEventListener("click", function(event) {
+
+        const link = event.target.closest("a");
+
+        if (!link) return;
+
+        const href = link.getAttribute("href");
+
+        if (!href) return;
+
+        // Handle internal page anchors only
+
+        if (href.startsWith("#")) {
+
+            event.preventDefault();
+
+            let id = href.substring(1);
+
+            try {
+                id = decodeURIComponent(id);
+            } catch(error) {}
+
+            const target =
+                document.getElementById(id) ||
+                document.getElementsByName(id)[0];
+
+            if (target) {
+
+                target.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+                // Update hash without reloading the document
+
+                if (history.replaceState) {
+                    history.replaceState(null, "", "#" + encodeURIComponent(id));
+                }
+
+            }
+
+            return;
+
+        }
+
+        // Handle links to the same HTML document with a hash
+
+        try {
+
+            const linkURL = new URL(href, document.baseURI);
+            const baseURL = new URL(document.baseURI);
+
+            const sameDocument =
+                linkURL.pathname === baseURL.pathname &&
+                linkURL.search === baseURL.search;
+
+            if (sameDocument && linkURL.hash) {
+
+                event.preventDefault();
+
+                const id = decodeURIComponent(
+                    linkURL.hash.substring(1)
+                );
+
+                const target =
+                    document.getElementById(id) ||
+                    document.getElementsByName(id)[0];
+
+                if (target) {
+
+                    target.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+
+                }
+
+            }
+
+        } catch(error) {}
+
+    }, true);
+
+})();
+<\/script>
+`;
+
+    if (/<\/body\s*>/i.test(html)) {
+
+        return html.replace(
+            /<\/body\s*>/i,
+            navigationScript + "</body>"
+        );
+
+    }
+
+    return html + navigationScript;
+
+}
+
+
+/* ==================================
    OPEN FILE
 ================================== */
 
@@ -1234,21 +1378,26 @@ async function openFile(file, clickedRow) {
             "jpg", "jpeg", "png", "gif", "webp", "svg"
         ].includes(ext)) {
 
-            preview.innerHTML = `
-                <div style="
-                    width:100%;
-                    height:100%;
-                    display:flex;
-                    align-items:center;
-                    justify-content:center;
-                    padding:20px;
-                ">
-                    <img
-                        src="${url}"
-                        alt="${escapeHTML(file.name)}"
-                    >
-                </div>
+            const wrapper = document.createElement("div");
+
+            wrapper.style.cssText = `
+                width:100%;
+                height:100%;
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                padding:20px;
             `;
+
+            const image = document.createElement("img");
+
+            image.src = url;
+            image.alt = file.name;
+
+            wrapper.appendChild(image);
+
+            preview.innerHTML = "";
+            preview.appendChild(wrapper);
 
         }
 
@@ -1259,11 +1408,9 @@ async function openFile(file, clickedRow) {
             const frame = document.createElement("iframe");
 
             frame.src = url;
-
             frame.title = file.name;
 
             preview.innerHTML = "";
-
             preview.appendChild(frame);
 
         }
@@ -1279,6 +1426,8 @@ async function openFile(file, clickedRow) {
             }
 
             let html = await response.text();
+
+            // Correct relative paths for images, CSS and resources
 
             const baseURL =
                 RAW_URL +
@@ -1308,11 +1457,25 @@ async function openFile(file, clickedRow) {
 
             }
 
+            // Fix internal Table of Contents navigation
+
+            html = addNavigationFix(html);
+
             preview.innerHTML = "";
 
             const frame = document.createElement("iframe");
 
-            frame.setAttribute("sandbox", "allow-same-origin");
+            /*
+              allow-scripts permits the TOC navigation fix.
+              allow-same-origin is intentionally omitted.
+            */
+
+            frame.setAttribute(
+                "sandbox",
+                "allow-scripts allow-forms allow-popups"
+            );
+
+            frame.title = file.name;
 
             frame.srcdoc = html;
 
@@ -1637,8 +1800,7 @@ function toggleSidebar() {
 
 
 /* ==================================
-   ONLY NEW FUNCTION:
-   DESKTOP SIDEBAR TOGGLE
+   LEFT SIDEBAR TOGGLE
 ================================== */
 
 function toggleDesktopSidebar() {
@@ -1646,7 +1808,19 @@ function toggleDesktopSidebar() {
     const sidebar =
         document.getElementById("sidebar");
 
-    sidebar.classList.toggle("desktop-hidden");
+    const button =
+        document.getElementById("sidebarToggleBtn");
+
+    sidebar.classList.toggle("collapsed");
+
+    const isCollapsed =
+        sidebar.classList.contains("collapsed");
+
+    button.textContent =
+        isCollapsed ? "›" : "☰";
+
+    button.title =
+        isCollapsed ? "Show Sidebar" : "Hide Sidebar";
 
 }
 
