@@ -1,2766 +1,490 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Forest and Wildlife Resources | Class 10 Geography</title>
-
+<title>Class 10 Geography | Chapter 3 – Water Resources</title>
 <style>
 :root{
-    --bg:#f3f6fb;
-    --panel:#ffffff;
-    --text:#202b3c;
-    --muted:#687589;
-    --primary:#176b45;
-    --primary2:#25875b;
-    --light:#e9f6ee;
-    --border:#dce5df;
-    --shadow:0 5px 22px rgba(20,50,35,.07);
-}
-
-*{
-    box-sizing:border-box;
-    scroll-behavior:smooth;
-}
-
-body{
-    margin:0;
-    background:var(--bg);
-    color:var(--text);
-    font-family:Arial,Helvetica,sans-serif;
-    line-height:1.75;
-}
-
-/* HEADER */
-
-.header{
-    background:linear-gradient(125deg,#123c2a,#176b45,#39986b);
-    color:white;
-    text-align:center;
-    padding:38px 18px;
-}
-
-.header h1{
-    margin:0;
-    font-size:clamp(25px,4vw,40px);
-    letter-spacing:.5px;
-}
-
-.header p{
-    margin:8px 0;
-    color:#e0f5e8;
-}
-
-.header .tag{
-    display:inline-block;
-    margin-top:12px;
-    padding:6px 15px;
-    border:1px solid #ffffff80;
-    border-radius:30px;
-    font-size:13px;
-}
-
-/* TOOLBAR */
-
-.toolbar{
-    position:sticky;
-    top:0;
-    z-index:100;
-    background:white;
-    border-bottom:1px solid var(--border);
-    padding:10px 13px;
-    display:flex;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:9px;
-    box-shadow:0 3px 10px #00000008;
-}
-
-.toolbar button{
-    border:0;
-    background:var(--primary);
-    color:white;
-    border-radius:7px;
-    padding:9px 13px;
-    cursor:pointer;
-    font-weight:600;
-}
-
-.toolbar button.secondary{
-    background:#e8eee9;
-    color:#263c30;
-}
-
-.toolbar button:hover{
-    opacity:.88;
-}
-
-.search-box{
-    flex:1;
-    min-width:160px;
-    padding:10px 12px;
-    border:1px solid var(--border);
-    border-radius:7px;
-    outline:none;
-    font-size:14px;
-}
-
-.search-box:focus{
-    border-color:var(--primary);
-}
-
-#searchCount{
-    color:var(--muted);
-    font-size:12px;
-}
-
-/* LAYOUT */
-
-.layout{
-    display:flex;
-    align-items:flex-start;
-    gap:18px;
-    max-width:1600px;
-    margin:auto;
-    padding:18px;
-}
-
-/* SIDEBAR */
-
-.sidebar{
-    width:295px;
-    min-width:295px;
-    background:var(--panel);
-    border:1px solid var(--border);
-    border-radius:12px;
-    padding:15px;
-    position:sticky;
-    top:78px;
-    max-height:calc(100vh - 95px);
-    overflow-y:auto;
-    box-shadow:var(--shadow);
-}
-
-.sidebar.hidden{
-    display:none;
-}
-
-.sidebar h2{
-    color:var(--primary);
-    font-size:19px;
-    margin:0 0 12px;
-}
-
-.sidebar a{
-    display:block;
-    text-decoration:none;
-    color:#34483b;
-    padding:7px 9px;
-    border-radius:6px;
-    font-size:13px;
-    border-bottom:1px solid #edf1ed;
-}
-
-.sidebar a:hover{
-    background:var(--light);
-    color:var(--primary);
-}
-
-/* CONTENT */
-
-.content{
-    flex:1;
-    min-width:0;
-}
-
-.intro{
-    background:white;
-    border:1px solid var(--border);
-    border-radius:12px;
-    padding:22px;
-    margin-bottom:18px;
-    box-shadow:var(--shadow);
-}
-
-.intro h2{
-    color:var(--primary);
-    margin-top:0;
-}
-
-/* SECTIONS */
-
-details.section{
-    background:white;
-    border:1px solid var(--border);
-    border-radius:11px;
-    margin-bottom:14px;
-    box-shadow:var(--shadow);
-    overflow:hidden;
-    scroll-margin-top:85px;
-}
-
-details.section>summary{
-    cursor:pointer;
-    list-style:none;
-    padding:16px 19px;
-    font-weight:700;
-    font-size:17px;
-    background:linear-gradient(90deg,#e9f5ed,#ffffff);
-    border-left:5px solid var(--primary);
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:10px;
-}
-
-details.section>summary::-webkit-details-marker{
-    display:none;
-}
-
-details.section>summary::after{
-    content:"+";
-    color:var(--primary);
-    font-size:24px;
-    flex-shrink:0;
-}
-
-details.section[open]>summary::after{
-    content:"−";
-}
-
-.section-body{
-    padding:19px 22px 25px;
-}
-
-.section-body h3{
-    color:#176b45;
-    border-bottom:1px solid #e3ebe5;
-    padding-bottom:6px;
-    margin-top:25px;
-}
-
-.section-body h4{
-    color:#287c54;
-    margin-bottom:6px;
-}
-
-.section-body p{
-    margin:8px 0;
-}
-
-.section-body li{
-    margin:5px 0;
-}
-
-.section-body ul,
-.section-body ol{
-    padding-left:24px;
-}
-
-/* INFORMATION BOXES */
-
-.note{
-    padding:13px 16px;
-    border-left:4px solid var(--primary);
-    background:#edf6ef;
-    border-radius:6px;
-    margin:15px 0;
-}
-
-.green-note{
-    background:#e8f7ed;
-    border-left-color:#168653;
-}
-
-.orange-note{
-    background:#fff5e8;
-    border-left-color:#e58b25;
-}
-
-.red-note{
-    background:#fff0ef;
-    border-left-color:#c94c4c;
-}
-
-.exam{
-    background:#fff7df;
-    border:1px solid #f1d78a;
-    border-radius:8px;
-    padding:12px 15px;
-    margin:14px 0;
-}
-
-.badge{
-    display:inline-block;
-    background:#e5f4e9;
-    color:#176b45;
-    padding:3px 9px;
-    border-radius:20px;
-    font-size:12px;
-    font-weight:bold;
-}
-
-/* TABLES */
-
-.table-wrap{
-    overflow-x:auto;
-    margin:14px 0;
-}
-
-table{
-    width:100%;
-    border-collapse:collapse;
-    min-width:500px;
-    font-size:14px;
-}
-
-th,td{
-    border:1px solid #dce5df;
-    padding:10px 12px;
-    text-align:left;
-    vertical-align:top;
-}
-
-th{
-    background:#e8f2eb;
-    color:#185d3c;
-}
-
-tr:nth-child(even) td{
-    background:#fafcfb;
-}
-
-/* IMAGES */
-
-.study-image{
-    margin:18px auto;
-    max-width:760px;
-    text-align:center;
-}
-
-.study-image img{
-    width:100%;
-    max-height:420px;
-    object-fit:contain;
-    border-radius:10px;
-    background:#f1f4f1;
-    border:1px solid var(--border);
-    cursor:zoom-in;
-}
-
-.study-image figcaption{
-    font-size:12px;
-    color:var(--muted);
-    margin-top:6px;
-}
-
-.image-row{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-    gap:15px;
-    margin:18px 0;
-}
-
-.image-row img{
-    width:100%;
-    height:190px;
-    object-fit:cover;
-    border-radius:9px;
-    border:1px solid var(--border);
-}
-
-.image-row p{
-    text-align:center;
-    font-size:13px;
-    font-weight:bold;
-}
-
-/* FLOWCHART */
-
-.flow{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:7px;
-    margin:20px auto;
-    max-width:850px;
-}
-
-.flow-box{
-    width:min(100%,650px);
-    background:#e9f4ec;
-    border:1px solid #a9cfb5;
-    padding:12px 16px;
-    text-align:center;
-    border-radius:8px;
-    font-weight:600;
-}
-
-.flow-box.green{
-    background:#def3e5;
-    border-color:#91caa4;
-}
-
-.flow-box.orange{
-    background:#fff2df;
-    border-color:#efc48d;
-}
-
-.flow-arrow{
-    font-size:23px;
-    color:var(--primary);
-    line-height:1;
-}
-
-.flow-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-    gap:10px;
-    width:100%;
-}
-
-/* MIND MAP */
-
-.mindmap{
-    border:2px dashed #9fc4a9;
-    padding:16px;
-    border-radius:12px;
-    background:#f8fcf9;
-    margin:20px 0;
-}
-
-.mind-center{
-    background:#176b45;
-    color:white;
-    padding:14px;
-    text-align:center;
-    border-radius:9px;
-    font-weight:bold;
-    max-width:340px;
-    margin:0 auto 16px;
-}
-
-.mind-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
-    gap:10px;
-}
-
-.mind-item{
-    background:white;
-    border:1px solid #cbded0;
-    border-radius:8px;
-    padding:12px;
-    text-align:center;
-    font-size:13px;
-}
-
-/* QUESTIONS */
-
-.question{
-    padding:13px;
-    border:1px solid var(--border);
-    border-radius:8px;
-    margin:12px 0;
-    background:#fcfefd;
-}
-
-.answer{
-    padding:10px 13px;
-    background:#eaf7ee;
-    border-radius:6px;
-    margin-top:9px;
-}
-
-/* SEARCH */
-
-mark.search-highlight{
-    background:#ffeb3b;
-    color:#111;
-    padding:1px 2px;
-    border-radius:2px;
-}
-
-/* IMAGE MODAL */
-
-.image-modal{
-    display:none;
-    position:fixed;
-    z-index:1000;
-    inset:0;
-    background:#000e;
-    justify-content:center;
-    align-items:center;
-    padding:20px;
-}
-
-.image-modal img{
-    max-width:95%;
-    max-height:90vh;
-    object-fit:contain;
-    border-radius:8px;
-}
-
-.image-modal span{
-    position:absolute;
-    top:15px;
-    right:25px;
-    color:white;
-    font-size:35px;
-    cursor:pointer;
-}
-
-/* FOOTER */
-
-.footer{
-    text-align:center;
-    padding:30px 15px;
-    color:var(--muted);
-    font-size:13px;
-}
-
-.top-button{
-    position:fixed;
-    right:18px;
-    bottom:18px;
-    z-index:90;
-    background:var(--primary);
-    color:white;
-    border:0;
-    border-radius:50%;
-    width:45px;
-    height:45px;
-    font-size:21px;
-    cursor:pointer;
-    box-shadow:var(--shadow);
-}
-
-/* MOBILE */
-
+  --bg:#f3f6fb;--panel:#ffffff;--text:#202b3c;--muted:#667085;
+  --primary:#126782;--primary2:#0d9488;--line:#dce4ee;
+  --soft:#eaf5f7;--yellow:#fff176;--shadow:0 8px 26px rgba(24,45,70,.08);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:86px}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;line-height:1.68}
+.topbar{position:sticky;top:0;z-index:20;background:#102f43;color:#fff;padding:13px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 3px 14px #0002}
+.brand{font-weight:800;letter-spacing:.3px}.brand small{display:block;font-weight:400;color:#c9dbe5;font-size:12px}
+.top-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.top-actions button,.toggle-btn{border:1px solid #ffffff55;background:#ffffff14;color:#fff;border-radius:8px;padding:9px 12px;cursor:pointer;font-weight:700}
+.top-actions button:hover,.toggle-btn:hover{background:#ffffff2a}
+.layout{display:grid;grid-template-columns:290px minmax(0,1fr);gap:20px;max-width:1500px;margin:20px auto;padding:0 18px;transition:grid-template-columns .25s}
+.sidebar{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;height:calc(100vh - 100px);position:sticky;top:82px;overflow:auto;box-shadow:var(--shadow)}
+.sidebar-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:12px}
+.sidebar h3{margin:0;font-size:17px;color:var(--primary)}
+.sidebar .toggle-btn{background:var(--primary);border:0;color:#fff;padding:7px 10px}
+#toc{padding:0;margin:0;list-style:none}
+#toc li{margin:3px 0}
+#toc a{display:block;text-decoration:none;color:#344054;font-size:13.5px;padding:7px 9px;border-radius:7px;line-height:1.35}
+#toc a:hover,#toc a.active{background:var(--soft);color:#075b70;font-weight:700}
+.search-wrap{margin:12px 0 15px;display:flex;gap:6px}
+.search-wrap input{width:100%;min-width:0;padding:10px;border:1px solid var(--line);border-radius:8px;font-size:14px;outline:none}
+.search-wrap input:focus{border-color:var(--primary)}
+.search-wrap button{border:0;border-radius:8px;padding:0 11px;background:var(--primary);color:#fff;cursor:pointer}
+.content{min-width:0}
+.hero{background:linear-gradient(125deg,#10384f,#137b86);color:white;border-radius:16px;padding:34px 30px;margin-bottom:18px;box-shadow:var(--shadow)}
+.hero .eyebrow{font-size:12px;letter-spacing:1.8px;text-transform:uppercase;color:#bde8e8;font-weight:700}
+.hero h1{font-size:clamp(30px,4vw,48px);line-height:1.12;margin:8px 0}
+.hero p{margin:8px 0;color:#e3f2f5}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.pill{background:#ffffff20;border:1px solid #ffffff40;padding:5px 10px;border-radius:30px;font-size:12px}
+section.topic{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:24px;margin:0 0 17px;box-shadow:var(--shadow);scroll-margin-top:84px}
+h2{color:#075b70;border-bottom:2px solid #d8edf0;padding-bottom:9px;margin:0 0 15px;font-size:24px}
+h3{color:#176b7b;margin:22px 0 8px;font-size:19px}
+h4{margin:15px 0 6px;color:#344054}
+p{margin:8px 0}
+ul,ol{padding-left:24px}
+li{margin:4px 0}
+.callout{background:#edf8f7;border-left:4px solid var(--primary2);padding:12px 15px;border-radius:7px;margin:13px 0}
+.exam{background:#fff8e6;border-left:4px solid #e5a000;padding:12px 15px;border-radius:7px;margin:13px 0}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.mini{background:#f7fafc;border:1px solid var(--line);border-radius:10px;padding:13px}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+th,td{border:1px solid #d9e2ec;padding:9px 10px;text-align:left;vertical-align:top}
+th{background:#eaf3f6;color:#164e63}
+tr:nth-child(even) td{background:#fbfdff}
+.figure{margin:15px 0;padding:10px;border:1px solid var(--line);border-radius:10px;background:#fafcfd}
+.figure img{width:100%;max-height:330px;object-fit:cover;border-radius:7px;display:block}
+.figure figcaption{font-size:12px;color:var(--muted);margin-top:7px}
+.figure a{color:#08758a}
+.factgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:14px 0}
+.fact{padding:13px;background:#eef8f8;border:1px solid #d5eeee;border-radius:10px}
+.fact strong{display:block;color:#087b7b;font-size:23px}
+.fact span{font-size:12px;color:#52606d}
+mark.search-hit{background:#fff176;color:#202124;padding:0 2px;border-radius:2px}
+.no-results{color:#b42318;font-size:13px;margin:5px 0}
+.footer{text-align:center;color:var(--muted);font-size:12px;padding:20px}
+.backtop{position:fixed;right:18px;bottom:18px;background:var(--primary);color:#fff;border:0;border-radius:50%;width:44px;height:44px;font-size:20px;cursor:pointer;box-shadow:var(--shadow)}
+body.sidebar-hidden .layout{grid-template-columns:minmax(0,1fr)}
+body.sidebar-hidden .sidebar{display:none}
 @media(max-width:850px){
-    .layout{
-        display:block;
-        padding:10px;
-    }
-
-    .sidebar{
-        position:relative;
-        top:0;
-        width:100%;
-        min-width:0;
-        max-height:400px;
-        margin-bottom:15px;
-    }
-
-    .sidebar.hidden{
-        display:none;
-    }
-
-    .section-body{
-        padding:15px;
-    }
-
-    details.section>summary{
-        font-size:15px;
-    }
+ .layout{grid-template-columns:1fr;padding:0 10px;margin:10px auto}
+ .sidebar{height:auto;position:relative;top:auto;max-height:430px}
+ .hero{padding:25px 20px}
+ section.topic{padding:18px}
+ .grid2{grid-template-columns:1fr}
+ .factgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .topbar{align-items:flex-start}.brand{font-size:14px}
 }
-
-/* PRINT */
-
 @media print{
-    .toolbar,
-    .sidebar,
-    .top-button,
-    .image-modal{
-        display:none!important;
-    }
-
-    .layout{
-        display:block;
-        padding:0;
-    }
-
-    details.section{
-        break-inside:avoid;
-        box-shadow:none;
-    }
-
-    details.section:not([open])>.section-body{
-        display:block!important;
-    }
-
-    details.section>summary::after{
-        display:none;
-    }
-
-    body{
-        background:white;
-    }
+ body{background:#fff}.topbar,.sidebar,.backtop,.top-actions{display:none!important}
+ .layout{display:block;margin:0;padding:0}.hero,section.topic{box-shadow:none;break-inside:avoid}
+ section.topic{border:0;padding:12px 0}.hero{border-radius:0}
+ a{color:inherit;text-decoration:none}
 }
 </style>
 </head>
-
 <body>
-
-<header class="header">
-    <h1>FOREST AND WILDLIFE RESOURCES</h1>
-    <p>Class 10 Geography | Contemporary India – II</p>
-    <p>Complete Classified Notes | NCERT Based</p>
-    <span class="tag">CBSE • BPSC • UPSC • School Examination</span>
+<header class="topbar">
+  <div class="brand">STUDY LIBRARY <small>Class 10 Geography · Contemporary India – II</small></div>
+  <div class="top-actions">
+    <button onclick="toggleSidebar()">☰ Contents</button>
+    <button onclick="window.print()">Print / Save PDF</button>
+  </div>
 </header>
 
-<!-- TOOLBAR -->
-
-<div class="toolbar">
-
-    <button class="secondary" onclick="toggleSidebar()">
-        ☰ Show / Hide Contents
-    </button>
-
-    <input
-        type="search"
-        id="searchInput"
-        class="search-box"
-        placeholder="Search any word or topic..."
-        oninput="searchContent()"
-    >
-
-    <span id="searchCount"></span>
-
-    <button onclick="expandAll()">Expand All</button>
-
-    <button class="secondary" onclick="collapseAll()">
-        Collapse All
-    </button>
-
-    <button class="secondary" onclick="window.print()">
-        Print / PDF
-    </button>
-
-</div>
-
 <div class="layout">
-
-<!-- LEFT SIDEBAR -->
-
 <aside class="sidebar" id="sidebar">
-    <h2>TABLE OF CONTENTS</h2>
-    <div id="toc"></div>
+  <div class="sidebar-head">
+    <h3>Chapter Contents</h3>
+    <button class="toggle-btn" onclick="toggleSidebar()" title="Hide left panel">Hide</button>
+  </div>
+  <div class="search-wrap">
+    <input id="searchInput" type="search" placeholder="Search notes…">
+    <button onclick="searchContent()">Find</button>
+  </div>
+  <div id="searchStatus" class="no-results"></div>
+  <ul id="toc">
+    <li><a href="#intro">1. Introduction to Water Resources</a></li>
+    <li><a href="#scarcity">2. Water Scarcity</a></li>
+    <li><a href="#conservation">3. Need for Conservation</a></li>
+    <li><a href="#schemes">4. Government Initiatives</a></li>
+    <li><a href="#history">5. Historical Water Management</a></li>
+    <li><a href="#dams">6. Dams and Multi-purpose Projects</a></li>
+    <li><a href="#criticism">7. Disadvantages and Criticism</a></li>
+    <li><a href="#projects">8. Major Projects and Disputes</a></li>
+    <li><a href="#map">9. Major Rivers and Dams Map</a></li>
+    <li><a href="#harvesting">10. Rainwater Harvesting</a></li>
+    <li><a href="#traditional">11. Traditional Methods</a></li>
+    <li><a href="#rooftop">12. Rooftop Harvesting Process</a></li>
+    <li><a href="#case-studies">13. Modern Adaptations & Case Studies</a></li>
+    <li><a href="#bamboo">14. Bamboo Drip Irrigation</a></li>
+    <li><a href="#comparison">15. Comparison of Methods</a></li>
+    <li><a href="#definitions">16. Important Definitions</a></li>
+    <li><a href="#facts">17. Facts and Figures</a></li>
+    <li><a href="#differences">18. Important Differences</a></li>
+    <li><a href="#exercises">19. NCERT Exercise Answers</a></li>
+    <li><a href="#revision">20. Quick Revision</a></li>
+  </ul>
 </aside>
 
-<!-- MAIN CONTENT -->
-
-<main class="content" id="mainContent">
-
-<!-- INTRODUCTION -->
-
-<div class="intro">
-
-    <h2>Chapter Introduction</h2>
-
-    <p>
-        We share this planet with millions of other living beings,
-        starting from micro-organisms and bacteria to lichens,
-        banyan trees, elephants and blue whales.
-    </p>
-
-    <p>
-        All living organisms form a complex ecological system.
-        Human beings are only one part of this system and depend
-        on it for their existence.
-    </p>
-
-    <p>
-        Forests play a key role in the ecological system because
-        they are primary producers on which other living beings
-        depend.
-    </p>
-
-    <div class="note">
-        <b>Chapter Focus:</b>
-        Biodiversity, flora and fauna, conservation of forests and
-        wildlife, Project Tiger, forest classification, community
-        participation, Sacred Groves and sustainable conservation.
-    </div>
-
+<main class="content">
+<div class="hero">
+  <div class="eyebrow">Complete Classified Notes · NCERT Based</div>
+  <h1>WATER RESOURCES</h1>
+  <p>Class 10 Geography · Chapter 3 · Contemporary India – II</p>
+  <p>Detailed notes for school examinations, CBSE and competitive-exam foundation.</p>
+  <div class="pills"><span class="pill">Complete Chapter</span><span class="pill">Definitions</span><span class="pill">Schemes</span><span class="pill">Case Studies</span><span class="pill">NCERT Exercises</span></div>
 </div>
 
-<!-- SECTION 1 -->
-
-<details class="section" open id="s1">
-<summary>1. INTRODUCTION TO BIODIVERSITY AND ECOLOGICAL SYSTEM</summary>
-
-<div class="section-body">
-
-<h3>1.1 Our Planet and Living Organisms</h3>
-
-<p>
-Our planet contains millions of living organisms. These include
-micro-organisms, bacteria, lichens, plants, animals, elephants
-and blue whales.
-</p>
-
+<section class="topic" id="intro">
+<h2>1. Introduction to Water Resources</h2>
+<h3>1.1 Distribution of Water on Earth</h3>
 <ul>
-    <li>All living organisms are interconnected.</li>
-    <li>Human beings are dependent on the ecological system.</li>
-    <li>Plants, animals and micro-organisms help maintain the quality of air.</li>
-    <li>They contribute to the quality of water.</li>
-    <li>They help maintain the soil that produces food.</li>
-    <li>Forests are primary producers in the ecological system.</li>
+<li>Three-fourths of the Earth's surface is covered with water.</li>
+<li>Only a small proportion accounts for freshwater that can be put to use.</li>
+<li>Freshwater is mainly obtained from surface run-off and groundwater, and is continually renewed and recharged through the hydrological cycle.</li>
 </ul>
-
-<h3>1.2 Meaning of Biodiversity</h3>
-
-<p>
-Biodiversity or Biological Diversity refers to the immense variety
-of wildlife and cultivated species, diverse in form and function,
-but closely integrated through multiple networks of interdependence.
-</p>
-
-<h3>1.3 Components of Biodiversity</h3>
-
-<div class="mindmap">
-    <div class="mind-center">BIODIVERSITY</div>
-
-    <div class="mind-grid">
-        <div class="mind-item">
-            <b>Flora</b><br>
-            Plant life
-        </div>
-
-        <div class="mind-item">
-            <b>Fauna</b><br>
-            Animal life
-        </div>
-
-        <div class="mind-item">
-            <b>Micro-organisms</b><br>
-            Bacteria and other microscopic organisms
-        </div>
-
-        <div class="mind-item">
-            <b>Cultivated Species</b><br>
-            Different varieties of crops
-        </div>
-
-        <div class="mind-item">
-            <b>Genetic Diversity</b><br>
-            Variety within species
-        </div>
-
-        <div class="mind-item">
-            <b>Ecological Interdependence</b><br>
-            Relationships among organisms
-        </div>
-    </div>
-</div>
-
-<h3>1.4 Flora and Fauna in India</h3>
-
-<figure class="study-image">
-    <img
-        src="https://commons.wikimedia.org/wiki/Special:FilePath/Bengal_tiger_(Panthera_tigris_tigris).jpg"
-        alt="Bengal tiger in natural habitat"
-        onerror="this.style.display='none'"
-    >
-    <figcaption>Wildlife diversity in India</figcaption>
+<h3>1.2 Water as a Renewable Resource</h3>
+<p>Water is a renewable resource because it continuously moves through the <b>hydrological cycle</b>, which renews and recharges freshwater resources.</p>
+<figure class="figure">
+<img src="https://images.unsplash.com/photo-1437482078695-73f5ca6c96e2?auto=format&fit=crop&w=1200&q=80" alt="Flowing freshwater river">
+<figcaption>Freshwater resources are renewed through the hydrological cycle. Image: Unsplash.</figcaption>
 </figure>
+<h4>Main processes of the hydrological cycle</h4>
+<ol><li><b>Evaporation:</b> Conversion of water into water vapour due to heat.</li><li><b>Condensation:</b> Water vapour cools and forms tiny droplets or clouds.</li><li><b>Precipitation:</b> Water falls as rain, snow or hail.</li><li><b>Surface run-off:</b> Water flows over land towards rivers, lakes and oceans.</li><li><b>Infiltration:</b> Water enters the soil.</li><li><b>Groundwater recharge:</b> Water replenishes underground reserves.</li></ol>
+<div class="callout"><b>Important:</b> Water is renewable, but usable freshwater is limited and unevenly distributed.</div>
+</section>
 
-<ul>
-    <li>India is one of the world's richest countries in biological diversity.</li>
-    <li>Different regions have unique plants and animals.</li>
-    <li>Many species are yet to be discovered.</li>
-    <li>Flora and fauna are integrated into our daily life.</li>
-    <li>These resources are under great stress due to insensitivity towards the environment.</li>
-</ul>
+<section class="topic" id="scarcity">
+<h2>2. Water Scarcity and Its Causes</h2>
+<h3>2.1 Meaning of Water Scarcity</h3>
+<p><b>Water scarcity</b> is a situation in which sufficient usable water is not available to meet the requirements of people, agriculture, industries and other activities.</p>
+<h3>2.2 Natural Causes</h3>
+<ol><li>Unequal distribution of rainfall.</li><li>Seasonal and annual variations in precipitation.</li><li>Low annual rainfall.</li><li>Drought conditions.</li><li>Regional variations in water availability.</li></ol>
+<h3>2.3 Human-Induced Causes</h3>
+<h4>A. Over-exploitation of water resources</h4><ul><li>Excessive extraction of groundwater.</li><li>Uncontrolled use of water for irrigation.</li><li>Continuous pumping through wells and tube-wells.</li><li>Declining groundwater levels.</li></ul>
+<h4>B. Population growth</h4><ul><li>Increasing demand for drinking water and domestic use.</li><li>Greater demand for food production.</li><li>Higher pressure on available freshwater resources.</li></ul>
+<h4>C. Agricultural activities</h4><ul><li>Irrigated agriculture is the largest consumer of water.</li><li>Expansion of irrigated areas increases water demand.</li><li>Excessive groundwater extraction can affect water availability and food security.</li><li>Water-intensive crops increase pressure on resources.</li></ul>
+<h4>D. Industrialisation</h4><ul><li>Industries consume large quantities of freshwater.</li><li>Industrial activities also require power; much energy comes from hydroelectric power.</li><li>Industrial wastes can pollute freshwater resources.</li></ul>
+<h4>E. Urbanisation</h4><ul><li>Growing urban centres and dense populations increase water and energy requirements.</li><li>Housing colonies often use groundwater-pumping devices.</li><li>Urban lifestyles add pressure to fragile water resources.</li></ul>
+<h4>F. Unequal access and water pollution</h4><ul><li>Water is not equally accessible to all social groups.</li><li>Domestic and industrial wastes, chemicals, pesticides and fertilisers can make water hazardous for human use.</li></ul>
+<h3>2.4 Why Can Scarcity Occur in High-Rainfall Areas?</h3>
+<p>Water scarcity can occur even where water resources are ample because of large and growing populations, greater demand, over-exploitation, unequal access and poor water quality.</p>
+<div class="exam"><b>Exam point:</b> Water scarcity is not caused only by low rainfall. Pollution can create scarcity of usable water even where water is available.</div>
+<h3>2.5 Consequences</h3><ul><li>Falling groundwater levels.</li><li>Reduced drinking-water availability.</li><li>Threats to food security.</li><li>Health hazards.</li><li>Agricultural and industrial difficulties.</li><li>Degradation of natural ecosystems.</li></ul>
+</section>
 
-<h3>1.5 Ecological Importance of Forests</h3>
+<section class="topic" id="conservation">
+<h2>3. Need for Water Conservation and Management</h2>
+<p>Water resources must be conserved and managed to safeguard people from health hazards, ensure food security, support livelihoods and productive activities, and prevent degradation of natural ecosystems.</p>
+<table><tr><th>Reason</th><th>Importance</th></tr><tr><td>Drinking water</td><td>Ensures availability of safe drinking water.</td></tr><tr><td>Agriculture</td><td>Supports food production and irrigation.</td></tr><tr><td>Industries</td><td>Provides water for industrial activities.</td></tr><tr><td>Food security</td><td>Maintains agricultural productivity.</td></tr><tr><td>Public health</td><td>Reduces health hazards from unsafe water.</td></tr><tr><td>Livelihood</td><td>Protects people's economic activities.</td></tr><tr><td>Ecosystem</td><td>Prevents degradation of natural ecosystems.</td></tr></table>
+<div class="callout"><b>Key concept:</b> Over-exploitation and mismanagement of water resources can impoverish this resource and cause an ecological crisis.</div>
+</section>
 
-<ul>
-    <li>Forests are primary producers.</li>
-    <li>They support other living beings.</li>
-    <li>They help maintain ecological balance.</li>
-    <li>They provide habitat for wildlife.</li>
-    <li>They contribute to the maintenance of air, water and soil.</li>
-</ul>
+<section class="topic" id="schemes">
+<h2>4. Government Initiatives for Water Conservation</h2>
+<h3>4.1 Jal Jeevan Mission (JJM)</h3>
+<p><b>Goal:</b> Enable every rural household to get an assured supply of potable piped water at a service level of <b>55 litres per capita per day (LPCD)</b> on a regular, long-term basis by ensuring functionality of tap-water connections.</p>
+<ul><li>Focuses on rural households.</li><li>Assured supply of potable piped water.</li><li>Service level: 55 litres per capita per day.</li><li>Emphasises regular and long-term supply and functional tap connections.</li></ul>
+<p class="exam"><b>NCERT source note:</b> Economic Survey 2020–21, page 357.</p>
+<h3>4.2 Atal Bhujal Yojana (Atal Jal)</h3>
+<p><b>Objective:</b> Promote sustainable groundwater management and bring behavioural changes in communities, shifting from consumption towards conservation and smart water management.</p>
+<div class="factgrid"><div class="fact"><strong>8,220</strong><span>Water-stressed Gram Panchayats</span></div><div class="fact"><strong>229</strong><span>Administrative blocks / talukas</span></div><div class="fact"><strong>80</strong><span>Districts</span></div></div>
+<p><b>Seven participating states:</b> Gujarat, Haryana, Karnataka, Madhya Pradesh, Maharashtra, Rajasthan and Uttar Pradesh.</p>
+<ul><li>The selected states account for about 37% of India's water-stressed blocks.</li><li>Water-stressed blocks include over-exploited, critical and semi-critical blocks.</li></ul>
+<p class="exam"><b>NCERT source note:</b> Annual Report, Ministry of Jal Shakti, Government of India, 2022–23.</p>
+<h3>4.3 Pradhan Mantri Krishi Sinchayee Yojana (PMKSY)</h3>
+<p><b>Objective:</b> Expand irrigation access, improve on-farm water-use efficiency and promote sustainable water conservation.</p>
+<ul><li>Expand cultivable area under assured irrigation – <b>Har Khet Ko Pani</b>.</li><li>Improve on-farm water-use efficiency and reduce wastage.</li><li>Increase availability of irrigation water in duration and extent.</li><li>Promote irrigation and other water-saving technologies – <b>Per Drop More Crop</b>.</li><li>Introduce sustainable water-conservation practices.</li></ul>
+</section>
 
-<div class="note green-note">
-    <b>Important Definition:</b><br>
-    Biodiversity is the variety of living organisms, including
-    plants, animals and micro-organisms, and their interdependence
-    within an ecological system.
-</div>
+<section class="topic" id="history">
+<h2>5. Historical Water Management in India</h2>
+<p>Archaeological and historical records show that India had a long tradition of constructing sophisticated hydraulic structures, including dams made of stone rubble, reservoirs, lakes, embankments and canals for irrigation.</p>
+<h3>5.1 Hydraulic Structures in Ancient India</h3>
+<table><tr><th>Period / Place / Ruler</th><th>Historical development</th></tr>
+<tr><td>First century B.C., Sringaverapura near Allahabad</td><td>Sophisticated water-harvesting system channelled floodwater of the Ganga.</td></tr>
+<tr><td>Chandragupta Maurya</td><td>Dams, lakes and irrigation systems were extensively built.</td></tr>
+<tr><td>Kalinga, Odisha</td><td>Evidence of sophisticated irrigation works.</td></tr>
+<tr><td>Nagarjunakonda, Andhra Pradesh</td><td>Evidence of irrigation works.</td></tr>
+<tr><td>Bennur, Karnataka</td><td>Evidence of irrigation works.</td></tr>
+<tr><td>Kolhapur, Maharashtra</td><td>Evidence of irrigation works.</td></tr>
+<tr><td>11th century</td><td>Bhopal Lake, one of the largest artificial lakes of its time, was built.</td></tr>
+<tr><td>14th century</td><td>Iltutmish constructed the tank at Hauz Khas, Delhi, to supply water to the Siri Fort area.</td></tr></table>
+<div class="callout"><b>Exam point:</b> Ancient India possessed sophisticated knowledge of hydraulic engineering and water management.</div>
+</section>
 
-<h3>1.6 Lepcha Folk Song and Nature</h3>
+<section class="topic" id="dams">
+<h2>6. Dams and Multi-purpose River Projects</h2>
+<h3>6.1 Meaning of a Dam</h3>
+<p>A <b>dam</b> is a barrier across flowing water that obstructs, directs or retards the flow, often creating a reservoir, lake or impoundment.</p>
+<ul><li><b>Reservoir:</b> Storage area where water is collected behind a dam.</li><li><b>Spillway / Weir:</b> Section over or through which water is intended to flow intermittently or continuously.</li><li>Dams may be classified according to structure, intended purpose or height.</li></ul>
+<h3>6.2 Classification of Dams</h3>
+<table><tr><th>Basis</th><th>Categories mentioned in NCERT</th></tr><tr><td>Structure and materials</td><td>Timber dams, embankment dams and masonry dams.</td></tr><tr><td>Height</td><td>Low dams, medium-height dams and high dams; the text also refers to large and major dams.</td></tr></table>
+<h3>6.3 Meaning of Multi-purpose River Projects</h3>
+<p>Modern dams are built not just for irrigation but for several purposes. Projects in which different uses of impounded water are integrated are called <b>multi-purpose projects</b>.</p>
+<h3>6.4 Major Functions</h3>
+<ul><li>Irrigation.</li><li>Generation of hydroelectricity.</li><li>Domestic water supply.</li><li>Industrial water supply.</li><li>Flood control.</li><li>Recreation.</li><li>Inland navigation.</li><li>Fish breeding.</li></ul>
+<h3>6.5 Important Examples</h3>
+<table><tr><th>Project</th><th>River basin</th><th>Uses highlighted in NCERT</th></tr><tr><td>Bhakra-Nangal</td><td>Sutlej-Beas</td><td>Hydel power production and irrigation.</td></tr><tr><td>Hirakud</td><td>Mahanadi</td><td>Water conservation and flood control.</td></tr></table>
+<h3>6.6 Dams – The Temples of Modern India</h3>
+<p>After Independence, multi-purpose projects were considered vehicles of national development and progress. Jawaharlal Nehru proudly described dams as the <b>“Temples of Modern India”</b>.</p>
+<p>They were expected to integrate agricultural development and the village economy with rapid industrialisation and urban economic growth.</p>
+</section>
 
-<p>
-The chapter refers to a Lepcha folk song addressed to Narak.
-It describes music gathered from springs, rivers, mountains,
-forests, insects, animals and the sweet breeze.
-</p>
-
-<p>
-The song reflects the harmonious relationship between human
-beings and nature.
-</p>
-
-</div>
-</details>
-
-<!-- SECTION 2 -->
-
-<details class="section" id="s2">
-<summary>2. CONSERVATION OF FOREST AND WILDLIFE IN INDIA</summary>
-
-<div class="section-body">
-
-<h3>2.1 Meaning of Conservation</h3>
-
-<p>
-Conservation means protecting and carefully managing forests,
-wildlife and natural resources to prevent their destruction
-and maintain ecological balance.
-</p>
-
-<h3>2.2 Why Do We Need to Conserve Forests and Wildlife?</h3>
-
-<p>
-Conservation has become essential because of the rapid decline
-in wildlife populations and forestry.
-</p>
-
-<h4>Major Reasons</h4>
-
+<section class="topic" id="criticism">
+<h2>7. Disadvantages and Criticism of Multi-purpose Projects</h2>
+<p>In recent years, multi-purpose projects and large dams have come under scrutiny and opposition because of their social, economic and environmental consequences.</p>
+<h3>7.1 Environmental Problems</h3>
 <ol>
-    <li>
-        <b>Preservation of Ecological Diversity:</b>
-        Conservation protects the variety of living organisms.
-    </li>
-
-    <li>
-        <b>Protection of Life-Support Systems:</b>
-        It preserves water, air and soil.
-    </li>
-
-    <li>
-        <b>Protection of Genetic Diversity:</b>
-        It preserves the genetic diversity of plants and animals.
-    </li>
-
-    <li>
-        <b>Growth and Breeding:</b>
-        It supports better growth and breeding of species.
-    </li>
-
-    <li>
-        <b>Agricultural Importance:</b>
-        Agriculture continues to depend on traditional crop varieties.
-    </li>
-
-    <li>
-        <b>Aquatic Biodiversity:</b>
-        Fisheries depend on the maintenance of aquatic biodiversity.
-    </li>
+<li><b>Changes in natural river flow:</b> Regulating and damming rivers affect natural flow and sediment movement.</li>
+<li><b>Sedimentation:</b> Excessive sedimentation at the bottom of reservoirs can produce rockier stream beds and poorer habitats for aquatic life.</li>
+<li><b>Fragmentation of rivers:</b> Dams make it difficult for aquatic fauna to migrate, especially for spawning.</li>
+<li><b>Submergence:</b> Reservoirs on floodplains submerge existing vegetation and soil; submerged vegetation decomposes over time.</li>
+<li><b>Flooding:</b> Sedimentation can reduce reservoir capacity. Large dams may fail to control floods during excessive rainfall and can contribute to flood problems.</li>
+<li><b>Soil erosion and land degradation:</b> Floods damage land, while floodplains may be deprived of silt, a natural fertiliser.</li>
+<li><b>Other ecological effects:</b> Projects may induce earthquakes and contribute to water-borne diseases, pests and pollution associated with excessive use of water.</li>
 </ol>
+<h3>7.2 Social and Economic Problems</h3><ul><li>Large-scale displacement of people.</li><li>Loss of livelihood.</li><li>Submergence of villages and agricultural land.</li><li>Disruption of traditional economic activities.</li><li>Unequal distribution of project benefits.</li></ul>
+<h3>7.3 Changes in Cropping Patterns</h3>
+<p>Irrigation may encourage farmers to shift towards water-intensive and commercial crops. One ecological consequence is <b>soil salinisation</b>.</p>
+<h3>7.4 Advantages and Disadvantages – Comparison</h3>
+<table><tr><th>Advantages</th><th>Disadvantages</th></tr><tr><td>Irrigation</td><td>Displacement of people</td></tr><tr><td>Hydroelectricity</td><td>Disturbance of natural river flow</td></tr><tr><td>Domestic and industrial water supply</td><td>Sedimentation</td></tr><tr><td>Flood control</td><td>Damage to aquatic ecosystems</td></tr><tr><td>Inland navigation</td><td>Submergence of vegetation and land</td></tr><tr><td>Recreation and fish breeding</td><td>Soil degradation and salinisation</td></tr></table>
+<div class="exam"><b>Conclusion:</b> Multi-purpose projects can support development, but their environmental and social consequences require careful consideration.</div>
+</section>
 
-<h3>2.3 Importance of Conservation – Flowchart</h3>
+<section class="topic" id="projects">
+<h2>8. Major Projects and Inter-State Water Disputes</h2>
+<h3>8.1 Sardar Sarovar Project</h3>
+<p>The Sardar Sarovar Dam has been built over the <b>Narmada River in Gujarat</b>. It is one of India's major water-resource projects and covers four states.</p>
+<table><tr><th>Particular</th><th>NCERT detail</th></tr><tr><td>River</td><td>Narmada</td></tr><tr><td>State where dam is built</td><td>Gujarat</td></tr><tr><td>States covered</td><td>Maharashtra, Madhya Pradesh, Gujarat and Rajasthan</td></tr><tr><td>Irrigation in Gujarat</td><td>18.45 lakh hectares</td></tr><tr><td>Villages covered in Gujarat</td><td>3,112 villages</td></tr><tr><td>Districts covered in Gujarat</td><td>15 districts</td></tr><tr><td>Rajasthan</td><td>2,46,000 hectares in Barmer and Jalore</td></tr><tr><td>Maharashtra</td><td>37,500 hectares in the tribal hilly tract, through lift</td></tr></table>
+<p>About 75% of the command area in Gujarat is drought-prone, while the entire command area in Rajasthan is drought-prone. The project is intended to meet water requirements in drought-prone and desert areas.</p>
+<h3>8.2 Krishna-Godavari Dispute (NCERT example)</h3>
+<ul><li>The dispute concerns objections raised by Karnataka and Andhra Pradesh governments.</li><li>It relates to diversion of more water at Koyna by Maharashtra for a multi-purpose project.</li><li>The diversion could reduce downstream flow in Karnataka and Andhra Pradesh.</li><li>Reduced downstream flow could adversely affect agriculture and industry.</li></ul>
+<div class="exam"><b>Key concept:</b> Inter-state river disputes arise when states disagree over the sharing, diversion or utilisation of river water.</div>
+</section>
 
-<div class="flow">
+<section class="topic" id="map">
+<h2>9. India – Major Rivers and Dams</h2>
+<p>The NCERT chapter includes a map titled <b>“India: Major Rivers and Dams”</b> on page 24. Practise locating the following projects shown in the textbook map:</p>
+<div class="grid2"><div class="mini"><b>North and North-West India</b><ul><li>Salal Project</li><li>Bhakra-Nangal</li><li>Pong</li><li>Ranjit Sagar</li><li>Tehri</li></ul></div><div class="mini"><b>Central and Western India</b><ul><li>Rihand</li><li>Rana Pratap Sagar</li><li>Gandhi Sagar</li><li>Kota Barrage</li><li>Sardar Sarovar</li><li>Narmada Sagar</li></ul></div><div class="mini"><b>Eastern India</b><ul><li>Hirakud</li></ul></div><div class="mini"><b>Southern India</b><ul><li>Koyna</li><li>Nagarjuna Sagar</li><li>Tungabhadra</li><li>Mettur</li><li>Periyar</li></ul></div></div>
+<p><b>Map practice:</b> Use the original textbook map (page 24) to learn the exact locations and river associations.</p>
+</section>
+<section class="topic" id="harvesting">
+<h2>10. Rainwater Harvesting</h2>
+<h3>10.1 Meaning</h3>
+<p><b>Rainwater harvesting</b> is the process of collecting and storing rainwater for future use or directing it to recharge groundwater.</p>
+<h3>10.2 Why Was It Considered an Alternative?</h3>
+<p>With the disadvantages of multi-purpose projects and growing resistance against them, water harvesting was considered a viable alternative from socio-economic and environmental perspectives.</p>
+<h3>10.3 Traditional Knowledge</h3>
+<p>People in ancient India understood rainfall regimes and soil types and developed techniques to harvest rainwater, groundwater, river water and floodwater according to local ecological conditions and water needs.</p>
+<h3>10.4 Importance</h3><ul><li>Conserves rainwater.</li><li>Stores water for later use.</li><li>Can recharge groundwater.</li><li>Provides water during dry periods.</li><li>Supports local agriculture and domestic needs.</li></ul>
+</section>
 
-    <div class="flow-box">CONSERVATION OF FORESTS AND WILDLIFE</div>
+<section class="topic" id="traditional">
+<h2>11. Traditional Methods of Water Harvesting in India</h2>
+<table><tr><th>Traditional method</th><th>Region</th><th>Use / Description</th></tr>
+<tr><td>Guls or Kuls</td><td>Western Himalayas</td><td>Diversion channels used for agriculture.</td></tr>
+<tr><td>Rooftop rainwater harvesting</td><td>Rajasthan</td><td>Rainwater stored for drinking, particularly in underground tankas.</td></tr>
+<tr><td>Inundation channels</td><td>Floodplains of Bengal</td><td>Carry floodwater to irrigate fields.</td></tr>
+<tr><td>Khadins</td><td>Jaisalmer, Rajasthan</td><td>Fields used as rain-fed storage structures so water stands and moistens soil.</td></tr>
+<tr><td>Johads</td><td>Rajasthan</td><td>Traditional rainwater-harvesting structures.</td></tr>
+<tr><td>Tankas</td><td>Bikaner, Phalodi and Barmer</td><td>Underground tanks for storing drinking water.</td></tr></table>
+<h3>11.1 Guls or Kuls – Western Himalayas</h3><ul><li>These are diversion channels.</li><li>They channel water for agricultural use.</li></ul>
+<h3>11.2 Inundation Channels – Bengal</h3><ul><li>Developed in the floodplains of Bengal.</li><li>Carry floodwater to irrigate agricultural fields.</li></ul>
+<h3>11.3 Khadins and Johads – Rajasthan</h3><ul><li>In arid and semi-arid regions, fields were converted into rain-fed storage structures.</li><li>Khadins are associated with Jaisalmer.</li><li>Johads are found in other parts of Rajasthan.</li><li>These structures allow water to stand and moisten the soil.</li></ul>
+<h3>11.4 Tankas – Western Rajasthan</h3>
+<p>In Bikaner, Phalodi and Barmer, houses traditionally had underground tanks called <b>tankas</b> for storing drinking water.</p>
+<ul><li>Tankas could be as large as a big room.</li><li>They were built inside the main house or courtyard.</li><li>Sloping rooftops were connected to the tanks through pipes.</li><li>Rainwater flowed down the pipes and was stored underground.</li><li>The first spell of rain was usually not collected because it cleaned roofs and pipes.</li><li>Subsequent showers were collected.</li></ul>
+<h4>Example of a large tanka in Phalodi</h4>
+<table><tr><th>Dimension</th><th>Measurement</th></tr><tr><td>Depth</td><td>6.1 metres</td></tr><tr><td>Length</td><td>4.27 metres</td></tr><tr><td>Width</td><td>2.44 metres</td></tr></table>
+<p><b>Palar Pani:</b> Rainwater is commonly referred to as Palar Pani in these parts and is considered the purest form of natural water.</p>
+<p>Tankas provided a reliable source of drinking water until the next rainfall, particularly in summer when other sources dried up. Some houses had underground rooms adjoining the tankas to keep cool during summer.</p>
+</section>
 
-    <div class="flow-arrow">↓</div>
+<section class="topic" id="rooftop">
+<h2>12. Rooftop Rainwater Harvesting – Working Process</h2>
+<h3>12.1 Collection and Storage</h3>
+<ol><li>Rainwater falls on the rooftop.</li><li>PVC pipes collect the rainwater.</li><li>Water is filtered using sand and bricks.</li><li>An underground pipe carries water to a sump for immediate use.</li><li>Excess water from the sump is directed to a well.</li><li>Water from the well recharges underground reserves.</li><li>Groundwater can be drawn from the well later.</li></ol>
+<h3>12.2 Recharge Methods Shown in NCERT</h3><ul><li>Recharge through a hand pump.</li><li>Recharge through an abandoned dugwell.</li></ul>
+<h3>12.3 First Rainfall</h3>
+<p>The first spell of rain is usually not collected because it cleans the roofs and pipes. Rainwater from subsequent showers is collected.</p>
+<div class="callout"><b>Remember the sequence:</b> Rooftop → PVC pipe → Filter (sand and bricks) → Sump → Use / Well → Groundwater recharge.</div>
+</section>
 
-    <div class="flow-grid">
+<section class="topic" id="case-studies">
+<h2>13. Modern Adaptations and Case Studies</h2>
+<h3>13.1 Tamil Nadu – Compulsory Rooftop Rainwater Harvesting</h3>
+<ul><li>Tamil Nadu is the first state in India to make rooftop rainwater harvesting compulsory for all houses across the state.</li><li>Legal provisions exist to punish defaulters.</li></ul>
+<div class="exam"><b>Question:</b> Which state first made rooftop rainwater harvesting compulsory for all houses? <b>Answer: Tamil Nadu.</b></div>
+<h3>13.2 Shillong – Meghalaya</h3>
+<ul><li>Rooftop rainwater harvesting is a common practice in Shillong.</li><li>Cherrapunjee and Mawsynram, about 55 km from Shillong, receive very high rainfall, yet Shillong faces acute water shortage.</li><li>Nearly every household in the city has a rooftop harvesting structure.</li><li>About 15–25% of household water requirements come from rooftop water harvesting.</li></ul>
+<h3>13.3 Gendathur – Karnataka</h3>
+<ul><li>Gendathur is a remote village in Mysuru district.</li><li>Nearly 200 households installed rooftop rainwater harvesting systems.</li><li>The village receives annual precipitation of about 1,000 mm.</li><li>The textbook gives a collection efficiency of 80% and about 10 fillings.</li><li>It states that every house can collect and use about 50,000 litres annually.</li><li>The textbook also states a net annual total of 1,00,000 litres from 200 houses; this aggregate does not arithmetically match the stated per-house figure, so both figures are reproduced as printed.</li></ul>
+<h3>13.4 Western Rajasthan and Indira Gandhi Canal</h3>
+<ul><li>Rooftop rainwater harvesting has declined in some parts of western Rajasthan because water is available through the perennial Indira Gandhi Canal.</li><li>Some houses still maintain tankas because residents prefer the taste of stored rainwater to tap water.</li></ul>
+</section>
 
-        <div class="flow-box green">
-            Ecological Diversity
-        </div>
+<section class="topic" id="bamboo">
+<h2>14. Bamboo Drip Irrigation System – Meghalaya</h2>
+<p>Meghalaya has a roughly 200-year-old traditional system of tapping stream and spring water using bamboo pipes.</p>
+<h3>14.1 Important Facts</h3>
+<table><tr><th>Particular</th><th>Detail in NCERT</th></tr><tr><td>Location</td><td>Meghalaya</td></tr><tr><td>Age</td><td>About 200 years</td></tr><tr><td>Water entering bamboo pipe system</td><td>About 18–20 litres</td></tr><tr><td>Final flow near plant</td><td>20–80 drops per minute</td></tr><tr><td>Material</td><td>Bamboo pipes</td></tr><tr><td>Method of movement</td><td>Gravity</td></tr></table>
+<h3>14.2 Working Mechanism</h3><ol><li>Bamboo pipes divert perennial springs on hilltops to lower reaches by gravity.</li><li>Water travels over hundreds of metres.</li><li>Channel sections distribute water into smaller branches.</li><li>Water flow is controlled by changing pipe positions.</li><li>Reduced channel sections and diversion units are used at the last stage.</li><li>The final channel delivers water near the roots of plants.</li></ol>
+<div class="callout"><b>Importance:</b> It is a locally adapted, gravity-based irrigation method using bamboo channels to deliver water near plant roots.</div>
+</section>
 
-        <div class="flow-box green">
-            Air, Water and Soil
-        </div>
+<section class="topic" id="comparison">
+<h2>15. Comparison of Traditional Water-Harvesting Methods</h2>
+<table><tr><th>Method</th><th>Region</th><th>Main use</th></tr><tr><td>Guls / Kuls</td><td>Western Himalayas</td><td>Agricultural irrigation</td></tr><tr><td>Rooftop harvesting</td><td>Rajasthan</td><td>Drinking-water storage</td></tr><tr><td>Inundation channels</td><td>Bengal</td><td>Field irrigation</td></tr><tr><td>Khadins</td><td>Jaisalmer</td><td>Moistening agricultural soil</td></tr><tr><td>Johads</td><td>Rajasthan</td><td>Rainwater harvesting</td></tr><tr><td>Tankas</td><td>Bikaner, Phalodi, Barmer</td><td>Underground drinking-water storage</td></tr><tr><td>Bamboo drip irrigation</td><td>Meghalaya</td><td>Controlled irrigation near plant roots</td></tr></table>
+</section>
 
-        <div class="flow-box green">
-            Genetic Diversity
-        </div>
+<section class="topic" id="definitions">
+<h2>16. Important Definitions – Examination Ready</h2>
+<table><tr><th>Term</th><th>Definition</th></tr>
+<tr><td>Water scarcity</td><td>Shortage of usable water in relation to demand.</td></tr>
+<tr><td>Hydrological cycle</td><td>Continuous circulation of water between the Earth and atmosphere.</td></tr>
+<tr><td>Surface run-off</td><td>Water flowing over the Earth's surface.</td></tr>
+<tr><td>Groundwater recharge</td><td>Replenishment of underground water reserves.</td></tr>
+<tr><td>Dam</td><td>A barrier across flowing water to obstruct, direct or retard its flow.</td></tr>
+<tr><td>Reservoir</td><td>A storage area where water is collected behind a dam.</td></tr>
+<tr><td>Multi-purpose project</td><td>A project in which stored water is used for several purposes.</td></tr>
+<tr><td>Hydraulic structures</td><td>Structures constructed to manage and utilise water.</td></tr>
+<tr><td>Rainwater harvesting</td><td>Collection and storage of rainwater for future use or groundwater recharge.</td></tr>
+<tr><td>Tanka</td><td>An underground tank traditionally used to store rainwater.</td></tr>
+<tr><td>Palar Pani</td><td>Traditional name for rainwater in the regions described in Rajasthan.</td></tr>
+<tr><td>Khadin</td><td>A traditional rain-fed storage arrangement that allows water to stand and moisten soil.</td></tr>
+<tr><td>Johad</td><td>A traditional rainwater-harvesting structure.</td></tr>
+<tr><td>Guls / Kuls</td><td>Diversion channels in the Western Himalayas.</td></tr>
+<tr><td>Inundation channels</td><td>Channels used to carry floodwater for irrigation.</td></tr>
+<tr><td>Soil salinisation</td><td>Accumulation of salts in soil.</td></tr>
+<tr><td>Sedimentation</td><td>Deposition and accumulation of sediments.</td></tr>
+<tr><td>Spillway</td><td>A structure through or over which excess water flows.</td></tr></table>
+</section>
 
-        <div class="flow-box green">
-            Plant and Animal Breeding
-        </div>
-
-        <div class="flow-box green">
-            Traditional Crop Varieties
-        </div>
-
-        <div class="flow-box green">
-            Aquatic Biodiversity
-        </div>
-
-    </div>
-
+<section class="topic" id="facts">
+<h2>17. Important Facts and Figures – Quick Revision</h2>
+<div class="factgrid">
+<div class="fact"><strong>55 L</strong><span>JJM service level per person per day</span></div>
+<div class="fact"><strong>8,220</strong><span>Atal Jal Gram Panchayats</span></div>
+<div class="fact"><strong>229</strong><span>Blocks / talukas</span></div>
+<div class="fact"><strong>80</strong><span>Districts</span></div>
+<div class="fact"><strong>37%</strong><span>Water-stressed blocks represented by selected states</span></div>
+<div class="fact"><strong>200 years</strong><span>Approximate age of bamboo drip system</span></div>
 </div>
+<table><tr><th>Fact</th><th>Figure</th></tr><tr><td>Gujarat irrigation under Sardar Sarovar</td><td>18.45 lakh hectares</td></tr><tr><td>Gujarat villages covered</td><td>3,112</td></tr><tr><td>Gujarat districts covered</td><td>15</td></tr><tr><td>Barmer and Jalore, Rajasthan</td><td>2,46,000 hectares</td></tr><tr><td>Maharashtra</td><td>37,500 hectares</td></tr><tr><td>Shillong–Cherrapunjee distance (approx.)</td><td>55 km</td></tr><tr><td>Shillong household water from rooftop harvesting</td><td>15–25%</td></tr><tr><td>Example Phalodi tanka</td><td>6.1 m × 4.27 m × 2.44 m</td></tr><tr><td>Gendathur annual precipitation</td><td>1,000 mm</td></tr><tr><td>Bamboo system inflow</td><td>18–20 litres</td></tr><tr><td>Bamboo system final flow</td><td>20–80 drops per minute</td></tr></table>
+</section>
 
-<h3>2.4 Wildlife Protection Programme</h3>
+<section class="topic" id="differences">
+<h2>18. Important Differences</h2>
+<h3>18.1 Water Scarcity vs Water Pollution</h3>
+<table><tr><th>Water scarcity</th><th>Water pollution</th></tr><tr><td>Insufficient usable water in relation to demand.</td><td>Contamination of available water.</td></tr><tr><td>May be caused by over-exploitation and unequal access.</td><td>May be caused by domestic and industrial waste, chemicals and fertilisers.</td></tr><tr><td>Reduces water availability.</td><td>Reduces water quality.</td></tr><tr><td>Can occur due to low rainfall or high demand.</td><td>Can occur even where water is abundant.</td></tr></table>
+<h3>18.2 Large Dams vs Rainwater Harvesting</h3>
+<table><tr><th>Large dams</th><th>Rainwater harvesting</th></tr><tr><td>Large infrastructure projects.</td><td>Often locally developed systems.</td></tr><tr><td>Store river water.</td><td>Collects rainwater.</td></tr><tr><td>May cause displacement and submergence.</td><td>Can be adapted to local settlements.</td></tr><tr><td>May disturb river ecosystems.</td><td>Can support groundwater recharge.</td></tr><tr><td>Used for multiple purposes.</td><td>Used for storage, domestic needs and irrigation.</td></tr></table>
+</section>
 
-<ul>
-    <li>During the 1960s and 1970s, conservationists demanded a national wildlife protection programme.</li>
-    <li>The Indian Wildlife (Protection) Act was implemented in 1972.</li>
-    <li>The Act included provisions for protecting wildlife habitats.</li>
-    <li>An all-India list of protected species was published.</li>
-</ul>
+<section class="topic" id="exercises">
+<h2>19. NCERT Exercise Questions and Answers</h2>
+<h3>19.1 Classify the Situations</h3>
+<table><tr><th>Situation</th><th>Answer / Explanation</th></tr><tr><td>Region with high annual rainfall</td><td>Not necessarily water-scarce; rainfall alone does not determine scarcity.</td></tr><tr><td>Region with high annual rainfall and large population</td><td>May suffer from water scarcity because demand can be very high.</td></tr><tr><td>Region with high annual rainfall but highly polluted water</td><td>Suffers from scarcity of usable water.</td></tr><tr><td>Region with low rainfall and low population</td><td>Not necessarily water-scarce; the answer depends on demand and availability.</td></tr></table>
+<h3>19.2 Which statement is NOT an argument in favour of multi-purpose river projects?</h3>
+<p><b>Answer:</b> “Multi-purpose projects lead to large-scale displacement and loss of livelihood.” This is a criticism, not an argument in their favour.</p>
+<h3>19.3 Correct the False Statements</h3>
+<p><b>(a)</b> Multiplying urban centres with large and dense populations and urban lifestyles have increased water and energy requirements and aggravated the problem of water scarcity.</p>
+<p><b>(b)</b> Regulating and damming rivers affect the river's natural flow and sediment flow.</p>
+<p><b>(c)</b> In western Rajasthan, rooftop rainwater harvesting has declined in some areas because water is available through the perennial Indira Gandhi Canal.</p>
+<h3>19.4 Short Answer Questions – About 30 Words</h3>
+<p><b>Q1. Explain how water becomes a renewable resource.</b><br>Water is renewable because it continuously circulates through the hydrological cycle. Evaporation, condensation, precipitation, surface run-off and groundwater recharge renew freshwater resources.</p>
+<p><b>Q2. What is water scarcity and what are its main causes?</b><br>Water scarcity is a shortage of usable water compared with demand. Its causes include over-exploitation, excessive use, population growth, unequal access, industrialisation, urbanisation and pollution.</p>
+<p><b>Q3. Compare the advantages and disadvantages of multi-purpose river projects.</b><br>They provide irrigation, electricity, domestic and industrial water supply and flood control. However, they may cause displacement, sedimentation, ecosystem damage, soil degradation and changes in river flow.</p>
+<h3>19.5 Long Answer Questions – About 120 Words</h3>
+<p><b>Q1. Discuss how rainwater harvesting in semi-arid regions of Rajasthan is carried out.</b></p>
+<p>In the semi-arid and arid regions of Rajasthan, especially Bikaner, Phalodi and Barmer, traditional rooftop rainwater harvesting is practised through underground tanks called tankas. These tanks are constructed inside houses or courtyards and connected to sloping rooftops through pipes. Rainwater falling on rooftops flows through these pipes and is stored in the underground tank. The first spell of rainfall is generally not collected because it cleans the rooftops and pipes. Subsequent rainfall is stored for drinking purposes. The stored water, locally known as Palar Pani, remains available until the next rainfall and provides a reliable source of drinking water, particularly during summer when other sources dry up.</p>
+<p><b>Q2. Describe how modern adaptations of traditional rainwater harvesting methods are being carried out to conserve and store water.</b></p>
+<p>Traditional rainwater harvesting methods are being adapted in different parts of India. In Tamil Nadu, rooftop rainwater harvesting has been made compulsory for houses. In Shillong, nearly every household has a rooftop harvesting structure, meeting around 15–25% of household water requirements. In Gendathur village of Karnataka, nearly 200 households have installed rooftop harvesting systems. Modern systems collect rooftop rainwater through pipes, filter it using sand and bricks, and transfer it to storage tanks or wells. Excess water is used for groundwater recharge. These methods help conserve rainwater, improve groundwater availability and reduce dependence on other water sources.</p>
+</section>
 
-<h3>2.5 Main Objectives of Wildlife Protection Programme</h3>
-
-<ol>
-    <li>Protect the remaining populations of endangered species.</li>
-    <li>Ban hunting of protected species.</li>
-    <li>Provide legal protection to wildlife habitats.</li>
-    <li>Restrict trade in wildlife.</li>
-    <li>Establish national parks and wildlife sanctuaries.</li>
-</ol>
-
-<div class="exam">
-    <b>Important Year: 1972</b><br>
-    Indian Wildlife (Protection) Act was implemented in 1972.
+<section class="topic" id="revision">
+<h2>20. Final Chapter Revision</h2>
+<div class="grid2">
+<div class="mini"><h3>Water availability</h3><ul><li>Three-fourths of Earth's surface is covered with water.</li><li>Usable freshwater is limited.</li><li>Hydrological cycle renews water.</li></ul></div>
+<div class="mini"><h3>Water scarcity</h3><ul><li>Over-exploitation.</li><li>Population growth.</li><li>Industrialisation and urbanisation.</li><li>Unequal access and pollution.</li></ul></div>
+<div class="mini"><h3>Government schemes</h3><ul><li>Jal Jeevan Mission.</li><li>Atal Bhujal Yojana.</li><li>Pradhan Mantri Krishi Sinchayee Yojana.</li></ul></div>
+<div class="mini"><h3>Multi-purpose projects</h3><ul><li>Irrigation and electricity.</li><li>Domestic and industrial water.</li><li>Flood control, navigation and fish breeding.</li></ul></div>
+<div class="mini"><h3>Problems of large dams</h3><ul><li>Displacement.</li><li>Sedimentation and flooding.</li><li>Ecological damage.</li><li>Soil salinisation.</li></ul></div>
+<div class="mini"><h3>Traditional methods</h3><ul><li>Guls/Kuls – Western Himalayas.</li><li>Khadins/Johads/Tankas – Rajasthan.</li><li>Inundation channels – Bengal.</li><li>Bamboo drip – Meghalaya.</li></ul></div>
 </div>
-
-<h3>2.6 Major Animals Given Protection</h3>
-
-<div class="table-wrap">
-<table>
-    <tr>
-        <th>Category</th>
-        <th>Animals</th>
-    </tr>
-
-    <tr>
-        <td>Big Cats</td>
-        <td>Tiger and Asiatic Lion</td>
-    </tr>
-
-    <tr>
-        <td>Rhinoceros</td>
-        <td>One-horned Rhinoceros</td>
-    </tr>
-
-    <tr>
-        <td>Deer</td>
-        <td>Kashmir Stag or Hangul</td>
-    </tr>
-
-    <tr>
-        <td>Crocodiles</td>
-        <td>Freshwater Crocodile, Saltwater Crocodile and Gharial</td>
-    </tr>
-
-    <tr>
-        <td>Other Protected Animals</td>
-        <td>Indian Elephant, Blackbuck (Chinkara), Great Indian Bustard (Godawan) and Snow Leopard</td>
-    </tr>
-</table>
-</div>
-
-<h3>2.7 National Parks and Wildlife Sanctuaries</h3>
-
-<p>
-Central and many State Governments established national parks
-and wildlife sanctuaries for protecting wildlife and their habitats.
-</p>
-
-<figure class="study-image">
-    <img
-        src="https://commons.wikimedia.org/wiki/Special:FilePath/Indian_rhinoceros.jpg"
-        alt="Indian one horned rhinoceros"
-        onerror="this.style.display='none'"
-    >
-    <figcaption>One-horned rhinoceros – an important protected species</figcaption>
-</figure>
-
-</div>
-</details>
-
-<!-- SECTION 3 -->
-
-<details class="section" id="s3">
-<summary>3. PROJECT TIGER</summary>
-
-<div class="section-body">
-
-<h3>3.1 Introduction</h3>
-
-<figure class="study-image">
-    <img
-        src="https://commons.wikimedia.org/wiki/Special:FilePath/Bengal_tiger_(Panthera_tigris_tigris).jpg"
-        alt="Bengal tiger"
-        onerror="this.style.display='none'"
-    >
-    <figcaption>Tiger – one of the key wildlife species in the faunal web</figcaption>
-</figure>
-
-<ul>
-    <li>Tiger is one of the key wildlife species in the faunal web.</li>
-    <li>Project Tiger was launched in 1973.</li>
-    <li>It is one of the well-publicised wildlife campaigns in the world.</li>
-</ul>
-
-<h3>3.2 Decline in Tiger Population</h3>
-
-<div class="table-wrap">
-<table>
-    <tr>
-        <th>Period</th>
-        <th>Tiger Population</th>
-    </tr>
-
-    <tr>
-        <td>Turn of the 20th Century</td>
-        <td>Estimated 55,000</td>
-    </tr>
-
-    <tr>
-        <td>1973</td>
-        <td>1,827</td>
-    </tr>
-</table>
-</div>
-
-<h3>3.3 Major Threats to Tiger Population</h3>
-
-<ol>
-    <li>Poaching for trade.</li>
-    <li>Shrinking natural habitat.</li>
-    <li>Depletion of prey-base species.</li>
-    <li>Growing human population.</li>
-    <li>Trade in tiger skins.</li>
-    <li>Use of tiger bones in traditional medicines, especially in Asian countries.</li>
-    <li>Illegal wildlife trade.</li>
-</ol>
-
-<h3>3.4 India and Nepal's Importance</h3>
-
-<ul>
-    <li>India and Nepal provide habitat to about two-thirds of the surviving tiger population in the world, according to NCERT.</li>
-    <li>These countries became major targets for poaching and illegal trade.</li>
-</ul>
-
-<h3>3.5 Objectives of Project Tiger</h3>
-
-<ul>
-    <li>Protect tigers from extinction.</li>
-    <li>Conserve their natural habitats.</li>
-    <li>Protect prey species.</li>
-    <li>Preserve larger natural ecosystems.</li>
-    <li>Maintain biodiversity.</li>
-</ul>
-
-<h3>3.6 Tiger Reserves Mentioned in NCERT</h3>
-
-<div class="table-wrap">
-<table>
-    <tr>
-        <th>National Park / Tiger Reserve</th>
-        <th>State</th>
-    </tr>
-
-    <tr>
-        <td>Corbett National Park</td>
-        <td>Uttarakhand</td>
-    </tr>
-
-    <tr>
-        <td>Sunderbans National Park</td>
-        <td>West Bengal</td>
-    </tr>
-
-    <tr>
-        <td>Bandhavgarh National Park</td>
-        <td>Madhya Pradesh</td>
-    </tr>
-
-    <tr>
-        <td>Sariska Wildlife Sanctuary</td>
-        <td>Rajasthan</td>
-    </tr>
-
-    <tr>
-        <td>Manas Tiger Reserve</td>
-        <td>Assam</td>
-    </tr>
-
-    <tr>
-        <td>Periyar Tiger Reserve</td>
-        <td>Kerala</td>
-    </tr>
-</table>
-</div>
-
-<div class="image-row">
-
-    <div>
-        <img
-            src="https://commons.wikimedia.org/wiki/Special:FilePath/Jim_Corbett_National_Park.jpg"
-            alt="Corbett National Park"
-            onerror="this.style.display='none'"
-        >
-        <p>Corbett National Park</p>
-    </div>
-
-    <div>
-        <img
-            src="https://commons.wikimedia.org/wiki/Special:FilePath/Sundarbans.jpg"
-            alt="Sunderbans"
-            onerror="this.style.display='none'"
-        >
-        <p>Sunderbans</p>
-    </div>
-
-    <div>
-        <img
-            src="https://commons.wikimedia.org/wiki/Special:FilePath/Periyar_National_Park.jpg"
-            alt="Periyar National Park"
-            onerror="this.style.display='none'"
-        >
-        <p>Periyar Tiger Reserve</p>
-    </div>
-
-</div>
-
-<h3>3.7 Expansion of Conservation Efforts</h3>
-
-<ul>
-    <li>Conservation projects gradually focused on biodiversity rather than only a few components.</li>
-    <li>Insects began receiving attention in conservation planning.</li>
-    <li>Notifications under the Wildlife Act of 1980 and 1986 added several hundred butterflies, moths, beetles and one dragonfly to the protected list.</li>
-    <li>In 1991, plants were included in the protected list for the first time, beginning with six species.</li>
-</ul>
-
-<div class="exam">
-    <b>Important Facts:</b><br>
-    Project Tiger – 1973<br>
-    Tiger population mentioned for 1973 – 1,827<br>
-    Estimated population at the turn of the century – 55,000<br>
-    Plants added to the protected list – 1991, starting with six species.
-</div>
-
-</div>
-</details>
-
-<!-- SECTION 4 -->
-
-<details class="section" id="s4">
-<summary>4. TYPES AND DISTRIBUTION OF FOREST RESOURCES</summary>
-
-<div class="section-body">
-
-<h3>4.1 Government Management of Forests</h3>
-
-<p>
-Much of India's forest and wildlife resources are owned or
-managed by the government through the Forest Department or
-other government departments.
-</p>
-
-<p>These forests are classified into three categories:</p>
-
-<div class="mindmap">
-
-    <div class="mind-center">FOREST RESOURCES IN INDIA</div>
-
-    <div class="mind-grid">
-
-        <div class="mind-item">
-            <b>Reserved Forests</b><br>
-            More than half of total forest land
-        </div>
-
-        <div class="mind-item">
-            <b>Protected Forests</b><br>
-            Almost one-third of total forest area
-        </div>
-
-        <div class="mind-item">
-            <b>Unclassed Forests</b><br>
-            Other forests and wastelands
-        </div>
-
-    </div>
-
-</div>
-
-<h3>4.2 Reserved Forests</h3>
-
-<ul>
-    <li>More than half of the total forest land has been declared reserved forests.</li>
-    <li>They are regarded as the most valuable for conservation of forest and wildlife resources.</li>
-</ul>
-
-<h3>4.3 Protected Forests</h3>
-
-<ul>
-    <li>Almost one-third of the total forest area is protected forest.</li>
-    <li>These forests are declared by the Forest Department.</li>
-    <li>They are protected from further depletion.</li>
-</ul>
-
-<h3>4.4 Unclassed Forests</h3>
-
-<ul>
-    <li>These are other forests and wastelands.</li>
-    <li>They may belong to the government.</li>
-    <li>They may belong to private individuals.</li>
-    <li>They may belong to communities.</li>
-</ul>
-
-<h3>4.5 Permanent Forest Estates</h3>
-
-<p>
-Reserved and protected forests are also referred to as
-permanent forest estates.
-</p>
-
-<p>They are maintained for:</p>
-
-<ol>
-    <li>Producing timber.</li>
-    <li>Producing other forest products.</li>
-    <li>Protective purposes.</li>
-</ol>
-
-<h3>4.6 State-wise Distribution of Forest Categories</h3>
-
-<h4>Madhya Pradesh</h4>
-
-<ul>
-    <li>Madhya Pradesh has the largest area under permanent forests.</li>
-    <li>Permanent forests constitute 75% of its total forest area.</li>
-</ul>
-
-<h4>States with Large Percentages of Reserved Forests</h4>
-
-<ul>
-    <li>Jammu and Kashmir.</li>
-    <li>Andhra Pradesh.</li>
-    <li>Uttarakhand.</li>
-    <li>Kerala.</li>
-    <li>Tamil Nadu.</li>
-    <li>West Bengal.</li>
-    <li>Maharashtra.</li>
-</ul>
-
-<h4>States with a Bulk of Forest Area under Protected Forests</h4>
-
-<ul>
-    <li>Bihar.</li>
-    <li>Haryana.</li>
-    <li>Punjab.</li>
-    <li>Himachal Pradesh.</li>
-    <li>Odisha.</li>
-    <li>Rajasthan.</li>
-</ul>
-
-<h4>Areas with a High Percentage of Unclassed Forests</h4>
-
-<ul>
-    <li>All North-Eastern states.</li>
-    <li>Parts of Gujarat.</li>
-    <li>Many of these forests are managed by local communities.</li>
-</ul>
-
-<h3>4.7 Comparison of Forest Categories</h3>
-
-<div class="table-wrap">
-<table>
-    <tr>
-        <th>Basis</th>
-        <th>Reserved</th>
-        <th>Protected</th>
-        <th>Unclassed</th>
-    </tr>
-
-    <tr>
-        <td>Area</td>
-        <td>More than half</td>
-        <td>Almost one-third</td>
-        <td>Other forests and wastelands</td>
-    </tr>
-
-    <tr>
-        <td>Management</td>
-        <td>Government</td>
-        <td>Forest Department</td>
-        <td>Government, private individuals and communities</td>
-    </tr>
-
-    <tr>
-        <td>Main Feature</td>
-        <td>Most valuable for conservation</td>
-        <td>Protected from further depletion</td>
-        <td>May be community-managed</td>
-    </tr>
-</table>
-</div>
-
-</div>
-</details>
-
-<!-- SECTION 5 -->
-
-<details class="section" id="s5">
-<summary>5. COMMUNITY AND CONSERVATION</summary>
-
-<div class="section-body">
-
-<h3>5.1 Role of Local Communities</h3>
-
-<p>
-Conservation strategies are not new in India. Forests are also
-home to traditional communities. Local people often depend on
-forests for their livelihoods.
-</p>
-
-<ul>
-    <li>Communities work with government officials to protect habitats.</li>
-    <li>Some villagers independently protect forests.</li>
-    <li>They recognise that conservation secures their long-term livelihood.</li>
-    <li>Traditional knowledge helps protect biodiversity.</li>
-</ul>
-
-<h3>5.2 Sariska Tiger Reserve – Rajasthan</h3>
-
-<figure class="study-image">
-    <img
-        src="https://commons.wikimedia.org/wiki/Special:FilePath/Sariska_Tiger_Reserve.jpg"
-        alt="Sariska Tiger Reserve"
-        onerror="this.style.display='none'"
-    >
-    <figcaption>Sariska Tiger Reserve, Rajasthan</figcaption>
-</figure>
-
-<ul>
-    <li>Villagers in Sariska Tiger Reserve struggled against mining activities.</li>
-    <li>They cited the Wildlife Protection Act.</li>
-    <li>This demonstrates the importance of local community participation.</li>
-</ul>
-
-<h3>5.3 Bhairodev Dakav 'Sonchuri' – Alwar, Rajasthan</h3>
-
-<figure class="study-image">
-    <img
-        src="https://commons.wikimedia.org/wiki/Special:FilePath/Alwar_Rajasthan_forest.jpg"
-        alt="Forest in Rajasthan"
-        onerror="this.style.display='none'"
-    >
-    <figcaption>Community-based forest conservation in Rajasthan</figcaption>
-</figure>
-
-<ul>
-    <li>Five villages in Alwar district declared 1,200 hectares of forest as Bhairodev Dakav 'Sonchuri'.</li>
-    <li>Villagers established their own rules and regulations.</li>
-    <li>Hunting was prohibited.</li>
-    <li>Wildlife was protected against outside encroachments.</li>
-</ul>
-
-<div class="exam">
-    <b>Important Exam Fact:</b><br>
-    Bhairodev Dakav 'Sonchuri' – Alwar, Rajasthan – Five villages –
-    1,200 hectares of forest.
-</div>
-
-<h3>5.4 Chipko Movement</h3>
-
-<figure class="study-image">
-    <img
-        src="https://commons.wikimedia.org/wiki/Special:FilePath/Chipko_movement.jpg"
-        alt="Chipko Movement"
-        onerror="this.style.display='none'"
-    >
-    <figcaption>Chipko Movement – Community resistance against deforestation</figcaption>
-</figure>
-
-<ul>
-    <li>The Chipko Movement took place in the Himalayas.</li>
-    <li>It successfully resisted deforestation in several areas.</li>
-    <li>It demonstrated the effectiveness of community afforestation.</li>
-    <li>It showed the importance of planting indigenous species.</li>
-</ul>
-
-<h3>5.5 Beej Bachao Andolan</h3>
-
-<ul>
-    <li>Associated with Tehri.</li>
-    <li>Farmers and citizens' groups participated.</li>
-    <li>It demonstrated that diversified crop production is possible without synthetic chemicals.</li>
-    <li>Such practices can be economically viable.</li>
-</ul>
-
-<h3>5.6 Navdanya</h3>
-
-<ul>
-    <li>Mentioned along with Beej Bachao Andolan.</li>
-    <li>Demonstrated the importance of diversified crop production.</li>
-    <li>Supported farming without synthetic chemicals.</li>
-</ul>
-
-<h3>5.7 Joint Forest Management (JFM)</h3>
-
-<figure class="study-image">
-    <img
-        src="https://commons.wikimedia.org/wiki/Special:FilePath/Forest_conservation_India.jpg"
-        alt="Forest conservation"
-        onerror="this.style.display='none'"
-    >
-    <figcaption>Community participation in forest conservation</figcaption>
-</figure>
-
-<h4>Meaning</h4>
-
-<p>
-Joint Forest Management is a programme that involves local
-communities in the management and restoration of degraded forests.
-</p>
-
-<h4>Origin</h4>
-
-<ul>
-    <li>The programme has been in formal existence since 1988.</li>
-    <li>Odisha passed the first resolution for Joint Forest Management.</li>
-</ul>
-
-<h4>Working of JFM</h4>
-
-<ol>
-    <li>Local village institutions are formed.</li>
-    <li>These institutions undertake protection activities.</li>
-    <li>Activities mainly take place on degraded forest land managed by the Forest Department.</li>
-    <li>Communities help protect and restore forests.</li>
-    <li>Community members receive benefits in return.</li>
-</ol>
-
-<h4>Benefits to Local Communities</h4>
-
-<ul>
-    <li>Non-timber forest produce.</li>
-    <li>A share in the timber harvested through successful protection.</li>
-</ul>
-
-<h3>5.8 Joint Forest Management – Flowchart</h3>
-
-<div class="flow">
-
-    <div class="flow-box">FOREST DEPARTMENT</div>
-
-    <div class="flow-arrow">↓</div>
-
-    <div class="flow-box green">LOCAL VILLAGE INSTITUTIONS</div>
-
-    <div class="flow-arrow">↓</div>
-
-    <div class="flow-box">PROTECTION AND RESTORATION OF DEGRADED FORESTS</div>
-
-    <div class="flow-arrow">↓</div>
-
-    <div class="flow-box green">
-        COMMUNITY BENEFITS
-        <br>
-        Non-timber forest produce and share in harvested timber
-    </div>
-
-</div>
-
-<h3>5.9 Importance of Community Participation</h3>
-
-<ul>
-    <li>Local communities should be involved in natural resource management.</li>
-    <li>They have traditional knowledge of their environment.</li>
-    <li>Their livelihoods often depend on forests.</li>
-    <li>Community participation improves conservation efforts.</li>
-    <li>Development activities should be people-centric, environment-friendly and economically rewarding.</li>
-</ul>
-
-</div>
-</details>
-
-<!-- SECTION 6 -->
-
-<details class="section" id="s6">
-<summary>6. SACRED GROVES – A WEALTH OF DIVERSE AND RARE SPECIES</summary>
-
-<div class="section-body">
-
-<h3>6.1 Meaning of Sacred Groves</h3>
-
-<figure class="study-image">
-    <img
-        src="https://commons.wikimedia.org/wiki/Special:FilePath/Sacred_grove.jpg"
-        alt="Sacred grove forest"
-        onerror="this.style.display='none'"
-    >
-    <figcaption>Sacred Groves – traditionally protected forest patches</figcaption>
-</figure>
-
-<p>
-Sacred Groves are patches of forests or parts of large forests
-that have been preserved in their natural form due to traditional
-religious and cultural beliefs.
-</p>
-
-<p>They are also called:</p>
-
-<ul>
-    <li>Forests of Gods.</li>
-    <li>Forests of Goddesses.</li>
-</ul>
-
-<h3>6.2 Main Features</h3>
-
-<ol>
-    <li>Based on traditional nature worship.</li>
-    <li>Local people believe that all creations of nature should be protected.</li>
-    <li>Forest patches are left untouched.</li>
-    <li>Interference with these forests is banned.</li>
-    <li>They help preserve diverse and rare species.</li>
-</ol>
-
-<h3>6.3 Traditional Tree Worship in India</h3>
-
-<div class="table-wrap">
-<table>
-    <tr>
-        <th>Community / Region</th>
-        <th>Tree Worshipped</th>
-    </tr>
-
-    <tr>
-        <td>Mundas of Chota Nagpur</td>
-        <td>Mahua</td>
-    </tr>
-
-    <tr>
-        <td>Santhals of Chota Nagpur</td>
-        <td>Kadamba</td>
-    </tr>
-
-    <tr>
-        <td>Tribals of Odisha and Bihar</td>
-        <td>Tamarind and Mango during weddings</td>
-    </tr>
-
-    <tr>
-        <td>Many Indian communities</td>
-        <td>Peepal and Banyan</td>
-    </tr>
-</table>
-</div>
-
-<h3>6.4 Scientific Names of Important Trees</h3>
-
-<div class="table-wrap">
-<table>
-    <tr>
-        <th>Common Name</th>
-        <th>Scientific Name</th>
-    </tr>
-
-    <tr>
-        <td>Mahua</td>
-        <td><i>Bassia latifolia</i></td>
-    </tr>
-
-    <tr>
-        <td>Kadamba</td>
-        <td><i>Anthocephalus cadamba</i></td>
-    </tr>
-
-    <tr>
-        <td>Tamarind</td>
-        <td><i>Tamarindus indica</i></td>
-    </tr>
-
-    <tr>
-        <td>Mango</td>
-        <td><i>Mangifera indica</i></td>
-    </tr>
-</table>
-</div>
-
-<h3>6.5 Protection of Animals through Traditional Beliefs</h3>
-
-<ul>
-    <li>Springs, mountain peaks, plants and animals are considered sacred in several cultures.</li>
-    <li>Macaques and langurs are found around many temples.</li>
-    <li>They are fed daily and treated as part of temple communities.</li>
-    <li>In Bishnoi villages of Rajasthan, wildlife is protected as an integral part of community life.</li>
-</ul>
-
-<h3>6.6 Animals Protected by Bishnoi Communities</h3>
-
-<figure class="study-image">
-    <img
-        src="https://commons.wikimedia.org/wiki/Special:FilePath/Blackbuck_male.jpg"
-        alt="Blackbuck"
-        onerror="this.style.display='none'"
-    >
-    <figcaption>Blackbuck – protected by the Bishnoi community</figcaption>
-</figure>
-
-<ul>
-    <li>Blackbuck.</li>
-    <li>Chinkara.</li>
-    <li>Nilgai.</li>
-    <li>Peacocks.</li>
-</ul>
-
-<h3>6.7 Importance of Sacred Groves</h3>
-
-<ul>
-    <li>Preserve rare species.</li>
-    <li>Protect natural vegetation.</li>
-    <li>Maintain biodiversity.</li>
-    <li>Encourage traditional conservation practices.</li>
-    <li>Promote harmony between human beings and nature.</li>
-</ul>
-
-</div>
-</details>
-
-<!-- SECTION 7 -->
-
-<details class="section" id="s7">
-<summary>7. IMPORTANT MOVEMENTS, PEOPLE AND PROGRAMMES</summary>
-
-<div class="section-body">
-
-<div class="table-wrap">
-<table>
-
-    <tr>
-        <th>Name</th>
-        <th>Year / Location</th>
-        <th>Main Contribution</th>
-    </tr>
-
-    <tr>
-        <td>Wildlife Protection Act</td>
-        <td>1972</td>
-        <td>Legal protection for wildlife and habitats.</td>
-    </tr>
-
-    <tr>
-        <td>Project Tiger</td>
-        <td>1973</td>
-        <td>Tiger conservation.</td>
-    </tr>
-
-    <tr>
-        <td>Chipko Movement</td>
-        <td>Himalayas</td>
-        <td>Resisted deforestation and promoted community afforestation.</td>
-    </tr>
-
-    <tr>
-        <td>Beej Bachao Andolan</td>
-        <td>Tehri</td>
-        <td>Diversified crop production without synthetic chemicals.</td>
-    </tr>
-
-    <tr>
-        <td>Navdanya</td>
-        <td>India</td>
-        <td>Promoted diversified crop production.</td>
-    </tr>
-
-    <tr>
-        <td>Joint Forest Management</td>
-        <td>1988, Odisha</td>
-        <td>Community participation in forest management.</td>
-    </tr>
-
-    <tr>
-        <td>Bhairodev Dakav 'Sonchuri'</td>
-        <td>Alwar, Rajasthan</td>
-        <td>Community protection of 1,200 hectares of forest.</td>
-    </tr>
-
-    <tr>
-        <td>Sacred Groves</td>
-        <td>Different regions</td>
-        <td>Traditional forest conservation.</td>
-    </tr>
-
-</table>
-</div>
-
-</div>
-</details>
-
-<!-- SECTION 8 -->
-
-<details class="section" id="s8">
-<summary>8. IMPORTANT DATES AND NUMERICAL FACTS</summary>
-
-<div class="section-body">
-
-<div class="table-wrap">
-<table>
-
-    <tr>
-        <th>Year / Figure</th>
-        <th>Event or Fact</th>
-    </tr>
-
-    <tr>
-        <td>1960s–1970s</td>
-        <td>Conservationists demanded a national wildlife protection programme.</td>
-    </tr>
-
-    <tr>
-        <td>1972</td>
-        <td>Indian Wildlife (Protection) Act implemented.</td>
-    </tr>
-
-    <tr>
-        <td>1973</td>
-        <td>Project Tiger launched.</td>
-    </tr>
-
-    <tr>
-        <td>1980 and 1986</td>
-        <td>Wildlife Act notifications added several insects to the protected-species lists.</td>
-    </tr>
-
-    <tr>
-        <td>1988</td>
-        <td>Odisha passed the first JFM resolution.</td>
-    </tr>
-
-    <tr>
-        <td>1991</td>
-        <td>Plants were included in the protected list for the first time, beginning with six species.</td>
-    </tr>
-
-    <tr>
-        <td>1,827</td>
-        <td>Tiger population in 1973 according to NCERT.</td>
-    </tr>
-
-    <tr>
-        <td>55,000</td>
-        <td>Estimated tiger population at the turn of the century.</td>
-    </tr>
-
-    <tr>
-        <td>Two-thirds</td>
-        <td>Approximate share of surviving world tiger population hosted by India and Nepal.</td>
-    </tr>
-
-    <tr>
-        <td>More than half</td>
-        <td>Forest land under reserved forests.</td>
-    </tr>
-
-    <tr>
-        <td>Almost one-third</td>
-        <td>Total forest area under protected forests.</td>
-    </tr>
-
-    <tr>
-        <td>75%</td>
-        <td>Share of Madhya Pradesh's total forest area under permanent forests.</td>
-    </tr>
-
-    <tr>
-        <td>1,200 hectares</td>
-        <td>Forest declared Bhairodev Dakav 'Sonchuri'.</td>
-    </tr>
-
-    <tr>
-        <td>Five villages</td>
-        <td>Participated in the Alwar conservation initiative.</td>
-    </tr>
-
-</table>
-</div>
-
-</div>
-</details>
-
-<!-- SECTION 9 -->
-
-<details class="section" id="s9">
-<summary>9. IMPORTANT COMPARISONS</summary>
-
-<div class="section-body">
-
-<h3>9.1 Reserved vs Protected vs Unclassed Forests</h3>
-
-<div class="table-wrap">
-<table>
-    <tr>
-        <th>Reserved Forests</th>
-        <th>Protected Forests</th>
-        <th>Unclassed Forests</th>
-    </tr>
-
-    <tr>
-        <td>More than half of total forest land.</td>
-        <td>Almost one-third of total forest area.</td>
-        <td>Other forests and wastelands.</td>
-    </tr>
-
-    <tr>
-        <td>Most valuable for conservation.</td>
-        <td>Protected from further depletion.</td>
-        <td>Government, private or community ownership.</td>
-    </tr>
-
-    <tr>
-        <td>Government-managed category.</td>
-        <td>Declared by Forest Department.</td>
-        <td>Often managed by local communities.</td>
-    </tr>
-</table>
-</div>
-
-<h3>9.2 Project Tiger vs Joint Forest Management</h3>
-
-<div class="table-wrap">
-<table>
-    <tr>
-        <th>Project Tiger</th>
-        <th>Joint Forest Management</th>
-    </tr>
-
-    <tr>
-        <td>Launched in 1973.</td>
-        <td>Formal existence since 1988.</td>
-    </tr>
-
-    <tr>
-        <td>Focuses on tiger conservation.</td>
-        <td>Focuses on degraded forest management and restoration.</td>
-    </tr>
-
-    <tr>
-        <td>Protects an endangered wildlife species and its habitat.</td>
-        <td>Involves local village institutions.</td>
-    </tr>
-
-    <tr>
-        <td>Wildlife conservation campaign.</td>
-        <td>Community-based forest management programme.</td>
-    </tr>
-</table>
-</div>
-
-<h3>9.3 Chipko Movement vs Beej Bachao Andolan</h3>
-
-<div class="table-wrap">
-<table>
-    <tr>
-        <th>Chipko Movement</th>
-        <th>Beej Bachao Andolan</th>
-    </tr>
-
-    <tr>
-        <td>Associated with the Himalayas.</td>
-        <td>Associated with Tehri.</td>
-    </tr>
-
-    <tr>
-        <td>Resisted deforestation.</td>
-        <td>Promoted diversified crop production.</td>
-    </tr>
-
-    <tr>
-        <td>Demonstrated community afforestation.</td>
-        <td>Demonstrated farming without synthetic chemicals.</td>
-    </tr>
-
-    <tr>
-        <td>Forest conservation.</td>
-        <td>Agricultural and ecological conservation.</td>
-    </tr>
-</table>
-</div>
-
-</div>
-</details>
-
-<!-- SECTION 10 -->
-
-<details class="section" id="s10">
-<summary>10. NCERT EXERCISE – SOLVED ANSWERS</summary>
-
-<div class="section-body">
-
-<h3>A. Multiple Choice Question</h3>
-
-<div class="question">
-
-    <b>
-        Q1. Which of the following conservation strategies do not
-        directly involve community participation?
-    </b>
-
-    <p>
-        (a) Joint Forest Management<br>
-        (b) Beej Bachao Andolan<br>
-        (c) Chipko Movement<br>
-        (d) Demarcation of Wildlife Sanctuaries
-    </p>
-
-    <div class="answer">
-        <b>Correct Answer: (d) Demarcation of Wildlife Sanctuaries</b>
-        <p>
-            Explanation: Joint Forest Management, Beej Bachao
-            Andolan and Chipko Movement directly involve community
-            participation. Demarcation of wildlife sanctuaries is
-            a formal protection measure.
-        </p>
-    </div>
-
-</div>
-
-<h3>B. Match the Following</h3>
-
-<div class="table-wrap">
-<table>
-    <tr>
-        <th>Column A</th>
-        <th>Correct Match</th>
-    </tr>
-
-    <tr>
-        <td>Reserved Forests</td>
-        <td>Forests regarded as most valuable for conservation.</td>
-    </tr>
-
-    <tr>
-        <td>Protected Forests</td>
-        <td>Forest lands protected from further depletion.</td>
-    </tr>
-
-    <tr>
-        <td>Unclassed Forests</td>
-        <td>Other forests and wastelands belonging to government, private individuals and communities.</td>
-    </tr>
-</table>
-</div>
-
-<h3>C. Answer in About 30 Words</h3>
-
-<div class="question">
-
-    <b>
-        Q1. What is biodiversity? Why is biodiversity important
-        for human lives?
-    </b>
-
-    <div class="answer">
-
-        Biodiversity refers to the variety of plants, animals and
-        micro-organisms. It maintains ecological balance and
-        supports essential life-support systems such as air,
-        water and soil. It also preserves genetic diversity.
-
-    </div>
-
-</div>
-
-<div class="question">
-
-    <b>
-        Q2. How have human activities affected the depletion
-        of flora and fauna? Explain.
-    </b>
-
-    <div class="answer">
-
-        Human activities such as deforestation, mining, habitat
-        destruction, poaching, hunting and illegal wildlife trade
-        have caused the depletion of flora and fauna. These
-        activities disturb ecological balance and threaten
-        endangered species.
-
-    </div>
-
-</div>
-
-<h3>D. Answer in About 120 Words</h3>
-
-<div class="question">
-
-    <b>
-        Q1. Describe how communities have conserved and protected
-        forests and wildlife in India.
-    </b>
-
-    <div class="answer">
-
-        Local communities have played an important role in
-        conserving forests and wildlife in India.
-
-        <ol>
-            <li>In Sariska Tiger Reserve, Rajasthan, villagers opposed mining by citing the Wildlife Protection Act.</li>
-
-            <li>Five villages in Alwar district declared 1,200 hectares of forest as Bhairodev Dakav 'Sonchuri' and prohibited hunting.</li>
-
-            <li>The Chipko Movement in the Himalayas successfully resisted deforestation and promoted community afforestation.</li>
-
-            <li>Beej Bachao Andolan in Tehri and Navdanya demonstrated the possibility of diversified crop production without synthetic chemicals.</li>
-
-            <li>Sacred Groves preserved rare plant and animal species through traditional religious beliefs.</li>
-
-            <li>Joint Forest Management, formally existing since 1988, involved local communities in protecting degraded forests.</li>
-        </ol>
-
-        These examples demonstrate that community participation
-        is essential for successful forest and wildlife conservation.
-
-    </div>
-
-</div>
-
-<div class="question">
-
-    <b>
-        Q2. Write a note on good practices towards conserving
-        forest and wildlife.
-    </b>
-
-    <div class="answer">
-
-        Good practices for conserving forests and wildlife include:
-
-        <ol>
-            <li>Protecting natural habitats and preventing deforestation.</li>
-            <li>Preventing hunting, poaching and illegal wildlife trade.</li>
-            <li>Establishing national parks and wildlife sanctuaries.</li>
-            <li>Promoting afforestation using indigenous species.</li>
-            <li>Encouraging community participation in forest management.</li>
-            <li>Supporting traditional conservation practices such as Sacred Groves.</li>
-            <li>Promoting movements such as Chipko.</li>
-            <li>Encouraging diversified crop production without synthetic chemicals.</li>
-            <li>Implementing Joint Forest Management.</li>
-            <li>Protecting endangered species through legal measures.</li>
-        </ol>
-
-        Conservation should involve local communities and promote
-        development that is people-centric, environment-friendly
-        and economically rewarding.
-
-    </div>
-
-</div>
-
-</div>
-</details>
-
-<!-- SECTION 11 -->
-
-<details class="section" id="s11">
-<summary>11. NCERT ACTIVITIES AND DISCUSSION QUESTIONS</summary>
-
-<div class="section-body">
-
-<h3>11.1 Harmonious Relationship Between Humans and Nature</h3>
-
-<p>
-The chapter asks students to find stories prevalent in their
-region that describe the harmonious relationship between
-human beings and nature.
-</p>
-
-<h4>Examples</h4>
-
-<ul>
-    <li>Worshipping trees such as peepal and banyan.</li>
-    <li>Protecting Sacred Groves.</li>
-    <li>Feeding monkeys and langurs around temples.</li>
-    <li>Protecting blackbuck and other wildlife in Bishnoi villages.</li>
-    <li>Participating in community afforestation.</li>
-    <li>Protecting rivers, springs and mountains.</li>
-</ul>
-
-<h3>11.2 Wildlife Sanctuaries and National Parks</h3>
-
-<p>
-The NCERT activity asks students to collect information about
-wildlife sanctuaries and national parks and mark their locations
-on a map of India.
-</p>
-
-<div class="table-wrap">
-<table>
-    <tr>
-        <th>Protected Area</th>
-        <th>State</th>
-    </tr>
-
-    <tr>
-        <td>Corbett National Park</td>
-        <td>Uttarakhand</td>
-    </tr>
-
-    <tr>
-        <td>Sunderbans National Park</td>
-        <td>West Bengal</td>
-    </tr>
-
-    <tr>
-        <td>Bandhavgarh National Park</td>
-        <td>Madhya Pradesh</td>
-    </tr>
-
-    <tr>
-        <td>Sariska Wildlife Sanctuary</td>
-        <td>Rajasthan</td>
-    </tr>
-
-    <tr>
-        <td>Manas Tiger Reserve</td>
-        <td>Assam</td>
-    </tr>
-
-    <tr>
-        <td>Periyar Tiger Reserve</td>
-        <td>Kerala</td>
-    </tr>
-</table>
-</div>
-
-<h3>11.3 Everyday Practices to Protect the Environment</h3>
-
-<p>
-The chapter asks students to write a short essay on practices
-that conserve and protect the environment.
-</p>
-
-<div class="note green-note">
-
-    <b>Model Answer:</b>
-
-    <p>
-        We can protect our environment through simple daily
-        activities. We should plant trees, avoid unnecessary
-        cutting of trees, save water, reduce plastic use and
-        keep our surroundings clean. We should not harm animals
-        or destroy their habitats. We should also encourage
-        people to protect forests and wildlife. Community
-        participation is essential for maintaining ecological
-        balance and conserving natural resources for future
-        generations.
-    </p>
-
-</div>
-
-</div>
-</details>
-
-<!-- SECTION 12 -->
-
-<details class="section" id="s12">
-<summary>12. COMPLETE CHAPTER MIND MAP AND FLOWCHART</summary>
-
-<div class="section-body">
-
-<h3>12.1 Complete Chapter Mind Map</h3>
-
-<div class="mindmap">
-
-    <div class="mind-center">
-        FOREST AND WILDLIFE RESOURCES
-    </div>
-
-    <div class="mind-grid">
-
-        <div class="mind-item">
-            <b>1. Biodiversity</b><br>
-            Flora, Fauna, Micro-organisms and Ecological System
-        </div>
-
-        <div class="mind-item">
-            <b>2. Conservation</b><br>
-            Ecological Balance, Genetic Diversity and Life-Support Systems
-        </div>
-
-        <div class="mind-item">
-            <b>3. Wildlife Protection</b><br>
-            1972 Act, Protected Species and Sanctuaries
-        </div>
-
-        <div class="mind-item">
-            <b>4. Project Tiger</b><br>
-            1973, Threats and Tiger Reserves
-        </div>
-
-        <div class="mind-item">
-            <b>5. Forest Categories</b><br>
-            Reserved, Protected and Unclassed
-        </div>
-
-        <div class="mind-item">
-            <b>6. Community Conservation</b><br>
-            Chipko, Sariska and Alwar
-        </div>
-
-        <div class="mind-item">
-            <b>7. Traditional Practices</b><br>
-            Sacred Groves and Bishnoi Community
-        </div>
-
-        <div class="mind-item">
-            <b>8. Conservation Programmes</b><br>
-            Beej Bachao, Navdanya and JFM
-        </div>
-
-    </div>
-
-</div>
-
-<h3>12.2 Complete Chapter Flowchart</h3>
-
-<div class="flow">
-
-    <div class="flow-box">FOREST AND WILDLIFE RESOURCES</div>
-
-    <div class="flow-arrow">↓</div>
-
-    <div class="flow-box">BIODIVERSITY AND ECOLOGICAL SYSTEM</div>
-
-    <div class="flow-arrow">↓</div>
-
-    <div class="flow-box">CONSERVATION OF FORESTS AND WILDLIFE</div>
-
-    <div class="flow-arrow">↓</div>
-
-    <div class="flow-box">WILDLIFE PROTECTION ACT – 1972</div>
-
-    <div class="flow-arrow">↓</div>
-
-    <div class="flow-box">PROJECT TIGER – 1973</div>
-
-    <div class="flow-arrow">↓</div>
-
-    <div class="flow-box">TYPES OF FOREST RESOURCES</div>
-
-    <div class="flow-arrow">↓</div>
-
-    <div class="flow-grid">
-
-        <div class="flow-box green">
-            Reserved Forests
-        </div>
-
-        <div class="flow-box orange">
-            Protected Forests
-        </div>
-
-        <div class="flow-box">
-            Unclassed Forests
-        </div>
-
-    </div>
-
-    <div class="flow-arrow">↓</div>
-
-    <div class="flow-box">COMMUNITY AND CONSERVATION</div>
-
-    <div class="flow-arrow">↓</div>
-
-    <div class="flow-box">CHIPKO • BEEJ BACHAO • NAVDANYA • JFM</div>
-
-    <div class="flow-arrow">↓</div>
-
-    <div class="flow-box">SACRED GROVES AND TRADITIONAL CONSERVATION</div>
-
-    <div class="flow-arrow">↓</div>
-
-    <div class="flow-box green">
-        BIODIVERSITY PROTECTION AND ECOLOGICAL BALANCE
-    </div>
-
-</div>
-
-</div>
-</details>
-
-<!-- SECTION 13 -->
-
-<details class="section" id="s13">
-<summary>13. ONE-MINUTE QUICK REVISION</summary>
-
-<div class="section-body">
-
-<h3>Important Definitions</h3>
-
-<ul>
-    <li><b>Biodiversity:</b> Variety of living organisms.</li>
-    <li><b>Flora:</b> Plant life.</li>
-    <li><b>Fauna:</b> Animal life.</li>
-    <li><b>Conservation:</b> Protection and careful management of natural resources.</li>
-    <li><b>Reserved Forests:</b> Forests regarded as most valuable for conservation.</li>
-    <li><b>Protected Forests:</b> Forests protected from further depletion.</li>
-    <li><b>Unclassed Forests:</b> Other forests and wastelands belonging to government, private individuals and communities.</li>
-    <li><b>Sacred Groves:</b> Forest patches protected through traditional beliefs.</li>
-    <li><b>JFM:</b> Joint Forest Management involving local communities.</li>
-</ul>
-
-<h3>Important Years</h3>
-
-<ul>
-    <li>1972 – Wildlife Protection Act.</li>
-    <li>1973 – Project Tiger.</li>
-    <li>1980 and 1986 – Insects added to protected-species lists through notifications.</li>
-    <li>1988 – First JFM resolution in Odisha.</li>
-    <li>1991 – Plants added to the protected list for the first time.</li>
-</ul>
-
-<h3>Important Locations</h3>
-
-<ul>
-    <li>Sariska – Rajasthan.</li>
-    <li>Bhairodev Dakav 'Sonchuri' – Alwar, Rajasthan.</li>
-    <li>Beej Bachao Andolan – Tehri.</li>
-    <li>Chipko Movement – Himalayas.</li>
-    <li>First JFM resolution – Odisha.</li>
-    <li>Largest area under permanent forests – Madhya Pradesh.</li>
-</ul>
-
-<h3>Important Figures</h3>
-
-<ul>
-    <li>1,827 – Tiger population in 1973.</li>
-    <li>55,000 – Estimated tiger population at the turn of the century.</li>
-    <li>75% – Permanent forests as a share of MP's total forest area.</li>
-    <li>1,200 hectares – Bhairodev Dakav 'Sonchuri'.</li>
-    <li>Five villages – Alwar conservation initiative.</li>
-    <li>Six species – Plants initially added to protected list in 1991.</li>
-</ul>
-
-</div>
-</details>
-
-<!-- SECTION 14 -->
-
-<details class="section" id="s14">
-<summary>14. SOURCE AND IMAGE REFERENCES</summary>
-
-<div class="section-body">
-
-<p>
-These notes are based on the uploaded NCERT Class 10 Geography
-chapter, <b>Forest and Wildlife Resources</b>, Reprint 2025–26.
-</p>
-
-<p>
-The chapter's six pages include the main text, photographs,
-captions, forest-category information, conservation examples,
-Sacred Groves and NCERT exercise questions.
-</p>
-
-<h3>External Image Sources</h3>
-
-<ul>
-    <li>
-        <a href="https://commons.wikimedia.org/wiki/Category:Tigers"
-           target="_blank" rel="noopener">
-           Wikimedia Commons – Tigers
-        </a>
-    </li>
-
-    <li>
-        <a href="https://commons.wikimedia.org/wiki/Category:Indian_rhinoceroses"
-           target="_blank" rel="noopener">
-           Wikimedia Commons – Indian Rhinoceroses
-        </a>
-    </li>
-
-    <li>
-        <a href="https://commons.wikimedia.org/wiki/Category:Chipko_movement"
-           target="_blank" rel="noopener">
-           Wikimedia Commons – Chipko Movement
-        </a>
-    </li>
-
-    <li>
-        <a href="https://commons.wikimedia.org/wiki/Category:Sacred_groves"
-           target="_blank" rel="noopener">
-           Wikimedia Commons – Sacred Groves
-        </a>
-    </li>
-
-    <li>
-        <a href="https://www.ncert.nic.in/"
-           target="_blank" rel="noopener">
-           NCERT Official Website
-        </a>
-    </li>
-</ul>
-
-<div class="note orange-note">
-    Some external image addresses may change or may not load
-    depending on Wikimedia file availability and internet
-    connectivity. The image spaces automatically hide if an
-    image fails to load. The chapter notes remain available
-    offline after the HTML page is saved, but external images
-    require an internet connection.
-</div>
-
-</div>
-</details>
-
+<h3>High-Priority Examination Topics</h3>
+<ol><li>Causes of water scarcity.</li><li>Need for water conservation and management.</li><li>Atal Bhujal Yojana and Jal Jeevan Mission.</li><li>Pradhan Mantri Krishi Sinchayee Yojana.</li><li>Multi-purpose river projects: advantages and disadvantages.</li><li>Dams as the Temples of Modern India.</li><li>Hydraulic structures in ancient India.</li><li>Sardar Sarovar Project.</li><li>Krishna-Godavari water dispute.</li><li>Traditional water-harvesting methods.</li><li>Rooftop rainwater harvesting in Rajasthan.</li><li>Tamil Nadu's compulsory rainwater harvesting.</li><li>Bamboo drip irrigation system of Meghalaya.</li></ol>
+<div class="exam"><b>Chapter coverage:</b> These notes are organised from the supplied NCERT Class 10 Geography Chapter 3 PDF. They include the chapter's concepts, schemes, historical examples, project details, traditional systems, case studies, map-based list and textbook exercises. For the original India rivers-and-dams map, refer to page 24 of the uploaded textbook.</div>
+</section>
+<div class="footer">Class 10 Geography · Chapter 3: Water Resources · Study Notes</div>
 </main>
 </div>
-
-<!-- FOOTER -->
-
-<footer class="footer">
-    <b>FOREST AND WILDLIFE RESOURCES</b><br>
-    Class 10 Geography | Contemporary India – II<br>
-    Complete Classified Study Notes
-</footer>
-
-<!-- BACK TO TOP -->
-
-<button
-    class="top-button"
-    onclick="window.scrollTo({top:0,behavior:'smooth'})"
-    title="Back to top"
->
-    ↑
-</button>
-
-<!-- IMAGE MODAL -->
-
-<div class="image-modal" id="imageModal" onclick="closeImage()">
-    <span>×</span>
-    <img id="modalImage" src="" alt="Enlarged study image">
-</div>
-
+<button class="backtop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
 <script>
-
-/* =====================================
-   GENERATE TABLE OF CONTENTS
-===================================== */
-
-const sections = document.querySelectorAll("details.section");
-const toc = document.getElementById("toc");
-
-sections.forEach((section,index)=>{
-
-    const title = section.querySelector("summary").innerText;
-
-    const link = document.createElement("a");
-
-    link.href = "#" + section.id;
-    link.textContent = title;
-
-    link.addEventListener("click",function(event){
-
-        event.preventDefault();
-
-        section.open = true;
-
-        section.scrollIntoView({
-            behavior:"smooth",
-            block:"start"
-        });
-
-        history.replaceState(null,"","#"+section.id);
-
-    });
-
-    toc.appendChild(link);
-
-});
-
-
-/* =====================================
-   SHOW / HIDE SIDEBAR
-===================================== */
-
-function toggleSidebar(){
-
-    document
-        .getElementById("sidebar")
-        .classList
-        .toggle("hidden");
-
+function toggleSidebar(){document.body.classList.toggle('sidebar-hidden');}
+const input=document.getElementById('searchInput');
+const statusBox=document.getElementById('searchStatus');
+let currentMarks=[];
+function clearMarks(){
+  currentMarks.forEach(mark=>{
+    const parent=mark.parentNode;
+    if(parent){parent.replaceChild(document.createTextNode(mark.textContent),mark);parent.normalize();}
+  });
+  currentMarks=[];
 }
-
-
-/* =====================================
-   EXPAND ALL
-===================================== */
-
-function expandAll(){
-
-    document
-        .querySelectorAll("details.section")
-        .forEach(section=>{
-            section.open = true;
-        });
-
-}
-
-
-/* =====================================
-   COLLAPSE ALL
-===================================== */
-
-function collapseAll(){
-
-    document
-        .querySelectorAll("details.section")
-        .forEach(section=>{
-            section.open = false;
-        });
-
-}
-
-
-/* =====================================
-   SEARCH AND HIGHLIGHT
-===================================== */
-
-const searchableElements = [
-    ...document.querySelectorAll(".section-body"),
-    document.querySelector(".intro")
-];
-
-const originalContent = searchableElements.map(
-    element => element.innerHTML
-);
-
-function escapeRegExp(string){
-
-    return string.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
-
-}
-
 function searchContent(){
-
-    const input = document
-        .getElementById("searchInput")
-        .value
-        .trim();
-
-    const count = document.getElementById("searchCount");
-
-    /* Restore original content */
-
-    searchableElements.forEach((element,index)=>{
-        element.innerHTML = originalContent[index];
-    });
-
-    if(!input){
-
-        count.textContent = "";
-        return;
-
+  clearMarks();
+  const term=input.value.trim();
+  statusBox.textContent='';
+  if(!term)return;
+  const root=document.querySelector('main.content');
+  const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{
+    acceptNode(node){
+      if(!node.nodeValue.trim())return NodeFilter.FILTER_REJECT;
+      const p=node.parentElement;
+      if(!p || ['SCRIPT','STYLE','MARK'].includes(p.tagName))return NodeFilter.FILTER_REJECT;
+      if(p.closest('button, input, .footer'))return NodeFilter.FILTER_REJECT;
+      return NodeFilter.FILTER_ACCEPT;
     }
-
-    const regex = new RegExp(
-        escapeRegExp(input),
-        "gi"
-    );
-
-    let total = 0;
-
-    searchableElements.forEach(element=>{
-
-        const walker = document.createTreeWalker(
-            element,
-            NodeFilter.SHOW_TEXT,
-            {
-                acceptNode(node){
-
-                    if(!node.nodeValue.trim()){
-                        return NodeFilter.FILTER_REJECT;
-                    }
-
-                    const parent = node.parentElement;
-
-                    if(
-                        parent.closest(
-                            "script,style,mark,button"
-                        )
-                    ){
-                        return NodeFilter.FILTER_REJECT;
-                    }
-
-                    return NodeFilter.FILTER_ACCEPT;
-
-                }
-            }
-        );
-
-        const textNodes = [];
-
-        while(walker.nextNode()){
-            textNodes.push(walker.currentNode);
-        }
-
-        textNodes.forEach(node=>{
-
-            const text = node.nodeValue;
-
-            const matches = [...text.matchAll(regex)];
-
-            if(matches.length===0){
-                return;
-            }
-
-            total += matches.length;
-
-            const fragment = document.createDocumentFragment();
-
-            let lastIndex = 0;
-
-            matches.forEach(match=>{
-
-                fragment.appendChild(
-                    document.createTextNode(
-                        text.slice(lastIndex,match.index)
-                    )
-                );
-
-                const mark = document.createElement("mark");
-
-                mark.className = "search-highlight";
-                mark.textContent = match[0];
-
-                fragment.appendChild(mark);
-
-                lastIndex = match.index + match[0].length;
-
-            });
-
-            fragment.appendChild(
-                document.createTextNode(
-                    text.slice(lastIndex)
-                )
-            );
-
-            node.parentNode.replaceChild(fragment,node);
-
-        });
-
-    });
-
-    count.textContent = total + " matches found";
-
-    if(total>0){
-
-        const first = document.querySelector(
-            "mark.search-highlight"
-        );
-
-        const section = first?.closest("details.section");
-
-        if(section){
-
-            section.open = true;
-
-            setTimeout(()=>{
-
-                first.scrollIntoView({
-                    behavior:"smooth",
-                    block:"center"
-                });
-
-            },100);
-
-        }
-
+  });
+  const nodes=[];while(walker.nextNode())nodes.push(walker.currentNode);
+  const escaped=term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+  const regex=new RegExp(escaped,'gi');
+  let count=0,first=null;
+  nodes.forEach(node=>{
+    const text=node.nodeValue;
+    if(!regex.test(text)){regex.lastIndex=0;return;}
+    regex.lastIndex=0;
+    const frag=document.createDocumentFragment();
+    let last=0,match;
+    while((match=regex.exec(text))!==null){
+      if(match.index>last)frag.appendChild(document.createTextNode(text.slice(last,match.index)));
+      const mark=document.createElement('mark');
+      mark.className='search-hit';mark.textContent=match[0];
+      frag.appendChild(mark);currentMarks.push(mark);
+      if(!first)first=mark;
+      count++;last=match.index+match[0].length;
+      if(match[0].length===0)regex.lastIndex++;
     }
-
+    if(last<text.length)frag.appendChild(document.createTextNode(text.slice(last)));
+    node.parentNode.replaceChild(frag,node);
+  });
+  if(count){statusBox.textContent=count+' match(es) highlighted';first.scrollIntoView({behavior:'smooth',block:'center'});}
+  else statusBox.textContent='No matching text found.';
 }
-
-
-/* =====================================
-   IMAGE ZOOM
-===================================== */
-
-document.addEventListener("click",function(event){
-
-    if(
-        event.target.tagName==="IMG" &&
-        event.target.closest(".study-image,.image-row")
-    ){
-
-        const modal = document.getElementById("imageModal");
-
-        const modalImage = document.getElementById("modalImage");
-
-        modalImage.src = event.target.src;
-
-        modal.style.display = "flex";
-
-    }
-
+input.addEventListener('keydown',e=>{if(e.key==='Enter')searchContent();});
+input.addEventListener('input',()=>{if(!input.value.trim()){clearMarks();statusBox.textContent='';}});
+document.querySelectorAll('#toc a').forEach(link=>{
+  link.addEventListener('click',e=>{
+    const target=document.querySelector(link.getAttribute('href'));
+    if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'});}
+    document.querySelectorAll('#toc a').forEach(a=>a.classList.remove('active'));
+    link.classList.add('active');
+  });
 });
-
-
-function closeImage(){
-
-    document
-        .getElementById("imageModal")
-        .style.display = "none";
-
-}
-
-
-/* =====================================
-   ESCAPE KEY CLOSE IMAGE
-===================================== */
-
-document.addEventListener("keydown",function(event){
-
-    if(event.key==="Escape"){
-        closeImage();
-    }
-
-});
-
-
-/* =====================================
-   DIRECT HASH NAVIGATION
-===================================== */
-
-window.addEventListener("load",function(){
-
-    if(location.hash){
-
-        const target = document.querySelector(location.hash);
-
-        if(
-            target &&
-            target.matches("details.section")
-        ){
-
-            target.open = true;
-
-            setTimeout(()=>{
-
-                target.scrollIntoView({
-                    behavior:"smooth",
-                    block:"start"
-                });
-
-            },300);
-
-        }
-
-    }
-
-});
-
 </script>
-
 </body>
 </html>
