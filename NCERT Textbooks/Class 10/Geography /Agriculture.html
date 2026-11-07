@@ -1,0 +1,3059 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Class 10 Geography | Chapter 4 - Agriculture</title>
+
+<style>
+:root {
+    --primary: #176b45;
+    --secondary: #239b68;
+    --bg: #f3f7f4;
+    --card: #ffffff;
+    --text: #26332c;
+    --muted: #6c7b72;
+    --border: #dce8df;
+    --yellow: #fff176;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 25px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.75;
+}
+
+/* HEADER */
+
+.header {
+    background: linear-gradient(135deg, #124c35, #239b68);
+    color: white;
+    padding: 35px 20px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.header p {
+    opacity: .95;
+}
+
+.header .tag {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 7px 15px;
+    border: 1px solid #ffffff80;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+/* MAIN CONTAINER */
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* TOC */
+
+.toc-wrapper {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.toc-heading {
+    padding: 15px 18px;
+    background: #e4f2e9;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.toc-heading h2 {
+    font-size: 20px;
+    color: var(--primary);
+}
+
+.toc-content {
+    padding: 18px 22px;
+}
+
+.toc-content ol {
+    padding-left: 25px;
+    columns: 2;
+    column-gap: 40px;
+}
+
+.toc-content li {
+    padding: 4px 0;
+    break-inside: avoid;
+}
+
+.toc-content a {
+    text-decoration: none;
+    color: #176b45;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.toc-content a:hover {
+    color: #e67e22;
+    text-decoration: underline;
+}
+
+/* BUTTONS */
+
+.control-btn {
+    border: none;
+    padding: 9px 15px;
+    border-radius: 6px;
+    background: var(--primary);
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.control-btn:hover {
+    background: #0d4930;
+}
+
+.secondary-btn {
+    background: #e6f1e9;
+    color: var(--primary);
+}
+
+.secondary-btn:hover {
+    background: #cce5d4;
+}
+
+/* SEARCH */
+
+.search-panel {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.search-panel input {
+    flex: 1;
+    min-width: 180px;
+    padding: 13px;
+    border: 1px solid #cbd9ce;
+    border-radius: 7px;
+    font-size: 15px;
+    outline: none;
+}
+
+.search-panel input:focus {
+    border-color: var(--secondary);
+}
+
+#searchStatus {
+    width: 100%;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* INTRODUCTION */
+
+.intro {
+    background: white;
+    border-radius: 12px;
+    padding: 22px;
+    margin-bottom: 20px;
+    border-left: 5px solid var(--secondary);
+}
+
+.intro h2 {
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+/* CHAPTER SECTIONS */
+
+.chapter-section {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    scroll-margin-top: 15px;
+}
+
+.section-heading {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: #eaf4ed;
+    cursor: pointer;
+    list-style: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: #155d3c;
+}
+
+.section-heading::-webkit-details-marker {
+    display: none;
+}
+
+.section-heading::marker {
+    content: "";
+}
+
+.section-heading:hover {
+    background: #dcefe2;
+}
+
+.toggle-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 27px;
+    height: 27px;
+    border-radius: 5px;
+    background: var(--primary);
+    color: white;
+    font-size: 20px;
+    line-height: 1;
+}
+
+.section-heading .heading-text {
+    flex: 1;
+}
+
+.chapter-section[open] .toggle-icon::before {
+    content: "−";
+}
+
+.chapter-section:not([open]) .toggle-icon::before {
+    content: "+";
+}
+
+.section-body {
+    padding: 22px;
+}
+
+/* SUB HEADINGS */
+
+.section-body h3 {
+    color: #176b45;
+    font-size: 19px;
+    margin: 23px 0 10px;
+    border-bottom: 2px solid #e1eee4;
+    padding-bottom: 6px;
+}
+
+.section-body h4 {
+    color: #a15b12;
+    margin: 16px 0 8px;
+    font-size: 16px;
+}
+
+.section-body p {
+    margin: 8px 0;
+}
+
+.section-body ul,
+.section-body ol {
+    padding-left: 25px;
+    margin: 10px 0 15px;
+}
+
+.section-body li {
+    margin-bottom: 5px;
+}
+
+strong {
+    color: #175b3c;
+}
+
+/* TABLES */
+
+.table-wrap {
+    overflow-x: auto;
+    margin: 15px 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 450px;
+}
+
+th, td {
+    padding: 11px 13px;
+    border: 1px solid #d9e4dc;
+    text-align: left;
+    font-size: 14px;
+}
+
+th {
+    background: #176b45;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background: #f0f7f2;
+}
+
+/* IMAGES */
+
+.topic-image {
+    width: 100%;
+    max-height: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 15px 0;
+    display: block;
+    background: #edf2ee;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 13px;
+    margin: 15px 0;
+}
+
+.image-grid img {
+    width: 100%;
+    height: 175px;
+    object-fit: cover;
+    border-radius: 9px;
+}
+
+/* IMPORTANT BOX */
+
+.fact-box {
+    background: #fff8e3;
+    border-left: 4px solid #e5a12a;
+    padding: 14px 17px;
+    margin: 15px 0;
+    border-radius: 5px;
+}
+
+.info-box {
+    background: #eaf4ff;
+    border-left: 4px solid #3184ca;
+    padding: 14px 17px;
+    margin: 15px 0;
+    border-radius: 5px;
+}
+
+/* SEARCH HIGHLIGHT */
+
+mark.search-highlight {
+    background: var(--yellow);
+    color: #111;
+    padding: 1px 2px;
+    border-radius: 3px;
+}
+
+/* FOOTER */
+
+.footer {
+    text-align: center;
+    background: #124c35;
+    color: white;
+    padding: 25px;
+    margin-top: 30px;
+    font-size: 13px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 650px) {
+
+    .header h1 {
+        font-size: 23px;
+    }
+
+    .container {
+        padding: 12px;
+    }
+
+    .toc-content ol {
+        columns: 1;
+    }
+
+    .section-body {
+        padding: 15px;
+    }
+
+    .section-heading {
+        font-size: 16px;
+    }
+
+    .image-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .image-grid img {
+        height: 130px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="header">
+
+    <h1>AGRICULTURE</h1>
+
+    <p>Class 10 Geography | Chapter 4</p>
+
+    <p>NCERT – Contemporary India II</p>
+
+    <div class="tag">
+        COMPLETE CLASSIFIED NOTES
+    </div>
+
+    <div class="tag">
+        BPSC • UPSC • SSC • SCHOOL EXAMINATIONS
+    </div>
+
+</header>
+
+
+<div class="container">
+
+<!-- TABLE OF CONTENTS -->
+
+<div class="toc-wrapper" id="tocWrapper">
+
+    <div class="toc-heading">
+
+        <h2>📚 Table of Contents</h2>
+
+        <button class="control-btn"
+        onclick="toggleTOC()"
+        id="tocToggle">
+            Hide Contents
+        </button>
+
+    </div>
+
+    <div class="toc-content" id="tocContent">
+
+        <ol>
+
+            <li><a href="#section1">Introduction to Agriculture</a></li>
+
+            <li><a href="#section2">Types of Farming</a></li>
+
+            <li><a href="#section3">Cropping Pattern in India</a></li>
+
+            <li><a href="#section4">Major Crops of India</a></li>
+
+            <li><a href="#section5">Rice</a></li>
+
+            <li><a href="#section6">Wheat</a></li>
+
+            <li><a href="#section7">Millets</a></li>
+
+            <li><a href="#section8">Maize</a></li>
+
+            <li><a href="#section9">Pulses</a></li>
+
+            <li><a href="#section10">Sugarcane</a></li>
+
+            <li><a href="#section11">Oilseeds</a></li>
+
+            <li><a href="#section12">Tea</a></li>
+
+            <li><a href="#section13">Coffee</a></li>
+
+            <li><a href="#section14">Horticulture Crops</a></li>
+
+            <li><a href="#section15">Rubber</a></li>
+
+            <li><a href="#section16">Fibre Crops</a></li>
+
+            <li><a href="#section17">Technological and Institutional Reforms</a></li>
+
+            <li><a href="#section18">Bhoodan–Gramdan Movement</a></li>
+
+            <li><a href="#section19">Important One-Liners</a></li>
+
+            <li><a href="#section20">Important Comparison Tables</a></li>
+
+            <li><a href="#section21">NCERT Exercise Questions</a></li>
+
+            <li><a href="#section22">Final Revision</a></li>
+
+        </ol>
+
+    </div>
+
+</div>
+
+
+<!-- SEARCH PANEL -->
+
+<div class="search-panel">
+
+    <input
+        type="search"
+        id="searchInput"
+        placeholder="🔍 Search any word or topic..."
+        autocomplete="off"
+    >
+
+    <button class="control-btn" onclick="searchContent()">
+        Search
+    </button>
+
+    <button class="control-btn secondary-btn" onclick="clearSearch()">
+        Clear
+    </button>
+
+    <p id="searchStatus">
+        Search any keyword. Matching words will be highlighted in yellow.
+    </p>
+
+</div>
+
+
+<!-- GLOBAL CONTROLS -->
+
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;">
+
+    <button class="control-btn" onclick="expandAll()">
+        + Expand All
+    </button>
+
+    <button class="control-btn secondary-btn" onclick="collapseAll()">
+        − Collapse All
+    </button>
+
+</div>
+
+
+<!-- INTRODUCTION -->
+
+<div class="intro">
+
+    <h2>Chapter Overview</h2>
+
+    <p>
+        Agriculture is the main source of livelihood for a large section
+        of India's population. It is a primary economic activity and
+        supplies food as well as raw materials to various industries.
+    </p>
+
+    <img
+        class="topic-image"
+        src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200"
+        alt="Green agricultural fields"
+        loading="lazy"
+    >
+
+    <p>
+        This chapter explains types of farming, cropping seasons,
+        major food crops, non-food crops, geographical conditions
+        and agricultural reforms in India.
+    </p>
+
+</div>
+
+
+<!-- SECTION 1 -->
+
+<details class="chapter-section" id="section1">
+
+<summary class="section-heading">
+    <span class="toggle-icon"></span>
+    <span class="heading-text">1. Introduction to Agriculture</span>
+</summary>
+
+<div class="section-body">
+
+<h3>Meaning and Importance</h3>
+
+<p>
+Agriculture is a primary economic activity involving the cultivation
+of crops and rearing of animals for food and other useful products.
+</p>
+
+<h3>Important Features</h3>
+
+<ul>
+<li>Approximately two-thirds of India's population is engaged in agricultural activities, as stated in the textbook.</li>
+<li>Agriculture is a primary economic activity.</li>
+<li>It produces most of the food that we consume.</li>
+<li>It supplies raw materials to various industries.</li>
+<li>Agricultural products such as tea, coffee and spices are exported.</li>
+<li>Agriculture is an important source of livelihood in India.</li>
+</ul>
+
+<h3>Industries Based on Agricultural Raw Materials</h3>
+
+<div class="table-wrap">
+<table>
+<tr>
+<th>Agricultural Raw Material</th>
+<th>Related Industry</th>
+</tr>
+<tr><td>Cotton</td><td>Cotton Textile Industry</td></tr>
+<tr><td>Jute</td><td>Jute Textile Industry</td></tr>
+<tr><td>Sugarcane</td><td>Sugar Industry</td></tr>
+<tr><td>Tea</td><td>Tea Processing Industry</td></tr>
+<tr><td>Coffee</td><td>Coffee Processing Industry</td></tr>
+<tr><td>Oilseeds</td><td>Edible Oil Industry</td></tr>
+<tr><td>Rubber</td><td>Rubber Industry</td></tr>
+</table>
+</div>
+
+</div>
+</details>
+
+
+<!-- SECTION 2 -->
+
+<details class="chapter-section" id="section2">
+
+<summary class="section-heading">
+<span class="toggle-icon"></span>
+<span class="heading-text">2. Types of Farming</span>
+</summary>
+
+<div class="section-body">
+
+<p>
+Agricultural practices in India vary according to physical
+environment, technological knowledge and socio-cultural practices.
+</p>
+
+<h3>Major Types of Farming</h3>
+
+<ul>
+<li>Primitive Subsistence Farming</li>
+<li>Intensive Subsistence Farming</li>
+<li>Commercial Farming</li>
+<li>Plantation Agriculture</li>
+</ul>
+
+<img class="topic-image"
+src="https://images.unsplash.com/photo-1499529112087-3cb3b73cec95?w=1200"
+alt="Agricultural farming"
+loading="lazy">
+
+
+<h3>2.1 Primitive Subsistence Farming</h3>
+
+<p>
+Primitive subsistence farming is a traditional form of agriculture
+practised on small patches of land using primitive tools and family
+or community labour.
+</p>
+
+<h4>Main Characteristics</h4>
+
+<ul>
+<li>Practised in small patches of land.</li>
+<li>Uses primitive tools such as hoe, dao and digging sticks.</li>
+<li>Depends on monsoon rainfall.</li>
+<li>Depends on natural fertility of the soil.</li>
+<li>Uses family and community labour.</li>
+<li>Production is mainly for family consumption.</li>
+<li>Farmers generally do not use modern agricultural inputs.</li>
+</ul>
+
+<h3>Slash and Burn Agriculture</h3>
+
+<p>
+Slash and burn agriculture is a form of shifting cultivation.
+</p>
+
+<h4>Process</h4>
+
+<ol>
+<li>Farmers clear a patch of forest land.</li>
+<li>Trees and vegetation are cut and burnt.</li>
+<li>The cleared land is used for cultivation.</li>
+<li>Cereals and other food crops are grown.</li>
+<li>When soil fertility decreases, farmers shift to another patch.</li>
+<li>The abandoned land gets an opportunity to regain fertility through natural processes.</li>
+</ol>
+
+<img class="topic-image"
+src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=1200"
+alt="Forest vegetation"
+loading="lazy">
+
+<h3>Local Names of Shifting Cultivation in India</h3>
+
+<div class="table-wrap">
+<table>
+<tr><th>Region / State</th><th>Local Name</th></tr>
+<tr><td>North-Eastern States</td><td>Jhumming</td></tr>
+<tr><td>Manipur</td><td>Pamlou</td></tr>
+<tr><td>Bastar, Chhattisgarh</td><td>Dipa</td></tr>
+<tr><td>Madhya Pradesh</td><td>Bewar or Dahiya</td></tr>
+<tr><td>Andhra Pradesh</td><td>Podu or Penda</td></tr>
+<tr><td>Odisha</td><td>Pama Dabi, Koman or Bringa</td></tr>
+<tr><td>Western Ghats</td><td>Kumari</td></tr>
+<tr><td>South-Eastern Rajasthan</td><td>Valre or Waltre</td></tr>
+<tr><td>Himalayan Belt</td><td>Khil</td></tr>
+<tr><td>Jharkhand</td><td>Kuruwa</td></tr>
+<tr><td>Andaman and Nicobar Islands</td><td>Shifting Cultivation</td></tr>
+</table>
+</div>
+
+<h3>International Names</h3>
+
+<div class="table-wrap">
+<table>
+<tr><th>Country / Region</th><th>Local Name</th></tr>
+<tr><td>Mexico and Central America</td><td>Milpa</td></tr>
+<tr><td>Venezuela</td><td>Conuco</td></tr>
+<tr><td>Brazil</td><td>Roca</td></tr>
+<tr><td>Central Africa</td><td>Masole</td></tr>
+<tr><td>Indonesia</td><td>Ladang</td></tr>
+<tr><td>Vietnam</td><td>Ray</td></tr>
+</table>
+</div>
+
+<div class="fact-box">
+<strong>Important for BPSC:</strong>
+Jhumming – North-East India.
+Kuruwa – Jharkhand.
+Milpa – Mexico and Central America.
+</div>
+
+
+<h3>2.2 Intensive Subsistence Farming</h3>
+
+<p>
+Intensive subsistence farming is practised in areas where there is
+high population pressure on agricultural land.
+</p>
+
+<h4>Characteristics</h4>
+
+<ul>
+<li>Practised in densely populated regions.</li>
+<li>It is labour-intensive agriculture.</li>
+<li>High doses of biochemical inputs are used.</li>
+<li>Irrigation is used to increase production.</li>
+<li>Farmers try to obtain maximum output from limited land.</li>
+<li>Landholdings become smaller due to inheritance and division among successive generations.</li>
+<li>There is enormous pressure on agricultural land.</li>
+<li>Farmers continue cultivation because alternative sources of livelihood may be limited.</li>
+</ul>
+
+<div class="info-box">
+<strong>Main Objective:</strong>
+To obtain maximum agricultural production from a small area of land.
+</div>
+
+
+<h3>2.3 Commercial Farming</h3>
+
+<img class="topic-image"
+src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200"
+alt="Commercial agriculture"
+loading="lazy">
+
+<p>
+Commercial farming is an agricultural system in which crops are
+grown mainly for sale in the market.
+</p>
+
+<h4>Characteristics</h4>
+
+<ul>
+<li>Uses modern agricultural inputs.</li>
+<li>Uses High Yielding Variety (HYV) seeds.</li>
+<li>Uses chemical fertilisers.</li>
+<li>Uses insecticides and pesticides.</li>
+<li>Uses modern irrigation facilities.</li>
+<li>Aims to achieve higher productivity.</li>
+<li>Production is mainly intended for the market.</li>
+</ul>
+
+<h4>Examples</h4>
+
+<p>
+Rice is a commercial crop in Haryana and Punjab, whereas it is
+mainly a subsistence crop in Odisha, according to the NCERT example.
+</p>
+
+
+<h3>2.4 Plantation Agriculture</h3>
+
+<div class="image-grid">
+<img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=600" alt="Tea plantation" loading="lazy">
+<img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=600" alt="Coffee" loading="lazy">
+<img src="https://images.unsplash.com/photo-1598514982205-f36b96d1e8d3?w=600" alt="Plantation crops" loading="lazy">
+</div>
+
+<p>
+Plantation agriculture is a type of commercial farming in which
+a single crop is grown over a large area.
+</p>
+
+<h4>Characteristics</h4>
+
+<ul>
+<li>A single crop is grown over a large area.</li>
+<li>Plantation farms cover large tracts of land.</li>
+<li>They use capital-intensive inputs.</li>
+<li>Migrant labourers are employed.</li>
+<li>Agriculture and industry are closely connected.</li>
+<li>The entire produce is used as raw material in respective industries.</li>
+<li>Transport and communication networks are essential.</li>
+<li>Processing industries and markets are connected to plantation areas.</li>
+</ul>
+
+<h4>Major Plantation Crops</h4>
+
+<ul>
+<li>Tea</li>
+<li>Coffee</li>
+<li>Rubber</li>
+<li>Sugarcane</li>
+<li>Banana</li>
+</ul>
+
+<h4>Important Examples</h4>
+
+<ul>
+<li>Tea – Assam and North Bengal.</li>
+<li>Coffee – Karnataka.</li>
+</ul>
+
+
+<h3>Comparison of Types of Farming</h3>
+
+<div class="table-wrap">
+<table>
+<tr>
+<th>Basis</th>
+<th>Primitive Subsistence</th>
+<th>Intensive Subsistence</th>
+<th>Commercial</th>
+</tr>
+<tr>
+<td>Landholding</td>
+<td>Small patches</td>
+<td>Limited land</td>
+<td>Varies</td>
+</tr>
+<tr>
+<td>Tools</td>
+<td>Primitive</td>
+<td>Modern and traditional</td>
+<td>Modern</td>
+</tr>
+<tr>
+<td>Labour</td>
+<td>Family / Community</td>
+<td>Labour-intensive</td>
+<td>Labour and machinery</td>
+</tr>
+<tr>
+<td>Inputs</td>
+<td>Natural fertility</td>
+<td>High biochemical inputs</td>
+<td>HYV seeds, fertilisers and pesticides</td>
+</tr>
+<tr>
+<td>Objective</td>
+<td>Family consumption</td>
+<td>Maximum output</td>
+<td>Market production</td>
+</tr>
+</table>
+</div>
+
+</div>
+</details>
+
+
+<!-- SECTION 3 -->
+
+<details class="chapter-section" id="section3">
+
+<summary class="section-heading">
+<span class="toggle-icon"></span>
+<span class="heading-text">3. Cropping Pattern in India</span>
+</summary>
+
+<div class="section-body">
+
+<p>
+India has diverse physical and cultural conditions. These differences
+are reflected in its agricultural practices and cropping patterns.
+</p>
+
+<h3>Three Major Cropping Seasons</h3>
+
+<ul>
+<li>Rabi</li>
+<li>Kharif</li>
+<li>Zaid</li>
+</ul>
+
+<img class="topic-image"
+src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200"
+alt="Agricultural seasonal fields"
+loading="lazy">
+
+
+<h3>3.1 Rabi Season</h3>
+
+<p><strong>Sowing Period:</strong> October to December.</p>
+
+<p><strong>Harvesting Period:</strong> April to June.</p>
+
+<h4>Major Rabi Crops</h4>
+
+<ul>
+<li>Wheat</li>
+<li>Barley</li>
+<li>Peas</li>
+<li>Gram</li>
+<li>Mustard</li>
+</ul>
+
+<h4>Major Producing Regions</h4>
+
+<ul>
+<li>Punjab</li>
+<li>Haryana</li>
+<li>Himachal Pradesh</li>
+<li>Jammu and Kashmir</li>
+<li>Uttarakhand</li>
+<li>Uttar Pradesh</li>
+</ul>
+
+<h4>Conditions Supporting Rabi Crops</h4>
+
+<ul>
+<li>Cool winter season.</li>
+<li>Suitable soil conditions.</li>
+<li>Availability of winter precipitation.</li>
+<li>Western temperate cyclones provide rainfall during winter.</li>
+<li>Green Revolution contributed to increased production.</li>
+</ul>
+
+<div class="fact-box">
+<strong>Green Revolution Regions:</strong>
+Punjab, Haryana, Western Uttar Pradesh and parts of Rajasthan.
+</div>
+
+
+<h3>3.2 Kharif Season</h3>
+
+<p><strong>Sowing:</strong> With the onset of monsoon.</p>
+
+<p><strong>Harvesting:</strong> September–October.</p>
+
+<h4>Major Kharif Crops</h4>
+
+<ul>
+<li>Paddy</li>
+<li>Maize</li>
+<li>Jowar</li>
+<li>Bajra</li>
+<li>Tur (Arhar)</li>
+<li>Moong</li>
+<li>Urad</li>
+<li>Cotton</li>
+<li>Jute</li>
+<li>Groundnut</li>
+<li>Soyabean</li>
+</ul>
+
+<h4>Major Rice-Growing Regions</h4>
+
+<ul>
+<li>Assam</li>
+<li>West Bengal</li>
+<li>Coastal Odisha</li>
+<li>Andhra Pradesh</li>
+<li>Telangana</li>
+<li>Tamil Nadu</li>
+<li>Kerala</li>
+<li>Maharashtra</li>
+<li>Uttar Pradesh</li>
+<li>Bihar</li>
+<li>Punjab</li>
+<li>Haryana</li>
+</ul>
+
+<h3>Three Paddy Crops in Eastern States</h3>
+
+<p>
+In Assam, West Bengal and Odisha, three crops of paddy are grown
+in one year.
+</p>
+
+<div class="table-wrap">
+<table>
+<tr><th>Crop</th><th>Associated States</th></tr>
+<tr><td>Aus</td><td>Assam, West Bengal and Odisha</td></tr>
+<tr><td>Aman</td><td>Assam, West Bengal and Odisha</td></tr>
+<tr><td>Boro</td><td>Assam, West Bengal and Odisha</td></tr>
+</table>
+</div>
+
+
+<h3>3.3 Zaid Season</h3>
+
+<img class="topic-image"
+src="https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=1200"
+alt="Summer crops"
+loading="lazy">
+
+<p>
+Zaid is a short cropping season between Rabi and Kharif.
+</p>
+
+<p><strong>Season:</strong> Summer months.</p>
+
+<h4>Major Zaid Crops</h4>
+
+<ul>
+<li>Watermelon</li>
+<li>Muskmelon</li>
+<li>Cucumber</li>
+<li>Vegetables</li>
+<li>Fodder crops</li>
+</ul>
+
+<div class="fact-box">
+<strong>Important Fact:</strong>
+Sugarcane takes almost one year to grow.
+</div>
+
+
+<h3>3.4 Comparison of Cropping Seasons</h3>
+
+<div class="table-wrap">
+<table>
+<tr>
+<th>Feature</th>
+<th>Rabi</th>
+<th>Kharif</th>
+<th>Zaid</th>
+</tr>
+<tr>
+<td>Season</td>
+<td>Winter</td>
+<td>Monsoon</td>
+<td>Summer</td>
+</tr>
+<tr>
+<td>Sowing</td>
+<td>October–December</td>
+<td>Onset of monsoon</td>
+<td>Between Rabi and Kharif</td>
+</tr>
+<tr>
+<td>Harvesting</td>
+<td>April–June</td>
+<td>September–October</td>
+<td>Before Kharif</td>
+</tr>
+<tr>
+<td>Major Crops</td>
+<td>Wheat, Gram, Mustard</td>
+<td>Rice, Maize, Cotton</td>
+<td>Watermelon, Cucumber</td>
+</tr>
+<tr>
+<td>Rainfall</td>
+<td>Winter precipitation and irrigation</td>
+<td>Monsoon rainfall</td>
+<td>Irrigation often important</td>
+</tr>
+</table>
+</div>
+
+<div class="info-box">
+<strong>Quick Revision:</strong><br>
+Rabi = Winter crops.<br>
+Kharif = Monsoon crops.<br>
+Zaid = Summer crops.
+</div>
+
+</div>
+</details>
+
+
+<!-- SECTION 4 -->
+
+<details class="chapter-section" id="section4">
+
+<summary class="section-heading">
+<span class="toggle-icon"></span>
+<span class="heading-text">4. Major Crops of India</span>
+</summary>
+
+<div class="section-body">
+
+<p>
+India produces a variety of food and non-food crops depending upon
+variations in soil, climate and cultivation practices.
+</p>
+
+<h3>Major Crops</h3>
+
+<ul>
+<li>Rice</li>
+<li>Wheat</li>
+<li>Millets</li>
+<li>Pulses</li>
+<li>Tea</li>
+<li>Coffee</li>
+<li>Sugarcane</li>
+<li>Oilseeds</li>
+<li>Cotton</li>
+<li>Jute</li>
+</ul>
+
+<img class="topic-image"
+src="https://images.unsplash.com/photo-1472396961693-142e6e269027?w=1200"
+alt="Agricultural landscape"
+loading="lazy">
+
+</div>
+</details>
+
+
+<!-- SECTION 5 -->
+
+<details class="chapter-section" id="section5">
+
+<summary class="section-heading">
+<span class="toggle-icon"></span>
+<span class="heading-text">5. Rice – Major Food Crop</span>
+</summary>
+
+<div class="section-body">
+
+<img class="topic-image"
+src="https://images.unsplash.com/photo-1536304993881-ff6e9eefa2a6?w=1200"
+alt="Rice cultivation"
+loading="lazy">
+
+<h3>Introduction</h3>
+
+<p>
+Rice is the staple food crop of a majority of people in India.
+</p>
+
+<h3>Important Facts</h3>
+
+<ul>
+<li>Rice is a Kharif crop.</li>
+<li>India is the second-largest producer of rice in the world after China, as stated in the textbook.</li>
+<li>It is grown in the plains of North and North-Eastern India.</li>
+<li>It is also cultivated in coastal and deltaic regions.</li>
+</ul>
+
+<h3>Geographical Conditions</h3>
+
+<div class="table-wrap">
+<table>
+<tr><th>Requirement</th><th>Conditions</th></tr>
+<tr><td>Temperature</td><td>Above 25°C</td></tr>
+<tr><td>Rainfall</td><td>Above 100 cm annually</td></tr>
+<tr><td>Humidity</td><td>High</td></tr>
+<tr><td>Soil</td><td>Suitable fertile soils</td></tr>
+<tr><td>Water</td><td>Abundant moisture</td></tr>
+</table>
+</div>
+
+<h3>Rice Cultivation in Areas of Low Rainfall</h3>
+
+<p>
+Rice is also cultivated in regions with less rainfall through:
+</p>
+
+<ul>
+<li>Canal irrigation</li>
+<li>Tube wells</li>
+</ul>
+
+<h3>Major Rice-Producing States</h3>
+
+<ul>
+<li>West Bengal</li>
+<li>Uttar Pradesh</li>
+<li>Punjab</li>
+<li>Haryana</li>
+<li>Bihar</li>
+<li>Assam</li>
+<li>Odisha</li>
+<li>Andhra Pradesh</li>
+<li>Telangana</li>
+<li>Tamil Nadu</li>
+<li>Kerala</li>
+<li>Maharashtra</li>
+</ul>
+
+<div class="fact-box">
+<strong>Map Reference:</strong>
+NCERT page 33 shows the distribution of rice-growing areas in India.
+</div>
+
+</div>
+</details>
+
+
+<!-- SECTION 6 -->
+
+<details class="chapter-section" id="section6">
+
+<summary class="section-heading">
+<span class="toggle-icon"></span>
+<span class="heading-text">6. Wheat</span>
+</summary>
+
+<div class="section-body">
+
+<img class="topic-image"
+src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=1200"
+alt="Wheat field"
+loading="lazy">
+
+<h3>Introduction</h3>
+
+<p>
+Wheat is the second most important cereal crop in India.
+</p>
+
+<h3>Characteristics</h3>
+
+<ul>
+<li>It is a Rabi crop.</li>
+<li>It is the main food crop of North and North-Western India.</li>
+<li>It requires a cool growing season.</li>
+<li>Bright sunshine is required during ripening.</li>
+<li>Requires 50–75 cm annual rainfall.</li>
+<li>Rainfall should be evenly distributed over the growing season.</li>
+</ul>
+
+<h3>Two Important Wheat-Growing Zones</h3>
+
+<ol>
+<li>Ganga-Satluj plains in the North-West.</li>
+<li>Black soil region of the Deccan.</li>
+</ol>
+
+<h3>Major Wheat-Producing States</h3>
+
+<ul>
+<li>Punjab</li>
+<li>Haryana</li>
+<li>Uttar Pradesh</li>
+<li>Madhya Pradesh</li>
+<li>Bihar</li>
+<li>Rajasthan</li>
+</ul>
+
+<div class="fact-box">
+<strong>Map Reference:</strong>
+NCERT page 35 shows the distribution of wheat-growing regions.
+</div>
+
+</div>
+</details>
+
+
+<!-- SECTION 7 -->
+
+<details class="chapter-section" id="section7">
+
+<summary class="section-heading">
+<span class="toggle-icon"></span>
+<span class="heading-text">7. Millets – Jowar, Bajra and Ragi</span>
+</summary>
+
+<div class="section-body">
+
+<div class="image-grid">
+<img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=600" alt="Millet field" loading="lazy">
+<img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600" alt="Agriculture" loading="lazy">
+</div>
+
+<p>
+Jowar, Bajra and Ragi are the three important millets grown in India.
+They are also known as coarse grains but have high nutritional value.
+</p>
+
+<h3>7.1 Jowar</h3>
+
+<ul>
+<li>Third most important food crop with respect to area and production.</li>
+<li>Mainly a rain-fed crop.</li>
+<li>Grown in moist areas.</li>
+<li>Requires little irrigation.</li>
+</ul>
+
+<h4>Major Producing States</h4>
+
+<ul>
+<li>Maharashtra</li>
+<li>Karnataka</li>
+<li>Andhra Pradesh</li>
+<li>Madhya Pradesh</li>
+</ul>
+
+<h3>7.2 Bajra</h3>
+
+<h4>Soil Requirements</h4>
+
+<ul>
+<li>Sandy soil</li>
+<li>Shallow black soil</li>
+</ul>
+
+<h4>Major Producing States</h4>
+
+<ul>
+<li>Rajasthan</li>
+<li>Uttar Pradesh</li>
+<li>Maharashtra</li>
+<li>Gujarat</li>
+<li>Haryana</li>
+</ul>
+
+<h3>7.3 Ragi</h3>
+
+<img class="topic-image"
+src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200"
+alt="Ragi agricultural landscape"
+loading="lazy">
+
+<h4>Characteristics</h4>
+
+<ul>
+<li>Grows well in dry regions.</li>
+<li>Rich in iron.</li>
+<li>Rich in calcium.</li>
+<li>Contains other micronutrients.</li>
+<li>Contains roughage.</li>
+</ul>
+
+<h4>Suitable Soils</h4>
+
+<ul>
+<li>Red soil</li>
+<li>Black soil</li>
+<li>Sandy soil</li>
+<li>Loamy soil</li>
+<li>Shallow black soil</li>
+</ul>
+
+<h4>Major Producing States</h4>
+
+<ul>
+<li>Karnataka</li>
+<li>Tamil Nadu</li>
+<li>Himachal Pradesh</li>
+<li>Uttarakhand</li>
+<li>Sikkim</li>
+<li>Jharkhand</li>
+<li>Arunachal Pradesh</li>
+</ul>
+
+<div class="fact-box">
+<strong>Important Fact:</strong>
+Ragi is particularly rich in iron, calcium, micronutrients and roughage.
+</div>
+
+</div>
+</details>
+
+
+<!-- SECTION 8 -->
+
+<details class="chapter-section" id="section8">
+
+<summary class="section-heading">
+<span class="toggle-icon"></span>
+<span class="heading-text">8. Maize</span>
+</summary>
+
+<div class="section-body">
+
+<img class="topic-image"
+src="https://images.unsplash.com/photo-1551754655-cd27e38d2076?w=1200"
+alt="Corn crop"
+loading="lazy">
+
+<h3>Characteristics</h3>
+
+<ul>
+<li>Maize is used as both food and fodder.</li>
+<li>It is mainly a Kharif crop.</li>
+<li>In Bihar, it is also grown during the Rabi season.</li>
+<li>HYV seeds, fertilisers and irrigation have contributed to increasing production.</li>
+</ul>
+
+<h3>Geographical Conditions</h3>
+
+<div class="table-wrap">
+<table>
+<tr><th>Factor</th><th>Requirement</th></tr>
+<tr><td>Temperature</td><td>21°C–27°C</td></tr>
+<tr><td>Soil</td><td>Old alluvial soil</td></tr>
+<tr><td>Season</td><td>Mainly Kharif</td></tr>
+</table>
+</div>
+
+<h3>Major Maize-Producing States</h3>
+
+<ul>
+<li>Karnataka</li>
+<li>Madhya Pradesh</li>
+<li>Uttar Pradesh</li>
+<li>Bihar</li>
+<li>Andhra Pradesh</li>
+<li>Telangana</li>
+</ul>
+
+<div class="fact-box">
+<strong>Bihar Special:</strong>
+Maize is grown in Bihar during both Kharif and Rabi seasons.
+</div>
+
+</div>
+</details>
+
+
+<!-- SECTION 9 -->
+
+<details class="chapter-section" id="section9">
+
+<summary class="section-heading">
+<span class="toggle-icon"></span>
+<span class="heading-text">9. Pulses</span>
+</summary>
+
+<div class="section-body">
+
+<img class="topic-image"
+src="https://images.unsplash.com/photo-1515543904379-3d757afe72e4?w=1200"
+alt="Pulses and legumes"
+loading="lazy">
+
+<h3>Introduction</h3>
+
+<p>
+India is the largest producer as well as consumer of pulses in the
+world, according to the textbook.
+</p>
+
+<h3>Major Pulses</h3>
+
+<ul>
+<li>Tur (Arhar)</li>
+<li>Urad</li>
+<li>Moong</li>
+<li>Masur</li>
+<li>Peas</li>
+<li>Gram</li>
+</ul>
+
+<h3>Importance of Pulses</h3>
+
+<ul>
+<li>Major source of protein in a vegetarian diet.</li>
+<li>Require less moisture.</li>
+<li>Can survive in dry conditions.</li>
+<li>Most pulses help restore soil fertility.</li>
+<li>They are mostly grown in rotation with other crops.</li>
+</ul>
+
+<h3>Role in Soil Fertility</h3>
+
+<p>
+Pulses are leguminous crops. They help restore soil fertility by
+fixing nitrogen from the atmosphere.
+</p>
+
+<div class="fact-box">
+<strong>Important NCERT Exception:</strong>
+All the listed pulses except Arhar help restore soil fertility by
+fixing nitrogen, as stated in the textbook.
+</div>
+
+<h3>Major Pulse-Producing States</h3>
+
+<ul>
+<li>Madhya Pradesh</li>
+<li>Rajasthan</li>
+<li>Maharashtra</li>
+<li>Uttar Pradesh</li>
+<li>Karnataka</li>
+</ul>
+
+</div>
+</details>
+
+
+<!-- SECTION 10 -->
+
+<details class="chapter-section" id="section10">
+
+<summary class="section-heading">
+<span class="toggle-icon"></span>
+<span class="heading-text">10. Sugarcane</span>
+</summary>
+
+<div class="section-body">
+
+<img class="topic-image"
+src="https://images.unsplash.com/photo-1596547609652-9cf5d8d8e3d1?w=1200"
+alt="Sugarcane plantation"
+loading="lazy">
+
+<h3>Introduction</h3>
+
+<p>
+Sugarcane is a tropical as well as subtropical crop.
+</p>
+
+<h3>Geographical Conditions</h3>
+
+<div class="table-wrap">
+<table>
+<tr><th>Factor</th><th>Requirement</th></tr>
+<tr><td>Temperature</td><td>21°C–27°C</td></tr>
+<tr><td>Climate</td><td>Hot and humid</td></tr>
+<tr><td>Rainfall</td><td>75–100 cm</td></tr>
+<tr><td>Irrigation</td><td>Required in low rainfall regions</td></tr>
+<tr><td>Soil</td><td>Can grow on a variety of soils</td></tr>
+</table>
+</div>
+
+<h3>Characteristics</h3>
+
+<ul>
+<li>Requires manual labour from sowing to harvesting.</li>
+<li>It is an important commercial crop.</li>
+<li>It is the main source of several sweetening products.</li>
+<li>India is the second-largest producer after Brazil, according to the textbook.</li>
+</ul>
+
+<h3>Products Obtained from Sugarcane</h3>
+
+<ul>
+<li>Sugar</li>
+<li>Gur (Jaggery)</li>
+<li>Khandsari</li>
+<li>Molasses</li>
+</ul>
+
+<h3>Major Sugarcane-Producing States</h3>
+
+<ul>
+<li>Uttar Pradesh</li>
+<li>Maharashtra</li>
+<li>Karnataka</li>
+<li>Tamil Nadu</li>
+<li>Andhra Pradesh</li>
+<li>Telangana</li>
+<li>Bihar</li>
+<li>Punjab</li>
+<li>Haryana</li>
+</ul>
+
+</div>
+</details>
+
+
+<!-- SECTION 11 -->
+
+<details class="chapter-section" id="section11">
+
+<summary class="section-heading">
+<span class="toggle-icon"></span>
+<span class="heading-text">11. Oilseeds</span>
+</summary>
+
+<div class="section-body">
+
+<div class="image-grid">
+<img src="https://images.unsplash.com/photo-1589923188900-85dae523342b?w=600" alt="Oilseeds" loading="lazy">
+<img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600" alt="Agricultural fields" loading="lazy">
+</div>
+
+<h3>Introduction</h3>
+
+<p>
+Oilseeds are important agricultural crops used for producing
+edible oils and industrial raw materials.
+</p>
+
+<h3>Important Facts</h3>
+
+<ul>
+<li>Oilseeds cover approximately 12% of the total cropped area of India.</li>
+<li>In 2020, India was the second-largest producer of groundnut after China, as stated in NCERT.</li>
+<li>Most oilseeds are edible.</li>
+<li>Some are used in manufacturing soap, cosmetics and ointments.</li>
+</ul>
+
+<h3>Major Oilseeds</h3>
+
+<ul>
+<li>Groundnut</li>
+<li>Mustard</li>
+<li>Coconut</li>
+<li>Sesamum (Til)</li>
+<li>Soyabean</li>
+<li>Castor seeds</li>
+<li>Cotton seeds</li>
+<li>Linseed</li>
+<li>Sunflower</li>
+</ul>
+
+<h3>Cropping Seasons of Oilseeds</h3>
+
+<div class="table-wrap">
+<table>
+<tr><th>Oilseed</th><th>Season</th></tr>
+<tr><td>Groundnut</td><td>Kharif</td></tr>
+<tr><td>Linseed</td><td>Rabi</td></tr>
+<tr><td>Mustard</td><td>Rabi</td></tr>
+<tr><td>Sesamum (North India)</td><td>Kharif</td></tr>
+<tr><td>Sesamum (South India)</td><td>Rabi</td></tr>
+<tr><td>Castor Seed</td><td>Both Rabi and Kharif</td></tr>
+</table>
+</div>
+
+<h3>Groundnut Production</h3>
+
+<ul>
+<li>Groundnut accounts for about half of the major oilseeds produced in India.</li>
+<li>Gujarat was the largest producer in 2019–20.</li>
+<li>Rajasthan and Tamil Nadu followed Gujarat.</li>
+</ul>
+
+</div>
+</details>
+
+
+<!-- SECTION 12 -->
+
+<details class="chapter-section" id="section12">
+
+<summary class="section-heading">
+<span class="toggle-icon"></span>
+<span class="heading-text">12. Tea</span>
+</summary>
+
+<div class="section-body">
+
+<div class="image-grid">
+<img src="https://images.unsplash.com/photo-1563911892437-1feda0179e1b?w=600" alt="Tea garden" loading="lazy">
+<img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=600" alt="Tea leaves" loading="lazy">
+</div>
+
+<h3>Introduction</h3>
+
+<p>
+Tea is an important beverage crop.
+</p>
+
+<h3>Historical Background</h3>
+
+<ul>
+<li>Tea cultivation is an example of plantation agriculture.</li>
+<li>It was initially introduced in India by the British.</li>
+<li>Today, most tea plantations are owned by Indians.</li>
+<li>Tea is a labour-intensive industry.</li>
+<li>Tea is processed within the tea garden to restore its freshness.</li>
+</ul>
+
+<h3>Geographical Conditions</h3>
+
+<div class="table-wrap">
+<table>
+<tr><th>Factor</th><th>Requirement</th></tr>
+<tr><td>Climate</td><td>Tropical and subtropical</td></tr>
+<tr><td>Temperature</td><td>Warm conditions</td></tr>
+<tr><td>Soil</td><td>Deep, fertile and well-drained</td></tr>
+<tr><td>Soil Content</td><td>Rich in humus and organic matter</td></tr>
+<tr><td>Moisture</td><td>Warm and moist, frost-free climate</td></tr>
+<tr><td>Rainfall</td><td>Frequent showers throughout the year</td></tr>
+<tr><td>Labour</td><td>Abundant, cheap and skilled labour</td></tr>
+</table>
+</div>
+
+<h3>Major Tea-Producing Regions</h3>
+
+<ul>
+<li>Assam</li>
+<li>Darjeeling hills</li>
+<li>Jalpaiguri districts of West Bengal</li>
+<li>Tamil Nadu</li>
+<li>Kerala</li>
+<li>Himachal Pradesh</li>
+<li>Uttarakhand</li>
+<li>Meghalaya</li>
+<li>Andhra Pradesh</li>
+<li>Tripura</li>
+</ul>
+
+<div class="fact-box">
+<strong>Important Fact:</strong>
+India was the second-largest producer of tea after China in 2020,
+according to the textbook.
+</div>
+
+</div>
+</details>
+
+
+<!-- SECTION 13 -->
+
+<details class="chapter-section" id="section13">
+
+<summary class="section-heading">
+<span class="toggle-icon"></span>
+<span class="heading-text">13. Coffee</span>
+</summary>
+
+<div class="section-body">
+
+<img class="topic-image"
+src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=1200"
+alt="Coffee plantation"
+loading="lazy">
+
+<h3>Characteristics</h3>
+
+<ul>
+<li>Indian coffee is famous worldwide for its good quality.</li>
+<li>Arabica is an important variety of coffee.</li>
+<li>Arabica was initially brought from Yemen.</li>
+<li>It is in great demand in international markets.</li>
+<li>Coffee cultivation was initially introduced on the Baba Budan Hills.</li>
+</ul>
+
+<h3>Major Coffee-Growing Regions</h3>
+
+<ul>
+<li>Karnataka</li>
+<li>Kerala</li>
+<li>Tamil Nadu</li>
+</ul>
+
+<p>
+Coffee cultivation is concentrated in the Nilgiri region and adjoining
+southern Indian coffee-growing areas, as described in NCERT.
+</p>
+
+<div class="fact-box">
+<strong>Important for Exams:</strong>
+Baba Budan Hills – Initial introduction of coffee cultivation in India.
+Arabica – Important variety of coffee.
+Yemen – Origin from where Arabica was initially brought.
+</div>
+
+</div>
+</details>
+
+
+<!-- SECTION 14 -->
+
+<details class="chapter-section" id="section14">
+
+<summary class="section-heading">
+<span class="toggle-icon"></span>
+<span class="heading-text">14. Horticulture Crops</span>
+</summary>
+
+<div class="section-body">
+
+<div class="image-grid">
+<img src="https://images.unsplash.com/photo-1553279768-865429fa0078?w=600" alt="Mangoes" loading="lazy">
+<img src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=600" alt="Apples" loading="lazy">
+<img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=600" alt="Vegetables" loading="lazy">
+<img src="https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=600" alt="Bananas" loading="lazy">
+</div>
+
+<h3>Meaning</h3>
+
+<p>
+Horticulture refers to the cultivation of fruits, vegetables and
+other garden crops.
+</p>
+
+<h3>Important Facts</h3>
+
+<ul>
+<li>India produces both tropical and temperate fruits.</li>
+<li>In 2020, India was the second-largest producer of fruits and vegetables in the world after China, according to NCERT.</li>
+</ul>
+
+<h3>14.1 Major Fruits and Their Producing Regions</h3>
+
+<div class="table-wrap">
+<table>
+<tr><th>Fruit</th><th>Major Producing Regions</th></tr>
+<tr><td>Mango</td><td>Maharashtra, Andhra Pradesh, Telangana, Uttar Pradesh, West Bengal</td></tr>
+<tr><td>Orange</td><td>Nagpur, Maharashtra; Cherrapunjee, Meghalaya</td></tr>
+<tr><td>Banana</td><td>Kerala, Mizoram, Maharashtra, Tamil Nadu</td></tr>
+<tr><td>Litchi</td><td>Uttar Pradesh, Bihar</td></tr>
+<tr><td>Guava</td><td>Uttar Pradesh, Bihar</td></tr>
+<tr><td>Pineapple</td><td>Meghalaya</td></tr>
+<tr><td>Grapes</td><td>Andhra Pradesh, Telangana, Maharashtra</td></tr>
+<tr><td>Apple</td><td>Jammu and Kashmir, Himachal Pradesh</td></tr>
+<tr><td>Pear</td><td>Jammu and Kashmir, Himachal Pradesh</td></tr>
+<tr><td>Apricot</td><td>Jammu and Kashmir, Himachal Pradesh</td></tr>
+<tr><td>Walnut</td><td>Jammu and Kashmir, Himachal Pradesh</td></tr>
+</table>
+</div>
+
+<h3>Important Vegetables Produced in India</h3>
+
+<ul>
+<li>Peas</li>
+<li>Cauliflower</li>
+<li>Onion</li>
+<li>Cabbage</li>
+<li>Tomato</li>
+<li>Brinjal</li>
+<li>Potato</li>
+</ul>
+
+<div class="fact-box">
+<strong>Bihar Special:</strong>
+Bihar is an important region for the production of litchi and guava.
+</div>
+
+</div>
+</details>
+
+
+<!-- SECTION 15 -->
+
+<details class="chapter-section" id="section15">
+
+<summary class="section-heading">
+<span class="toggle-icon"></span>
+<span class="heading-text">15. Rubber</span>
+</summary>
+
+<div class="section-body">
+
+<img class="topic-image"
+src="https://images.unsplash.com/photo-1511497584788-876760111969?w=1200"
+alt="Tropical plantation"
+loading="lazy">
+
+<h3>Characteristics</h3>
+
+<ul>
+<li>Rubber is an equatorial crop.</li>
+<li>It is also grown in tropical and subtropical regions under special conditions.</li>
+<li>It is an important industrial raw material.</li>
+</ul>
+
+<h3>Geographical Conditions</h3>
+
+<div class="table-wrap">
+<table>
+<tr><th>Factor</th><th>Requirement</th></tr>
+<tr><td>Climate</td><td>Moist and humid</td></tr>
+<tr><td>Rainfall</td><td>More than 200 cm</td></tr>
+<tr><td>Temperature</td><td>Above 25°C</td></tr>
+</table>
+</div>
+
+<h3>Major Rubber-Producing Regions</h3>
+
+<ul>
+<li>Kerala</li>
+<li>Tamil Nadu</li>
+<li>Karnataka</li>
+<li>Andaman and Nicobar Islands</li>
+<li>Garo Hills of Meghalaya</li>
+</ul>
+
+</div>
+</details>
+
+
+<!-- SECTION 16 -->
+
+<details class="chapter-section" id="section16">
+
+<summary class="section-heading">
+<span class="toggle-icon"></span>
+<span class="heading-text">16. Fibre Crops – Cotton, Jute, Hemp and Silk</span>
+</summary>
+
+<div class="section-body">
+
+<h3>Major Fibre Crops</h3>
+
+<ul>
+<li>Cotton</li>
+<li>Jute</li>
+<li>Hemp</li>
+<li>Natural silk</li>
+</ul>
+
+<h3>Classification</h3>
+
+<div class="table-wrap">
+<table>
+<tr><th>Fibre</th><th>Source</th></tr>
+<tr><td>Cotton</td><td>Cotton plant</td></tr>
+<tr><td>Jute</td><td>Jute plant</td></tr>
+<tr><td>Hemp</td><td>Hemp plant</td></tr>
+<tr><td>Natural Silk</td><td>Cocoons of silkworms</td></tr>
+</table>
+</div>
+
+<h3>Sericulture</h3>
+
+<p>
+Rearing of silkworms for the production of silk fibre is known as
+sericulture.
+</p>
+
+<p>
+Silkworms are fed green leaves, especially mulberry leaves.
+</p>
+
+
+<h3>16.1 Cotton</h3>
+
+<img class="topic-image"
+src="https://images.unsplash.com/photo-1594631252845-29fc4cc8cde9?w=1200"
+alt="Cotton crop"
+loading="lazy">
+
+<h4>Characteristics</h4>
+
+<ul>
+<li>India is believed to be the original home of the cotton plant.</li>
+<li>Cotton is an important raw material for the cotton textile industry.</li>
+<li>India was the second-largest producer of cotton after China according to the textbook.</li>
+</ul>
+
+<h4>Geographical Conditions</h4>
+
+<div class="table-wrap">
+<table>
+<tr><th>Factor</th><th>Requirement</th></tr>
+<tr><td>Soil</td><td>Black cotton soil</td></tr>
+<tr><td>Temperature</td><td>High</td></tr>
+<tr><td>Rainfall</td><td>Light rainfall or irrigation</td></tr>
+<tr><td>Frost-free Period</td><td>210 days</td></tr>
+<tr><td>Sunshine</td><td>Bright sunshine</td></tr>
+<tr><td>Crop Season</td><td>Kharif</td></tr>
+<tr><td>Maturity</td><td>6–8 months</td></tr>
+</table>
+</div>
+
+<h4>Major Cotton-Producing States</h4>
+
+<ul>
+<li>Maharashtra</li>
+<li>Gujarat</li>
+<li>Madhya Pradesh</li>
+<li>Karnataka</li>
+<li>Andhra Pradesh</li>
+<li>Telangana</li>
+<li>Tamil Nadu</li>
+<li>Punjab</li>
+<li>Haryana</li>
+<li>Uttar Pradesh</li>
+</ul>
+
+
+<h3>16.2 Jute</h3>
+
+<img class="topic-image"
+src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200"
+alt="Agricultural crop field"
+loading="lazy">
+
+<h4>Introduction</h4>
+
+<p>
+Jute is popularly known as the Golden Fibre.
+</p>
+
+<h4>Geographical Conditions</h4>
+
+<ul>
+<li>Requires well-drained fertile soil.</li>
+<li>Grows well in floodplains.</li>
+<li>Soil is renewed every year by floods.</li>
+<li>Requires high temperature during growth.</li>
+</ul>
+
+<h4>Major Jute-Producing States</h4>
+
+<ul>
+<li>West Bengal</li>
+<li>Bihar</li>
+<li>Assam</li>
+<li>Odisha</li>
+<li>Meghalaya</li>
+</ul>
+
+<h4>Uses of Jute</h4>
+
+<ul>
+<li>Gunny bags</li>
+<li>Mats</li>
+<li>Ropes</li>
+<li>Yarn</li>
+<li>Carpets</li>
+<li>Other artefacts</li>
+</ul>
+
+<div class="fact-box">
+<strong>Important Fact:</strong>
+Jute is known as the Golden Fibre.
+</div>
+
+</div>
+</details>
+
+
+<!-- SECTION 17 -->
+
+<details class="chapter-section" id="section17">
+
+<summary class="section-heading">
+<span class="toggle-icon"></span>
+<span class="heading-text">17. Technological and Institutional Reforms</span>
+</summary>
+
+<div class="section-body">
+
+<img class="topic-image"
+src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200"
+alt="Agricultural development"
+loading="lazy">
+
+<h3>Introduction</h3>
+
+<p>
+Agriculture has been practised in India for thousands of years.
+However, continuous use of land without compatible technological
+and institutional changes has hindered agricultural development.
+</p>
+
+<h3>Major Problems of Indian Agriculture</h3>
+
+<ul>
+<li>Dependence on monsoon rainfall.</li>
+<li>Dependence on natural soil fertility.</li>
+<li>Fragmentation of agricultural land.</li>
+<li>Small and uneconomical landholdings.</li>
+<li>Lack of alternative livelihood opportunities.</li>
+<li>Need for modern technology.</li>
+<li>Need for institutional reforms.</li>
+<li>Challenges posed by a growing population.</li>
+</ul>
+
+<h3>17.1 Institutional Reforms after Independence</h3>
+
+<p>
+The government introduced several institutional reforms to
+improve agricultural conditions.
+</p>
+
+<h4>Major Institutional Reforms</h4>
+
+<ul>
+<li>Collectivisation</li>
+<li>Consolidation of landholdings</li>
+<li>Cooperation</li>
+<li>Abolition of Zamindari</li>
+</ul>
+
+<h3>Land Reforms</h3>
+
+<p>
+Land reform was the main focus of India's First Five Year Plan.
+</p>
+
+<h4>Objectives</h4>
+
+<ul>
+<li>Reduce fragmentation of land.</li>
+<li>Consolidate small landholdings.</li>
+<li>Improve agricultural productivity.</li>
+<li>Provide better opportunities to farmers.</li>
+</ul>
+
+<h4>Problem with Implementation</h4>
+
+<p>
+Although land reform laws were enacted, their implementation
+was lacking or lukewarm.
+</p>
+
+
+<h3>17.2 Green Revolution</h3>
+
+<img class="topic-image"
+src="https://images.unsplash.com/photo-1592982537447-6f2a6a0c0eab?w=1200"
+alt="Modern agricultural machinery"
+loading="lazy">
+
+<p>
+The Green Revolution was introduced during the 1960s and 1970s
+to improve agricultural production.
+</p>
+
+<h4>Main Features</h4>
+
+<ul>
+<li>Use of HYV seeds.</li>
+<li>Increased use of fertilisers.</li>
+<li>Expansion of irrigation facilities.</li>
+<li>Use of modern agricultural technology.</li>
+<li>Increased agricultural productivity.</li>
+</ul>
+
+<h4>Limitation</h4>
+
+<p>
+Agricultural development became concentrated in a few selected areas.
+</p>
+
+
+<h3>17.3 White Revolution</h3>
+
+<p>
+White Revolution is associated with Operation Flood.
+It was one of the strategies initiated to improve the condition
+of Indian agriculture and related rural livelihoods.
+</p>
+
+<div class="fact-box">
+<strong>White Revolution = Operation Flood = Milk Production.</strong>
+</div>
+
+
+<h3>17.4 Comprehensive Land Development Programme</h3>
+
+<p>
+During the 1980s and 1990s, a comprehensive land development
+programme was initiated.
+</p>
+
+<p>It included both:</p>
+
+<ul>
+<li>Institutional reforms.</li>
+<li>Technological reforms.</li>
+</ul>
+
+<h4>Important Measures</h4>
+
+<ul>
+<li>Crop insurance against natural calamities.</li>
+<li>Establishment of Grameen banks.</li>
+<li>Cooperative societies.</li>
+<li>Banks providing loans at lower interest rates.</li>
+<li>Kisan Credit Card.</li>
+<li>Personal Accident Insurance Scheme.</li>
+<li>Weather bulletins.</li>
+<li>Agricultural programmes on radio and television.</li>
+<li>Minimum Support Price.</li>
+<li>Remunerative and procurement prices.</li>
+</ul>
+
+
+<h3>17.5 Crop Insurance</h3>
+
+<p>
+Crop insurance was introduced against agricultural risks.
+</p>
+
+<h4>Risks Covered</h4>
+
+<ul>
+<li>Drought</li>
+<li>Flood</li>
+<li>Cyclone</li>
+<li>Fire</li>
+<li>Disease</li>
+</ul>
+
+<h4>Importance</h4>
+
+<p>
+It provides protection to farmers against agricultural losses
+caused by natural calamities and crop-related risks.
+</p>
+
+
+<h3>17.6 Grameen Banks and Cooperative Societies</h3>
+
+<h4>Main Objectives</h4>
+
+<ul>
+<li>Provide loans.</li>
+<li>Reduce dependence on moneylenders.</li>
+<li>Provide credit at lower interest rates.</li>
+<li>Support agricultural development.</li>
+</ul>
+
+
+<h3>17.7 Kisan Credit Card (KCC)</h3>
+
+<p>
+Kisan Credit Card is an important scheme introduced by the
+Government of India for farmers.
+</p>
+
+<p>
+It provides agricultural credit facilities to farmers.
+</p>
+
+
+<h3>17.8 Personal Accident Insurance Scheme (PAIS)</h3>
+
+<p>
+PAIS is another scheme mentioned in the NCERT chapter for
+the benefit of farmers.
+</p>
+
+
+<h3>17.9 Minimum Support Price (MSP)</h3>
+
+<p>
+The government announces Minimum Support Price for important crops.
+</p>
+
+<h4>Objectives</h4>
+
+<ul>
+<li>Protect farmers from exploitation.</li>
+<li>Reduce the role of speculators and middlemen.</li>
+<li>Provide remunerative prices.</li>
+<li>Support agricultural income.</li>
+</ul>
+
+<h3>Three Important Price Terms</h3>
+
+<ul>
+<li>Minimum Support Price</li>
+<li>Remunerative Price</li>
+<li>Procurement Price</li>
+</ul>
+
+</div>
+</details>
+
+
+<!-- SECTION 18 -->
+
+<details class="chapter-section" id="section18">
+
+<summary class="section-heading">
+<span class="toggle-icon"></span>
+<span class="heading-text">18. Bhoodan–Gramdan Movement</span>
+</summary>
+
+<div class="section-body">
+
+<img class="topic-image"
+src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200"
+alt="Indian agricultural land"
+loading="lazy">
+
+<h3>Introduction</h3>
+
+<p>
+The Bhoodan–Gramdan movement was initiated by Vinoba Bhave.
+</p>
+
+<h3>18.1 Vinoba Bhave</h3>
+
+<ul>
+<li>Mahatma Gandhi declared Vinoba Bhave as his spiritual heir.</li>
+<li>He participated in Satyagraha.</li>
+<li>He supported Gandhi's concept of Gram Swarajya.</li>
+<li>After Gandhi's martyrdom, Vinoba Bhave undertook a Padyatra.</li>
+<li>His objective was to spread Gandhi's message throughout India.</li>
+</ul>
+
+<h3>18.2 Beginning of Bhoodan Movement</h3>
+
+<p>
+The movement began with an incident at Pochampalli in Andhra Pradesh.
+</p>
+
+<h4>Sequence of Events</h4>
+
+<ol>
+<li>Vinoba Bhave was delivering a lecture at Pochampalli.</li>
+<li>Some poor landless villagers demanded land for their economic well-being.</li>
+<li>Vinoba Bhave could not immediately promise land.</li>
+<li>He assured them that he would discuss the matter with the Government of India.</li>
+<li>He suggested cooperative farming.</li>
+<li>Shri Ram Chandra Reddy stood up.</li>
+<li>He offered 80 acres of land for distribution among 80 landless villagers.</li>
+</ol>
+
+<div class="fact-box">
+<strong>Important Fact:</strong>
+80 acres of land were donated by Shri Ram Chandra Reddy
+for 80 landless villagers at Pochampalli.
+</div>
+
+<h3>18.3 Gramdan</h3>
+
+<p>
+Later, Vinoba Bhave travelled throughout India and spread his ideas.
+Some zamindars and landowners offered entire villages for distribution
+among landless people. This was known as Gramdan.
+</p>
+
+<h3>18.4 Why Did Some Landowners Donate Land?</h3>
+
+<p>
+Some landowners donated portions of their land because of the
+fear of the Land Ceiling Act.
+</p>
+
+<h3>18.5 Another Name</h3>
+
+<p>
+The Bhoodan–Gramdan movement is also known as the
+<strong>Blood-less Revolution.</strong>
+</p>
+
+<h3>Bhoodan vs Gramdan</h3>
+
+<div class="table-wrap">
+<table>
+<tr><th>Bhoodan</th><th>Gramdan</th></tr>
+<tr><td>Donation of land</td><td>Donation of villages</td></tr>
+<tr><td>Individual land donation</td><td>Village-level land donation</td></tr>
+<tr><td>Associated with Vinoba Bhave</td><td>Associated with Vinoba Bhave</td></tr>
+</table>
+</div>
+
+</div>
+</details>
+
+
+<!-- SECTION 19 -->
+
+<details class="chapter-section" id="section19">
+
+<summary class="section-heading">
+<span class="toggle-icon"></span>
+<span class="heading-text">19. Important One-Liners for BPSC, UPSC and SSC</span>
+</summary>
+
+<div class="section-body">
+
+<h3>Agriculture and Farming</h3>
+
+<ul>
+<li>India has three major cropping seasons – Rabi, Kharif and Zaid.</li>
+<li>Plantation agriculture involves growing a single crop over a large area.</li>
+<li>Rice is a commercial crop in Haryana and Punjab.</li>
+<li>Rice is mainly a subsistence crop in Odisha, according to NCERT.</li>
+<li>Primitive subsistence farming uses tools such as hoe, dao and digging sticks.</li>
+</ul>
+
+<h3>Shifting Cultivation</h3>
+
+<ul>
+<li>Jhumming is practised in North-Eastern India.</li>
+<li>Kuruwa is associated with Jharkhand.</li>
+<li>Milpa is the name of shifting cultivation in Mexico and Central America.</li>
+</ul>
+
+<h3>Crops</h3>
+
+<ul>
+<li>Rabi crops are sown from October to December.</li>
+<li>Rabi crops are harvested from April to June.</li>
+<li>Kharif crops are harvested in September–October.</li>
+<li>Zaid is the summer cropping season.</li>
+<li>Rice is a Kharif crop.</li>
+<li>Wheat is a Rabi crop.</li>
+<li>Sugarcane takes almost one year to grow.</li>
+<li>Jute is known as the Golden Fibre.</li>
+<li>Ragi is rich in iron and calcium.</li>
+<li>Pulses are a major source of protein in vegetarian diets.</li>
+<li>Tea is a plantation crop.</li>
+<li>Coffee cultivation was initially introduced on Baba Budan Hills.</li>
+<li>Arabica coffee was initially brought from Yemen.</li>
+<li>Rubber is an equatorial crop.</li>
+<li>Sericulture means rearing silkworms for silk production.</li>
+</ul>
+
+<h3>Agricultural Reforms</h3>
+
+<ul>
+<li>Land reform was the main focus of the First Five Year Plan.</li>
+<li>Green Revolution was introduced during the 1960s and 1970s.</li>
+<li>White Revolution is associated with Operation Flood.</li>
+<li>Kisan Credit Card is an agricultural credit scheme.</li>
+<li>MSP stands for Minimum Support Price.</li>
+</ul>
+
+<h3>Bhoodan–Gramdan Movement</h3>
+
+<ul>
+<li>Vinoba Bhave initiated the Bhoodan–Gramdan movement.</li>
+<li>Bhoodan began with the donation of 80 acres at Pochampalli.</li>
+<li>Shri Ram Chandra Reddy donated the land.</li>
+<li>Bhoodan–Gramdan is also called the Blood-less Revolution.</li>
+</ul>
+
+</div>
+</details>
+
+
+<!-- SECTION 20 -->
+
+<details class="chapter-section" id="section20">
+
+<summary class="section-heading">
+<span class="toggle-icon"></span>
+<span class="heading-text">20. Important Comparison Tables</span>
+</summary>
+
+<div class="section-body">
+
+<h3>A. Major Crops and Their Seasons</h3>
+
+<div class="table-wrap">
+<table>
+<tr><th>Crop</th><th>Season</th></tr>
+<tr><td>Rice</td><td>Kharif</td></tr>
+<tr><td>Wheat</td><td>Rabi</td></tr>
+<tr><td>Barley</td><td>Rabi</td></tr>
+<tr><td>Gram</td><td>Rabi</td></tr>
+<tr><td>Mustard</td><td>Rabi</td></tr>
+<tr><td>Maize</td><td>Mainly Kharif; also Rabi in Bihar</td></tr>
+<tr><td>Jowar</td><td>Mainly Kharif</td></tr>
+<tr><td>Bajra</td><td>Kharif</td></tr>
+<tr><td>Groundnut</td><td>Kharif</td></tr>
+<tr><td>Cotton</td><td>Kharif</td></tr>
+<tr><td>Jute</td><td>Kharif</td></tr>
+<tr><td>Soyabean</td><td>Kharif</td></tr>
+<tr><td>Linseed</td><td>Rabi</td></tr>
+<tr><td>Sugarcane</td><td>Nearly one year</td></tr>
+</table>
+</div>
+
+<h3>B. Crops and Geographical Conditions</h3>
+
+<div class="table-wrap">
+<table>
+<tr><th>Crop</th><th>Temperature</th><th>Rainfall / Other Requirements</th></tr>
+<tr><td>Rice</td><td>Above 25°C</td><td>Above 100 cm</td></tr>
+<tr><td>Wheat</td><td>Cool growing season</td><td>50–75 cm</td></tr>
+<tr><td>Maize</td><td>21–27°C</td><td>Old alluvial soil</td></tr>
+<tr><td>Sugarcane</td><td>21–27°C</td><td>75–100 cm</td></tr>
+<tr><td>Rubber</td><td>Above 25°C</td><td>More than 200 cm</td></tr>
+<tr><td>Cotton</td><td>High temperature</td><td>210 frost-free days</td></tr>
+<tr><td>Tea</td><td>Warm and moist</td><td>Frequent showers</td></tr>
+</table>
+</div>
+
+<h3>C. Crop and Famous Region</h3>
+
+<div class="table-wrap">
+<table>
+<tr><th>Crop</th><th>Important Region</th></tr>
+<tr><td>Tea</td><td>Assam</td></tr>
+<tr><td>Coffee</td><td>Karnataka</td></tr>
+<tr><td>Jute</td><td>West Bengal</td></tr>
+<tr><td>Rubber</td><td>Kerala</td></tr>
+<tr><td>Wheat</td><td>Punjab and Haryana</td></tr>
+<tr><td>Bajra</td><td>Rajasthan</td></tr>
+<tr><td>Ragi</td><td>Karnataka</td></tr>
+<tr><td>Rice</td><td>West Bengal</td></tr>
+<tr><td>Sugarcane</td><td>Uttar Pradesh</td></tr>
+<tr><td>Litchi</td><td>Bihar</td></tr>
+<tr><td>Orange</td><td>Nagpur</td></tr>
+<tr><td>Apple</td><td>Himachal Pradesh and Jammu and Kashmir</td></tr>
+</table>
+</div>
+
+</div>
+</details>
+
+
+<!-- SECTION 21 -->
+
+<details class="chapter-section" id="section21">
+
+<summary class="section-heading">
+<span class="toggle-icon"></span>
+<span class="heading-text">21. NCERT Exercise – Important Questions</span>
+</summary>
+
+<div class="section-body">
+
+<h3>Multiple Choice Questions</h3>
+
+<h4>Q1. Which agricultural system involves growing a single crop over a large area?</h4>
+
+<ul>
+<li>(a) Shifting agriculture</li>
+<li>(b) Plantation agriculture</li>
+<li>(c) Horticulture</li>
+<li>(d) Intensive agriculture</li>
+</ul>
+
+<div class="fact-box">
+<strong>Answer: (b) Plantation agriculture</strong>
+</div>
+
+<h4>Q2. Which of the following is a Rabi crop?</h4>
+
+<ul>
+<li>(a) Rice</li>
+<li>(b) Gram</li>
+<li>(c) Millets</li>
+<li>(d) Cotton</li>
+</ul>
+
+<div class="fact-box">
+<strong>Answer: (b) Gram</strong>
+</div>
+
+<h4>Q3. Which of the following is a leguminous crop?</h4>
+
+<ul>
+<li>(a) Pulses</li>
+<li>(b) Jowar</li>
+<li>(c) Millets</li>
+<li>(d) Sesamum</li>
+</ul>
+
+<div class="fact-box">
+<strong>Answer: (a) Pulses</strong>
+</div>
+
+
+<h3>Short Answer Questions</h3>
+
+<h4>Q1. Name one important beverage crop and specify the geographical conditions required for its growth.</h4>
+
+<p>
+<strong>Answer:</strong> Tea is an important beverage crop. It requires
+a warm and moist frost-free climate, deep and fertile well-drained soil
+rich in humus and organic matter, frequent showers and abundant skilled labour.
+</p>
+
+<h4>Q2. Name one staple crop of India and the regions where it is produced.</h4>
+
+<p>
+<strong>Answer:</strong> Rice is the staple food crop of a majority
+of Indians. It is grown in North and North-Eastern India, coastal areas
+and deltaic regions. Major producing states include West Bengal,
+Uttar Pradesh, Punjab, Bihar and Assam.
+</p>
+
+<h4>Q3. Enlist the various institutional reform programmes introduced by the government in the interest of farmers.</h4>
+
+<p><strong>Answer:</strong></p>
+
+<ul>
+<li>Collectivisation</li>
+<li>Consolidation of landholdings</li>
+<li>Abolition of Zamindari</li>
+<li>Cooperative societies</li>
+<li>Grameen banks</li>
+<li>Crop insurance</li>
+<li>Kisan Credit Card</li>
+<li>Personal Accident Insurance Scheme</li>
+<li>Minimum Support Price</li>
+</ul>
+
+
+<h3>Long Answer Questions</h3>
+
+<h4>Q1. Suggest the initiatives taken by the government to increase agricultural production.</h4>
+
+<p><strong>Answer:</strong></p>
+
+<p>
+The Government of India introduced several technological and
+institutional reforms to increase agricultural production.
+</p>
+
+<ul>
+<li>Land reforms were introduced after Independence.</li>
+<li>Consolidation of landholdings was encouraged.</li>
+<li>Green Revolution introduced HYV seeds, fertilisers and irrigation.</li>
+<li>White Revolution (Operation Flood) was initiated.</li>
+<li>Crop insurance was provided against natural calamities.</li>
+<li>Grameen banks and cooperative societies were established.</li>
+<li>Kisan Credit Card and Personal Accident Insurance Scheme were introduced.</li>
+<li>Weather bulletins and agricultural programmes were broadcast on radio and television.</li>
+<li>Minimum Support Price and procurement prices were announced to protect farmers.</li>
+</ul>
+
+<h4>Q2. Describe the geographical conditions required for the growth of rice.</h4>
+
+<p><strong>Answer:</strong></p>
+
+<p>
+Rice is a Kharif crop and requires a hot and humid climate. It requires
+temperatures above 25°C, high humidity and annual rainfall above
+100 cm. It grows well in the plains of North and North-Eastern India,
+coastal areas and deltaic regions. In regions with lower rainfall,
+canal irrigation and tube wells help in rice cultivation.
+</p>
+
+</div>
+</details>
+
+
+<!-- SECTION 22 -->
+
+<details class="chapter-section" id="section22">
+
+<summary class="section-heading">
+<span class="toggle-icon"></span>
+<span class="heading-text">22. Final Revision – Chapter at a Glance</span>
+</summary>
+
+<div class="section-body">
+
+<h3>Agriculture – Complete Chapter Index</h3>
+
+<ol>
+
+<li>
+<strong>Introduction to Agriculture</strong>
+</li>
+
+<li>
+<strong>Types of Farming</strong>
+<ul>
+<li>Primitive Subsistence Farming</li>
+<li>Intensive Subsistence Farming</li>
+<li>Commercial Farming</li>
+<li>Plantation Farming</li>
+</ul>
+</li>
+
+<li>
+<strong>Cropping Patterns</strong>
+<ul>
+<li>Rabi</li>
+<li>Kharif</li>
+<li>Zaid</li>
+</ul>
+</li>
+
+<li>
+<strong>Major Food Crops</strong>
+<ul>
+<li>Rice</li>
+<li>Wheat</li>
+<li>Millets</li>
+<li>Maize</li>
+<li>Pulses</li>
+</ul>
+</li>
+
+<li>
+<strong>Food Crops Other Than Grains</strong>
+<ul>
+<li>Sugarcane</li>
+<li>Oilseeds</li>
+<li>Tea</li>
+<li>Coffee</li>
+<li>Horticulture</li>
+</ul>
+</li>
+
+<li>
+<strong>Non-Food Crops</strong>
+<ul>
+<li>Rubber</li>
+<li>Cotton</li>
+<li>Jute</li>
+<li>Hemp</li>
+<li>Silk</li>
+</ul>
+</li>
+
+<li>
+<strong>Technological and Institutional Reforms</strong>
+</li>
+
+<li>
+<strong>Bhoodan–Gramdan Movement</strong>
+</li>
+
+<li>
+<strong>NCERT Exercises and Map Work</strong>
+</li>
+
+</ol>
+
+<div class="info-box">
+<strong>Study Strategy:</strong>
+First understand the types of farming and cropping seasons.
+Then memorise crop-wise temperature, rainfall, soil and producing
+states. Finally revise agricultural reforms and the Bhoodan–Gramdan
+movement for competitive examinations.
+</div>
+
+<h3>Chapter Completed!</h3>
+
+<p>
+You have completed the classified notes of Class 10 Geography,
+Chapter 4 – Agriculture.
+</p>
+
+</div>
+</details>
+
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+    <h3>AGRICULTURE – CLASS 10 GEOGRAPHY</h3>
+
+    <p>NCERT Contemporary India – II</p>
+
+    <p>Prepared for School Examinations, BPSC, UPSC and SSC.</p>
+
+    <p>© Study Notes Library</p>
+
+</footer>
+
+
+<script>
+
+/* TABLE OF CONTENTS SHOW / HIDE */
+
+function toggleTOC() {
+
+    const content = document.getElementById("tocContent");
+    const button = document.getElementById("tocToggle");
+
+    if (content.style.display === "none") {
+
+        content.style.display = "block";
+        button.textContent = "Hide Contents";
+
+    } else {
+
+        content.style.display = "none";
+        button.textContent = "Show Contents";
+
+    }
+
+}
+
+
+/* EXPAND ALL */
+
+function expandAll() {
+
+    document.querySelectorAll(".chapter-section").forEach(section => {
+        section.open = true;
+    });
+
+}
+
+
+/* COLLAPSE ALL */
+
+function collapseAll() {
+
+    document.querySelectorAll(".chapter-section").forEach(section => {
+        section.open = false;
+    });
+
+}
+
+
+/* TOC SCROLLING */
+
+document.querySelectorAll(".toc-content a").forEach(link => {
+
+    link.addEventListener("click", function(e) {
+
+        e.preventDefault();
+
+        const targetId = this.getAttribute("href");
+        const target = document.querySelector(targetId);
+
+        if (!target) return;
+
+        // Open the selected section.
+        target.open = true;
+
+        // Scroll directly to the section.
+        setTimeout(() => {
+
+            target.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+        }, 50);
+
+    });
+
+});
+
+
+/* SEARCH AND YELLOW HIGHLIGHT */
+
+const searchInput = document.getElementById("searchInput");
+const searchStatus = document.getElementById("searchStatus");
+
+function removeHighlights() {
+
+    document.querySelectorAll("mark.search-highlight").forEach(mark => {
+
+        const parent = mark.parentNode;
+
+        parent.replaceChild(
+            document.createTextNode(mark.textContent),
+            mark
+        );
+
+        parent.normalize();
+
+    });
+
+}
+
+
+function searchContent() {
+
+    removeHighlights();
+
+    const keyword = searchInput.value.trim();
+
+    if (!keyword) {
+
+        searchStatus.textContent = "Please enter a keyword to search.";
+        return;
+
+    }
+
+    const contentArea = document.querySelector(".container");
+
+    const walker = document.createTreeWalker(
+        contentArea,
+        NodeFilter.SHOW_TEXT,
+        {
+            acceptNode: function(node) {
+
+                if (
+                    node.parentElement.closest(
+                        "script, style, mark, input, button, .footer"
+                    )
+                ) {
+                    return NodeFilter.FILTER_REJECT;
+                }
+
+                if (!node.nodeValue.trim()) {
+                    return NodeFilter.FILTER_REJECT;
+                }
+
+                return NodeFilter.FILTER_ACCEPT;
+
+            }
+        }
+    );
+
+    const nodes = [];
+
+    while (walker.nextNode()) {
+        nodes.push(walker.currentNode);
+    }
+
+    const escaped = keyword.replace(
+        /[.*+?^${}()|[\]\\]/g,
+        "\\$&"
+    );
+
+    const regex = new RegExp(escaped, "gi");
+
+    let count = 0;
+    let firstMatch = null;
+
+    nodes.forEach(node => {
+
+        const text = node.nodeValue;
+
+        if (!regex.test(text)) {
+            regex.lastIndex = 0;
+            return;
+        }
+
+        regex.lastIndex = 0;
+
+        const fragment = document.createDocumentFragment();
+
+        let lastIndex = 0;
+        let match;
+
+        while ((match = regex.exec(text)) !== null) {
+
+            fragment.appendChild(
+                document.createTextNode(
+                    text.substring(lastIndex, match.index)
+                )
+            );
+
+            const mark = document.createElement("mark");
+
+            mark.className = "search-highlight";
+            mark.textContent = match[0];
+
+            fragment.appendChild(mark);
+
+            if (!firstMatch) {
+                firstMatch = mark;
+            }
+
+            count++;
+
+            lastIndex = regex.lastIndex;
+
+        }
+
+        fragment.appendChild(
+            document.createTextNode(text.substring(lastIndex))
+        );
+
+        node.parentNode.replaceChild(fragment, node);
+
+    });
+
+    if (count > 0) {
+
+        // Open sections containing matches.
+        document.querySelectorAll(".chapter-section").forEach(section => {
+
+            if (section.querySelector("mark.search-highlight")) {
+                section.open = true;
+            }
+
+        });
+
+        searchStatus.textContent =
+            count + " matching occurrence(s) found for: " + keyword;
+
+        if (firstMatch) {
+
+            firstMatch.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+
+        }
+
+    } else {
+
+        searchStatus.textContent =
+            "No matching word found for: " + keyword;
+
+    }
+
+}
+
+
+/* CLEAR SEARCH */
+
+function clearSearch() {
+
+    removeHighlights();
+
+    searchInput.value = "";
+
+    searchStatus.textContent =
+        "Search any keyword. Matching words will be highlighted in yellow.";
+
+}
+
+
+/* ENTER KEY SEARCH */
+
+searchInput.addEventListener("keydown", function(e) {
+
+    if (e.key === "Enter") {
+        searchContent();
+    }
+
+});
+
+
+/* LIVE SEARCH */
+
+searchInput.addEventListener("input", function() {
+
+    if (this.value.trim().length >= 2) {
+
+        searchContent();
+
+    } else {
+
+        removeHighlights();
+
+        searchStatus.textContent =
+            "Type at least two characters to search.";
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
