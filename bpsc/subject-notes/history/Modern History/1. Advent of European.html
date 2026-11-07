@@ -1,0 +1,2095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advent of the Europeans in India | Complete Notes</title>
+
+<style>
+:root{
+    --bg:#f3f6fc;
+    --panel:#ffffff;
+    --text:#202b40;
+    --muted:#69778d;
+    --primary:#3156d3;
+    --secondary:#7545c7;
+    --border:#e1e7f0;
+    --soft:#edf2ff;
+    --yellow:#fff176;
+    --green:#16845b;
+    --shadow:0 8px 25px rgba(31,48,83,.08);
+}
+*{box-sizing:border-box;scroll-behavior:smooth}
+body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:Arial,Helvetica,sans-serif;
+    line-height:1.7;
+}
+button,input{font:inherit}
+.topbar{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(255,255,255,.96);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--border);
+    padding:12px 18px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+}
+.brand{
+    font-size:17px;
+    font-weight:800;
+    color:var(--primary);
+}
+.top-actions{display:flex;gap:8px;flex-wrap:wrap}
+.btn{
+    border:0;
+    padding:9px 14px;
+    border-radius:9px;
+    background:var(--primary);
+    color:white;
+    cursor:pointer;
+    font-size:13px;
+    font-weight:700;
+    transition:.25s;
+}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.secondary{background:#e9edfa;color:#314a9b}
+.btn.dark{background:#25334c}
+.progress-wrap{
+    height:4px;
+    background:#e4e9f2;
+    position:sticky;
+    top:59px;
+    z-index:99;
+}
+.progress{
+    height:4px;
+    width:0%;
+    background:linear-gradient(90deg,#3156d3,#a14bd5);
+    transition:width .15s;
+}
+.hero{
+    padding:55px 20px 48px;
+    color:white;
+    text-align:center;
+    background:linear-gradient(120deg,#172b60,#3156d3 55%,#7545c7);
+    position:relative;
+    overflow:hidden;
+}
+.hero:before,.hero:after{
+    content:"";
+    position:absolute;
+    width:260px;height:260px;
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:50%;
+    animation:float 8s infinite ease-in-out;
+}
+.hero:before{top:-120px;left:-60px}
+.hero:after{bottom:-170px;right:-50px;animation-delay:2s}
+@keyframes float{
+    0%,100%{transform:translateY(0) scale(1)}
+    50%{transform:translateY(-18px) scale(1.08)}
+}
+.hero h1{
+    font-size:clamp(26px,5vw,43px);
+    line-height:1.2;
+    margin:0 0 12px;
+    position:relative;
+}
+.hero p{margin:8px auto;max-width:750px;color:#e5eaff}
+.hero .tag{
+    display:inline-block;
+    background:rgba(255,255,255,.15);
+    padding:6px 14px;
+    border-radius:30px;
+    font-size:12px;
+    margin-top:12px;
+}
+.container{
+    max-width:1450px;
+    margin:22px auto;
+    padding:0 16px;
+    display:grid;
+    grid-template-columns:285px minmax(0,1fr);
+    gap:20px;
+    align-items:start;
+}
+.sidebar{
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:15px;
+    padding:16px;
+    position:sticky;
+    top:82px;
+    max-height:calc(100vh - 100px);
+    overflow:auto;
+    box-shadow:var(--shadow);
+}
+.sidebar h3{margin:0 0 12px;color:var(--primary)}
+.sidebar a{
+    display:block;
+    text-decoration:none;
+    color:var(--text);
+    font-size:13px;
+    padding:8px 10px;
+    border-radius:7px;
+    margin:2px 0;
+    transition:.2s;
+}
+.sidebar a:hover,.sidebar a.active{
+    background:var(--soft);
+    color:var(--primary);
+    transform:translateX(3px);
+}
+.searchbox{
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:15px;
+    box-shadow:var(--shadow);
+    margin-bottom:17px;
+}
+.searchbox input{
+    width:100%;
+    padding:12px 14px;
+    border:1px solid #cbd5e4;
+    border-radius:9px;
+    outline:none;
+    background:#fbfcff;
+}
+.searchbox input:focus{
+    border-color:var(--primary);
+    box-shadow:0 0 0 3px rgba(49,86,211,.12);
+}
+.search-info{font-size:12px;color:var(--muted);margin-top:7px}
+.content{min-width:0}
+.intro-card{
+    background:var(--panel);
+    border:1px solid var(--border);
+    padding:22px;
+    border-radius:15px;
+    box-shadow:var(--shadow);
+    margin-bottom:18px;
+}
+.intro-card h2{margin:0 0 8px;color:var(--primary)}
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+    margin-top:17px;
+}
+.stat{
+    background:var(--soft);
+    padding:13px;
+    border-radius:10px;
+    text-align:center;
+}
+.stat strong{display:block;font-size:20px;color:var(--primary)}
+.stat span{font-size:11px;color:var(--muted)}
+.section{
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:13px;
+    margin-bottom:13px;
+    box-shadow:var(--shadow);
+    overflow:hidden;
+    scroll-margin-top:90px;
+    animation:appear .45s ease both;
+}
+@keyframes appear{
+    from{opacity:0;transform:translateY(12px)}
+    to{opacity:1;transform:translateY(0)}
+}
+.section-head{
+    width:100%;
+    border:0;
+    background:white;
+    color:var(--text);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    padding:17px 19px;
+    cursor:pointer;
+    text-align:left;
+}
+.section-head:hover{background:#f8faff}
+.section-title{
+    display:flex;
+    align-items:center;
+    gap:11px;
+    font-size:16px;
+    font-weight:800;
+}
+.number{
+    width:31px;height:31px;
+    display:grid;place-items:center;
+    background:linear-gradient(135deg,#3156d3,#7545c7);
+    color:white;
+    border-radius:9px;
+    font-size:13px;
+    flex-shrink:0;
+}
+.arrow{
+    color:var(--primary);
+    font-size:20px;
+    transition:transform .35s;
+}
+.section.open .arrow{transform:rotate(180deg)}
+.section-body{
+    display:grid;
+    grid-template-rows:0fr;
+    transition:grid-template-rows .4s ease;
+}
+.section.open .section-body{grid-template-rows:1fr}
+.section-inner{overflow:hidden;min-height:0}
+.section-content{padding:4px 22px 23px;border-top:1px solid var(--border)}
+.section-content h3{
+    color:var(--primary);
+    font-size:17px;
+    margin:22px 0 8px;
+}
+.section-content h4{color:#7545c7;margin:17px 0 7px}
+.section-content p{margin:9px 0}
+.section-content ul,.section-content ol{padding-left:23px}
+.section-content li{margin:6px 0}
+.note{
+    padding:13px 15px;
+    border-left:4px solid var(--primary);
+    background:#eff3ff;
+    border-radius:8px;
+    margin:13px 0;
+}
+.warning{
+    padding:13px 15px;
+    border-left:4px solid #d28a21;
+    background:#fff7e8;
+    border-radius:8px;
+    margin:13px 0;
+}
+.success{
+    padding:13px 15px;
+    border-left:4px solid var(--green);
+    background:#eaf8f1;
+    border-radius:8px;
+    margin:13px 0;
+}
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin:15px 0;
+    font-size:13px;
+    min-width:500px;
+}
+.table-wrap{overflow-x:auto}
+th{
+    background:#263e82;
+    color:white;
+    text-align:left;
+}
+td,th{padding:10px;border:1px solid var(--border);vertical-align:top}
+tr:nth-child(even){background:#f6f8fd}
+mark{
+    background:var(--yellow);
+    color:#171717;
+    padding:1px 2px;
+    border-radius:3px;
+}
+.timeline{
+    border-left:3px solid #9aaeea;
+    margin:18px 0 18px 10px;
+    padding-left:22px;
+}
+.timeline-item{position:relative;margin:0 0 17px}
+.timeline-item:before{
+    content:"";
+    position:absolute;
+    left:-30px;top:8px;
+    width:12px;height:12px;
+    background:var(--primary);
+    border:3px solid white;
+    box-shadow:0 0 0 2px #9aaeea;
+    border-radius:50%;
+}
+.timeline-item strong{color:var(--primary)}
+.two-col{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:13px;
+}
+.mini-card{
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:14px;
+    background:#fbfcff;
+}
+.mini-card h4{margin-top:0}
+.quiz-question{
+    border:1px solid var(--border);
+    padding:14px;
+    border-radius:10px;
+    margin:12px 0;
+}
+.quiz-question label{display:block;margin:7px 0;cursor:pointer}
+.quiz-result{font-weight:bold;margin-top:12px}
+.footer{
+    text-align:center;
+    padding:30px 15px;
+    color:var(--muted);
+    font-size:12px;
+}
+#backTop{
+    position:fixed;
+    bottom:20px;right:18px;
+    width:43px;height:43px;
+    border:0;border-radius:50%;
+    background:var(--primary);
+    color:white;font-size:20px;
+    cursor:pointer;
+    box-shadow:var(--shadow);
+    display:none;
+}
+.sidebar-toggle{display:none}
+.no-results{
+    display:none;
+    background:#fff4e8;
+    padding:18px;
+    border-radius:10px;
+    margin:10px 0;
+}
+@media(max-width:900px){
+    .container{grid-template-columns:1fr}
+    .sidebar{
+        display:none;
+        position:relative;
+        top:0;
+        max-height:350px;
+    }
+    .sidebar.show{display:block}
+    .sidebar-toggle{display:inline-block}
+}
+@media(max-width:600px){
+    .hero{padding:38px 14px}
+    .topbar{padding:9px}
+    .brand{font-size:13px}
+    .btn{padding:8px 10px;font-size:11px}
+    .container{padding:0 9px;margin:12px auto}
+    .stats{grid-template-columns:repeat(2,1fr)}
+    .two-col{grid-template-columns:1fr}
+    .section-head{padding:14px}
+    .section-title{font-size:14px}
+    .section-content{padding:4px 14px 18px}
+}
+@media print{
+    .topbar,.sidebar,.searchbox,.progress-wrap,#backTop,.top-actions{display:none!important}
+    .container{display:block;margin:0;padding:0}
+    .section-body{display:block!important;grid-template-rows:1fr!important}
+    .section-inner{overflow:visible}
+    .section{break-inside:avoid;box-shadow:none}
+    body{background:white}
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+    <div class="brand">📚 MODERN INDIAN HISTORY</div>
+    <div class="top-actions">
+        <button class="btn secondary sidebar-toggle" onclick="toggleSidebar()">☰ Topics</button>
+        <button class="btn secondary" onclick="expandAll()">＋ Expand All</button>
+        <button class="btn secondary" onclick="collapseAll()">－ Collapse All</button>
+        <button class="btn dark" onclick="window.print()">🖨 Print</button>
+    </div>
+</div>
+
+<div class="progress-wrap">
+    <div class="progress" id="progress"></div>
+</div>
+
+<header class="hero">
+    <h1>ADVENT OF THE EUROPEANS IN INDIA</h1>
+    <p>Complete Classified Notes | Modern Indian History</p>
+    <p>For BPSC • UPSC • SSC • State PCS • Other Competitive Examinations</p>
+    <span class="tag">Portuguese • Dutch • English • French • Danish • Carnatic Wars</span>
+</header>
+
+<div class="container">
+
+<aside class="sidebar" id="sidebar">
+    <h3>📑 TABLE OF CONTENTS</h3>
+    <div id="toc"></div>
+</aside>
+
+<main class="content">
+
+<div class="searchbox">
+    <input type="search" id="searchInput"
+    placeholder="🔍 Search any word or topic in complete notes..."
+    oninput="searchNotes()">
+    <div class="search-info" id="searchInfo">
+        Search any keyword. Matching words will be highlighted in yellow.
+    </div>
+</div>
+
+<div class="intro-card">
+    <h2>Chapter Overview</h2>
+    <p>This chapter explains the arrival of European trading companies in India, their commercial activities, political ambitions, conflicts and the eventual emergence of British supremacy. The arrival of Europeans by sea marked a major turning point in the history of modern India.</p>
+    <div class="stats">
+        <div class="stat"><strong>1498</strong><span>Vasco da Gama</span></div>
+        <div class="stat"><strong>1600</strong><span>English Company</span></div>
+        <div class="stat"><strong>1664</strong><span>French Company</span></div>
+        <div class="stat"><strong>1760</strong><span>Battle of Wandiwash</span></div>
+    </div>
+</div>
+
+<div id="sections">
+
+<!-- 1 -->
+<section class="section open" id="introduction">
+<button class="section-head" onclick="toggleSection(this)">
+<span class="section-title"><span class="number">01</span> Introduction: Advent of Europeans in India</span>
+<span class="arrow">⌄</span>
+</button>
+<div class="section-body"><div class="section-inner"><div class="section-content">
+
+<p>History is a continuity. It is not always easy to distinguish clearly when one historical period ends and another begins. If the history of modern India is considered to begin with the advent of Europeans, it is necessary to go back to the fifteenth century, even before the Mughals established their empire.</p>
+
+<h3>Major European Powers Arriving in India</h3>
+<table>
+<tr><th>European Power</th><th>Important Year / Event</th><th>Main Interest</th></tr>
+<tr><td>Portuguese</td><td>Vasco da Gama arrived in 1498</td><td>Spice trade and control of sea routes</td></tr>
+<tr><td>Dutch</td><td>Dutch East India Company, 1602</td><td>Spices and commercial trade</td></tr>
+<tr><td>English</td><td>East India Company, 1600</td><td>Textiles, spices and other goods</td></tr>
+<tr><td>French</td><td>French East India Company, 1664</td><td>Trade and political influence</td></tr>
+<tr><td>Danish</td><td>Danish East India Company, 1616</td><td>Trade and missionary activities</td></tr>
+</table>
+
+<div class="note"><b>Important:</b> The Portuguese were the first Europeans to establish a direct sea connection with India in the modern period. The English eventually emerged as the dominant European power in India.</div>
+
+</div></div></div>
+</section>
+
+<!-- 2 -->
+<section class="section" id="sea-route">
+<button class="section-head" onclick="toggleSection(this)">
+<span class="section-title"><span class="number">02</span> Quest for and Discovery of the Sea Route to India</span>
+<span class="arrow">⌄</span>
+</button>
+<div class="section-body"><div class="section-inner"><div class="section-content">
+
+<h3>Background</h3>
+<p>After the decline of the Roman Empire in the seventh century, Arabs established their domination in Egypt and Persia. Direct contact between Europeans and India declined. Access to Indian commodities such as spices, calicoes, silk and precious stones became difficult.</p>
+
+<ul>
+<li>In 1453, Constantinople fell to the Ottoman Turks.</li>
+<li>Indian merchandise reached European markets through Arab Muslim intermediaries.</li>
+<li>The Red Sea trade route was a state monopoly, generating substantial revenues for Islamic rulers.</li>
+<li>Land routes to India were also controlled by Arab traders.</li>
+<li>Europeans wanted a direct sea route to India to avoid intermediaries.</li>
+</ul>
+
+<h3>Major Causes for the Search for a Sea Route</h3>
+<ol>
+<li><b>Fall of Constantinople (1453):</b> Ottoman control over important routes encouraged Europeans to seek an alternative.</li>
+<li><b>Renaissance:</b> The spirit of exploration and scientific curiosity spread across fifteenth-century Europe.</li>
+<li><b>Improvement in Navigation:</b> Advances in shipbuilding and navigation made long sea voyages possible.</li>
+<li><b>Economic Prosperity:</b> Expansion of cultivation, improved ploughs, crop rotation and increased meat consumption stimulated demand for spices.</li>
+<li><b>Demand for Luxury Goods:</b> European prosperity increased demand for oriental goods.</li>
+<li><b>Commercial Competition:</b> Venice and Genoa were unable to challenge the Ottoman Turks independently.</li>
+<li><b>Religious Motives:</b> Europeans also wanted to weaken Muslim commercial influence and spread Christianity.</li>
+</ol>
+
+<h3>Prince Henry the Navigator</h3>
+<ul>
+<li>Prince Henry of Portugal was nicknamed <b>the Navigator</b>.</li>
+<li>He was keen to discover a sea route to India and bypass Muslim domination of the eastern Mediterranean.</li>
+<li>Pope Nicholas V issued a papal bull in 1454, granting him the right to navigate towards the distant shores of the Orient, including India.</li>
+<li>His objectives included opposing Islamic influence and spreading Christianity.</li>
+<li>He died before his dream became a reality.</li>
+</ul>
+
+<h3>Treaty of Tordesillas (1494)</h3>
+<p>Portugal and Spain divided the non-Christian world between themselves through an imaginary line in the Atlantic Ocean, approximately 1,300 miles west of the Cape Verde Islands.</p>
+<ul>
+<li>Portugal could claim territories east of the line.</li>
+<li>Spain could claim territories west of the line.</li>
+</ul>
+
+<h3>Important Explorers</h3>
+<div class="two-col">
+<div class="mini-card">
+<h4>Bartholomew Dias</h4>
+<p>In 1487, the Portuguese navigator rounded the Cape of Good Hope in Africa and sailed along the eastern coast. His voyage demonstrated the possibility of reaching India by sea.</p>
+</div>
+<div class="mini-card">
+<h4>Vasco da Gama</h4>
+<p>His expedition left Portugal in 1497 and reached India in May 1498 after a voyage of slightly less than eleven months.</p>
+</div>
+</div>
+
+<div class="note"><b>Exam Fact:</b> Bartholomew Dias rounded the Cape of Good Hope in 1487. Vasco da Gama reached Calicut in 1498.</div>
+
+</div></div></div>
+</section>
+
+<!-- 3 -->
+<section class="section" id="portuguese">
+<button class="section-head" onclick="toggleSection(this)">
+<span class="section-title"><span class="number">03</span> The Portuguese in India</span>
+<span class="arrow">⌄</span>
+</button>
+<div class="section-body"><div class="section-inner"><div class="section-content">
+
+<h3>Vasco da Gama (1498)</h3>
+<ul>
+<li>Vasco da Gama arrived at Calicut in May 1498 with three ships.</li>
+<li>He was guided by a Gujarati pilot named Abdul Majid.</li>
+<li>The Hindu ruler of Calicut, the Zamorin (Samuthiri), gave him a friendly reception.</li>
+<li>Arab traders on the Malabar Coast were apprehensive about Portuguese competition.</li>
+<li>Vasco da Gama stayed in India for three months.</li>
+<li>He returned to Portugal with a valuable cargo and earned a huge profit.</li>
+<li>Direct access to the pepper trade made European merchants interested in India.</li>
+</ul>
+
+<h3>Pedro Alvarez Cabral (1500)</h3>
+<ul>
+<li>Cabral arrived at Calicut in September 1500 to trade in spices.</li>
+<li>He negotiated and established a Portuguese factory at Calicut.</li>
+<li>After the factory was attacked by local people, several Portuguese were killed.</li>
+<li>Cabral retaliated by seizing Arab merchant ships, killing crew members, confiscating cargo and burning ships.</li>
+<li>He bombarded Calicut.</li>
+<li>Later, he concluded favourable treaties with Cochin and Cannanore.</li>
+</ul>
+
+<h3>Second Visit of Vasco da Gama (1501)</h3>
+<ul>
+<li>The Zamorin refused to exclude Arab merchants in favour of the Portuguese.</li>
+<li>Vasco da Gama used violence against Arab shipping.</li>
+<li>His relations with the Zamorin deteriorated.</li>
+<li>He established a trading factory at Cannanore.</li>
+<li>Calicut, Cannanore and Cochin became important Portuguese trade centres.</li>
+<li>The Portuguese gradually obtained permission to fortify their trading centres.</li>
+</ul>
+
+<h3>Francisco de Almeida (1505–1509)</h3>
+<ul>
+<li>In 1505, the King of Portugal appointed a governor in India for a three-year term.</li>
+<li>Francisco de Almeida was the first Portuguese governor in India.</li>
+<li>His task was to consolidate Portuguese power and destroy Muslim trade.</li>
+<li>He was instructed to seize Aden, Ormuz and Malacca.</li>
+<li>He was also advised to build fortresses at Anjadiva, Cochin, Cannanore and Kilwa.</li>
+<li>In 1507, the combined Egyptian and Gujarat navies defeated the Portuguese squadron near Diu. Almeida's son was killed.</li>
+<li>In the following year, Almeida avenged the defeat by crushing the two navies.</li>
+</ul>
+
+<div class="note"><b>Blue Water Policy (Cartaze System):</b> Almeida believed that Portuguese supremacy depended on naval power. His policy aimed at establishing control over the Indian Ocean through maritime strength.</div>
+
+<blockquote>
+"As long as you may be powerful at sea you will hold India as yours; and if you do not possess this power, little will avail you a fortress on shore."
+<br><b>— Francisco de Almeida</b>
+</blockquote>
+
+<h3>Alfonso de Albuquerque (1509–1515)</h3>
+<ul>
+<li>Albuquerque succeeded Almeida as governor.</li>
+<li>He is considered the real founder of Portuguese power in the East.</li>
+<li>He established strategic bases controlling the entrances to the Indian Ocean.</li>
+<li>Portuguese strongholds existed in East Africa, near the Red Sea, at Ormuz, in Malabar and at Malacca.</li>
+<li>He introduced a permit system for ships and sought control over important shipbuilding centres.</li>
+<li>In 1510, he captured Goa from the Sultan of Bijapur.</li>
+<li>Goa became the principal centre of Portuguese power in India.</li>
+<li>He abolished the practice of sati in the territories under his influence.</li>
+<li>He encouraged Portuguese men to marry local Indian women to establish a permanent Portuguese population.</li>
+<li>Portuguese settlers became village landlords, artisans, master craftsmen and traders.</li>
+<li>They introduced or promoted crops such as tobacco and cashew nut and improved varieties of coconut.</li>
+<li>They also built roads and irrigation works in some settlements.</li>
+</ul>
+
+<div class="warning"><b>Negative Aspect:</b> Albuquerque's policy involved severe persecution of Muslims. His aim included weakening Muslim commercial interests in the East.</div>
+
+<h3>Nino da Cunha (1529–1538)</h3>
+<ul>
+<li>He assumed office as governor of Portuguese interests in India in November 1529.</li>
+<li>In 1530, he shifted the Portuguese headquarters from Cochin to Goa.</li>
+<li>In 1534, Bahadur Shah of Gujarat ceded Bassein and its dependencies to the Portuguese in return for assistance against Humayun.</li>
+<li>Bahadur Shah also promised the Portuguese a base at Diu.</li>
+<li>Relations deteriorated after Humayun withdrew from Gujarat in 1536.</li>
+<li>Bahadur Shah was invited aboard a Portuguese ship and killed in 1537 during negotiations.</li>
+<li>Nino da Cunha expanded Portuguese influence in Bengal, using Hooghly as an important headquarters.</li>
+</ul>
+
+<h3>Favourable Conditions for Portuguese Expansion</h3>
+<ol>
+<li>Political division in northern India, except for the powerful Gujarat kingdom under Mahmud Begarha (1458–1511).</li>
+<li>The Bahmani Kingdom was breaking into smaller Deccan kingdoms.</li>
+<li>Indian powers lacked strong navies.</li>
+<li>Chinese navigation was restricted by imperial policy.</li>
+<li>Arab merchants lacked the same level of organisation and unity as the Portuguese.</li>
+<li>Portuguese ships carried powerful cannons.</li>
+</ol>
+
+<h3>Portuguese State (Estado Português da India)</h3>
+<p>Within fifty years of Vasco da Gama's arrival, several coastal areas had come under Portuguese influence.</p>
+<ul>
+<li>They controlled around sixty miles of coast around Goa.</li>
+<li>On the western coast, they controlled a narrow tract from Mumbai towards Daman and Diu and the approaches to Gujarat.</li>
+<li>Important western and southern centres included Mangalore, Cannanore, Cochin and Calicut.</li>
+<li>They established military posts at San Thome (Chennai) and Nagapatnam.</li>
+<li>Hooghly developed into a wealthy Portuguese settlement in Bengal.</li>
+<li>Portuguese officials exchanged envoys with major Indian kingdoms.</li>
+<li>Treaties were signed with Deccan sultans in 1570 and renewed periodically.</li>
+<li>The Portuguese played a role in the political conflicts between Vijayanagara and the Deccan sultans, the Deccanis and Mughals, and the Mughals and Marathas.</li>
+</ul>
+
+<h3>Portuguese Administration</h3>
+<ul>
+<li>The head of administration was the <b>Viceroy</b>, who generally served for three years.</li>
+<li>The Viceroy was assisted by a secretary and, in later years, a council.</li>
+<li>The <b>Vedor da Fazenda</b> handled revenues, cargoes and the dispatch of fleets.</li>
+<li>Fortresses were managed by captains assisted by factors.</li>
+<li>Factors sometimes misused their authority for personal benefit because of communication difficulties.</li>
+</ul>
+
+<h3>Religious Policy of the Portuguese</h3>
+<ul>
+<li>The Portuguese arrived with a strong desire to promote Christianity.</li>
+<li>They were hostile towards Muslims, whom they regarded as traditional enemies.</li>
+<li>Initially, they were comparatively tolerant towards Hindus.</li>
+<li>After the introduction of the Inquisition in Goa, Hindus also faced persecution.</li>
+<li>Jesuit missionaries played an important role in Portuguese religious activities.</li>
+</ul>
+
+<h3>Jesuit Missions at Akbar's Court</h3>
+<div class="timeline">
+<div class="timeline-item"><strong>1579:</strong> Akbar sent a letter to Goa requesting two learned priests.</div>
+<div class="timeline-item"><strong>1580:</strong> Rodolfo Aquaviva and Antonio Monserrate reached Fatehpur Sikri on 28 February and were received with honour.</div>
+<div class="timeline-item"><strong>1583:</strong> The first mission returned without converting Akbar.</div>
+<div class="timeline-item"><strong>1590–1592:</strong> The second Jesuit mission also failed to convert Akbar.</div>
+<div class="timeline-item"><strong>1595:</strong> The third mission arrived at Lahore, led by Jerome Xavier and Emanuel Pinheiro.</div>
+</div>
+
+<p>The third mission continued as a kind of permanent institution and influenced secular politics. Its letters became valuable sources of information about the later years of Akbar's reign.</p>
+
+<h3>Jesuits under Jahangir</h3>
+<ul>
+<li>After becoming emperor, Jahangir initially neglected the Jesuit priests.</li>
+<li>In 1606, he renewed his favours towards them.</li>
+<li>They were allowed to retain their church at Lahore and the residence of priests.</li>
+<li>In 1608, twenty baptisms were conducted in Agra.</li>
+<li>Jesuit priests hoped that Jahangir might convert to Christianity, but their hopes were not fulfilled.</li>
+</ul>
+
+<h3>Decline of the Portuguese</h3>
+<ul>
+<li>By the eighteenth century, Portuguese commercial influence had declined considerably.</li>
+<li>Some Portuguese continued private trade, while others became involved in piracy and robbery.</li>
+<li>Hooghly was used by some Portuguese as a base for piracy in the Bay of Bengal.</li>
+<li>Powerful dynasties emerged in Egypt, Persia and North India.</li>
+<li>The Marathas became immediate neighbours and captured Salsette and Bassein from the Portuguese in 1739.</li>
+<li>Religious persecution and Jesuit activities created political fears and resentment.</li>
+<li>Dishonest trade practices, piracy, arrogance and violence alienated Indian rulers.</li>
+<li>The discovery of Brazil diverted Portuguese colonial attention towards the West.</li>
+<li>The union of Spain and Portugal in 1580–81 dragged Portugal into Spain's wars with England and Holland.</li>
+<li>The Dutch and English learned the sea route and challenged Portuguese monopoly.</li>
+<li>The Dutch captured Portuguese forts on the Malabar Coast in 1663.</li>
+<li>The spice trade increasingly came under Dutch control.</li>
+<li>Goa lost importance as a port after the fall of Vijayanagara.</li>
+<li>In 1683, the Marathas invaded Goa after two naval assaults.</li>
+</ul>
+
+<h3>Portuguese Rise and Fall: Important Chronology</h3>
+<div class="table-wrap"><table>
+<tr><th>Year</th><th>Event</th></tr>
+<tr><td>1498</td><td>Vasco da Gama arrives at Calicut.</td></tr>
+<tr><td>1503</td><td>First Portuguese fort at Cochin.</td></tr>
+<tr><td>1505</td><td>Second Portuguese fort at Cannanore; Almeida appointed governor.</td></tr>
+<tr><td>1509</td><td>Portuguese victory over combined Gujarat, Egypt and Zamorin fleet.</td></tr>
+<tr><td>1510</td><td>Albuquerque captures Goa from Bijapur.</td></tr>
+<tr><td>1530</td><td>Goa becomes the Portuguese capital.</td></tr>
+<tr><td>1535</td><td>Portuguese subjugation of Diu.</td></tr>
+<tr><td>1559</td><td>Portuguese capture Daman.</td></tr>
+<tr><td>1596</td><td>Dutch oust the Portuguese from parts of Southeast Asia.</td></tr>
+<tr><td>1612</td><td>Portuguese lose their position at Surat to the English.</td></tr>
+<tr><td>1663</td><td>Dutch capture Portuguese forts on the Malabar Coast.</td></tr>
+<tr><td>1739</td><td>Marathas capture Salsette and Bassein.</td></tr>
+<tr><td>1961</td><td>Goa, Daman and Diu are integrated into India.</td></tr>
+</table></div>
+
+<h3>Significance and Contributions of the Portuguese</h3>
+<ul>
+<li>The Portuguese initiated the European era of maritime power in India.</li>
+<li>They introduced the use of heavily armed ships carrying cannons to dominate trade.</li>
+<li>They used body armour, matchlock men and ship-based guns.</li>
+<li>Their military methods influenced the use of artillery and infantry drills.</li>
+<li>Drilled infantry formations were later adopted by the French and English and subsequently by the Marathas and Sikhs.</li>
+<li>They developed advanced maritime techniques, shipbuilding, royal arsenals, dockyards, navigation, pilots and mapping.</li>
+<li>They influenced Indian shipbuilding and naval organisation.</li>
+<li>Missionaries and churches contributed to painting, carving, sculpture, music and European artistic traditions in India.</li>
+<li>Goa developed a tradition of silverwork, goldwork, filigree and decorative metalwork.</li>
+</ul>
+
+<div class="success"><b>Important Conclusion:</b> The Portuguese were the first Europeans to arrive by sea in the modern period and the last European power to leave India. Goa, Daman and Diu were integrated into India in 1961.</div>
+
+</div></div></div>
+</section>
+
+<!-- 4 -->
+<section class="section" id="dutch">
+<button class="section-head" onclick="toggleSection(this)">
+<span class="section-title"><span class="number">04</span> The Dutch in India</span>
+<span class="arrow">⌄</span>
+</button>
+<div class="section-body"><div class="section-inner"><div class="section-content">
+
+<h3>Foundation of the Dutch East India Company</h3>
+<ul>
+<li>Commercial interests encouraged the Dutch to undertake voyages to the East.</li>
+<li>Cornelis de Houtman was the first Dutchman to reach Sumatra and Bantam in 1596.</li>
+<li>In 1602, the States-General of the Netherlands amalgamated several trading companies.</li>
+<li>The resulting organisation was the Dutch East India Company, known as VOC (Vereenigde Oostindische Compagnie).</li>
+<li>It could wage wars, conclude treaties, occupy territories and build forts.</li>
+</ul>
+
+<h3>Dutch Settlements in India</h3>
+<ul>
+<li>The first Dutch factory in India was established at Masulipatnam in 1605.</li>
+<li>In 1609, they opened a factory at Pulicat.</li>
+<li>They captured Nagapatam from the Portuguese and made it an important stronghold in South India.</li>
+<li>Dutch factories spread across the Coromandel Coast, Gujarat, Uttar Pradesh, Bengal and Bihar.</li>
+</ul>
+
+<div class="table-wrap"><table>
+<tr><th>Place</th><th>Year / Detail</th></tr>
+<tr><td>Masulipatnam</td><td>1605</td></tr>
+<tr><td>Pulicat</td><td>1609</td></tr>
+<tr><td>Surat</td><td>1616</td></tr>
+<tr><td>Bimlipatam</td><td>1641</td></tr>
+<tr><td>Karaikal</td><td>1645</td></tr>
+<tr><td>Chinsurah</td><td>1653</td></tr>
+<tr><td>Nagapatam</td><td>1658</td></tr>
+<tr><td>Cochin</td><td>1663</td></tr>
+<tr><td>Other centres</td><td>Baranagar, Kasimbazar, Patna and Balasore</td></tr>
+</table></div>
+
+<h3>Dutch Trade in India</h3>
+<ul>
+<li>Indigo from the Yamuna Valley and Central India.</li>
+<li>Textiles and silk from Bengal, Gujarat and the Coromandel Coast.</li>
+<li>Saltpetre from Bihar.</li>
+<li>Opium and rice from the Ganga Valley.</li>
+<li>Indian goods were transported to Southeast Asian islands and exchanged for spices and other products.</li>
+</ul>
+
+<h3>Anglo-Dutch Rivalry</h3>
+<ul>
+<li>The rise of English trade in the East challenged Dutch commercial interests.</li>
+<li>Commercial rivalry developed into armed conflict.</li>
+<li>In 1623, the Dutch massacred ten Englishmen and nine Japanese at Amboyna in present-day Indonesia.</li>
+<li>Amboyna had been captured by the Dutch from the Portuguese in 1605.</li>
+<li>The incident intensified hostility between the two companies.</li>
+<li>In 1667, the English and Dutch reached a compromise: the English withdrew their claims in Indonesia, while the Dutch withdrew from India and concentrated on Indonesia.</li>
+<li>The Dutch monopolised the trade in black pepper and spices.</li>
+</ul>
+
+<h3>Decline of the Dutch in India</h3>
+<ul>
+<li>The Dutch increasingly concentrated on the Malay Archipelago and the Spice Islands of Indonesia.</li>
+<li>The third Anglo-Dutch War took place during 1672–74.</li>
+<li>In November 1759, the English defeated the Dutch at the Battle of Hooghly, also associated with Bidara.</li>
+<li>This defeat dealt a crushing blow to Dutch ambitions in India.</li>
+<li>The Dutch were more interested in trade than in building a territorial empire in India.</li>
+</ul>
+
+<div class="note"><b>Exam Facts:</b> First Dutch factory in India – Masulipatnam (1605). Amboyna incident – 1623. Battle of Bidara/Hooghly – 1759.</div>
+
+</div></div></div>
+</section>
+
+<!-- 5 -->
+<section class="section" id="english">
+<button class="section-head" onclick="toggleSection(this)">
+<span class="section-title"><span class="number">05</span> The English East India Company</span>
+<span class="arrow">⌄</span>
+</button>
+<div class="section-body"><div class="section-inner"><div class="section-content">
+
+<h3>Background: Charter of Queen Elizabeth I</h3>
+<ul>
+<li>Francis Drake's voyage around the world in 1580 encouraged English maritime enterprise.</li>
+<li>The English victory over the Spanish Armada in 1588 strengthened English confidence.</li>
+<li>English merchants wanted a share in the profitable Eastern trade dominated by the Portuguese.</li>
+<li>In 1599, a group of merchants known as the Merchant Adventurers formed a company.</li>
+<li>On 31 December 1600, Queen Elizabeth I issued a charter to the Governor and Company of Merchants of London Trading into the East Indies.</li>
+<li>The company initially received a monopoly of fifteen years.</li>
+<li>A fresh charter in May 1609 extended the monopoly indefinitely.</li>
+</ul>
+
+<h3>Early English Activities in India</h3>
+
+<h4>William Hawkins (1609)</h4>
+<ul>
+<li>Captain William Hawkins reached Jahangir's court in April 1609.</li>
+<li>His attempt to establish a factory at Surat failed due to Portuguese opposition.</li>
+<li>He left Agra in November 1611.</li>
+</ul>
+
+<h4>Masulipatnam (1611–1616)</h4>
+<ul>
+<li>The English began trading at Masulipatnam in 1611.</li>
+<li>A factory was established there in 1616.</li>
+</ul>
+
+<h4>Captain Thomas Best (1612)</h4>
+<ul>
+<li>Thomas Best defeated the Portuguese in a naval encounter off Surat in 1612.</li>
+<li>Impressed by this victory, Jahangir permitted the English to establish a factory at Surat.</li>
+<li>The permanent factory was established in 1613 under Thomas Aldworth.</li>
+</ul>
+
+<h4>Sir Thomas Roe (1615–1619)</h4>
+<ul>
+<li>He arrived as the ambassador of King James I at Jahangir's court in 1615.</li>
+<li>He remained until February 1619.</li>
+<li>He failed to conclude a formal commercial treaty with the Mughal emperor.</li>
+<li>He obtained important privileges and permission to establish factories at Agra, Ahmedabad and Broach.</li>
+<li>By 1618, privileges confirming free trade and exemption from inland tolls were obtained through farmans.</li>
+</ul>
+
+<h3>Expansion in Western India: Bombay</h3>
+<ul>
+<li>Bombay was given to Charles II by the Portuguese as dowry when he married Catherine of Braganza in 1662.</li>
+<li>In 1668, Charles II transferred Bombay to the East India Company for an annual rent of ten pounds.</li>
+<li>In 1687, the headquarters of the Western Presidency shifted from Surat to Bombay.</li>
+<li>The English gradually reduced conflicts with the Portuguese and Dutch through political and commercial compromises.</li>
+</ul>
+
+<h3>Golden Farman of Golconda (1632)</h3>
+<ul>
+<li>The Sultan of Golconda issued the Golden Farman to the English in 1632.</li>
+<li>For an annual payment of 500 pagodas, the English obtained permission to trade freely in Golconda's ports.</li>
+</ul>
+
+<h3>Madras and Fort St. George (1639)</h3>
+<ul>
+<li>Francis Day, a member of the Masulipatnam council, obtained permission from the ruler of Chandragiri in 1639.</li>
+<li>The English were allowed to establish a fortified factory at Madras.</li>
+<li>The settlement became Fort St. George.</li>
+<li>Madras replaced Masulipatnam as the headquarters of English settlements in South India.</li>
+<li>English factories were also established at Hariharpur and Balasore in 1633.</li>
+</ul>
+
+<h3>English Expansion in Bengal</h3>
+<ul>
+<li>Bengal was a large, wealthy and commercially advanced Mughal province.</li>
+<li>In 1651, Shah Shuja, the Subahdar of Bengal, permitted the English to trade in Bengal for an annual payment of Rs 3,000 in lieu of all duties.</li>
+<li>Factories were established at Hooghly in 1651, Kasimbazar, Patna and Rajmahal.</li>
+<li>Customs officials sometimes demanded tolls despite the company's privileges.</li>
+<li>The company wanted a fortified settlement at Hooghly.</li>
+<li>William Hedges, the first agent and governor of the Company in Bengal, appealed to Shaista Khan in August 1682.</li>
+<li>Hostilities developed between the English and the Mughals.</li>
+<li>In October 1686, Mughal forces sacked Hooghly.</li>
+<li>The English retaliated by capturing forts at Thana (modern Garden Reach), raiding Hijli and attacking Mughal fortifications at Balasore.</li>
+<li>The English were ultimately forced to leave Hooghly and move to an unhealthy location near the mouth of the Ganga.</li>
+</ul>
+
+<h3>Job Charnock and the Foundation of Calcutta</h3>
+<ul>
+<li>Job Charnock negotiated with the Mughals to return to Sutanuti.</li>
+<li>He signed a treaty in February 1690 and returned to Sutanuti in August 1690.</li>
+<li>An English factory was established on 10 February 1691.</li>
+<li>A Mughal farman allowed the English to continue trade in Bengal for Rs 3,000 annually in lieu of other dues.</li>
+<li>The rebellion of Sobha Singh, a zamindar of Bardhaman, provided the English an opportunity to fortify Sutanuti in 1696.</li>
+<li>In 1698, the English obtained permission to purchase the zamindari rights of Sutanuti, Gobindapur and Kalikata for Rs 1,200.</li>
+<li>In 1700, the fortified settlement was named Fort William.</li>
+<li>Sir Charles Eyre became its first president.</li>
+<li>Calcutta became the seat of the Eastern Presidency and later an important centre of British power.</li>
+</ul>
+
+<h3>Farrukhsiyar's Farmans (1717)</h3>
+<p>An English mission led by John Surman visited the Mughal court in 1715 and secured three important farmans from Emperor Farrukhsiyar. These privileges are often called the <b>Magna Carta of the East India Company</b>.</p>
+
+<h4>Important Terms and Privileges</h4>
+<ol>
+<li>In Bengal, company imports and exports were exempted from additional customs duties, except the annual payment of Rs 3,000.</li>
+<li>The Company was allowed to issue <b>dastaks</b>, or passes, for the transportation of goods.</li>
+<li>The Company was permitted to rent additional lands around Calcutta.</li>
+<li>In Hyderabad, the Company retained its existing privilege of duty-free trade and paid the prevailing rent for Madras.</li>
+<li>In Surat, the Company was exempted from duties for an annual payment of Rs 10,000.</li>
+<li>Coins minted by the Company at Bombay were given currency throughout the Mughal Empire.</li>
+</ol>
+
+<div class="warning"><b>Historical Importance:</b> These privileges greatly strengthened the Company's commercial position. The misuse of dastaks and conflicts over customs duties later became important sources of tension with Bengal's authorities.</div>
+
+<h3>Merger of English Companies</h3>
+<ul>
+<li>In 1635, a rival company called Courteen Association, later known as the Assada Company, received a trading licence from Charles I.</li>
+<li>In 1657, the two companies merged.</li>
+<li>After the English Revolution of 1688, opposition to the Company's monopoly increased.</li>
+<li>A new rival company emerged in 1698.</li>
+<li>Sir William Norris was sent to Aurangzeb's court during 1701–1702 to secure trading privileges for the rival company.</li>
+<li>The rival company failed to establish a lasting position.</li>
+<li>Under pressure from the Crown and Parliament, the companies were amalgamated in 1708.</li>
+<li>The new organisation was called the <b>United Company of Merchants of England Trading to the East Indies</b>.</li>
+<li>This company became the principal instrument of British commercial and political expansion in India.</li>
+</ul>
+
+<h3>Formative Years of the East India Company</h3>
+<div class="table-wrap"><table>
+<tr><th>Year</th><th>Event</th></tr>
+<tr><td>1599</td><td>Merchant Adventurers formed a company.</td></tr>
+<tr><td>1600</td><td>East India Company chartered by Elizabeth I.</td></tr>
+<tr><td>1609</td><td>William Hawkins reaches Jahangir's court.</td></tr>
+<tr><td>1611</td><td>English begin trading at Masulipatnam; Captain Middleton obtains trading permission at Surat.</td></tr>
+<tr><td>1612</td><td>Thomas Best defeats the Portuguese near Surat.</td></tr>
+<tr><td>1613</td><td>Permanent English factory established at Surat.</td></tr>
+<tr><td>1615</td><td>Sir Thomas Roe arrives at Jahangir's court.</td></tr>
+<tr><td>1616</td><td>English factory at Masulipatnam.</td></tr>
+<tr><td>1632</td><td>Golden Farman from Golconda.</td></tr>
+<tr><td>1633</td><td>Factories at Hariharpur and Balasore.</td></tr>
+<tr><td>1639</td><td>Madras settlement obtained.</td></tr>
+<tr><td>1651</td><td>Permission to trade at Hooghly.</td></tr>
+<tr><td>1662</td><td>Bombay given to Charles II as dowry.</td></tr>
+<tr><td>1668</td><td>Bombay transferred to the Company.</td></tr>
+<tr><td>1687</td><td>Western Presidency shifted from Surat to Bombay.</td></tr>
+<tr><td>1691</td><td>Imperial permission to continue trade in Bengal.</td></tr>
+<tr><td>1698</td><td>Three villages around Calcutta acquired.</td></tr>
+<tr><td>1700</td><td>Fort William named.</td></tr>
+<tr><td>1708</td><td>Two English companies amalgamated.</td></tr>
+<tr><td>1717</td><td>Farrukhsiyar's farmans.</td></tr>
+</table></div>
+
+</div></div></div>
+</section>
+
+<!-- 6 -->
+<section class="section" id="french">
+<button class="section-head" onclick="toggleSection(this)">
+<span class="section-title"><span class="number">06</span> The French in India</span>
+<span class="arrow">⌄</span>
+</button>
+<div class="section-body"><div class="section-inner"><div class="section-content">
+
+<h3>Foundation of the French East India Company (1664)</h3>
+<ul>
+<li>The French were the last major European power to arrive in India for trade.</li>
+<li>During the reign of Louis XIV, his minister Colbert founded the Compagnie des Indes Orientales in 1664.</li>
+<li>The company received a 50-year monopoly over French trade in the Indian and Pacific Oceans.</li>
+<li>The French king granted the company rights over Madagascar and other territories it might conquer.</li>
+<li>The company spent resources trying to revive the Madagascar colonies, but without success.</li>
+</ul>
+
+<h3>French Settlements in India</h3>
+<ul>
+<li>In 1667, Francois Caron led an expedition to India and established a factory at Surat.</li>
+<li>Mercara, a Persian who accompanied Caron, established a factory at Masulipatnam in 1669 after receiving permission from the Sultan of Golconda.</li>
+<li>In 1673, the French obtained permission from Shaista Khan to establish a township at Chandernagore near Calcutta.</li>
+<li>In 1673, Sher Khan Lodi, governor of Valikondapuram under the Bijapur Sultan, granted a site to Francois Martin.</li>
+<li>Pondicherry was founded in 1674.</li>
+<li>In 1674, Francois Martin replaced Caron as French governor.</li>
+</ul>
+
+<h3>Pondicherry: Nerve Centre of French Power</h3>
+<ul>
+<li>Francois Martin developed Pondicherry into the strongest French settlement in India.</li>
+<li>It became the headquarters and principal stronghold of French power.</li>
+<li>Other French trading centres included Mahe, Karaikal, Balasore and Qasim Bazar.</li>
+</ul>
+
+<h3>Early Setbacks</h3>
+<ul>
+<li>The Dutch captured Pondicherry in 1693 during their conflict with France.</li>
+<li>The Treaty of Ryswick, concluded in September 1697, restored Pondicherry to the French.</li>
+<li>The Dutch garrison continued to hold it for two more years.</li>
+<li>Under Francois Martin, Pondicherry again prospered.</li>
+<li>The War of Spanish Succession created further problems for the French company.</li>
+<li>In the early eighteenth century, the French abandoned factories at Surat, Masulipatnam and Bantam.</li>
+<li>Francois Martin died on 31 December 1706.</li>
+</ul>
+
+<h3>Reorganisation of the French Company</h3>
+<ul>
+<li>In 1720, the French company was reorganised as the <b>Perpetual Company of the Indies</b>.</li>
+<li>Its strength improved under governors Lenoir and Dumas between 1720 and 1742.</li>
+<li>French power in India was supported by French possessions in Mauritius and Reunion in the southern Indian Ocean.</li>
+</ul>
+
+<h3>Important French Personalities</h3>
+<div class="two-col">
+<div class="mini-card"><h4>Colbert</h4><p>Minister of Louis XIV who laid the foundation of the French East India Company in 1664.</p></div>
+<div class="mini-card"><h4>Francois Caron</h4><p>Led the French expedition to India in 1667 and established a factory at Surat.</p></div>
+<div class="mini-card"><h4>Mercara</h4><p>Persian associate of Caron who founded the French factory at Masulipatnam in 1669.</p></div>
+<div class="mini-card"><h4>Francois Martin</h4><p>Developed Pondicherry and strengthened French settlements in India.</p></div>
+<div class="mini-card"><h4>Lenoir and Dumas</h4><p>Governors who strengthened the reorganised French company between 1720 and 1742.</p></div>
+<div class="mini-card"><h4>Joseph Francois Dupleix</h4><p>French governor who pursued political expansion through intervention in Indian succession disputes.</p></div>
+</div>
+
+</div></div></div>
+</section>
+
+<!-- 7 -->
+<section class="section" id="carnatic-background">
+<button class="section-head" onclick="toggleSection(this)">
+<span class="section-title"><span class="number">07</span> Anglo-French Rivalry: Background of Carnatic Wars</span>
+<span class="arrow">⌄</span>
+</button>
+<div class="section-body"><div class="section-inner"><div class="section-content">
+
+<p>Although the British and French initially came to India for commercial purposes, they were gradually drawn into Indian politics. Both wanted to establish political influence and supremacy.</p>
+
+<h3>Background of Rivalry</h3>
+<ul>
+<li>The rivalry reflected the traditional conflict between England and France in Europe.</li>
+<li>It began with the Austrian War of Succession and continued through the Seven Years' War.</li>
+<li>In India, the conflict took the form of three Carnatic Wars.</li>
+<li>The wars ultimately decided that the English, rather than the French, would become the dominant European power in India.</li>
+</ul>
+
+<h3>Political Situation in South India around 1740</h3>
+<ul>
+<li>Nizam Asaf Jah of Hyderabad was old and engaged in conflict with the Marathas in the western Deccan.</li>
+<li>His subordinates were concerned about the succession after his death.</li>
+<li>The Coromandel Coast lacked a strong ruler capable of maintaining a balance of power.</li>
+<li>In the interior were remnants of the old Vijayanagara Empire and the region of Mysore.</li>
+<li>Cochin and Travancore existed on the Malabar Coast.</li>
+<li>Important eastern states included Madura (Madurai), Tanjore (Thanjavur) and Trichinopoly (Tiruchirappalli).</li>
+<li>The Maratha kingdom of Tanjore provided the Peshwa of Pune with opportunities for political interference.</li>
+</ul>
+
+<div class="note"><b>Meaning of Carnatic:</b> Europeans used the term Carnatic for the Coromandel Coast and its hinterland.</div>
+
+</div></div></div>
+</section>
+
+<!-- 8 -->
+<section class="section" id="first-war">
+<button class="section-head" onclick="toggleSection(this)">
+<span class="section-title"><span class="number">08</span> First Carnatic War (1740–1748)</span>
+<span class="arrow">⌄</span>
+</button>
+<div class="section-body"><div class="section-inner"><div class="section-content">
+
+<h3>Background</h3>
+<p>The First Carnatic War was an extension of the Anglo-French conflict in Europe, which was connected with the Austrian War of Succession.</p>
+
+<h3>Immediate Cause</h3>
+<ul>
+<li>France did not initially want the conflict to spread to India because of its comparatively weaker position.</li>
+<li>The English navy under Barnet seized some French ships.</li>
+<li>France retaliated by capturing Madras in 1746.</li>
+<li>The French fleet came from Mauritius, then known as the Isle of France.</li>
+<li>Admiral La Bourdonnais led the French operation.</li>
+</ul>
+
+<h3>Battle of St. Thome (Adyar)</h3>
+<ul>
+<li>The Nawab of Carnatic, Anwar-ud-din, was approached by the English for help.</li>
+<li>A small French army under Captain Paradise defeated a much larger Indian force led by Mahfuz Khan.</li>
+<li>The battle took place at St. Thome on the banks of the River Adyar.</li>
+<li>It demonstrated the effectiveness of a small, disciplined European force against a larger Indian army.</li>
+<li>It also highlighted the importance of naval power in the conflict.</li>
+</ul>
+
+<h3>Treaty of Aix-la-Chapelle (1748)</h3>
+<ul>
+<li>The war ended in 1748 with the Treaty of Aix-la-Chapelle.</li>
+<li>The treaty brought the Austrian War of Succession to a conclusion.</li>
+<li>Madras was restored to the English.</li>
+<li>The French received their territories in North America in return.</li>
+</ul>
+
+<div class="success"><b>Result:</b> The First Carnatic War demonstrated European military and naval superiority, but it did not establish a permanent victor in India.</div>
+
+</div></div></div>
+</section>
+
+<!-- 9 -->
+<section class="section" id="second-war">
+<button class="section-head" onclick="toggleSection(this)">
+<span class="section-title"><span class="number">09</span> Second Carnatic War (1749–1754)</span>
+<span class="arrow">⌄</span>
+</button>
+<div class="section-body"><div class="section-inner"><div class="section-content">
+
+<h3>Background</h3>
+<p>The Second Carnatic War arose from political and dynastic rivalries within India. Dupleix wanted to increase French political influence by intervening in local succession disputes.</p>
+
+<h3>Immediate Causes and Succession Disputes</h3>
+<ul>
+<li>Nizam-ul-Mulk, founder of the independent kingdom of Hyderabad, died in 1748.</li>
+<li>His son Nasir Jang claimed the throne.</li>
+<li>Muzaffar Jang, his grandson, also claimed the throne and asserted that the Mughal emperor had appointed him governor of the Carnatic.</li>
+<li>In the Carnatic, Anwar-ud-din Khan's appointment as Nawab was opposed by Chanda Sahib.</li>
+<li>Chanda Sahib was the son-in-law of Dost Ali, former Nawab of Carnatic.</li>
+</ul>
+
+<h3>Alignment of Powers</h3>
+<table>
+<tr><th>French Support</th><th>English Support</th></tr>
+<tr><td>Muzaffar Jang for Hyderabad</td><td>Nasir Jang for Hyderabad</td></tr>
+<tr><td>Chanda Sahib for Carnatic</td><td>Anwar-ud-din for Carnatic</td></tr>
+</table>
+
+<h3>Battle of Ambur (1749)</h3>
+<ul>
+<li>The combined forces of Muzaffar Jang, Chanda Sahib and the French defeated and killed Anwar-ud-din.</li>
+<li>Muzaffar Jang became Subahdar of the Deccan.</li>
+<li>Dupleix was appointed governor of Mughal territories south of the River Krishna.</li>
+<li>A French force under Bussy was stationed at Hyderabad to protect French interests.</li>
+<li>Territories near Pondicherry and areas on the Odisha coast, including Masulipatnam, were ceded to the French.</li>
+</ul>
+
+<h3>Robert Clive and the Capture of Arcot (1751)</h3>
+<ul>
+<li>The English were unable to provide effective assistance to Muhammad Ali at Trichinopoly.</li>
+<li>Robert Clive proposed a diversionary attack on Arcot, the capital of the Carnatic.</li>
+<li>He believed Chanda Sahib would be forced to leave Trichinopoly to defend his capital.</li>
+<li>In August 1751, Clive attacked Arcot with only 210 men and captured it.</li>
+<li>Chanda Sahib rushed to Arcot with 4,000 men.</li>
+<li>He failed to recapture the fort after a siege of 53 days, from 23 September to 14 November.</li>
+<li>Mysore, Tanjore and the Maratha chief Morari Rao supported the English side.</li>
+<li>Trichinopoly was relieved of its siege.</li>
+<li>Chanda Sahib and the French general Law were trapped on the island of Srirangam.</li>
+<li>They surrendered in June 1752.</li>
+<li>Muhammad Ali executed Chanda Sahib.</li>
+</ul>
+
+<h3>Rise and Fall of Dupleix</h3>
+<ul>
+<li>Joseph Francois Dupleix was born in 1697.</li>
+<li>He was the son of a wealthy tax farmer and Director-General of the Company of the Indies.</li>
+<li>He obtained a high position at Pondicherry in 1720.</li>
+<li>In December 1726, he was suspended following changes in the French company.</li>
+<li>In 1730, he won his case and became governor of Chandernagore.</li>
+<li>In 1741, he became Director-General of French colonies in India and Governor-General of Pondicherry.</li>
+<li>He was later given the title of Nawab by the Mughal emperor and Muzaffar Jang.</li>
+</ul>
+
+<h3>Dupleix as an Administrator</h3>
+<ul>
+<li>He faced Maratha invasion, famine, uncultivated land and political disorder in the Carnatic.</li>
+<li>The French company's directors wanted to reduce expenditure because of the priority given to French colonies in North America.</li>
+<li>Dupleix reduced public expenditure and salaries and tried to balance income and expenditure.</li>
+<li>He ignored the directors' objections regarding fortification and strengthened Pondicherry's defences.</li>
+<li>He spent a large amount of his personal wealth on the fortifications.</li>
+<li>He developed Pondicherry into an important commercial centre in South India.</li>
+</ul>
+
+<h3>Dupleix as a Diplomat</h3>
+<ul>
+<li>He used the Nawab of Carnatic to prevent the English from waging war in his territories.</li>
+<li>He promised Madras to the Nawab after defeating the English but did not hand it over.</li>
+<li>He persuaded Admiral La Bourdonnais to break his agreement with the English.</li>
+<li>He became the first European to systematically interfere in the internal politics of Indian rulers to expand European influence.</li>
+<li>He supported Muzaffar Jang in Hyderabad and Chanda Sahib in the Carnatic.</li>
+<li>He placed a French army at Hyderabad at the expense of the Subahdar, a practice associated with the origin of the subsidiary alliance system in India.</li>
+</ul>
+
+<h3>Why Did Dupleix Fail?</h3>
+<ol>
+<li><b>Over-optimism:</b> He hoped for too long in difficult situations and sometimes lost important opportunities.</li>
+<li><b>Autocratic Behaviour:</b> His colleagues disliked his authoritarian style and quarrelled with him.</li>
+<li><b>Lack of Battlefield Leadership:</b> He planned campaigns but did not personally lead troops like Lawrence or Clive.</li>
+<li><b>Military Problems:</b> French commanders could not successfully implement his plans at Trichinopoly in 1752–53.</li>
+<li><b>Financial Burden:</b> His political ambitions involved heavy expenditure for the company.</li>
+<li><b>Recall:</b> The French authorities recalled him in 1754.</li>
+</ol>
+
+<h3>Treaty under Godeheu (1754)</h3>
+<ul>
+<li>Godeheu succeeded Dupleix as French Governor-General in India.</li>
+<li>He followed a policy of negotiation with the English.</li>
+<li>Both parties agreed not to interfere in the quarrels of Indian princes.</li>
+<li>Each party retained territories actually occupied at the time of the treaty.</li>
+<li>French political influence weakened, and Indian rulers increasingly became dependent on European support.</li>
+<li>Muhammad Ali in the Carnatic and Salabat Jang in Hyderabad became clients rather than patrons of European powers.</li>
+</ul>
+
+<div class="note"><b>Result:</b> The Second Carnatic War was inconclusive in a formal sense, but it weakened French influence and strengthened English political intervention.</div>
+
+</div></div></div>
+</section>
+
+<!-- 10 -->
+<section class="section" id="third-war">
+<button class="section-head" onclick="toggleSection(this)">
+<span class="section-title"><span class="number">10</span> Third Carnatic War (1758–1763)</span>
+<span class="arrow">⌄</span>
+</button>
+<div class="section-body"><div class="section-inner"><div class="section-content">
+
+<h3>Background</h3>
+<ul>
+<li>In Europe, the Seven Years' War began in 1756 after the conflict over Silesia.</li>
+<li>Britain and France again fought on opposite sides.</li>
+<li>The European war extended to India.</li>
+</ul>
+
+<h3>Course of the War in India</h3>
+<ul>
+<li>In 1758, the French army under Count de Lally captured the English forts of St. David and Vizianagaram.</li>
+<li>The English later became offensive.</li>
+<li>The English inflicted heavy losses on the French fleet under Admiral D'Ache at Masulipatnam.</li>
+</ul>
+
+<h3>Battle of Wandiwash (22 January 1760)</h3>
+<ul>
+<li>The decisive battle of the Third Carnatic War took place at Wandiwash (Vandavasi) in Tamil Nadu.</li>
+<li>General Eyre Coote led the English forces.</li>
+<li>Count Thomas Arthur de Lally commanded the French army.</li>
+<li>The English defeated the French army.</li>
+<li>Bussy was captured by the English.</li>
+</ul>
+
+<h3>Fall of Pondicherry (1761)</h3>
+<ul>
+<li>Count de Lally defended Pondicherry for eight months.</li>
+<li>He surrendered on 16 January 1761.</li>
+<li>With the loss of Jinji and Mahe, French power in India reached its lowest point.</li>
+<li>Lally was taken prisoner, returned to France and was executed in 1766.</li>
+</ul>
+
+<h3>Treaty of Paris (1763)</h3>
+<ul>
+<li>The Treaty of Paris restored French factories in India.</li>
+<li>However, French political influence had effectively disappeared.</li>
+<li>The French were thereafter largely confined to small settlements and commercial activities.</li>
+<li>The French were not permitted to fortify their settlements under the post-war arrangement described in the chapter summary.</li>
+<li>The English became the supreme European power in the Indian subcontinent.</li>
+</ul>
+
+<div class="success"><b>Historical Significance:</b> The Battle of Wandiwash removed the French as a serious European rival to the English in India. The victory at Plassey (1757) is often regarded as decisive for British political rule, while Wandiwash (1760) was decisive in eliminating the major European rival.</div>
+
+<h3>Important Observation</h3>
+<p>Indian soldiers served as sepoys in both armies at Wandiwash. The conflict showed the dependence of Indian political powers on European military support and the lack of foresight among many contemporary rulers.</p>
+
+</div></div></div>
+</section>
+
+<!-- 11 -->
+<section class="section" id="english-success">
+<button class="section-head" onclick="toggleSection(this)">
+<span class="section-title"><span class="number">11</span> Causes of English Success and French Failure</span>
+<span class="arrow">⌄</span>
+</button>
+<div class="section-body"><div class="section-inner"><div class="section-content">
+
+<h3>1. Nature of the Trading Companies</h3>
+<ul>
+<li>The English East India Company was a private enterprise.</li>
+<li>It was managed by a board of directors elected annually.</li>
+<li>Shareholders exercised considerable influence in company decisions.</li>
+<li>It could take commercial and military decisions with comparatively greater freedom.</li>
+<li>The French company was largely a state concern and was controlled by the French government.</li>
+<li>The French monarch held more than 60 per cent of the company's shares.</li>
+<li>Directors were nominated by the monarch and were expected to follow government decisions.</li>
+<li>Shareholders had limited interest because the State guaranteed dividends.</li>
+<li>Between 1725 and 1765, there was no meeting of shareholders, and the company was managed like a government department.</li>
+</ul>
+
+<h3>2. Naval Superiority</h3>
+<ul>
+<li>The British Royal Navy was the largest and most advanced of its time.</li>
+<li>British naval victories, including against the Spanish Armada and France, strengthened its position.</li>
+<li>The English could interrupt French sea links between India and France.</li>
+<li>Strong and fast English ships helped defeat Portuguese and French forces.</li>
+<li>The English learned from Portuguese maritime techniques and improved their fleet.</li>
+</ul>
+
+<h3>3. Better Strategic Locations</h3>
+<ul>
+<li>The English controlled three major centres: Calcutta, Bombay and Madras.</li>
+<li>The French mainly depended on Pondicherry as their principal stronghold.</li>
+<li>The English had a stronger network of coastal and commercial settlements.</li>
+</ul>
+
+<h3>4. Financial Strength and Commercial Interest</h3>
+<ul>
+<li>The French subordinated commercial interests to territorial ambitions.</li>
+<li>This created financial pressure on the French company.</li>
+<li>The English continued to protect commercial interests even while pursuing imperial ambitions.</li>
+<li>Their stronger financial base supported military operations.</li>
+</ul>
+
+<h3>5. Industrial Revolution</h3>
+<ul>
+<li>The Industrial Revolution began in England in the early eighteenth century.</li>
+<li>Important inventions included the spinning jenny, steam engine and power loom.</li>
+<li>These innovations improved production in textiles, metallurgy, steam power and agriculture.</li>
+<li>Other European nations industrialised later, giving England an economic advantage.</li>
+</ul>
+
+<h3>6. Military Skill and Discipline</h3>
+<ul>
+<li>British soldiers were disciplined and well trained.</li>
+<li>British commanders used innovative strategies and tactics.</li>
+<li>Technological developments strengthened the military.</li>
+<li>Smaller English forces could defeat larger armies.</li>
+<li>Important British commanders included Eyre Coote, Stringer Lawrence and Robert Clive.</li>
+</ul>
+
+<h3>7. Stable Government</h3>
+<ul>
+<li>Britain generally had a more stable government, apart from the Glorious Revolution of 1688.</li>
+<li>France experienced the Revolution of 1789 and the Napoleonic Wars.</li>
+<li>Napoleon's defeat in 1815 weakened France's international position.</li>
+<li>The Dutch and Spanish were also affected by prolonged wars.</li>
+</ul>
+
+<h3>8. Lesser Religious Zeal</h3>
+<ul>
+<li>Britain was less focused on spreading Christianity than Portugal, Spain and the Dutch.</li>
+<li>This made British rule comparatively more acceptable to some local subjects than the rule of other European colonial powers.</li>
+</ul>
+
+<h3>9. Use of Debt Markets</h3>
+<ul>
+<li>Britain used financial markets to fund wars during the eighteenth and nineteenth centuries.</li>
+<li>The Bank of England, established in 1694, helped raise government funds through debt instruments.</li>
+<li>Britain could spend more on its military than many of its rivals.</li>
+<li>France struggled to match British expenditure and faced repeated financial crises.</li>
+</ul>
+
+<h3>Comparison: English and French Companies</h3>
+<div class="table-wrap"><table>
+<tr><th>Basis</th><th>English Company</th><th>French Company</th></tr>
+<tr><td>Nature</td><td>Private enterprise</td><td>State-controlled concern</td></tr>
+<tr><td>Decision-making</td><td>Comparatively independent</td><td>Government control and delays</td></tr>
+<tr><td>Finance</td><td>Strong commercial base</td><td>Financial pressure from political ambitions</td></tr>
+<tr><td>Naval power</td><td>Superior Royal Navy</td><td>Weaker naval support in India</td></tr>
+<tr><td>Main centres</td><td>Calcutta, Bombay, Madras</td><td>Pondicherry</td></tr>
+<tr><td>Commanders</td><td>Clive, Lawrence, Eyre Coote</td><td>Dupleix, Bussy, Lally</td></tr>
+<tr><td>Final result</td><td>Dominant European power in India</td><td>Political influence declined</td></tr>
+</table></div>
+
+</div></div></div>
+</section>
+
+<!-- 12 -->
+<section class="section" id="trade">
+<button class="section-head" onclick="toggleSection(this)">
+<span class="section-title"><span class="number">12</span> Indian Trade and Commercial Activities</span>
+<span class="arrow">⌄</span>
+</button>
+<div class="section-body"><div class="section-inner"><div class="section-content">
+
+<h3>Indian Textiles and Goods</h3>
+<p>Indian textiles were in high demand in Europe and other parts of Asia. Indian merchants had traded in textiles for centuries before the arrival of European companies.</p>
+
+<ul>
+<li><b>Cotton longcloth:</b> Usually 35 to 50 metres in length.</li>
+<li><b>Salempores:</b> Staple cotton cloth.</li>
+<li><b>Morees:</b> Superior-quality cotton cloth.</li>
+<li>Painted cloths and printed fabrics.</li>
+<li>Silks and dyes.</li>
+</ul>
+
+<h3>Indian Textiles in Asian Trade</h3>
+<ul>
+<li>Indian cotton was popular in China, Japan and the Indonesian Archipelago.</li>
+<li>It was valued for being lightweight yet strong.</li>
+<li>Dutch, English and French merchants transported Indian textiles to Malacca and Java.</li>
+<li>These goods were exchanged for spices and other commodities.</li>
+<li>French merchants also developed coloured patterned handkerchiefs for specific island markets.</li>
+</ul>
+
+<h3>Connection with the Slave Trade</h3>
+<ul>
+<li>Trade between Europe and Asia was connected with the wider Atlantic slave-trading system.</li>
+<li>French ships transported European goods to Asia.</li>
+<li>They acquired cowry shells and Indian textiles valued in West Africa.</li>
+<li>These goods were exchanged in Africa for enslaved people.</li>
+<li>Enslaved people were transported to French colonies in the Americas.</li>
+<li>Sugar and other American goods were then shipped back to France.</li>
+</ul>
+
+<h3>Indian Commercial Network before European Expansion</h3>
+<ul>
+<li>European companies entered an already established economic system.</li>
+<li>Indian merchants operated large commercial fleets and prosperous shore-based businesses.</li>
+<li>Weavers and merchants worked with freight operators, brokers, exporters and shipowners.</li>
+<li>Agents negotiated with local state officials for commercial privileges.</li>
+<li>European traders had to learn existing commercial practices and collaborate with Indian merchants and envoys.</li>
+<li>Initially, the factories of different European companies were often located in the same places.</li>
+<li>Demand for Indian goods frequently exceeded the supply produced by weavers and artisans.</li>
+<li>As competition intensified, English traders used better funding and knowledge of local customs to expand their factories into larger industrial towns.</li>
+<li>Commercial strongholds gradually became political enclaves, helping the English consolidate power.</li>
+</ul>
+
+<h3>Major Commodities by European Power</h3>
+<div class="table-wrap"><table>
+<tr><th>European Power</th><th>Important Commodities</th></tr>
+<tr><td>Portuguese</td><td>Spices, pepper and coastal trade goods</td></tr>
+<tr><td>Dutch</td><td>Silk, cotton, indigo, rice, opium, saltpetre, black pepper and spices</td></tr>
+<tr><td>English</td><td>Textiles, spices and other Indian commodities</td></tr>
+<tr><td>French</td><td>Textiles, silk, dyes and goods for Asian markets</td></tr>
+</table></div>
+
+</div></div></div>
+</section>
+
+<!-- 13 -->
+<section class="section" id="danes">
+<button class="section-head" onclick="toggleSection(this)">
+<span class="section-title"><span class="number">13</span> The Danes in India</span>
+<span class="arrow">⌄</span>
+</button>
+<div class="section-body"><div class="section-inner"><div class="section-content">
+
+<ul>
+<li>The Danish East India Company was established in 1616.</li>
+<li>In 1620, the Danes founded a factory at Tranquebar near Tanjore on the eastern coast.</li>
+<li>Their principal settlement was Serampore near Calcutta.</li>
+<li>Danish factories were never commercially very important.</li>
+<li>The factories were sold to the British government in 1845.</li>
+<li>The Danes are better known for missionary activities than for commerce.</li>
+</ul>
+
+<div class="note"><b>Exam Facts:</b> Danish East India Company – 1616; Tranquebar – 1620; Sale of Danish factories – 1845.</div>
+
+</div></div></div>
+</section>
+
+<!-- 14 -->
+<section class="section" id="important-places">
+<button class="section-head" onclick="toggleSection(this)">
+<span class="section-title"><span class="number">14</span> Important Places and Their European Associations</span>
+<span class="arrow">⌄</span>
+</button>
+<div class="section-body"><div class="section-inner"><div class="section-content">
+
+<div class="table-wrap"><table>
+<tr><th>Place</th><th>European Association / Importance</th></tr>
+<tr><td>Calicut</td><td>Vasco da Gama arrived in 1498; Zamorin was the ruler.</td></tr>
+<tr><td>Cochin</td><td>Early Portuguese centre and fort.</td></tr>
+<tr><td>Cannanore</td><td>Portuguese trading factory.</td></tr>
+<tr><td>Goa</td><td>Portuguese capital from 1530; captured by Albuquerque in 1510.</td></tr>
+<tr><td>Diu</td><td>Portuguese stronghold and naval conflict zone.</td></tr>
+<tr><td>Daman</td><td>Portuguese possession from 1559.</td></tr>
+<tr><td>Hooghly</td><td>Portuguese settlement and later English commercial centre.</td></tr>
+<tr><td>Masulipatnam</td><td>Early Dutch, English and French factories.</td></tr>
+<tr><td>Pulicat</td><td>Important Dutch factory.</td></tr>
+<tr><td>Surat</td><td>Important English, Portuguese and French commercial centre.</td></tr>
+<tr><td>Bombay</td><td>Transferred to the English East India Company in 1668.</td></tr>
+<tr><td>Madras</td><td>English settlement of 1639; Fort St. George.</td></tr>
+<tr><td>Calcutta</td><td>Developed from Sutanuti, Gobindapur and Kalikata; Fort William.</td></tr>
+<tr><td>Pondicherry</td><td>Principal French stronghold.</td></tr>
+<tr><td>Chandernagore</td><td>Important French settlement in Bengal.</td></tr>
+<tr><td>Mahe and Karaikal</td><td>French settlements.</td></tr>
+<tr><td>Tranquebar</td><td>Danish settlement established in 1620.</td></tr>
+<tr><td>Serampore</td><td>Principal Danish settlement near Calcutta.</td></tr>
+<tr><td>Wandiwash</td><td>Decisive English victory over the French in 1760.</td></tr>
+<tr><td>Amboyna</td><td>Site of the Dutch massacre of Englishmen and Japanese in 1623.</td></tr>
+</table></div>
+
+</div></div></div>
+</section>
+
+<!-- 15 -->
+<section class="section" id="personalities">
+<button class="section-head" onclick="toggleSection(this)">
+<span class="section-title"><span class="number">15</span> Important Personalities: Quick Revision</span>
+<span class="arrow">⌄</span>
+</button>
+<div class="section-body"><div class="section-inner"><div class="section-content">
+
+<div class="table-wrap"><table>
+<tr><th>Personality</th><th>Contribution / Association</th></tr>
+<tr><td>Prince Henry the Navigator</td><td>Promoted Portuguese maritime exploration.</td></tr>
+<tr><td>Bartholomew Dias</td><td>Rounded the Cape of Good Hope in 1487.</td></tr>
+<tr><td>Vasco da Gama</td><td>Reached Calicut in 1498.</td></tr>
+<tr><td>Abdul Majid</td><td>Gujarati pilot who guided Vasco da Gama.</td></tr>
+<tr><td>Zamorin</td><td>Hindu ruler of Calicut.</td></tr>
+<tr><td>Pedro Alvarez Cabral</td><td>Established Portuguese factory at Calicut in 1500.</td></tr>
+<tr><td>Francisco de Almeida</td><td>First Portuguese governor; Blue Water Policy.</td></tr>
+<tr><td>Alfonso de Albuquerque</td><td>Captured Goa in 1510; founder of Portuguese power.</td></tr>
+<tr><td>Nino da Cunha</td><td>Shifted Portuguese headquarters to Goa in 1530.</td></tr>
+<tr><td>Cornelis de Houtman</td><td>Reached Sumatra and Bantam in 1596.</td></tr>
+<tr><td>Queen Elizabeth I</td><td>Issued the English East India Company charter in 1600.</td></tr>
+<tr><td>William Hawkins</td><td>Visited Jahangir's court in 1609.</td></tr>
+<tr><td>Thomas Best</td><td>Defeated the Portuguese near Surat in 1612.</td></tr>
+<tr><td>Sir Thomas Roe</td><td>English ambassador to Jahangir in 1615.</td></tr>
+<tr><td>Francis Day</td><td>Obtained Madras settlement in 1639.</td></tr>
+<tr><td>Job Charnock</td><td>Negotiated the English return to Sutanuti.</td></tr>
+<tr><td>John Surman</td><td>Led English mission to Farrukhsiyar's court.</td></tr>
+<tr><td>Colbert</td><td>Founded French East India Company in 1664.</td></tr>
+<tr><td>Francois Martin</td><td>Developed Pondicherry.</td></tr>
+<tr><td>Dupleix</td><td>French governor and strategist in the Carnatic Wars.</td></tr>
+<tr><td>Robert Clive</td><td>Captured Arcot in 1751.</td></tr>
+<tr><td>Stringer Lawrence</td><td>Important English military commander.</td></tr>
+<tr><td>Count de Lally</td><td>French commander in the Third Carnatic War.</td></tr>
+<tr><td>Eyre Coote</td><td>Led English forces at Wandiwash in 1760.</td></tr>
+<tr><td>Bussy</td><td>French commander stationed at Hyderabad.</td></tr>
+<tr><td>La Bourdonnais</td><td>French admiral involved in the capture of Madras in 1746.</td></tr>
+<tr><td>Admiral D'Ache</td><td>French naval commander in the Third Carnatic War.</td></tr>
+</table></div>
+
+</div></div></div>
+</section>
+
+<!-- 16 -->
+<section class="section" id="chronology">
+<button class="section-head" onclick="toggleSection(this)">
+<span class="section-title"><span class="number">16</span> Complete Chronology of Important Events</span>
+<span class="arrow">⌄</span>
+</button>
+<div class="section-body"><div class="section-inner"><div class="section-content">
+
+<div class="timeline">
+<div class="timeline-item"><strong>1453:</strong> Constantinople captured by Ottoman Turks.</div>
+<div class="timeline-item"><strong>1454:</strong> Pope Nicholas V issued a papal bull to Prince Henry.</div>
+<div class="timeline-item"><strong>1487:</strong> Bartholomew Dias rounded the Cape of Good Hope.</div>
+<div class="timeline-item"><strong>1494:</strong> Treaty of Tordesillas between Spain and Portugal.</div>
+<div class="timeline-item"><strong>1497:</strong> Vasco da Gama's expedition sailed for India.</div>
+<div class="timeline-item"><strong>1498:</strong> Vasco da Gama reached Calicut.</div>
+<div class="timeline-item"><strong>1500:</strong> Cabral reached Calicut and established a factory.</div>
+<div class="timeline-item"><strong>1503:</strong> Portuguese fort at Cochin.</div>
+<div class="timeline-item"><strong>1505:</strong> Almeida appointed governor.</div>
+<div class="timeline-item"><strong>1507:</strong> Portuguese squadron defeated near Diu.</div>
+<div class="timeline-item"><strong>1508:</strong> Almeida avenged the defeat.</div>
+<div class="timeline-item"><strong>1509:</strong> Albuquerque succeeded Almeida.</div>
+<div class="timeline-item"><strong>1510:</strong> Albuquerque captured Goa.</div>
+<div class="timeline-item"><strong>1530:</strong> Portuguese headquarters shifted to Goa.</div>
+<div class="timeline-item"><strong>1534:</strong> Bahadur Shah ceded Bassein to the Portuguese.</div>
+<div class="timeline-item"><strong>1537:</strong> Bahadur Shah killed during negotiations with the Portuguese.</div>
+<div class="timeline-item"><strong>1580–81:</strong> Union of the crowns of Spain and Portugal.</div>
+<div class="timeline-item"><strong>1596:</strong> Cornelis de Houtman reached Sumatra and Bantam.</div>
+<div class="timeline-item"><strong>1600:</strong> English East India Company established by charter.</div>
+<div class="timeline-item"><strong>1602:</strong> Dutch East India Company formed.</div>
+<div class="timeline-item"><strong>1605:</strong> First Dutch factory at Masulipatnam.</div>
+<div class="timeline-item"><strong>1609:</strong> Hawkins arrived at Jahangir's court; Dutch factory at Pulicat followed.</div>
+<div class="timeline-item"><strong>1612:</strong> Thomas Best defeated the Portuguese near Surat.</div>
+<div class="timeline-item"><strong>1613:</strong> English factory at Surat.</div>
+<div class="timeline-item"><strong>1615:</strong> Thomas Roe arrived at Jahangir's court.</div>
+<div class="timeline-item"><strong>1616:</strong> Danish East India Company established; English factory at Masulipatnam.</div>
+<div class="timeline-item"><strong>1620:</strong> Danish factory at Tranquebar.</div>
+<div class="timeline-item"><strong>1623:</strong> Amboyna incident.</div>
+<div class="timeline-item"><strong>1632:</strong> Golden Farman of Golconda.</div>
+<div class="timeline-item"><strong>1633:</strong> English factories at Hariharpur and Balasore.</div>
+<div class="timeline-item"><strong>1639:</strong> English obtain Madras settlement.</div>
+<div class="timeline-item"><strong>1651:</strong> English allowed to trade at Hooghly.</div>
+<div class="timeline-item"><strong>1662:</strong> Bombay given to Charles II as dowry.</div>
+<div class="timeline-item"><strong>1663:</strong> Dutch capture Portuguese forts on the Malabar Coast.</div>
+<div class="timeline-item"><strong>1664:</strong> French East India Company established.</div>
+<div class="timeline-item"><strong>1667:</strong> Anglo-Dutch compromise; French factory at Surat.</div>
+<div class="timeline-item"><strong>1668:</strong> Bombay transferred to the English Company.</div>
+<div class="timeline-item"><strong>1669:</strong> French factory at Masulipatnam.</div>
+<div class="timeline-item"><strong>1673:</strong> French obtain site for Pondicherry and permission for Chandernagore.</div>
+<div class="timeline-item"><strong>1674:</strong> Pondicherry founded.</div>
+<div class="timeline-item"><strong>1682:</strong> William Hedges appeals to Shaista Khan.</div>
+<div class="timeline-item"><strong>1686:</strong> Mughal forces sack Hooghly.</div>
+<div class="timeline-item"><strong>1687:</strong> Western English Presidency shifted to Bombay.</div>
+<div class="timeline-item"><strong>1690:</strong> Job Charnock returns to Sutanuti.</div>
+<div class="timeline-item"><strong>1691:</strong> English receive permission to continue trade in Bengal.</div>
+<div class="timeline-item"><strong>1693:</strong> Dutch capture Pondicherry.</div>
+<div class="timeline-item"><strong>1697:</strong> Treaty of Ryswick restores Pondicherry.</div>
+<div class="timeline-item"><strong>1698:</strong> English acquire zamindari rights in three Calcutta villages.</div>
+<div class="timeline-item"><strong>1700:</strong> Fort William named.</div>
+<div class="timeline-item"><strong>1708:</strong> English companies amalgamated.</div>
+<div class="timeline-item"><strong>1720:</strong> French company reorganised as Perpetual Company of the Indies.</div>
+<div class="timeline-item"><strong>1739:</strong> Marathas capture Salsette and Bassein.</div>
+<div class="timeline-item"><strong>1740–1748:</strong> First Carnatic War.</div>
+<div class="timeline-item"><strong>1746:</strong> French capture Madras.</div>
+<div class="timeline-item"><strong>1748:</strong> Treaty of Aix-la-Chapelle; death of Nizam-ul-Mulk.</div>
+<div class="timeline-item"><strong>1749:</strong> Battle of Ambur.</div>
+<div class="timeline-item"><strong>1749–1754:</strong> Second Carnatic War.</div>
+<div class="timeline-item"><strong>1751:</strong> Robert Clive captures Arcot.</div>
+<div class="timeline-item"><strong>1752:</strong> Chanda Sahib's forces surrender.</div>
+<div class="timeline-item"><strong>1754:</strong> Dupleix recalled; Godeheu succeeds him.</div>
+<div class="timeline-item"><strong>1756–1763:</strong> Seven Years' War.</div>
+<div class="timeline-item"><strong>1758:</strong> French capture St. David and Vizianagaram.</div>
+<div class="timeline-item"><strong>1759:</strong> English defeat the Dutch at Hooghly/Bidara.</div>
+<div class="timeline-item"><strong>1760:</strong> Battle of Wandiwash.</div>
+<div class="timeline-item"><strong>1761:</strong> Pondicherry surrenders on 16 January.</div>
+<div class="timeline-item"><strong>1763:</strong> Treaty of Paris.</div>
+<div class="timeline-item"><strong>1766:</strong> Count de Lally executed in France.</div>
+<div class="timeline-item"><strong>1845:</strong> Danish factories sold to the British government.</div>
+<div class="timeline-item"><strong>1961:</strong> Goa, Daman and Diu integrated into India.</div>
+</div>
+
+</div></div></div>
+</section>
+
+<!-- 17 -->
+<section class="section" id="comparative">
+<button class="section-head" onclick="toggleSection(this)">
+<span class="section-title"><span class="number">17</span> Comparative Study of European Powers</span>
+<span class="arrow">⌄</span>
+</button>
+<div class="section-body"><div class="section-inner"><div class="section-content">
+
+<div class="table-wrap"><table>
+<tr><th>Power</th><th>Company Foundation</th><th>Important Centres</th><th>Major Contribution / Outcome</th></tr>
+<tr><td>Portuguese</td><td>Portuguese Crown's overseas expansion</td><td>Goa, Cochin, Calicut, Diu, Daman</td><td>First European maritime power in modern India; naval dominance and early coastal settlements.</td></tr>
+<tr><td>Dutch</td><td>1602</td><td>Masulipatnam, Pulicat, Nagapatam, Chinsurah</td><td>Commercial dominance in spices and trade; later focused on Indonesia.</td></tr>
+<tr><td>English</td><td>1600</td><td>Surat, Bombay, Madras, Calcutta</td><td>Eventually became the dominant European and political power in India.</td></tr>
+<tr><td>French</td><td>1664</td><td>Pondicherry, Chandernagore, Mahe, Karaikal</td><td>Major rival of the English; political influence declined after Wandiwash.</td></tr>
+<tr><td>Danish</td><td>1616</td><td>Tranquebar, Serampore</td><td>Limited commercial role; better known for missionary activities.</td></tr>
+</table></div>
+
+<h3>Why Did the English Win?</h3>
+<p>Private company structure, better naval strength, stronger finances, wider territorial bases, industrial advantage, disciplined military forces, stable government and access to debt markets combined to give the English a decisive advantage.</p>
+
+</div></div></div>
+</section>
+
+<!-- 18 -->
+<section class="section" id="revision">
+<button class="section-head" onclick="toggleSection(this)">
+<span class="section-title"><span class="number">18</span> High-Value Facts for BPSC, UPSC and SSC</span>
+<span class="arrow">⌄</span>
+</button>
+<div class="section-body"><div class="section-inner"><div class="section-content">
+
+<h3>One-Liner Revision</h3>
+<ul>
+<li>First European to reach India by the direct sea route in the modern period: Vasco da Gama.</li>
+<li>Year of Vasco da Gama's arrival: 1498.</li>
+<li>Place of arrival: Calicut.</li>
+<li>Ruler of Calicut: Zamorin.</li>
+<li>Gujarati pilot of Vasco da Gama: Abdul Majid.</li>
+<li>First Portuguese governor in India: Francisco de Almeida.</li>
+<li>Almeida's policy: Blue Water Policy.</li>
+<li>Real founder of Portuguese power in the East: Albuquerque.</li>
+<li>Goa captured by Albuquerque in: 1510.</li>
+<li>Portuguese capital shifted to Goa in: 1530.</li>
+<li>First Dutch factory in India: Masulipatnam, 1605.</li>
+<li>Dutch East India Company established in: 1602.</li>
+<li>Amboyna incident: 1623.</li>
+<li>English East India Company established: 31 December 1600.</li>
+<li>English victory over Portuguese near Surat: Thomas Best, 1612.</li>
+<li>Permanent English factory at Surat: 1613.</li>
+<li>English ambassador to Jahangir: Sir Thomas Roe.</li>
+<li>Golden Farman: Sultan of Golconda, 1632.</li>
+<li>Madras settlement: 1639.</li>
+<li>Bombay transferred to East India Company: 1668.</li>
+<li>Fort William named: 1700.</li>
+<li>Farrukhsiyar's farmans: 1717.</li>
+<li>Magna Carta of the East India Company: Farrukhsiyar's farmans.</li>
+<li>French East India Company established: 1664.</li>
+<li>Principal French settlement: Pondicherry.</li>
+<li>Pondicherry founded: 1674.</li>
+<li>First Carnatic War: 1740–1748.</li>
+<li>Treaty ending First Carnatic War: Aix-la-Chapelle, 1748.</li>
+<li>Battle of St. Thome: First Carnatic War.</li>
+<li>Second Carnatic War: 1749–1754.</li>
+<li>Battle of Ambur: 1749.</li>
+<li>Robert Clive captured Arcot: 1751.</li>
+<li>Dupleix recalled: 1754.</li>
+<li>Third Carnatic War: 1758–1763.</li>
+<li>Battle of Wandiwash: 22 January 1760.</li>
+<li>English commander at Wandiwash: Eyre Coote.</li>
+<li>French commander at Wandiwash: Count de Lally.</li>
+<li>Pondicherry surrendered: 16 January 1761.</li>
+<li>Treaty of Paris: 1763.</li>
+<li>Battle of Bidara: 1759; English defeated the Dutch.</li>
+<li>Danish factories sold: 1845.</li>
+<li>Goa integrated into India: 1961.</li>
+</ul>
+
+<h3>Important Differences</h3>
+<div class="table-wrap"><table>
+<tr><th>Term / Person</th><th>Remember the Difference</th></tr>
+<tr><td>Almeida</td><td>Blue Water Policy and naval supremacy.</td></tr>
+<tr><td>Albuquerque</td><td>Capture of Goa and consolidation of Portuguese power.</td></tr>
+<tr><td>Nino da Cunha</td><td>Shift of Portuguese headquarters from Cochin to Goa.</td></tr>
+<tr><td>Thomas Best</td><td>Defeated Portuguese near Surat in 1612.</td></tr>
+<tr><td>Thomas Roe</td><td>Ambassador of James I to Jahangir.</td></tr>
+<tr><td>Francis Day</td><td>Madras settlement in 1639.</td></tr>
+<tr><td>Job Charnock</td><td>Return to Sutanuti and English Bengal settlement.</td></tr>
+<tr><td>Francois Martin</td><td>Development of Pondicherry.</td></tr>
+<tr><td>Dupleix</td><td>French political intervention and subsidiary alliance practice.</td></tr>
+<tr><td>Robert Clive</td><td>Capture of Arcot in 1751.</td></tr>
+<tr><td>Eyre Coote</td><td>English victory at Wandiwash.</td></tr>
+</table></div>
+
+<h3>Quick Concept Flow</h3>
+<div class="note">
+<b>Search for Sea Route</b><br>
+↓<br>
+<b>Portuguese Arrival (1498)</b><br>
+↓<br>
+<b>Dutch and English Commercial Expansion</b><br>
+↓<br>
+<b>French Arrival and Competition</b><br>
+↓<br>
+<b>Anglo-French Rivalry</b><br>
+↓<br>
+<b>Three Carnatic Wars</b><br>
+↓<br>
+<b>English Victory at Wandiwash (1760)</b><br>
+↓<br>
+<b>English Supremacy in India</b>
+</div>
+
+</div></div></div>
+</section>
+
+<!-- 19 -->
+<section class="section" id="quiz">
+<button class="section-head" onclick="toggleSection(this)">
+<span class="section-title"><span class="number">19</span> Practice MCQs for Competitive Examinations</span>
+<span class="arrow">⌄</span>
+</button>
+<div class="section-body"><div class="section-inner"><div class="section-content">
+
+<p>Attempt the following questions to revise the chapter. Select your answer and click Check Answers.</p>
+
+<form id="quizForm">
+
+<div class="quiz-question">
+<b>1. Who reached Calicut in 1498?</b>
+<label><input type="radio" name="q1" value="a"> Bartholomew Dias</label>
+<label><input type="radio" name="q1" value="b"> Vasco da Gama</label>
+<label><input type="radio" name="q1" value="c"> Albuquerque</label>
+<label><input type="radio" name="q1" value="d"> Cabral</label>
+</div>
+
+<div class="quiz-question">
+<b>2. Who introduced the Blue Water Policy?</b>
+<label><input type="radio" name="q2" value="a"> Almeida</label>
+<label><input type="radio" name="q2" value="b"> Dupleix</label>
+<label><input type="radio" name="q2" value="c"> Clive</label>
+<label><input type="radio" name="q2" value="d"> Nino da Cunha</label>
+</div>
+
+<div class="quiz-question">
+<b>3. Who captured Goa in 1510?</b>
+<label><input type="radio" name="q3" value="a"> Vasco da Gama</label>
+<label><input type="radio" name="q3" value="b"> Francisco de Almeida</label>
+<label><input type="radio" name="q3" value="c"> Albuquerque</label>
+<label><input type="radio" name="q3" value="d"> Cabral</label>
+</div>
+
+<div class="quiz-question">
+<b>4. The first Dutch factory in India was established at:</b>
+<label><input type="radio" name="q4" value="a"> Surat</label>
+<label><input type="radio" name="q4" value="b"> Masulipatnam</label>
+<label><input type="radio" name="q4" value="c"> Pulicat</label>
+<label><input type="radio" name="q4" value="d"> Cochin</label>
+</div>
+
+<div class="quiz-question">
+<b>5. The Dutch East India Company was established in:</b>
+<label><input type="radio" name="q5" value="a"> 1600</label>
+<label><input type="radio" name="q5" value="b"> 1602</label>
+<label><input type="radio" name="q5" value="c"> 1616</label>
+<label><input type="radio" name="q5" value="d"> 1664</label>
+</div>
+
+<div class="quiz-question">
+<b>6. The English East India Company was chartered by:</b>
+<label><input type="radio" name="q6" value="a"> James I</label>
+<label><input type="radio" name="q6" value="b"> Charles II</label>
+<label><input type="radio" name="q6" value="c"> Elizabeth I</label>
+<label><input type="radio" name="q6" value="d"> Victoria</label>
+</div>
+
+<div class="quiz-question">
+<b>7. Who was the English ambassador to Jahangir's court?</b>
+<label><input type="radio" name="q7" value="a"> Thomas Best</label>
+<label><input type="radio" name="q7" value="b"> Sir Thomas Roe</label>
+<label><input type="radio" name="q7" value="c"> William Hawkins</label>
+<label><input type="radio" name="q7" value="d"> Job Charnock</label>
+</div>
+
+<div class="quiz-question">
+<b>8. The Golden Farman was issued by the ruler of:</b>
+<label><input type="radio" name="q8" value="a"> Bijapur</label>
+<label><input type="radio" name="q8" value="b"> Golconda</label>
+<label><input type="radio" name="q8" value="c"> Bengal</label>
+<label><input type="radio" name="q8" value="d"> Gujarat</label>
+</div>
+
+<div class="quiz-question">
+<b>9. Farrukhsiyar's farmans are known as:</b>
+<label><input type="radio" name="q9" value="a"> Treaty of Paris</label>
+<label><input type="radio" name="q9" value="b"> Magna Carta of the East India Company</label>
+<label><input type="radio" name="q9" value="c"> Golden Bull</label>
+<label><input type="radio" name="q9" value="d"> Blue Water Policy</label>
+</div>
+
+<div class="quiz-question">
+<b>10. Pondicherry was developed by:</b>
+<label><input type="radio" name="q10" value="a"> Francois Martin</label>
+<label><input type="radio" name="q10" value="b"> Dupleix</label>
+<label><input type="radio" name="q10" value="c"> Colbert</label>
+<label><input type="radio" name="q10" value="d"> Lally</label>
+</div>
+
+<div class="quiz-question">
+<b>11. The First Carnatic War ended with:</b>
+<label><input type="radio" name="q11" value="a"> Treaty of Paris</label>
+<label><input type="radio" name="q11" value="b"> Treaty of Ryswick</label>
+<label><input type="radio" name="q11" value="c"> Treaty of Aix-la-Chapelle</label>
+<label><input type="radio" name="q11" value="d"> Treaty of Allahabad</label>
+</div>
+
+<div class="quiz-question">
+<b>12. Robert Clive captured Arcot in:</b>
+<label><input type="radio" name="q12" value="a"> 1748</label>
+<label><input type="radio" name="q12" value="b"> 1749</label>
+<label><input type="radio" name="q12" value="c"> 1751</label>
+<label><input type="radio" name="q12" value="d"> 1760</label>
+</div>
+
+<div class="quiz-question">
+<b>13. The Battle of Wandiwash was fought in:</b>
+<label><input type="radio" name="q13" value="a"> 1751</label>
+<label><input type="radio" name="q13" value="b"> 1754</label>
+<label><input type="radio" name="q13" value="c"> 1759</label>
+<label><input type="radio" name="q13" value="d"> 1760</label>
+</div>
+
+<div class="quiz-question">
+<b>14. Who commanded the English forces at Wandiwash?</b>
+<label><input type="radio" name="q14" value="a"> Robert Clive</label>
+<label><input type="radio" name="q14" value="b"> Eyre Coote</label>
+<label><input type="radio" name="q14" value="c"> Stringer Lawrence</label>
+<label><input type="radio" name="q14" value="d"> Thomas Best</label>
+</div>
+
+<div class="quiz-question">
+<b>15. Danish factories in India were sold in:</b>
+<label><input type="radio" name="q15" value="a"> 1759</label>
+<label><input type="radio" name="q15" value="b"> 1763</label>
+<label><input type="radio" name="q15" value="c"> 1845</label>
+<label><input type="radio" name="q15" value="d"> 1961</label>
+</div>
+
+<button type="button" class="btn" onclick="checkQuiz()">Check Answers</button>
+<button type="reset" class="btn secondary" onclick="resetQuiz()">Reset Quiz</button>
+<div class="quiz-result" id="quizResult"></div>
+
+</form>
+</div></div></div>
+</section>
+
+</div>
+
+<div class="footer">
+    <b>ADVENT OF THE EUROPEANS IN INDIA</b><br>
+    Classified Study Notes | Modern Indian History<br>
+    Prepared from the uploaded chapter of A Brief History of Modern India.
+</div>
+
+</main>
+</div>
+
+<button id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+/* ACCORDION SYSTEM */
+function toggleSection(button){
+    const section=button.closest(".section");
+    section.classList.toggle("open");
+}
+
+function expandAll(){
+    document.querySelectorAll(".section").forEach(s=>s.classList.add("open"));
+}
+
+function collapseAll(){
+    document.querySelectorAll(".section").forEach(s=>s.classList.remove("open"));
+}
+
+function toggleSidebar(){
+    document.getElementById("sidebar").classList.toggle("show");
+}
+
+/* TABLE OF CONTENTS */
+const sections=[...document.querySelectorAll(".section")];
+const toc=document.getElementById("toc");
+
+sections.forEach((section,index)=>{
+    const title=section.querySelector(".section-title").innerText;
+    const link=document.createElement("a");
+    link.href="#"+section.id;
+    link.textContent=title;
+    link.addEventListener("click",function(e){
+        e.preventDefault();
+        section.classList.add("open");
+        section.scrollIntoView({behavior:"smooth",block:"start"});
+        document.querySelectorAll(".sidebar a").forEach(a=>a.classList.remove("active"));
+        link.classList.add("active");
+        if(window.innerWidth<=900){
+            document.getElementById("sidebar").classList.remove("show");
+        }
+    });
+    toc.appendChild(link);
+});
+
+/* SEARCH WITH YELLOW HIGHLIGHT */
+let originalHTML=new Map();
+
+document.querySelectorAll(".section-content").forEach((el,index)=>{
+    originalHTML.set(el,el.innerHTML);
+});
+
+function escapeRegExp(string){
+    return string.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");
+}
+
+function clearHighlights(){
+    document.querySelectorAll(".section-content").forEach(el=>{
+        if(originalHTML.has(el))el.innerHTML=originalHTML.get(el);
+    });
+}
+
+function searchNotes(){
+    const input=document.getElementById("searchInput");
+    const query=input.value.trim();
+    const info=document.getElementById("searchInfo");
+
+    clearHighlights();
+
+    if(!query){
+        info.textContent="Search any keyword. Matching words will be highlighted in yellow.";
+        document.querySelectorAll(".section").forEach(s=>s.style.display="");
+        return;
+    }
+
+    const regex=new RegExp(escapeRegExp(query),"gi");
+    let total=0;
+    let firstMatch=null;
+
+    document.querySelectorAll(".section-content").forEach(content=>{
+        let count=0;
+
+        const walker=document.createTreeWalker(
+            content,
+            NodeFilter.SHOW_TEXT,
+            {
+                acceptNode(node){
+                    if(!node.nodeValue.trim())return NodeFilter.FILTER_REJECT;
+                    if(node.parentElement.closest("script,style,mark"))return NodeFilter.FILTER_REJECT;
+                    return NodeFilter.FILTER_ACCEPT;
+                }
+            }
+        );
+
+        const nodes=[];
+        while(walker.nextNode())nodes.push(walker.currentNode);
+
+        nodes.forEach(node=>{
+            const text=node.nodeValue;
+            regex.lastIndex=0;
+            if(!regex.test(text))return;
+
+            regex.lastIndex=0;
+            const fragment=document.createDocumentFragment();
+            let last=0,match;
+
+            while((match=regex.exec(text))!==null){
+                fragment.appendChild(document.createTextNode(text.slice(last,match.index)));
+                const mark=document.createElement("mark");
+                mark.textContent=match[0];
+                fragment.appendChild(mark);
+                last=match.index+match[0].length;
+                count++;
+                if(match[0].length===0)regex.lastIndex++;
+            }
+
+            fragment.appendChild(document.createTextNode(text.slice(last)));
+            node.parentNode.replaceChild(fragment,node);
+        });
+
+        const section=content.closest(".section");
+        if(count>0){
+            section.style.display="";
+            section.classList.add("open");
+            total+=count;
+            if(!firstMatch)firstMatch=section;
+        }else{
+            section.style.display="none";
+        }
+    });
+
+    info.textContent=total+" matching occurrence(s) found for: "+query;
+
+    if(firstMatch){
+        firstMatch.scrollIntoView({behavior:"smooth",block:"start"});
+    }
+}
+
+/* READING PROGRESS */
+window.addEventListener("scroll",()=>{
+    const scrollTop=window.scrollY;
+    const height=document.documentElement.scrollHeight-window.innerHeight;
+    const percent=height>0?(scrollTop/height)*100:0;
+    document.getElementById("progress").style.width=percent+"%";
+
+    document.getElementById("backTop").style.display=
+        scrollTop>400?"block":"none";
+});
+
+/* ACTIVE TOC ON SCROLL */
+const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            const id=entry.target.id;
+            document.querySelectorAll(".sidebar a").forEach(a=>{
+                a.classList.toggle("active",a.getAttribute("href")==="#"+id);
+            });
+        }
+    });
+},{rootMargin:"-15% 0px -70% 0px"});
+
+sections.forEach(section=>observer.observe(section));
+
+/* MCQ ANSWERS */
+const answers={
+    q1:"b",q2:"a",q3:"c",q4:"b",q5:"b",
+    q6:"c",q7:"b",q8:"b",q9:"b",q10:"a",
+    q11:"c",q12:"c",q13:"d",q14:"b",q15:"c"
+};
+
+function checkQuiz(){
+    let score=0;
+    let attempted=0;
+    const total=Object.keys(answers).length;
+
+    Object.keys(answers).forEach(q=>{
+        const selected=document.querySelector('input[name="'+q+'"]:checked');
+        const question=document.querySelector('input[name="'+q+'"]').closest(".quiz-question");
+
+        question.style.borderColor="#dce2ed";
+
+        if(selected){
+            attempted++;
+            if(selected.value===answers[q]){
+                score++;
+                question.style.borderColor="#16845b";
+            }else{
+                question.style.borderColor="#d64b4b";
+            }
+        }
+    });
+
+    const result=document.getElementById("quizResult");
+    result.innerHTML=
+        "Your Score: "+score+" / "+total+
+        "<br>Attempted: "+attempted+" / "+total+
+        "<br>Correct: "+score+
+        "<br>Incorrect: "+(attempted-score)+
+        "<br>Unattempted: "+(total-attempted);
+
+    result.scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+
+function resetQuiz(){
+    document.getElementById("quizResult").innerHTML="";
+    document.querySelectorAll(".quiz-question").forEach(q=>{
+        q.style.borderColor="#e1e7f0";
+    });
+}
+</script>
+
+</body>
+</html>
