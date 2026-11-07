@@ -1,0 +1,1314 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cell Biology – Complete Study Notes</title>
+
+<style>
+:root{
+ --bg:#f4f7fc;
+ --panel:#ffffff;
+ --text:#202a44;
+ --muted:#68758c;
+ --primary:#5145cd;
+ --secondary:#087f8c;
+ --border:#e2e8f0;
+ --soft:#eeedff;
+ --green:#15966c;
+ --yellow:#fff2a6;
+ --shadow:0 8px 28px rgba(30,41,90,.08);
+}
+*{box-sizing:border-box;scroll-behavior:smooth}
+body{
+ margin:0;background:var(--bg);color:var(--text);
+ font-family:Arial,Helvetica,sans-serif;line-height:1.7;
+}
+button,input{font:inherit}
+button{cursor:pointer}
+a{color:inherit;text-decoration:none}
+.topbar{
+ position:sticky;top:0;z-index:100;
+ background:rgba(255,255,255,.94);
+ backdrop-filter:blur(14px);
+ border-bottom:1px solid var(--border);
+ display:flex;align-items:center;justify-content:space-between;
+ padding:12px 18px;gap:10px;flex-wrap:wrap;
+}
+.brand{font-weight:800;color:var(--primary);font-size:19px}
+.top-actions{display:flex;gap:8px;flex-wrap:wrap}
+.btn{
+ border:0;padding:9px 13px;border-radius:9px;
+ background:var(--primary);color:white;font-weight:700;
+ transition:.25s;
+}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.secondary{background:#e9e8ff;color:var(--primary)}
+.btn.green{background:var(--green)}
+.progress-track{height:4px;background:#e6e8f1}
+#progress{height:4px;width:0;background:linear-gradient(90deg,#5145cd,#13b8a6)}
+.layout{display:flex;min-height:calc(100vh - 65px)}
+.sidebar{
+ width:275px;flex-shrink:0;background:var(--panel);
+ border-right:1px solid var(--border);
+ height:calc(100vh - 69px);position:sticky;top:69px;
+ overflow:auto;padding:18px 14px;transition:.3s;
+}
+.sidebar.closed{margin-left:-275px}
+.sidebar h3{color:var(--primary);margin:5px 8px 15px}
+.sidebar a{
+ display:block;padding:8px 11px;border-radius:8px;
+ color:var(--muted);font-size:13px;margin:3px 0;
+ transition:.2s;
+}
+.sidebar a:hover,.sidebar a.active{
+ background:var(--soft);color:var(--primary);font-weight:bold;
+}
+main{flex:1;min-width:0;padding:25px;max-width:1250px;margin:auto;width:100%}
+.hero{
+ position:relative;overflow:hidden;border-radius:22px;
+ padding:45px 35px;color:white;
+ background:linear-gradient(120deg,#29216e,#5145cd,#078d9b);
+ box-shadow:var(--shadow);margin-bottom:25px;
+}
+.hero:before,.hero:after{
+ content:"";position:absolute;border-radius:50%;
+ background:rgba(255,255,255,.10);animation:float 8s ease-in-out infinite;
+}
+.hero:before{width:220px;height:220px;right:5%;top:-80px}
+.hero:after{width:130px;height:130px;right:28%;bottom:-80px;animation-delay:2s}
+@keyframes float{
+ 0%,100%{transform:translateY(0) rotate(0)}
+ 50%{transform:translateY(25px) rotate(25deg)}
+}
+.hero h1{font-size:clamp(28px,5vw,46px);margin:0 0 10px;position:relative}
+.hero p{max-width:720px;opacity:.92;position:relative}
+.hero-label{
+ display:inline-block;background:rgba(255,255,255,.17);
+ padding:6px 12px;border-radius:20px;font-size:12px;
+ position:relative;
+}
+.stats{
+ display:grid;grid-template-columns:repeat(4,1fr);
+ gap:12px;margin:20px 0 28px;
+}
+.stat{
+ background:var(--panel);padding:16px;border:1px solid var(--border);
+ border-radius:13px;box-shadow:var(--shadow);
+ animation:rise .6s ease both;
+}
+.stat strong{display:block;font-size:23px;color:var(--primary)}
+.stat span{font-size:12px;color:var(--muted)}
+@keyframes rise{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}
+.search-wrap{display:flex;gap:8px;margin-bottom:18px}
+#search{
+ width:100%;padding:13px 15px;border:1px solid var(--border);
+ border-radius:10px;background:var(--panel);outline:none;color:var(--text);
+}
+#search:focus{border-color:var(--primary);box-shadow:0 0 0 3px #5145cd20}
+.section{
+ background:var(--panel);border:1px solid var(--border);
+ border-radius:15px;margin:15px 0;overflow:hidden;
+ box-shadow:0 3px 12px rgba(30,41,90,.035);
+ scroll-margin-top:85px;
+}
+.section-head{
+ padding:16px 20px;display:flex;align-items:center;
+ justify-content:space-between;gap:12px;cursor:pointer;
+ background:linear-gradient(90deg,#f9f8ff,#fff);
+}
+.section-head h2{margin:0;font-size:19px;color:var(--primary)}
+.section-head .arrow{font-size:19px;transition:.3s;color:var(--primary)}
+.section.open .arrow{transform:rotate(180deg)}
+.section-body{padding:20px;display:none;animation:fade .35s ease}
+.section.open .section-body{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+h3{color:#087f8c;margin-top:24px}
+h4{color:var(--primary)}
+p{margin:9px 0}
+ul,ol{padding-left:23px}
+li{margin:5px 0}
+table{
+ width:100%;border-collapse:collapse;margin:15px 0;
+ font-size:14px;overflow:hidden;border-radius:9px;
+}
+th{background:#5145cd;color:white;text-align:left}
+td,th{padding:11px 12px;border:1px solid var(--border);vertical-align:top}
+tr:nth-child(even){background:#f7f8ff}
+.callout{
+ background:#f0efff;border-left:4px solid var(--primary);
+ padding:13px 16px;border-radius:7px;margin:15px 0;
+}
+.exam{
+ background:#eaf8f3;border-left:4px solid var(--green);
+ padding:13px 16px;border-radius:7px;margin:15px 0;
+}
+.warning{
+ background:#fff7e7;border-left:4px solid #e4a12a;
+ padding:13px 16px;border-radius:7px;margin:15px 0;
+}
+.diagram{
+ margin:17px 0;padding:20px;border-radius:13px;
+ background:linear-gradient(135deg,#f1f0ff,#e9fafa);
+ text-align:center;border:1px solid #e0e3f5;
+}
+.diagram-title{font-weight:bold;color:var(--primary);margin-bottom:12px}
+.diagram-grid{
+ display:flex;justify-content:center;align-items:center;
+ gap:9px;flex-wrap:wrap;
+}
+.diagram-node{
+ padding:11px 14px;border-radius:10px;background:white;
+ border:1px solid #d7d9f0;font-size:13px;font-weight:bold;
+ box-shadow:0 3px 8px #0000000c;
+}
+.diagram-node.purple{background:#5145cd;color:white}
+.diagram-node.teal{background:#087f8c;color:white}
+.diagram-node.green{background:#15966c;color:white}
+.diagram-node.orange{background:#e7a33d;color:white}
+.diagram-arrow{font-size:20px;color:var(--primary)}
+.highlight{background:var(--yellow);padding:1px 3px;border-radius:3px}
+mark{background:#ffe36e;color:#222;padding:1px 3px;border-radius:3px}
+.hidden-search{display:none!important}
+.quiz-question{
+ border:1px solid var(--border);padding:15px;
+ border-radius:11px;margin:13px 0;background:#fff;
+}
+.quiz-question h4{margin:0 0 10px}
+.option{
+ display:block;padding:8px 10px;margin:5px 0;
+ border:1px solid var(--border);border-radius:8px;
+ cursor:pointer;transition:.2s;
+}
+.option:hover{background:#f0efff;border-color:var(--primary)}
+.option input{margin-right:8px}
+.correct{background:#e6f7ef!important;border-color:#15966c!important}
+.incorrect{background:#fff0ef!important;border-color:#dc5555!important}
+.explanation{font-size:13px;padding:9px;background:#f2f4fa;border-radius:7px;margin-top:8px}
+#quizResult{padding:16px;background:#eaf8f3;border-radius:10px;margin-top:15px;display:none}
+.footer{text-align:center;padding:30px;color:var(--muted);font-size:13px}
+#backtop{
+ position:fixed;bottom:20px;right:20px;width:45px;height:45px;
+ border:0;border-radius:50%;background:var(--primary);color:white;
+ font-size:20px;box-shadow:var(--shadow);z-index:90;
+}
+.no-results{display:none;text-align:center;padding:30px;color:var(--muted)}
+@media(max-width:850px){
+ .sidebar{position:fixed;z-index:110;left:0;top:65px;height:calc(100vh - 65px);box-shadow:var(--shadow)}
+ .sidebar.closed{margin-left:0;left:-290px}
+ main{padding:15px}
+ .stats{grid-template-columns:repeat(2,1fr)}
+ .hero{padding:30px 22px}
+}
+@media(max-width:520px){
+ .topbar{padding:10px}
+ .brand{font-size:16px}
+ .btn{padding:8px 9px;font-size:12px}
+ main{padding:10px}
+ .stats{gap:8px}
+ .stat{padding:12px}
+ .section-head{padding:13px}
+ .section-head h2{font-size:16px}
+ .section-body{padding:13px}
+ table{font-size:12px}
+ td,th{padding:8px}
+}
+@media print{
+ body{background:white;color:black}
+ .topbar,.sidebar,.progress-track,.search-wrap,.no-print,#backtop{display:none!important}
+ .layout{display:block}
+ main{max-width:none;padding:0}
+ .hero{background:#eee!important;color:black!important;box-shadow:none;padding:20px}
+ .section{break-inside:avoid;box-shadow:none;border:1px solid #aaa}
+ .section-body{display:block!important}
+ .section-head{background:#eee!important}
+ .section-head h2{color:black}
+ .diagram{break-inside:avoid}
+ .section{page-break-inside:auto}
+ table{page-break-inside:auto}
+ tr{page-break-inside:avoid}
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+ <div class="brand">🧬 CELL BIOLOGY LIBRARY</div>
+ <div class="top-actions">
+  <button class="btn secondary" onclick="toggleSidebar()">☰ Contents</button>
+  <button class="btn secondary" onclick="expandAll()">Expand All</button>
+  <button class="btn secondary" onclick="collapseAll()">Collapse All</button>
+  <button class="btn green" onclick="window.print()">📄 Print / PDF</button>
+ </div>
+</div>
+<div class="progress-track"><div id="progress"></div></div>
+
+<div class="layout">
+
+<aside class="sidebar" id="sidebar">
+ <h3>📚 Table of Contents</h3>
+ <a href="#s1">01. Introduction</a>
+ <a href="#s2">02. Discovery of Cell</a>
+ <a href="#s3">03. Cell Theory</a>
+ <a href="#s4">04. Types of Cells</a>
+ <a href="#s5">05. Shape and Size</a>
+ <a href="#s6">06. Structure of Cell</a>
+ <a href="#s7">07. Plasma Membrane</a>
+ <a href="#s8">08. Cell Wall</a>
+ <a href="#s9">09. Cytoplasm</a>
+ <a href="#s10">10. Nucleus</a>
+ <a href="#s11">11. Cell Organelles</a>
+ <a href="#s12">12. Organelles Comparison</a>
+ <a href="#s13">13. Plant vs Animal Cell</a>
+ <a href="#s14">14. Chromosomes and Genes</a>
+ <a href="#s15">15. Cell Division</a>
+ <a href="#s16">16. Cell Cycle</a>
+ <a href="#s17">17. DNA and RNA</a>
+ <a href="#s18">18. Protein Synthesis</a>
+ <a href="#s19">19. Cellular Respiration</a>
+ <a href="#s20">20. Photosynthesis</a>
+ <a href="#s21">21. Stem Cells</a>
+ <a href="#s22">22. Cell Death</a>
+ <a href="#s23">23. Discoveries</a>
+ <a href="#s24">24. One-Liner Facts</a>
+ <a href="#s25">25. Practice MCQs</a>
+ <a href="#s26">26. BPSC Preparation</a>
+</aside>
+
+<main>
+
+<header class="hero">
+ <span class="hero-label">COMPLETE BIOLOGY NOTES</span>
+ <h1>Cell Biology</h1>
+ <p>Complete Detailed Notes on Cytology – Cell Structure, Cell Organelles, Cell Division, DNA, RNA, Cellular Respiration, Photosynthesis and More.</p>
+ <p><b>Useful for:</b> BPSC | UPSC | SSC | Railway | Teaching Exams | School Biology</p>
+</header>
+
+<div class="stats">
+ <div class="stat"><strong>26</strong><span>Detailed Topics</span></div>
+ <div class="stat"><strong>20</strong><span>Practice MCQs</span></div>
+ <div class="stat"><strong>30+</strong><span>Important Facts</span></div>
+ <div class="stat"><strong>100%</strong><span>Study Focus</span></div>
+</div>
+
+<div class="search-wrap">
+ <input id="search" type="search" placeholder="🔍 Search any keyword in the complete notes..." oninput="searchContent()">
+ <button class="btn secondary" onclick="clearSearch()">Clear</button>
+</div>
+<div id="searchStatus" style="font-size:13px;color:#68758c;margin-bottom:10px"></div>
+
+<!-- 01 -->
+<section class="section open" id="s1">
+<div class="section-head" onclick="toggleSection(this)">
+<h2>01. Introduction to Cell Biology</h2><span class="arrow">⌄</span>
+</div>
+<div class="section-body">
+<p><b>Cell Biology (Cytology)</b> is the branch of biology that deals with the study of cells, their structure, functions, chemical composition, growth, reproduction and interactions.</p>
+<div class="callout"><b>Definition:</b> The cell is the basic structural, functional and biological unit of life.</div>
+<ul>
+<li>All living organisms are made up of one or more cells.</li>
+<li>All cells arise from pre-existing cells.</li>
+<li>The cell contains hereditary information (DNA).</li>
+<li>Cells carry out essential life processes such as metabolism, growth and reproduction.</li>
+</ul>
+<h3>Important Terminology</h3>
+<table>
+<tr><th>Term</th><th>Meaning</th></tr>
+<tr><td>Cytology</td><td>Study of cells.</td></tr>
+<tr><td>Cell Biology</td><td>Scientific study of cell structure and function.</td></tr>
+<tr><td>Cytoplasm</td><td>Material between plasma membrane and nucleus.</td></tr>
+<tr><td>Protoplasm</td><td>Living content of a cell.</td></tr>
+<tr><td>Organelle</td><td>Specialized structure performing a specific function.</td></tr>
+<tr><td>Genome</td><td>Complete genetic material of an organism.</td></tr>
+<tr><td>Metabolism</td><td>Sum of all chemical reactions in a living organism.</td></tr>
+</table>
+</div></section>
+
+<!-- 02 -->
+<section class="section" id="s2">
+<div class="section-head" onclick="toggleSection(this)">
+<h2>02. Discovery of the Cell</h2><span class="arrow">⌄</span>
+</div>
+<div class="section-body">
+<p>The discovery of cells became possible through the development of microscopes.</p>
+<table>
+<tr><th>Scientist</th><th>Contribution</th><th>Year</th></tr>
+<tr><td>Robert Hooke</td><td>Observed cork and coined the term cell.</td><td>1665</td></tr>
+<tr><td>Antonie van Leeuwenhoek</td><td>First observed living microorganisms.</td><td>1674</td></tr>
+<tr><td>Robert Brown</td><td>Discovered nucleus in plant cells.</td><td>1831</td></tr>
+<tr><td>Matthias Schleiden</td><td>Proposed all plants are made of cells.</td><td>1838</td></tr>
+<tr><td>Theodor Schwann</td><td>Proposed all animals are made of cells.</td><td>1839</td></tr>
+<tr><td>Rudolf Virchow</td><td>Popularized the idea that cells arise from pre-existing cells.</td><td>1855</td></tr>
+<tr><td>Louis Pasteur</td><td>Provided experimental evidence against spontaneous generation.</td><td>1861</td></tr>
+</table>
+<div class="exam"><b>Important Exam Facts:</b>
+<ul>
+<li>Robert Hooke observed dead cells in cork.</li>
+<li>Leeuwenhoek observed living cells and microorganisms.</li>
+<li>Robert Brown discovered the nucleus.</li>
+<li><i>Omnis cellula e cellula</i> means every cell comes from a pre-existing cell.</li>
+</ul></div>
+</div></section>
+
+<!-- 03 -->
+<section class="section" id="s3">
+<div class="section-head" onclick="toggleSection(this)">
+<h2>03. Cell Theory</h2><span class="arrow">⌄</span>
+</div>
+<div class="section-body">
+<p>Cell theory was developed mainly by Matthias Schleiden and Theodor Schwann.</p>
+<h3>Three Main Principles</h3>
+<ol>
+<li>All living organisms are composed of one or more cells.</li>
+<li>The cell is the basic structural and functional unit of life.</li>
+<li>All cells arise from pre-existing cells.</li>
+</ol>
+<h3>Modern Cell Theory</h3>
+<ul>
+<li>Cells contain hereditary information in the form of DNA.</li>
+<li>Energy flow occurs within cells.</li>
+<li>All cells have a broadly similar chemical composition.</li>
+<li>The activities of an organism depend on the activities of its cells.</li>
+</ul>
+<h3>Exceptions and Special Cases</h3>
+<ul>
+<li>Viruses are acellular; they are not made of cells.</li>
+<li>Mature mammalian red blood cells lack a nucleus.</li>
+<li>Skeletal muscle fibres are multinucleated.</li>
+<li>Some fungal and algal structures are coenocytic and contain many nuclei in common cytoplasm.</li>
+</ul>
+</div></section>
+
+<!-- 04 -->
+<section class="section" id="s4">
+<div class="section-head" onclick="toggleSection(this)">
+<h2>04. Types of Cells – Prokaryotic and Eukaryotic</h2><span class="arrow">⌄</span>
+</div>
+<div class="section-body">
+<div class="diagram">
+<div class="diagram-title">Classification of Cells</div>
+<div class="diagram-grid">
+<div class="diagram-node purple">CELL</div>
+</div>
+<div class="diagram-grid">
+<div class="diagram-arrow">↓</div>
+<div class="diagram-arrow">↓</div>
+</div>
+<div class="diagram-grid">
+<div class="diagram-node teal">PROKARYOTIC</div>
+<div class="diagram-node green">EUKARYOTIC</div>
+</div>
+<div class="diagram-grid">
+<div class="diagram-node">Bacteria</div>
+<div class="diagram-node">Archaea</div>
+<div class="diagram-node">Plants</div>
+<div class="diagram-node">Animals</div>
+<div class="diagram-node">Fungi</div>
+</div>
+</div>
+<h3>A. Prokaryotic Cells</h3>
+<p>Prokaryotic cells do not have a membrane-bound nucleus or membrane-bound organelles.</p>
+<ul>
+<li>Examples: Bacteria and Archaea.</li>
+<li>Generally smaller and simpler.</li>
+<li>Genetic material is present in a nucleoid region.</li>
+<li>Usually contain circular DNA.</li>
+<li>Ribosomes are 70S.</li>
+<li>Cell division generally occurs through binary fission.</li>
+<li>Many bacteria possess a cell wall.</li>
+</ul>
+<h3>B. Eukaryotic Cells</h3>
+<p>Eukaryotic cells have a well-defined nucleus enclosed by a nuclear membrane.</p>
+<ul>
+<li>Examples: Plants, animals, fungi and protists.</li>
+<li>Generally larger and more complex.</li>
+<li>Have a membrane-bound nucleus.</li>
+<li>Possess membrane-bound organelles.</li>
+<li>Cytoplasmic ribosomes are generally 80S.</li>
+<li>DNA is arranged into chromosomes.</li>
+<li>Cell division occurs through mitosis or meiosis.</li>
+</ul>
+<h3>Difference Between Prokaryotic and Eukaryotic Cells</h3>
+<table>
+<tr><th>Feature</th><th>Prokaryotic</th><th>Eukaryotic</th></tr>
+<tr><td>Nucleus</td><td>Absent</td><td>Present</td></tr>
+<tr><td>Nuclear membrane</td><td>Absent</td><td>Present</td></tr>
+<tr><td>DNA</td><td>Usually circular</td><td>Usually linear chromosomes</td></tr>
+<tr><td>Membrane-bound organelles</td><td>Absent</td><td>Present</td></tr>
+<tr><td>Ribosomes</td><td>70S</td><td>80S in cytoplasm</td></tr>
+<tr><td>Cell division</td><td>Binary fission</td><td>Mitosis / meiosis</td></tr>
+<tr><td>Size</td><td>Generally smaller</td><td>Generally larger</td></tr>
+<tr><td>Examples</td><td>Bacteria, Archaea</td><td>Plants, animals, fungi</td></tr>
+</table>
+<div class="exam">Mitochondria and chloroplasts contain 70S-type ribosomes, even though they occur inside eukaryotic cells.</div>
+</div></section>
+
+<!-- 05 -->
+<section class="section" id="s5">
+<div class="section-head" onclick="toggleSection(this)">
+<h2>05. Shape and Size of Cells</h2><span class="arrow">⌄</span>
+</div>
+<div class="section-body">
+<p>Cells have different shapes depending on their functions.</p>
+<table>
+<tr><th>Cell</th><th>Shape / Special Feature</th></tr>
+<tr><td>Red blood cell</td><td>Biconcave disc.</td></tr>
+<tr><td>Nerve cell (Neuron)</td><td>Long and branched.</td></tr>
+<tr><td>Muscle cell</td><td>Elongated.</td></tr>
+<tr><td>Sperm cell</td><td>Head, middle piece and tail.</td></tr>
+<tr><td>Ovum</td><td>Spherical.</td></tr>
+<tr><td>Amoeba</td><td>Irregular shape.</td></tr>
+<tr><td>Plant parenchyma</td><td>Usually polygonal or rounded.</td></tr>
+</table>
+<h3>Important Facts about Cell Size</h3>
+<ul>
+<li>Mycoplasma species are among the smallest known free-living cells.</li>
+<li>Human red blood cell: approximately 7–8 µm in diameter.</li>
+<li>Human ovum: approximately 100–120 µm in diameter.</li>
+<li>Some nerve cells can extend over very long distances in the body.</li>
+<li>Ostrich egg is commonly cited as the largest single cell by volume.</li>
+</ul>
+</div></section>
+
+<!-- 06 -->
+<section class="section" id="s6">
+<div class="section-head" onclick="toggleSection(this)">
+<h2>06. Structure of a Typical Cell</h2><span class="arrow">⌄</span>
+</div>
+<div class="section-body">
+<p>A typical eukaryotic cell has three major components:</p>
+<ol><li>Plasma membrane</li><li>Cytoplasm</li><li>Nucleus</li></ol>
+<div class="diagram">
+<div class="diagram-title">Basic Structure of a Cell</div>
+<div class="diagram-grid">
+<div class="diagram-node purple">PLASMA MEMBRANE</div>
+</div>
+<div class="diagram-grid"><span class="diagram-arrow">↓</span></div>
+<div class="diagram-grid">
+<div class="diagram-node teal">CYTOPLASM</div>
+<div class="diagram-node green">NUCLEUS</div>
+</div>
+<div class="diagram-grid"><span class="diagram-arrow">↓</span></div>
+<div class="diagram-grid">
+<div class="diagram-node">Cell Organelles</div>
+<div class="diagram-node">DNA / Chromatin</div>
+</div>
+</div>
+<p>The plasma membrane forms the outer boundary, cytoplasm contains organelles, and the nucleus stores most of the genetic information.</p>
+</div></section>
+
+<!-- 07 -->
+<section class="section" id="s7">
+<div class="section-head" onclick="toggleSection(this)">
+<h2>07. Plasma Membrane (Cell Membrane)</h2><span class="arrow">⌄</span>
+</div>
+<div class="section-body">
+<p>The plasma membrane is the thin, flexible boundary surrounding the cell.</p>
+<h3>Structure</h3>
+<ul>
+<li>Made mainly of phospholipids and proteins.</li>
+<li>Contains cholesterol in animal cells.</li>
+<li>Has carbohydrate chains attached to lipids and proteins.</li>
+<li>Described by the fluid mosaic model.</li>
+</ul>
+<h3>Fluid Mosaic Model</h3>
+<ul>
+<li>Proposed by S. J. Singer and G. L. Nicolson in 1972.</li>
+<li>Consists of a fluid phospholipid bilayer with proteins embedded in it.</li>
+<li>Lipids and many proteins can move laterally within the membrane.</li>
+</ul>
+<h3>Functions</h3>
+<ol>
+<li>Protects the cell.</li><li>Separates internal and external environments.</li>
+<li>Controls movement of substances.</li><li>Helps cell communication.</li>
+<li>Supports cell recognition.</li><li>Participates in endocytosis and exocytosis.</li>
+</ol>
+<h3>Types of Membrane Transport</h3>
+<h4>A. Passive Transport</h4>
+<p>Movement of substances without direct expenditure of cellular energy.</p>
+<ul><li>Simple diffusion: Higher to lower concentration.</li><li>Facilitated diffusion: Through membrane proteins.</li><li>Osmosis: Movement of water through a selectively permeable membrane.</li></ul>
+<h4>B. Active Transport</h4>
+<p>Movement of substances against their concentration or electrochemical gradient using energy.</p>
+<p>Example: Sodium-potassium pump.</p>
+<h4>C. Bulk Transport</h4>
+<ul><li>Endocytosis: Cell takes substances inside by forming vesicles.</li><li>Exocytosis: Cell releases substances through vesicles.</li></ul>
+<h3>Osmosis and Its Types</h3>
+<table>
+<tr><th>Solution</th><th>Effect on Animal Cell</th></tr>
+<tr><td>Hypotonic</td><td>Water enters; cell may swell.</td></tr>
+<tr><td>Hypertonic</td><td>Water leaves; cell shrinks.</td></tr>
+<tr><td>Isotonic</td><td>No net movement of water.</td></tr>
+</table>
+<div class="exam">Plant cells in a hypotonic solution become turgid because of their rigid cell wall.</div>
+</div></section>
+
+<!-- 08 -->
+<section class="section" id="s8">
+<div class="section-head" onclick="toggleSection(this)">
+<h2>08. Cell Wall</h2><span class="arrow">⌄</span>
+</div>
+<div class="section-body">
+<p>The cell wall is a rigid outer covering found in plants, fungi, bacteria and some other organisms. It is absent in animal cells.</p>
+<h3>Composition</h3>
+<table>
+<tr><th>Organism</th><th>Main Cell Wall Material</th></tr>
+<tr><td>Plants</td><td>Cellulose</td></tr>
+<tr><td>Fungi</td><td>Chitin</td></tr>
+<tr><td>Bacteria</td><td>Peptidoglycan</td></tr>
+<tr><td>Diatoms</td><td>Silica in cell wall</td></tr>
+<tr><td>Some algae</td><td>Cellulose and other substances</td></tr>
+</table>
+<h3>Functions</h3>
+<ul>
+<li>Provides shape and mechanical support.</li>
+<li>Protects the cell.</li>
+<li>Prevents excessive swelling in hypotonic conditions.</li>
+<li>Allows movement of water and many small substances through its porous structure.</li>
+</ul>
+</div></section>
+
+<!-- 09 -->
+<section class="section" id="s9">
+<div class="section-head" onclick="toggleSection(this)">
+<h2>09. Cytoplasm</h2><span class="arrow">⌄</span>
+</div>
+<div class="section-body">
+<p>Cytoplasm is the material present between the plasma membrane and the nucleus.</p>
+<h3>Components</h3>
+<ul>
+<li>Cytosol: Fluid component.</li>
+<li>Cell organelles: Specialized structures.</li>
+<li>Cytoskeleton: Protein fibre network.</li>
+<li>Stored substances and inclusions.</li>
+</ul>
+<h3>Functions</h3>
+<ul>
+<li>Site of many metabolic reactions.</li>
+<li>Supports and suspends organelles.</li>
+<li>Helps intracellular transport.</li>
+<li>Participates in cell movement and shape maintenance.</li>
+</ul>
+</div></section>
+
+<!-- 10 -->
+<section class="section" id="s10">
+<div class="section-head" onclick="toggleSection(this)">
+<h2>10. Nucleus</h2><span class="arrow">⌄</span>
+</div>
+<div class="section-body">
+<p>The nucleus is generally the largest membrane-bound organelle in a typical eukaryotic cell. It contains most of the cell's genetic material.</p>
+<h3>Main Parts</h3>
+<ol><li>Nuclear envelope</li><li>Nuclear pores</li><li>Nucleoplasm</li><li>Chromatin</li><li>Nucleolus</li></ol>
+<h3>Functions</h3>
+<ul>
+<li>Controls and coordinates many cellular activities.</li>
+<li>Stores genetic information.</li>
+<li>Regulates gene expression.</li>
+<li>Participates in cell division.</li>
+<li>Nucleolus helps produce ribosomal RNA and assemble ribosomal subunits.</li>
+</ul>
+<div class="exam">The nucleus was discovered by Robert Brown in 1831. Mature mammalian RBCs lack a nucleus. Prokaryotes do not have a membrane-bound nucleus.</div>
+</div></section>
+
+<!-- 11 -->
+<section class="section" id="s11">
+<div class="section-head" onclick="toggleSection(this)">
+<h2>11. Cell Organelles – Complete Details</h2><span class="arrow">⌄</span>
+</div>
+<div class="section-body">
+
+<h3>A. Mitochondria</h3>
+<p>Mitochondria are double-membrane-bound organelles responsible for most aerobic ATP production in eukaryotic cells.</p>
+<h4>Structure</h4>
+<ul><li>Outer membrane</li><li>Inner membrane</li><li>Cristae</li><li>Matrix</li><li>Intermembrane space</li><li>Mitochondrial DNA</li><li>Ribosomes</li></ul>
+<h4>Functions</h4>
+<ol><li>ATP production through cellular respiration.</li><li>Role in energy metabolism.</li><li>Participation in programmed cell death (apoptosis).</li><li>Involvement in calcium regulation.</li></ol>
+<div class="exam">Known as the powerhouse of the cell. Mitochondria have their own DNA and ribosomes. Their inner membrane forms folds called cristae.</div>
+
+<h3>B. Endoplasmic Reticulum (ER)</h3>
+<p>The endoplasmic reticulum is a network of membrane-bound tubes and sacs.</p>
+<h4>1. Rough Endoplasmic Reticulum (RER)</h4>
+<ul><li>Ribosomes are attached to its surface.</li><li>Synthesizes proteins for secretion, membranes and certain organelles.</li><li>Helps in protein folding and processing.</li></ul>
+<h4>2. Smooth Endoplasmic Reticulum (SER)</h4>
+<ul><li>Ribosomes are absent on its surface.</li><li>Synthesizes lipids and steroids.</li><li>Helps in detoxification.</li><li>Stores calcium ions, especially in muscle cells.</li></ul>
+
+<h3>C. Golgi Apparatus</h3>
+<p>Golgi apparatus was discovered by Camillo Golgi in 1898.</p>
+<h4>Structure</h4>
+<ul><li>Consists of flattened membrane-bound sacs called cisternae.</li><li>Cis face is the receiving side.</li><li>Trans face is the shipping side.</li></ul>
+<h4>Functions</h4>
+<ol><li>Modifies proteins and lipids.</li><li>Sorts and packages substances.</li><li>Forms secretory vesicles.</li><li>Helps in lysosome formation.</li><li>Plays an important role in cellular secretion.</li></ol>
+
+<h3>D. Lysosomes</h3>
+<p>Lysosomes are membrane-bound organelles containing digestive enzymes.</p>
+<h4>Functions</h4>
+<ul><li>Break down waste materials.</li><li>Digest damaged organelles.</li><li>Destroy certain invading microorganisms.</li><li>Recycle cellular components.</li></ul>
+<div class="exam">Lysosomes are sometimes called the digestive bags or suicidal bags of the cell.</div>
+
+<h3>E. Ribosomes</h3>
+<p>Ribosomes are non-membranous structures responsible for protein synthesis.</p>
+<table>
+<tr><th>Ribosome</th><th>Subunits</th></tr>
+<tr><td>70S</td><td>50S + 30S</td></tr>
+<tr><td>80S</td><td>60S + 40S</td></tr>
+</table>
+<ul>
+<li>Found free in cytoplasm.</li>
+<li>Attached to rough endoplasmic reticulum.</li>
+<li>Present in mitochondria and chloroplasts.</li>
+<li>Made of ribosomal RNA (rRNA) and proteins.</li>
+</ul>
+
+<h3>F. Plastids</h3>
+<p>Plastids are found in plants and many algae.</p>
+<table>
+<tr><th>Type</th><th>Function</th></tr>
+<tr><td>Chloroplast</td><td>Photosynthesis.</td></tr>
+<tr><td>Chromoplast</td><td>Provides colour to flowers and fruits.</td></tr>
+<tr><td>Leucoplast</td><td>Storage of food.</td></tr>
+</table>
+<h4>Types of Leucoplasts</h4>
+<ul><li>Amyloplast: Stores starch.</li><li>Elaioplast: Stores oils and fats.</li><li>Proteinoplast: Stores proteins.</li></ul>
+
+<h3>G. Chloroplast</h3>
+<p>Chloroplasts are green plastids containing chlorophyll.</p>
+<h4>Structure</h4>
+<ul><li>Outer membrane and inner membrane.</li><li>Stroma.</li><li>Thylakoids.</li><li>Grana.</li><li>Stroma lamellae.</li><li>Chloroplast DNA and ribosomes.</li></ul>
+<h4>Functions</h4>
+<ul><li>Absorb light energy.</li><li>Carry out photosynthesis.</li><li>Produce carbohydrates using light energy.</li><li>Release oxygen during oxygenic photosynthesis.</li></ul>
+<div class="exam">Grana are stacks of thylakoids. Light-dependent reactions occur in thylakoid membranes. The Calvin cycle occurs in the stroma.</div>
+
+<h3>H. Vacuoles</h3>
+<p>Vacuoles are membrane-bound compartments containing water and dissolved substances.</p>
+<ul><li>Store water, ions, pigments and waste materials.</li><li>Maintain turgor pressure in plant cells.</li><li>Help in osmoregulation.</li><li>Assist in intracellular digestion in some organisms.</li></ul>
+<div class="exam">The membrane surrounding a plant vacuole is called the tonoplast.</div>
+
+<h3>I. Centrosome and Centrioles</h3>
+<ul>
+<li>Centrosome is an important microtubule-organizing centre in many animal cells.</li>
+<li>It usually contains a pair of centrioles.</li>
+<li>Centrioles help organize the spindle apparatus during cell division.</li>
+<li>Centrioles are generally absent in higher plant cells.</li>
+</ul>
+
+<h3>J. Peroxisomes</h3>
+<ul>
+<li>Small membrane-bound organelles containing oxidative enzymes.</li>
+<li>Break down fatty acids.</li>
+<li>Help detoxify harmful substances.</li>
+<li>Break down hydrogen peroxide using catalase.</li>
+<li>Participate in certain metabolic pathways.</li>
+</ul>
+
+<h3>K. Cytoskeleton</h3>
+<p>The cytoskeleton is a network of protein fibres that provides structural support.</p>
+<table>
+<tr><th>Component</th><th>Main Function</th></tr>
+<tr><td>Microfilaments</td><td>Cell movement and contraction.</td></tr>
+<tr><td>Intermediate filaments</td><td>Mechanical strength.</td></tr>
+<tr><td>Microtubules</td><td>Intracellular transport and spindle formation.</td></tr>
+</table>
+</div></section>
+
+<!-- 12 -->
+<section class="section" id="s12">
+<div class="section-head" onclick="toggleSection(this)">
+<h2>12. Comparison of Major Cell Organelles</h2><span class="arrow">⌄</span>
+</div>
+<div class="section-body">
+<table>
+<tr><th>Organelle</th><th>Membrane</th><th>Main Function</th></tr>
+<tr><td>Nucleus</td><td>Double</td><td>Stores DNA and regulates gene expression.</td></tr>
+<tr><td>Mitochondria</td><td>Double</td><td>ATP production.</td></tr>
+<tr><td>Chloroplast</td><td>Double</td><td>Photosynthesis.</td></tr>
+<tr><td>ER</td><td>Single</td><td>Protein and lipid synthesis.</td></tr>
+<tr><td>Golgi apparatus</td><td>Single</td><td>Modification and packaging.</td></tr>
+<tr><td>Lysosome</td><td>Single</td><td>Intracellular digestion.</td></tr>
+<tr><td>Vacuole</td><td>Single</td><td>Storage and turgor.</td></tr>
+<tr><td>Ribosome</td><td>No membrane</td><td>Protein synthesis.</td></tr>
+<tr><td>Centriole</td><td>No membrane</td><td>Microtubule organization.</td></tr>
+<tr><td>Peroxisome</td><td>Single</td><td>Oxidation and detoxification.</td></tr>
+</table>
+</div></section>
+
+<!-- 13 -->
+<section class="section" id="s13">
+<div class="section-head" onclick="toggleSection(this)">
+<h2>13. Difference Between Plant and Animal Cells</h2><span class="arrow">⌄</span>
+</div>
+<div class="section-body">
+<table>
+<tr><th>Feature</th><th>Plant Cell</th><th>Animal Cell</th></tr>
+<tr><td>Cell wall</td><td>Present</td><td>Absent</td></tr>
+<tr><td>Chloroplast</td><td>Present in photosynthetic cells</td><td>Absent</td></tr>
+<tr><td>Vacuole</td><td>Usually large central vacuole</td><td>Usually small or temporary vacuoles</td></tr>
+<tr><td>Shape</td><td>Often regular</td><td>Often irregular or rounded</td></tr>
+<tr><td>Centrioles</td><td>Usually absent in higher plants</td><td>Usually present</td></tr>
+<tr><td>Lysosomes</td><td>Lytic vacuoles perform many similar roles</td><td>Commonly present</td></tr>
+<tr><td>Food storage</td><td>Mainly starch</td><td>Mainly glycogen</td></tr>
+<tr><td>Nucleus</td><td>Often pushed towards the side by vacuole</td><td>Often centrally located</td></tr>
+</table>
+</div></section>
+
+<!-- 14 -->
+<section class="section" id="s14">
+<div class="section-head" onclick="toggleSection(this)">
+<h2>14. Chromosomes and Genes</h2><span class="arrow">⌄</span>
+</div>
+<div class="section-body">
+<p><b>Chromosome:</b> A DNA-protein structure that carries genetic information.</p>
+<p><b>Gene:</b> A segment of DNA that contributes to a functional product, such as a protein or functional RNA.</p>
+<h3>Important Terms</h3>
+<ul>
+<li>DNA: Deoxyribonucleic acid.</li>
+<li>RNA: Ribonucleic acid.</li>
+<li>Chromatin: DNA associated with proteins.</li>
+<li>Chromatid: One of the two copies of a replicated chromosome.</li>
+<li>Centromere: Region joining sister chromatids.</li>
+<li>Telomere: Protective region at chromosome ends.</li>
+<li>Histones: Proteins around which DNA is packaged.</li>
+</ul>
+<h3>Human Chromosome Number</h3>
+<table>
+<tr><th>Category</th><th>Number</th></tr>
+<tr><td>Normal human body cells</td><td>46 chromosomes (23 pairs)</td></tr>
+<tr><td>Human gametes</td><td>23 chromosomes</td></tr>
+<tr><td>Autosomes</td><td>22 pairs</td></tr>
+<tr><td>Sex chromosomes</td><td>1 pair</td></tr>
+<tr><td>Typical female</td><td>XX</td></tr>
+<tr><td>Typical male</td><td>XY</td></tr>
+</table>
+</div></section>
+
+<!-- 15 -->
+<section class="section" id="s15">
+<div class="section-head" onclick="toggleSection(this)">
+<h2>15. Cell Division – Mitosis and Meiosis</h2><span class="arrow">⌄</span>
+</div>
+<div class="section-body">
+<p>Cell division is the process through which a parent cell divides to form daughter cells.</p>
+<h3>A. Mitosis</h3>
+<p>Mitosis is a type of cell division in which one parent cell generally produces two genetically similar daughter cells with the same chromosome number.</p>
+<h4>Stages of Mitosis</h4>
+<div class="diagram">
+<div class="diagram-title">Mitosis – Sequence of Stages</div>
+<div class="diagram-grid">
+<div class="diagram-node purple">Prophase</div><span class="diagram-arrow">→</span>
+<div class="diagram-node teal">Metaphase</div><span class="diagram-arrow">→</span>
+<div class="diagram-node green">Anaphase</div><span class="diagram-arrow">→</span>
+<div class="diagram-node orange">Telophase</div>
+</div>
+</div>
+<table>
+<tr><th>Stage</th><th>Main Event</th></tr>
+<tr><td>Prophase</td><td>Chromosomes condense; spindle begins to form.</td></tr>
+<tr><td>Metaphase</td><td>Chromosomes align at the equatorial plane.</td></tr>
+<tr><td>Anaphase</td><td>Sister chromatids separate.</td></tr>
+<tr><td>Telophase</td><td>Nuclear envelopes reform.</td></tr>
+<tr><td>Cytokinesis</td><td>Cytoplasm divides.</td></tr>
+</table>
+<h4>Importance of Mitosis</h4>
+<ul><li>Growth of organisms.</li><li>Repair of damaged tissues.</li><li>Replacement of old cells.</li><li>Asexual reproduction in many organisms.</li></ul>
+
+<h3>B. Meiosis</h3>
+<p>Meiosis is a specialized type of cell division that reduces the chromosome number by half and produces haploid cells.</p>
+<p>It consists of two successive divisions:</p>
+<ul><li>Meiosis I: Reductional division.</li><li>Meiosis II: Equational division.</li></ul>
+<h4>Meiosis I Stages</h4>
+<ol><li>Prophase I</li><li>Metaphase I</li><li>Anaphase I</li><li>Telophase I</li></ol>
+<h4>Five Substages of Prophase I</h4>
+<table>
+<tr><th>Substage</th><th>Main Event</th></tr>
+<tr><td>Leptotene</td><td>Chromosomes begin to condense.</td></tr>
+<tr><td>Zygotene</td><td>Homologous chromosomes pair.</td></tr>
+<tr><td>Pachytene</td><td>Crossing over occurs.</td></tr>
+<tr><td>Diplotene</td><td>Homologous chromosomes begin separating; chiasmata visible.</td></tr>
+<tr><td>Diakinesis</td><td>Chromosomes condense further; preparation for division.</td></tr>
+</table>
+<h4>Importance of Meiosis</h4>
+<ul>
+<li>Formation of haploid gametes in animals.</li>
+<li>Maintenance of chromosome number across generations after fertilization.</li>
+<li>Genetic variation through crossing over and independent assortment.</li>
+</ul>
+<h3>Difference Between Mitosis and Meiosis</h3>
+<table>
+<tr><th>Feature</th><th>Mitosis</th><th>Meiosis</th></tr>
+<tr><td>Number of divisions</td><td>One</td><td>Two</td></tr>
+<tr><td>Daughter cells</td><td>Usually two</td><td>Usually four</td></tr>
+<tr><td>Chromosome number</td><td>Maintained</td><td>Halved</td></tr>
+<tr><td>Crossing over</td><td>Normally absent</td><td>Occurs in Prophase I</td></tr>
+<tr><td>Function</td><td>Growth and repair</td><td>Sexual reproduction</td></tr>
+<tr><td>Genetic similarity</td><td>Usually similar</td><td>Genetically varied</td></tr>
+</table>
+</div></section>
+
+<!-- 16 -->
+<section class="section" id="s16">
+<div class="section-head" onclick="toggleSection(this)">
+<h2>16. Cell Cycle</h2><span class="arrow">⌄</span>
+</div>
+<div class="section-body">
+<p>The cell cycle is the sequence of events through which a cell grows, duplicates its DNA and divides.</p>
+<div class="diagram">
+<div class="diagram-title">Cell Cycle</div>
+<div class="diagram-grid">
+<div class="diagram-node purple">G1</div><span class="diagram-arrow">→</span>
+<div class="diagram-node teal">S Phase</div><span class="diagram-arrow">→</span>
+<div class="diagram-node green">G2</div><span class="diagram-arrow">→</span>
+<div class="diagram-node orange">M Phase</div>
+</div>
+<div style="margin-top:10px">Interphase = G1 + S + G2</div>
+</div>
+<h3>A. Interphase</h3>
+<ul><li>G1 phase: Cell growth and normal activity.</li><li>S phase: DNA replication.</li><li>G2 phase: Further growth and preparation for division.</li></ul>
+<h3>B. M Phase</h3>
+<ul><li>Nuclear division.</li><li>Cytokinesis.</li></ul>
+<h3>C. G0 Phase</h3>
+<p>Some cells leave the active cell cycle and enter a resting or non-dividing state.</p>
+</div></section>
+
+<!-- 17 -->
+<section class="section" id="s17">
+<div class="section-head" onclick="toggleSection(this)">
+<h2>17. DNA and RNA</h2><span class="arrow">⌄</span>
+</div>
+<div class="section-body">
+<h3>DNA – Deoxyribonucleic Acid</h3>
+<p>DNA is the hereditary material in most living organisms.</p>
+<ul><li>Usually double-stranded helix.</li><li>Contains deoxyribose sugar.</li><li>Contains four nitrogenous bases.</li></ul>
+<table>
+<tr><th>Base</th><th>Pairing</th></tr>
+<tr><td>Adenine (A)</td><td>Thymine (T)</td></tr>
+<tr><td>Guanine (G)</td><td>Cytosine (C)</td></tr>
+</table>
+<h3>RNA – Ribonucleic Acid</h3>
+<ul><li>Usually single-stranded.</li><li>Contains ribose sugar.</li><li>Contains uracil instead of thymine.</li></ul>
+<h3>Types of RNA</h3>
+<table>
+<tr><th>Type</th><th>Function</th></tr>
+<tr><td>mRNA</td><td>Carries genetic instructions.</td></tr>
+<tr><td>tRNA</td><td>Transfers amino acids.</td></tr>
+<tr><td>rRNA</td><td>Forms an important part of ribosomes.</td></tr>
+</table>
+<h3>Difference Between DNA and RNA</h3>
+<table>
+<tr><th>Feature</th><th>DNA</th><th>RNA</th></tr>
+<tr><td>Sugar</td><td>Deoxyribose</td><td>Ribose</td></tr>
+<tr><td>Strands</td><td>Usually double</td><td>Usually single</td></tr>
+<tr><td>Bases</td><td>A, T, G, C</td><td>A, U, G, C</td></tr>
+<tr><td>Main role</td><td>Genetic storage</td><td>Gene expression and protein synthesis</td></tr>
+<tr><td>Location</td><td>Nucleus, mitochondria, chloroplasts</td><td>Nucleus and cytoplasm</td></tr>
+</table>
+</div></section>
+
+<!-- 18 -->
+<section class="section" id="s18">
+<div class="section-head" onclick="toggleSection(this)">
+<h2>18. Protein Synthesis</h2><span class="arrow">⌄</span>
+</div>
+<div class="section-body">
+<p>Protein synthesis is the process by which cells make proteins using genetic information.</p>
+<div class="diagram">
+<div class="diagram-title">Central Dogma of Molecular Biology</div>
+<div class="diagram-grid">
+<div class="diagram-node purple">DNA</div><span class="diagram-arrow">→</span>
+<div class="diagram-node teal">RNA</div><span class="diagram-arrow">→</span>
+<div class="diagram-node green">PROTEIN</div>
+</div>
+</div>
+<ol>
+<li><b>Transcription:</b> Genetic information in DNA is copied into RNA.</li>
+<li><b>Translation:</b> Ribosomes read mRNA and assemble amino acids into a polypeptide.</li>
+</ol>
+<div class="exam">Central Dogma: DNA → RNA → Protein.</div>
+</div></section>
+
+<!-- 19 -->
+<section class="section" id="s19">
+<div class="section-head" onclick="toggleSection(this)">
+<h2>19. Cellular Respiration</h2><span class="arrow">⌄</span>
+</div>
+<div class="section-body">
+<p>Cellular respiration is the process by which cells release energy from organic molecules, especially glucose.</p>
+<div class="diagram">
+<div class="diagram-title">Stages of Cellular Respiration</div>
+<div class="diagram-grid">
+<div class="diagram-node purple">Glycolysis</div><span class="diagram-arrow">→</span>
+<div class="diagram-node teal">Pyruvate Oxidation</div><span class="diagram-arrow">→</span>
+<div class="diagram-node green">Krebs Cycle</div><span class="diagram-arrow">→</span>
+<div class="diagram-node orange">ETC</div>
+</div>
+</div>
+<table>
+<tr><th>Stage</th><th>Location in Eukaryotic Cells</th><th>Main Outcome</th></tr>
+<tr><td>Glycolysis</td><td>Cytoplasm</td><td>Glucose converted into pyruvate.</td></tr>
+<tr><td>Pyruvate oxidation</td><td>Mitochondrial matrix</td><td>Acetyl-CoA formed.</td></tr>
+<tr><td>Krebs cycle</td><td>Mitochondrial matrix</td><td>Electron carriers produced.</td></tr>
+<tr><td>Electron transport chain</td><td>Inner mitochondrial membrane</td><td>Most ATP produced.</td></tr>
+</table>
+<h3>Important Facts</h3>
+<ul>
+<li>ATP stands for Adenosine Triphosphate.</li>
+<li>ATP is the immediate energy currency of the cell.</li>
+<li>Glycolysis occurs in the cytoplasm.</li>
+<li>Krebs cycle occurs in the mitochondrial matrix in eukaryotic cells.</li>
+<li>The electron transport chain is located in the inner mitochondrial membrane.</li>
+</ul>
+</div></section>
+
+<!-- 20 -->
+<section class="section" id="s20">
+<div class="section-head" onclick="toggleSection(this)">
+<h2>20. Photosynthesis</h2><span class="arrow">⌄</span>
+</div>
+<div class="section-body">
+<p>Photosynthesis is the process by which green plants and certain other organisms convert light energy into chemical energy.</p>
+<div class="callout" style="text-align:center;font-size:17px">
+6CO₂ + 6H₂O + Light → C₆H₁₂O₆ + 6O₂
+</div>
+<h3>Two Main Stages</h3>
+<table>
+<tr><th>Stage</th><th>Location</th></tr>
+<tr><td>Light-dependent reactions</td><td>Thylakoid membranes.</td></tr>
+<tr><td>Calvin cycle</td><td>Stroma.</td></tr>
+</table>
+<h3>Importance</h3>
+<ul>
+<li>Produces organic food.</li><li>Releases oxygen.</li>
+<li>Converts solar energy into chemical energy.</li>
+<li>Forms the foundation of most food chains.</li>
+</ul>
+</div></section>
+
+<!-- 21 -->
+<section class="section" id="s21">
+<div class="section-head" onclick="toggleSection(this)">
+<h2>21. Cell Differentiation and Stem Cells</h2><span class="arrow">⌄</span>
+</div>
+<div class="section-body">
+<p><b>Cell differentiation:</b> The process through which unspecialized cells develop specialized structures and functions.</p>
+<p><b>Stem cells:</b> Cells capable of self-renewal and differentiation into specialized cell types.</p>
+<h3>Types of Stem Cells</h3>
+<table>
+<tr><th>Type</th><th>Potential</th></tr>
+<tr><td>Totipotent</td><td>Can form an entire organism, including extraembryonic tissues.</td></tr>
+<tr><td>Pluripotent</td><td>Can form nearly all body cell types.</td></tr>
+<tr><td>Multipotent</td><td>Can form several related cell types.</td></tr>
+<tr><td>Unipotent</td><td>Can form one main cell type.</td></tr>
+</table>
+</div></section>
+
+<!-- 22 -->
+<section class="section" id="s22">
+<div class="section-head" onclick="toggleSection(this)">
+<h2>22. Cell Death – Apoptosis and Necrosis</h2><span class="arrow">⌄</span>
+</div>
+<div class="section-body">
+<h3>A. Apoptosis</h3>
+<ul>
+<li>Programmed cell death.</li>
+<li>Usually controlled and regulated.</li>
+<li>Helps remove unwanted or damaged cells.</li>
+<li>Important in development and tissue maintenance.</li>
+</ul>
+<h3>B. Necrosis</h3>
+<ul>
+<li>Uncontrolled cell death caused by injury or severe damage.</li>
+<li>Often associated with inflammation.</li>
+</ul>
+<table>
+<tr><th>Feature</th><th>Apoptosis</th><th>Necrosis</th></tr>
+<tr><td>Nature</td><td>Programmed</td><td>Usually uncontrolled</td></tr>
+<tr><td>Cause</td><td>Regulated cellular signals</td><td>Severe injury or damage</td></tr>
+<tr><td>Inflammation</td><td>Usually absent</td><td>Often present</td></tr>
+</table>
+</div></section>
+
+<!-- 23 -->
+<section class="section" id="s23">
+<div class="section-head" onclick="toggleSection(this)">
+<h2>23. Important Discoveries in Cell Biology</h2><span class="arrow">⌄</span>
+</div>
+<div class="section-body">
+<table>
+<tr><th>Scientist</th><th>Discovery / Contribution</th></tr>
+<tr><td>Robert Hooke</td><td>Coined the term cell.</td></tr>
+<tr><td>Leeuwenhoek</td><td>Observed living microorganisms.</td></tr>
+<tr><td>Robert Brown</td><td>Discovered nucleus.</td></tr>
+<tr><td>Schleiden</td><td>Plant cell theory.</td></tr>
+<tr><td>Schwann</td><td>Animal cell theory.</td></tr>
+<tr><td>Virchow</td><td>Cells arise from pre-existing cells.</td></tr>
+<tr><td>Camillo Golgi</td><td>Discovered Golgi apparatus.</td></tr>
+<tr><td>Singer and Nicolson</td><td>Fluid mosaic model.</td></tr>
+<tr><td>Watson and Crick</td><td>Proposed DNA double-helix model.</td></tr>
+<tr><td>Rosalind Franklin</td><td>X-ray diffraction evidence important to DNA structure.</td></tr>
+<tr><td>Meselson and Stahl</td><td>Demonstrated semiconservative DNA replication.</td></tr>
+</table>
+</div></section>
+
+<!-- 24 -->
+<section class="section" id="s24">
+<div class="section-head" onclick="toggleSection(this)">
+<h2>24. Important One-Liner Facts for Competitive Exams</h2><span class="arrow">⌄</span>
+</div>
+<div class="section-body">
+<table>
+<tr><th>No.</th><th>Question / Fact</th><th>Answer</th></tr>
+<tr><td>1</td><td>Father of Cytology / person credited with coining cell</td><td>Robert Hooke</td></tr>
+<tr><td>2</td><td>Cell was discovered in</td><td>1665</td></tr>
+<tr><td>3</td><td>First observed living cells</td><td>Antonie van Leeuwenhoek</td></tr>
+<tr><td>4</td><td>Nucleus discovered by</td><td>Robert Brown</td></tr>
+<tr><td>5</td><td>Powerhouse of the cell</td><td>Mitochondria</td></tr>
+<tr><td>6</td><td>Kitchen of the cell</td><td>Chloroplast</td></tr>
+<tr><td>7</td><td>Suicidal bags of the cell</td><td>Lysosomes</td></tr>
+<tr><td>8</td><td>Protein factory of the cell</td><td>Ribosomes</td></tr>
+<tr><td>9</td><td>Packaging centre of the cell</td><td>Golgi apparatus</td></tr>
+<tr><td>10</td><td>Fluid mosaic model</td><td>Singer and Nicolson</td></tr>
+<tr><td>11</td><td>Fluid mosaic model proposed in</td><td>1972</td></tr>
+<tr><td>12</td><td>Cell wall of plants</td><td>Cellulose</td></tr>
+<tr><td>13</td><td>Cell wall of fungi</td><td>Chitin</td></tr>
+<tr><td>14</td><td>Cell wall of bacteria</td><td>Peptidoglycan</td></tr>
+<tr><td>15</td><td>Human chromosome number</td><td>46</td></tr>
+<tr><td>16</td><td>Chromosome number in human gametes</td><td>23</td></tr>
+<tr><td>17</td><td>DNA replication occurs during</td><td>S phase</td></tr>
+<tr><td>18</td><td>Crossing over occurs during</td><td>Pachytene of Prophase I</td></tr>
+<tr><td>19</td><td>Mitosis is also called</td><td>Equational division</td></tr>
+<tr><td>20</td><td>Meiosis I is called</td><td>Reductional division</td></tr>
+<tr><td>21</td><td>Glycolysis occurs in</td><td>Cytoplasm</td></tr>
+<tr><td>22</td><td>Krebs cycle occurs in</td><td>Mitochondrial matrix</td></tr>
+<tr><td>23</td><td>ATP</td><td>Adenosine Triphosphate</td></tr>
+<tr><td>24</td><td>Photosynthesis occurs in</td><td>Chloroplasts</td></tr>
+<tr><td>25</td><td>Stacks of thylakoids</td><td>Grana</td></tr>
+<tr><td>26</td><td>Membrane of vacuole</td><td>Tonoplast</td></tr>
+<tr><td>27</td><td>DNA sugar</td><td>Deoxyribose</td></tr>
+<tr><td>28</td><td>RNA sugar</td><td>Ribose</td></tr>
+<tr><td>29</td><td>Prokaryotic ribosome</td><td>70S</td></tr>
+<tr><td>30</td><td>Eukaryotic cytoplasmic ribosome</td><td>80S</td></tr>
+</table>
+</div></section>
+
+<!-- 25 -->
+<section class="section" id="s25">
+<div class="section-head" onclick="toggleSection(this)">
+<h2>25. Practice MCQs – Cell Biology</h2><span class="arrow">⌄</span>
+</div>
+<div class="section-body">
+<p>Test your knowledge with 20 important objective questions.</p>
+<div id="quizContainer"></div>
+<div class="no-print" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:15px">
+<button class="btn green" onclick="submitQuiz()">Submit Test</button>
+<button class="btn secondary" onclick="resetQuiz()">Reset Test</button>
+</div>
+<div id="quizResult"></div>
+</div></section>
+
+<!-- 26 -->
+<section class="section" id="s26">
+<div class="section-head" onclick="toggleSection(this)">
+<h2>26. Important Topics for BPSC and Other Competitive Exams</h2><span class="arrow">⌄</span>
+</div>
+<div class="section-body">
+<table>
+<tr><th>Priority</th><th>Topic</th></tr>
+<tr><td>High</td><td>Cell discovery and cell theory</td></tr>
+<tr><td>High</td><td>Prokaryotic vs eukaryotic cells</td></tr>
+<tr><td>High</td><td>Cell organelles and their functions</td></tr>
+<tr><td>High</td><td>Mitosis and meiosis</td></tr>
+<tr><td>High</td><td>DNA, RNA and chromosomes</td></tr>
+<tr><td>High</td><td>Plant cell vs animal cell</td></tr>
+<tr><td>Medium</td><td>Plasma membrane and osmosis</td></tr>
+<tr><td>Medium</td><td>Cell cycle</td></tr>
+<tr><td>Medium</td><td>Cellular respiration</td></tr>
+<tr><td>Medium</td><td>Photosynthesis</td></tr>
+<tr><td>Medium</td><td>Scientists and discoveries</td></tr>
+<tr><td>Medium</td><td>Ribosomes and plastids</td></tr>
+<tr><td>Low</td><td>Cytoskeleton and peroxisomes</td></tr>
+<tr><td>Low</td><td>Stem cells and apoptosis</td></tr>
+</table>
+<div class="exam">
+<b>Preparation Strategy:</b> For BPSC, focus especially on scientists and discoveries, organelle functions, chromosome numbers, stages of mitosis and meiosis, and differences between plant and animal cells. These topics are useful for objective-type questions.
+</div>
+</div></section>
+
+<div class="footer">
+ <h3>🧬 CELL BIOLOGY – COMPLETE NOTES</h3>
+ <p>Study • Understand • Revise • Practice</p>
+ <p>Designed for Competitive Examination Preparation</p>
+</div>
+
+</main>
+</div>
+
+<button id="backtop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
+
+<script>
+// SIDEBAR
+function toggleSidebar(){
+ document.getElementById("sidebar").classList.toggle("closed");
+}
+
+// ACCORDION
+function toggleSection(head){
+ head.parentElement.classList.toggle("open");
+}
+function expandAll(){
+ document.querySelectorAll(".section").forEach(s=>s.classList.add("open"));
+}
+function collapseAll(){
+ document.querySelectorAll(".section").forEach(s=>s.classList.remove("open"));
+}
+
+// TABLE OF CONTENTS
+document.querySelectorAll(".sidebar a").forEach(link=>{
+ link.addEventListener("click",function(){
+  document.querySelectorAll(".sidebar a").forEach(a=>a.classList.remove("active"));
+  this.classList.add("active");
+  const target=document.querySelector(this.getAttribute("href"));
+  if(target){
+   target.classList.add("open");
+   setTimeout(()=>target.scrollIntoView({behavior:"smooth",block:"start"}),50);
+  }
+  if(window.innerWidth<=850){
+   document.getElementById("sidebar").classList.add("closed");
+  }
+ });
+});
+
+// READING PROGRESS
+window.addEventListener("scroll",()=>{
+ const scrollTop=window.scrollY;
+ const total=document.documentElement.scrollHeight-window.innerHeight;
+ document.getElementById("progress").style.width=
+  (total>0?(scrollTop/total)*100:0)+"%";
+});
+
+// SEARCH WITH HIGHLIGHT
+let originalContent=new Map();
+document.querySelectorAll(".section-body").forEach((body,i)=>{
+ originalContent.set(body,i);
+});
+
+function escapeRegExp(string){
+ return string.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+}
+function searchContent(){
+ const query=document.getElementById("search").value.trim();
+ const status=document.getElementById("searchStatus");
+ document.querySelectorAll(".section-body").forEach(body=>{
+  body.innerHTML=body.innerHTML.replace(/<mark class="search-mark">([\s\S]*?)<\/mark>/gi,"$1");
+ });
+ document.querySelectorAll(".section").forEach(section=>{
+  section.classList.remove("hidden-search");
+ });
+ if(!query){
+  status.textContent="";
+  return;
+ }
+ const regex=new RegExp(escapeRegExp(query),"gi");
+ let count=0;
+ document.querySelectorAll(".section").forEach(section=>{
+  const body=section.querySelector(".section-body");
+  const text=body.innerText;
+  if(text.toLowerCase().includes(query.toLowerCase())){
+   count++;
+   section.classList.add("open");
+   const walker=document.createTreeWalker(body,NodeFilter.SHOW_TEXT);
+   const nodes=[];
+   while(walker.nextNode())nodes.push(walker.currentNode);
+   nodes.forEach(node=>{
+    if(!node.nodeValue.toLowerCase().includes(query.toLowerCase()))return;
+    const span=document.createElement("span");
+    span.innerHTML=node.nodeValue.replace(regex,match=>'<mark class="search-mark">'+match+'</mark>');
+    node.parentNode.replaceChild(span,node);
+   });
+  }else{
+   section.classList.add("hidden-search");
+  }
+ });
+ status.textContent=count+" topic(s) found for: "+query;
+ const first=document.querySelector(".section:not(.hidden-search)");
+ if(first)first.scrollIntoView({behavior:"smooth",block:"start"});
+}
+function clearSearch(){
+ document.getElementById("search").value="";
+ searchContent();
+}
+
+// MCQ TEST
+const questions=[
+["Who coined the term 'cell'?",["Robert Brown","Robert Hooke","Schleiden","Virchow"],1,"Robert Hooke coined the term cell in 1665 after observing cork."],
+["Who discovered the nucleus?",["Robert Brown","Leeuwenhoek","Camillo Golgi","Rudolf Virchow"],0,"Robert Brown discovered the nucleus in 1831."],
+["Which organelle is known as the powerhouse of the cell?",["Golgi apparatus","Lysosome","Mitochondria","Ribosome"],2,"Mitochondria produce most ATP during aerobic respiration."],
+["Which organelle is responsible for protein synthesis?",["Ribosome","Lysosome","Vacuole","Centrosome"],0,"Ribosomes translate mRNA to synthesize proteins."],
+["Which structure is absent in animal cells?",["Nucleus","Cell membrane","Cell wall","Mitochondria"],2,"Animal cells do not have a cell wall."],
+["The cell wall of plants is mainly composed of:",["Chitin","Cellulose","Peptidoglycan","Glycogen"],1,"Cellulose is the principal structural component of plant cell walls."],
+["Which scientist proposed the fluid mosaic model?",["Watson and Crick","Singer and Nicolson","Schleiden and Schwann","Hooke and Brown"],1,"Singer and Nicolson proposed the fluid mosaic model in 1972."],
+["Which phase of the cell cycle involves DNA replication?",["G1","S","G2","M"],1,"DNA replication occurs during the S phase of interphase."],
+["Crossing over occurs during which stage?",["Leptotene","Zygotene","Pachytene","Diakinesis"],2,"Crossing over occurs during pachytene of Prophase I."],
+["How many chromosomes are present in a normal human somatic cell?",["23","44","46","48"],2,"Human somatic cells usually contain 46 chromosomes."],
+["Which organelle modifies and packages proteins?",["Golgi apparatus","Ribosome","Nucleus","Centriole"],0,"The Golgi apparatus modifies, sorts and packages proteins."],
+["Which organelle contains digestive enzymes?",["Chloroplast","Lysosome","Ribosome","Nucleolus"],1,"Lysosomes contain hydrolytic enzymes for intracellular digestion."],
+["Which type of ribosome is found in bacteria?",["80S","70S","60S","90S"],1,"Bacteria generally contain 70S ribosomes."],
+["The membrane surrounding a vacuole is called:",["Plasmalemma","Tonoplast","Cristae","Envelope"],1,"The vacuolar membrane is known as the tonoplast."],
+["Which process produces two genetically similar daughter cells?",["Meiosis","Mitosis","Fertilization","Transcription"],1,"Mitosis generally produces two genetically similar daughter cells."],
+["Where does glycolysis occur?",["Nucleus","Cytoplasm","Mitochondrial matrix","Golgi body"],1,"Glycolysis takes place in the cytoplasm."],
+["Which organelle carries out photosynthesis?",["Mitochondrion","Chloroplast","Lysosome","Peroxisome"],1,"Chloroplasts contain chlorophyll and carry out photosynthesis."],
+["Which base is present in RNA instead of thymine?",["Adenine","Guanine","Uracil","Cytosine"],2,"RNA contains uracil in place of thymine."],
+["Which scientist proposed that all cells arise from pre-existing cells?",["Virchow","Hooke","Brown","Golgi"],0,"Rudolf Virchow popularized the principle Omnis cellula e cellula."],
+["Which phase of mitosis involves alignment of chromosomes at the equator?",["Prophase","Metaphase","Anaphase","Telophase"],1,"Chromosomes align at the metaphase plate during metaphase."]
+];
+
+function renderQuiz(){
+ const container=document.getElementById("quizContainer");
+ container.innerHTML="";
+ questions.forEach((q,i)=>{
+  const box=document.createElement("div");
+  box.className="quiz-question";
+  box.id="question"+i;
+  let html="<h4>Q"+(i+1)+". "+q[0]+"</h4>";
+  q[1].forEach((option,j)=>{
+   html+=`<label class="option" id="opt-${i}-${j}">
+    <input type="radio" name="q${i}" value="${j}">
+    ${String.fromCharCode(65+j)}. ${option}
+   </label>`;
+  });
+  html+=`<div class="explanation" id="explain-${i}" style="display:none"></div>`;
+  box.innerHTML=html;
+  container.appendChild(box);
+ });
+}
+function submitQuiz(){
+ let score=0,attempted=0;
+ questions.forEach((q,i)=>{
+  const selected=document.querySelector('input[name="q'+i+'"]:checked');
+  const explanation=document.getElementById("explain-"+i);
+  explanation.style.display="block";
+  if(selected)attempted++;
+  if(selected && Number(selected.value)===q[2])score++;
+  q[1].forEach((option,j)=>{
+   const label=document.getElementById(`opt-${i}-${j}`);
+   label.classList.remove("correct","incorrect");
+   if(j===q[2])label.classList.add("correct");
+   if(selected && Number(selected.value)===j && j!==q[2])label.classList.add("incorrect");
+  });
+  explanation.innerHTML="<b>Correct Answer:</b> "+q[1][q[2]]+"<br><b>Explanation:</b> "+q[3];
+ });
+ const result=document.getElementById("quizResult");
+ result.style.display="block";
+ result.innerHTML="<h3>Test Result: "+score+" / "+questions.length+"</h3>"+
+  "<p>Attempted: "+attempted+" / "+questions.length+"</p>"+
+  "<p>Correct: "+score+" | Incorrect / Unattempted: "+(questions.length-score)+"</p>"+
+  "<b>"+(score>=16?"Excellent performance!":score>=12?"Good effort! Revise the incorrect answers.":"Revise the notes and try again.")+"</b>";
+ result.scrollIntoView({behavior:"smooth",block:"center"});
+}
+function resetQuiz(){
+ renderQuiz();
+ document.getElementById("quizResult").style.display="none";
+}
+renderQuiz();
+</script>
+</body>
+</html>
