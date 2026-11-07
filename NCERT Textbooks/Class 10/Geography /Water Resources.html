@@ -1,0 +1,2766 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Forest and Wildlife Resources | Class 10 Geography</title>
+
+<style>
+:root{
+    --bg:#f3f6fb;
+    --panel:#ffffff;
+    --text:#202b3c;
+    --muted:#687589;
+    --primary:#176b45;
+    --primary2:#25875b;
+    --light:#e9f6ee;
+    --border:#dce5df;
+    --shadow:0 5px 22px rgba(20,50,35,.07);
+}
+
+*{
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:Arial,Helvetica,sans-serif;
+    line-height:1.75;
+}
+
+/* HEADER */
+
+.header{
+    background:linear-gradient(125deg,#123c2a,#176b45,#39986b);
+    color:white;
+    text-align:center;
+    padding:38px 18px;
+}
+
+.header h1{
+    margin:0;
+    font-size:clamp(25px,4vw,40px);
+    letter-spacing:.5px;
+}
+
+.header p{
+    margin:8px 0;
+    color:#e0f5e8;
+}
+
+.header .tag{
+    display:inline-block;
+    margin-top:12px;
+    padding:6px 15px;
+    border:1px solid #ffffff80;
+    border-radius:30px;
+    font-size:13px;
+}
+
+/* TOOLBAR */
+
+.toolbar{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:white;
+    border-bottom:1px solid var(--border);
+    padding:10px 13px;
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:9px;
+    box-shadow:0 3px 10px #00000008;
+}
+
+.toolbar button{
+    border:0;
+    background:var(--primary);
+    color:white;
+    border-radius:7px;
+    padding:9px 13px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.toolbar button.secondary{
+    background:#e8eee9;
+    color:#263c30;
+}
+
+.toolbar button:hover{
+    opacity:.88;
+}
+
+.search-box{
+    flex:1;
+    min-width:160px;
+    padding:10px 12px;
+    border:1px solid var(--border);
+    border-radius:7px;
+    outline:none;
+    font-size:14px;
+}
+
+.search-box:focus{
+    border-color:var(--primary);
+}
+
+#searchCount{
+    color:var(--muted);
+    font-size:12px;
+}
+
+/* LAYOUT */
+
+.layout{
+    display:flex;
+    align-items:flex-start;
+    gap:18px;
+    max-width:1600px;
+    margin:auto;
+    padding:18px;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+    width:295px;
+    min-width:295px;
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:15px;
+    position:sticky;
+    top:78px;
+    max-height:calc(100vh - 95px);
+    overflow-y:auto;
+    box-shadow:var(--shadow);
+}
+
+.sidebar.hidden{
+    display:none;
+}
+
+.sidebar h2{
+    color:var(--primary);
+    font-size:19px;
+    margin:0 0 12px;
+}
+
+.sidebar a{
+    display:block;
+    text-decoration:none;
+    color:#34483b;
+    padding:7px 9px;
+    border-radius:6px;
+    font-size:13px;
+    border-bottom:1px solid #edf1ed;
+}
+
+.sidebar a:hover{
+    background:var(--light);
+    color:var(--primary);
+}
+
+/* CONTENT */
+
+.content{
+    flex:1;
+    min-width:0;
+}
+
+.intro{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:22px;
+    margin-bottom:18px;
+    box-shadow:var(--shadow);
+}
+
+.intro h2{
+    color:var(--primary);
+    margin-top:0;
+}
+
+/* SECTIONS */
+
+details.section{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:11px;
+    margin-bottom:14px;
+    box-shadow:var(--shadow);
+    overflow:hidden;
+    scroll-margin-top:85px;
+}
+
+details.section>summary{
+    cursor:pointer;
+    list-style:none;
+    padding:16px 19px;
+    font-weight:700;
+    font-size:17px;
+    background:linear-gradient(90deg,#e9f5ed,#ffffff);
+    border-left:5px solid var(--primary);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+}
+
+details.section>summary::-webkit-details-marker{
+    display:none;
+}
+
+details.section>summary::after{
+    content:"+";
+    color:var(--primary);
+    font-size:24px;
+    flex-shrink:0;
+}
+
+details.section[open]>summary::after{
+    content:"−";
+}
+
+.section-body{
+    padding:19px 22px 25px;
+}
+
+.section-body h3{
+    color:#176b45;
+    border-bottom:1px solid #e3ebe5;
+    padding-bottom:6px;
+    margin-top:25px;
+}
+
+.section-body h4{
+    color:#287c54;
+    margin-bottom:6px;
+}
+
+.section-body p{
+    margin:8px 0;
+}
+
+.section-body li{
+    margin:5px 0;
+}
+
+.section-body ul,
+.section-body ol{
+    padding-left:24px;
+}
+
+/* INFORMATION BOXES */
+
+.note{
+    padding:13px 16px;
+    border-left:4px solid var(--primary);
+    background:#edf6ef;
+    border-radius:6px;
+    margin:15px 0;
+}
+
+.green-note{
+    background:#e8f7ed;
+    border-left-color:#168653;
+}
+
+.orange-note{
+    background:#fff5e8;
+    border-left-color:#e58b25;
+}
+
+.red-note{
+    background:#fff0ef;
+    border-left-color:#c94c4c;
+}
+
+.exam{
+    background:#fff7df;
+    border:1px solid #f1d78a;
+    border-radius:8px;
+    padding:12px 15px;
+    margin:14px 0;
+}
+
+.badge{
+    display:inline-block;
+    background:#e5f4e9;
+    color:#176b45;
+    padding:3px 9px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+/* TABLES */
+
+.table-wrap{
+    overflow-x:auto;
+    margin:14px 0;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:500px;
+    font-size:14px;
+}
+
+th,td{
+    border:1px solid #dce5df;
+    padding:10px 12px;
+    text-align:left;
+    vertical-align:top;
+}
+
+th{
+    background:#e8f2eb;
+    color:#185d3c;
+}
+
+tr:nth-child(even) td{
+    background:#fafcfb;
+}
+
+/* IMAGES */
+
+.study-image{
+    margin:18px auto;
+    max-width:760px;
+    text-align:center;
+}
+
+.study-image img{
+    width:100%;
+    max-height:420px;
+    object-fit:contain;
+    border-radius:10px;
+    background:#f1f4f1;
+    border:1px solid var(--border);
+    cursor:zoom-in;
+}
+
+.study-image figcaption{
+    font-size:12px;
+    color:var(--muted);
+    margin-top:6px;
+}
+
+.image-row{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+    gap:15px;
+    margin:18px 0;
+}
+
+.image-row img{
+    width:100%;
+    height:190px;
+    object-fit:cover;
+    border-radius:9px;
+    border:1px solid var(--border);
+}
+
+.image-row p{
+    text-align:center;
+    font-size:13px;
+    font-weight:bold;
+}
+
+/* FLOWCHART */
+
+.flow{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:7px;
+    margin:20px auto;
+    max-width:850px;
+}
+
+.flow-box{
+    width:min(100%,650px);
+    background:#e9f4ec;
+    border:1px solid #a9cfb5;
+    padding:12px 16px;
+    text-align:center;
+    border-radius:8px;
+    font-weight:600;
+}
+
+.flow-box.green{
+    background:#def3e5;
+    border-color:#91caa4;
+}
+
+.flow-box.orange{
+    background:#fff2df;
+    border-color:#efc48d;
+}
+
+.flow-arrow{
+    font-size:23px;
+    color:var(--primary);
+    line-height:1;
+}
+
+.flow-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:10px;
+    width:100%;
+}
+
+/* MIND MAP */
+
+.mindmap{
+    border:2px dashed #9fc4a9;
+    padding:16px;
+    border-radius:12px;
+    background:#f8fcf9;
+    margin:20px 0;
+}
+
+.mind-center{
+    background:#176b45;
+    color:white;
+    padding:14px;
+    text-align:center;
+    border-radius:9px;
+    font-weight:bold;
+    max-width:340px;
+    margin:0 auto 16px;
+}
+
+.mind-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+    gap:10px;
+}
+
+.mind-item{
+    background:white;
+    border:1px solid #cbded0;
+    border-radius:8px;
+    padding:12px;
+    text-align:center;
+    font-size:13px;
+}
+
+/* QUESTIONS */
+
+.question{
+    padding:13px;
+    border:1px solid var(--border);
+    border-radius:8px;
+    margin:12px 0;
+    background:#fcfefd;
+}
+
+.answer{
+    padding:10px 13px;
+    background:#eaf7ee;
+    border-radius:6px;
+    margin-top:9px;
+}
+
+/* SEARCH */
+
+mark.search-highlight{
+    background:#ffeb3b;
+    color:#111;
+    padding:1px 2px;
+    border-radius:2px;
+}
+
+/* IMAGE MODAL */
+
+.image-modal{
+    display:none;
+    position:fixed;
+    z-index:1000;
+    inset:0;
+    background:#000e;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.image-modal img{
+    max-width:95%;
+    max-height:90vh;
+    object-fit:contain;
+    border-radius:8px;
+}
+
+.image-modal span{
+    position:absolute;
+    top:15px;
+    right:25px;
+    color:white;
+    font-size:35px;
+    cursor:pointer;
+}
+
+/* FOOTER */
+
+.footer{
+    text-align:center;
+    padding:30px 15px;
+    color:var(--muted);
+    font-size:13px;
+}
+
+.top-button{
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    z-index:90;
+    background:var(--primary);
+    color:white;
+    border:0;
+    border-radius:50%;
+    width:45px;
+    height:45px;
+    font-size:21px;
+    cursor:pointer;
+    box-shadow:var(--shadow);
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+    .layout{
+        display:block;
+        padding:10px;
+    }
+
+    .sidebar{
+        position:relative;
+        top:0;
+        width:100%;
+        min-width:0;
+        max-height:400px;
+        margin-bottom:15px;
+    }
+
+    .sidebar.hidden{
+        display:none;
+    }
+
+    .section-body{
+        padding:15px;
+    }
+
+    details.section>summary{
+        font-size:15px;
+    }
+}
+
+/* PRINT */
+
+@media print{
+    .toolbar,
+    .sidebar,
+    .top-button,
+    .image-modal{
+        display:none!important;
+    }
+
+    .layout{
+        display:block;
+        padding:0;
+    }
+
+    details.section{
+        break-inside:avoid;
+        box-shadow:none;
+    }
+
+    details.section:not([open])>.section-body{
+        display:block!important;
+    }
+
+    details.section>summary::after{
+        display:none;
+    }
+
+    body{
+        background:white;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+    <h1>FOREST AND WILDLIFE RESOURCES</h1>
+    <p>Class 10 Geography | Contemporary India – II</p>
+    <p>Complete Classified Notes | NCERT Based</p>
+    <span class="tag">CBSE • BPSC • UPSC • School Examination</span>
+</header>
+
+<!-- TOOLBAR -->
+
+<div class="toolbar">
+
+    <button class="secondary" onclick="toggleSidebar()">
+        ☰ Show / Hide Contents
+    </button>
+
+    <input
+        type="search"
+        id="searchInput"
+        class="search-box"
+        placeholder="Search any word or topic..."
+        oninput="searchContent()"
+    >
+
+    <span id="searchCount"></span>
+
+    <button onclick="expandAll()">Expand All</button>
+
+    <button class="secondary" onclick="collapseAll()">
+        Collapse All
+    </button>
+
+    <button class="secondary" onclick="window.print()">
+        Print / PDF
+    </button>
+
+</div>
+
+<div class="layout">
+
+<!-- LEFT SIDEBAR -->
+
+<aside class="sidebar" id="sidebar">
+    <h2>TABLE OF CONTENTS</h2>
+    <div id="toc"></div>
+</aside>
+
+<!-- MAIN CONTENT -->
+
+<main class="content" id="mainContent">
+
+<!-- INTRODUCTION -->
+
+<div class="intro">
+
+    <h2>Chapter Introduction</h2>
+
+    <p>
+        We share this planet with millions of other living beings,
+        starting from micro-organisms and bacteria to lichens,
+        banyan trees, elephants and blue whales.
+    </p>
+
+    <p>
+        All living organisms form a complex ecological system.
+        Human beings are only one part of this system and depend
+        on it for their existence.
+    </p>
+
+    <p>
+        Forests play a key role in the ecological system because
+        they are primary producers on which other living beings
+        depend.
+    </p>
+
+    <div class="note">
+        <b>Chapter Focus:</b>
+        Biodiversity, flora and fauna, conservation of forests and
+        wildlife, Project Tiger, forest classification, community
+        participation, Sacred Groves and sustainable conservation.
+    </div>
+
+</div>
+
+<!-- SECTION 1 -->
+
+<details class="section" open id="s1">
+<summary>1. INTRODUCTION TO BIODIVERSITY AND ECOLOGICAL SYSTEM</summary>
+
+<div class="section-body">
+
+<h3>1.1 Our Planet and Living Organisms</h3>
+
+<p>
+Our planet contains millions of living organisms. These include
+micro-organisms, bacteria, lichens, plants, animals, elephants
+and blue whales.
+</p>
+
+<ul>
+    <li>All living organisms are interconnected.</li>
+    <li>Human beings are dependent on the ecological system.</li>
+    <li>Plants, animals and micro-organisms help maintain the quality of air.</li>
+    <li>They contribute to the quality of water.</li>
+    <li>They help maintain the soil that produces food.</li>
+    <li>Forests are primary producers in the ecological system.</li>
+</ul>
+
+<h3>1.2 Meaning of Biodiversity</h3>
+
+<p>
+Biodiversity or Biological Diversity refers to the immense variety
+of wildlife and cultivated species, diverse in form and function,
+but closely integrated through multiple networks of interdependence.
+</p>
+
+<h3>1.3 Components of Biodiversity</h3>
+
+<div class="mindmap">
+    <div class="mind-center">BIODIVERSITY</div>
+
+    <div class="mind-grid">
+        <div class="mind-item">
+            <b>Flora</b><br>
+            Plant life
+        </div>
+
+        <div class="mind-item">
+            <b>Fauna</b><br>
+            Animal life
+        </div>
+
+        <div class="mind-item">
+            <b>Micro-organisms</b><br>
+            Bacteria and other microscopic organisms
+        </div>
+
+        <div class="mind-item">
+            <b>Cultivated Species</b><br>
+            Different varieties of crops
+        </div>
+
+        <div class="mind-item">
+            <b>Genetic Diversity</b><br>
+            Variety within species
+        </div>
+
+        <div class="mind-item">
+            <b>Ecological Interdependence</b><br>
+            Relationships among organisms
+        </div>
+    </div>
+</div>
+
+<h3>1.4 Flora and Fauna in India</h3>
+
+<figure class="study-image">
+    <img
+        src="https://commons.wikimedia.org/wiki/Special:FilePath/Bengal_tiger_(Panthera_tigris_tigris).jpg"
+        alt="Bengal tiger in natural habitat"
+        onerror="this.style.display='none'"
+    >
+    <figcaption>Wildlife diversity in India</figcaption>
+</figure>
+
+<ul>
+    <li>India is one of the world's richest countries in biological diversity.</li>
+    <li>Different regions have unique plants and animals.</li>
+    <li>Many species are yet to be discovered.</li>
+    <li>Flora and fauna are integrated into our daily life.</li>
+    <li>These resources are under great stress due to insensitivity towards the environment.</li>
+</ul>
+
+<h3>1.5 Ecological Importance of Forests</h3>
+
+<ul>
+    <li>Forests are primary producers.</li>
+    <li>They support other living beings.</li>
+    <li>They help maintain ecological balance.</li>
+    <li>They provide habitat for wildlife.</li>
+    <li>They contribute to the maintenance of air, water and soil.</li>
+</ul>
+
+<div class="note green-note">
+    <b>Important Definition:</b><br>
+    Biodiversity is the variety of living organisms, including
+    plants, animals and micro-organisms, and their interdependence
+    within an ecological system.
+</div>
+
+<h3>1.6 Lepcha Folk Song and Nature</h3>
+
+<p>
+The chapter refers to a Lepcha folk song addressed to Narak.
+It describes music gathered from springs, rivers, mountains,
+forests, insects, animals and the sweet breeze.
+</p>
+
+<p>
+The song reflects the harmonious relationship between human
+beings and nature.
+</p>
+
+</div>
+</details>
+
+<!-- SECTION 2 -->
+
+<details class="section" id="s2">
+<summary>2. CONSERVATION OF FOREST AND WILDLIFE IN INDIA</summary>
+
+<div class="section-body">
+
+<h3>2.1 Meaning of Conservation</h3>
+
+<p>
+Conservation means protecting and carefully managing forests,
+wildlife and natural resources to prevent their destruction
+and maintain ecological balance.
+</p>
+
+<h3>2.2 Why Do We Need to Conserve Forests and Wildlife?</h3>
+
+<p>
+Conservation has become essential because of the rapid decline
+in wildlife populations and forestry.
+</p>
+
+<h4>Major Reasons</h4>
+
+<ol>
+    <li>
+        <b>Preservation of Ecological Diversity:</b>
+        Conservation protects the variety of living organisms.
+    </li>
+
+    <li>
+        <b>Protection of Life-Support Systems:</b>
+        It preserves water, air and soil.
+    </li>
+
+    <li>
+        <b>Protection of Genetic Diversity:</b>
+        It preserves the genetic diversity of plants and animals.
+    </li>
+
+    <li>
+        <b>Growth and Breeding:</b>
+        It supports better growth and breeding of species.
+    </li>
+
+    <li>
+        <b>Agricultural Importance:</b>
+        Agriculture continues to depend on traditional crop varieties.
+    </li>
+
+    <li>
+        <b>Aquatic Biodiversity:</b>
+        Fisheries depend on the maintenance of aquatic biodiversity.
+    </li>
+</ol>
+
+<h3>2.3 Importance of Conservation – Flowchart</h3>
+
+<div class="flow">
+
+    <div class="flow-box">CONSERVATION OF FORESTS AND WILDLIFE</div>
+
+    <div class="flow-arrow">↓</div>
+
+    <div class="flow-grid">
+
+        <div class="flow-box green">
+            Ecological Diversity
+        </div>
+
+        <div class="flow-box green">
+            Air, Water and Soil
+        </div>
+
+        <div class="flow-box green">
+            Genetic Diversity
+        </div>
+
+        <div class="flow-box green">
+            Plant and Animal Breeding
+        </div>
+
+        <div class="flow-box green">
+            Traditional Crop Varieties
+        </div>
+
+        <div class="flow-box green">
+            Aquatic Biodiversity
+        </div>
+
+    </div>
+
+</div>
+
+<h3>2.4 Wildlife Protection Programme</h3>
+
+<ul>
+    <li>During the 1960s and 1970s, conservationists demanded a national wildlife protection programme.</li>
+    <li>The Indian Wildlife (Protection) Act was implemented in 1972.</li>
+    <li>The Act included provisions for protecting wildlife habitats.</li>
+    <li>An all-India list of protected species was published.</li>
+</ul>
+
+<h3>2.5 Main Objectives of Wildlife Protection Programme</h3>
+
+<ol>
+    <li>Protect the remaining populations of endangered species.</li>
+    <li>Ban hunting of protected species.</li>
+    <li>Provide legal protection to wildlife habitats.</li>
+    <li>Restrict trade in wildlife.</li>
+    <li>Establish national parks and wildlife sanctuaries.</li>
+</ol>
+
+<div class="exam">
+    <b>Important Year: 1972</b><br>
+    Indian Wildlife (Protection) Act was implemented in 1972.
+</div>
+
+<h3>2.6 Major Animals Given Protection</h3>
+
+<div class="table-wrap">
+<table>
+    <tr>
+        <th>Category</th>
+        <th>Animals</th>
+    </tr>
+
+    <tr>
+        <td>Big Cats</td>
+        <td>Tiger and Asiatic Lion</td>
+    </tr>
+
+    <tr>
+        <td>Rhinoceros</td>
+        <td>One-horned Rhinoceros</td>
+    </tr>
+
+    <tr>
+        <td>Deer</td>
+        <td>Kashmir Stag or Hangul</td>
+    </tr>
+
+    <tr>
+        <td>Crocodiles</td>
+        <td>Freshwater Crocodile, Saltwater Crocodile and Gharial</td>
+    </tr>
+
+    <tr>
+        <td>Other Protected Animals</td>
+        <td>Indian Elephant, Blackbuck (Chinkara), Great Indian Bustard (Godawan) and Snow Leopard</td>
+    </tr>
+</table>
+</div>
+
+<h3>2.7 National Parks and Wildlife Sanctuaries</h3>
+
+<p>
+Central and many State Governments established national parks
+and wildlife sanctuaries for protecting wildlife and their habitats.
+</p>
+
+<figure class="study-image">
+    <img
+        src="https://commons.wikimedia.org/wiki/Special:FilePath/Indian_rhinoceros.jpg"
+        alt="Indian one horned rhinoceros"
+        onerror="this.style.display='none'"
+    >
+    <figcaption>One-horned rhinoceros – an important protected species</figcaption>
+</figure>
+
+</div>
+</details>
+
+<!-- SECTION 3 -->
+
+<details class="section" id="s3">
+<summary>3. PROJECT TIGER</summary>
+
+<div class="section-body">
+
+<h3>3.1 Introduction</h3>
+
+<figure class="study-image">
+    <img
+        src="https://commons.wikimedia.org/wiki/Special:FilePath/Bengal_tiger_(Panthera_tigris_tigris).jpg"
+        alt="Bengal tiger"
+        onerror="this.style.display='none'"
+    >
+    <figcaption>Tiger – one of the key wildlife species in the faunal web</figcaption>
+</figure>
+
+<ul>
+    <li>Tiger is one of the key wildlife species in the faunal web.</li>
+    <li>Project Tiger was launched in 1973.</li>
+    <li>It is one of the well-publicised wildlife campaigns in the world.</li>
+</ul>
+
+<h3>3.2 Decline in Tiger Population</h3>
+
+<div class="table-wrap">
+<table>
+    <tr>
+        <th>Period</th>
+        <th>Tiger Population</th>
+    </tr>
+
+    <tr>
+        <td>Turn of the 20th Century</td>
+        <td>Estimated 55,000</td>
+    </tr>
+
+    <tr>
+        <td>1973</td>
+        <td>1,827</td>
+    </tr>
+</table>
+</div>
+
+<h3>3.3 Major Threats to Tiger Population</h3>
+
+<ol>
+    <li>Poaching for trade.</li>
+    <li>Shrinking natural habitat.</li>
+    <li>Depletion of prey-base species.</li>
+    <li>Growing human population.</li>
+    <li>Trade in tiger skins.</li>
+    <li>Use of tiger bones in traditional medicines, especially in Asian countries.</li>
+    <li>Illegal wildlife trade.</li>
+</ol>
+
+<h3>3.4 India and Nepal's Importance</h3>
+
+<ul>
+    <li>India and Nepal provide habitat to about two-thirds of the surviving tiger population in the world, according to NCERT.</li>
+    <li>These countries became major targets for poaching and illegal trade.</li>
+</ul>
+
+<h3>3.5 Objectives of Project Tiger</h3>
+
+<ul>
+    <li>Protect tigers from extinction.</li>
+    <li>Conserve their natural habitats.</li>
+    <li>Protect prey species.</li>
+    <li>Preserve larger natural ecosystems.</li>
+    <li>Maintain biodiversity.</li>
+</ul>
+
+<h3>3.6 Tiger Reserves Mentioned in NCERT</h3>
+
+<div class="table-wrap">
+<table>
+    <tr>
+        <th>National Park / Tiger Reserve</th>
+        <th>State</th>
+    </tr>
+
+    <tr>
+        <td>Corbett National Park</td>
+        <td>Uttarakhand</td>
+    </tr>
+
+    <tr>
+        <td>Sunderbans National Park</td>
+        <td>West Bengal</td>
+    </tr>
+
+    <tr>
+        <td>Bandhavgarh National Park</td>
+        <td>Madhya Pradesh</td>
+    </tr>
+
+    <tr>
+        <td>Sariska Wildlife Sanctuary</td>
+        <td>Rajasthan</td>
+    </tr>
+
+    <tr>
+        <td>Manas Tiger Reserve</td>
+        <td>Assam</td>
+    </tr>
+
+    <tr>
+        <td>Periyar Tiger Reserve</td>
+        <td>Kerala</td>
+    </tr>
+</table>
+</div>
+
+<div class="image-row">
+
+    <div>
+        <img
+            src="https://commons.wikimedia.org/wiki/Special:FilePath/Jim_Corbett_National_Park.jpg"
+            alt="Corbett National Park"
+            onerror="this.style.display='none'"
+        >
+        <p>Corbett National Park</p>
+    </div>
+
+    <div>
+        <img
+            src="https://commons.wikimedia.org/wiki/Special:FilePath/Sundarbans.jpg"
+            alt="Sunderbans"
+            onerror="this.style.display='none'"
+        >
+        <p>Sunderbans</p>
+    </div>
+
+    <div>
+        <img
+            src="https://commons.wikimedia.org/wiki/Special:FilePath/Periyar_National_Park.jpg"
+            alt="Periyar National Park"
+            onerror="this.style.display='none'"
+        >
+        <p>Periyar Tiger Reserve</p>
+    </div>
+
+</div>
+
+<h3>3.7 Expansion of Conservation Efforts</h3>
+
+<ul>
+    <li>Conservation projects gradually focused on biodiversity rather than only a few components.</li>
+    <li>Insects began receiving attention in conservation planning.</li>
+    <li>Notifications under the Wildlife Act of 1980 and 1986 added several hundred butterflies, moths, beetles and one dragonfly to the protected list.</li>
+    <li>In 1991, plants were included in the protected list for the first time, beginning with six species.</li>
+</ul>
+
+<div class="exam">
+    <b>Important Facts:</b><br>
+    Project Tiger – 1973<br>
+    Tiger population mentioned for 1973 – 1,827<br>
+    Estimated population at the turn of the century – 55,000<br>
+    Plants added to the protected list – 1991, starting with six species.
+</div>
+
+</div>
+</details>
+
+<!-- SECTION 4 -->
+
+<details class="section" id="s4">
+<summary>4. TYPES AND DISTRIBUTION OF FOREST RESOURCES</summary>
+
+<div class="section-body">
+
+<h3>4.1 Government Management of Forests</h3>
+
+<p>
+Much of India's forest and wildlife resources are owned or
+managed by the government through the Forest Department or
+other government departments.
+</p>
+
+<p>These forests are classified into three categories:</p>
+
+<div class="mindmap">
+
+    <div class="mind-center">FOREST RESOURCES IN INDIA</div>
+
+    <div class="mind-grid">
+
+        <div class="mind-item">
+            <b>Reserved Forests</b><br>
+            More than half of total forest land
+        </div>
+
+        <div class="mind-item">
+            <b>Protected Forests</b><br>
+            Almost one-third of total forest area
+        </div>
+
+        <div class="mind-item">
+            <b>Unclassed Forests</b><br>
+            Other forests and wastelands
+        </div>
+
+    </div>
+
+</div>
+
+<h3>4.2 Reserved Forests</h3>
+
+<ul>
+    <li>More than half of the total forest land has been declared reserved forests.</li>
+    <li>They are regarded as the most valuable for conservation of forest and wildlife resources.</li>
+</ul>
+
+<h3>4.3 Protected Forests</h3>
+
+<ul>
+    <li>Almost one-third of the total forest area is protected forest.</li>
+    <li>These forests are declared by the Forest Department.</li>
+    <li>They are protected from further depletion.</li>
+</ul>
+
+<h3>4.4 Unclassed Forests</h3>
+
+<ul>
+    <li>These are other forests and wastelands.</li>
+    <li>They may belong to the government.</li>
+    <li>They may belong to private individuals.</li>
+    <li>They may belong to communities.</li>
+</ul>
+
+<h3>4.5 Permanent Forest Estates</h3>
+
+<p>
+Reserved and protected forests are also referred to as
+permanent forest estates.
+</p>
+
+<p>They are maintained for:</p>
+
+<ol>
+    <li>Producing timber.</li>
+    <li>Producing other forest products.</li>
+    <li>Protective purposes.</li>
+</ol>
+
+<h3>4.6 State-wise Distribution of Forest Categories</h3>
+
+<h4>Madhya Pradesh</h4>
+
+<ul>
+    <li>Madhya Pradesh has the largest area under permanent forests.</li>
+    <li>Permanent forests constitute 75% of its total forest area.</li>
+</ul>
+
+<h4>States with Large Percentages of Reserved Forests</h4>
+
+<ul>
+    <li>Jammu and Kashmir.</li>
+    <li>Andhra Pradesh.</li>
+    <li>Uttarakhand.</li>
+    <li>Kerala.</li>
+    <li>Tamil Nadu.</li>
+    <li>West Bengal.</li>
+    <li>Maharashtra.</li>
+</ul>
+
+<h4>States with a Bulk of Forest Area under Protected Forests</h4>
+
+<ul>
+    <li>Bihar.</li>
+    <li>Haryana.</li>
+    <li>Punjab.</li>
+    <li>Himachal Pradesh.</li>
+    <li>Odisha.</li>
+    <li>Rajasthan.</li>
+</ul>
+
+<h4>Areas with a High Percentage of Unclassed Forests</h4>
+
+<ul>
+    <li>All North-Eastern states.</li>
+    <li>Parts of Gujarat.</li>
+    <li>Many of these forests are managed by local communities.</li>
+</ul>
+
+<h3>4.7 Comparison of Forest Categories</h3>
+
+<div class="table-wrap">
+<table>
+    <tr>
+        <th>Basis</th>
+        <th>Reserved</th>
+        <th>Protected</th>
+        <th>Unclassed</th>
+    </tr>
+
+    <tr>
+        <td>Area</td>
+        <td>More than half</td>
+        <td>Almost one-third</td>
+        <td>Other forests and wastelands</td>
+    </tr>
+
+    <tr>
+        <td>Management</td>
+        <td>Government</td>
+        <td>Forest Department</td>
+        <td>Government, private individuals and communities</td>
+    </tr>
+
+    <tr>
+        <td>Main Feature</td>
+        <td>Most valuable for conservation</td>
+        <td>Protected from further depletion</td>
+        <td>May be community-managed</td>
+    </tr>
+</table>
+</div>
+
+</div>
+</details>
+
+<!-- SECTION 5 -->
+
+<details class="section" id="s5">
+<summary>5. COMMUNITY AND CONSERVATION</summary>
+
+<div class="section-body">
+
+<h3>5.1 Role of Local Communities</h3>
+
+<p>
+Conservation strategies are not new in India. Forests are also
+home to traditional communities. Local people often depend on
+forests for their livelihoods.
+</p>
+
+<ul>
+    <li>Communities work with government officials to protect habitats.</li>
+    <li>Some villagers independently protect forests.</li>
+    <li>They recognise that conservation secures their long-term livelihood.</li>
+    <li>Traditional knowledge helps protect biodiversity.</li>
+</ul>
+
+<h3>5.2 Sariska Tiger Reserve – Rajasthan</h3>
+
+<figure class="study-image">
+    <img
+        src="https://commons.wikimedia.org/wiki/Special:FilePath/Sariska_Tiger_Reserve.jpg"
+        alt="Sariska Tiger Reserve"
+        onerror="this.style.display='none'"
+    >
+    <figcaption>Sariska Tiger Reserve, Rajasthan</figcaption>
+</figure>
+
+<ul>
+    <li>Villagers in Sariska Tiger Reserve struggled against mining activities.</li>
+    <li>They cited the Wildlife Protection Act.</li>
+    <li>This demonstrates the importance of local community participation.</li>
+</ul>
+
+<h3>5.3 Bhairodev Dakav 'Sonchuri' – Alwar, Rajasthan</h3>
+
+<figure class="study-image">
+    <img
+        src="https://commons.wikimedia.org/wiki/Special:FilePath/Alwar_Rajasthan_forest.jpg"
+        alt="Forest in Rajasthan"
+        onerror="this.style.display='none'"
+    >
+    <figcaption>Community-based forest conservation in Rajasthan</figcaption>
+</figure>
+
+<ul>
+    <li>Five villages in Alwar district declared 1,200 hectares of forest as Bhairodev Dakav 'Sonchuri'.</li>
+    <li>Villagers established their own rules and regulations.</li>
+    <li>Hunting was prohibited.</li>
+    <li>Wildlife was protected against outside encroachments.</li>
+</ul>
+
+<div class="exam">
+    <b>Important Exam Fact:</b><br>
+    Bhairodev Dakav 'Sonchuri' – Alwar, Rajasthan – Five villages –
+    1,200 hectares of forest.
+</div>
+
+<h3>5.4 Chipko Movement</h3>
+
+<figure class="study-image">
+    <img
+        src="https://commons.wikimedia.org/wiki/Special:FilePath/Chipko_movement.jpg"
+        alt="Chipko Movement"
+        onerror="this.style.display='none'"
+    >
+    <figcaption>Chipko Movement – Community resistance against deforestation</figcaption>
+</figure>
+
+<ul>
+    <li>The Chipko Movement took place in the Himalayas.</li>
+    <li>It successfully resisted deforestation in several areas.</li>
+    <li>It demonstrated the effectiveness of community afforestation.</li>
+    <li>It showed the importance of planting indigenous species.</li>
+</ul>
+
+<h3>5.5 Beej Bachao Andolan</h3>
+
+<ul>
+    <li>Associated with Tehri.</li>
+    <li>Farmers and citizens' groups participated.</li>
+    <li>It demonstrated that diversified crop production is possible without synthetic chemicals.</li>
+    <li>Such practices can be economically viable.</li>
+</ul>
+
+<h3>5.6 Navdanya</h3>
+
+<ul>
+    <li>Mentioned along with Beej Bachao Andolan.</li>
+    <li>Demonstrated the importance of diversified crop production.</li>
+    <li>Supported farming without synthetic chemicals.</li>
+</ul>
+
+<h3>5.7 Joint Forest Management (JFM)</h3>
+
+<figure class="study-image">
+    <img
+        src="https://commons.wikimedia.org/wiki/Special:FilePath/Forest_conservation_India.jpg"
+        alt="Forest conservation"
+        onerror="this.style.display='none'"
+    >
+    <figcaption>Community participation in forest conservation</figcaption>
+</figure>
+
+<h4>Meaning</h4>
+
+<p>
+Joint Forest Management is a programme that involves local
+communities in the management and restoration of degraded forests.
+</p>
+
+<h4>Origin</h4>
+
+<ul>
+    <li>The programme has been in formal existence since 1988.</li>
+    <li>Odisha passed the first resolution for Joint Forest Management.</li>
+</ul>
+
+<h4>Working of JFM</h4>
+
+<ol>
+    <li>Local village institutions are formed.</li>
+    <li>These institutions undertake protection activities.</li>
+    <li>Activities mainly take place on degraded forest land managed by the Forest Department.</li>
+    <li>Communities help protect and restore forests.</li>
+    <li>Community members receive benefits in return.</li>
+</ol>
+
+<h4>Benefits to Local Communities</h4>
+
+<ul>
+    <li>Non-timber forest produce.</li>
+    <li>A share in the timber harvested through successful protection.</li>
+</ul>
+
+<h3>5.8 Joint Forest Management – Flowchart</h3>
+
+<div class="flow">
+
+    <div class="flow-box">FOREST DEPARTMENT</div>
+
+    <div class="flow-arrow">↓</div>
+
+    <div class="flow-box green">LOCAL VILLAGE INSTITUTIONS</div>
+
+    <div class="flow-arrow">↓</div>
+
+    <div class="flow-box">PROTECTION AND RESTORATION OF DEGRADED FORESTS</div>
+
+    <div class="flow-arrow">↓</div>
+
+    <div class="flow-box green">
+        COMMUNITY BENEFITS
+        <br>
+        Non-timber forest produce and share in harvested timber
+    </div>
+
+</div>
+
+<h3>5.9 Importance of Community Participation</h3>
+
+<ul>
+    <li>Local communities should be involved in natural resource management.</li>
+    <li>They have traditional knowledge of their environment.</li>
+    <li>Their livelihoods often depend on forests.</li>
+    <li>Community participation improves conservation efforts.</li>
+    <li>Development activities should be people-centric, environment-friendly and economically rewarding.</li>
+</ul>
+
+</div>
+</details>
+
+<!-- SECTION 6 -->
+
+<details class="section" id="s6">
+<summary>6. SACRED GROVES – A WEALTH OF DIVERSE AND RARE SPECIES</summary>
+
+<div class="section-body">
+
+<h3>6.1 Meaning of Sacred Groves</h3>
+
+<figure class="study-image">
+    <img
+        src="https://commons.wikimedia.org/wiki/Special:FilePath/Sacred_grove.jpg"
+        alt="Sacred grove forest"
+        onerror="this.style.display='none'"
+    >
+    <figcaption>Sacred Groves – traditionally protected forest patches</figcaption>
+</figure>
+
+<p>
+Sacred Groves are patches of forests or parts of large forests
+that have been preserved in their natural form due to traditional
+religious and cultural beliefs.
+</p>
+
+<p>They are also called:</p>
+
+<ul>
+    <li>Forests of Gods.</li>
+    <li>Forests of Goddesses.</li>
+</ul>
+
+<h3>6.2 Main Features</h3>
+
+<ol>
+    <li>Based on traditional nature worship.</li>
+    <li>Local people believe that all creations of nature should be protected.</li>
+    <li>Forest patches are left untouched.</li>
+    <li>Interference with these forests is banned.</li>
+    <li>They help preserve diverse and rare species.</li>
+</ol>
+
+<h3>6.3 Traditional Tree Worship in India</h3>
+
+<div class="table-wrap">
+<table>
+    <tr>
+        <th>Community / Region</th>
+        <th>Tree Worshipped</th>
+    </tr>
+
+    <tr>
+        <td>Mundas of Chota Nagpur</td>
+        <td>Mahua</td>
+    </tr>
+
+    <tr>
+        <td>Santhals of Chota Nagpur</td>
+        <td>Kadamba</td>
+    </tr>
+
+    <tr>
+        <td>Tribals of Odisha and Bihar</td>
+        <td>Tamarind and Mango during weddings</td>
+    </tr>
+
+    <tr>
+        <td>Many Indian communities</td>
+        <td>Peepal and Banyan</td>
+    </tr>
+</table>
+</div>
+
+<h3>6.4 Scientific Names of Important Trees</h3>
+
+<div class="table-wrap">
+<table>
+    <tr>
+        <th>Common Name</th>
+        <th>Scientific Name</th>
+    </tr>
+
+    <tr>
+        <td>Mahua</td>
+        <td><i>Bassia latifolia</i></td>
+    </tr>
+
+    <tr>
+        <td>Kadamba</td>
+        <td><i>Anthocephalus cadamba</i></td>
+    </tr>
+
+    <tr>
+        <td>Tamarind</td>
+        <td><i>Tamarindus indica</i></td>
+    </tr>
+
+    <tr>
+        <td>Mango</td>
+        <td><i>Mangifera indica</i></td>
+    </tr>
+</table>
+</div>
+
+<h3>6.5 Protection of Animals through Traditional Beliefs</h3>
+
+<ul>
+    <li>Springs, mountain peaks, plants and animals are considered sacred in several cultures.</li>
+    <li>Macaques and langurs are found around many temples.</li>
+    <li>They are fed daily and treated as part of temple communities.</li>
+    <li>In Bishnoi villages of Rajasthan, wildlife is protected as an integral part of community life.</li>
+</ul>
+
+<h3>6.6 Animals Protected by Bishnoi Communities</h3>
+
+<figure class="study-image">
+    <img
+        src="https://commons.wikimedia.org/wiki/Special:FilePath/Blackbuck_male.jpg"
+        alt="Blackbuck"
+        onerror="this.style.display='none'"
+    >
+    <figcaption>Blackbuck – protected by the Bishnoi community</figcaption>
+</figure>
+
+<ul>
+    <li>Blackbuck.</li>
+    <li>Chinkara.</li>
+    <li>Nilgai.</li>
+    <li>Peacocks.</li>
+</ul>
+
+<h3>6.7 Importance of Sacred Groves</h3>
+
+<ul>
+    <li>Preserve rare species.</li>
+    <li>Protect natural vegetation.</li>
+    <li>Maintain biodiversity.</li>
+    <li>Encourage traditional conservation practices.</li>
+    <li>Promote harmony between human beings and nature.</li>
+</ul>
+
+</div>
+</details>
+
+<!-- SECTION 7 -->
+
+<details class="section" id="s7">
+<summary>7. IMPORTANT MOVEMENTS, PEOPLE AND PROGRAMMES</summary>
+
+<div class="section-body">
+
+<div class="table-wrap">
+<table>
+
+    <tr>
+        <th>Name</th>
+        <th>Year / Location</th>
+        <th>Main Contribution</th>
+    </tr>
+
+    <tr>
+        <td>Wildlife Protection Act</td>
+        <td>1972</td>
+        <td>Legal protection for wildlife and habitats.</td>
+    </tr>
+
+    <tr>
+        <td>Project Tiger</td>
+        <td>1973</td>
+        <td>Tiger conservation.</td>
+    </tr>
+
+    <tr>
+        <td>Chipko Movement</td>
+        <td>Himalayas</td>
+        <td>Resisted deforestation and promoted community afforestation.</td>
+    </tr>
+
+    <tr>
+        <td>Beej Bachao Andolan</td>
+        <td>Tehri</td>
+        <td>Diversified crop production without synthetic chemicals.</td>
+    </tr>
+
+    <tr>
+        <td>Navdanya</td>
+        <td>India</td>
+        <td>Promoted diversified crop production.</td>
+    </tr>
+
+    <tr>
+        <td>Joint Forest Management</td>
+        <td>1988, Odisha</td>
+        <td>Community participation in forest management.</td>
+    </tr>
+
+    <tr>
+        <td>Bhairodev Dakav 'Sonchuri'</td>
+        <td>Alwar, Rajasthan</td>
+        <td>Community protection of 1,200 hectares of forest.</td>
+    </tr>
+
+    <tr>
+        <td>Sacred Groves</td>
+        <td>Different regions</td>
+        <td>Traditional forest conservation.</td>
+    </tr>
+
+</table>
+</div>
+
+</div>
+</details>
+
+<!-- SECTION 8 -->
+
+<details class="section" id="s8">
+<summary>8. IMPORTANT DATES AND NUMERICAL FACTS</summary>
+
+<div class="section-body">
+
+<div class="table-wrap">
+<table>
+
+    <tr>
+        <th>Year / Figure</th>
+        <th>Event or Fact</th>
+    </tr>
+
+    <tr>
+        <td>1960s–1970s</td>
+        <td>Conservationists demanded a national wildlife protection programme.</td>
+    </tr>
+
+    <tr>
+        <td>1972</td>
+        <td>Indian Wildlife (Protection) Act implemented.</td>
+    </tr>
+
+    <tr>
+        <td>1973</td>
+        <td>Project Tiger launched.</td>
+    </tr>
+
+    <tr>
+        <td>1980 and 1986</td>
+        <td>Wildlife Act notifications added several insects to the protected-species lists.</td>
+    </tr>
+
+    <tr>
+        <td>1988</td>
+        <td>Odisha passed the first JFM resolution.</td>
+    </tr>
+
+    <tr>
+        <td>1991</td>
+        <td>Plants were included in the protected list for the first time, beginning with six species.</td>
+    </tr>
+
+    <tr>
+        <td>1,827</td>
+        <td>Tiger population in 1973 according to NCERT.</td>
+    </tr>
+
+    <tr>
+        <td>55,000</td>
+        <td>Estimated tiger population at the turn of the century.</td>
+    </tr>
+
+    <tr>
+        <td>Two-thirds</td>
+        <td>Approximate share of surviving world tiger population hosted by India and Nepal.</td>
+    </tr>
+
+    <tr>
+        <td>More than half</td>
+        <td>Forest land under reserved forests.</td>
+    </tr>
+
+    <tr>
+        <td>Almost one-third</td>
+        <td>Total forest area under protected forests.</td>
+    </tr>
+
+    <tr>
+        <td>75%</td>
+        <td>Share of Madhya Pradesh's total forest area under permanent forests.</td>
+    </tr>
+
+    <tr>
+        <td>1,200 hectares</td>
+        <td>Forest declared Bhairodev Dakav 'Sonchuri'.</td>
+    </tr>
+
+    <tr>
+        <td>Five villages</td>
+        <td>Participated in the Alwar conservation initiative.</td>
+    </tr>
+
+</table>
+</div>
+
+</div>
+</details>
+
+<!-- SECTION 9 -->
+
+<details class="section" id="s9">
+<summary>9. IMPORTANT COMPARISONS</summary>
+
+<div class="section-body">
+
+<h3>9.1 Reserved vs Protected vs Unclassed Forests</h3>
+
+<div class="table-wrap">
+<table>
+    <tr>
+        <th>Reserved Forests</th>
+        <th>Protected Forests</th>
+        <th>Unclassed Forests</th>
+    </tr>
+
+    <tr>
+        <td>More than half of total forest land.</td>
+        <td>Almost one-third of total forest area.</td>
+        <td>Other forests and wastelands.</td>
+    </tr>
+
+    <tr>
+        <td>Most valuable for conservation.</td>
+        <td>Protected from further depletion.</td>
+        <td>Government, private or community ownership.</td>
+    </tr>
+
+    <tr>
+        <td>Government-managed category.</td>
+        <td>Declared by Forest Department.</td>
+        <td>Often managed by local communities.</td>
+    </tr>
+</table>
+</div>
+
+<h3>9.2 Project Tiger vs Joint Forest Management</h3>
+
+<div class="table-wrap">
+<table>
+    <tr>
+        <th>Project Tiger</th>
+        <th>Joint Forest Management</th>
+    </tr>
+
+    <tr>
+        <td>Launched in 1973.</td>
+        <td>Formal existence since 1988.</td>
+    </tr>
+
+    <tr>
+        <td>Focuses on tiger conservation.</td>
+        <td>Focuses on degraded forest management and restoration.</td>
+    </tr>
+
+    <tr>
+        <td>Protects an endangered wildlife species and its habitat.</td>
+        <td>Involves local village institutions.</td>
+    </tr>
+
+    <tr>
+        <td>Wildlife conservation campaign.</td>
+        <td>Community-based forest management programme.</td>
+    </tr>
+</table>
+</div>
+
+<h3>9.3 Chipko Movement vs Beej Bachao Andolan</h3>
+
+<div class="table-wrap">
+<table>
+    <tr>
+        <th>Chipko Movement</th>
+        <th>Beej Bachao Andolan</th>
+    </tr>
+
+    <tr>
+        <td>Associated with the Himalayas.</td>
+        <td>Associated with Tehri.</td>
+    </tr>
+
+    <tr>
+        <td>Resisted deforestation.</td>
+        <td>Promoted diversified crop production.</td>
+    </tr>
+
+    <tr>
+        <td>Demonstrated community afforestation.</td>
+        <td>Demonstrated farming without synthetic chemicals.</td>
+    </tr>
+
+    <tr>
+        <td>Forest conservation.</td>
+        <td>Agricultural and ecological conservation.</td>
+    </tr>
+</table>
+</div>
+
+</div>
+</details>
+
+<!-- SECTION 10 -->
+
+<details class="section" id="s10">
+<summary>10. NCERT EXERCISE – SOLVED ANSWERS</summary>
+
+<div class="section-body">
+
+<h3>A. Multiple Choice Question</h3>
+
+<div class="question">
+
+    <b>
+        Q1. Which of the following conservation strategies do not
+        directly involve community participation?
+    </b>
+
+    <p>
+        (a) Joint Forest Management<br>
+        (b) Beej Bachao Andolan<br>
+        (c) Chipko Movement<br>
+        (d) Demarcation of Wildlife Sanctuaries
+    </p>
+
+    <div class="answer">
+        <b>Correct Answer: (d) Demarcation of Wildlife Sanctuaries</b>
+        <p>
+            Explanation: Joint Forest Management, Beej Bachao
+            Andolan and Chipko Movement directly involve community
+            participation. Demarcation of wildlife sanctuaries is
+            a formal protection measure.
+        </p>
+    </div>
+
+</div>
+
+<h3>B. Match the Following</h3>
+
+<div class="table-wrap">
+<table>
+    <tr>
+        <th>Column A</th>
+        <th>Correct Match</th>
+    </tr>
+
+    <tr>
+        <td>Reserved Forests</td>
+        <td>Forests regarded as most valuable for conservation.</td>
+    </tr>
+
+    <tr>
+        <td>Protected Forests</td>
+        <td>Forest lands protected from further depletion.</td>
+    </tr>
+
+    <tr>
+        <td>Unclassed Forests</td>
+        <td>Other forests and wastelands belonging to government, private individuals and communities.</td>
+    </tr>
+</table>
+</div>
+
+<h3>C. Answer in About 30 Words</h3>
+
+<div class="question">
+
+    <b>
+        Q1. What is biodiversity? Why is biodiversity important
+        for human lives?
+    </b>
+
+    <div class="answer">
+
+        Biodiversity refers to the variety of plants, animals and
+        micro-organisms. It maintains ecological balance and
+        supports essential life-support systems such as air,
+        water and soil. It also preserves genetic diversity.
+
+    </div>
+
+</div>
+
+<div class="question">
+
+    <b>
+        Q2. How have human activities affected the depletion
+        of flora and fauna? Explain.
+    </b>
+
+    <div class="answer">
+
+        Human activities such as deforestation, mining, habitat
+        destruction, poaching, hunting and illegal wildlife trade
+        have caused the depletion of flora and fauna. These
+        activities disturb ecological balance and threaten
+        endangered species.
+
+    </div>
+
+</div>
+
+<h3>D. Answer in About 120 Words</h3>
+
+<div class="question">
+
+    <b>
+        Q1. Describe how communities have conserved and protected
+        forests and wildlife in India.
+    </b>
+
+    <div class="answer">
+
+        Local communities have played an important role in
+        conserving forests and wildlife in India.
+
+        <ol>
+            <li>In Sariska Tiger Reserve, Rajasthan, villagers opposed mining by citing the Wildlife Protection Act.</li>
+
+            <li>Five villages in Alwar district declared 1,200 hectares of forest as Bhairodev Dakav 'Sonchuri' and prohibited hunting.</li>
+
+            <li>The Chipko Movement in the Himalayas successfully resisted deforestation and promoted community afforestation.</li>
+
+            <li>Beej Bachao Andolan in Tehri and Navdanya demonstrated the possibility of diversified crop production without synthetic chemicals.</li>
+
+            <li>Sacred Groves preserved rare plant and animal species through traditional religious beliefs.</li>
+
+            <li>Joint Forest Management, formally existing since 1988, involved local communities in protecting degraded forests.</li>
+        </ol>
+
+        These examples demonstrate that community participation
+        is essential for successful forest and wildlife conservation.
+
+    </div>
+
+</div>
+
+<div class="question">
+
+    <b>
+        Q2. Write a note on good practices towards conserving
+        forest and wildlife.
+    </b>
+
+    <div class="answer">
+
+        Good practices for conserving forests and wildlife include:
+
+        <ol>
+            <li>Protecting natural habitats and preventing deforestation.</li>
+            <li>Preventing hunting, poaching and illegal wildlife trade.</li>
+            <li>Establishing national parks and wildlife sanctuaries.</li>
+            <li>Promoting afforestation using indigenous species.</li>
+            <li>Encouraging community participation in forest management.</li>
+            <li>Supporting traditional conservation practices such as Sacred Groves.</li>
+            <li>Promoting movements such as Chipko.</li>
+            <li>Encouraging diversified crop production without synthetic chemicals.</li>
+            <li>Implementing Joint Forest Management.</li>
+            <li>Protecting endangered species through legal measures.</li>
+        </ol>
+
+        Conservation should involve local communities and promote
+        development that is people-centric, environment-friendly
+        and economically rewarding.
+
+    </div>
+
+</div>
+
+</div>
+</details>
+
+<!-- SECTION 11 -->
+
+<details class="section" id="s11">
+<summary>11. NCERT ACTIVITIES AND DISCUSSION QUESTIONS</summary>
+
+<div class="section-body">
+
+<h3>11.1 Harmonious Relationship Between Humans and Nature</h3>
+
+<p>
+The chapter asks students to find stories prevalent in their
+region that describe the harmonious relationship between
+human beings and nature.
+</p>
+
+<h4>Examples</h4>
+
+<ul>
+    <li>Worshipping trees such as peepal and banyan.</li>
+    <li>Protecting Sacred Groves.</li>
+    <li>Feeding monkeys and langurs around temples.</li>
+    <li>Protecting blackbuck and other wildlife in Bishnoi villages.</li>
+    <li>Participating in community afforestation.</li>
+    <li>Protecting rivers, springs and mountains.</li>
+</ul>
+
+<h3>11.2 Wildlife Sanctuaries and National Parks</h3>
+
+<p>
+The NCERT activity asks students to collect information about
+wildlife sanctuaries and national parks and mark their locations
+on a map of India.
+</p>
+
+<div class="table-wrap">
+<table>
+    <tr>
+        <th>Protected Area</th>
+        <th>State</th>
+    </tr>
+
+    <tr>
+        <td>Corbett National Park</td>
+        <td>Uttarakhand</td>
+    </tr>
+
+    <tr>
+        <td>Sunderbans National Park</td>
+        <td>West Bengal</td>
+    </tr>
+
+    <tr>
+        <td>Bandhavgarh National Park</td>
+        <td>Madhya Pradesh</td>
+    </tr>
+
+    <tr>
+        <td>Sariska Wildlife Sanctuary</td>
+        <td>Rajasthan</td>
+    </tr>
+
+    <tr>
+        <td>Manas Tiger Reserve</td>
+        <td>Assam</td>
+    </tr>
+
+    <tr>
+        <td>Periyar Tiger Reserve</td>
+        <td>Kerala</td>
+    </tr>
+</table>
+</div>
+
+<h3>11.3 Everyday Practices to Protect the Environment</h3>
+
+<p>
+The chapter asks students to write a short essay on practices
+that conserve and protect the environment.
+</p>
+
+<div class="note green-note">
+
+    <b>Model Answer:</b>
+
+    <p>
+        We can protect our environment through simple daily
+        activities. We should plant trees, avoid unnecessary
+        cutting of trees, save water, reduce plastic use and
+        keep our surroundings clean. We should not harm animals
+        or destroy their habitats. We should also encourage
+        people to protect forests and wildlife. Community
+        participation is essential for maintaining ecological
+        balance and conserving natural resources for future
+        generations.
+    </p>
+
+</div>
+
+</div>
+</details>
+
+<!-- SECTION 12 -->
+
+<details class="section" id="s12">
+<summary>12. COMPLETE CHAPTER MIND MAP AND FLOWCHART</summary>
+
+<div class="section-body">
+
+<h3>12.1 Complete Chapter Mind Map</h3>
+
+<div class="mindmap">
+
+    <div class="mind-center">
+        FOREST AND WILDLIFE RESOURCES
+    </div>
+
+    <div class="mind-grid">
+
+        <div class="mind-item">
+            <b>1. Biodiversity</b><br>
+            Flora, Fauna, Micro-organisms and Ecological System
+        </div>
+
+        <div class="mind-item">
+            <b>2. Conservation</b><br>
+            Ecological Balance, Genetic Diversity and Life-Support Systems
+        </div>
+
+        <div class="mind-item">
+            <b>3. Wildlife Protection</b><br>
+            1972 Act, Protected Species and Sanctuaries
+        </div>
+
+        <div class="mind-item">
+            <b>4. Project Tiger</b><br>
+            1973, Threats and Tiger Reserves
+        </div>
+
+        <div class="mind-item">
+            <b>5. Forest Categories</b><br>
+            Reserved, Protected and Unclassed
+        </div>
+
+        <div class="mind-item">
+            <b>6. Community Conservation</b><br>
+            Chipko, Sariska and Alwar
+        </div>
+
+        <div class="mind-item">
+            <b>7. Traditional Practices</b><br>
+            Sacred Groves and Bishnoi Community
+        </div>
+
+        <div class="mind-item">
+            <b>8. Conservation Programmes</b><br>
+            Beej Bachao, Navdanya and JFM
+        </div>
+
+    </div>
+
+</div>
+
+<h3>12.2 Complete Chapter Flowchart</h3>
+
+<div class="flow">
+
+    <div class="flow-box">FOREST AND WILDLIFE RESOURCES</div>
+
+    <div class="flow-arrow">↓</div>
+
+    <div class="flow-box">BIODIVERSITY AND ECOLOGICAL SYSTEM</div>
+
+    <div class="flow-arrow">↓</div>
+
+    <div class="flow-box">CONSERVATION OF FORESTS AND WILDLIFE</div>
+
+    <div class="flow-arrow">↓</div>
+
+    <div class="flow-box">WILDLIFE PROTECTION ACT – 1972</div>
+
+    <div class="flow-arrow">↓</div>
+
+    <div class="flow-box">PROJECT TIGER – 1973</div>
+
+    <div class="flow-arrow">↓</div>
+
+    <div class="flow-box">TYPES OF FOREST RESOURCES</div>
+
+    <div class="flow-arrow">↓</div>
+
+    <div class="flow-grid">
+
+        <div class="flow-box green">
+            Reserved Forests
+        </div>
+
+        <div class="flow-box orange">
+            Protected Forests
+        </div>
+
+        <div class="flow-box">
+            Unclassed Forests
+        </div>
+
+    </div>
+
+    <div class="flow-arrow">↓</div>
+
+    <div class="flow-box">COMMUNITY AND CONSERVATION</div>
+
+    <div class="flow-arrow">↓</div>
+
+    <div class="flow-box">CHIPKO • BEEJ BACHAO • NAVDANYA • JFM</div>
+
+    <div class="flow-arrow">↓</div>
+
+    <div class="flow-box">SACRED GROVES AND TRADITIONAL CONSERVATION</div>
+
+    <div class="flow-arrow">↓</div>
+
+    <div class="flow-box green">
+        BIODIVERSITY PROTECTION AND ECOLOGICAL BALANCE
+    </div>
+
+</div>
+
+</div>
+</details>
+
+<!-- SECTION 13 -->
+
+<details class="section" id="s13">
+<summary>13. ONE-MINUTE QUICK REVISION</summary>
+
+<div class="section-body">
+
+<h3>Important Definitions</h3>
+
+<ul>
+    <li><b>Biodiversity:</b> Variety of living organisms.</li>
+    <li><b>Flora:</b> Plant life.</li>
+    <li><b>Fauna:</b> Animal life.</li>
+    <li><b>Conservation:</b> Protection and careful management of natural resources.</li>
+    <li><b>Reserved Forests:</b> Forests regarded as most valuable for conservation.</li>
+    <li><b>Protected Forests:</b> Forests protected from further depletion.</li>
+    <li><b>Unclassed Forests:</b> Other forests and wastelands belonging to government, private individuals and communities.</li>
+    <li><b>Sacred Groves:</b> Forest patches protected through traditional beliefs.</li>
+    <li><b>JFM:</b> Joint Forest Management involving local communities.</li>
+</ul>
+
+<h3>Important Years</h3>
+
+<ul>
+    <li>1972 – Wildlife Protection Act.</li>
+    <li>1973 – Project Tiger.</li>
+    <li>1980 and 1986 – Insects added to protected-species lists through notifications.</li>
+    <li>1988 – First JFM resolution in Odisha.</li>
+    <li>1991 – Plants added to the protected list for the first time.</li>
+</ul>
+
+<h3>Important Locations</h3>
+
+<ul>
+    <li>Sariska – Rajasthan.</li>
+    <li>Bhairodev Dakav 'Sonchuri' – Alwar, Rajasthan.</li>
+    <li>Beej Bachao Andolan – Tehri.</li>
+    <li>Chipko Movement – Himalayas.</li>
+    <li>First JFM resolution – Odisha.</li>
+    <li>Largest area under permanent forests – Madhya Pradesh.</li>
+</ul>
+
+<h3>Important Figures</h3>
+
+<ul>
+    <li>1,827 – Tiger population in 1973.</li>
+    <li>55,000 – Estimated tiger population at the turn of the century.</li>
+    <li>75% – Permanent forests as a share of MP's total forest area.</li>
+    <li>1,200 hectares – Bhairodev Dakav 'Sonchuri'.</li>
+    <li>Five villages – Alwar conservation initiative.</li>
+    <li>Six species – Plants initially added to protected list in 1991.</li>
+</ul>
+
+</div>
+</details>
+
+<!-- SECTION 14 -->
+
+<details class="section" id="s14">
+<summary>14. SOURCE AND IMAGE REFERENCES</summary>
+
+<div class="section-body">
+
+<p>
+These notes are based on the uploaded NCERT Class 10 Geography
+chapter, <b>Forest and Wildlife Resources</b>, Reprint 2025–26.
+</p>
+
+<p>
+The chapter's six pages include the main text, photographs,
+captions, forest-category information, conservation examples,
+Sacred Groves and NCERT exercise questions.
+</p>
+
+<h3>External Image Sources</h3>
+
+<ul>
+    <li>
+        <a href="https://commons.wikimedia.org/wiki/Category:Tigers"
+           target="_blank" rel="noopener">
+           Wikimedia Commons – Tigers
+        </a>
+    </li>
+
+    <li>
+        <a href="https://commons.wikimedia.org/wiki/Category:Indian_rhinoceroses"
+           target="_blank" rel="noopener">
+           Wikimedia Commons – Indian Rhinoceroses
+        </a>
+    </li>
+
+    <li>
+        <a href="https://commons.wikimedia.org/wiki/Category:Chipko_movement"
+           target="_blank" rel="noopener">
+           Wikimedia Commons – Chipko Movement
+        </a>
+    </li>
+
+    <li>
+        <a href="https://commons.wikimedia.org/wiki/Category:Sacred_groves"
+           target="_blank" rel="noopener">
+           Wikimedia Commons – Sacred Groves
+        </a>
+    </li>
+
+    <li>
+        <a href="https://www.ncert.nic.in/"
+           target="_blank" rel="noopener">
+           NCERT Official Website
+        </a>
+    </li>
+</ul>
+
+<div class="note orange-note">
+    Some external image addresses may change or may not load
+    depending on Wikimedia file availability and internet
+    connectivity. The image spaces automatically hide if an
+    image fails to load. The chapter notes remain available
+    offline after the HTML page is saved, but external images
+    require an internet connection.
+</div>
+
+</div>
+</details>
+
+</main>
+</div>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+    <b>FOREST AND WILDLIFE RESOURCES</b><br>
+    Class 10 Geography | Contemporary India – II<br>
+    Complete Classified Study Notes
+</footer>
+
+<!-- BACK TO TOP -->
+
+<button
+    class="top-button"
+    onclick="window.scrollTo({top:0,behavior:'smooth'})"
+    title="Back to top"
+>
+    ↑
+</button>
+
+<!-- IMAGE MODAL -->
+
+<div class="image-modal" id="imageModal" onclick="closeImage()">
+    <span>×</span>
+    <img id="modalImage" src="" alt="Enlarged study image">
+</div>
+
+<script>
+
+/* =====================================
+   GENERATE TABLE OF CONTENTS
+===================================== */
+
+const sections = document.querySelectorAll("details.section");
+const toc = document.getElementById("toc");
+
+sections.forEach((section,index)=>{
+
+    const title = section.querySelector("summary").innerText;
+
+    const link = document.createElement("a");
+
+    link.href = "#" + section.id;
+    link.textContent = title;
+
+    link.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        section.open = true;
+
+        section.scrollIntoView({
+            behavior:"smooth",
+            block:"start"
+        });
+
+        history.replaceState(null,"","#"+section.id);
+
+    });
+
+    toc.appendChild(link);
+
+});
+
+
+/* =====================================
+   SHOW / HIDE SIDEBAR
+===================================== */
+
+function toggleSidebar(){
+
+    document
+        .getElementById("sidebar")
+        .classList
+        .toggle("hidden");
+
+}
+
+
+/* =====================================
+   EXPAND ALL
+===================================== */
+
+function expandAll(){
+
+    document
+        .querySelectorAll("details.section")
+        .forEach(section=>{
+            section.open = true;
+        });
+
+}
+
+
+/* =====================================
+   COLLAPSE ALL
+===================================== */
+
+function collapseAll(){
+
+    document
+        .querySelectorAll("details.section")
+        .forEach(section=>{
+            section.open = false;
+        });
+
+}
+
+
+/* =====================================
+   SEARCH AND HIGHLIGHT
+===================================== */
+
+const searchableElements = [
+    ...document.querySelectorAll(".section-body"),
+    document.querySelector(".intro")
+];
+
+const originalContent = searchableElements.map(
+    element => element.innerHTML
+);
+
+function escapeRegExp(string){
+
+    return string.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+
+}
+
+function searchContent(){
+
+    const input = document
+        .getElementById("searchInput")
+        .value
+        .trim();
+
+    const count = document.getElementById("searchCount");
+
+    /* Restore original content */
+
+    searchableElements.forEach((element,index)=>{
+        element.innerHTML = originalContent[index];
+    });
+
+    if(!input){
+
+        count.textContent = "";
+        return;
+
+    }
+
+    const regex = new RegExp(
+        escapeRegExp(input),
+        "gi"
+    );
+
+    let total = 0;
+
+    searchableElements.forEach(element=>{
+
+        const walker = document.createTreeWalker(
+            element,
+            NodeFilter.SHOW_TEXT,
+            {
+                acceptNode(node){
+
+                    if(!node.nodeValue.trim()){
+                        return NodeFilter.FILTER_REJECT;
+                    }
+
+                    const parent = node.parentElement;
+
+                    if(
+                        parent.closest(
+                            "script,style,mark,button"
+                        )
+                    ){
+                        return NodeFilter.FILTER_REJECT;
+                    }
+
+                    return NodeFilter.FILTER_ACCEPT;
+
+                }
+            }
+        );
+
+        const textNodes = [];
+
+        while(walker.nextNode()){
+            textNodes.push(walker.currentNode);
+        }
+
+        textNodes.forEach(node=>{
+
+            const text = node.nodeValue;
+
+            const matches = [...text.matchAll(regex)];
+
+            if(matches.length===0){
+                return;
+            }
+
+            total += matches.length;
+
+            const fragment = document.createDocumentFragment();
+
+            let lastIndex = 0;
+
+            matches.forEach(match=>{
+
+                fragment.appendChild(
+                    document.createTextNode(
+                        text.slice(lastIndex,match.index)
+                    )
+                );
+
+                const mark = document.createElement("mark");
+
+                mark.className = "search-highlight";
+                mark.textContent = match[0];
+
+                fragment.appendChild(mark);
+
+                lastIndex = match.index + match[0].length;
+
+            });
+
+            fragment.appendChild(
+                document.createTextNode(
+                    text.slice(lastIndex)
+                )
+            );
+
+            node.parentNode.replaceChild(fragment,node);
+
+        });
+
+    });
+
+    count.textContent = total + " matches found";
+
+    if(total>0){
+
+        const first = document.querySelector(
+            "mark.search-highlight"
+        );
+
+        const section = first?.closest("details.section");
+
+        if(section){
+
+            section.open = true;
+
+            setTimeout(()=>{
+
+                first.scrollIntoView({
+                    behavior:"smooth",
+                    block:"center"
+                });
+
+            },100);
+
+        }
+
+    }
+
+}
+
+
+/* =====================================
+   IMAGE ZOOM
+===================================== */
+
+document.addEventListener("click",function(event){
+
+    if(
+        event.target.tagName==="IMG" &&
+        event.target.closest(".study-image,.image-row")
+    ){
+
+        const modal = document.getElementById("imageModal");
+
+        const modalImage = document.getElementById("modalImage");
+
+        modalImage.src = event.target.src;
+
+        modal.style.display = "flex";
+
+    }
+
+});
+
+
+function closeImage(){
+
+    document
+        .getElementById("imageModal")
+        .style.display = "none";
+
+}
+
+
+/* =====================================
+   ESCAPE KEY CLOSE IMAGE
+===================================== */
+
+document.addEventListener("keydown",function(event){
+
+    if(event.key==="Escape"){
+        closeImage();
+    }
+
+});
+
+
+/* =====================================
+   DIRECT HASH NAVIGATION
+===================================== */
+
+window.addEventListener("load",function(){
+
+    if(location.hash){
+
+        const target = document.querySelector(location.hash);
+
+        if(
+            target &&
+            target.matches("details.section")
+        ){
+
+            target.open = true;
+
+            setTimeout(()=>{
+
+                target.scrollIntoView({
+                    behavior:"smooth",
+                    block:"start"
+                });
+
+            },300);
+
+        }
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
