@@ -34,6 +34,89 @@ body {
     overflow: hidden;
 }
 
+
+
+
+/* PREMIUM DROPDOWN TREE */
+
+.node {
+    margin: 4px 0;
+}
+
+.node-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 40px;
+    padding: 9px 11px;
+    border-radius: 9px;
+    cursor: pointer;
+    color: #dce6f3;
+    transition: background .2s, border-color .2s;
+    border: 1px solid transparent;
+}
+
+.node-row:hover {
+    background: #263950;
+    border-color: #344d68;
+}
+
+.node-row.active {
+    background: linear-gradient(100deg,#244d77,#1b3552);
+    border-color: #416b96;
+}
+
+.arrow {
+    width: 15px;
+    flex-shrink: 0;
+    color: #9bb5d2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform .25s ease;
+}
+
+.node-row.expanded .arrow {
+    transform: rotate(90deg);
+}
+
+.children {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    margin-left: 14px;
+    padding-left: 12px;
+    border-left: 1px solid #394e68;
+    transition: grid-template-rows .28s ease,
+                opacity .2s ease;
+}
+
+.children > .children-inner {
+    overflow: hidden;
+}
+
+.children.open {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.folder-count {
+    margin-left: auto;
+    padding: 3px 8px;
+    background: #293e58;
+    color: #b8d0ed;
+    border-radius: 20px;
+    font-size: 10px;
+}
+
+
+
+
+
+
+
 /* HEADER */
 
 header {
