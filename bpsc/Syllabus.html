@@ -7,288 +7,109 @@
 <title>BPSC Complete Syllabus</title>
 
 <style>
-:root {
-  --bg:#f3f5fa;
-  --panel:#ffffff;
-  --primary:#263b80;
-  --secondary:#4057a5;
-  --text:#202638;
-  --muted:#788197;
-  --border:#e1e5ef;
-  --accent:#eaf0ff;
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:20px}
+body{
+ margin:0;background:#f4f6fb;color:#27344b;
+ font-family:Arial,Helvetica,sans-serif;
+ line-height:1.75;
 }
-
-* {
-  box-sizing:border-box;
+header{
+ background:linear-gradient(120deg,#172e70,#526bd0,#7446a8);
+ color:white;padding:35px 20px;text-align:center;
 }
-
-body {
-  margin:0;
-  font-family:Arial, sans-serif;
-  background:var(--bg);
-  color:var(--text);
+header h1{margin:0;font-size:30px;letter-spacing:1px}
+header p{margin:7px 0;color:#e3e9ff}
+.container{max-width:1150px;margin:auto;padding:25px 18px}
+.toc{
+ background:white;padding:24px;border-radius:12px;
+ box-shadow:0 3px 14px #0000000c;margin-bottom:25px;
+ border:1px solid #e2e7f0;
 }
-
-header {
-  background:linear-gradient(120deg,#172554,#344da0);
-  color:white;
-  padding:24px;
+.toc h2{margin-top:0;color:#304a9b}
+.toc-grid{
+ display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+ gap:9px;
 }
-
-header h1 {
-  margin:0 0 8px;
-  font-size:25px;
+.toc a{
+ display:block;text-decoration:none;color:#3155ae;
+ background:#f0f3ff;padding:9px 12px;
+ border-radius:6px;font-size:13px;
+ border-left:3px solid #6078d5;
 }
-
-header p {
-  margin:0;
-  color:#dce4ff;
+.toc a:hover{background:#dfe7ff;color:#182f79}
+.section{
+ background:white;border-radius:11px;padding:25px;
+ margin-bottom:23px;border:1px solid #e3e8f0;
+ box-shadow:0 3px 12px #00000008;
 }
-
-.layout {
-  display:flex;
-  min-height:calc(100vh - 105px);
+.section-title{
+ color:#fff;background:linear-gradient(100deg,#304c9c,#6b58bb);
+ padding:13px 17px;border-radius:7px;
+ margin:-25px -25px 22px;
+ font-size:21px;
 }
-
-.sidebar {
-  width:280px;
-  background:var(--panel);
-  border-right:1px solid var(--border);
-  padding:18px;
-  flex-shrink:0;
+h3{
+ color:#3456a9;border-left:4px solid #637cdb;
+ background:#f0f3ff;padding:8px 12px;
+ margin-top:25px;font-size:17px;
 }
-
-.sidebar h3 {
-  margin:5px 0 15px;
-  color:var(--primary);
+h4{color:#744ca9;margin:18px 0 7px}
+ul{padding-left:24px;margin-top:7px}
+li{padding:2px 0}
+.info{
+ display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+ gap:12px;margin:20px 0;
 }
-
-.nav-btn {
-  display:block;
-  width:100%;
-  border:0;
-  background:transparent;
-  text-align:left;
-  padding:12px;
-  margin-bottom:5px;
-  border-radius:7px;
-  cursor:pointer;
-  color:var(--text);
-  font-size:14px;
+.info div{
+ background:#edf2ff;padding:14px;border-radius:8px;
+ border-bottom:3px solid #5570c7;
 }
-
-.nav-btn:hover,
-.nav-btn.active {
-  background:var(--accent);
-  color:var(--primary);
-  font-weight:bold;
+.info strong{display:block;color:#304b9e;font-size:21px}
+.info span{font-size:12px;color:#69758b}
+.note{
+ padding:14px 17px;background:#fff7e8;
+ border-left:4px solid #e7a63c;border-radius:5px;
+ margin:16px 0;font-size:13px;
 }
-
-main {
-  flex:1;
-  min-width:0;
-  padding:25px;
+.green{
+ background:#eaf8ef;border-left:4px solid #35a66c;
+ padding:13px 16px;margin:15px 0;border-radius:5px;
 }
-
-.toolbar {
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-bottom:20px;
+table{width:100%;border-collapse:collapse;margin:17px 0;font-size:13px}
+th{background:#304b99;color:white;text-align:left}
+td,th{padding:11px;border:1px solid #dfe4ed}
+tr:nth-child(even){background:#f4f6fb}
+.tag{
+ display:inline-block;background:#e8edff;color:#3454aa;
+ padding:4px 10px;border-radius:20px;font-size:11px;
+ margin:3px;
 }
-
-input[type="search"] {
-  flex:1;
-  min-width:180px;
-  padding:12px;
-  border:1px solid var(--border);
-  border-radius:8px;
-  font-size:14px;
-  background:white;
+button{
+ background:#304eaa;color:white;border:0;border-radius:6px;
+ padding:11px 17px;cursor:pointer;font-size:13px;
 }
-
-button.action {
-  border:0;
-  background:var(--primary);
-  color:white;
-  padding:11px 16px;
-  border-radius:7px;
-  cursor:pointer;
+button:hover{background:#1c347e}
+.actions{text-align:right;margin:15px 0}
+footer{text-align:center;color:#7b879b;padding:25px;font-size:12px}
+.back{display:inline-block;margin-top:15px;color:#405db5;font-size:12px;text-decoration:none}
+@media(max-width:600px){
+ header h1{font-size:23px}
+ .container{padding:15px 10px}
+ .section{padding:17px}
+ .section-title{margin:-17px -17px 18px;font-size:18px}
+ table{font-size:11px}
+ td,th{padding:7px}
 }
-
-button.action:hover {
-  background:var(--secondary);
-}
-
-.section {
-  display:none;
-}
-
-.section.active {
-  display:block;
-}
-
-.section-title {
-  background:white;
-  padding:20px;
-  border-radius:10px;
-  margin-bottom:18px;
-  border:1px solid var(--border);
-}
-
-.section-title h2 {
-  color:var(--primary);
-  margin:0 0 8px;
-}
-
-.section-title p {
-  color:var(--muted);
-  margin:0;
-  font-size:14px;
-}
-
-.topic-group {
-  background:white;
-  border:1px solid var(--border);
-  border-radius:9px;
-  margin-bottom:12px;
-  overflow:hidden;
-}
-
-.topic-group summary {
-  padding:16px;
-  cursor:pointer;
-  font-weight:bold;
-  color:var(--primary);
-  background:#fff;
-  list-style:none;
-}
-
-.topic-group summary::before {
-  content:"＋ ";
-  color:var(--secondary);
-}
-
-.topic-group[open] summary::before {
-  content:"− ";
-}
-
-.topic-content {
-  padding:5px 18px 18px;
-}
-
-.topic-content ul {
-  padding-left:22px;
-  line-height:1.9;
-  margin:8px 0;
-}
-
-.topic-content li {
-  padding:2px 0;
-}
-
-.topic-content label {
-  cursor:pointer;
-}
-
-.topic-content input {
-  accent-color:var(--primary);
-  margin-right:8px;
-}
-
-.progress-box {
-  background:white;
-  border:1px solid var(--border);
-  padding:16px;
-  border-radius:9px;
-  margin-bottom:18px;
-}
-
-.progress-bar {
-  height:9px;
-  background:#e8ebf2;
-  border-radius:10px;
-  margin-top:10px;
-  overflow:hidden;
-}
-
-.progress-fill {
-  height:100%;
-  width:0%;
-  background:#3d9b73;
-  transition:width .3s;
-}
-
-footer {
-  padding:18px;
-  text-align:center;
-  color:var(--muted);
-  font-size:12px;
-}
-
-@media(max-width:750px) {
-  .layout {
-    display:block;
-  }
-
-  .sidebar {
-    width:100%;
-    border-right:0;
-    border-bottom:1px solid var(--border);
-    display:flex;
-    overflow-x:auto;
-    padding:10px;
-    gap:5px;
-  }
-
-  .sidebar h3 {
-    display:none;
-  }
-
-  .nav-btn {
-    white-space:nowrap;
-    width:auto;
-    margin:0;
-  }
-
-  main {
-    padding:14px;
-  }
-
-  header {
-    padding:20px 15px;
-  }
-
-  header h1 {
-    font-size:21px;
-  }
-}
-
-@media print {
-  .sidebar,.toolbar,footer {
-    display:none!important;
-  }
-
-  .layout {
-    display:block;
-  }
-
-  main {
-    padding:0;
-  }
-
-  .section {
-    display:block!important;
-    page-break-before:always;
-  }
-
-  .topic-group {
-    break-inside:avoid;
-  }
-
-  .topic-group summary::before {
-    display:none;
-  }
+@media print{
+ body{background:white}
+ header{background:#304b99!important;print-color-adjust:exact}
+ .toc,.section{box-shadow:none;break-inside:auto}
+ .actions,.back{display:none}
+ .section-title,th,h3,.toc a{
+  print-color-adjust:exact;-webkit-print-color-adjust:exact
+ }
+ a{text-decoration:none}
 }
 </style>
 </head>
@@ -296,938 +117,755 @@ footer {
 <body>
 
 <header>
-  <h1>🏛 BPSC Complete Syllabus</h1>
-  <p>Bihar Public Service Commission | Prelims • Mains • Interview</p>
+<h1>BPSC COMPLETE SYLLABUS</h1>
+<p>Bihar Public Service Commission – Combined Competitive Examination</p>
+<p>PRELIMINARY • MAINS • INTERVIEW</p>
 </header>
 
-<div class="layout">
+<div class="container">
 
-<aside class="sidebar">
-  <h3>SYLLABUS INDEX</h3>
-  <button class="nav-btn active" onclick="showSection('prelims',this)">📘 Prelims</button>
-  <button class="nav-btn" onclick="showSection('mains',this)">📗 Mains</button>
-  <button class="nav-btn" onclick="showSection('interview',this)">🎓 Interview</button>
-  <button class="nav-btn" onclick="showSection('index',this)">📚 Master Index</button>
-</aside>
-
-<main>
-
-<div class="toolbar">
-  <input type="search" id="search" placeholder="Search any subject or topic..." oninput="searchTopics()">
-  <button class="action" onclick="expandAll()">Expand All</button>
-  <button class="action" onclick="collapseAll()">Collapse All</button>
-  <button class="action" onclick="window.print()">Print / PDF</button>
+<div class="actions">
+<button onclick="window.print()">Print / Save as PDF</button>
 </div>
 
-<div class="progress-box">
-  <strong>Preparation Progress</strong>
-  <span id="progressText" style="float:right">0% Completed</span>
-  <div class="progress-bar">
-    <div class="progress-fill" id="progressFill"></div>
-  </div>
+<!-- TABLE OF CONTENTS -->
+<div class="toc" id="top">
+<h2>📚 TABLE OF CONTENTS</h2>
+<div class="toc-grid">
+<a href="#overview">01. Examination Overview</a>
+<a href="#prelims">02. Preliminary Examination</a>
+<a href="#science">03. General Science</a>
+<a href="#current">04. Current Affairs</a>
+<a href="#history">05. History of India & Bihar</a>
+<a href="#geography">06. General Geography</a>
+<a href="#polity">07. Indian Polity</a>
+<a href="#economy">08. Indian Economy</a>
+<a href="#bihar-economy">09. Bihar Economy</a>
+<a href="#movement">10. National Movement</a>
+<a href="#mental">11. Mental Ability</a>
+<a href="#mains">12. Main Examination</a>
+<a href="#hindi">13. General Hindi</a>
+<a href="#gs1">14. General Studies Paper I</a>
+<a href="#gs2">15. General Studies Paper II</a>
+<a href="#essay">16. Essay</a>
+<a href="#optional">17. Optional Subject</a>
+<a href="#interview">18. Interview</a>
+<a href="#merit">19. Final Merit Structure</a>
+<a href="#strategy">20. Preparation Index</a>
 </div>
+</div>
+
+<!-- OVERVIEW -->
+<section class="section" id="overview">
+<div class="section-title">01. BPSC Examination Overview</div>
+
+<p>The Bihar Public Service Commission (BPSC) conducts the Combined Competitive Examination (CCE) to recruit candidates for various administrative and other government posts in Bihar.</p>
+
+<h3>Three Stages of Examination</h3>
+<div class="info">
+<div><strong>Stage 1</strong><span>Preliminary Examination</span></div>
+<div><strong>Stage 2</strong><span>Main Examination</span></div>
+<div><strong>Stage 3</strong><span>Interview / Personality Test</span></div>
+</div>
+
+<h3>Nature of Examination</h3>
+<ul>
+<li>Preliminary Examination – Objective type.</li>
+<li>Main Examination – Written examination.</li>
+<li>Interview – Personality assessment.</li>
+</ul>
+<div class="note">Always follow the latest BPSC advertisement for the applicable examination pattern and marking scheme.</div>
+</section>
 
 <!-- PRELIMS -->
+<section class="section" id="prelims">
+<div class="section-title">02. Preliminary Examination – General Studies</div>
 
-<section id="prelims" class="section active">
-
-<div class="section-title">
-<h2>Preliminary Examination</h2>
-<p>General Studies | 150 Marks | 2 Hours | Objective Questions</p>
+<div class="info">
+<div><strong>150</strong><span>Total Questions</span></div>
+<div><strong>150</strong><span>Total Marks</span></div>
+<div><strong>2 Hours</strong><span>Duration</span></div>
+<div><strong>1/3</strong><span>Negative Marking*</span></div>
 </div>
 
-<div id="prelimsContent"></div>
+<p>The Preliminary Examination consists of one General Studies paper. Questions are objective in nature.</p>
+
+<h3>Main Subjects</h3>
+<ul>
+<li>General Science</li>
+<li>Current Events of National and International Importance</li>
+<li>History of India and Bihar</li>
+<li>General Geography</li>
+<li>Indian Polity and Economy</li>
+<li>Indian National Movement and Bihar's Contribution</li>
+<li>General Mental Ability</li>
+</ul>
+<div class="note">*Negative marking and other examination rules should be checked against the relevant notification.</div>
+</section>
+
+<!-- SCIENCE -->
+<section class="section" id="science">
+<div class="section-title">03. General Science</div>
+
+<h3>A. Physics</h3>
+<ul>
+<li>Motion, Force and Laws of Motion</li>
+<li>Work, Energy and Power</li>
+<li>Gravitation</li>
+<li>Heat and Temperature</li>
+<li>Light – Reflection and Refraction</li>
+<li>Sound and Waves</li>
+<li>Electricity and Magnetism</li>
+<li>Sources of Energy</li>
+<li>Nuclear Energy</li>
+<li>Basic Scientific Developments</li>
+</ul>
+
+<h3>B. Chemistry</h3>
+<ul>
+<li>Matter and Its Properties</li>
+<li>Atoms and Molecules</li>
+<li>Elements, Compounds and Mixtures</li>
+<li>Acids, Bases and Salts</li>
+<li>Metals and Non-Metals</li>
+<li>Chemical Reactions and Equations</li>
+<li>Carbon and Its Compounds</li>
+<li>Everyday Chemistry</li>
+</ul>
+
+<h3>C. Biology</h3>
+<ul>
+<li>Cell Biology</li>
+<li>Human Body Systems</li>
+<li>Nutrition and Digestion</li>
+<li>Respiration and Circulation</li>
+<li>Excretion and Nervous System</li>
+<li>Reproduction</li>
+<li>Genetics and Evolution</li>
+<li>Plant Physiology</li>
+<li>Diseases and Prevention</li>
+<li>Vitamins and Deficiency Diseases</li>
+<li>Ecology and Environment</li>
+</ul>
+</section>
+
+<!-- CURRENT AFFAIRS -->
+<section class="section" id="current">
+<div class="section-title">04. Current Events of National and International Importance</div>
+<ul>
+<li>National Current Affairs</li>
+<li>International Current Affairs</li>
+<li>Government Schemes and Policies</li>
+<li>Important Appointments</li>
+<li>Awards and Honours</li>
+<li>Sports Events</li>
+<li>Important Days and Themes</li>
+<li>Summits and International Conferences</li>
+<li>Reports and Indices</li>
+<li>Science and Technology Developments</li>
+<li>Defence Exercises and Developments</li>
+<li>Important Books and Authors</li>
+<li>Bihar Current Affairs</li>
+<li>Bihar Government Schemes and Programmes</li>
+<li>Bihar Budget and Economic Survey</li>
+</ul>
+</section>
+
+<!-- HISTORY -->
+<section class="section" id="history">
+<div class="section-title">05. History of India and Bihar</div>
+
+<h3>A. Ancient Indian History</h3>
+<ul>
+<li>Prehistoric Period</li>
+<li>Indus Valley Civilization</li>
+<li>Vedic Civilization</li>
+<li>Mahajanapadas</li>
+<li>Rise of Magadha</li>
+<li>Jainism and Buddhism</li>
+<li>Mauryan Empire</li>
+<li>Gupta Empire</li>
+<li>Post-Gupta Period</li>
+<li>Ancient Art, Architecture and Literature</li>
+</ul>
+
+<h3>B. Medieval Indian History</h3>
+<ul>
+<li>Early Medieval India</li>
+<li>Rajput Dynasties</li>
+<li>Delhi Sultanate</li>
+<li>Mughal Empire</li>
+<li>Vijayanagara Empire</li>
+<li>Bhakti and Sufi Movements</li>
+<li>Medieval Administration</li>
+<li>Art, Architecture and Culture</li>
+</ul>
+
+<h3>C. Modern Indian History</h3>
+<ul>
+<li>Arrival of Europeans</li>
+<li>Establishment of British Rule</li>
+<li>British Expansion in India</li>
+<li>Governor-Generals and Viceroys</li>
+<li>Revolt of 1857</li>
+<li>Socio-Religious Reform Movements</li>
+<li>Indian National Congress</li>
+<li>Moderate and Extremist Phases</li>
+<li>Swadeshi Movement</li>
+<li>Gandhian Movements</li>
+<li>Non-Cooperation Movement</li>
+<li>Civil Disobedience Movement</li>
+<li>Quit India Movement</li>
+<li>Revolutionary Movements</li>
+<li>Independence and Partition</li>
+</ul>
+
+<h3>D. History of Bihar</h3>
+<ul>
+<li>Ancient Magadha</li>
+<li>Haryanka Dynasty</li>
+<li>Shishunaga Dynasty</li>
+<li>Nanda Dynasty</li>
+<li>Mauryan Empire</li>
+<li>Gupta Period</li>
+<li>Pala Dynasty</li>
+<li>Medieval Bihar</li>
+<li>Sher Shah Suri</li>
+<li>Bihar under British Rule</li>
+<li>Santhal Rebellion</li>
+<li>Revolt of 1857 in Bihar</li>
+<li>Kunwar Singh</li>
+<li>Champaran Satyagraha</li>
+<li>Bihar's Contribution to the Freedom Struggle</li>
+</ul>
+</section>
+
+<!-- GEOGRAPHY -->
+<section class="section" id="geography">
+<div class="section-title">06. General Geography</div>
+
+<h3>A. Physical Geography</h3>
+<ul>
+<li>Origin and Structure of the Earth</li>
+<li>Interior of the Earth</li>
+<li>Rocks and Minerals</li>
+<li>Plate Tectonics</li>
+<li>Earthquakes and Volcanoes</li>
+<li>Mountains, Plateaus and Plains</li>
+<li>Weathering and Erosion</li>
+</ul>
+
+<h3>B. World Geography</h3>
+<ul>
+<li>Continents and Oceans</li>
+<li>Major Mountains and Rivers</li>
+<li>Climate and Vegetation</li>
+<li>Deserts and Grasslands</li>
+<li>Important Geographical Locations</li>
+</ul>
+
+<h3>C. Indian Geography</h3>
+<ul>
+<li>Physiographic Divisions of India</li>
+<li>Himalayan Mountains</li>
+<li>Northern Plains</li>
+<li>Peninsular Plateau</li>
+<li>Coastal Plains and Islands</li>
+<li>Drainage Systems</li>
+<li>Indian Monsoon</li>
+<li>Climate and Natural Vegetation</li>
+<li>Soil Types</li>
+<li>Agriculture</li>
+<li>Mineral Resources</li>
+<li>Industries</li>
+<li>Transport and Communication</li>
+<li>Population and Settlements</li>
+</ul>
+
+<h3>D. Geography of Bihar</h3>
+<ul>
+<li>Location and Boundaries</li>
+<li>Physical Divisions of Bihar</li>
+<li>Major Rivers of Bihar</li>
+<li>Ganga River System</li>
+<li>Tributaries of the Ganga</li>
+<li>Climate and Rainfall</li>
+<li>Soil Types</li>
+<li>Agriculture and Irrigation</li>
+<li>Forests and Natural Resources</li>
+<li>Minerals and Industries</li>
+<li>Population and Urbanisation</li>
+<li>Floods and Droughts</li>
+<li>Important Geographical Regions</li>
+</ul>
+</section>
+
+<!-- POLITY -->
+<section class="section" id="polity">
+<div class="section-title">07. Indian Polity and Constitution</div>
+<ul>
+<li>Indian Constitution</li>
+<li>Historical Background of the Constitution</li>
+<li>Constituent Assembly</li>
+<li>Preamble</li>
+<li>Fundamental Rights</li>
+<li>Directive Principles of State Policy</li>
+<li>Fundamental Duties</li>
+<li>President and Vice-President</li>
+<li>Prime Minister and Council of Ministers</li>
+<li>Parliament</li>
+<li>Supreme Court and High Courts</li>
+<li>Governor and Chief Minister</li>
+<li>State Legislature</li>
+<li>Federalism</li>
+<li>Centre-State Relations</li>
+<li>Election Commission</li>
+<li>Comptroller and Auditor General (CAG)</li>
+<li>Finance Commission</li>
+<li>Panchayati Raj</li>
+<li>Municipalities</li>
+<li>Constitutional and Statutory Bodies</li>
+</ul>
+</section>
+
+<!-- ECONOMY -->
+<section class="section" id="economy">
+<div class="section-title">08. Indian Economy</div>
+<ul>
+<li>Basic Concepts of Economics</li>
+<li>National Income</li>
+<li>GDP and GNP</li>
+<li>Economic Growth and Development</li>
+<li>Poverty and Unemployment</li>
+<li>Inflation</li>
+<li>Banking System</li>
+<li>Reserve Bank of India</li>
+<li>Monetary Policy</li>
+<li>Fiscal Policy</li>
+<li>Budget and Taxation</li>
+<li>Public Finance</li>
+<li>Planning in India</li>
+<li>Agriculture and Industry</li>
+<li>Foreign Trade</li>
+<li>Balance of Payments</li>
+<li>Government Welfare Programmes</li>
+<li>Inclusive Growth</li>
+<li>Sustainable Development</li>
+</ul>
+</section>
+
+<!-- BIHAR ECONOMY -->
+<section class="section" id="bihar-economy">
+<div class="section-title">09. Bihar Economy</div>
+<ul>
+<li>Economic Development of Bihar after Independence</li>
+<li>Agriculture and Allied Activities</li>
+<li>Land Reforms</li>
+<li>Industrial Development</li>
+<li>Infrastructure</li>
+<li>Employment and Migration</li>
+<li>Poverty and Regional Inequality</li>
+<li>Bihar State Budget</li>
+<li>Bihar Economic Survey</li>
+<li>Government Development Schemes</li>
+</ul>
+</section>
+
+<!-- NATIONAL MOVEMENT -->
+<section class="section" id="movement">
+<div class="section-title">10. Indian National Movement and Bihar's Contribution</div>
+<ul>
+<li>Revolt of 1857</li>
+<li>Formation of Indian National Congress</li>
+<li>Swadeshi Movement</li>
+<li>Home Rule Movement</li>
+<li>Champaran Satyagraha</li>
+<li>Non-Cooperation Movement</li>
+<li>Civil Disobedience Movement</li>
+<li>Quit India Movement</li>
+<li>Role of Bihar's Freedom Fighters</li>
+<li>Contribution of Dr. Rajendra Prasad</li>
+<li>Contribution of Anugrah Narayan Sinha</li>
+<li>Contribution of Sri Krishna Sinha</li>
+<li>Contribution of Kunwar Singh</li>
+<li>Contribution of Mazharul Haque</li>
+<li>Bihar's Contribution to the Freedom Struggle</li>
+</ul>
+</section>
+
+<!-- MENTAL ABILITY -->
+<section class="section" id="mental">
+<div class="section-title">11. General Mental Ability</div>
+<ul>
+<li>Logical Reasoning</li>
+<li>Analytical Ability</li>
+<li>Number Series</li>
+<li>Alphabet Series</li>
+<li>Coding and Decoding</li>
+<li>Blood Relations</li>
+<li>Direction and Distance</li>
+<li>Ranking and Ordering</li>
+<li>Analogy</li>
+<li>Classification</li>
+<li>Basic Mathematical Reasoning</li>
+<li>Problem-Solving Ability</li>
+</ul>
 </section>
 
 <!-- MAINS -->
+<section class="section" id="mains">
+<div class="section-title">12. Main Examination – Mains Structure</div>
 
-<section id="mains" class="section">
+<p>The Mains examination consists of the following papers under the updated 72nd CCE structure described here.</p>
 
-<div class="section-title">
-<h2>Main Examination</h2>
-<p>Descriptive General Studies, Hindi, Essay and qualifying optional paper as applicable under the notified scheme.</p>
+<table>
+<tr><th>Paper</th><th>Subject</th><th>Marks</th></tr>
+<tr><td>Paper I</td><td>General Hindi</td><td>100</td></tr>
+<tr><td>Paper II</td><td>General Studies I</td><td>300</td></tr>
+<tr><td>Paper III</td><td>General Studies II</td><td>300</td></tr>
+<tr><td>Paper IV</td><td>Essay</td><td>300</td></tr>
+<tr><td>Paper V</td><td>Optional Subject (MCQ)</td><td>100</td></tr>
+<tr><th colspan="2">Total Written Marks</th><th>1000</th></tr>
+</table>
+
+<div class="note">General Hindi and Optional Subject are qualifying papers in the described pattern. Check the latest official advertisement for confirmation.</div>
+</section>
+
+<!-- HINDI -->
+<section class="section" id="hindi">
+<div class="section-title">13. Paper I – General Hindi (100 Marks)</div>
+<span class="tag">Qualifying Paper</span>
+<p>The standard is broadly equivalent to secondary-level Hindi.</p>
+<ul>
+<li>निबंध लेखन (Essay Writing)</li>
+<li>व्याकरण (Grammar)</li>
+<li>वाक्य विन्यास (Sentence Formation)</li>
+<li>संक्षेपण (Precis Writing)</li>
+<li>शब्द एवं वाक्य शुद्धि</li>
+<li>शब्द भंडार एवं प्रयोग</li>
+</ul>
+</section>
+
+<!-- GS1 -->
+<section class="section" id="gs1">
+<div class="section-title">14. Paper II – General Studies Paper I (300 Marks)</div>
+
+<h3>1. Modern History of India</h3>
+<ul>
+<li>British Expansion in India</li>
+<li>Economic Policies of British Rule</li>
+<li>Revolt of 1857</li>
+<li>Socio-Religious Reform Movements</li>
+<li>Rise of Indian Nationalism</li>
+<li>Formation and Development of INC</li>
+<li>Gandhian Era</li>
+<li>Revolutionary Movements</li>
+<li>Freedom Struggle</li>
+<li>Partition and Independence</li>
+</ul>
+
+<h4>Special Emphasis on Bihar</h4>
+<ul>
+<li>Santhal Uprising</li>
+<li>Revolt of 1857 in Bihar</li>
+<li>Birsa Movement</li>
+<li>Champaran Satyagraha</li>
+<li>Quit India Movement, 1942</li>
+<li>Bihar's Role in the National Movement</li>
+</ul>
+
+<h3>2. Indian Culture</h3>
+<ul>
+<li>Mauryan Art and Architecture</li>
+<li>Gupta Art and Architecture</li>
+<li>Buddhist and Jain Architecture</li>
+<li>Temple Architecture</li>
+<li>Indian Paintings</li>
+<li>Classical Dances</li>
+<li>Music and Literature</li>
+<li>Cultural Heritage of Bihar</li>
+<li>Patna Kalam Painting</li>
+<li>Pala Art</li>
+</ul>
+
+<h3>3. Current Events of National and International Importance</h3>
+<ul>
+<li>National Developments</li>
+<li>International Developments</li>
+<li>Government Policies</li>
+<li>International Organisations</li>
+<li>Important Reports</li>
+<li>Science and Technology</li>
+<li>Major Events in Bihar</li>
+</ul>
+
+<h3>4. Statistical Analysis, Graphs and Diagrams</h3>
+<ul>
+<li>Data Interpretation</li>
+<li>Tables and Charts</li>
+<li>Bar Graphs</li>
+<li>Pie Charts</li>
+<li>Line Graphs</li>
+<li>Percentage Analysis</li>
+<li>Average and Ratio</li>
+<li>Comparison of Statistical Data</li>
+<li>Drawing Conclusions</li>
+<li>Identifying Inconsistencies and Limitations in Data</li>
+</ul>
+</section>
+
+<!-- GS2 -->
+<section class="section" id="gs2">
+<div class="section-title">15. Paper III – General Studies Paper II (300 Marks)</div>
+
+<h3>1. Indian Polity</h3>
+<ul>
+<li>Historical Background of the Indian Constitution</li>
+<li>Constituent Assembly</li>
+<li>Preamble</li>
+<li>Fundamental Rights</li>
+<li>Directive Principles</li>
+<li>Fundamental Duties</li>
+<li>Union Government</li>
+<li>State Government</li>
+<li>Parliament and State Legislature</li>
+<li>President and Governor</li>
+<li>Prime Minister and Chief Minister</li>
+<li>Supreme Court and High Courts</li>
+<li>Federal Structure</li>
+<li>Centre-State Relations</li>
+<li>Constitutional Bodies</li>
+<li>Election Commission</li>
+<li>Panchayati Raj</li>
+<li>Local Self-Government</li>
+<li>Governance and Administration</li>
+</ul>
+
+<h3>2. Indian Economy</h3>
+<ul>
+<li>Economic Planning</li>
+<li>Economic Growth and Development</li>
+<li>National Income</li>
+<li>Poverty and Unemployment</li>
+<li>Agriculture</li>
+<li>Industrial Development</li>
+<li>Banking and Financial Institutions</li>
+<li>Monetary and Fiscal Policy</li>
+<li>Public Finance</li>
+<li>Budget and Taxation</li>
+<li>Infrastructure</li>
+<li>Globalisation</li>
+<li>Economic Reforms</li>
+<li>Sustainable Development</li>
+</ul>
+
+<h3>3. Geography of India</h3>
+<ul>
+<li>Physical Divisions</li>
+<li>Drainage System</li>
+<li>Climate and Monsoon</li>
+<li>Soil and Vegetation</li>
+<li>Agriculture</li>
+<li>Mineral Resources</li>
+<li>Energy Resources</li>
+<li>Industries</li>
+<li>Transport</li>
+<li>Population Distribution</li>
+<li>Urbanisation</li>
+<li>Environmental Issues</li>
+</ul>
+
+<h3>4. Bihar-Specific Topics</h3>
+<ul>
+<li>Bihar's Economy</li>
+<li>Agriculture and Irrigation</li>
+<li>Industrial Development</li>
+<li>Flood and Drought Management</li>
+<li>Bihar's Geographical Divisions</li>
+<li>Major Rivers</li>
+<li>Population and Migration</li>
+<li>Development Challenges</li>
+<li>Bihar's Infrastructure</li>
+</ul>
+
+<h3>5. Science and Technology</h3>
+<ul>
+<li>Information Technology</li>
+<li>Biotechnology</li>
+<li>Space Technology</li>
+<li>Nuclear Technology</li>
+<li>Defence Technology</li>
+<li>Communication Technology</li>
+<li>Artificial Intelligence</li>
+<li>Robotics</li>
+<li>Nanotechnology</li>
+<li>Medical Science</li>
+<li>Renewable Energy</li>
+<li>Agricultural Technology</li>
+<li>Digital India</li>
+<li>Technological Development in Bihar</li>
+</ul>
+</section>
+
+<!-- ESSAY -->
+<section class="section" id="essay">
+<div class="section-title">16. Paper IV – Essay (300 Marks)</div>
+
+<p>Essay preparation should cover the following broad areas:</p>
+<ul>
+<li>National Issues</li>
+<li>International Issues</li>
+<li>Social Issues</li>
+<li>Economic Issues</li>
+<li>Political Issues</li>
+<li>Educational Issues</li>
+<li>Science and Technology</li>
+<li>Environmental Issues</li>
+<li>Agriculture and Rural Development</li>
+<li>Women Empowerment</li>
+<li>Youth and Employment</li>
+<li>Bihar-Specific Issues</li>
+<li>Governance and Administration</li>
+<li>Ethics and Human Values</li>
+<li>Sustainable Development</li>
+</ul>
+
+<div class="green"><strong>Essay Writing Structure:</strong><br>
+Introduction → Main Body → Examples → Challenges → Solutions → Conclusion.</div>
+</section>
+
+<!-- OPTIONAL -->
+<section class="section" id="optional">
+<div class="section-title">17. Paper V – Optional Subject (100 Marks)</div>
+<span class="tag">Qualifying – Objective (MCQ)</span>
+<p>Candidates have to select one optional subject from the prescribed list.</p>
+
+<div class="info">
+<div><strong>34</strong><span>Listed Subjects</span></div>
+<div><strong>100</strong><span>Marks</span></div>
+<div><strong>MCQ</strong><span>Objective Format</span></div>
 </div>
 
-<div id="mainsContent"></div>
+<ol>
+<li>Agriculture Science</li>
+<li>Animal Husbandry and Veterinary Science</li>
+<li>Anthropology</li>
+<li>Botany</li>
+<li>Chemistry</li>
+<li>Civil Engineering</li>
+<li>Commerce and Accountancy</li>
+<li>Economics</li>
+<li>Electrical Engineering</li>
+<li>Geography</li>
+<li>Geology</li>
+<li>History</li>
+<li>Labour and Social Welfare</li>
+<li>Law</li>
+<li>Management</li>
+<li>Mathematics</li>
+<li>Mechanical Engineering</li>
+<li>Philosophy</li>
+<li>Physics</li>
+<li>Political Science and International Relations</li>
+<li>Psychology</li>
+<li>Public Administration</li>
+<li>Sociology</li>
+<li>Statistics</li>
+<li>Zoology</li>
+<li>Hindi Language and Literature</li>
+<li>English Language and Literature</li>
+<li>Urdu Language and Literature</li>
+<li>Bangla Language and Literature</li>
+<li>Sanskrit Language and Literature</li>
+<li>Persian Language and Literature</li>
+<li>Arabic Language and Literature</li>
+<li>Pali Language and Literature</li>
+<li>Maithili Language and Literature</li>
+</ol>
+
+<div class="note">The applicable optional subject list and qualifying status must be confirmed from the latest official BPSC notification.</div>
 </section>
 
 <!-- INTERVIEW -->
+<section class="section" id="interview">
+<div class="section-title">18. Interview / Personality Test (120 Marks)</div>
 
-<section id="interview" class="section">
+<p>The interview evaluates the candidate's personality, administrative aptitude and suitability for public service.</p>
 
-<div class="section-title">
-<h2>Interview / Personality Test</h2>
-<p>Personality Assessment | General Awareness | Administrative Aptitude</p>
-</div>
-
-<div id="interviewContent"></div>
+<h3>Important Areas</h3>
+<ul>
+<li>Personal Background and Educational Qualification</li>
+<li>Home District and Home State</li>
+<li>History and Geography of Bihar</li>
+<li>Current Affairs</li>
+<li>Indian Constitution and Governance</li>
+<li>Social and Economic Issues</li>
+<li>Administrative Decision-Making</li>
+<li>Leadership Qualities</li>
+<li>Communication Skills</li>
+<li>Problem-Solving Ability</li>
+<li>Ethical Values and Integrity</li>
+<li>Awareness of Government Policies</li>
+<li>Situational and Administrative Questions</li>
+</ul>
 </section>
 
-<!-- MASTER INDEX -->
+<!-- MERIT -->
+<section class="section" id="merit">
+<div class="section-title">19. Final Merit Structure</div>
 
-<section id="index" class="section">
+<table>
+<tr><th>Component</th><th>Marks</th></tr>
+<tr><td>General Studies Paper I</td><td>300</td></tr>
+<tr><td>General Studies Paper II</td><td>300</td></tr>
+<tr><td>Essay</td><td>300</td></tr>
+<tr><td>Interview</td><td>120</td></tr>
+<tr><th>Total</th><th>1020</th></tr>
+</table>
 
-<div class="section-title">
-<h2>BPSC Subject-wise Master Index</h2>
-<p>Complete subject organisation for systematic preparation.</p>
-</div>
-
-<div id="indexContent"></div>
+<div class="green"><strong>Total Merit Marks: 1020</strong><br>
+As per the described updated examination structure, qualifying papers are excluded from the merit total.</div>
 </section>
 
-</main>
+<!-- PREPARATION INDEX -->
+<section class="section" id="strategy">
+<div class="section-title">20. Recommended Subject-Wise Preparation Index</div>
+
+<p>For systematic preparation, divide your study material into the following major folders:</p>
+
+<table>
+<tr><th>No.</th><th>Subject</th></tr>
+<tr><td>01</td><td>Ancient History</td></tr>
+<tr><td>02</td><td>Medieval History</td></tr>
+<tr><td>03</td><td>Modern History</td></tr>
+<tr><td>04</td><td>Indian Geography</td></tr>
+<tr><td>05</td><td>Bihar Geography</td></tr>
+<tr><td>06</td><td>Indian Polity</td></tr>
+<tr><td>07</td><td>Indian Economy</td></tr>
+<tr><td>08</td><td>Bihar Economy</td></tr>
+<tr><td>09</td><td>General Science</td></tr>
+<tr><td>10</td><td>Environment and Ecology</td></tr>
+<tr><td>11</td><td>Current Affairs</td></tr>
+<tr><td>12</td><td>Mathematics and Reasoning</td></tr>
+</table>
+
+<h3>Recommended Preparation Method</h3>
+
+<div class="info">
+<div><strong>LEVEL 1</strong><span>Complete Subject Index</span></div>
+<div><strong>LEVEL 2</strong><span>Chapter-Wise Detailed Notes</span></div>
+<div><strong>LEVEL 3</strong><span>PYQ and MCQ Practice</span></div>
 </div>
+
+<p>Prepare each subject systematically through detailed notes, revision, previous year questions and mock tests.</p>
+</section>
 
 <footer>
-BPSC Study Manager | Complete Subject-wise Learning Dashboard
+<strong>BPSC COMPLETE SYLLABUS</strong>
+<p>Prepared for Educational and Examination Preparation Purposes</p>
+<a href="#top" class="back">↑ Back to Top</a>
 </footer>
 
-<script>
-
-const prelims = {
-
-"1. General Science": {
-"Physics":[
-"Motion, Force and Laws of Motion",
-"Work, Energy and Power",
-"Heat and Temperature",
-"Light and Sound",
-"Electricity and Magnetism",
-"Units and Measurements",
-"Scientific Instruments"
-],
-"Chemistry":[
-"Matter and Its States",
-"Elements, Compounds and Mixtures",
-"Atoms and Molecules",
-"Acids, Bases and Salts",
-"Metals and Non-metals",
-"Chemical Reactions",
-"Everyday Chemistry"
-],
-"Biology":[
-"Cell Biology",
-"Human Body Systems",
-"Nutrition and Digestion",
-"Respiration and Circulation",
-"Diseases and Immunity",
-"Vitamins and Minerals",
-"Genetics and Evolution",
-"Plant and Animal Kingdom",
-"Ecology and Environment"
-]
-},
-
-"2. Current Affairs": {
-"National and International":[
-"National Current Affairs",
-"International Current Affairs",
-"Government Schemes and Programmes",
-"Government Policies",
-"Awards and Honours",
-"Books and Authors",
-"Important Days and Themes",
-"Sports and Championships",
-"Summits and Conferences",
-"Reports and Rankings",
-"Science and Technology Developments",
-"Defence Exercises and Operations",
-"Important Appointments",
-"International Organisations",
-"Committees and Commissions"
-]
-},
-
-"3. Ancient Indian History": {
-"Ancient History":[
-"Prehistoric Period",
-"Indus Valley Civilisation",
-"Vedic Civilisation",
-"Mahajanapadas",
-"Rise of Buddhism and Jainism",
-"Mauryan Empire",
-"Post-Mauryan Period",
-"Gupta Empire",
-"Post-Gupta Period",
-"Harshavardhana",
-"Sangam Age",
-"Ancient Art and Architecture",
-"Ancient Literature and Education"
-]
-},
-
-"4. Medieval Indian History": {
-"Medieval History":[
-"Early Medieval India",
-"Rajput Dynasties",
-"Slave Dynasty",
-"Khalji Dynasty",
-"Tughlaq Dynasty",
-"Sayyid Dynasty",
-"Lodi Dynasty",
-"Vijayanagara Empire",
-"Bahmani Kingdom",
-"Mughal Empire",
-"Mughal Administration",
-"Maratha Empire",
-"Bhakti Movement",
-"Sufi Movement",
-"Medieval Art and Architecture"
-]
-},
-
-"5. Modern Indian History": {
-"Modern History":[
-"Arrival of European Trading Companies",
-"Establishment of British Rule",
-"Expansion of British Territory",
-"Governor-Generals and Viceroys",
-"Economic Impact of British Rule",
-"Permanent Settlement",
-"Ryotwari System",
-"Mahalwari System",
-"Revolt of 1857",
-"Socio-Religious Reform Movements",
-"Indian National Congress",
-"Moderates and Extremists",
-"Partition of Bengal (1905)",
-"Swadeshi Movement",
-"Home Rule Movement",
-"Champaran Satyagraha",
-"Kheda Satyagraha",
-"Non-Cooperation Movement",
-"Civil Disobedience Movement",
-"Quit India Movement",
-"Revolutionary Movements",
-"Constitutional Development",
-"Indian Independence Act, 1947"
-]
-},
-
-"6. History of Bihar": {
-"Bihar History":[
-"Ancient History of Bihar",
-"Magadha Empire",
-"Haryanka Dynasty",
-"Shishunaga Dynasty",
-"Nanda Dynasty",
-"Mauryan Empire",
-"Gupta Empire",
-"Pala Dynasty",
-"Medieval Bihar",
-"Sher Shah Suri",
-"Mughal Rule in Bihar",
-"Bihar under British Rule",
-"Permanent Settlement in Bihar",
-"Revolt of 1857 in Bihar",
-"Veer Kunwar Singh",
-"Santhal Rebellion",
-"Birsa Movement",
-"Champaran Satyagraha",
-"Bihar's Role in Freedom Movement",
-"Formation of Bihar Province (1912)",
-"Bihar after Independence",
-"Separation of Jharkhand (2000)"
-]
-},
-
-"7. Geography": {
-"Physical Geography":[
-"Origin and Evolution of Earth",
-"Interior of the Earth",
-"Rocks and Minerals",
-"Plate Tectonics",
-"Earthquakes and Volcanoes",
-"Mountains, Plateaus and Plains",
-"Weathering and Erosion",
-"Landforms"
-],
-"World Geography":[
-"Continents and Oceans",
-"Major Mountains and Plateaus",
-"Major Rivers and Lakes",
-"Deserts",
-"Climate Zones",
-"Latitudes and Longitudes",
-"Countries and Capitals",
-"Natural Vegetation"
-],
-"Indian Geography":[
-"Physiographic Divisions of India",
-"Himalayan Mountain System",
-"Northern Plains",
-"Peninsular Plateau",
-"Coastal Plains",
-"Islands of India",
-"Drainage System",
-"Major Rivers and Tributaries",
-"Indian Climate and Monsoon",
-"Soil Types",
-"Natural Vegetation",
-"Wildlife and Biodiversity",
-"Agriculture and Irrigation",
-"Mineral Resources",
-"Industries",
-"Transport and Communication",
-"Population Distribution",
-"Urbanisation"
-],
-"Geography of Bihar":[
-"Geographical Location and Boundaries",
-"Physical Divisions of Bihar",
-"Northern Bihar Plains",
-"Southern Bihar Plains",
-"Major Rivers of Bihar",
-"Ganga River System",
-"Kosi River",
-"Gandak River",
-"Son River",
-"Punpun River",
-"Bagmati River",
-"Kamla-Balan River",
-"Climate of Bihar",
-"Soil Types",
-"Agriculture and Cropping Patterns",
-"Irrigation Projects",
-"Minerals and Industries",
-"Forests and Wildlife",
-"National Parks and Sanctuaries",
-"Floods and Droughts",
-"Population and Urbanisation",
-"Districts and Administrative Divisions"
-]
-},
-
-"8. Indian Polity and Constitution": {
-"Constitution":[
-"Historical Background of Indian Constitution",
-"Making of the Constitution",
-"Constituent Assembly",
-"Preamble",
-"Salient Features",
-"Union and Its Territory",
-"Citizenship",
-"Fundamental Rights",
-"Directive Principles of State Policy",
-"Fundamental Duties",
-"President of India",
-"Vice-President",
-"Prime Minister and Council of Ministers",
-"Parliament",
-"Lok Sabha and Rajya Sabha",
-"Supreme Court",
-"High Courts",
-"Governor",
-"Chief Minister",
-"State Legislature",
-"Centre-State Relations",
-"Emergency Provisions",
-"Constitutional Amendments",
-"Election Commission",
-"Finance Commission",
-"UPSC and State Public Service Commissions",
-"CAG",
-"Panchayati Raj",
-"Municipalities",
-"Constitutional and Non-Constitutional Bodies",
-"Important Schedules and Articles"
-]
-},
-
-"9. Indian Economy": {
-"Economics":[
-"Basic Concepts of Economics",
-"Microeconomics and Macroeconomics",
-"National Income",
-"GDP, GNP, NNP and Per Capita Income",
-"Economic Growth and Development",
-"Planning in India",
-"Five-Year Plans",
-"NITI Aayog",
-"Poverty and Unemployment",
-"Inflation and Deflation",
-"Banking System",
-"Reserve Bank of India",
-"Monetary Policy",
-"Fiscal Policy",
-"Budget and Taxation",
-"Direct and Indirect Taxes",
-"GST",
-"Public Finance",
-"Agriculture and Rural Development",
-"Industrial Development",
-"Service Sector",
-"Foreign Trade",
-"Balance of Payments",
-"Foreign Direct Investment",
-"Liberalisation, Privatisation and Globalisation",
-"Economic Reforms",
-"Financial Inclusion",
-"Digital Economy",
-"Sustainable Development"
-]
-},
-
-"10. Bihar Economy": {
-"Bihar Economy":[
-"Economic History of Bihar",
-"Bihar's GSDP",
-"Per Capita Income",
-"Agriculture and Allied Activities",
-"Major Crops of Bihar",
-"Irrigation and Agricultural Development",
-"Industrial Development",
-"Small-Scale and Cottage Industries",
-"Major Industrial Areas",
-"Infrastructure Development",
-"Roadways and Railways",
-"Electricity and Energy",
-"Poverty and Unemployment",
-"Migration",
-"Education and Health Indicators",
-"Bihar Budget",
-"Bihar Economic Survey",
-"State Government Schemes",
-"Rural Development",
-"Regional Economic Disparities"
-]
-},
-
-"11. Environment and Ecology": {
-"Environment":[
-"Ecosystem",
-"Food Chain and Food Web",
-"Ecological Pyramids",
-"Biodiversity",
-"Conservation of Natural Resources",
-"Forests and Wildlife",
-"National Parks and Wildlife Sanctuaries",
-"Biosphere Reserves",
-"Climate Change",
-"Global Warming",
-"Greenhouse Effect",
-"Ozone Layer Depletion",
-"Air, Water and Soil Pollution",
-"Environmental Laws",
-"Environmental Movements",
-"Sustainable Development",
-"Renewable and Non-Renewable Energy",
-"International Environmental Agreements"
-]
-},
-
-"12. General Knowledge": {
-"Miscellaneous":[
-"Important Historical Personalities",
-"Famous Books and Authors",
-"Important Inventions and Discoveries",
-"National Symbols",
-"Countries, Capitals and Currencies",
-"International Organisations",
-"Important Indian Institutions",
-"Famous Places and Monuments",
-"Art and Culture",
-"Indian Classical Dances",
-"Music and Festivals",
-"UNESCO World Heritage Sites",
-"Census and Population",
-"Important Government Programmes"
-]
-}
-
-};
-
-
-// MAINS SYLLABUS
-
-const mains = {
-
-"Paper 1 – General Hindi (100 Marks)": {
-"Writing and Grammar":[
-"Essay Writing – 30 Marks",
-"Grammar – 30 Marks",
-"Sentence Structure – 25 Marks",
-"Precis Writing – 15 Marks"
-]
-},
-
-"Paper 2 – General Studies I (300 Marks)": {
-
-"Modern History of India":[
-"British Expansion in India",
-"Economic and Administrative Policies",
-"Revolt of 1857",
-"Socio-Religious Reform Movements",
-"Indian National Movement",
-"Formation of Indian National Congress",
-"Swadeshi Movement",
-"Home Rule Movement",
-"Gandhian Movements",
-"Non-Cooperation Movement",
-"Civil Disobedience Movement",
-"Quit India Movement",
-"Revolutionary Activities",
-"Freedom Fighters",
-"Independence and Partition"
-],
-
-"Special Emphasis on Bihar":[
-"Santhal Uprising",
-"Revolt of 1857 in Bihar",
-"Birsa Movement",
-"Champaran Satyagraha",
-"Quit India Movement, 1942",
-"Western Education in Bihar",
-"Technical Education in Bihar",
-"Bihar's Contribution to Freedom Struggle"
-],
-
-"Indian Culture":[
-"Mauryan Art and Architecture",
-"Pala Art and Architecture",
-"Patna Qalam Painting",
-"Indian Painting Traditions",
-"Indian Architecture",
-"Literature and Cultural Heritage",
-"Contributions of Gandhi, Tagore and Nehru"
-],
-
-"Current Events":[
-"National Current Affairs",
-"International Current Affairs",
-"Political Developments",
-"Economic Developments",
-"Science and Technology",
-"Government Policies",
-"International Relations",
-"Important National and International Events"
-],
-
-"Statistical Analysis":[
-"Data Interpretation",
-"Tables and Charts",
-"Bar Graphs",
-"Pie Charts",
-"Line Graphs",
-"Statistical Analysis",
-"Percentage and Ratio Interpretation",
-"Drawing Conclusions from Data",
-"Identifying Limitations in Data"
-]
-},
-
-"Paper 3 – General Studies II (300 Marks)": {
-
-"Indian Polity":[
-"Indian Constitution",
-"Constitutional Development",
-"Fundamental Rights and Duties",
-"Directive Principles",
-"Union Government",
-"State Government",
-"Parliament",
-"State Legislature",
-"President and Governor",
-"Prime Minister and Chief Minister",
-"Supreme Court and High Courts",
-"Federal Structure",
-"Centre-State Relations",
-"Local Self-Government",
-"Panchayati Raj Institutions",
-"Constitutional Bodies",
-"Election Commission",
-"Electoral Reforms",
-"Public Administration",
-"Governance and Accountability",
-"Bihar's Political and Administrative System"
-],
-
-"Indian Economy":[
-"Basic Economic Concepts",
-"National Income",
-"Economic Planning",
-"Five-Year Plans",
-"NITI Aayog",
-"Agriculture and Rural Development",
-"Industrial Development",
-"Banking and Finance",
-"Monetary Policy",
-"Fiscal Policy",
-"Budget",
-"Taxation",
-"Poverty and Unemployment",
-"Economic Reforms",
-"Liberalisation and Globalisation",
-"Infrastructure",
-"Inclusive Growth",
-"Sustainable Development"
-],
-
-"Geography of India and Bihar":[
-"Physical Geography of India",
-"Physiographic Divisions",
-"Indian Drainage System",
-"Indian Climate and Monsoon",
-"Soil and Natural Vegetation",
-"Agriculture",
-"Irrigation",
-"Mineral Resources",
-"Industries",
-"Population",
-"Human Geography",
-"Economic Geography",
-"Geography of Bihar",
-"Rivers and Floods of Bihar",
-"Agricultural Geography of Bihar",
-"Natural Resources of Bihar"
-],
-
-"Science and Technology":[
-"Developments in Science and Technology",
-"Information Technology",
-"Biotechnology",
-"Space Technology",
-"Nuclear Technology",
-"Defence Technology",
-"Communication Technology",
-"Artificial Intelligence",
-"Robotics",
-"Renewable Energy",
-"Scientific Research in India",
-"Science in Agriculture",
-"Science in Healthcare",
-"Science in Education",
-"Science and Technology in Bihar's Development"
-]
-},
-
-"Paper 4 – Essay (300 Marks)": {
-
-"Essay Topics":[
-"National Issues",
-"International Issues",
-"Social Issues",
-"Political Issues",
-"Economic Issues",
-"Educational Issues",
-"Science and Technology",
-"Environmental Issues",
-"Agriculture and Rural Development",
-"Bihar's History and Culture",
-"Bihar's Development",
-"Women Empowerment",
-"Youth and Employment",
-"Democracy and Governance",
-"Ethics and Social Values"
-],
-
-"Essay Writing Structure":[
-"Introduction",
-"Historical Background",
-"Present Situation",
-"Causes",
-"Effects",
-"Challenges",
-"Government Initiatives",
-"Solutions",
-"Conclusion"
-]
-},
-
-"Paper 5 – Optional Subject (100 Marks)": {
-
-"Optional Subjects":[
-"History",
-"Geography",
-"Political Science",
-"Public Administration",
-"Sociology",
-"Economics",
-"Mathematics",
-"Physics",
-"Chemistry",
-"Botany",
-"Zoology",
-"Agriculture",
-"Animal Husbandry and Veterinary Science",
-"Civil Engineering",
-"Mechanical Engineering",
-"Electrical Engineering",
-"Commerce and Accountancy",
-"Management",
-"Philosophy",
-"Psychology",
-"Anthropology",
-"Law",
-"Statistics",
-"Geology",
-"Hindi Literature",
-"English Literature",
-"Sanskrit Literature",
-"Urdu Literature",
-"Persian Literature",
-"Arabic Literature",
-"Maithili Literature"
-]
-}
-};
-
-
-// INTERVIEW
-
-const interview = {
-"Personality Assessment":[
-"Personality and Communication Skills",
-"General Awareness",
-"Knowledge of Bihar",
-"Educational Background",
-"Administrative Understanding",
-"Decision-Making Ability",
-"Leadership Qualities",
-"Problem-Solving Skills",
-"Social Awareness",
-"Analytical Thinking"
-]
-};
-
-
-// MASTER INDEX
-
-const master = {
-"History":[
-"Ancient History",
-"Medieval History",
-"Modern History",
-"History of Bihar"
-],
-"Geography":[
-"Physical Geography",
-"World Geography",
-"Indian Geography",
-"Geography of Bihar"
-],
-"Polity":[
-"Indian Constitution",
-"Fundamental Rights",
-"Parliament",
-"President and Governor",
-"Judiciary",
-"Centre-State Relations",
-"Local Government"
-],
-"Economics":[
-"Basic Economics",
-"Indian Economy",
-"Bihar Economy",
-"Budget and Economic Survey",
-"Banking and Finance"
-],
-"Science":[
-"Physics",
-"Chemistry",
-"Biology",
-"Science and Technology"
-],
-"Environment":[
-"Ecology",
-"Biodiversity",
-"Climate Change",
-"Pollution",
-"Conservation"
-],
-"Bihar Special":[
-"Bihar History",
-"Bihar Geography",
-"Bihar Economy",
-"Bihar Culture",
-"Bihar Government Schemes",
-"Bihar Current Affairs"
-],
-"Current Affairs":[
-"National",
-"International",
-"Government Schemes",
-"Reports and Rankings",
-"Awards and Sports"
-]
-};
-
-
-// RENDER FUNCTION
-
-function renderData(data,containerId) {
-
-const container = document.getElementById(containerId);
-
-let html = "";
-
-for (const [group,subgroups] of Object.entries(data)) {
-
-html += `<details class="topic-group" open>
-<summary>${group}</summary>
-<div class="topic-content">`;
-
-for (const [subgroup,topics] of Object.entries(subgroups)) {
-
-html += `<details class="topic-group">
-<summary>${subgroup}</summary>
-<div class="topic-content">
-<ul>`;
-
-topics.forEach((topic,i) => {
-
-const id = (containerId + "_" + group + "_" + subgroup + "_" + i)
-.replace(/[^a-zA-Z0-9]/g,"_");
-
-html += `
-<li>
-<label>
-<input type="checkbox" class="progress-check" data-id="${id}">
-${topic}
-</label>
-</li>`;
-
-});
-
-html += `</ul></div></details>`;
-}
-
-html += `</div></details>`;
-}
-
-container.innerHTML = html;
-
-loadProgress();
-}
-
-
-// NAVIGATION
-
-function showSection(id,button) {
-
-document.querySelectorAll(".section").forEach(section => {
-section.classList.remove("active");
-});
-
-document.getElementById(id).classList.add("active");
-
-document.querySelectorAll(".nav-btn").forEach(btn => {
-btn.classList.remove("active");
-});
-
-button.classList.add("active");
-
-document.getElementById("search").value = "";
-
-searchTopics();
-}
-
-
-// EXPAND AND COLLAPSE
-
-function expandAll() {
-
-document.querySelectorAll(".section.active details").forEach(item => {
-item.open = true;
-});
-
-}
-
-function collapseAll() {
-
-document.querySelectorAll(".section.active details").forEach(item => {
-item.open = false;
-});
-
-}
-
-
-// SEARCH
-
-function searchTopics() {
-
-const query = document.getElementById("search").value.toLowerCase();
-
-document.querySelectorAll(".section.active .topic-group").forEach(group => {
-
-const matches = group.innerText.toLowerCase().includes(query);
-
-group.style.display = matches ? "" : "none";
-
-if (query && matches) {
-
-group.open = true;
-
-group.querySelectorAll("details").forEach(child => {
-child.open = true;
-});
-
-}
-
-});
-
-}
-
-
-// PROGRESS TRACKING
-
-function loadProgress() {
-
-document.querySelectorAll(".progress-check").forEach(check => {
-
-const saved = localStorage.getItem("bpsc_" + check.dataset.id);
-
-check.checked = saved === "true";
-
-check.addEventListener("change",function() {
-
-localStorage.setItem(
-"bpsc_" + this.dataset.id,
-this.checked
-);
-
-updateProgress();
-
-});
-
-});
-
-updateProgress();
-}
-
-
-function updateProgress() {
-
-const all = document.querySelectorAll(".progress-check");
-
-const completed = document.querySelectorAll(".progress-check:checked");
-
-const total = all.length;
-
-const done = completed.length;
-
-const percentage = total ? Math.round(done/total*100) : 0;
-
-document.getElementById("progressText").innerText =
-percentage + "% Completed (" + done + "/" + total + ")";
-
-document.getElementById("progressFill").style.width =
-percentage + "%";
-
-}
-
-
-// INITIALISE
-
-renderData(prelims,"prelimsContent");
-
-renderData(mains,"mainsContent");
-
-renderData(interview,"interviewContent");
-
-renderData(master,"indexContent");
-
-</script>
-
+</div>
 </body>
 </html>
