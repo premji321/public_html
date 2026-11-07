@@ -4,899 +4,987 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Governors-General & Viceroys of India</title>
+<title>Governor Generals & Viceroys | Modern History</title>
 
 <style>
 :root{
- --bg:#f3f6fc;
+ --bg:#f3f5fb;
  --panel:#ffffff;
- --text:#202b40;
+ --text:#202b42;
  --muted:#718096;
- --primary:#3157d5;
- --accent:#7654d9;
- --border:#e2e8f0;
- --green:#15966b;
- --orange:#e58a32;
- --shadow:0 5px 22px rgba(30,50,90,.07);
+ --primary:#5146e5;
+ --secondary:#7868ef;
+ --border:#e5e9f2;
+ --soft:#eeedff;
+ --green:#15976b;
+ --red:#dc4545;
+ --shadow:0 8px 25px rgba(35,45,90,.07);
+}
+.dark{
+ --bg:#101827;
+ --panel:#192538;
+ --text:#edf2ff;
+ --muted:#a6b1c5;
+ --primary:#9b91ff;
+ --secondary:#b3aaff;
+ --border:#304057;
+ --soft:#292d50;
+ --shadow:0 8px 25px rgba(0,0,0,.2);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:100px}
+html{scroll-behavior:smooth;scroll-padding-top:85px}
 body{
- font-family:Arial,Helvetica,sans-serif;
  background:var(--bg);
  color:var(--text);
+ font-family:Arial,Helvetica,sans-serif;
  line-height:1.7;
+ transition:.3s;
 }
 button,input{font:inherit}
 button{cursor:pointer}
-
-/* HEADER */
-.header{
- background:linear-gradient(120deg,#182d63,#3157d5,#7955c7);
- color:white;
- padding:35px 20px 30px;
- text-align:center;
-}
-.header h1{font-size:clamp(24px,4vw,36px);line-height:1.3}
-.header p{margin-top:10px;color:#e3eaff}
-.header small{display:block;margin-top:12px;opacity:.8}
-
-/* TOP NAV */
+a{color:inherit;text-decoration:none}
 .topbar{
- position:sticky;top:0;z-index:100;
- background:var(--panel);
+ position:sticky;top:0;z-index:1000;
+ display:flex;align-items:center;justify-content:space-between;
+ padding:13px 22px;background:var(--panel);
+ border-bottom:1px solid var(--border);
  box-shadow:var(--shadow);
- display:flex;align-items:center;
- gap:10px;padding:12px 4%;
- flex-wrap:wrap;
 }
-.brand{font-weight:bold;color:var(--primary);margin-right:auto}
-.topbar button,.navbtn{
- border:0;background:#edf1ff;color:#3157d5;
- padding:8px 13px;border-radius:8px;
- font-size:13px;font-weight:bold;
+.logo{font-weight:800;color:var(--primary);font-size:19px}
+.top-actions{display:flex;gap:9px;align-items:center}
+.top-actions button{
+ border:1px solid var(--border);background:var(--soft);
+ color:var(--text);padding:8px 12px;border-radius:9px;
 }
-.topbar button:hover,.navbtn:hover{
- background:var(--primary);color:white;
-}
-
-/* LAYOUT */
-.layout{
- max-width:1450px;margin:auto;
- display:grid;grid-template-columns:270px minmax(0,1fr);
- gap:22px;padding:22px;
-}
+.layout{display:flex;min-height:calc(100vh - 60px)}
 .sidebar{
- background:var(--panel);
- border:1px solid var(--border);
- border-radius:14px;padding:18px;
- height:calc(100vh - 100px);
- position:sticky;top:78px;
- overflow-y:auto;
-}
-.sidebar h3{font-size:17px;margin-bottom:12px}
-.sidebar a{
- display:block;text-decoration:none;
- color:var(--text);font-size:13px;
- padding:8px 10px;border-radius:7px;
- margin:3px 0;
-}
-.sidebar a:hover{background:#edf1ff;color:var(--primary)}
-.content{min-width:0}
-
-/* SEARCH */
-.searchbox{
- display:flex;gap:10px;
- margin-bottom:20px;
-}
-.searchbox input{
- width:100%;padding:13px 16px;
- border:1px solid var(--border);
- border-radius:10px;background:white;
- outline:none;
-}
-.searchbox input:focus{
- border-color:var(--primary);
- box-shadow:0 0 0 3px #3157d51a;
-}
-
-/* HERO */
-.hero{
- background:linear-gradient(120deg,#fff,#eef2ff);
- border:1px solid var(--border);
- padding:25px;border-radius:15px;
- margin-bottom:20px;
- box-shadow:var(--shadow);
-}
-.hero h2{color:#2547b2;font-size:24px}
-.hero p{color:var(--muted);margin-top:7px}
-.stats{
- display:grid;grid-template-columns:repeat(4,1fr);
- gap:12px;margin-top:20px;
-}
-.stat{
- background:white;padding:15px;
- border-radius:10px;text-align:center;
- border:1px solid var(--border);
-}
-.stat strong{display:block;color:var(--primary);font-size:25px}
-.stat span{font-size:12px;color:var(--muted)}
-
-/* SECTION */
-.section{
- background:var(--panel);
- border:1px solid var(--border);
- border-radius:14px;
- padding:20px;margin-bottom:20px;
- box-shadow:var(--shadow);
- scroll-margin-top:90px;
-}
-.section-title{
- display:flex;justify-content:space-between;
- align-items:center;gap:10px;
- margin-bottom:15px;
-}
-.section-title h2{font-size:21px;color:#2949ae}
-.tag{
- font-size:11px;background:#edf1ff;
- color:#3157d5;padding:5px 9px;
- border-radius:20px;font-weight:bold;
-}
-
-/* ACCORDION */
-.accordion{
- border:1px solid var(--border);
- border-radius:10px;
- margin:10px 0;overflow:hidden;
- background:white;
-}
-.acc-head{
- display:flex;align-items:center;
- justify-content:space-between;
- width:100%;text-align:left;
- border:0;background:#f8faff;
- padding:15px;
- color:var(--text);
- font-weight:bold;font-size:15px;
- transition:.2s;
-}
-.acc-head:hover{background:#edf1ff}
-.acc-head .arrow{
- color:var(--primary);font-size:18px;
+ width:275px;flex-shrink:0;
+ position:fixed;top:62px;bottom:0;left:0;
+ overflow-y:auto;background:var(--panel);
+ border-right:1px solid var(--border);
+ padding:20px 14px;z-index:100;
  transition:transform .3s;
 }
-.accordion.active .arrow{transform:rotate(180deg)}
-.acc-body{
- display:grid;grid-template-rows:0fr;
- transition:grid-template-rows .35s ease;
+.sidebar h3{font-size:12px;color:var(--muted);margin:17px 9px 8px;text-transform:uppercase;letter-spacing:1px}
+.navlink{
+ display:block;padding:9px 12px;border-radius:8px;
+ font-size:13px;color:var(--muted);margin:3px 0;
+ transition:.2s;
 }
-.accordion.active .acc-body{grid-template-rows:1fr}
-.acc-inner{overflow:hidden}
-.acc-content{padding:18px;line-height:1.8}
-.acc-content h4{color:#3157d5;margin:12px 0 5px}
-.acc-content ul{padding-left:23px}
-.acc-content li{margin:4px 0}
-.acc-content p{margin:7px 0}
-.year{
- display:inline-block;background:#eaf1ff;
- color:#3157d5;padding:3px 9px;
- border-radius:5px;font-size:12px;
- margin:3px;
+.navlink:hover,.navlink.active{
+ background:var(--soft);color:var(--primary);
+ transform:translateX(3px);
 }
-.fact{
- background:#f0faf6;border-left:4px solid var(--green);
- padding:12px 14px;margin-top:12px;border-radius:5px;
+.main{margin-left:275px;width:calc(100% - 275px);padding:28px;max-width:1500px}
+.hero{
+ background:linear-gradient(125deg,#3327a8,#7064f0,#a18aff);
+ color:white;padding:42px 35px;border-radius:20px;
+ position:relative;overflow:hidden;
+ box-shadow:var(--shadow);
+ animation:appear .7s ease;
 }
-.warning{
- background:#fff7ed;border-left:4px solid var(--orange);
- padding:12px 14px;margin-top:12px;border-radius:5px;
+.hero:after{
+ content:"1773 — 1950";
+ position:absolute;right:20px;bottom:-15px;
+ font-size:clamp(35px,6vw,85px);font-weight:900;
+ color:rgba(255,255,255,.12);
 }
-
-/* TABLE */
-.table-wrap{overflow-x:auto}
-table{
- width:100%;border-collapse:collapse;
- font-size:13px;min-width:450px;
+.hero h1{font-size:clamp(25px,4vw,39px);line-height:1.3;max-width:700px}
+.hero p{margin-top:12px;color:#e4e2ff}
+.hero-tag{
+ display:inline-block;background:rgba(255,255,255,.18);
+ border:1px solid rgba(255,255,255,.3);
+ padding:5px 12px;border-radius:20px;font-size:12px;margin-bottom:15px
 }
-th{background:#2949ae;color:white;text-align:left}
-th,td{padding:11px;border:1px solid var(--border)}
-tr:nth-child(even){background:#f6f8fc}
-
-/* TIMELINE */
-.timeline{border-left:3px solid #3157d5;margin:20px 10px 10px 15px;padding-left:22px}
-.event{position:relative;margin-bottom:22px}
-.event:before{
- content:"";position:absolute;
- width:12px;height:12px;border-radius:50%;
- background:#3157d5;left:-30px;top:8px;
- box-shadow:0 0 0 4px #e8edff;
+.stats{
+ display:grid;grid-template-columns:repeat(4,1fr);
+ gap:14px;margin:20px 0 30px;
 }
-.event strong{color:#3157d5}
-
-/* BUTTONS */
-.action{
- border:0;background:var(--primary);
- color:white;padding:10px 15px;
- border-radius:8px;font-weight:bold;
+.stat{
+ background:var(--panel);padding:17px;border-radius:13px;
+ border:1px solid var(--border);box-shadow:var(--shadow);
 }
-.action:hover{background:#203fae}
-.secondary{background:#edf1ff;color:#3157d5}
-.btnrow{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
-
-/* MCQ */
-.question{
- border:1px solid var(--border);
- border-radius:10px;padding:16px;margin:13px 0;
+.stat strong{display:block;font-size:25px;color:var(--primary)}
+.stat span{font-size:12px;color:var(--muted)}
+.section{margin:35px 0;animation:appear .5s ease}
+.section-title{
+ font-size:24px;font-weight:800;margin-bottom:17px;
+ display:flex;align-items:center;gap:10px;
 }
-.question h4{margin-bottom:12px}
+.section-title:before{
+ content:"";height:25px;width:5px;border-radius:5px;background:var(--primary)
+}
+.subheading{font-size:17px;margin:20px 0 10px;color:var(--primary)}
+.card{
+ background:var(--panel);border:1px solid var(--border);
+ border-radius:13px;padding:19px;margin:12px 0;
+ box-shadow:var(--shadow);
+}
+.card p{margin:7px 0}
+.card ul,.card ol{padding-left:22px;margin:8px 0}
+.card li{margin:5px 0}
+.muted{color:var(--muted)}
+.tag{
+ display:inline-block;padding:4px 9px;border-radius:20px;
+ background:var(--soft);color:var(--primary);
+ font-size:11px;font-weight:bold;margin:3px;
+}
+.accordion{
+ background:var(--panel);border:1px solid var(--border);
+ border-radius:13px;margin:12px 0;overflow:hidden;
+ box-shadow:var(--shadow);
+}
+.acc-head{
+ width:100%;border:0;background:var(--panel);color:var(--text);
+ padding:17px 19px;display:flex;align-items:center;
+ justify-content:space-between;text-align:left;gap:12px;
+ font-weight:bold;font-size:15px;
+}
+.acc-head:hover{background:var(--soft)}
+.acc-head .arrow{color:var(--primary);transition:.3s;font-size:20px}
+.accordion.open .arrow{transform:rotate(180deg)}
+.acc-body{display:none;padding:5px 20px 20px;border-top:1px solid var(--border)}
+.accordion.open .acc-body{display:block;animation:slide .3s ease}
+table{width:100%;border-collapse:collapse;font-size:13px;margin:12px 0}
+th,td{border:1px solid var(--border);padding:10px;text-align:left}
+th{background:var(--soft);color:var(--primary);font-weight:700}
+tr:hover td{background:var(--soft)}
+.table-wrap{overflow-x:auto;border-radius:10px}
+.searchbox{
+ width:100%;padding:13px 15px;border:1px solid var(--border);
+ border-radius:10px;background:var(--panel);color:var(--text);
+ outline:none;margin:10px 0 15px;
+}
+.searchbox:focus{border-color:var(--primary)}
+.timeline{position:relative;margin:20px 0 20px 12px;padding-left:27px;border-left:3px solid var(--primary)}
+.timeline-item{position:relative;padding:0 0 22px 10px}
+.timeline-item:before{
+ content:"";position:absolute;left:-37px;top:6px;
+ width:15px;height:15px;background:var(--primary);
+ border:3px solid var(--panel);border-radius:50%;
+}
+.timeline-item strong{color:var(--primary)}
+.info{
+ background:var(--soft);padding:13px;border-radius:9px;
+ border-left:4px solid var(--primary);margin:12px 0;
+}
+.quiz-question{
+ background:var(--panel);border:1px solid var(--border);
+ padding:19px;border-radius:12px;margin:14px 0;
+}
+.quiz-question h4{margin-bottom:12px}
 .option{
- display:block;padding:9px 12px;
- margin:7px 0;background:#f7f8fc;
- border-radius:7px;cursor:pointer;
- border:1px solid transparent;
+ display:block;width:100%;text-align:left;padding:10px 13px;
+ border:1px solid var(--border);border-radius:8px;
+ background:var(--bg);color:var(--text);margin:7px 0;
 }
-.option:hover{border-color:#3157d5}
-.option input{margin-right:8px}
-.correct{background:#e4f8ed!important;border-color:#15966b}
-.incorrect{background:#ffeded!important;border-color:#e34b4b}
-.explanation{font-size:13px;color:var(--muted);margin-top:10px}
-
-/* FOOTER */
-.footer{
- background:#1c2d57;color:white;
- text-align:center;padding:25px;
+.option:hover{border-color:var(--primary);background:var(--soft)}
+.option.correct{background:#d6f5e8;border-color:#15976b;color:#075b3d}
+.option.wrong{background:#ffe0e0;border-color:#dc4545;color:#9e2525}
+.option:disabled{cursor:default}
+.explanation{font-size:12px;color:var(--muted);margin-top:8px}
+.quiz-controls{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}
+.btn{
+ border:0;background:var(--primary);color:white;
+ padding:11px 18px;border-radius:9px;font-weight:bold;
 }
-.hidden{display:none!important}
-#backtop{
- position:fixed;bottom:20px;right:20px;
- border:0;background:#3157d5;color:white;
- border-radius:50%;width:45px;height:45px;
- font-size:20px;box-shadow:var(--shadow);
+.btn:hover{filter:brightness(1.12);transform:translateY(-1px)}
+.btn.secondary{background:var(--soft);color:var(--primary);border:1px solid var(--border)}
+.progress{height:8px;background:var(--border);border-radius:10px;overflow:hidden;margin:12px 0}
+.progress div{height:100%;background:var(--primary);width:0%;transition:.3s}
+.footer{text-align:center;color:var(--muted);padding:30px;border-top:1px solid var(--border);margin-top:40px}
+#backTop{
+ position:fixed;right:20px;bottom:20px;border:0;
+ background:var(--primary);color:white;border-radius:50%;
+ width:43px;height:43px;font-size:20px;display:none;z-index:50;
 }
-@media(max-width:850px){
- .layout{grid-template-columns:1fr;padding:12px}
- .sidebar{position:relative;top:0;height:auto}
+.menu-btn{display:none}
+@keyframes appear{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slide{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:900px){
+ .sidebar{transform:translateX(-100%);box-shadow:var(--shadow)}
+ .sidebar.show{transform:translateX(0)}
+ .main{margin-left:0;width:100%;padding:18px}
+ .menu-btn{display:inline-block}
  .stats{grid-template-columns:repeat(2,1fr)}
- .topbar{padding:10px}
 }
-@media(max-width:480px){
- .section{padding:14px}
- .section-title h2{font-size:18px}
- .hero{padding:17px}
- .acc-content{padding:13px}
+@media(max-width:500px){
+ .hero{padding:28px 20px}
+ .stats{gap:8px}
+ .stat{padding:12px}
+ .main{padding:13px}
+ .section-title{font-size:20px}
+ .topbar{padding:10px}
+ .logo{font-size:15px}
 }
 </style>
 </head>
 
 <body>
 
-<header class="header">
- <h1>GOVERNOR-GENERALS & VICEROYS OF INDIA</h1>
- <p>Complete Modern Indian History Notes</p>
- <small>BPSC | UPSC | SSC | State PCS | Competitive Examinations</small>
+<header class="topbar">
+ <div class="top-actions">
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+  <div class="logo">📚 HISTORY HUB</div>
+ </div>
+ <div class="top-actions">
+  <button onclick="toggleTheme()">◐ Theme</button>
+  <button onclick="window.print()">⎙ Print</button>
+ </div>
 </header>
-
-<nav class="topbar">
- <div class="brand">📚 HISTORY LIBRARY</div>
- <button onclick="expandAll()">Expand All</button>
- <button onclick="collapseAll()">Collapse All</button>
- <button onclick="window.print()">Print Notes</button>
-</nav>
 
 <div class="layout">
 
-<!-- SIDEBAR -->
-<aside class="sidebar">
- <h3>📑 CONTENT INDEX</h3>
- <a href="#intro">Introduction</a>
- <a href="#difference">Governor vs Viceroy</a>
- <a href="#governors">Governor-Generals 1773–1858</a>
- <a href="#viceroys">Viceroys 1858–1947</a>
- <a href="#independent">After Independence</a>
- <a href="#chronology">Master Chronology</a>
- <a href="#acts">Important Acts</a>
- <a href="#movements">Movements & Viceroys</a>
- <a href="#facts">One-Liner Facts</a>
- <a href="#timeline">Historical Timeline</a>
- <a href="#quiz">Practice MCQs</a>
+<aside class="sidebar" id="sidebar">
+ <input class="searchbox" id="search" placeholder="🔎 Search in notes..." oninput="searchNotes()">
+
+ <h3>Introduction</h3>
+ <a class="navlink" href="#intro">Overview</a>
+ <a class="navlink" href="#difference">Governor-General vs Viceroy</a>
+
+ <h3>Company Rule</h3>
+ <a class="navlink" href="#company">1773–1858</a>
+ <a class="navlink" href="#governors">Governor-General Notes</a>
+
+ <h3>British Crown Rule</h3>
+ <a class="navlink" href="#viceroys">1858–1947</a>
+ <a class="navlink" href="#independent">Independent India</a>
+
+ <h3>Revision Section</h3>
+ <a class="navlink" href="#master">Chronological Master Table</a>
+ <a class="navlink" href="#acts">Important Acts</a>
+ <a class="navlink" href="#movements">Movements & Events</a>
+ <a class="navlink" href="#facts">One-Liner Facts</a>
+ <a class="navlink" href="#timeline">Historical Timeline</a>
+
+ <h3>Practice</h3>
+ <a class="navlink" href="#quiz">BPSC Practice MCQs</a>
 </aside>
 
-<!-- MAIN CONTENT -->
-<main class="content">
+<main class="main">
 
-<div class="searchbox">
- <input type="search" id="search"
- placeholder="🔍 Search Governor, Viceroy, Act, Year or Event..."
- oninput="searchContent()">
+<div class="hero">
+ <span class="hero-tag">MODERN INDIAN HISTORY • COMPETITIVE EXAMS</span>
+ <h1>Governor-Generals & Viceroys of India</h1>
+ <p>Complete Detailed Notes | BPSC | UPSC | SSC | Railway | State PCS</p>
+ <p>1773 – 1950 | Interactive Historical Study Guide</p>
 </div>
 
-<div class="hero" id="intro">
- <h2>British Administration in India (1773–1950)</h2>
- <p>
-British rule in India was administered through Governors-General
-and Viceroys. The administration changed from East India Company
-rule to Crown rule in 1858 and finally to independent India.
- </p>
-
- <div class="stats">
-  <div class="stat"><strong>1773</strong><span>Regulating Act</span></div>
-  <div class="stat"><strong>1858</strong><span>Crown Rule</span></div>
-  <div class="stat"><strong>1947</strong><span>Independence</span></div>
-  <div class="stat"><strong>1950</strong><span>Republic of India</span></div>
- </div>
+<div class="stats">
+ <div class="stat"><strong>1773</strong><span>Beginning of Governor-General Era</span></div>
+ <div class="stat"><strong>1858</strong><span>Beginning of Crown Rule</span></div>
+ <div class="stat"><strong>1947</strong><span>Indian Independence</span></div>
+ <div class="stat"><strong>1950</strong><span>India Became a Republic</span></div>
 </div>
 
-<!-- DIFFERENCE -->
-<section class="section" id="difference">
- <div class="section-title">
-  <h2>1. Governor-General vs Viceroy</h2>
-  <span class="tag">BASIC CONCEPT</span>
- </div>
- <div class="table-wrap">
- <table>
- <tr><th>Governor-General</th><th>Viceroy</th></tr>
- <tr><td>Initially represented East India Company.</td><td>Represented British Crown.</td></tr>
- <tr><td>Position developed under Parliamentary Acts.</td><td>Position established after 1857 Revolt.</td></tr>
- <tr><td>Administered British Indian territories.</td><td>Administered India on behalf of British monarch.</td></tr>
- <tr><td>First: Warren Hastings (Bengal, 1773).</td><td>First: Lord Canning (1858).</td></tr>
- </table>
- </div>
- <div class="fact">
- <b>Important:</b> Lord Canning was the last Governor-General
- under Company rule and the first Viceroy under Crown rule.
+<!-- INTRODUCTION -->
+<section class="section" id="intro">
+ <h2 class="section-title">1. Introduction (परिचय)</h2>
+ <div class="card">
+ <p>British rule in India was administered through a series of Governors-General and Viceroys. These officials represented the East India Company or the British Crown and played an important role in the political, administrative, economic and social transformation of India.</p>
+ <h3 class="subheading">Two Major Periods</h3>
+ <div class="info"><b>Company Rule:</b> Governor-General of Bengal / India (1773–1858)</div>
+ <div class="info"><b>Crown Rule:</b> Viceroys of India (1858–1947)</div>
+ <p>After independence, India continued as a Dominion until 26 January 1950, with a Governor-General as its constitutional head.</p>
  </div>
 </section>
 
-<!-- GOVERNORS -->
-<section class="section" id="governors">
- <div class="section-title">
-  <h2>2. Governor-Generals of Bengal and India</h2>
-  <span class="tag">1773–1858</span>
+<section class="section" id="difference">
+ <h2 class="section-title">2. Difference Between Governor-General and Viceroy</h2>
+ <div class="card table-wrap">
+ <table>
+ <tr><th>Governor-General</th><th>Viceroy</th></tr>
+ <tr><td>Initially represented the East India Company.</td><td>Represented the British Crown.</td></tr>
+ <tr><td>Position developed under British Parliamentary Acts.</td><td>Position established after the Revolt of 1857.</td></tr>
+ <tr><td>Administered British territories in India.</td><td>Administered India on behalf of the British monarch.</td></tr>
+ <tr><td>First: Warren Hastings (1773)</td><td>First: Lord Canning (1858)</td></tr>
+ </table>
+ <div class="info"><b>Important:</b> Lord Canning was the last Governor-General under Company rule and the first Viceroy under Crown rule.</div>
  </div>
- <p>Click on any name to expand the detailed notes.</p>
+</section>
 
- <div id="governorList"></div>
+<!-- GOVERNOR GENERALS -->
+<section class="section" id="company">
+<h2 class="section-title">PART 1: GOVERNOR-GENERALS OF BENGAL AND INDIA (1773–1858)</h2>
+<p class="muted">Click on any Governor-General to expand the complete notes.</p>
+</section>
+
+<section class="section" id="governors">
+<div id="governorContainer"></div>
 </section>
 
 <!-- VICEROYS -->
 <section class="section" id="viceroys">
- <div class="section-title">
-  <h2>3. Viceroys of India</h2>
-  <span class="tag">1858–1947</span>
- </div>
- <p>Click on any Viceroy to explore his administration, reforms and historical events.</p>
- <div id="viceroyList"></div>
+<h2 class="section-title">PART 2: VICEROYS OF INDIA (1858–1947)</h2>
+<p class="muted">After the Government of India Act, 1858, administration was transferred from the East India Company to the British Crown.</p>
+<div id="viceroyContainer"></div>
 </section>
 
-<!-- INDEPENDENCE -->
+<!-- INDEPENDENT INDIA -->
 <section class="section" id="independent">
- <div class="section-title">
-  <h2>4. Governor-Generals after Independence</h2>
-  <span class="tag">1947–1950</span>
- </div>
- <div class="accordion">
-  <button class="acc-head">Lord Mountbatten (1947–1948) <span class="arrow">⌄</span></button>
-  <div class="acc-body"><div class="acc-inner"><div class="acc-content">
-   <ul>
-    <li>First Governor-General of independent India.</li>
-    <li>Served from 15 August 1947 to June 1948.</li>
-    <li>Oversaw the transfer of power and initial integration-related arrangements.</li>
-   </ul>
-  </div></div></div>
- </div>
- <div class="accordion">
-  <button class="acc-head">C. Rajagopalachari (1948–1950) <span class="arrow">⌄</span></button>
-  <div class="acc-body"><div class="acc-inner"><div class="acc-content">
-   <ul>
-    <li>First and only Indian Governor-General of India.</li>
-    <li>Last Governor-General of independent India.</li>
-    <li>India became a Republic on 26 January 1950.</li>
-    <li>Dr. Rajendra Prasad became the first President of India.</li>
-   </ul>
-  </div></div></div>
- </div>
+<h2 class="section-title">PART 3: GOVERNOR-GENERALS AFTER INDEPENDENCE (1947–1950)</h2>
+
+<div class="accordion">
+<button class="acc-head">37. Lord Mountbatten (1947–1948) <span class="arrow">⌄</span></button>
+<div class="acc-body">
+<p><span class="tag">First Governor-General of Independent India</span></p>
+<ul>
+<li>Served from 15 August 1947 to June 1948.</li>
+<li>First Governor-General of independent India.</li>
+<li>Oversaw the transfer of power and initial integration-related arrangements.</li>
+</ul>
+</div></div>
+
+<div class="accordion">
+<button class="acc-head">38. C. Rajagopalachari (1948–1950) <span class="arrow">⌄</span></button>
+<div class="acc-body">
+<p><span class="tag">First and Only Indian Governor-General</span></p>
+<ul>
+<li>Tenure: June 1948 – 26 January 1950.</li>
+<li>Last Governor-General of independent India.</li>
+<li>India became a Republic on 26 January 1950.</li>
+<li>The office of Governor-General was replaced by the office of President.</li>
+<li>Dr. Rajendra Prasad became the first President of India.</li>
+</ul>
+</div></div>
 </section>
 
-<!-- CHRONOLOGY -->
-<section class="section" id="chronology">
- <div class="section-title"><h2>5. Complete Chronological Master Table</h2></div>
- <h3>Governor-Generals</h3>
- <div class="table-wrap">
- <table>
- <tr><th>No.</th><th>Name</th><th>Tenure</th></tr>
- <tbody id="governorTable"></tbody>
- </table>
- </div>
- <br>
- <h3>Viceroys</h3>
- <div class="table-wrap">
- <table>
- <tr><th>No.</th><th>Name</th><th>Tenure</th></tr>
- <tbody id="viceroyTable"></tbody>
- </table>
- </div>
+<!-- MASTER TABLE -->
+<section class="section" id="master">
+<h2 class="section-title">PART 4: COMPLETE CHRONOLOGICAL MASTER TABLE</h2>
+<div class="card">
+<h3 class="subheading">A. Governor-Generals (1773–1858)</h3>
+<div class="table-wrap"><table>
+<tr><th>No.</th><th>Name</th><th>Tenure</th></tr>
+<tbody id="masterGovernors"></tbody>
+</table></div>
+<h3 class="subheading">B. Viceroys of India (1858–1947)</h3>
+<div class="table-wrap"><table>
+<tr><th>No.</th><th>Viceroy</th><th>Tenure</th></tr>
+<tbody id="masterViceroys"></tbody>
+</table></div>
+<h3 class="subheading">C. Governor-Generals of Independent India</h3>
+<table>
+<tr><th>Name</th><th>Tenure</th></tr>
+<tr><td>Lord Mountbatten</td><td>1947–1948</td></tr>
+<tr><td>C. Rajagopalachari</td><td>1948–1950</td></tr>
+</table>
+<p class="muted">Note: Acting officeholders and second tenures are included where relevant. Exact dates can vary slightly according to appointment, assumption of office and departure.</p>
+</div>
 </section>
 
 <!-- ACTS -->
 <section class="section" id="acts">
- <div class="section-title"><h2>6. Important Acts and Reforms</h2></div>
- <div class="table-wrap">
- <table>
- <tr><th>Act / Reform</th><th>Year</th><th>Associated Ruler</th></tr>
- <tbody id="actsTable"></tbody>
- </table>
- </div>
+<h2 class="section-title">PART 5: IMPORTANT ACTS AND THEIR GOVERNORS / VICEROYS</h2>
+<div class="card table-wrap">
+<table>
+<tr><th>Act / Reform</th><th>Year</th><th>Associated Governor-General / Viceroy</th></tr>
+<tbody id="actsTable"></tbody>
+</table>
+</div>
 </section>
 
 <!-- MOVEMENTS -->
 <section class="section" id="movements">
- <div class="section-title"><h2>7. Important Movements and Their Viceroys</h2></div>
- <div class="table-wrap">
- <table>
- <tr><th>Movement / Event</th><th>Year</th><th>Viceroy</th></tr>
- <tbody id="movementTable"></tbody>
- </table>
- </div>
+<h2 class="section-title">PART 6: IMPORTANT MOVEMENTS AND THEIR VICEROYS</h2>
+<div class="card table-wrap">
+<table>
+<tr><th>Movement / Event</th><th>Year</th><th>Viceroy</th></tr>
+<tbody id="movementsTable"></tbody>
+</table>
+</div>
 </section>
 
-<!-- FACTS -->
+<!-- ONE LINERS -->
 <section class="section" id="facts">
- <div class="section-title"><h2>8. Important One-Liner Facts</h2></div>
- <div class="btnrow">
-  <button class="action" onclick="showFacts('all')">All Facts</button>
-  <button class="action secondary" onclick="showFacts('governor')">Governors</button>
-  <button class="action secondary" onclick="showFacts('viceroy')">Viceroys</button>
- </div>
- <ol id="factsList"></ol>
+<h2 class="section-title">PART 7: MOST IMPORTANT ONE-LINER FACTS FOR BPSC</h2>
+<div class="card">
+<h3 class="subheading">High-Frequency Exam Facts</h3>
+<div id="factsList"></div>
+</div>
 </section>
 
 <!-- TIMELINE -->
 <section class="section" id="timeline">
- <div class="section-title"><h2>9. Historical Timeline</h2></div>
- <div class="timeline" id="timelineList"></div>
+<h2 class="section-title">PART 8: IMPORTANT CHRONOLOGICAL TIMELINE</h2>
+<div class="card">
+<p class="muted">Major developments in Modern Indian History.</p>
+<div class="timeline" id="timelineContainer"></div>
+</div>
 </section>
 
 <!-- QUIZ -->
 <section class="section" id="quiz">
- <div class="section-title">
-  <h2>10. BPSC Practice Test</h2>
-  <span class="tag">20 MCQs</span>
- </div>
- <p>Choose the correct answer and submit your test to see your score.</p>
- <div id="quizContainer"></div>
- <div class="btnrow">
-  <button class="action" onclick="submitQuiz()">Submit Test</button>
-  <button class="action secondary" onclick="resetQuiz()">Reset Test</button>
- </div>
- <h3 id="result" style="margin-top:15px;color:#15966b"></h3>
+<h2 class="section-title">PART 9: BPSC PRACTICE MCQs</h2>
+<div class="card">
+<p>Test your preparation with 20 multiple-choice questions.</p>
+<div class="progress"><div id="progressBar"></div></div>
+<div style="display:flex;justify-content:space-between;font-size:12px;color:var(--muted)">
+<span id="attemptText">0 / 20 attempted</span>
+<span id="scoreText">Score: 0</span>
+</div>
+<div id="quizContainer"></div>
+<div class="quiz-controls">
+<button class="btn" onclick="submitQuiz()">Submit Answers</button>
+<button class="btn secondary" onclick="resetQuiz()">Reset Quiz</button>
+</div>
+<div id="result"></div>
+</div>
 </section>
+
+<footer class="footer">
+<h3>MODERN INDIAN HISTORY</h3>
+<p>Governor-Generals & Viceroys of India</p>
+<p>Prepared for BPSC | UPSC | SSC | Other Competitive Exams</p>
+<p>© Interactive Study Notes</p>
+</footer>
 
 </main>
 </div>
 
-<footer class="footer">
- <h3>HISTORY STUDY LIBRARY</h3>
- <p>Modern Indian History | Governor-Generals & Viceroys</p>
- <small>Prepared for BPSC, UPSC and other competitive examinations.</small>
-</footer>
-
-<button id="backtop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<button id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <script>
-
-/* =====================================
-   GOVERNOR-GENERALS DATABASE
-===================================== */
+// ==================================================
+// GOVERNOR-GENERAL DETAILED NOTES
+// ==================================================
 
 const governors = [
-
-["Warren Hastings","1773–1785",[
-"First Governor-General of Bengal under the Regulating Act, 1773.",
-"Supreme Court of Calcutta established in 1774. First Chief Justice: Sir Elijah Impey.",
-"First Anglo-Maratha War (1775–1782), ended with Treaty of Salbai (1782).",
-"Second Anglo-Mysore War (1780–1784), ended with Treaty of Mangalore.",
-"Pitt's India Act (1784) established the Board of Control and introduced dual control.",
-"Asiatic Society of Bengal was founded by Sir William Jones in 1784.",
-"Judicial and revenue administration were reorganised."
-]],
-
-["Sir John Macpherson (Acting)","1785–1786",[
-"Served as acting Governor-General after Warren Hastings.",
-"His administration was temporary before Cornwallis took office."
-]],
-
-["Lord Cornwallis","1786–1793",[
-"Associated with the development of modern Indian Civil Services.",
-"Introduced Permanent Settlement in 1793 in Bengal, Bihar and Odisha territories of the Bengal Presidency.",
-"Introduced Cornwallis Code (1793).",
-"Separated revenue administration from judicial functions.",
-"Reorganised civil and criminal courts.",
-"Third Anglo-Mysore War (1790–1792), ended with Treaty of Seringapatam.",
-"Increased salaries of Company officials and restricted private trade."
-]],
-
-["Sir John Shore","1793–1798",[
-"Followed a policy of non-intervention.",
+{
+name:"Warren Hastings",period:"1773–1785",title:"First Governor-General of Bengal",
+points:[
+"Regulating Act, 1773 established the post of Governor-General of Bengal. Warren Hastings became the first Governor-General.",
+"Supreme Court was established at Calcutta in 1774. First Chief Justice: Sir Elijah Impey.",
+"First Anglo-Maratha War (1775–1782) ended with the Treaty of Salbai (1782).",
+"Second Anglo-Mysore War (1780–1784) was fought against Hyder Ali and Tipu Sultan. It ended through the Treaty of Mangalore (1784).",
+"Pitt's India Act (1784) introduced dual control over the East India Company and created the Board of Control.",
+"Reorganised revenue administration and introduced revenue farming in some regions.",
+"Established civil and criminal courts and promoted the use of Indian personal laws in certain judicial matters.",
+"Asiatic Society of Bengal was founded in 1784 by Sir William Jones during his tenure."
+],
+facts:[
+"First Governor-General of Bengal: Warren Hastings.",
+"First Chief Justice of Supreme Court at Calcutta: Elijah Impey.",
+"Impeachment proceedings against Hastings began in 1788.",
+"He was acquitted in 1795."
+]
+},
+{
+name:"Lord Cornwallis",period:"1786–1793",title:"Father of Indian Civil Services (commonly called)",
+points:[
+"Permanent Settlement introduced in 1793 in Bengal, Bihar and Odisha (then Bengal Presidency territories). Zamindars were recognised as landowners for revenue purposes and land revenue demand was permanently fixed.",
+"Cornwallis Code (1793) introduced administrative and judicial reforms, separated revenue administration from judicial functions and reorganised civil and criminal courts.",
+"Improved civil services by increasing salaries and restricting private trade and corruption among Company servants. Higher posts were largely reserved for Europeans.",
+"Third Anglo-Mysore War (1790–1792) was fought against Tipu Sultan and ended with the Treaty of Seringapatam (1792). Tipu surrendered approximately half of his territories."
+],
+facts:["Permanent Settlement: 1793.","Cornwallis is associated with the foundation of the modern civil service system.","Third Anglo-Mysore War ended in 1792."]
+},
+{
+name:"Sir John Shore",period:"1793–1798",title:"Policy of Non-Intervention",
+points:[
+"Followed a policy of non-intervention in Indian states.",
 "Charter Act was renewed in 1793.",
 "Battle of Kharda (1795): Marathas defeated the Nizam of Hyderabad.",
 "Faced political instability in Awadh and Hyderabad."
-]],
-
-["Lord Wellesley","1798–1805",[
-"Introduced and extensively developed Subsidiary Alliance.",
-"Indian rulers had to maintain British troops and bear their expenses.",
-"British Residents were appointed in Indian courts.",
-"Rulers could not conduct independent foreign relations.",
-"Fourth Anglo-Mysore War (1799): Tipu Sultan was killed at Seringapatam.",
-"Second Anglo-Maratha War (1803–1805).",
-"Fort William College established in Calcutta in 1800."
-]],
-
-["Lord Cornwallis (Second Tenure)","1805",[
-"Returned to India for a second term in 1805.",
-"His second tenure was very short.",
-"Died at Ghazipur in October 1805."
-]],
-
-["Sir George Barlow","1805–1807",[
-"Served as acting Governor-General.",
-"Followed a policy of non-intervention.",
-"Vellore Mutiny took place in 1806."
-]],
-
-["Lord Minto I","1807–1813",[
-"Treaty of Amritsar signed in 1809 between Ranjit Singh and the British.",
-"Charter Act of 1813 ended the Company's trade monopoly in India except tea and China trade.",
-"Allowed Christian missionaries to operate in India."
-]],
-
-["Lord Hastings","1813–1823",[
-"Anglo-Nepal War (1814–1816), ended with Treaty of Sugauli.",
-"Third Anglo-Maratha War (1817–1818).",
-"End of the political power of the Peshwa in 1818.",
-"Pindari groups were suppressed during 1817–1818.",
-"Ryotwari system developed by Thomas Munro and Alexander Read.",
-"Restrictions on the press were relaxed."
-]],
-
-["Lord Amherst","1823–1828",[
+],
+facts:["John Shore is associated with the policy of non-intervention."]
+},
+{
+name:"Lord Wellesley",period:"1798–1805",title:"Expansion of British Empire",
+points:[
+"Introduced and extensively developed the Subsidiary Alliance system.",
+"Indian rulers had to maintain British troops and pay for their maintenance.",
+"British Residents were appointed in Indian courts. Rulers could not conduct independent foreign relations or employ Europeans without British permission.",
+"Fourth Anglo-Mysore War (1799): Tipu Sultan was defeated and killed at Seringapatam. Mysore came under increased British influence.",
+"Second Anglo-Maratha War (1803–1805): Treaties of Deogaon and Surji-Anjangaon (1803) were important.",
+"Fort William College was established in Calcutta in 1800 to train Company officials in Indian languages and administration."
+],
+facts:["Subsidiary Alliance: Lord Wellesley.","Fourth Anglo-Mysore War: 1799.","Death of Tipu Sultan: 1799.","Fort William College: 1800."]
+},
+{
+name:"Lord Cornwallis (Second Tenure)",period:"1805",title:"Second and Short Tenure",
+points:["Returned to India in 1805.","Died at Ghazipur, Uttar Pradesh, in October 1805."]
+},
+{
+name:"Sir George Barlow",period:"1805–1807",title:"Acting Governor-General",
+points:["Served as acting Governor-General.","Followed a policy of non-intervention.","Vellore Mutiny occurred in 1806, an early major military uprising against British authority."]
+},
+{
+name:"Lord Minto I",period:"1807–1813",title:"Treaty of Amritsar",
+points:[
+"Treaty of Amritsar (1809) was signed between Maharaja Ranjit Singh and the British.",
+"The Sutlej River became an important boundary between their spheres of influence.",
+"Charter Act (1813) ended the Company's trade monopoly in India except tea and trade with China.",
+"The Charter Act allowed Christian missionaries to operate in India."
+],
+facts:["Treaty of Amritsar: 1809.","Charter Act: 1813."]
+},
+{
+name:"Lord Hastings",period:"1813–1823",title:"Expansion of British Supremacy",
+points:[
+"Anglo-Nepal War (1814–1816) ended with the Treaty of Sugauli (1816). Nepal ceded several territories.",
+"Third Anglo-Maratha War (1817–1818) ended the political power of the Peshwa. Bajirao II was defeated.",
+"Pindari War (1817–1818): Pindari groups were suppressed.",
+"Ryotwari System was developed by Thomas Munro and Alexander Read and implemented in parts of Madras and Bombay Presidencies.",
+"Restrictions on the press were relaxed during his administration."
+],
+facts:["Third Anglo-Maratha War: 1817–1818.","End of Peshwa's political power: 1818.","Treaty of Sugauli: 1816."]
+},
+{
+name:"Lord Amherst",period:"1823–1828",title:"First Anglo-Burmese War",
+points:[
 "First Anglo-Burmese War (1824–1826).",
-"Treaty of Yandabo signed in 1826.",
-"British gained territories including Assam.",
-"Barrackpore Mutiny took place in 1824."
-]],
-
-["Lord William Bentinck","1828–1835",[
-"First Governor-General of India under Charter Act of 1833.",
-"Abolished Sati in Bengal Presidency through Regulation XVII of 1829.",
-"Raja Ram Mohan Roy campaigned against Sati.",
-"Organised campaigns against Thuggee with the help of William Sleeman.",
-"Macaulay's Minute on Education (1835).",
-"English promoted as the medium of higher education.",
-"Charter Act of 1833 ended the Company's commercial activities.",
-"Provided for a Law Commission."
-]],
-
-["Sir Charles Metcalfe (Acting)","1835–1836",[
-"Known as the Liberator of the Indian Press.",
-"Removed restrictive licensing regulations on the press in 1835."
-]],
-
-["Lord Auckland","1836–1842",[
+"Ended with the Treaty of Yandabo (1826).",
+"Barrackpore Mutiny occurred in 1824.",
+"British obtained Assam and other territories from Burma under the treaty."
+],
+facts:["First Anglo-Burmese War ended through the Treaty of Yandabo in 1826."]
+},
+{
+name:"Lord William Bentinck",period:"1828–1835",title:"First Governor-General of India",
+points:[
+"Abolition of Sati (1829): prohibited in Bengal Presidency through Regulation XVII of 1829. Raja Ram Mohan Roy campaigned against Sati.",
+"Suppression of Thuggee: organised campaigns against Thuggee groups. William Sleeman played an important role.",
+"English Education: Lord Macaulay's Minute on Education (1835) promoted English as a medium of higher education. English Education Act followed in 1835.",
+"Charter Act of 1833: Governor-General of Bengal became Governor-General of India. William Bentinck became the first Governor-General of India.",
+"Company was deprived of its commercial activities and a Law Commission was provided for.",
+"Encouraged modern education, reduced certain administrative expenditures and promoted centralisation."
+],
+facts:["First Governor-General of India: William Bentinck.","Abolition of Sati: 1829.","English Education Policy: 1835.","Charter Act: 1833."]
+},
+{
+name:"Sir Charles Metcalfe",period:"1835–1836",title:"Liberator of the Indian Press",
+points:[
+"Served as Acting Governor-General.",
+"Removed restrictive licensing regulations on the press in 1835.",
+"Promoted greater freedom of the Indian press."
+],
+facts:["Charles Metcalfe is popularly known as the Liberator of the Indian Press."]
+},
+{
+name:"Lord Auckland",period:"1836–1842",title:"First Anglo-Afghan War",
+points:[
 "First Anglo-Afghan War (1839–1842).",
 "British attempted to establish Shah Shuja on the Afghan throne.",
-"British forces suffered a disastrous retreat from Kabul in 1842."
-]],
-
-["Lord Ellenborough","1842–1844",[
+"British forces suffered a disastrous retreat from Kabul in 1842.",
+"Education and administrative initiatives also took place during his tenure."
+]
+},
+{
+name:"Lord Ellenborough",period:"1842–1844",title:"Annexation of Sindh",
+points:[
+"British withdrawal and military operations in Afghanistan.",
 "Annexation of Sindh in 1843 by Charles Napier.",
-"Gwalior Campaign in 1843.",
-"British military operations in Afghanistan.",
-"Made the controversial declaration regarding the gates of Somnath."
-]],
-
-["Lord Hardinge I","1844–1848",[
+"Gwalior Campaign (1843).",
+"Proclaimed that the gates of Somnath had been brought back from Ghazni, a controversial political declaration."
+]
+},
+{
+name:"Lord Hardinge I",period:"1844–1848",title:"First Anglo-Sikh War",
+points:[
 "First Anglo-Sikh War (1845–1846).",
-"Treaty of Lahore (1846).",
-"Treaty of Bhairowal (1846).",
-"British influence increased in Punjab."
-]],
-
-["Lord Dalhousie","1848–1856",[
-"Associated with Doctrine of Lapse.",
-"States annexed under the policy included Satara (1848), Sambalpur (1849), Jhansi (1853) and Nagpur (1854).",
-"Punjab annexed in 1849 after Second Anglo-Sikh War.",
-"Lower Burma (Pegu) annexed in 1852.",
-"Awadh annexed in 1856 on grounds of alleged misgovernment, not Doctrine of Lapse.",
-"First passenger train ran from Bombay to Thane on 16 April 1853.",
-"Post Office Act of 1854 introduced uniform postal arrangements.",
-"Wood's Despatch of 1854 is called the Magna Carta of English Education in India.",
-"Public Works Department was organised in 1854.",
-"Universities of Calcutta, Bombay and Madras were established in 1857, after his tenure."
-]],
-
-["Lord Canning","1856–1858",[
-"Last Governor-General under Company rule and first Viceroy under Crown rule.",
-"Revolt of 1857 began at Meerut on 10 May 1857.",
-"Government of India Act, 1858 transferred administration to the British Crown.",
-"Queen's Proclamation announced on 1 November 1858 at Allahabad.",
-"Indian Councils Act of 1861 was passed during his Viceroyalty.",
-"Indigo Revolt took place in Bengal during 1859–1860.",
-"Income tax introduced in 1860 under James Wilson."
-]]
-
+"Treaty of Lahore (1846) and Treaty of Bhairowal (1846).",
+"British influence increased in Punjab.",
+"Engineering and railway development received attention."
+]
+},
+{
+name:"Lord Dalhousie",period:"1848–1856",title:"Expansionist Governor-General",
+points:[
+"Doctrine of Lapse: British refused to recognise adopted heirs as legitimate successors in certain princely states where a ruler died without a natural male heir.",
+"States annexed under the policy included Satara (1848), Sambalpur (1849), Jaitpur (1849), Baghat (1850), Udaipur in Central India (1852), Jhansi (1853) and Nagpur (1854).",
+"Awadh was annexed in 1856 on the grounds of alleged misgovernment, not under the Doctrine of Lapse.",
+"Punjab was annexed in 1849 after the Second Anglo-Sikh War.",
+"Lower Burma (Pegu) was annexed in 1852.",
+"Berar was assigned to the British in 1853 for maintenance of the Hyderabad contingent.",
+"First passenger train in India ran on 16 April 1853 from Bombay (Bori Bunder) to Thane, approximately 34 km.",
+"Telegraph lines developed and connected important administrative centres.",
+"Post Office Act, 1854 introduced a uniform postal system, reduced postal charges and expanded postal facilities.",
+"Centralised Public Works Department established in 1854, focusing on roads, canals and infrastructure.",
+"Wood's Despatch (1854), known as the Magna Carta of English Education in India, recommended universities in Calcutta, Bombay and Madras.",
+"Universities of Calcutta, Bombay and Madras were established in 1857, after Dalhousie's tenure."
+],
+facts:["Doctrine of Lapse: Dalhousie.","First passenger train: 1853.","Wood's Despatch: 1854.","Post Office Act: 1854.","Universities: 1857."]
+},
+{
+name:"Lord Canning",period:"1856–1858",title:"Last Governor-General and First Viceroy",
+points:[
+"Revolt of 1857 began at Meerut on 10 May 1857. Bahadur Shah II was declared the symbolic emperor.",
+"Government of India Act, 1858 ended East India Company rule and transferred administration to the British Crown.",
+"The Act established the office of Secretary of State for India. Lord Canning became the first Viceroy.",
+"Queen's Proclamation announced on 1 November 1858 at Allahabad promised non-interference in religious matters and equal treatment under the law.",
+"Indian Councils Act, 1861 introduced legislative councils with nominated Indian members and restored legislative powers to Bombay and Madras.",
+"Indian Penal Code was drafted by the First Law Commission under Macaulay and came into operation in 1862.",
+"Indigo Revolt (1859–1860): peasants in Bengal protested against European indigo planters.",
+"Income Tax was introduced in 1860 under James Wilson."
+],
+facts:["Last Governor-General under Company rule: Canning.","First Viceroy: Canning.","Revolt of 1857: Canning's tenure.","Queen's Proclamation: 1858."]
+}
 ];
 
-/* =====================================
-   VICEROYS DATABASE
-===================================== */
+// ==================================================
+// VICEROY DETAILED NOTES
+// ==================================================
 
 const viceroys = [
-
-["Lord Canning","1858–1862",[
-"First Viceroy of India.",
-"Queen's Proclamation of 1858.",
-"Indian Councils Act of 1861 restored legislative powers to Bombay and Madras.",
-"Indian Penal Code came into operation in 1862.",
-"Indigo Revolt (1859–1860).",
-"Income tax introduced in 1860 under James Wilson."
-]],
-
-["Lord Elgin I","1862–1863",[
-"Second Viceroy of India.",
-"High Courts established at Calcutta, Bombay and Madras in 1862.",
-"Died at Dharamshala in 1863."
-]],
-
-["Sir John Lawrence","1864–1869",[
-"Policy of non-intervention in Afghanistan.",
-"Bhutan War (1864–1865).",
-"Treaty of Sinchula signed in 1865.",
-"Orissa famine occurred in 1866.",
-"Further expansion of railways and telegraph."
-]],
-
-["Lord Mayo","1869–1872",[
-"Known as Father of Financial Decentralisation in India.",
-"Financial decentralisation introduced in 1870.",
-"First attempt at an all-India census conducted in 1872; it was non-synchronous.",
-"Mayo College founded at Ajmer in 1875, after his death.",
-"Assassinated by Sher Ali Afridi at Port Blair on 8 February 1872."
-]],
-
-["Lord Northbrook","1872–1876",[
-"Bihar famine of 1873–1874.",
-"Prince of Wales visited India in 1875.",
-"Resigned in 1876 over differences on Afghan policy."
-]],
-
-["Lord Lytton I","1876–1880",[
-"Queen Victoria assumed the title Empress of India under the Royal Titles Act of 1876.",
-"Delhi Durbar held on 1 January 1877.",
-"Great Famine of 1876–1878.",
-"Vernacular Press Act passed in 1878.",
-"Arms Act passed in 1878.",
-"Second Anglo-Afghan War (1878–1880).",
-"Treaty of Gandamak signed in 1879.",
-"Reduced or abolished certain import duties on cotton goods."
-]],
-
-["Lord Ripon","1880–1884",[
-"Known as Father of Local Self-Government in India.",
-"Local Self-Government Resolution of 1882.",
-"Repealed Vernacular Press Act in 1882.",
-"Hunter Education Commission appointed in 1882.",
-"First Factory Act passed in 1881.",
-"Ilbert Bill introduced in 1883 by Sir Courtenay Ilbert.",
+{
+name:"Lord Canning",period:"1858–1862",title:"First Viceroy of India",
+points:[
+"Government of India Act, 1858 transferred administration to the British Crown.",
+"Queen's Proclamation of 1858 was announced at Allahabad on 1 November.",
+"Indian Councils Act, 1861 introduced legislative councils with nominated Indian members and restored legislative powers to Bombay and Madras.",
+"Indigo Revolt (1859–1860) took place in Bengal.",
+"Income Tax introduced in 1860 under James Wilson.",
+"Indian Penal Code came into operation in 1862."
+],
+facts:["First Viceroy: Lord Canning.","Last Governor-General under Company rule: Lord Canning."]
+},
+{
+name:"Lord Elgin I",period:"1862–1863",title:"Second Viceroy of India",
+points:[
+"Wahabi Movement continued to attract British attention.",
+"High Courts were established at Calcutta, Bombay and Madras in 1862.",
+"He died at Dharamshala in 1863."
+],
+facts:["Calcutta, Bombay and Madras High Courts began functioning in 1862."]
+},
+{
+name:"Sir John Lawrence",period:"1864–1869",title:"Policy of Non-Intervention in Afghanistan",
+points:[
+"Bhutan War (1864–1865) ended with the Treaty of Sinchula (1865).",
+"Orissa famine occurred in 1866. Government subsequently investigated famine administration.",
+"Telegraph and railway networks expanded.",
+"Followed a policy of non-interference in Afghan internal affairs."
+],
+facts:["Treaty of Sinchula: 1865."]
+},
+{
+name:"Lord Mayo",period:"1869–1872",title:"Father of Financial Decentralisation",
+points:[
+"Financial decentralisation introduced in 1870. Certain financial responsibilities were transferred to provincial governments.",
+"First attempt at an all-India census took place in 1872. It was not synchronous.",
+"First synchronous all-India census was conducted in 1881.",
+"Mayo College was established at Ajmer in 1875 for education of Indian princes and aristocrats, after his death.",
+"Initiatives taken to improve agricultural and commercial administration.",
+"Assassinated on 8 February 1872 at Port Blair in the Andaman Islands by Sher Ali Afridi."
+],
+facts:["Financial decentralisation: Mayo.","Census of 1872: first non-synchronous all-India census.","First synchronous census: 1881.","Only Viceroy assassinated in India: Lord Mayo."]
+},
+{
+name:"Lord Northbrook",period:"1872–1876",title:"Bihar Famine and Administrative Reforms",
+points:[
+"Bihar famine (1873–1874): Government organised relief measures and large-scale starvation was prevented in comparison with other major famines.",
+"Kuka or Namdhari Movement continued in Punjab.",
+"Prince of Wales (later Edward VII) visited India in 1875.",
+"Resigned in 1876 over differences with the British government concerning Afghan policy."
+]
+},
+{
+name:"Lord Lytton I",period:"1876–1880",title:"Vernacular Press Act and Second Anglo-Afghan War",
+points:[
+"Royal Titles Act (1876): Queen Victoria assumed the title of Empress of India.",
+"Delhi Durbar held on 1 January 1877. Queen Victoria was proclaimed Kaisar-i-Hind.",
+"Great Famine (1876–1878) affected Madras, Bombay, Mysore and other regions. Millions suffered.",
+"Vernacular Press Act (1878) restricted newspapers published in Indian languages. English-language newspapers were exempted. Repealed in 1882 by Lord Ripon.",
+"Arms Act (1878) restricted possession and carrying of arms without a licence, with discriminatory provisions affecting Indians.",
+"Second Anglo-Afghan War (1878–1880). Treaty of Gandamak (1879). Afghan foreign affairs came under British influence.",
+"Reduced or abolished certain import duties, particularly on cotton goods, criticised by Indian economic interests."
+],
+facts:["Vernacular Press Act: 1878.","Arms Act: 1878.","Delhi Durbar: 1877.","Second Anglo-Afghan War: 1878–1880."]
+},
+{
+name:"Lord Ripon",period:"1880–1884",title:"Father of Local Self-Government in India",
+points:[
+"Repealed the Vernacular Press Act in 1882.",
+"Local Self-Government Resolution (1882) promoted elected non-official members in municipal and district boards.",
+"Hunter Commission (1882) reviewed education and recommended greater attention to primary and secondary education.",
+"Factory Act (1881): first Factory Act introduced restrictions on child labour and limited protection for factory workers.",
+"Ilbert Bill (1883), introduced by Law Member Sir Courtenay Ilbert, proposed allowing senior Indian judges to try European British subjects in criminal cases. It faced strong European opposition and was modified.",
+"Continued decentralisation of financial administration.",
 "First synchronous all-India census conducted in 1881."
-]],
-
-["Lord Dufferin","1884–1888",[
+],
+facts:["Father of Local Self-Government: Ripon.","Hunter Commission: 1882.","Ilbert Bill: 1883.","First Factory Act: 1881.","Vernacular Press Act repealed: 1882."]
+},
+{
+name:"Lord Dufferin",period:"1884–1888",title:"Indian National Congress Founded",
+points:[
 "Indian National Congress founded in Bombay on 28 December 1885.",
-"A.O. Hume associated with its foundation.",
-"W.C. Bonnerjee was first Congress President.",
-"Third Anglo-Burmese War took place in 1885.",
-"Upper Burma annexed in 1886.",
-"Bengal Tenancy Act passed in 1885."
-]],
-
-["Lord Lansdowne","1888–1894",[
-"Indian Councils Act of 1892.",
-"Age of Consent Act of 1891 raised the age from 10 to 12 years.",
-"Durand Line agreement signed in 1893 between British India and Afghanistan.",
-"Census conducted in 1891."
-]],
-
-["Lord Elgin II","1894–1899",[
-"Great Famine of 1896–1897.",
+"A.O. Hume was associated with its establishment. First President: W.C. Bonnerjee. 72 delegates attended the first session.",
+"Third Anglo-Burmese War (1885): Upper Burma annexed in 1886 and King Thibaw was deposed.",
+"Bengal Tenancy Act (1885) regulated landlord-tenant relations and provided certain protections to tenants."
+],
+facts:["INC: 1885.","First President: W.C. Bonnerjee.","Founder associated with INC: A.O. Hume."]
+},
+{
+name:"Lord Lansdowne",period:"1888–1894",title:"Indian Councils Act and Durand Line",
+points:[
+"Indian Councils Act (1892) increased additional members in legislative councils, expanded budget discussion and allowed limited questioning.",
+"Introduced an indirect element of election through recommendations.",
+"Age of Consent Act (1891) raised the age of consent for girls in marital relations from 10 to 12 years.",
+"Durand Line (1893): boundary agreement between British India and Afghanistan, negotiated by Sir Mortimer Durand and Amir Abdur Rahman Khan.",
+"Second Census of the period conducted in 1891."
+],
+facts:["Indian Councils Act: 1892.","Durand Line: 1893.","Age of Consent Act: 1891."]
+},
+{
+name:"Lord Elgin II",period:"1894–1899",title:"Famine and Plague",
+points:[
+"Great Famine (1896–1897).",
 "Bubonic plague spread in Bombay and other regions.",
 "Chapekar brothers assassinated W.C. Rand and Lt. Ayerst in Pune in 1897.",
-"Frontier disturbances and military operations."
-]],
-
-["Lord Curzon","1899–1905",[
+"Frontier disturbances and military operations in the North-West Frontier region."
+],
+facts:["Plague and famine were major challenges during Elgin II's administration."]
+},
+{
+name:"Lord Curzon",period:"1899–1905",title:"Partition of Bengal",
+points:[
 "Partition of Bengal announced on 19 July 1905 and implemented on 16 October 1905.",
-"Swadeshi and Boycott movements developed in response.",
-"Indian Universities Act of 1904.",
-"Ancient Monuments Preservation Act of 1904.",
-"North-West Frontier Province created in 1901.",
-"Police Commission of 1902–1903 under Andrew Fraser.",
-"John Marshall appointed Director-General of ASI in 1902.",
-"Famine Commission appointed under Anthony MacDonnell."
-]],
-
-["Lord Minto II","1905–1910",[
-"Indian Councils Act of 1909 also known as Morley-Minto Reforms.",
-"Separate electorates for Muslims introduced.",
-"All-India Muslim League founded at Dacca in 1906.",
-"Surat Split of Congress in 1907.",
-"John Morley was Secretary of State for India."
-]],
-
-["Lord Hardinge II","1910–1916",[
-"Capital shifted from Calcutta to Delhi, announced in 1911.",
-"Partition of Bengal annulled in 1911.",
+"East Bengal and Assam had Dacca as its capital. Western Bengal remained centred at Calcutta.",
+"Partition triggered the Swadeshi and Boycott movements.",
+"Indian Universities Act (1904) increased government control over universities.",
+"Ancient Monuments Preservation Act (1904) protected historical monuments.",
+"Curzon strengthened the Archaeological Survey of India. John Marshall was appointed Director-General in 1902.",
+"Police Commission (1902–1903) was headed by Andrew Fraser.",
+"North-West Frontier Province (NWFP) created in 1901.",
+"Famine Commission (1901) appointed under Sir Anthony MacDonnell.",
+"Gold Exchange Standard formally adopted in 1899."
+],
+facts:["Partition of Bengal: 1905.","Swadeshi Movement: 1905.","Indian Universities Act: 1904.","Ancient Monuments Preservation Act: 1904.","NWFP: 1901."]
+},
+{
+name:"Lord Minto II",period:"1905–1910",title:"Morley-Minto Reforms",
+points:[
+"Indian Councils Act, 1909 increased the size of legislative councils.",
+"Introduced separate electorates for Muslims.",
+"Surat Split (1907): Indian National Congress split into Moderates and Extremists.",
+"All-India Muslim League established at Dacca in December 1906.",
+"John Morley was Secretary of State for India and Lord Minto was Viceroy."
+],
+facts:["Muslim League: 1906.","Surat Split: 1907.","Indian Councils Act: 1909.","Separate electorates: 1909."]
+},
+{
+name:"Lord Hardinge II",period:"1910–1916",title:"Capital Shift from Calcutta to Delhi",
+points:[
+"Capital shifted from Calcutta to Delhi. Announcement made at Delhi Durbar on 12 December 1911.",
+"Partition of Bengal (1905) annulled in 1911 and Bengal reorganised.",
 "Bihar and Orissa became a separate province in 1912.",
-"Bomb attack on Lord Hardinge in Delhi in 1912.",
-"First World War began in 1914.",
-"Ghadar Party founded in 1913 in North America."
-]],
-
-["Lord Chelmsford","1916–1921",[
-"Lucknow Pact between Congress and Muslim League in 1916.",
-"Home Rule Movement associated with Tilak and Annie Besant in 1916.",
-"Champaran Satyagraha in Bihar in 1917.",
-"Ahmedabad Mill Strike and Kheda Satyagraha in 1918.",
-"Government of India Act of 1919 introduced Dyarchy in provinces.",
-"Rowlatt Act passed in 1919.",
-"Jallianwala Bagh massacre on 13 April 1919.",
-"Non-Cooperation Movement launched in 1920."
-]],
-
-["Lord Reading","1921–1926",[
-"Chauri Chaura incident on 5 February 1922.",
-"Non-Cooperation Movement withdrawn by Gandhi in 1922.",
-"Swaraj Party founded in 1923 by C.R. Das and Motilal Nehru.",
-"Kakori Train Action in 1925.",
-"RSS founded by K.B. Hedgewar in 1925."
-]],
-
-["Lord Irwin","1926–1931",[
-"Simon Commission appointed in 1927 and arrived in India in 1928.",
-"Nehru Report prepared in 1928 under Motilal Nehru.",
-"Lahore Session of Congress in 1929 under Jawaharlal Nehru.",
-"Purna Swaraj declared as the goal of Congress.",
-"Dandi March began on 12 March 1930.",
-"First Round Table Conference held in 1930; Congress did not participate.",
-"Gandhi-Irwin Pact signed on 5 March 1931.",
+"Delhi Durbar (1911) held in the presence of King George V and Queen Mary.",
+"Bomb thrown at Lord Hardinge during a procession in Delhi in 1912. Rash Behari Bose was linked to the conspiracy.",
+"First World War began in 1914. India contributed troops and resources to the British war effort.",
+"Ghadar Party founded in 1913 in North America, associated with Lala Hardayal and other revolutionaries."
+],
+facts:["Capital shifted from Calcutta to Delhi: 1911.","Bengal Partition annulled: 1911.","Bihar and Orissa province: 1912.","Ghadar Party: 1913."]
+},
+{
+name:"Lord Chelmsford",period:"1916–1921",title:"Jallianwala Bagh and Non-Cooperation Movement",
+points:[
+"Lucknow Pact (1916): agreement between Congress and Muslim League.",
+"Home Rule Movement (1916) started by Bal Gangadhar Tilak and Annie Besant.",
+"Champaran Satyagraha (1917): Gandhi's first major satyagraha in India, in Bihar, against oppressive indigo cultivation.",
+"Ahmedabad Mill Strike (1918): Gandhi supported textile workers demanding improved wages.",
+"Kheda Satyagraha (1918): peasants protested revenue collection during crop failure, associated with Gandhi and Sardar Patel.",
+"Montagu-Chelmsford Reforms (1919): Government of India Act, 1919 introduced Dyarchy in provinces and provided for a bicameral legislature at the Centre.",
+"Rowlatt Act (1919) allowed detention without trial under specified circumstances.",
+"Jallianwala Bagh Massacre (13 April 1919) at Amritsar. General Reginald Dyer ordered troops to fire. Rabindranath Tagore renounced his knighthood.",
+"Khilafat Movement led by the Ali brothers. Non-Cooperation Movement launched by Gandhi in 1920."
+],
+facts:["Lucknow Pact: 1916.","Champaran Satyagraha: 1917.","Rowlatt Act: 1919.","Jallianwala Bagh: 1919.","Government of India Act: 1919.","Non-Cooperation: 1920."]
+},
+{
+name:"Lord Reading",period:"1921–1926",title:"Chauri Chaura and Kakori Action",
+points:[
+"Chauri Chaura Incident (5 February 1922) in Gorakhpur district. A police station was burnt during a violent clash. Gandhi withdrew the Non-Cooperation Movement.",
+"Swaraj Party (1923) founded by C.R. Das and Motilal Nehru to enter legislative councils and obstruct colonial policies from within.",
+"Kakori Train Action (9 August 1925) associated with Hindustan Republican Association. Ram Prasad Bismil, Ashfaqulla Khan and other revolutionaries were involved.",
+"RSS founded in 1925 by K.B. Hedgewar at Nagpur.",
+"Communist Party of India: organisational developments during this period; commonly dated to 1925 in India."
+],
+facts:["Chauri Chaura: 1922.","Swaraj Party: 1923.","Kakori Action: 1925.","RSS: 1925."]
+},
+{
+name:"Lord Irwin",period:"1926–1931",title:"Civil Disobedience and Gandhi-Irwin Pact",
+points:[
+"Simon Commission appointed in 1927 and arrived in India in 1928. It had no Indian members and faced protests with the slogan Simon Go Back.",
+"Nehru Report (1928) prepared under Motilal Nehru recommended Dominion Status and constitutional reforms.",
+"Lahore Session of Congress (1929), presided over by Jawaharlal Nehru, declared Purna Swaraj as the goal. 26 January 1930 observed as Independence Day.",
+"Civil Disobedience Movement began with Dandi March. Gandhi started from Sabarmati Ashram on 12 March 1930 and reached Dandi on 6 April 1930.",
+"First Round Table Conference (1930) held in London. Congress did not participate.",
+"Gandhi-Irwin Pact (5 March 1931): Gandhi agreed to suspend the Civil Disobedience Movement and Congress agreed to participate in the Second Round Table Conference.",
 "Bhagat Singh, Rajguru and Sukhdev executed on 23 March 1931."
-]],
-
-["Lord Willingdon","1931–1936",[
-"Second Round Table Conference held in 1931.",
-"Civil Disobedience Movement resumed in January 1932.",
-"Communal Award announced by Ramsay MacDonald in 1932.",
-"Poona Pact between Gandhi and Dr. B.R. Ambedkar in 1932.",
-"Government of India Act passed in 1935.",
+],
+facts:["Simon Commission: 1927.","Lahore Session: 1929.","Purna Swaraj: 1929.","Dandi March: 1930.","Gandhi-Irwin Pact: 1931."]
+},
+{
+name:"Lord Willingdon",period:"1931–1936",title:"Poona Pact and Government of India Act 1935",
+points:[
+"Second Round Table Conference (1931): Gandhi represented Congress. It failed to resolve major constitutional disagreements.",
+"Third Round Table Conference (1932): Congress did not participate.",
+"Civil Disobedience Movement resumed in January 1932. Several national leaders were arrested.",
+"Communal Award (1932), announced by Ramsay MacDonald, provided separate electorates for several communities including the Depressed Classes.",
+"Poona Pact (1932) between Gandhi and Dr. B.R. Ambedkar replaced separate electorates for Depressed Classes with reserved seats in joint electorates.",
+"Government of India Act (1935) proposed an All-India Federation, introduced provincial autonomy and provided for a Federal Court.",
 "Reserve Bank of India began operations on 1 April 1935."
-]],
-
-["Lord Linlithgow","1936–1943",[
-"Longest-serving Viceroy of India.",
-"Provincial elections conducted in 1937 under Government of India Act, 1935.",
-"Congress ministries resigned in 1939.",
-"August Offer announced on 8 August 1940.",
-"Individual Satyagraha launched in 1940; Vinoba Bhave was first satyagrahi.",
-"Cripps Mission arrived in March 1942.",
-"Quit India Movement launched on 8 August 1942.",
-"Bengal Famine intensified in 1943."
-]],
-
-["Lord Wavell","1943–1947",[
-"Bengal Famine of 1943.",
-"Wavell Plan proposed in 1945.",
-"Simla Conference of 1945 failed.",
-"INA Trials held at Red Fort in 1945–1946.",
-"Royal Indian Navy Revolt in February 1946.",
-"Cabinet Mission arrived in March 1946.",
-"Interim Government formed on 2 September 1946.",
-"Direct Action Day observed on 16 August 1946."
-]],
-
-["Lord Mountbatten","1947",[
-"Last Viceroy of British India.",
-"Mountbatten Plan or 3 June Plan proposed partition.",
-"Indian Independence Act passed in July 1947.",
-"Pakistan became independent on 14 August 1947.",
-"India became independent on 15 August 1947.",
-"Became the first Governor-General of independent India."
-]]
-
+],
+facts:["Communal Award: 1932.","Poona Pact: 1932.","Government of India Act: 1935.","RBI began operations: 1935."]
+},
+{
+name:"Lord Linlithgow",period:"1936–1943",title:"Longest-Serving Viceroy",
+points:[
+"Provincial elections (1937) conducted under Government of India Act, 1935. Congress ministries formed in several provinces.",
+"Britain declared India a participant in the Second World War in 1939 without consulting Indian leaders. Congress ministries resigned in protest.",
+"August Offer (8 August 1940) offered expansion of the Viceroy's Executive Council and post-war constitutional discussions. Congress rejected it.",
+"Individual Satyagraha (1940) started by Gandhi. Vinoba Bhave was the first individual satyagrahi.",
+"Cripps Mission (March 1942), led by Sir Stafford Cripps, offered proposals for post-war constitutional arrangements but failed.",
+"Quit India Movement launched on 8 August 1942 at Bombay. Gandhi gave the slogan Do or Die. Major Congress leaders arrested on 9 August.",
+"Bengal Famine intensified in 1943, after Linlithgow had left office."
+],
+facts:["Longest-serving Viceroy: Linlithgow.","August Offer: 1940.","Cripps Mission: 1942.","Quit India Movement: 1942."]
+},
+{
+name:"Lord Wavell",period:"1943–1947",title:"Wavell Plan and Cabinet Mission",
+points:[
+"Bengal Famine (1943) was one of the worst famines in Indian history during the Second World War.",
+"Wavell Plan (1945) proposed reconstitution of the Viceroy's Executive Council. Most members were to be Indians except the Viceroy and Commander-in-Chief. It failed due to disagreements.",
+"Simla Conference (June–July 1945) called to discuss the Wavell Plan but failed to reach agreement.",
+"INA Trials (1945–1946) held at Red Fort. Famous officers included Shah Nawaz Khan, Prem Kumar Sahgal and Gurbaksh Singh Dhillon.",
+"Royal Indian Navy Revolt (February 1946) began in Bombay and spread to several other centres.",
+"Cabinet Mission arrived in March 1946. Members: Lord Pethick-Lawrence, Sir Stafford Cripps and A.V. Alexander. Proposed a Constituent Assembly and a Union of India with a limited central subject list.",
+"Interim Government formed on 2 September 1946. Jawaharlal Nehru became Vice-President of the Viceroy's Executive Council.",
+"Direct Action Day observed by Muslim League on 16 August 1946, followed by severe communal violence, particularly in Calcutta."
+],
+facts:["Wavell Plan: 1945.","Simla Conference: 1945.","Cabinet Mission: 1946.","Interim Government: 1946.","Royal Indian Navy Revolt: 1946."]
+},
+{
+name:"Lord Mountbatten",period:"1947",title:"Last Viceroy of British India",
+points:[
+"Viceroy from 24 March 1947 to 15 August 1947.",
+"3 June Plan (1947), also known as Mountbatten Plan, proposed partition of British India and was accepted by major political parties.",
+"Indian Independence Act (1947) passed by British Parliament in July 1947.",
+"Created two independent dominions: India and Pakistan. British paramountcy over princely states ended.",
+"India became independent on 15 August 1947. Pakistan became independent on 14 August 1947.",
+"Partition resulted in large-scale migration and communal violence.",
+"Mountbatten became the first Governor-General of independent India."
+],
+facts:["Last Viceroy: Lord Mountbatten.","Mountbatten Plan: 3 June 1947.","Indian Independence Act: 1947.","Indian Independence: 15 August 1947."]
+}
 ];
 
-/* =====================================
-   RENDER ACCORDIONS
-===================================== */
+// ==================================================
+// GENERATE ACCORDIONS
+// ==================================================
 
-function renderPeople(data,target){
- const container=document.getElementById(target);
- container.innerHTML="";
-
- data.forEach((person,index)=>{
-  const [name,tenure,points]=person;
-  const div=document.createElement("div");
-  div.className="accordion searchable";
-
-  div.innerHTML=`
-   <button class="acc-head">
-    <span>${index+1}. ${name}
-     <span class="year">${tenure}</span>
-    </span>
-    <span class="arrow">⌄</span>
-   </button>
-   <div class="acc-body">
-    <div class="acc-inner">
-     <div class="acc-content">
-      <h4>Tenure: ${tenure}</h4>
-      <h4>Major Events and Contributions</h4>
-      <ul>${points.map(p=>`<li>${p}</li>`).join("")}</ul>
-     </div>
-    </div>
-   </div>
-  `;
-  container.appendChild(div);
- });
+function makeAccordion(item,index,type){
+ const div=document.createElement("div");
+ div.className="accordion";
+ let html=`<button class="acc-head">${index+1}. ${item.name} <span class="tag">${item.period}</span><span class="arrow">⌄</span></button>
+ <div class="acc-body">
+ <p><span class="tag">${item.title}</span></p>
+ <p class="muted"><b>Tenure:</b> ${item.period}</p>
+ <h4 class="subheading">Major Events and Reforms</h4><ul>`;
+ item.points.forEach(p=>html+=`<li>${p}</li>`);
+ html+="</ul>";
+ if(item.facts){
+ html+='<h4 class="subheading">Important Facts</h4><ul>';
+ item.facts.forEach(f=>html+=`<li>${f}</li>`);
+ html+="</ul>";
+ }
+ html+="</div>";
+ div.innerHTML=html;
+ return div;
 }
 
-renderPeople(governors,"governorList");
-renderPeople(viceroys,"viceroyList");
+governors.forEach((g,i)=>document.getElementById("governorContainer").appendChild(makeAccordion(g,i,"g")));
+viceroys.forEach((v,i)=>document.getElementById("viceroyContainer").appendChild(makeAccordion(v,i,"v")));
 
-/* =====================================
-   CHRONOLOGY TABLES
-===================================== */
+// ==================================================
+// MASTER TABLE DATA
+// ==================================================
 
-function fillTable(data,id){
- document.getElementById(id).innerHTML=data.map((p,i)=>
- `<tr><td>${i+1}</td><td>${p[0]}</td><td>${p[1]}</td></tr>`
+const masterG=[
+["Warren Hastings","1773–1785"],
+["Sir John Macpherson (Acting)","1785–1786"],
+["Lord Cornwallis","1786–1793"],
+["Sir John Shore","1793–1798"],
+["Lord Wellesley","1798–1805"],
+["Lord Cornwallis (Second tenure)","1805"],
+["Sir George Barlow","1805–1807"],
+["Lord Minto I","1807–1813"],
+["Lord Hastings","1813–1823"],
+["Lord Amherst","1823–1828"],
+["Lord William Bentinck","1828–1835"],
+["Sir Charles Metcalfe (Acting)","1835–1836"],
+["Lord Auckland","1836–1842"],
+["Lord Ellenborough","1842–1844"],
+["Lord Hardinge I","1844–1848"],
+["Lord Dalhousie","1848–1856"],
+["Lord Canning","1856–1858"]
+];
+
+const masterV=[
+["Lord Canning","1858–1862"],
+["Lord Elgin I","1862–1863"],
+["Sir John Lawrence","1864–1869"],
+["Lord Mayo","1869–1872"],
+["Lord Northbrook","1872–1876"],
+["Lord Lytton I","1876–1880"],
+["Lord Ripon","1880–1884"],
+["Lord Dufferin","1884–1888"],
+["Lord Lansdowne","1888–1894"],
+["Lord Elgin II","1894–1899"],
+["Lord Curzon","1899–1905"],
+["Lord Minto II","1905–1910"],
+["Lord Hardinge II","1910–1916"],
+["Lord Chelmsford","1916–1921"],
+["Lord Reading","1921–1926"],
+["Lord Irwin","1926–1931"],
+["Lord Willingdon","1931–1936"],
+["Lord Linlithgow","1936–1943"],
+["Lord Wavell","1943–1947"],
+["Lord Mountbatten","1947"]
+];
+
+function fillTable(id,data){
+ document.getElementById(id).innerHTML=data.map((r,i)=>
+ `<tr><td>${i+1}</td><td>${r[0]}</td><td>${r[1]}</td></tr>`
  ).join("");
 }
+fillTable("masterGovernors",masterG);
+fillTable("masterViceroys",masterV);
 
-fillTable(governors,"governorTable");
-fillTable(viceroys,"viceroyTable");
-
-/* =====================================
-   ACTS DATABASE
-===================================== */
+// ==================================================
+// ACTS TABLE
+// ==================================================
 
 const acts=[
 ["Regulating Act","1773","Warren Hastings"],
 ["Pitt's India Act","1784","Warren Hastings"],
 ["Permanent Settlement","1793","Cornwallis"],
-["Charter Act","1813","Minto I"],
+["Charter Act","1813","Lord Minto I"],
 ["Charter Act","1833","William Bentinck"],
 ["Abolition of Sati","1829","William Bentinck"],
 ["English Education Policy","1835","William Bentinck"],
-["First Factory Act","1881","Ripon"],
-["Vernacular Press Act","1878","Lytton"],
-["Repeal of Vernacular Press Act","1882","Ripon"],
-["Hunter Education Commission","1882","Ripon"],
-["Indian Councils Act","1892","Lansdowne"],
-["Age of Consent Act","1891","Lansdowne"],
-["Indian Universities Act","1904","Curzon"],
-["Ancient Monuments Preservation Act","1904","Curzon"],
-["Indian Councils Act / Morley-Minto Reforms","1909","Minto II"],
-["Government of India Act","1919","Chelmsford"],
-["Rowlatt Act","1919","Chelmsford"],
-["Government of India Act","1935","Willingdon"],
-["Indian Independence Act","1947","Mountbatten"]
+["First Factory Act","1881","Lord Ripon"],
+["Vernacular Press Act","1878","Lord Lytton"],
+["Repeal of Vernacular Press Act","1882","Lord Ripon"],
+["Hunter Education Commission","1882","Lord Ripon"],
+["Indian Councils Act","1892","Lord Lansdowne"],
+["Age of Consent Act","1891","Lord Lansdowne"],
+["Indian Universities Act","1904","Lord Curzon"],
+["Ancient Monuments Preservation Act","1904","Lord Curzon"],
+["Indian Councils Act","1909","Lord Minto II"],
+["Government of India Act","1919","Lord Chelmsford"],
+["Rowlatt Act","1919","Lord Chelmsford"],
+["Government of India Act","1935","Lord Willingdon"],
+["Indian Independence Act","1947","Lord Mountbatten"]
 ];
 
-document.getElementById("actsTable").innerHTML=
-acts.map(a=>`<tr><td>${a[0]}</td><td>${a[1]}</td><td>${a[2]}</td></tr>`).join("");
+document.getElementById("actsTable").innerHTML=acts.map(r=>
+`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join("");
 
-/* =====================================
-   MOVEMENTS TABLE
-===================================== */
+// ==================================================
+// MOVEMENTS TABLE
+// ==================================================
 
 const movements=[
 ["Indian National Congress","1885","Dufferin"],
@@ -921,54 +1009,52 @@ const movements=[
 ["Interim Government","1946","Wavell"],
 ["Mountbatten Plan","1947","Mountbatten"]
 ];
+document.getElementById("movementsTable").innerHTML=movements.map(r=>
+`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join("");
 
-document.getElementById("movementTable").innerHTML=
-movements.map(m=>`<tr><td>${m[0]}</td><td>${m[1]}</td><td>${m[2]}</td></tr>`).join("");
-
-/* =====================================
-   ONE LINER FACTS
-===================================== */
+// ==================================================
+// ONE-LINER FACTS
+// ==================================================
 
 const facts=[
-["governor","First Governor-General of Bengal – Warren Hastings."],
-["governor","First Governor-General of India – William Bentinck."],
-["viceroy","First Viceroy of India – Lord Canning."],
-["viceroy","Last Viceroy of India – Lord Mountbatten."],
-["governor","Father of Indian Civil Services – Lord Cornwallis (commonly associated)."],
-["viceroy","Father of Local Self-Government – Lord Ripon."],
-["viceroy","Father of Financial Decentralisation – Lord Mayo."],
-["governor","Liberator of Indian Press – Charles Metcalfe."],
-["governor","Doctrine of Lapse – Lord Dalhousie."],
-["governor","Subsidiary Alliance – Lord Wellesley."],
-["governor","Abolition of Sati – William Bentinck."],
-["governor","Permanent Settlement – Cornwallis."],
-["viceroy","Vernacular Press Act – Lord Lytton."],
-["viceroy","Partition of Bengal – Lord Curzon."],
-["viceroy","Morley-Minto Reforms – Lord Minto II."],
-["viceroy","Capital shifted to Delhi – Lord Hardinge II."],
-["viceroy","Jallianwala Bagh Massacre – Lord Chelmsford."],
-["viceroy","Dandi March – Lord Irwin."],
-["viceroy","Poona Pact – Lord Willingdon."],
-["viceroy","Quit India Movement – Lord Linlithgow."],
-["viceroy","Cabinet Mission – Lord Wavell."],
-["viceroy","Indian Independence Act – Lord Mountbatten."],
-["viceroy","Longest-serving Viceroy – Lord Linlithgow."],
-["viceroy","Only Viceroy assassinated in India – Lord Mayo."],
-["viceroy","First synchronous census – 1881, during Ripon's tenure."],
-["governor","First passenger train – 1853, during Dalhousie's tenure."],
-["viceroy","INC founded – 1885, during Dufferin's tenure."]
+"First Governor-General of Bengal – Warren Hastings.",
+"First Governor-General of India – Lord William Bentinck.",
+"First Viceroy of India – Lord Canning.",
+"Last Viceroy of India – Lord Mountbatten.",
+"First Indian Governor-General – C. Rajagopalachari.",
+"Last Governor-General of India – C. Rajagopalachari.",
+"Father of Indian Civil Services – Lord Cornwallis (commonly associated).",
+"Father of Local Self-Government – Lord Ripon.",
+"Father of Financial Decentralisation – Lord Mayo.",
+"Liberator of Indian Press – Charles Metcalfe.",
+"Doctrine of Lapse – Lord Dalhousie.",
+"Subsidiary Alliance – Lord Wellesley.",
+"Abolition of Sati – William Bentinck.",
+"Permanent Settlement – Cornwallis.",
+"Vernacular Press Act – Lord Lytton.",
+"Partition of Bengal – Lord Curzon.",
+"Morley-Minto Reforms – Lord Minto II.",
+"Capital shifted to Delhi – Lord Hardinge II.",
+"Jallianwala Bagh Massacre – Lord Chelmsford.",
+"Dandi March – Lord Irwin.",
+"Poona Pact – Lord Willingdon.",
+"Quit India Movement – Lord Linlithgow.",
+"Cabinet Mission – Lord Wavell.",
+"Indian Independence Act – Lord Mountbatten.",
+"Longest-serving Viceroy – Lord Linlithgow.",
+"Only Viceroy assassinated in India – Lord Mayo.",
+"First synchronous census – 1881, during Lord Ripon's tenure.",
+"First passenger train – 1853, during Lord Dalhousie's tenure.",
+"Indian National Congress founded – 1885, during Lord Dufferin's tenure.",
+"Revolt of 1857 – during Lord Canning's tenure."
 ];
 
-function showFacts(type){
- const filtered=facts.filter(f=>type==="all"||f[0]===type);
- document.getElementById("factsList").innerHTML=
- filtered.map(f=>`<li style="margin:8px 0">${f[1]}</li>`).join("");
-}
-showFacts("all");
+document.getElementById("factsList").innerHTML=facts.map((f,i)=>
+`<div class="info"><b>${i+1}.</b> ${f}</div>`).join("");
 
-/* =====================================
-   TIMELINE
-===================================== */
+// ==================================================
+// CHRONOLOGICAL TIMELINE
+// ==================================================
 
 const timeline=[
 ["1773","Regulating Act"],
@@ -1000,224 +1086,149 @@ const timeline=[
 ["1947","Indian Independence"]
 ];
 
-document.getElementById("timelineList").innerHTML=
-timeline.map(t=>`
- <div class="event">
-  <strong>${t[0]}</strong>
-  <div>${t[1]}</div>
- </div>
-`).join("");
+document.getElementById("timelineContainer").innerHTML=timeline.map(r=>
+`<div class="timeline-item"><strong>${r[0]}</strong><p>${r[1]}</p></div>`).join("");
 
-/* =====================================
-   MCQ DATABASE
-===================================== */
+// ==================================================
+// QUIZ DATA
+// ==================================================
 
 const questions=[
-["Who was the first Governor-General of Bengal?",
-["Lord Cornwallis","Warren Hastings","Lord Wellesley","Lord Canning"],1,
-"Warren Hastings became the first Governor-General of Bengal in 1773."],
-
-["Who introduced Permanent Settlement in 1793?",
-["Lord Wellesley","Lord Dalhousie","Lord Cornwallis","Lord Hastings"],2,
-"Cornwallis introduced Permanent Settlement in Bengal in 1793."],
-
-["Who introduced the Subsidiary Alliance system?",
-["Lord Wellesley","Lord Ripon","Lord Curzon","Lord Canning"],0,
-"Lord Wellesley extensively developed the Subsidiary Alliance system."],
-
-["Who abolished Sati in 1829?",
-["Lord Dalhousie","William Bentinck","Lord Ripon","Lord Canning"],1,
-"Regulation XVII of 1829 prohibited Sati in Bengal Presidency."],
-
-["Who is known as Liberator of the Indian Press?",
-["Lord Lytton","Lord Ripon","Charles Metcalfe","Lord Mayo"],2,
-"Charles Metcalfe removed restrictive licensing regulations in 1835."],
-
-["Who introduced Doctrine of Lapse?",
-["Lord Canning","Lord Hastings","Lord Dalhousie","Lord Curzon"],2,
-"Dalhousie used the policy to annex certain princely states."],
-
-["Who was the first Viceroy of India?",
-["Lord Canning","Lord Curzon","Lord Mayo","Lord Ripon"],0,
-"Lord Canning became the first Viceroy after the 1858 Act."],
-
-["Who is Father of Local Self-Government?",
-["Lord Mayo","Lord Ripon","Lord Curzon","Lord Minto"],1,
-"Lord Ripon's 1882 resolution promoted local self-government."],
-
-["Vernacular Press Act was passed under whom?",
-["Lord Ripon","Lord Curzon","Lord Lytton","Lord Dufferin"],2,
-"Lord Lytton passed the Act in 1878."],
-
-["Who was Viceroy during Partition of Bengal?",
-["Minto II","Curzon","Hardinge II","Lansdowne"],1,
-"Lord Curzon implemented Partition of Bengal in 1905."],
-
-["Separate electorates were introduced by which reforms?",
-["Morley-Minto","Montagu-Chelmsford","Ripon Reforms","Wavell Plan"],0,
-"Indian Councils Act 1909 introduced separate electorates for Muslims."],
-
-["Who shifted capital from Calcutta to Delhi?",
-["Curzon","Chelmsford","Hardinge II","Reading"],2,
-"Announced at Delhi Durbar in 1911."],
-
-["Who was Viceroy during Jallianwala Bagh?",
-["Irwin","Chelmsford","Reading","Willingdon"],1,
-"The massacre occurred in 1919 during Chelmsford's tenure."],
-
-["Who was Viceroy during Dandi March?",
-["Irwin","Wavell","Linlithgow","Reading"],0,
-"Dandi March took place in 1930 during Lord Irwin's tenure."],
-
-["Who was the longest-serving Viceroy?",
-["Curzon","Canning","Linlithgow","Wavell"],2,
-"Linlithgow served from 1936 to 1943."],
-
-["Who was Viceroy during Quit India Movement?",
-["Wavell","Linlithgow","Irwin","Willingdon"],1,
-"Quit India Movement began in August 1942."],
-
-["Who was Viceroy during Cabinet Mission?",
-["Wavell","Mountbatten","Linlithgow","Reading"],0,
-"Cabinet Mission arrived in March 1946 during Wavell's tenure."],
-
-["Who was the last Viceroy of British India?",
-["Wavell","Canning","Mountbatten","Rajagopalachari"],2,
-"Mountbatten was the last Viceroy."],
-
-["Who was the first Indian Governor-General?",
-["Rajendra Prasad","Nehru","C. Rajagopalachari","Patel"],2,
-"Rajagopalachari served from 1948 to 1950."],
-
-["First synchronous all-India census was conducted during whose tenure?",
-["Mayo","Ripon","Lytton","Dufferin"],1,
-"The first synchronous census was conducted in 1881 under Ripon."]
+{q:"Who was the first Governor-General of Bengal?",o:["Lord Cornwallis","Warren Hastings","Lord Wellesley","Lord Canning"],a:1,e:"Warren Hastings became the first Governor-General of Bengal under the Regulating Act, 1773."},
+{q:"Who introduced the Permanent Settlement in 1793?",o:["Lord Wellesley","Lord Dalhousie","Lord Cornwallis","Lord Hastings"],a:2,e:"Lord Cornwallis introduced the Permanent Settlement in 1793."},
+{q:"Who introduced the Subsidiary Alliance system?",o:["Lord Wellesley","Lord Ripon","Lord Curzon","Lord Canning"],a:0,e:"Lord Wellesley extensively developed the Subsidiary Alliance system."},
+{q:"Who abolished Sati in 1829?",o:["Lord Dalhousie","Lord William Bentinck","Lord Ripon","Lord Canning"],a:1,e:"Sati was prohibited in Bengal Presidency in 1829 under William Bentinck."},
+{q:"Who is known as the Liberator of the Indian Press?",o:["Lord Lytton","Lord Ripon","Charles Metcalfe","Lord Mayo"],a:2,e:"Charles Metcalfe removed restrictive press licensing regulations in 1835."},
+{q:"Who introduced the Doctrine of Lapse?",o:["Lord Canning","Lord Hastings","Lord Dalhousie","Lord Curzon"],a:2,e:"The Doctrine of Lapse is associated with Lord Dalhousie."},
+{q:"Who was the first Viceroy of India?",o:["Lord Canning","Lord Curzon","Lord Mayo","Lord Ripon"],a:0,e:"Lord Canning became the first Viceroy after the Government of India Act, 1858."},
+{q:"Who is known as the Father of Local Self-Government in India?",o:["Lord Mayo","Lord Ripon","Lord Curzon","Lord Minto"],a:1,e:"Lord Ripon introduced the famous Local Self-Government Resolution of 1882."},
+{q:"The Vernacular Press Act was passed during whose tenure?",o:["Lord Ripon","Lord Curzon","Lord Lytton","Lord Dufferin"],a:2,e:"Lord Lytton passed the Vernacular Press Act in 1878."},
+{q:"Who was the Viceroy during the Partition of Bengal in 1905?",o:["Lord Minto II","Lord Curzon","Lord Hardinge II","Lord Lansdowne"],a:1,e:"Lord Curzon partitioned Bengal in 1905."},
+{q:"Who introduced separate electorates under the Indian Councils Act, 1909?",o:["Lord Minto II","Lord Curzon","Lord Irwin","Lord Chelmsford"],a:0,e:"The Morley-Minto Reforms introduced separate electorates for Muslims."},
+{q:"During whose tenure was the capital shifted from Calcutta to Delhi?",o:["Lord Curzon","Lord Chelmsford","Lord Hardinge II","Lord Reading"],a:2,e:"The capital shift was announced at the Delhi Durbar in 1911."},
+{q:"Who was the Viceroy during the Jallianwala Bagh massacre?",o:["Lord Irwin","Lord Chelmsford","Lord Reading","Lord Willingdon"],a:1,e:"The Jallianwala Bagh massacre occurred in 1919 during Lord Chelmsford's tenure."},
+{q:"Who was the Viceroy during the Dandi March?",o:["Lord Irwin","Lord Wavell","Lord Linlithgow","Lord Reading"],a:0,e:"The Dandi March took place in 1930 during Lord Irwin's tenure."},
+{q:"Who was the longest-serving Viceroy of India?",o:["Lord Curzon","Lord Canning","Lord Linlithgow","Lord Wavell"],a:2,e:"Lord Linlithgow served from 1936 to 1943."},
+{q:"Who was the Viceroy during the Quit India Movement?",o:["Lord Wavell","Lord Linlithgow","Lord Irwin","Lord Willingdon"],a:1,e:"Quit India Movement was launched in 1942 during Lord Linlithgow's tenure."},
+{q:"Who was the Viceroy during the Cabinet Mission?",o:["Lord Wavell","Lord Mountbatten","Lord Linlithgow","Lord Reading"],a:0,e:"The Cabinet Mission arrived in India in March 1946 during Lord Wavell's tenure."},
+{q:"Who was the last Viceroy of British India?",o:["Lord Wavell","Lord Canning","Lord Mountbatten","C. Rajagopalachari"],a:2,e:"Lord Mountbatten was the last Viceroy of British India."},
+{q:"Who was the first Indian Governor-General of India?",o:["Dr. Rajendra Prasad","Jawaharlal Nehru","C. Rajagopalachari","Sardar Patel"],a:2,e:"C. Rajagopalachari was the first and only Indian Governor-General."},
+{q:"Who introduced the first synchronous all-India census in 1881?",o:["Lord Mayo","Lord Ripon","Lord Lytton","Lord Dufferin"],a:1,e:"The first synchronous all-India census took place in 1881 during Lord Ripon's tenure."}
 ];
 
+let selected={};
+let submitted=false;
+
 function renderQuiz(){
- document.getElementById("quizContainer").innerHTML=
- questions.map((q,i)=>`
- <div class="question" id="question${i}">
-  <h4>Q${i+1}. ${q[0]}</h4>
-  ${q[1].map((op,j)=>`
-   <label class="option" id="opt${i}_${j}">
-    <input type="radio" name="q${i}" value="${j}">
-    ${String.fromCharCode(65+j)}. ${op}
-   </label>
-  `).join("")}
-  <div class="explanation hidden" id="exp${i}"></div>
- </div>
- `).join("");
+ const container=document.getElementById("quizContainer");
+ container.innerHTML="";
+ questions.forEach((q,i)=>{
+  const div=document.createElement("div");
+  div.className="quiz-question";
+  let html=`<h4>Q${i+1}. ${q.q}</h4>`;
+  q.o.forEach((option,j)=>{
+   let cls="";
+   if(submitted && j===q.a)cls="correct";
+   else if(submitted && selected[i]===j && j!==q.a)cls="wrong";
+   html+=`<button class="option ${cls}" ${submitted?"disabled":""} onclick="choose(${i},${j})">${String.fromCharCode(65+j)}. ${option}</button>`;
+  });
+  if(submitted)html+=`<div class="explanation">✓ Correct answer: ${q.o[q.a]}<br>${q.e}</div>`;
+  div.innerHTML=html;
+  container.appendChild(div);
+ });
+ updateProgress();
+}
+
+function choose(i,j){
+ if(submitted)return;
+ selected[i]=j;
+ renderQuiz();
+}
+
+function updateProgress(){
+ let count=Object.keys(selected).length;
+ document.getElementById("attemptText").textContent=count+" / 20 attempted";
+ document.getElementById("scoreText").textContent="Score: "+(submitted?getScore():0);
+ document.getElementById("progressBar").style.width=(count/20*100)+"%";
+}
+
+function getScore(){
+ return questions.reduce((score,q,i)=>score+(selected[i]===q.a?1:0),0);
+}
+
+function submitQuiz(){
+ if(submitted)return;
+ submitted=true;
+ let score=getScore();
+ renderQuiz();
+ document.getElementById("result").innerHTML=
+ `<div class="info"><h2>Quiz Completed!</h2>
+ <h1 style="color:var(--primary)">${score} / 20</h1>
+ <p>Correct: ${score} | Incorrect: ${Object.keys(selected).length-score} | Unattempted: ${20-Object.keys(selected).length}</p>
+ <p>${score>=16?"Excellent Performance!":score>=12?"Good Work! Keep Practising.":"Keep revising your notes and try again."}</p></div>`;
+ document.getElementById("result").scrollIntoView({behavior:"smooth",block:"center"});
+}
+
+function resetQuiz(){
+ selected={};
+ submitted=false;
+ document.getElementById("result").innerHTML="";
+ renderQuiz();
 }
 
 renderQuiz();
 
-function submitQuiz(){
- let score=0;
- let attempted=0;
-
- questions.forEach((q,i)=>{
-  const selected=document.querySelector(`input[name="q${i}"]:checked`);
-  const explanation=document.getElementById("exp"+i);
-
-  q[1].forEach((op,j)=>{
-   const label=document.getElementById(`opt${i}_${j}`);
-   label.classList.remove("correct","incorrect");
-
-   if(j===q[2]) label.classList.add("correct");
-  });
-
-  if(selected){
-   attempted++;
-   if(Number(selected.value)===q[2]){
-    score++;
-   }else{
-    document.getElementById(`opt${i}_${selected.value}`)
-    .classList.add("incorrect");
-   }
-  }
-
-  explanation.classList.remove("hidden");
-  explanation.innerHTML=
-   `<b>Correct Answer:</b> ${q[1][q[2]]}<br>${q[3]}`;
- });
-
- document.getElementById("result").innerHTML=
- `Your Score: ${score}/20 | Attempted: ${attempted}/20 |
- Correct: ${score} | Incorrect/Unattempted: ${20-score}`;
-
- document.querySelectorAll("#quiz input").forEach(input=>{
-  input.disabled=true;
- });
-}
-
-function resetQuiz(){
- document.querySelectorAll("#quiz input").forEach(input=>{
-  input.disabled=false;
-  input.checked=false;
- });
- questions.forEach((q,i)=>{
-  q[1].forEach((op,j)=>{
-   document.getElementById(`opt${i}_${j}`)
-   .classList.remove("correct","incorrect");
-  });
-  document.getElementById("exp"+i).classList.add("hidden");
- });
- document.getElementById("result").innerHTML="";
-}
-
-/* =====================================
-   ACCORDION SYSTEM
-===================================== */
+// ==================================================
+// ACCORDION, SEARCH, THEME, NAVIGATION
+// ==================================================
 
 document.addEventListener("click",function(e){
- const btn=e.target.closest(".acc-head");
- if(!btn)return;
-
- const accordion=btn.closest(".accordion");
- accordion.classList.toggle("active");
+ const head=e.target.closest(".acc-head");
+ if(head){
+  const accordion=head.parentElement;
+  accordion.classList.toggle("open");
+ }
 });
 
-function expandAll(){
- document.querySelectorAll(".accordion").forEach(a=>
- a.classList.add("active"));
+function toggleTheme(){
+ document.body.classList.toggle("dark");
 }
 
-function collapseAll(){
- document.querySelectorAll(".accordion").forEach(a=>
- a.classList.remove("active"));
+function toggleMenu(){
+ document.getElementById("sidebar").classList.toggle("show");
 }
 
-/* =====================================
-   SEARCH SYSTEM
-===================================== */
+document.querySelectorAll(".navlink").forEach(link=>{
+ link.addEventListener("click",()=>{
+  document.querySelectorAll(".navlink").forEach(a=>a.classList.remove("active"));
+  link.classList.add("active");
+  document.getElementById("sidebar").classList.remove("show");
+ });
+});
 
-function searchContent(){
- const query=document.getElementById("search").value
- .toLowerCase().trim();
-
+function searchNotes(){
+ const value=document.getElementById("search").value.toLowerCase();
  document.querySelectorAll(".accordion").forEach(acc=>{
-  const match=acc.innerText.toLowerCase().includes(query);
-  acc.classList.toggle("hidden",query!==""&&!match);
-  if(query!==""&&match)acc.classList.add("active");
+  acc.style.display=acc.innerText.toLowerCase().includes(value)?"":"none";
  });
-
- document.querySelectorAll(".section").forEach(section=>{
-  const accordions=[...section.querySelectorAll(".accordion")];
-  if(accordions.length){
-   const visible=accordions.some(a=>!a.classList.contains("hidden"));
-   section.classList.toggle("hidden",query!==""&&!visible);
-  }
- });
-
- document.querySelectorAll(".table-wrap").forEach(wrap=>{
-  [...wrap.querySelectorAll("tbody tr")].forEach(row=>{
-   row.classList.toggle("hidden",
-    query!==""&&!row.innerText.toLowerCase().includes(query));
-  });
+ document.querySelectorAll(".info").forEach(el=>{
+  el.style.display=el.innerText.toLowerCase().includes(value)?"":"";
  });
 }
 
+window.addEventListener("scroll",()=>{
+ document.getElementById("backTop").style.display=window.scrollY>400?"block":"none";
+});
+
+// Expand/collapse all using keyboard shortcut
+document.addEventListener("keydown",e=>{
+ if(e.altKey && e.key==="e"){
+  document.querySelectorAll(".accordion").forEach(a=>a.classList.add("open"));
+ }
+ if(e.altKey && e.key==="c"){
+  document.querySelectorAll(".accordion").forEach(a=>a.classList.remove("open"));
+ }
+});
 </script>
 </body>
 </html>
