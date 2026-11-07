@@ -1,0 +1,2491 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Human Digestive System - Complete Biology Notes</title>
+
+<style>
+:root{
+    --bg:#f3f6fc;
+    --white:#ffffff;
+    --text:#253247;
+    --muted:#718096;
+    --primary:#2457c5;
+    --light:#eaf1ff;
+    --border:#dfe6f0;
+    --yellow:#fff176;
+    --green:#16834b;
+}
+
+*{
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.75;
+}
+
+/* TOP BAR */
+
+.topbar{
+    background:#172b4d;
+    color:white;
+    min-height:60px;
+    padding:10px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 3px 12px rgba(0,0,0,.15);
+}
+
+.brand{
+    font-size:18px;
+    font-weight:bold;
+}
+
+.top-actions{
+    display:flex;
+    gap:8px;
+}
+
+.top-actions button{
+    background:#ffffff18;
+    border:1px solid #ffffff55;
+    color:white;
+    padding:8px 12px;
+    border-radius:7px;
+    cursor:pointer;
+}
+
+.top-actions button:hover{
+    background:#ffffff35;
+}
+
+/* PROGRESS */
+
+.progress-container{
+    height:4px;
+    background:#dce5f4;
+    position:fixed;
+    top:60px;
+    left:0;
+    right:0;
+    z-index:999;
+}
+
+.progress-bar{
+    height:4px;
+    background:#45a0ff;
+    width:0%;
+}
+
+/* MAIN */
+
+.container{
+    max-width:1150px;
+    margin:auto;
+    padding:22px;
+}
+
+/* HERO */
+
+.hero{
+    background:linear-gradient(120deg,#173b77,#2866cf,#5996ed);
+    color:white;
+    padding:38px 30px;
+    border-radius:15px;
+    margin-bottom:22px;
+    box-shadow:0 5px 20px rgba(25,45,85,.1);
+}
+
+.hero-tag{
+    display:inline-block;
+    padding:5px 12px;
+    border-radius:30px;
+    background:#ffffff25;
+    font-size:12px;
+    margin-bottom:10px;
+}
+
+.hero h1{
+    margin:0 0 10px;
+    font-size:32px;
+    line-height:1.3;
+}
+
+.hero p{
+    color:#e5edff;
+    margin:6px 0;
+}
+
+/* STATS */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+    margin-bottom:22px;
+}
+
+.stat{
+    background:white;
+    padding:16px;
+    border:1px solid var(--border);
+    border-radius:10px;
+    text-align:center;
+}
+
+.stat strong{
+    display:block;
+    font-size:24px;
+    color:var(--primary);
+}
+
+.stat span{
+    font-size:12px;
+    color:var(--muted);
+}
+
+/* TABLE OF CONTENTS */
+
+.toc-box{
+    background:white;
+    padding:22px;
+    border:1px solid var(--border);
+    border-radius:12px;
+    margin-bottom:22px;
+    box-shadow:0 4px 15px rgba(25,45,85,.05);
+}
+
+.toc-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    margin-bottom:15px;
+}
+
+.toc-title h2{
+    margin:0;
+    color:#203b68;
+    font-size:21px;
+}
+
+.toc-toggle{
+    border:0;
+    background:var(--light);
+    color:var(--primary);
+    padding:8px 13px;
+    border-radius:7px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.toc-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:7px 15px;
+}
+
+.toc-grid a{
+    display:block;
+    text-decoration:none;
+    color:#40516c;
+    background:#f7f9fd;
+    padding:9px 12px;
+    border-radius:7px;
+    font-size:13px;
+    border:1px solid transparent;
+    transition:.2s;
+}
+
+.toc-grid a:hover,
+.toc-grid a.active{
+    background:#eaf1ff;
+    border-color:#cbdcff;
+    color:var(--primary);
+    font-weight:bold;
+}
+
+.toc-collapsed .toc-grid{
+    display:none;
+}
+
+/* SEARCH */
+
+.search-panel{
+    background:white;
+    padding:17px;
+    border:1px solid var(--border);
+    border-radius:11px;
+    margin-bottom:22px;
+}
+
+.search-row{
+    display:flex;
+    gap:9px;
+}
+
+.search-row input{
+    flex:1;
+    min-width:0;
+    padding:12px;
+    border:1px solid #cbd5e1;
+    border-radius:7px;
+    font-size:14px;
+    outline:none;
+}
+
+.search-row input:focus{
+    border-color:var(--primary);
+    box-shadow:0 0 0 3px #2457c51a;
+}
+
+.search-row button{
+    border:0;
+    background:var(--primary);
+    color:white;
+    padding:10px 16px;
+    border-radius:7px;
+    cursor:pointer;
+}
+
+.search-row .clear-btn{
+    background:#65748b;
+}
+
+.search-info{
+    font-size:12px;
+    color:var(--muted);
+    margin-top:8px;
+}
+
+/* CONTENT SECTIONS */
+
+.content-card{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:12px;
+    margin-bottom:18px;
+    overflow:hidden;
+    box-shadow:0 4px 15px rgba(25,45,85,.05);
+    scroll-margin-top:85px;
+}
+
+.section-heading{
+    padding:16px 21px;
+    background:#f9fbff;
+    border-bottom:1px solid var(--border);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    cursor:pointer;
+}
+
+.section-heading h2{
+    margin:0;
+    font-size:19px;
+    color:#203b68;
+}
+
+.arrow{
+    color:var(--primary);
+    font-size:20px;
+    transition:.2s;
+}
+
+.content-card.collapsed .section-body{
+    display:none;
+}
+
+.content-card.collapsed .arrow{
+    transform:rotate(-90deg);
+}
+
+.section-body{
+    padding:22px;
+}
+
+.section-body h3{
+    color:#2457a7;
+    font-size:17px;
+    margin-top:22px;
+}
+
+.section-body h3:first-child{
+    margin-top:0;
+}
+
+.section-body p{
+    margin:9px 0;
+}
+
+.section-body ul,
+.section-body ol{
+    padding-left:24px;
+}
+
+.section-body li{
+    margin:6px 0;
+}
+
+/* INFORMATION BOXES */
+
+.info,.warning,.success{
+    padding:13px 16px;
+    border-radius:7px;
+    margin:15px 0;
+}
+
+.info{
+    background:#edf4ff;
+    border-left:4px solid #3673d8;
+}
+
+.warning{
+    background:#fff7e6;
+    border-left:4px solid #e6a23c;
+}
+
+.success{
+    background:#eaf8ef;
+    border-left:4px solid #239b56;
+}
+
+/* IMAGES */
+
+.note-image{
+    text-align:center;
+    margin:20px auto;
+}
+
+.note-image img{
+    max-width:100%;
+    max-height:480px;
+    object-fit:contain;
+    border:1px solid var(--border);
+    border-radius:9px;
+    padding:6px;
+    background:white;
+}
+
+.note-image figcaption{
+    font-size:12px;
+    color:var(--muted);
+    margin-top:7px;
+}
+
+.note-image a{
+    color:var(--primary);
+    text-decoration:none;
+}
+
+/* TABLES */
+
+.table-wrap{
+    overflow-x:auto;
+    margin:15px 0;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:480px;
+    font-size:14px;
+}
+
+th{
+    background:#eaf0fc;
+    color:#243f70;
+    text-align:left;
+}
+
+th,td{
+    padding:11px 12px;
+    border:1px solid #dce3ee;
+}
+
+tr:nth-child(even){
+    background:#fafcff;
+}
+
+/* FLOWCHART */
+
+.flow{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:5px;
+    max-width:500px;
+    margin:20px auto;
+}
+
+.flow-item{
+    width:85%;
+    padding:12px;
+    text-align:center;
+    background:#edf3ff;
+    border:1px solid #c9d9f6;
+    border-radius:8px;
+    font-weight:bold;
+    color:#234b8d;
+}
+
+.flow-arrow{
+    color:#5275ad;
+    font-size:22px;
+}
+
+/* QUIZ */
+
+.quiz-question{
+    padding:16px 0;
+    border-bottom:1px solid var(--border);
+}
+
+.quiz-question p{
+    font-weight:bold;
+    margin:0 0 10px;
+}
+
+.quiz-option{
+    display:block;
+    padding:9px 10px;
+    border:1px solid var(--border);
+    border-radius:6px;
+    margin:7px 0;
+    cursor:pointer;
+    font-size:14px;
+}
+
+.quiz-option:hover{
+    background:#f0f5ff;
+}
+
+.quiz-option input{
+    margin-right:8px;
+}
+
+.correct-answer{
+    background:#e6f7ec;
+    border-color:#39a767;
+}
+
+.wrong-answer{
+    background:#fff0f0;
+    border-color:#dc7777;
+}
+
+.explanation{
+    font-size:13px;
+    color:#526174;
+    margin-top:8px;
+}
+
+.quiz-buttons{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:18px;
+}
+
+.action-btn{
+    border:0;
+    padding:11px 17px;
+    border-radius:7px;
+    cursor:pointer;
+    background:var(--primary);
+    color:white;
+    font-size:14px;
+}
+
+.action-btn.reset{
+    background:#65748b;
+}
+
+#quizResult{
+    margin-top:15px;
+    padding:15px;
+    border-radius:8px;
+    background:#edf4ff;
+    display:none;
+    font-weight:bold;
+}
+
+/* SEARCH HIGHLIGHT */
+
+mark.search-highlight{
+    background:#ffeb3b;
+    color:#111;
+    padding:1px 2px;
+    border-radius:2px;
+}
+
+/* FOOTER */
+
+.footer{
+    text-align:center;
+    padding:25px;
+    color:var(--muted);
+    font-size:12px;
+}
+
+.back-top{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:43px;
+    height:43px;
+    border:0;
+    border-radius:50%;
+    background:var(--primary);
+    color:white;
+    font-size:20px;
+    cursor:pointer;
+    display:none;
+    z-index:900;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    .container{
+        padding:12px;
+    }
+
+    .hero{
+        padding:25px 19px;
+    }
+
+    .hero h1{
+        font-size:25px;
+    }
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .toc-grid{
+        grid-template-columns:1fr;
+    }
+
+    .section-body{
+        padding:16px;
+    }
+
+    .section-heading h2{
+        font-size:16px;
+    }
+
+    .topbar{
+        padding:10px 12px;
+    }
+
+    .brand{
+        font-size:14px;
+    }
+
+    .top-actions button{
+        padding:7px 8px;
+        font-size:11px;
+    }
+
+    .search-row{
+        flex-wrap:wrap;
+    }
+
+    .search-row input{
+        flex-basis:100%;
+    }
+}
+
+/* PRINT */
+
+@media print{
+
+    body{
+        background:white;
+        color:black;
+    }
+
+    .topbar,
+    .progress-container,
+    .search-panel,
+    .back-top,
+    .quiz-buttons,
+    .toc-toggle{
+        display:none!important;
+    }
+
+    .container{
+        max-width:100%;
+        padding:0;
+    }
+
+    .hero{
+        background:white;
+        color:black;
+        box-shadow:none;
+        padding:12px;
+    }
+
+    .hero p{
+        color:black;
+    }
+
+    .content-card{
+        box-shadow:none;
+        break-inside:avoid;
+        border:1px solid #ccc;
+    }
+
+    .section-body{
+        display:block!important;
+    }
+
+    .section-heading{
+        background:white;
+    }
+
+    .section-heading .arrow{
+        display:none;
+    }
+
+    .note-image img{
+        max-height:300px;
+    }
+
+    .toc-grid{
+        display:grid!important;
+    }
+
+    a{
+        color:black;
+        text-decoration:none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+    <div class="brand">📘 BIOLOGY NOTES</div>
+
+    <div class="top-actions">
+        <button onclick="window.print()">🖨 Print / PDF</button>
+    </div>
+</div>
+
+<div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+</div>
+
+<div class="container">
+
+<!-- HERO -->
+
+<div class="hero">
+    <span class="hero-tag">BIOLOGY • HUMAN PHYSIOLOGY</span>
+
+    <h1>Human Digestive System</h1>
+
+    <p>Complete Detailed Notes for Class 9–10, BPSC, UPSC, SSC, Railway and Other Competitive Exams.</p>
+
+    <p>Understand digestive organs, enzymes, functions, nutrient absorption and important examination facts.</p>
+</div>
+
+<!-- STATS -->
+
+<div class="stats">
+    <div class="stat">
+        <strong>8–9 m</strong>
+        <span>Approx. Alimentary Canal</span>
+    </div>
+
+    <div class="stat">
+        <strong>6 m</strong>
+        <span>Approx. Small Intestine</span>
+    </div>
+
+    <div class="stat">
+        <strong>1.5 m</strong>
+        <span>Approx. Large Intestine</span>
+    </div>
+
+    <div class="stat">
+        <strong>32</strong>
+        <span>Permanent Adult Teeth</span>
+    </div>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+
+<div class="toc-box" id="tocBox">
+
+    <div class="toc-title">
+        <h2>📚 Table of Contents</h2>
+        <button class="toc-toggle" onclick="toggleTOC()" id="tocButton">Hide Contents</button>
+    </div>
+
+    <div class="toc-grid" id="tocGrid">
+
+        <a href="#intro">01. Introduction</a>
+        <a href="#alimentary">02. Alimentary Canal</a>
+        <a href="#mouth">03. Mouth and Buccal Cavity</a>
+        <a href="#teeth">04. Types of Teeth</a>
+        <a href="#salivary">05. Salivary Glands</a>
+        <a href="#pharynx">06. Pharynx and Oesophagus</a>
+        <a href="#stomach">07. Stomach</a>
+        <a href="#smallintestine">08. Small Intestine</a>
+        <a href="#villi">09. Villi and Absorption</a>
+        <a href="#liver">10. Liver</a>
+        <a href="#bile">11. Bile and Gallbladder</a>
+        <a href="#pancreas">12. Pancreas</a>
+        <a href="#largeintestine">13. Large Intestine</a>
+        <a href="#rectum">14. Rectum and Anus</a>
+        <a href="#digestion">15. Process of Digestion</a>
+        <a href="#enzymes">16. Digestive Enzymes</a>
+        <a href="#hormones">17. Digestive Hormones</a>
+        <a href="#flowchart">18. Digestion Flowchart</a>
+        <a href="#disorders">19. Digestive Disorders</a>
+        <a href="#facts">20. Important One-Liners</a>
+        <a href="#differences">21. Important Differences</a>
+        <a href="#quiz">22. Practice MCQs</a>
+        <a href="#exam">23. Exam Preparation</a>
+
+    </div>
+</div>
+
+<!-- SEARCH -->
+
+<div class="search-panel">
+
+    <div class="search-row">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search any keyword in complete notes..."
+            onkeydown="if(event.key==='Enter') searchContent()"
+        >
+
+        <button onclick="searchContent()">Search</button>
+
+        <button class="clear-btn" onclick="clearSearch()">Clear</button>
+
+    </div>
+
+    <div class="search-info" id="searchInfo">
+        Search any word or phrase. Matching content will be highlighted in yellow.
+    </div>
+
+</div>
+
+<!-- SECTION 1 -->
+
+<section class="content-card" id="intro">
+
+<div class="section-heading" onclick="toggleSection(this)">
+    <h2>1. Introduction to the Digestive System</h2>
+    <span class="arrow">⌄</span>
+</div>
+
+<div class="section-body">
+
+<p>The digestive system is a group of organs responsible for breaking down complex food into simpler, soluble substances that can be absorbed and used by the body.</p>
+
+<p>It provides nutrients for energy, growth, development and repair of body tissues.</p>
+
+<h3>Main Functions</h3>
+
+<ul>
+    <li>Ingestion of food.</li>
+    <li>Mechanical and chemical digestion.</li>
+    <li>Absorption of nutrients.</li>
+    <li>Assimilation of nutrients by body cells.</li>
+    <li>Removal of undigested waste.</li>
+</ul>
+
+<div class="info">
+    <b>Definition:</b> Digestion is the process of converting complex, insoluble food substances into simple, soluble substances that can be absorbed by the body.
+</div>
+
+</div>
+</section>
+
+<!-- SECTION 2 -->
+
+<section class="content-card" id="alimentary">
+
+<div class="section-heading" onclick="toggleSection(this)">
+    <h2>2. Alimentary Canal</h2>
+    <span class="arrow">⌄</span>
+</div>
+
+<div class="section-body">
+
+<p>The alimentary canal is a continuous muscular tube extending from the mouth to the anus.</p>
+
+<figure class="note-image">
+    <a href="https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=human%20digestive%20system%20labelled" target="_blank">
+        <img loading="lazy"
+        src="https://commons.wikimedia.org/wiki/Special:FilePath/Digestive_system_diagram_en.svg"
+        alt="Human digestive system labelled diagram"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+    </a>
+    <figcaption>Human Digestive System – anatomical diagram. Image source: Wikimedia Commons.</figcaption>
+    <p style="display:none;color:#b45309;font-size:12px">Image unavailable. <a href="https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=human%20digestive%20system%20labelled" target="_blank">Open related diagrams</a>.</p>
+</figure>
+
+<h3>Parts of the Alimentary Canal</h3>
+
+<ol>
+    <li>Mouth or Buccal cavity</li>
+    <li>Pharynx</li>
+    <li>Oesophagus</li>
+    <li>Stomach</li>
+    <li>Small intestine</li>
+    <li>Large intestine</li>
+    <li>Rectum</li>
+    <li>Anus</li>
+</ol>
+
+<h3>Accessory Digestive Organs</h3>
+
+<ul>
+    <li>Salivary glands</li>
+    <li>Liver</li>
+    <li>Gallbladder</li>
+    <li>Pancreas</li>
+</ul>
+
+<div class="success">
+    <b>Exam Fact:</b> The small intestine is the longest part of the alimentary canal.
+</div>
+
+</div>
+</section>
+
+<!-- SECTION 3 -->
+
+<section class="content-card" id="mouth">
+
+<div class="section-heading" onclick="toggleSection(this)">
+    <h2>3. Mouth or Buccal Cavity</h2>
+    <span class="arrow">⌄</span>
+</div>
+
+<div class="section-body">
+
+<p>The mouth is the first part of the digestive system. Digestion begins here.</p>
+
+<figure class="note-image">
+    <a href="https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=human%20oral%20cavity%20labelled" target="_blank">
+        <img loading="lazy"
+        src="https://commons.wikimedia.org/wiki/Special:FilePath/Oral_cavity.png"
+        alt="Human oral cavity"
+        onerror="this.style.display='none'">
+    </a>
+    <figcaption>Human oral cavity – teeth, tongue and oral structures.</figcaption>
+</figure>
+
+<h3>Functions of the Mouth</h3>
+
+<ul>
+    <li>Teeth break food into smaller pieces.</li>
+    <li>The tongue mixes food with saliva.</li>
+    <li>Saliva moistens food.</li>
+    <li>Salivary amylase begins starch digestion.</li>
+    <li>The tongue helps in swallowing.</li>
+</ul>
+
+<h3>Salivary Amylase</h3>
+
+<p>Salivary amylase, also known as ptyalin, breaks down starch into smaller carbohydrates, including maltose and dextrins.</p>
+
+<div class="info">
+    <b>Important:</b> Mechanical digestion starts with chewing, while chemical digestion of starch begins with salivary amylase.
+</div>
+
+</div>
+</section>
+
+<!-- SECTION 4 -->
+
+<section class="content-card" id="teeth">
+
+<div class="section-heading" onclick="toggleSection(this)">
+    <h2>4. Types of Human Teeth</h2>
+    <span class="arrow">⌄</span>
+</div>
+
+<div class="section-body">
+
+<p>Human teeth help in cutting, tearing, crushing and grinding food.</p>
+
+<figure class="note-image">
+    <a href="https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=types%20of%20human%20teeth%20incisors%20canines%20molars" target="_blank">
+        <img loading="lazy"
+        src="https://commons.wikimedia.org/wiki/Special:FilePath/Teeth_types.svg"
+        alt="Types of human teeth"
+        onerror="this.style.display='none'">
+    </a>
+    <figcaption>Types of human teeth – incisors, canines, premolars and molars.</figcaption>
+</figure>
+
+<div class="table-wrap">
+<table>
+    <tr>
+        <th>Type</th>
+        <th>Number in Adult</th>
+        <th>Function</th>
+    </tr>
+    <tr>
+        <td>Incisors</td>
+        <td>8</td>
+        <td>Cutting food</td>
+    </tr>
+    <tr>
+        <td>Canines</td>
+        <td>4</td>
+        <td>Tearing food</td>
+    </tr>
+    <tr>
+        <td>Premolars</td>
+        <td>8</td>
+        <td>Crushing and grinding</td>
+    </tr>
+    <tr>
+        <td>Molars</td>
+        <td>12</td>
+        <td>Grinding food</td>
+    </tr>
+</table>
+</div>
+
+<h3>Important Facts</h3>
+
+<ul>
+    <li>Milk teeth: 20.</li>
+    <li>Permanent teeth: 32.</li>
+    <li>Hardest substance in the human body: Tooth enamel.</li>
+</ul>
+
+</div>
+</section>
+
+<!-- SECTION 5 -->
+
+<section class="content-card" id="salivary">
+
+<div class="section-heading" onclick="toggleSection(this)">
+    <h2>5. Salivary Glands</h2>
+    <span class="arrow">⌄</span>
+</div>
+
+<div class="section-body">
+
+<p>Salivary glands produce saliva, which helps in moistening food and beginning carbohydrate digestion.</p>
+
+<figure class="note-image">
+    <a href="https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=parotid%20submandibular%20sublingual%20salivary%20glands" target="_blank">
+        <img loading="lazy"
+        src="https://commons.wikimedia.org/wiki/Special:FilePath/Illu_salivary_glands.jpg"
+        alt="Salivary glands"
+        onerror="this.style.display='none'">
+    </a>
+    <figcaption>Major salivary glands of the human body.</figcaption>
+</figure>
+
+<h3>Three Pairs of Major Salivary Glands</h3>
+
+<div class="table-wrap">
+<table>
+    <tr>
+        <th>Gland</th>
+        <th>Location</th>
+    </tr>
+    <tr>
+        <td>Parotid</td>
+        <td>Near the ears</td>
+    </tr>
+    <tr>
+        <td>Submandibular</td>
+        <td>Below the lower jaw</td>
+    </tr>
+    <tr>
+        <td>Sublingual</td>
+        <td>Below the tongue</td>
+    </tr>
+</table>
+</div>
+
+<h3>Composition of Saliva</h3>
+
+<ul>
+    <li>Water</li>
+    <li>Mucus</li>
+    <li>Salivary amylase</li>
+    <li>Electrolytes</li>
+    <li>Other protective substances</li>
+</ul>
+
+<div class="success">
+    <b>Exam Fact:</b> Ptyalin is another name for salivary amylase.
+</div>
+
+</div>
+</section>
+
+<!-- SECTION 6 -->
+
+<section class="content-card" id="pharynx">
+
+<div class="section-heading" onclick="toggleSection(this)">
+    <h2>6. Pharynx and Oesophagus</h2>
+    <span class="arrow">⌄</span>
+</div>
+
+<div class="section-body">
+
+<h3>Pharynx</h3>
+
+<ul>
+    <li>It is a common passage for food and air.</li>
+    <li>It helps in swallowing.</li>
+    <li>It connects the mouth to the oesophagus for food passage.</li>
+</ul>
+
+<h3>Oesophagus or Food Pipe</h3>
+
+<ul>
+    <li>It connects the pharynx to the stomach.</li>
+    <li>Food moves through it by peristalsis.</li>
+    <li>It does not perform significant chemical digestion.</li>
+</ul>
+
+<figure class="note-image">
+    <a href="https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=human%20oesophagus%20peristalsis%20diagram" target="_blank">
+        <img loading="lazy"
+        src="https://commons.wikimedia.org/wiki/Special:FilePath/Peristalsis.gif"
+        alt="Peristalsis"
+        onerror="this.style.display='none'">
+    </a>
+    <figcaption>Peristalsis – wave-like muscular movement that pushes food forward.</figcaption>
+</figure>
+
+<div class="info">
+    <b>Peristalsis:</b> The rhythmic contraction and relaxation of muscles in the digestive tract that moves food forward.
+</div>
+
+</div>
+</section>
+
+<!-- SECTION 7 -->
+
+<section class="content-card" id="stomach">
+
+<div class="section-heading" onclick="toggleSection(this)">
+    <h2>7. Stomach</h2>
+    <span class="arrow">⌄</span>
+</div>
+
+<div class="section-body">
+
+<p>The stomach is a J-shaped muscular organ located in the upper-left part of the abdominal cavity.</p>
+
+<figure class="note-image">
+    <a href="https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=human%20stomach%20anatomy%20labelled" target="_blank">
+        <img loading="lazy"
+        src="https://commons.wikimedia.org/wiki/Special:FilePath/Stomach_diagram.svg"
+        alt="Human stomach diagram"
+        onerror="this.style.display='none'">
+    </a>
+    <figcaption>Human stomach – anatomical structure.</figcaption>
+</figure>
+
+<h3>Functions of the Stomach</h3>
+
+<ol>
+    <li>Temporarily stores food.</li>
+    <li>Mixes food with gastric juice.</li>
+    <li>Begins protein digestion.</li>
+    <li>Converts food into a semi-liquid substance called chyme.</li>
+</ol>
+
+<h3>Gastric Juice</h3>
+
+<div class="table-wrap">
+<table>
+    <tr>
+        <th>Substance</th>
+        <th>Function</th>
+    </tr>
+    <tr>
+        <td>Hydrochloric Acid (HCl)</td>
+        <td>Creates an acidic environment and helps kill many microbes.</td>
+    </tr>
+    <tr>
+        <td>Pepsin</td>
+        <td>Breaks proteins into smaller peptides.</td>
+    </tr>
+    <tr>
+        <td>Gastric Lipase</td>
+        <td>Helps digest some fats.</td>
+    </tr>
+    <tr>
+        <td>Mucus</td>
+        <td>Protects the stomach lining.</td>
+    </tr>
+</table>
+</div>
+
+<h3>Important Cells of Gastric Glands</h3>
+
+<ul>
+    <li>Parietal cells: Secrete hydrochloric acid.</li>
+    <li>Chief cells: Secrete pepsinogen.</li>
+    <li>Mucous cells: Secrete protective mucus.</li>
+</ul>
+
+<div class="success">
+    <b>Exam Fact:</b> Protein digestion begins in the stomach due to the action of pepsin.
+</div>
+
+</div>
+</section>
+
+<!-- SECTION 8 -->
+
+<section class="content-card" id="smallintestine">
+
+<div class="section-heading" onclick="toggleSection(this)">
+    <h2>8. Small Intestine</h2>
+    <span class="arrow">⌄</span>
+</div>
+
+<div class="section-body">
+
+<p>The small intestine is the longest part of the alimentary canal. It is approximately 6 metres long in an adult.</p>
+
+<figure class="note-image">
+    <a href="https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=small%20intestine%20duodenum%20jejunum%20ileum%20labelled" target="_blank">
+        <img loading="lazy"
+        src="https://commons.wikimedia.org/wiki/Special:FilePath/Small_intestine_diagram.svg"
+        alt="Small intestine"
+        onerror="this.style.display='none'">
+    </a>
+    <figcaption>Small intestine – duodenum, jejunum and ileum.</figcaption>
+</figure>
+
+<h3>Three Parts of Small Intestine</h3>
+
+<div class="table-wrap">
+<table>
+    <tr>
+        <th>Part</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>Duodenum</td>
+        <td>First part; receives bile and pancreatic juice.</td>
+    </tr>
+    <tr>
+        <td>Jejunum</td>
+        <td>Middle part; major site of nutrient absorption.</td>
+    </tr>
+    <tr>
+        <td>Ileum</td>
+        <td>Final part; absorbs remaining nutrients, vitamin B12 and bile salts.</td>
+    </tr>
+</table>
+</div>
+
+<h3>Main Functions</h3>
+
+<ul>
+    <li>Completes most chemical digestion.</li>
+    <li>Absorbs digested nutrients.</li>
+    <li>Transfers nutrients into blood and lymph.</li>
+</ul>
+
+<div class="success">
+    <b>Important:</b> Maximum absorption of digested food takes place in the small intestine.
+</div>
+
+</div>
+</section>
+
+<!-- SECTION 9 -->
+
+<section class="content-card" id="villi">
+
+<div class="section-heading" onclick="toggleSection(this)">
+    <h2>9. Villi and Absorption</h2>
+    <span class="arrow">⌄</span>
+</div>
+
+<div class="section-body">
+
+<p>Villi are tiny finger-like projections present on the inner surface of the small intestine.</p>
+
+<figure class="note-image">
+    <a href="https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=small%20intestine%20villi%20lacteal%20labelled" target="_blank">
+        <img loading="lazy"
+        src="https://commons.wikimedia.org/wiki/Special:FilePath/Intestinal_villus_simplified.svg"
+        alt="Intestinal villus"
+        onerror="this.style.display='none'">
+    </a>
+    <figcaption>Structure of intestinal villus with blood capillaries and lacteal.</figcaption>
+</figure>
+
+<h3>Functions of Villi</h3>
+
+<ul>
+    <li>Increase the surface area for absorption.</li>
+    <li>Contain blood capillaries to absorb glucose and amino acids.</li>
+    <li>Contain lacteals to absorb most dietary fats.</li>
+</ul>
+
+<div class="info">
+    <b>Microvilli:</b> Tiny projections on the surface of intestinal epithelial cells. They further increase the absorptive surface area.
+</div>
+
+</div>
+</section>
+
+<!-- SECTION 10 -->
+
+<section class="content-card" id="liver">
+
+<div class="section-heading" onclick="toggleSection(this)">
+    <h2>10. Liver</h2>
+    <span class="arrow">⌄</span>
+</div>
+
+<div class="section-body">
+
+<p>The liver is the largest internal gland in the human body.</p>
+
+<p><b>Location:</b> Upper-right part of the abdominal cavity, below the diaphragm.</p>
+
+<figure class="note-image">
+    <a href="https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=human%20liver%20anatomy%20labelled" target="_blank">
+        <img loading="lazy"
+        src="https://commons.wikimedia.org/wiki/Special:FilePath/Liver_anatomy.svg"
+        alt="Human liver"
+        onerror="this.style.display='none'">
+    </a>
+    <figcaption>Human liver – anatomical illustration.</figcaption>
+</figure>
+
+<h3>Major Functions</h3>
+
+<ol>
+    <li>Produces bile.</li>
+    <li>Regulates blood glucose levels.</li>
+    <li>Stores glycogen, vitamins and iron.</li>
+    <li>Helps in detoxification.</li>
+    <li>Metabolises carbohydrates, proteins and fats.</li>
+    <li>Produces albumin and many blood clotting factors.</li>
+</ol>
+
+<div class="success">
+    <b>Exam Fact:</b> The liver is the largest internal gland of the human body.
+</div>
+
+</div>
+</section>
+
+<!-- SECTION 11 -->
+
+<section class="content-card" id="bile">
+
+<div class="section-heading" onclick="toggleSection(this)">
+    <h2>11. Bile and Gallbladder</h2>
+    <span class="arrow">⌄</span>
+</div>
+
+<div class="section-body">
+
+<p>Bile is a digestive fluid produced by the liver and stored and concentrated in the gallbladder.</p>
+
+<figure class="note-image">
+    <a href="https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=liver%20gallbladder%20bile%20duct%20pancreas%20diagram" target="_blank">
+        <img loading="lazy"
+        src="https://commons.wikimedia.org/wiki/Special:FilePath/Biliary_system.svg"
+        alt="Biliary system"
+        onerror="this.style.display='none'">
+    </a>
+    <figcaption>Liver, gallbladder and bile ducts.</figcaption>
+</figure>
+
+<h3>Functions of Bile</h3>
+
+<ul>
+    <li>Emulsifies fats into tiny droplets.</li>
+    <li>Helps create suitable conditions for pancreatic lipase.</li>
+    <li>Helps in the absorption of fats and fat-soluble vitamins.</li>
+</ul>
+
+<h3>Gallbladder</h3>
+
+<ul>
+    <li>It is a small pear-shaped organ located beneath the liver.</li>
+    <li>It stores and concentrates bile.</li>
+    <li>It releases bile into the duodenum through the bile duct.</li>
+</ul>
+
+<div class="warning">
+    <b>Important:</b> Bile does not contain digestive enzymes. The liver produces bile, while the gallbladder stores it.
+</div>
+
+</div>
+</section>
+
+<!-- SECTION 12 -->
+
+<section class="content-card" id="pancreas">
+
+<div class="section-heading" onclick="toggleSection(this)">
+    <h2>12. Pancreas</h2>
+    <span class="arrow">⌄</span>
+</div>
+
+<div class="section-body">
+
+<p>The pancreas is a mixed gland because it performs both exocrine and endocrine functions.</p>
+
+<figure class="note-image">
+    <a href="https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=human%20pancreas%20anatomy%20labelled" target="_blank">
+        <img loading="lazy"
+        src="https://commons.wikimedia.org/wiki/Special:FilePath/Pancreas_diagram.svg"
+        alt="Human pancreas"
+        onerror="this.style.display='none'">
+    </a>
+    <figcaption>Human pancreas – anatomical illustration.</figcaption>
+</figure>
+
+<h3>Exocrine Function</h3>
+
+<p>It produces pancreatic juice containing digestive enzymes.</p>
+
+<div class="table-wrap">
+<table>
+    <tr>
+        <th>Enzyme</th>
+        <th>Function</th>
+    </tr>
+    <tr>
+        <td>Pancreatic Amylase</td>
+        <td>Digests starch.</td>
+    </tr>
+    <tr>
+        <td>Trypsin and Other Proteases</td>
+        <td>Digest proteins.</td>
+    </tr>
+    <tr>
+        <td>Pancreatic Lipase</td>
+        <td>Digests fats.</td>
+    </tr>
+    <tr>
+        <td>Nucleases</td>
+        <td>Digest nucleic acids.</td>
+    </tr>
+</table>
+</div>
+
+<h3>Endocrine Function</h3>
+
+<ul>
+    <li>Insulin: Lowers blood glucose.</li>
+    <li>Glucagon: Raises blood glucose.</li>
+</ul>
+
+<div class="success">
+    <b>Exam Fact:</b> Insulin and glucagon are produced by the islets of Langerhans.
+</div>
+
+</div>
+</section>
+
+<!-- SECTION 13 -->
+
+<section class="content-card" id="largeintestine">
+
+<div class="section-heading" onclick="toggleSection(this)">
+    <h2>13. Large Intestine</h2>
+    <span class="arrow">⌄</span>
+</div>
+
+<div class="section-body">
+
+<p>The large intestine is approximately 1.5 metres long.</p>
+
+<figure class="note-image">
+    <a href="https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=human%20large%20intestine%20colon%20labelled" target="_blank">
+        <img loading="lazy"
+        src="https://commons.wikimedia.org/wiki/Special:FilePath/Illu_intestine.jpg"
+        alt="Human large intestine"
+        onerror="this.style.display='none'">
+    </a>
+    <figcaption>Human large intestine and colon.</figcaption>
+</figure>
+
+<h3>Main Parts</h3>
+
+<ol>
+    <li>Caecum</li>
+    <li>Colon</li>
+    <li>Rectum</li>
+    <li>Anal canal</li>
+</ol>
+
+<h3>Parts of Colon</h3>
+
+<ul>
+    <li>Ascending colon</li>
+    <li>Transverse colon</li>
+    <li>Descending colon</li>
+    <li>Sigmoid colon</li>
+</ul>
+
+<h3>Functions</h3>
+
+<ul>
+    <li>Absorbs water and electrolytes.</li>
+    <li>Helps form faeces.</li>
+    <li>Temporarily stores faecal matter.</li>
+    <li>Contains gut microorganisms that contribute to vitamin production and other metabolic processes.</li>
+</ul>
+
+<h3>Appendix</h3>
+
+<p>The appendix is a small, finger-like pouch attached to the caecum. It contains lymphoid tissue and may have a role in gut immunity.</p>
+
+<div class="info">
+    <b>Appendicitis:</b> Inflammation of the appendix is called appendicitis.
+</div>
+
+</div>
+</section>
+
+<!-- SECTION 14 -->
+
+<section class="content-card" id="rectum">
+
+<div class="section-heading" onclick="toggleSection(this)">
+    <h2>14. Rectum and Anus</h2>
+    <span class="arrow">⌄</span>
+</div>
+
+<div class="section-body">
+
+<h3>Rectum</h3>
+
+<ul>
+    <li>It is the final part of the large intestine.</li>
+    <li>It temporarily stores faeces.</li>
+    <li>It helps coordinate defecation.</li>
+</ul>
+
+<h3>Anus</h3>
+
+<ul>
+    <li>It is the opening through which faeces are eliminated.</li>
+    <li>Anal sphincter muscles help control defecation.</li>
+</ul>
+
+<div class="info">
+    <b>Defecation:</b> The process of removing faeces from the body.
+</div>
+
+</div>
+</section>
+
+<!-- SECTION 15 -->
+
+<section class="content-card" id="digestion">
+
+<div class="section-heading" onclick="toggleSection(this)">
+    <h2>15. Process of Digestion</h2>
+    <span class="arrow">⌄</span>
+</div>
+
+<div class="section-body">
+
+<p>Digestion takes place through five major steps.</p>
+
+<ol>
+    <li><b>Ingestion:</b> Taking food into the mouth.</li>
+    <li><b>Digestion:</b> Breaking complex food into simpler substances.</li>
+    <li><b>Absorption:</b> Movement of nutrients into blood or lymph.</li>
+    <li><b>Assimilation:</b> Utilisation of absorbed nutrients by body cells.</li>
+    <li><b>Egestion:</b> Removal of undigested food from the body.</li>
+</ol>
+
+<h3>Digestion of Different Nutrients</h3>
+
+<div class="table-wrap">
+<table>
+    <tr>
+        <th>Nutrient</th>
+        <th>Final Digestion Products</th>
+    </tr>
+    <tr>
+        <td>Carbohydrates</td>
+        <td>Monosaccharides, such as glucose</td>
+    </tr>
+    <tr>
+        <td>Proteins</td>
+        <td>Amino acids</td>
+    </tr>
+    <tr>
+        <td>Fats</td>
+        <td>Fatty acids and monoglycerides</td>
+    </tr>
+</table>
+</div>
+
+</div>
+</section>
+
+<!-- SECTION 16 -->
+
+<section class="content-card" id="enzymes">
+
+<div class="section-heading" onclick="toggleSection(this)">
+    <h2>16. Digestive Enzymes and Their Functions</h2>
+    <span class="arrow">⌄</span>
+</div>
+
+<div class="section-body">
+
+<p>Digestive enzymes are biological catalysts that help break complex food molecules into simpler substances.</p>
+
+<div class="table-wrap">
+<table>
+    <tr>
+        <th>Enzyme</th>
+        <th>Source</th>
+        <th>Function</th>
+    </tr>
+    <tr>
+        <td>Salivary Amylase</td>
+        <td>Salivary glands</td>
+        <td>Starch digestion</td>
+    </tr>
+    <tr>
+        <td>Pepsin</td>
+        <td>Stomach</td>
+        <td>Protein digestion</td>
+    </tr>
+    <tr>
+        <td>Pancreatic Amylase</td>
+        <td>Pancreas</td>
+        <td>Starch digestion</td>
+    </tr>
+    <tr>
+        <td>Trypsin</td>
+        <td>Pancreas</td>
+        <td>Protein digestion</td>
+    </tr>
+    <tr>
+        <td>Pancreatic Lipase</td>
+        <td>Pancreas</td>
+        <td>Fat digestion</td>
+    </tr>
+    <tr>
+        <td>Maltase</td>
+        <td>Small intestine</td>
+        <td>Maltose into glucose</td>
+    </tr>
+    <tr>
+        <td>Sucrase</td>
+        <td>Small intestine</td>
+        <td>Sucrose into glucose and fructose</td>
+    </tr>
+    <tr>
+        <td>Lactase</td>
+        <td>Small intestine</td>
+        <td>Lactose into glucose and galactose</td>
+    </tr>
+    <tr>
+        <td>Peptidases</td>
+        <td>Small intestine</td>
+        <td>Peptides into amino acids</td>
+    </tr>
+    <tr>
+        <td>Nucleases</td>
+        <td>Pancreas</td>
+        <td>Digest nucleic acids</td>
+    </tr>
+</table>
+</div>
+
+<div class="success">
+    <b>Remember:</b> Amylase acts on carbohydrates, proteases act on proteins, and lipase acts on fats.
+</div>
+
+</div>
+</section>
+
+<!-- SECTION 17 -->
+
+<section class="content-card" id="hormones">
+
+<div class="section-heading" onclick="toggleSection(this)">
+    <h2>17. Hormones Involved in Digestion</h2>
+    <span class="arrow">⌄</span>
+</div>
+
+<div class="section-body">
+
+<div class="table-wrap">
+<table>
+    <tr>
+        <th>Hormone</th>
+        <th>Source</th>
+        <th>Function</th>
+    </tr>
+    <tr>
+        <td>Gastrin</td>
+        <td>Stomach</td>
+        <td>Stimulates gastric acid secretion.</td>
+    </tr>
+    <tr>
+        <td>Secretin</td>
+        <td>Small intestine</td>
+        <td>Stimulates bicarbonate-rich pancreatic secretion.</td>
+    </tr>
+    <tr>
+        <td>Cholecystokinin (CCK)</td>
+        <td>Small intestine</td>
+        <td>Stimulates pancreatic enzyme secretion and gallbladder contraction.</td>
+    </tr>
+    <tr>
+        <td>GIP</td>
+        <td>Small intestine</td>
+        <td>Helps regulate insulin secretion and reduces gastric activity.</td>
+    </tr>
+</table>
+</div>
+
+</div>
+</section>
+
+<!-- SECTION 18 -->
+
+<section class="content-card" id="flowchart">
+
+<div class="section-heading" onclick="toggleSection(this)">
+    <h2>18. Human Digestive System – Flowchart</h2>
+    <span class="arrow">⌄</span>
+</div>
+
+<div class="section-body">
+
+<p>The following flowchart shows the pathway followed by food inside the human digestive system.</p>
+
+<div class="flow">
+
+    <div class="flow-item">
+        MOUTH
+        <br><small>Chewing and salivary digestion</small>
+    </div>
+
+    <div class="flow-arrow">↓</div>
+
+    <div class="flow-item">PHARYNX</div>
+
+    <div class="flow-arrow">↓</div>
+
+    <div class="flow-item">
+        OESOPHAGUS
+        <br><small>Peristalsis</small>
+    </div>
+
+    <div class="flow-arrow">↓</div>
+
+    <div class="flow-item">
+        STOMACH
+        <br><small>Protein digestion begins</small>
+    </div>
+
+    <div class="flow-arrow">↓</div>
+
+    <div class="flow-item">
+        SMALL INTESTINE
+        <br><small>Most digestion and nutrient absorption</small>
+    </div>
+
+    <div class="flow-arrow">↓</div>
+
+    <div class="flow-item">
+        LARGE INTESTINE
+        <br><small>Water and electrolyte absorption</small>
+    </div>
+
+    <div class="flow-arrow">↓</div>
+
+    <div class="flow-item">RECTUM</div>
+
+    <div class="flow-arrow">↓</div>
+
+    <div class="flow-item">ANUS</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- SECTION 19 -->
+
+<section class="content-card" id="disorders">
+
+<div class="section-heading" onclick="toggleSection(this)">
+    <h2>19. Common Digestive Disorders</h2>
+    <span class="arrow">⌄</span>
+</div>
+
+<div class="section-body">
+
+<div class="table-wrap">
+<table>
+    <tr>
+        <th>Disorder</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>Acidity / Acid Reflux</td>
+        <td>Stomach contents flow back into the oesophagus.</td>
+    </tr>
+    <tr>
+        <td>Peptic Ulcer</td>
+        <td>Open sore in the stomach or duodenal lining.</td>
+    </tr>
+    <tr>
+        <td>Diarrhoea</td>
+        <td>Frequent passage of loose or watery stools.</td>
+    </tr>
+    <tr>
+        <td>Constipation</td>
+        <td>Difficulty passing stools.</td>
+    </tr>
+    <tr>
+        <td>Jaundice</td>
+        <td>Yellowing of skin and eyes due to increased bilirubin.</td>
+    </tr>
+    <tr>
+        <td>Hepatitis</td>
+        <td>Inflammation of the liver.</td>
+    </tr>
+    <tr>
+        <td>Appendicitis</td>
+        <td>Inflammation of the appendix.</td>
+    </tr>
+    <tr>
+        <td>Gallstones</td>
+        <td>Hardened deposits in the gallbladder.</td>
+    </tr>
+    <tr>
+        <td>Pancreatitis</td>
+        <td>Inflammation of the pancreas.</td>
+    </tr>
+    <tr>
+        <td>Lactose Intolerance</td>
+        <td>Difficulty digesting lactose due to low lactase activity.</td>
+    </tr>
+</table>
+</div>
+
+</div>
+</section>
+
+<!-- SECTION 20 -->
+
+<section class="content-card" id="facts">
+
+<div class="section-heading" onclick="toggleSection(this)">
+    <h2>20. Important One-Liner Facts for Competitive Exams</h2>
+    <span class="arrow">⌄</span>
+</div>
+
+<div class="section-body">
+
+<ol>
+    <li>The largest internal gland is the liver.</li>
+    <li>The longest part of the alimentary canal is the small intestine.</li>
+    <li>The first site of digestion is the mouth.</li>
+    <li>Protein digestion begins in the stomach.</li>
+    <li>Salivary amylase is also called ptyalin.</li>
+    <li>HCl is present in gastric juice.</li>
+    <li>Pepsin digests proteins.</li>
+    <li>Bile is produced by the liver.</li>
+    <li>Bile is stored in the gallbladder.</li>
+    <li>Bile has no digestive enzymes.</li>
+    <li>The pancreas is a mixed gland.</li>
+    <li>Insulin is secreted by the pancreas.</li>
+    <li>Villi are present in the small intestine.</li>
+    <li>Maximum absorption of nutrients occurs in the small intestine.</li>
+    <li>Water and electrolytes are absorbed in the large intestine.</li>
+    <li>Peristalsis moves food through the alimentary canal.</li>
+    <li>The hardest substance in the human body is tooth enamel.</li>
+    <li>The appendix is attached to the caecum.</li>
+    <li>The final products of protein digestion are amino acids.</li>
+    <li>The final products of carbohydrate digestion are monosaccharides.</li>
+</ol>
+
+</div>
+</section>
+
+<!-- SECTION 21 -->
+
+<section class="content-card" id="differences">
+
+<div class="section-heading" onclick="toggleSection(this)">
+    <h2>21. Important Differences</h2>
+    <span class="arrow">⌄</span>
+</div>
+
+<div class="section-body">
+
+<h3>Small Intestine vs Large Intestine</h3>
+
+<div class="table-wrap">
+<table>
+    <tr>
+        <th>Small Intestine</th>
+        <th>Large Intestine</th>
+    </tr>
+    <tr>
+        <td>Approximately 6 metres long.</td>
+        <td>Approximately 1.5 metres long.</td>
+    </tr>
+    <tr>
+        <td>Narrower in diameter.</td>
+        <td>Wider in diameter.</td>
+    </tr>
+    <tr>
+        <td>Most chemical digestion occurs here.</td>
+        <td>Little to no enzymatic digestion by human enzymes.</td>
+    </tr>
+    <tr>
+        <td>Major site of nutrient absorption.</td>
+        <td>Absorbs water and electrolytes.</td>
+    </tr>
+    <tr>
+        <td>Contains villi.</td>
+        <td>Does not contain villi.</td>
+    </tr>
+</table>
+</div>
+
+<h3>Digestion vs Absorption</h3>
+
+<div class="table-wrap">
+<table>
+    <tr>
+        <th>Digestion</th>
+        <th>Absorption</th>
+    </tr>
+    <tr>
+        <td>Breakdown of complex food.</td>
+        <td>Movement of nutrients into blood or lymph.</td>
+    </tr>
+    <tr>
+        <td>Mechanical and chemical processes.</td>
+        <td>Transport across intestinal lining.</td>
+    </tr>
+</table>
+</div>
+
+</div>
+</section>
+
+<!-- SECTION 22 QUIZ -->
+
+<section class="content-card" id="quiz">
+
+<div class="section-heading" onclick="toggleSection(this)">
+    <h2>22. Practice MCQs – BPSC / SSC / Railway</h2>
+    <span class="arrow">⌄</span>
+</div>
+
+<div class="section-body">
+
+<p>Choose the correct answer for each question. Submit your answers to see your score and explanations.</p>
+
+<div id="quizContainer"></div>
+
+<div class="quiz-buttons">
+    <button class="action-btn" onclick="submitQuiz()">Submit Answers</button>
+    <button class="action-btn reset" onclick="resetQuiz()">Reset Quiz</button>
+</div>
+
+<div id="quizResult"></div>
+
+</div>
+</section>
+
+<!-- SECTION 23 -->
+
+<section class="content-card" id="exam">
+
+<div class="section-heading" onclick="toggleSection(this)">
+    <h2>23. Important Topics for BPSC and Other Exams</h2>
+    <span class="arrow">⌄</span>
+</div>
+
+<div class="section-body">
+
+<h3>High-Priority Topics</h3>
+
+<ul>
+    <li>Parts of the alimentary canal.</li>
+    <li>Digestive enzymes and their functions.</li>
+    <li>Functions of liver and pancreas.</li>
+    <li>Composition and functions of bile.</li>
+    <li>Structure and function of villi.</li>
+    <li>Digestion of carbohydrates, proteins and fats.</li>
+    <li>Digestive hormones.</li>
+    <li>Common digestive disorders.</li>
+</ul>
+
+<div class="success">
+    <b>Preparation Tip:</b> For BPSC Biology, focus especially on digestive enzymes, the functions of liver and pancreas, bile, villi, absorption of nutrients and the sequence of the alimentary canal.
+</div>
+
+</div>
+</section>
+
+<div class="footer">
+    <p>Human Digestive System – Complete Biology Notes</p>
+    <p>Prepared for School Education and Competitive Examination Preparation.</p>
+</div>
+
+</main>
+</div>
+
+<button class="back-top" id="backTop" onclick="scrollToTop()">↑</button>
+
+<script>
+
+/* SIDEBAR NOT USED */
+
+/* TABLE OF CONTENTS TOGGLE */
+
+function toggleTOC(){
+
+    const box=document.getElementById("tocBox");
+    const button=document.getElementById("tocButton");
+
+    box.classList.toggle("toc-collapsed");
+
+    button.textContent=
+        box.classList.contains("toc-collapsed")
+        ?"Show Contents"
+        :"Hide Contents";
+}
+
+/* SECTION ACCORDION */
+
+function toggleSection(heading){
+
+    const card=heading.closest(".content-card");
+
+    card.classList.toggle("collapsed");
+}
+
+/* TOC CLICK AND SAME-PAGE SCROLL */
+
+document.querySelectorAll(".toc-grid a").forEach(link=>{
+
+    link.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        const target=document.querySelector(this.getAttribute("href"));
+
+        if(!target) return;
+
+        target.classList.remove("collapsed");
+
+        target.scrollIntoView({
+            behavior:"smooth",
+            block:"start"
+        });
+
+        document.querySelectorAll(".toc-grid a")
+            .forEach(a=>a.classList.remove("active"));
+
+        this.classList.add("active");
+
+        history.replaceState(null,"",this.getAttribute("href"));
+
+    });
+
+});
+
+/* SEARCH WITH YELLOW HIGHLIGHT */
+
+let originalContent=[];
+
+function saveOriginalContent(){
+
+    originalContent=[];
+
+    document.querySelectorAll(".section-body").forEach(section=>{
+
+        originalContent.push({
+            element:section,
+            html:section.innerHTML
+        });
+
+    });
+
+}
+
+saveOriginalContent();
+
+function restoreOriginalContent(){
+
+    originalContent.forEach(item=>{
+        item.element.innerHTML=item.html;
+    });
+
+}
+
+function escapeRegExp(text){
+
+    return text.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+
+}
+
+function searchContent(){
+
+    const input=document.getElementById("searchInput");
+    const keyword=input.value.trim();
+
+    const info=document.getElementById("searchInfo");
+
+    restoreOriginalContent();
+
+    if(!keyword){
+
+        info.textContent="Please enter a keyword to search.";
+        return;
+    }
+
+    const regex=new RegExp(escapeRegExp(keyword),"gi");
+
+    let total=0;
+    let firstMatch=null;
+
+    document.querySelectorAll(".section-body").forEach(section=>{
+
+        const walker=document.createTreeWalker(
+            section,
+            NodeFilter.SHOW_TEXT,
+            {
+                acceptNode:function(node){
+
+                    if(!node.nodeValue.trim()){
+                        return NodeFilter.FILTER_REJECT;
+                    }
+
+                    if(node.parentElement.closest("script,style,mark,button")){
+                        return NodeFilter.FILTER_REJECT;
+                    }
+
+                    return NodeFilter.FILTER_ACCEPT;
+                }
+            }
+        );
+
+        const nodes=[];
+
+        while(walker.nextNode()){
+            nodes.push(walker.currentNode);
+        }
+
+        nodes.forEach(node=>{
+
+            const text=node.nodeValue;
+            regex.lastIndex=0;
+
+            if(!regex.test(text)){
+                return;
+            }
+
+            regex.lastIndex=0;
+
+            const fragment=document.createDocumentFragment();
+
+            let lastIndex=0;
+            let match;
+
+            while((match=regex.exec(text))!==null){
+
+                const before=text.slice(lastIndex,match.index);
+
+                if(before){
+                    fragment.appendChild(
+                        document.createTextNode(before)
+                    );
+                }
+
+                const mark=document.createElement("mark");
+
+                mark.className="search-highlight";
+                mark.textContent=match[0];
+
+                fragment.appendChild(mark);
+
+                total++;
+
+                if(!firstMatch){
+                    firstMatch=mark;
+                }
+
+                lastIndex=match.index+match[0].length;
+
+            }
+
+            if(lastIndex<text.length){
+
+                fragment.appendChild(
+                    document.createTextNode(text.slice(lastIndex))
+                );
+
+            }
+
+            node.parentNode.replaceChild(fragment,node);
+
+        });
+
+    });
+
+    if(total>0){
+
+        info.textContent=
+            total+" matching occurrence(s) found for: "+keyword;
+
+        const parent=firstMatch.closest(".content-card");
+
+        if(parent){
+            parent.classList.remove("collapsed");
+        }
+
+        firstMatch.scrollIntoView({
+            behavior:"smooth",
+            block:"center"
+        });
+
+    }else{
+
+        info.textContent=
+            "No matching content found for: "+keyword;
+
+    }
+
+}
+
+function clearSearch(){
+
+    document.getElementById("searchInput").value="";
+
+    restoreOriginalContent();
+
+    document.getElementById("searchInfo").textContent=
+        "Search any word or phrase. Matching content will be highlighted in yellow.";
+
+}
+
+/* READING PROGRESS */
+
+window.addEventListener("scroll",function(){
+
+    const scrollTop=window.scrollY;
+
+    const totalHeight=
+        document.documentElement.scrollHeight-
+        document.documentElement.clientHeight;
+
+    const progress=
+        totalHeight>0
+        ?(scrollTop/totalHeight)*100
+        :0;
+
+    document.getElementById("progressBar").style.width=
+        progress+"%";
+
+    const button=document.getElementById("backTop");
+
+    button.style.display=
+        scrollTop>400?"block":"none";
+
+});
+
+/* BACK TO TOP */
+
+function scrollToTop(){
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+/* MCQ QUIZ */
+
+const questions=[
+
+{
+q:"Which is the largest internal gland in the human body?",
+o:["Pancreas","Liver","Thyroid","Pituitary"],
+a:1,
+e:"The liver is the largest internal gland."
+},
+
+{
+q:"Where does protein digestion begin?",
+o:["Mouth","Oesophagus","Stomach","Large intestine"],
+a:2,
+e:"Pepsin in the stomach begins protein digestion."
+},
+
+{
+q:"Which enzyme is present in saliva?",
+o:["Pepsin","Trypsin","Ptyalin","Lipase"],
+a:2,
+e:"Ptyalin is salivary amylase."
+},
+
+{
+q:"Where is bile produced?",
+o:["Gallbladder","Liver","Pancreas","Stomach"],
+a:1,
+e:"The liver produces bile."
+},
+
+{
+q:"Where is bile stored?",
+o:["Pancreas","Stomach","Gallbladder","Duodenum"],
+a:2,
+e:"The gallbladder stores and concentrates bile."
+},
+
+{
+q:"Which is the longest part of the alimentary canal?",
+o:["Stomach","Small intestine","Large intestine","Oesophagus"],
+a:1,
+e:"The small intestine is the longest section."
+},
+
+{
+q:"Which hormone lowers blood glucose?",
+o:["Glucagon","Insulin","Gastrin","Secretin"],
+a:1,
+e:"Insulin lowers blood glucose."
+},
+
+{
+q:"Which structures increase the absorptive surface area of the small intestine?",
+o:["Alveoli","Nephrons","Villi","Cilia"],
+a:2,
+e:"Villi and microvilli increase surface area."
+},
+
+{
+q:"Which enzyme digests proteins in the stomach?",
+o:["Amylase","Pepsin","Maltase","Sucrase"],
+a:1,
+e:"Pepsin breaks proteins into peptides."
+},
+
+{
+q:"Movement of food through the oesophagus is called:",
+o:["Assimilation","Diffusion","Peristalsis","Egestion"],
+a:2,
+e:"Peristalsis is the wave-like muscular movement."
+},
+
+{
+q:"Which organ produces pancreatic juice?",
+o:["Liver","Pancreas","Gallbladder","Spleen"],
+a:1,
+e:"The pancreas secretes pancreatic juice into the duodenum."
+},
+
+{
+q:"Which part absorbs most of the water from undigested food?",
+o:["Mouth","Stomach","Large intestine","Oesophagus"],
+a:2,
+e:"The large intestine absorbs water and electrolytes."
+},
+
+{
+q:"Which vitamin is synthesised by some intestinal bacteria?",
+o:["Vitamin K","Vitamin D","Vitamin A","Vitamin E"],
+a:0,
+e:"Gut bacteria can produce vitamin K."
+},
+
+{
+q:"Which is the first part of the small intestine?",
+o:["Ileum","Jejunum","Duodenum","Caecum"],
+a:2,
+e:"The duodenum is the first part."
+},
+
+{
+q:"Which substance emulsifies fats?",
+o:["Pepsin","Bile salts","HCl","Amylase"],
+a:1,
+e:"Bile salts break large fat globules into smaller droplets."
+}
+
+];
+
+function loadQuiz(){
+
+    const container=document.getElementById("quizContainer");
+
+    container.innerHTML="";
+
+    questions.forEach((q,index)=>{
+
+        const question=document.createElement("div");
+
+        question.className="quiz-question";
+        question.id="question-"+index;
+
+        let html="<p>Q"+(index+1)+". "+q.q+"</p>";
+
+        q.o.forEach((option,j)=>{
+
+            html+=`
+                <label class="quiz-option" id="option-${index}-${j}">
+                    <input type="radio" name="q${index}" value="${j}">
+                    ${String.fromCharCode(65+j)}. ${option}
+                </label>
+            `;
+
+        });
+
+        html+=`<div class="explanation" id="explanation-${index}"></div>`;
+
+        question.innerHTML=html;
+
+        container.appendChild(question);
+
+    });
+
+}
+
+function submitQuiz(){
+
+    let score=0;
+    let attempted=0;
+
+    questions.forEach((q,index)=>{
+
+        const selected=document.querySelector(
+            'input[name="q'+index+'"]:checked'
+        );
+
+        const explanation=
+            document.getElementById("explanation-"+index);
+
+        q.o.forEach((option,j)=>{
+
+            const label=document.getElementById(
+                "option-"+index+"-"+j
+            );
+
+            label.classList.remove(
+                "correct-answer",
+                "wrong-answer"
+            );
+
+            if(j===q.a){
+                label.classList.add("correct-answer");
+            }
+
+        });
+
+        if(selected){
+
+            attempted++;
+
+            if(Number(selected.value)===q.a){
+
+                score++;
+
+            }else{
+
+                document.getElementById(
+                    "option-"+index+"-"+selected.value
+                ).classList.add("wrong-answer");
+
+            }
+
+        }
+
+        explanation.textContent=
+            "Explanation: "+q.e;
+
+    });
+
+    const result=document.getElementById("quizResult");
+
+    result.style.display="block";
+
+    result.innerHTML=`
+        <h3>Quiz Result</h3>
+        Score: ${score} / ${questions.length}<br>
+        Percentage: ${Math.round(score/questions.length*100)}%<br>
+        Attempted: ${attempted} / ${questions.length}
+    `;
+
+    result.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+    });
+
+}
+
+function resetQuiz(){
+
+    loadQuiz();
+
+    const result=document.getElementById("quizResult");
+
+    result.style.display="none";
+    result.innerHTML="";
+
+}
+
+/* INITIALISE */
+
+loadQuiz();
+
+</script>
+
+</body>
+</html>
