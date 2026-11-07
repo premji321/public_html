@@ -1,0 +1,2505 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Resources and Development | Class 10 Geography</title>
+
+<style>
+:root{
+    --bg:#f3f6fc;
+    --panel:#ffffff;
+    --text:#202b3c;
+    --muted:#697586;
+    --primary:#2457c5;
+    --primary-light:#e9f0ff;
+    --border:#dce3ee;
+    --green:#13845b;
+    --orange:#e58b25;
+    --red:#c94c4c;
+    --shadow:0 5px 22px rgba(20,40,80,.07);
+}
+
+*{
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:Arial,Helvetica,sans-serif;
+    line-height:1.75;
+}
+
+/* HEADER */
+
+.header{
+    background:linear-gradient(125deg,#142e63,#2457c5,#3688c9);
+    color:white;
+    padding:36px 22px;
+    text-align:center;
+}
+
+.header h1{
+    margin:0;
+    font-size:clamp(25px,4vw,39px);
+    letter-spacing:.5px;
+}
+
+.header p{
+    margin:9px 0 0;
+    color:#e1eaff;
+}
+
+.header .tag{
+    display:inline-block;
+    margin-top:15px;
+    padding:6px 15px;
+    border:1px solid #ffffff70;
+    border-radius:30px;
+    font-size:13px;
+}
+
+/* TOOLBAR */
+
+.toolbar{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:#fff;
+    border-bottom:1px solid var(--border);
+    padding:10px 14px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:9px;
+    align-items:center;
+    box-shadow:0 3px 10px #00000008;
+}
+
+.toolbar button{
+    border:0;
+    background:var(--primary);
+    color:white;
+    border-radius:7px;
+    padding:9px 13px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.toolbar button.secondary{
+    background:#e8edf6;
+    color:#26354d;
+}
+
+.toolbar button:hover{
+    opacity:.88;
+}
+
+.search-box{
+    flex:1;
+    min-width:170px;
+    padding:10px 12px;
+    border:1px solid var(--border);
+    border-radius:7px;
+    outline:none;
+    font-size:14px;
+}
+
+.search-box:focus{
+    border-color:var(--primary);
+}
+
+#searchCount{
+    font-size:12px;
+    color:var(--muted);
+}
+
+/* MAIN LAYOUT */
+
+.layout{
+    display:flex;
+    align-items:flex-start;
+    gap:18px;
+    max-width:1600px;
+    margin:auto;
+    padding:18px;
+}
+
+.sidebar{
+    width:290px;
+    min-width:290px;
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:15px;
+    position:sticky;
+    top:78px;
+    max-height:calc(100vh - 95px);
+    overflow-y:auto;
+    box-shadow:var(--shadow);
+    transition:.25s;
+}
+
+.sidebar.hidden{
+    display:none;
+}
+
+.sidebar h2{
+    margin:0 0 12px;
+    font-size:19px;
+    color:var(--primary);
+}
+
+.sidebar a{
+    display:block;
+    text-decoration:none;
+    color:#34435b;
+    padding:7px 9px;
+    border-radius:6px;
+    font-size:13px;
+    border-bottom:1px solid #edf0f5;
+}
+
+.sidebar a:hover{
+    background:var(--primary-light);
+    color:var(--primary);
+}
+
+.content{
+    flex:1;
+    min-width:0;
+}
+
+/* INTRO */
+
+.intro{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:22px;
+    margin-bottom:18px;
+    box-shadow:var(--shadow);
+}
+
+.intro h2{
+    color:var(--primary);
+    margin-top:0;
+}
+
+/* SECTION */
+
+details.section{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:11px;
+    margin-bottom:14px;
+    box-shadow:var(--shadow);
+    overflow:hidden;
+    scroll-margin-top:85px;
+}
+
+details.section>summary{
+    cursor:pointer;
+    list-style:none;
+    padding:16px 19px;
+    font-weight:700;
+    font-size:17px;
+    background:linear-gradient(90deg,#eaf0ff,#fff);
+    border-left:5px solid var(--primary);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+}
+
+details.section>summary::-webkit-details-marker{
+    display:none;
+}
+
+details.section>summary::after{
+    content:"+";
+    font-size:23px;
+    color:var(--primary);
+    flex-shrink:0;
+}
+
+details.section[open]>summary::after{
+    content:"−";
+}
+
+.section-body{
+    padding:19px 22px 25px;
+}
+
+.section-body h3{
+    color:#2457a6;
+    border-bottom:1px solid #e4eaf3;
+    padding-bottom:6px;
+    margin-top:25px;
+}
+
+.section-body h4{
+    color:#16744f;
+    margin-bottom:6px;
+}
+
+.section-body p{
+    margin:8px 0;
+}
+
+.section-body li{
+    margin:5px 0;
+}
+
+.section-body ul,.section-body ol{
+    padding-left:24px;
+}
+
+/* INFO BOXES */
+
+.note{
+    padding:13px 16px;
+    border-left:4px solid var(--primary);
+    background:#edf3ff;
+    border-radius:6px;
+    margin:15px 0;
+}
+
+.green-note{
+    background:#eaf8f1;
+    border-left:4px solid var(--green);
+}
+
+.orange-note{
+    background:#fff5e8;
+    border-left:4px solid var(--orange);
+}
+
+.red-note{
+    background:#fff0ef;
+    border-left:4px solid var(--red);
+}
+
+.exam{
+    background:#fff7df;
+    border:1px solid #f1d78a;
+    border-radius:8px;
+    padding:12px 15px;
+    margin:14px 0;
+}
+
+.badge{
+    display:inline-block;
+    background:#e9f0ff;
+    color:#2457c5;
+    padding:3px 9px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+/* TABLES */
+
+.table-wrap{
+    overflow-x:auto;
+    margin:14px 0;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:500px;
+    font-size:14px;
+}
+
+th,td{
+    border:1px solid #dce3ee;
+    padding:10px 12px;
+    text-align:left;
+    vertical-align:top;
+}
+
+th{
+    background:#e9effc;
+    color:#1d468f;
+}
+
+tr:nth-child(even) td{
+    background:#fafbfd;
+}
+
+/* IMAGES */
+
+.study-image{
+    margin:18px auto;
+    max-width:760px;
+    text-align:center;
+}
+
+.study-image img{
+    width:100%;
+    max-height:430px;
+    object-fit:contain;
+    border-radius:10px;
+    background:#f2f4f8;
+    border:1px solid var(--border);
+    cursor:zoom-in;
+}
+
+.study-image figcaption{
+    font-size:12px;
+    color:var(--muted);
+    margin-top:6px;
+}
+
+.image-row{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:15px;
+}
+
+.image-row img{
+    width:100%;
+    height:190px;
+    object-fit:cover;
+    border-radius:9px;
+    border:1px solid var(--border);
+}
+
+/* FLOWCHART */
+
+.flow{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:7px;
+    margin:20px auto;
+    max-width:800px;
+}
+
+.flow-box{
+    width:min(100%,600px);
+    background:#eaf0ff;
+    border:1px solid #a9c0f5;
+    padding:12px 16px;
+    text-align:center;
+    border-radius:8px;
+    font-weight:600;
+}
+
+.flow-box.green{
+    background:#e5f7ed;
+    border-color:#9bd4b3;
+}
+
+.flow-box.orange{
+    background:#fff2df;
+    border-color:#efc48d;
+}
+
+.flow-arrow{
+    font-size:23px;
+    color:var(--primary);
+    line-height:1;
+}
+
+.flow-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:10px;
+    width:100%;
+}
+
+/* MIND MAP */
+
+.mindmap{
+    border:2px dashed #9eb5e8;
+    padding:16px;
+    border-radius:12px;
+    background:#f8faff;
+    margin:20px 0;
+}
+
+.mind-center{
+    background:#2457c5;
+    color:white;
+    padding:14px;
+    text-align:center;
+    border-radius:9px;
+    font-weight:bold;
+    max-width:300px;
+    margin:0 auto 16px;
+}
+
+.mind-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+    gap:10px;
+}
+
+.mind-item{
+    background:white;
+    border:1px solid #ccd8ef;
+    border-radius:8px;
+    padding:12px;
+    text-align:center;
+    font-size:13px;
+}
+
+/* QUESTION */
+
+.question{
+    padding:13px;
+    border:1px solid var(--border);
+    border-radius:8px;
+    margin:12px 0;
+    background:#fcfdff;
+}
+
+.answer{
+    padding:10px 13px;
+    background:#eaf8f1;
+    border-radius:6px;
+    margin-top:9px;
+}
+
+/* SEARCH HIGHLIGHT */
+
+mark.search-highlight{
+    background:#ffeb3b;
+    color:#111;
+    padding:1px 2px;
+    border-radius:2px;
+}
+
+/* IMAGE MODAL */
+
+.image-modal{
+    display:none;
+    position:fixed;
+    z-index:1000;
+    inset:0;
+    background:#000e;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.image-modal img{
+    max-width:95%;
+    max-height:90vh;
+    object-fit:contain;
+    border-radius:8px;
+}
+
+.image-modal span{
+    position:absolute;
+    top:15px;
+    right:25px;
+    color:white;
+    font-size:35px;
+    cursor:pointer;
+}
+
+/* FOOTER */
+
+.footer{
+    text-align:center;
+    padding:30px 15px;
+    color:var(--muted);
+    font-size:13px;
+}
+
+.top-button{
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    z-index:90;
+    background:var(--primary);
+    color:white;
+    border:0;
+    border-radius:50%;
+    width:45px;
+    height:45px;
+    font-size:21px;
+    cursor:pointer;
+    box-shadow:var(--shadow);
+}
+
+@media(max-width:850px){
+    .layout{
+        display:block;
+        padding:10px;
+    }
+
+    .sidebar{
+        position:relative;
+        top:0;
+        width:100%;
+        min-width:0;
+        max-height:400px;
+        margin-bottom:15px;
+    }
+
+    .sidebar.hidden{
+        display:none;
+    }
+
+    .section-body{
+        padding:15px;
+    }
+
+    details.section>summary{
+        font-size:15px;
+    }
+}
+
+@media print{
+    .toolbar,.sidebar,.top-button,.image-modal{
+        display:none!important;
+    }
+
+    .layout{
+        display:block;
+        padding:0;
+    }
+
+    details.section{
+        break-inside:avoid;
+        box-shadow:none;
+    }
+
+    details.section:not([open])>.section-body{
+        display:block!important;
+    }
+
+    details.section>summary::after{
+        display:none;
+    }
+
+    body{
+        background:white;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+    <h1>RESOURCES AND DEVELOPMENT</h1>
+    <p>Class 10 Geography | Contemporary India – II</p>
+    <p>Complete Classified Notes | NCERT Based</p>
+    <span class="tag">BPSC • UPSC • CBSE • School Examination</span>
+</header>
+
+<div class="toolbar">
+    <button class="secondary" onclick="toggleSidebar()">
+        ☰ Show / Hide Contents
+    </button>
+
+    <input
+        type="search"
+        id="searchInput"
+        class="search-box"
+        placeholder="Search any word or topic..."
+        oninput="searchContent()"
+    >
+
+    <span id="searchCount"></span>
+
+    <button onclick="expandAll()">Expand All</button>
+    <button class="secondary" onclick="collapseAll()">Collapse All</button>
+    <button class="secondary" onclick="window.print()">Print / PDF</button>
+</div>
+
+<div class="layout">
+
+<!-- LEFT CONTENT PANEL -->
+
+<aside class="sidebar" id="sidebar">
+    <h2>TABLE OF CONTENTS</h2>
+    <div id="toc"></div>
+</aside>
+
+<!-- MAIN CONTENT -->
+
+<main class="content" id="mainContent">
+
+<div class="intro">
+    <h2>Chapter Introduction</h2>
+
+    <p>
+        Resources are essential for human survival and development.
+        Their availability, distribution, utilisation and conservation
+        determine the quality of human life.
+    </p>
+
+    <p>
+        This chapter explains the classification of resources,
+        resource planning, sustainable development, land resources,
+        land degradation, soil formation, major soil types of India
+        and methods of soil conservation.
+    </p>
+
+    <div class="note">
+        <b>Chapter Learning Objectives:</b>
+        Understand resource classification, sustainable development,
+        resource planning, land use, soil formation, soil types and
+        conservation measures.
+    </div>
+</div>
+
+<!-- 1 -->
+
+<details class="section" open id="s1">
+<summary>1. UNDERSTANDING RESOURCES</summary>
+<div class="section-body">
+
+<h3>1.1 Meaning of Resources</h3>
+
+<p>
+Everything available in our environment which can be used to
+satisfy our needs, provided it is technologically accessible,
+economically feasible and culturally acceptable, can be termed
+as a resource.
+</p>
+
+<h4>Three Essential Conditions</h4>
+<ol>
+<li>Technologically accessible.</li>
+<li>Economically feasible.</li>
+<li>Culturally acceptable.</li>
+</ol>
+
+<div class="note">
+Resources are not simply free gifts of nature. They are a function
+of human activities. Human beings transform materials available
+in the environment into useful resources.
+</div>
+
+<h3>1.2 Relationship Between Nature, Technology and Institutions</h3>
+
+<p>
+Human beings interact with nature through technology and create
+institutions to accelerate economic development.
+</p>
+
+<div class="flow">
+    <div class="flow-box">NATURE<br><small>Provides materials and physical environment</small></div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box">HUMAN BEINGS<br><small>Use knowledge and skills</small></div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box">TECHNOLOGY<br><small>Transforms materials into resources</small></div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box green">INSTITUTIONS<br><small>Accelerate economic development</small></div>
+</div>
+
+<h3>1.3 Classification of Resources</h3>
+
+<p>Resources are classified on four major bases:</p>
+
+<div class="mindmap">
+    <div class="mind-center">CLASSIFICATION OF RESOURCES</div>
+    <div class="mind-grid">
+        <div class="mind-item"><b>Origin</b><br>Biotic and Abiotic</div>
+        <div class="mind-item"><b>Exhaustibility</b><br>Renewable and Non-renewable</div>
+        <div class="mind-item"><b>Ownership</b><br>Individual, Community, National, International</div>
+        <div class="mind-item"><b>Status of Development</b><br>Potential, Developed, Stock, Reserves</div>
+    </div>
+</div>
+
+<h3>A. On the Basis of Origin</h3>
+
+<h4>1. Biotic Resources</h4>
+<ul>
+<li>Obtained from the biosphere.</li>
+<li>Have life or are derived from living organisms.</li>
+<li>Examples: Human beings, flora, fauna, fisheries and livestock.</li>
+</ul>
+
+<h4>2. Abiotic Resources</h4>
+<ul>
+<li>Composed of non-living things.</li>
+<li>Examples: Rocks, metals, minerals and water.</li>
+</ul>
+
+<h3>B. On the Basis of Exhaustibility</h3>
+
+<h4>1. Renewable Resources</h4>
+<ul>
+<li>Can be renewed or replenished by physical, chemical or mechanical processes.</li>
+<li>Examples: Solar energy, wind energy, water, forests and wildlife.</li>
+</ul>
+
+<h4>2. Non-Renewable Resources</h4>
+<ul>
+<li>Take millions of years to form.</li>
+<li>Some can be recycled, such as metals.</li>
+<li>Others cannot be recycled, such as fossil fuels.</li>
+<li>Examples: Coal, petroleum and natural gas.</li>
+</ul>
+
+<h3>C. On the Basis of Ownership</h3>
+
+<div class="table-wrap">
+<table>
+<tr><th>Type</th><th>Meaning</th><th>Examples</th></tr>
+<tr><td>Individual Resources</td><td>Privately owned by individuals.</td><td>House, plots, agricultural land.</td></tr>
+<tr><td>Community Resources</td><td>Accessible to all members of a community.</td><td>Village ponds, public parks, playgrounds.</td></tr>
+<tr><td>National Resources</td><td>Resources belonging to the nation.</td><td>Forests, minerals, rivers, roads.</td></tr>
+<tr><td>International Resources</td><td>Resources regulated by international institutions beyond national jurisdiction.</td><td>Oceanic resources beyond the Exclusive Economic Zone.</td></tr>
+</table>
+</div>
+
+<div class="exam">
+<b>Important:</b> The oceanic resources beyond 200 nautical miles
+of the Exclusive Economic Zone belong to the open ocean and are
+regulated by international institutions.
+</div>
+
+<h3>D. On the Basis of Status of Development</h3>
+
+<h4>1. Potential Resources</h4>
+<ul>
+<li>Found in a region but not fully utilised.</li>
+<li>Examples: Solar and wind energy in Rajasthan and Gujarat.</li>
+</ul>
+
+<h4>2. Developed Resources</h4>
+<ul>
+<li>Resources whose quantity and quality have been surveyed.</li>
+<li>Their utilisation has been determined according to available technology.</li>
+</ul>
+
+<h4>3. Stock</h4>
+<ul>
+<li>Materials in the environment which have the potential to satisfy human needs.</li>
+<li>Appropriate technology to access or use them is not available.</li>
+<li>Example: Water contains hydrogen and oxygen, which can be used as a source of energy, but the required technology is not available economically on a large scale in the textbook context.</li>
+</ul>
+
+<h4>4. Reserves</h4>
+<ul>
+<li>Subsets of stock.</li>
+<li>Can be used to meet future requirements with existing technology.</li>
+<li>Their use is being planned for the future.</li>
+<li>Examples: Water stored in dams and forests preserved for future use.</li>
+</ul>
+
+<div class="note green-note">
+<b>Quick Revision:</b><br>
+Origin – Biotic/Abiotic<br>
+Exhaustibility – Renewable/Non-renewable<br>
+Ownership – Individual/Community/National/International<br>
+Development – Potential/Developed/Stock/Reserves
+</div>
+
+</div>
+</details>
+
+<!-- 2 -->
+
+<details class="section" id="s2">
+<summary>2. DEVELOPMENT OF RESOURCES</summary>
+<div class="section-body">
+
+<h3>2.1 Importance of Resources</h3>
+<ul>
+<li>Human survival.</li>
+<li>Maintaining quality of life.</li>
+<li>Agricultural development.</li>
+<li>Industrial development.</li>
+<li>Economic growth.</li>
+<li>Transport and communication.</li>
+<li>National development.</li>
+</ul>
+
+<h3>2.2 Problems Caused by Indiscriminate Utilisation</h3>
+
+<p>Indiscriminate utilisation of resources has created three major problems:</p>
+
+<h4>1. Depletion of Resources</h4>
+<p>Resources were depleted to satisfy the greed of a few individuals.</p>
+
+<h4>2. Unequal Distribution</h4>
+<p>Resources accumulated in the hands of a few people, dividing society into:</p>
+<ul>
+<li>Haves – Rich people.</li>
+<li>Have-nots – Poor people.</li>
+</ul>
+
+<h4>3. Environmental Problems</h4>
+<ul>
+<li>Global warming.</li>
+<li>Ozone layer depletion.</li>
+<li>Environmental pollution.</li>
+<li>Land degradation.</li>
+</ul>
+
+<h3>2.3 Equitable Distribution of Resources</h3>
+<p>
+Equitable distribution means fair distribution of resources among
+people and regions.
+</p>
+<ul>
+<li>Ensures sustained quality of life.</li>
+<li>Promotes social justice.</li>
+<li>Reduces economic inequality.</li>
+<li>Supports global peace.</li>
+</ul>
+
+<h3>2.4 Need for Resource Planning</h3>
+<ul>
+<li>Resources are limited.</li>
+<li>Distribution is unequal.</li>
+<li>Some regions are rich in certain resources but deficient in others.</li>
+<li>Overexploitation damages the environment.</li>
+<li>Future generations also need resources.</li>
+</ul>
+
+<div class="note green-note">
+Resource planning is essential for the sustainable existence of
+all forms of life.
+</div>
+
+</div>
+</details>
+
+<!-- 3 -->
+
+<details class="section" id="s3">
+<summary>3. SUSTAINABLE DEVELOPMENT</summary>
+<div class="section-body">
+
+<h3>3.1 Meaning</h3>
+<p>
+Sustainable economic development means development should take
+place without damaging the environment, and development in the
+present should not compromise the needs of future generations.
+</p>
+
+<h3>3.2 Main Objectives</h3>
+<ol>
+<li>Protect the environment.</li>
+<li>Use resources carefully.</li>
+<li>Maintain ecological balance.</li>
+<li>Ensure fair distribution of resources.</li>
+<li>Fulfil the needs of present generations.</li>
+<li>Preserve resources for future generations.</li>
+</ol>
+
+<h3>3.3 Rio de Janeiro Earth Summit, 1992</h3>
+
+<figure class="study-image">
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/United_Nations_Conference_on_Environment_and_Development.jpg"
+alt="United Nations environment conference"
+onerror="this.style.display='none'">
+<figcaption>International environmental cooperation – Rio Earth Summit context</figcaption>
+</figure>
+
+<ul>
+<li>Year: 1992.</li>
+<li>Place: Rio de Janeiro, Brazil.</li>
+<li>More than 100 heads of states participated.</li>
+<li>It was the first International Earth Summit.</li>
+<li>Main purpose: Address environmental protection and socio-economic development at the global level.</li>
+</ul>
+
+<h4>Major Outcomes</h4>
+<ol>
+<li>Declaration on Global Climatic Change and Biological Diversity.</li>
+<li>Endorsement of Global Forest Principles.</li>
+<li>Adoption of Agenda 21.</li>
+</ol>
+
+<h3>3.4 Agenda 21</h3>
+<p>
+Agenda 21 was a declaration signed by world leaders in 1992 at
+the United Nations Conference on Environment and Development
+(UNCED), held in Rio de Janeiro, Brazil.
+</p>
+
+<h4>Objectives</h4>
+<ul>
+<li>Achieve global sustainable development.</li>
+<li>Combat environmental damage.</li>
+<li>Reduce poverty.</li>
+<li>Address disease.</li>
+<li>Promote global cooperation.</li>
+<li>Encourage shared responsibilities.</li>
+</ul>
+
+<div class="exam">
+<b>Important:</b> One major objective of Agenda 21 was that every
+local government should prepare its own Local Agenda 21.
+</div>
+
+</div>
+</details>
+
+<!-- 4 -->
+
+<details class="section" id="s4">
+<summary>4. RESOURCE PLANNING</summary>
+<div class="section-body">
+
+<h3>4.1 Meaning</h3>
+<p>
+Resource planning is the systematic and judicious utilisation
+of resources to achieve sustainable development.
+</p>
+
+<h3>4.2 Why Is Resource Planning Necessary in India?</h3>
+
+<p>India has enormous diversity in resource availability.</p>
+
+<div class="table-wrap">
+<table>
+<tr><th>Region/State</th><th>Resource Availability</th><th>Deficiency</th></tr>
+<tr><td>Jharkhand</td><td>Minerals and coal</td><td>Developmental challenges in some areas</td></tr>
+<tr><td>Chhattisgarh</td><td>Minerals and coal</td><td>Developmental challenges in some areas</td></tr>
+<tr><td>Madhya Pradesh</td><td>Minerals and coal</td><td>Resource availability varies by region</td></tr>
+<tr><td>Arunachal Pradesh</td><td>Abundant water resources</td><td>Infrastructural development</td></tr>
+<tr><td>Rajasthan</td><td>Solar and wind energy</td><td>Water resources</td></tr>
+<tr><td>Ladakh</td><td>Rich cultural heritage</td><td>Water, infrastructure and some vital minerals</td></tr>
+</table>
+</div>
+
+<h3>4.3 Three Stages of Resource Planning in India</h3>
+
+<div class="flow">
+    <div class="flow-box">STAGE 1<br>Identification and Inventory of Resources</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box">Surveying • Mapping • Qualitative and Quantitative Estimation</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box">STAGE 2<br>Planning Structure</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box">Appropriate Technology • Skills • Institutional Setup</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box green">STAGE 3<br>Matching Resource Development Plans with National Development Plans</div>
+</div>
+
+<h3>4.4 Resource Planning After Independence</h3>
+<p>
+India has made continuous efforts to achieve resource planning
+goals since the launch of the First Five Year Plan after Independence.
+</p>
+
+<h3>4.5 Resources Alone Cannot Ensure Development</h3>
+<p>
+Availability of resources is necessary but not sufficient for
+regional development.
+</p>
+
+<p>Development also depends on:</p>
+<ol>
+<li>Appropriate technology.</li>
+<li>Quality of human resources.</li>
+<li>Institutional changes.</li>
+<li>Economic conditions.</li>
+<li>Historical experiences of people.</li>
+</ol>
+
+<div class="note">
+Some regions are rich in natural resources but economically
+backward, while some regions with a poor resource base are
+economically developed.
+</div>
+
+</div>
+</details>
+
+<!-- 5 -->
+
+<details class="section" id="s5">
+<summary>5. CONSERVATION OF RESOURCES</summary>
+<div class="section-body">
+
+<h3>5.1 Meaning</h3>
+<p>
+Resource conservation means careful and planned use of resources
+to prevent their depletion and ensure availability for future generations.
+</p>
+
+<h3>5.2 Why Is Resource Conservation Necessary?</h3>
+<ul>
+<li>Resources are limited.</li>
+<li>Overutilisation creates environmental problems.</li>
+<li>Irrational consumption leads to resource depletion.</li>
+<li>Future generations depend on existing resources.</li>
+<li>Ecological balance must be maintained.</li>
+</ul>
+
+<h3>5.3 Important Contributions</h3>
+
+<div class="table-wrap">
+<table>
+<tr><th>Year</th><th>Person/Organisation</th><th>Contribution</th></tr>
+<tr><td>1968</td><td>Club of Rome</td><td>Advocated resource conservation systematically at the international level.</td></tr>
+<tr><td>1974</td><td>E. F. Schumacher</td><td>Presented Gandhian philosophy in his book Small is Beautiful.</td></tr>
+<tr><td>1987</td><td>Brundtland Commission</td><td>Introduced and advocated sustainable development.</td></tr>
+<tr><td>1992</td><td>Earth Summit, Rio de Janeiro</td><td>Important global contribution towards resource conservation.</td></tr>
+</table>
+</div>
+
+<h3>5.4 Mahatma Gandhi's Contribution</h3>
+
+<div class="note green-note">
+"There is enough for everybody's need and not for anybody's greed."
+</div>
+
+<p>Gandhiji believed:</p>
+<ul>
+<li>Resources should be used according to human needs, not greed.</li>
+<li>Greedy and selfish individuals contribute to resource depletion.</li>
+<li>Exploitative modern technology creates environmental problems.</li>
+<li>He opposed mass production.</li>
+<li>He supported production by the masses.</li>
+</ul>
+
+<h3>5.5 Brundtland Commission, 1987</h3>
+<ul>
+<li>Introduced the concept of sustainable development.</li>
+<li>Advocated sustainable development as a means of resource conservation.</li>
+<li>Its report was published as Our Common Future.</li>
+</ul>
+
+</div>
+</details>
+
+<!-- 6 -->
+
+<details class="section" id="s6">
+<summary>6. LAND RESOURCES</summary>
+<div class="section-body">
+
+<h3>6.1 Importance of Land</h3>
+<p>Land is one of the most important natural resources.</p>
+
+<ul>
+<li>Agriculture.</li>
+<li>Industries.</li>
+<li>Human settlements.</li>
+<li>Transport.</li>
+<li>Communication.</li>
+<li>Natural vegetation.</li>
+<li>Wildlife.</li>
+<li>Economic activities.</li>
+</ul>
+
+<p>Land is a finite resource. Therefore, it must be used carefully.</p>
+
+<h3>6.2 Major Relief Features of India</h3>
+
+<figure class="study-image">
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Major_soil_types_in_India.jpg"
+alt="Major soil types in India map"
+onerror="this.style.display='none'">
+<figcaption>India's geographical diversity – map reference</figcaption>
+</figure>
+
+<p>India has four major relief features: mountains, plateaus, plains and islands.</p>
+
+<div class="table-wrap">
+<table>
+<tr><th>Relief Feature</th><th>Percentage</th><th>Importance</th></tr>
+<tr><td>Plains</td><td>43%</td><td>Agriculture and industries.</td></tr>
+<tr><td>Mountains</td><td>30%</td><td>Rivers, tourism and ecological balance.</td></tr>
+<tr><td>Plateaus</td><td>27%</td><td>Minerals, fossil fuels and forests.</td></tr>
+</table>
+</div>
+
+<div class="note">
+Mountains ensure perennial flow of some rivers. Plateaus possess
+rich reserves of minerals, fossil fuels and forests.
+</div>
+
+</div>
+</details>
+
+<!-- 7 -->
+
+<details class="section" id="s7">
+<summary>7. LAND UTILISATION</summary>
+<div class="section-body">
+
+<h3>7.1 Major Categories of Land Use</h3>
+
+<h4>1. Forests</h4>
+<p>Land covered by forests.</p>
+
+<h4>2. Land Not Available for Cultivation</h4>
+<ul>
+<li>Barren and waste land.</li>
+<li>Land put to non-agricultural uses such as buildings, roads and factories.</li>
+</ul>
+
+<h4>3. Other Uncultivated Land (Excluding Fallow Land)</h4>
+<ul>
+<li>Permanent pastures and grazing land.</li>
+<li>Land under miscellaneous tree crops and groves.</li>
+<li>Culturable waste land – left uncultivated for more than five agricultural years.</li>
+</ul>
+
+<h4>4. Fallow Lands</h4>
+
+<p><b>Current Fallow:</b> Land left without cultivation for one or less than one agricultural year.</p>
+
+<p><b>Other Than Current Fallow:</b> Land left uncultivated for the past one to five agricultural years.</p>
+
+<h4>5. Net Sown Area (NSA)</h4>
+<p>
+The physical extent of land on which crops are sown and harvested
+is known as net sown area.
+</p>
+
+<h3>7.2 Gross Cropped Area</h3>
+
+<div class="flow">
+    <div class="flow-box">NET SOWN AREA</div>
+    <div class="flow-arrow">+</div>
+    <div class="flow-box">AREA SOWN MORE THAN ONCE</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box green">GROSS CROPPED AREA</div>
+</div>
+
+<h3>7.3 Factors Determining Land Use Pattern</h3>
+
+<div class="table-wrap">
+<table>
+<tr><th>Physical Factors</th><th>Human Factors</th></tr>
+<tr><td>Topography</td><td>Population density</td></tr>
+<tr><td>Climate</td><td>Technological capability</td></tr>
+<tr><td>Soil types</td><td>Culture and traditions</td></tr>
+</table>
+</div>
+
+<h3>7.4 Land Use Data in India</h3>
+<ul>
+<li>Total geographical area of India: 3.28 million sq. km.</li>
+<li>Land-use data is available for only 93% of the total geographical area.</li>
+<li>Reporting is incomplete for most north-eastern states except Assam.</li>
+<li>Some areas of Jammu and Kashmir occupied by Pakistan and China have also not been surveyed.</li>
+</ul>
+
+<h3>7.5 Variation in Net Sown Area</h3>
+
+<div class="table-wrap">
+<table>
+<tr><th>State/Region</th><th>Net Sown Area</th></tr>
+<tr><td>Punjab</td><td>More than 80%</td></tr>
+<tr><td>Haryana</td><td>More than 80%</td></tr>
+<tr><td>Arunachal Pradesh</td><td>Less than 10%</td></tr>
+<tr><td>Mizoram</td><td>Less than 10%</td></tr>
+<tr><td>Manipur</td><td>Less than 10%</td></tr>
+<tr><td>Andaman and Nicobar Islands</td><td>Less than 10%</td></tr>
+</table>
+</div>
+
+<h3>7.6 Forest Area in India</h3>
+<ul>
+<li>Forest area is much lower than the desired 33% of geographical area.</li>
+<li>The 33% target was outlined in the National Forest Policy, 1952.</li>
+<li>Forests are essential for maintaining ecological balance.</li>
+<li>Millions of people living near forests depend on them for their livelihoods.</li>
+</ul>
+
+<h3>7.7 Land Use Pattern: 1960–61 and 2019–20</h3>
+<p>
+The NCERT chart compares India's land-use categories in
+1960–61 and 2019–20.
+</p>
+
+<ul>
+<li>Net sown area changed only marginally.</li>
+<li>Land under forests increased, but remained below the desired 33%.</li>
+<li>Permanent pasture and grazing land decreased.</li>
+<li>Land under non-agricultural uses increased.</li>
+<li>Different categories of fallow and waste land also changed.</li>
+</ul>
+
+<div class="note orange-note">
+The limited increase in forest area is an important issue because
+forests are essential for ecological balance and the livelihoods
+of forest-dependent communities.
+</div>
+
+</div>
+</details>
+
+<!-- 8 -->
+
+<details class="section" id="s8">
+<summary>8. LAND DEGRADATION AND CONSERVATION MEASURES</summary>
+<div class="section-body">
+
+<h3>8.1 Meaning of Land Degradation</h3>
+<p>
+Land degradation refers to the deterioration of the quality and
+productive capacity of land due to natural and human activities.
+</p>
+
+<h3>8.2 Major Causes of Land Degradation</h3>
+
+<h4>A. Deforestation</h4>
+<ul>
+<li>Cutting down forests.</li>
+<li>Mining-related deforestation.</li>
+<li>Destruction of natural vegetation.</li>
+</ul>
+
+<h4>B. Overgrazing</h4>
+<p>
+Excessive grazing by livestock damages vegetation and exposes soil.
+</p>
+
+<h4>C. Mining and Quarrying</h4>
+<ul>
+<li>Mining removes vegetation and soil.</li>
+<li>Abandoned mining sites leave deep scars.</li>
+<li>Overburden creates additional land damage.</li>
+</ul>
+
+<h4>D. Over-Irrigation</h4>
+<ul>
+<li>Waterlogging.</li>
+<li>Increased soil salinity.</li>
+<li>Increased soil alkalinity.</li>
+</ul>
+
+<h4>E. Mineral Processing</h4>
+<p>
+Grinding limestone, calcite and soapstone produces dust.
+This dust settles on land and reduces water infiltration into soil.
+</p>
+
+<h4>F. Industrial Effluents</h4>
+<p>
+Untreated industrial waste and effluents contribute to land
+and water pollution.
+</p>
+
+<h3>8.3 State-wise Causes of Land Degradation</h3>
+
+<div class="table-wrap">
+<table>
+<tr><th>State/Region</th><th>Major Cause</th></tr>
+<tr><td>Jharkhand</td><td>Deforestation due to mining</td></tr>
+<tr><td>Chhattisgarh</td><td>Deforestation due to mining</td></tr>
+<tr><td>Madhya Pradesh</td><td>Mining-related deforestation and degradation</td></tr>
+<tr><td>Odisha</td><td>Deforestation due to mining</td></tr>
+<tr><td>Gujarat</td><td>Overgrazing</td></tr>
+<tr><td>Rajasthan</td><td>Overgrazing</td></tr>
+<tr><td>Maharashtra</td><td>Overgrazing</td></tr>
+<tr><td>Punjab</td><td>Over-irrigation</td></tr>
+<tr><td>Haryana</td><td>Over-irrigation</td></tr>
+<tr><td>Western Uttar Pradesh</td><td>Over-irrigation</td></tr>
+</table>
+</div>
+
+<h3>8.4 Measures to Control Land Degradation</h3>
+<ol>
+<li>Afforestation.</li>
+<li>Proper management of grazing.</li>
+<li>Control over overgrazing.</li>
+<li>Planting shelter belts.</li>
+<li>Stabilisation of sand dunes by growing thorny bushes.</li>
+<li>Proper management of wastelands.</li>
+<li>Control of mining activities.</li>
+<li>Proper treatment and disposal of industrial effluents.</li>
+<li>Scientific management of land resources.</li>
+</ol>
+
+<div class="mindmap">
+<div class="mind-center">LAND DEGRADATION</div>
+<div class="mind-grid">
+<div class="mind-item"><b>Mining</b><br>Jharkhand, Chhattisgarh, MP, Odisha</div>
+<div class="mind-item"><b>Overgrazing</b><br>Gujarat, Rajasthan, MP, Maharashtra</div>
+<div class="mind-item"><b>Over-irrigation</b><br>Punjab, Haryana, Western UP</div>
+<div class="mind-item"><b>Control</b><br>Afforestation, grazing management, shelter belts, waste treatment</div>
+</div>
+</div>
+
+</div>
+</details>
+
+<!-- 9 -->
+
+<details class="section" id="s9">
+<summary>9. SOIL AS A RESOURCE</summary>
+<div class="section-body">
+
+<h3>9.1 Meaning and Importance of Soil</h3>
+<p>
+Soil is the most important renewable natural resource.
+It is the medium of plant growth and supports different types
+of living organisms on the earth.
+</p>
+
+<ul>
+<li>Soil is a living system.</li>
+<li>It takes millions of years to form a few centimetres of soil.</li>
+<li>It consists of organic and inorganic materials.</li>
+</ul>
+
+<h3>9.2 Factors Responsible for Soil Formation</h3>
+<ol>
+<li>Relief.</li>
+<li>Parent rock or bedrock.</li>
+<li>Climate.</li>
+<li>Vegetation and other forms of life.</li>
+<li>Time.</li>
+</ol>
+
+<h3>9.3 Natural Forces Responsible for Soil Formation</h3>
+<ul>
+<li>Changes in temperature.</li>
+<li>Running water.</li>
+<li>Wind.</li>
+<li>Glaciers.</li>
+<li>Activities of decomposers.</li>
+<li>Chemical changes.</li>
+<li>Organic changes.</li>
+</ul>
+
+<h3>9.4 Composition of Soil</h3>
+
+<div class="table-wrap">
+<table>
+<tr><th>Organic Materials</th><th>Inorganic Materials</th></tr>
+<tr><td>Humus</td><td>Sand</td></tr>
+<tr><td>Decayed plant matter</td><td>Silt</td></tr>
+<tr><td>Decayed animal matter</td><td>Clay and mineral particles</td></tr>
+</table>
+</div>
+
+<h3>9.5 Soil Profile</h3>
+<p>
+A soil profile represents the vertical arrangement of different
+layers of soil.
+</p>
+
+<figure class="study-image">
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Soil_profile.jpg"
+alt="Soil profile layers"
+onerror="this.style.display='none'">
+<figcaption>Soil profile – vertical layers of soil</figcaption>
+</figure>
+
+<div class="table-wrap">
+<table>
+<tr><th>Layer</th><th>Description</th></tr>
+<tr><td>Topsoil</td><td>Upper soil layer.</td></tr>
+<tr><td>Subsoil</td><td>Contains weathered rock materials, sand, silt and clay.</td></tr>
+<tr><td>Substratum</td><td>Weathered parent rock material.</td></tr>
+<tr><td>Bedrock</td><td>Unweathered parent rock.</td></tr>
+</table>
+</div>
+
+</div>
+</details>
+
+<!-- 10 -->
+
+<details class="section" id="s10">
+<summary>10. CLASSIFICATION OF SOILS IN INDIA</summary>
+<div class="section-body">
+
+<h3>10.1 Major Soil Types</h3>
+<p>
+India has different types of soils because of variations in
+relief features, landforms, climate, vegetation and parent rocks.
+</p>
+
+<figure class="study-image">
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Major_soil_types_in_India.jpg"
+alt="India major soil types map"
+onerror="this.style.display='none'">
+<figcaption>Major soil types of India – map</figcaption>
+</figure>
+
+<div class="mindmap">
+<div class="mind-center">SIX MAJOR SOIL TYPES</div>
+<div class="mind-grid">
+<div class="mind-item">1. Alluvial Soil</div>
+<div class="mind-item">2. Black Soil</div>
+<div class="mind-item">3. Red and Yellow Soil</div>
+<div class="mind-item">4. Laterite Soil</div>
+<div class="mind-item">5. Arid Soil</div>
+<div class="mind-item">6. Forest Soil</div>
+</div>
+</div>
+
+<h3>10.2 Alluvial Soil</h3>
+
+<figure class="study-image">
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Alluvial_soil.jpg"
+alt="Alluvial soil"
+onerror="this.style.display='none'">
+<figcaption>Alluvial soil</figcaption>
+</figure>
+
+<h4>Distribution</h4>
+<ul>
+<li>Most widely spread and important soil in India.</li>
+<li>Found throughout the northern plains.</li>
+<li>Deposited by the Indus, Ganga and Brahmaputra river systems.</li>
+<li>Also found in Rajasthan and Gujarat through a narrow corridor.</li>
+<li>Found in eastern coastal plains, particularly the deltas of Mahanadi, Godavari, Krishna and Kaveri.</li>
+</ul>
+
+<h4>Composition</h4>
+<p>Alluvial soil consists of different proportions of sand, silt and clay.</p>
+
+<h4>Characteristics</h4>
+<ol>
+<li>Generally fertile.</li>
+<li>Contains potash.</li>
+<li>Contains phosphoric acid.</li>
+<li>Contains lime.</li>
+<li>Suitable for intensive agriculture.</li>
+<li>Supports dense population.</li>
+</ol>
+
+<h4>Major Crops</h4>
+<ul>
+<li>Sugarcane.</li>
+<li>Paddy.</li>
+<li>Wheat.</li>
+<li>Other cereals.</li>
+<li>Pulses.</li>
+</ul>
+
+<h4>Types of Alluvial Soil</h4>
+
+<div class="table-wrap">
+<table>
+<tr><th>Bangar</th><th>Khadar</th></tr>
+<tr><td>Old alluvial soil.</td><td>New alluvial soil.</td></tr>
+<tr><td>Older deposits.</td><td>Newer deposits.</td></tr>
+<tr><td>Higher concentration of kanker nodules.</td><td>Fewer kanker nodules.</td></tr>
+<tr><td>Relatively fewer fine particles.</td><td>More fine particles.</td></tr>
+<tr><td>Less fertile than Khadar.</td><td>More fertile than Bangar.</td></tr>
+</table>
+</div>
+
+<div class="exam">
+<b>Remember:</b> Khadar = New Alluvial Soil. Bangar = Old Alluvial Soil.
+</div>
+
+<h3>10.3 Black Soil</h3>
+
+<figure class="study-image">
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Black_cotton_soil.jpg"
+alt="Black cotton soil"
+onerror="this.style.display='none'">
+<figcaption>Black soil / Regur soil</figcaption>
+</figure>
+
+<h4>Other Names</h4>
+<ul>
+<li>Regur Soil.</li>
+<li>Black Cotton Soil.</li>
+</ul>
+
+<h4>Distribution</h4>
+<ul>
+<li>Maharashtra.</li>
+<li>Saurashtra.</li>
+<li>Malwa.</li>
+<li>Madhya Pradesh.</li>
+<li>Chhattisgarh.</li>
+<li>Parts of the Deccan Plateau.</li>
+<li>Godavari and Krishna valleys.</li>
+</ul>
+
+<h4>Formation</h4>
+<ul>
+<li>Associated with the Deccan Trap region.</li>
+<li>Formed from basaltic lava flows.</li>
+<li>Parent rock material and climatic conditions are important factors.</li>
+</ul>
+
+<h4>Characteristics</h4>
+<ol>
+<li>Black in colour.</li>
+<li>Extremely fine and clayey.</li>
+<li>High moisture-retaining capacity.</li>
+<li>Rich in calcium carbonate.</li>
+<li>Contains magnesium.</li>
+<li>Contains potash and lime.</li>
+<li>Generally poor in phosphoric content.</li>
+<li>Develops deep cracks during hot weather.</li>
+<li>Cracks help in proper aeration.</li>
+<li>Sticky when wet and difficult to work unless tilled at the appropriate time.</li>
+</ol>
+
+<h4>Major Crop</h4>
+<p><b>Cotton.</b> Black soil is especially suitable for cotton cultivation because of its high moisture-retaining capacity.</p>
+
+<h3>10.4 Red and Yellow Soil</h3>
+
+<figure class="study-image">
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Red_soil.jpg"
+alt="Red soil"
+onerror="this.style.display='none'">
+<figcaption>Red soil</figcaption>
+</figure>
+
+<h4>Distribution</h4>
+<ul>
+<li>Eastern and southern parts of the Deccan Plateau.</li>
+<li>Odisha.</li>
+<li>Chhattisgarh.</li>
+<li>Southern parts of the middle Ganga Plain.</li>
+<li>Piedmont zone of the Western Ghats.</li>
+</ul>
+
+<h4>Formation</h4>
+<ul>
+<li>Develops on crystalline igneous rocks.</li>
+<li>Common in areas of low rainfall.</li>
+</ul>
+
+<h4>Characteristics</h4>
+<ul>
+<li>Red colour develops due to diffusion of iron in crystalline and metamorphic rocks.</li>
+<li>Yellow colour appears when the soil occurs in hydrated form.</li>
+</ul>
+
+<h3>10.5 Laterite Soil</h3>
+
+<figure class="study-image">
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Laterite_soil.jpg"
+alt="Laterite soil"
+onerror="this.style.display='none'">
+<figcaption>Laterite soil</figcaption>
+</figure>
+
+<h4>Origin of Name</h4>
+<p>The word Laterite is derived from the Latin word <i>later</i>, meaning brick.</p>
+
+<h4>Formation</h4>
+<ul>
+<li>Develops under tropical and subtropical climates.</li>
+<li>Associated with alternate wet and dry seasons.</li>
+<li>Formed due to intense leaching caused by heavy rainfall.</li>
+</ul>
+
+<h4>Distribution</h4>
+<ul>
+<li>Southern states.</li>
+<li>Western Ghats region of Maharashtra.</li>
+<li>Odisha.</li>
+<li>Parts of West Bengal.</li>
+<li>North-eastern regions.</li>
+</ul>
+
+<h4>Characteristics</h4>
+<ol>
+<li>Generally deep to very deep.</li>
+<li>Acidic in nature.</li>
+<li>Usually deficient in plant nutrients.</li>
+<li>Prone to erosion and degradation.</li>
+<li>Humus content depends on vegetation and environment.</li>
+</ol>
+
+<h4>Agricultural Uses</h4>
+<ul>
+<li>Tea.</li>
+<li>Coffee.</li>
+<li>Cashew nuts.</li>
+</ul>
+
+<h3>10.6 Arid Soil</h3>
+
+<figure class="study-image">
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Desert_soil.jpg"
+alt="Arid desert soil"
+onerror="this.style.display='none'">
+<figcaption>Arid soil</figcaption>
+</figure>
+
+<h4>Distribution</h4>
+<p>Dry and desert regions, particularly western Rajasthan.</p>
+
+<h4>Characteristics</h4>
+<ol>
+<li>Red to brown in colour.</li>
+<li>Sandy texture.</li>
+<li>Saline in nature.</li>
+<li>Low humus content.</li>
+<li>Low moisture content.</li>
+<li>High temperature.</li>
+<li>Faster evaporation.</li>
+<li>High calcium content in lower horizons.</li>
+<li>Kanker layers restrict water infiltration.</li>
+</ol>
+
+<h4>Agricultural Use</h4>
+<p>After proper irrigation, arid soils can become cultivable.</p>
+<p><b>Example:</b> Western Rajasthan.</p>
+
+<h3>10.7 Forest Soil</h3>
+
+<figure class="study-image">
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Forest_soil.jpg"
+alt="Forest soil"
+onerror="this.style.display='none'">
+<figcaption>Forest soil</figcaption>
+</figure>
+
+<h4>Distribution</h4>
+<ul>
+<li>Hilly and mountainous regions.</li>
+<li>Areas with sufficient forest cover.</li>
+</ul>
+
+<h4>Characteristics</h4>
+<ol>
+<li>Soil texture varies according to the mountain environment.</li>
+<li>Loamy and silty on valley sides.</li>
+<li>Coarse-grained on upper slopes.</li>
+<li>Snow-covered Himalayan areas experience denudation.</li>
+<li>Soil in these areas is acidic and has low humus content.</li>
+<li>Lower valleys, river terraces and alluvial fans contain fertile soil.</li>
+</ol>
+
+</div>
+</details>
+
+<!-- 11 -->
+
+<details class="section" id="s11">
+<summary>11. COMPARISON OF MAJOR SOIL TYPES</summary>
+<div class="section-body">
+
+<h3>11.1 Six Major Soil Types – Comparison</h3>
+
+<div class="table-wrap">
+<table>
+<tr><th>Soil Type</th><th>Main Region</th><th>Important Characteristic</th><th>Important Crop/Use</th></tr>
+<tr><td>Alluvial</td><td>Northern Plains and river deltas</td><td>Very fertile</td><td>Rice, wheat, sugarcane</td></tr>
+<tr><td>Black</td><td>Deccan Plateau</td><td>High moisture retention</td><td>Cotton</td></tr>
+<tr><td>Red and Yellow</td><td>Eastern and southern Deccan</td><td>Iron gives red colour</td><td>Depends on local conditions</td></tr>
+<tr><td>Laterite</td><td>Western Ghats, southern and north-eastern regions</td><td>Intense leaching</td><td>Tea, coffee, cashew</td></tr>
+<tr><td>Arid</td><td>Western Rajasthan</td><td>Sandy and saline</td><td>Cultivable after irrigation</td></tr>
+<tr><td>Forest</td><td>Hilly and mountainous areas</td><td>Loamy, silty or coarse-grained</td><td>Depends on local conditions</td></tr>
+</table>
+</div>
+
+<h3>11.2 Bangar vs Khadar</h3>
+<div class="table-wrap">
+<table>
+<tr><th>Bangar</th><th>Khadar</th></tr>
+<tr><td>Old alluvial soil.</td><td>New alluvial soil.</td></tr>
+<tr><td>Older deposits.</td><td>Newer deposits.</td></tr>
+<tr><td>More kanker nodules.</td><td>Fewer kanker nodules.</td></tr>
+<tr><td>Relatively less fertile.</td><td>More fertile.</td></tr>
+</table>
+</div>
+
+<h3>11.3 Black Soil vs Alluvial Soil</h3>
+<div class="table-wrap">
+<table>
+<tr><th>Black Soil</th><th>Alluvial Soil</th></tr>
+<tr><td>Also called Regur soil.</td><td>Most widely spread soil.</td></tr>
+<tr><td>Common in Deccan Trap region.</td><td>Common in Northern Plains.</td></tr>
+<tr><td>Clayey texture.</td><td>Sand, silt and clay.</td></tr>
+<tr><td>High moisture retention.</td><td>Generally very fertile.</td></tr>
+<tr><td>Ideal for cotton.</td><td>Suitable for rice, wheat and sugarcane.</td></tr>
+</table>
+</div>
+
+</div>
+</details>
+
+<!-- 12 -->
+
+<details class="section" id="s12">
+<summary>12. SOIL EROSION AND SOIL CONSERVATION</summary>
+<div class="section-body">
+
+<h3>12.1 Meaning of Soil Erosion</h3>
+<p>
+Soil erosion is the denudation of the soil cover and its subsequent
+washing down.
+</p>
+
+<p>
+Soil formation and soil erosion generally occur simultaneously.
+Normally, a balance exists between the two. Human activities and
+natural forces can disturb this balance.
+</p>
+
+<h3>12.2 Causes of Soil Erosion</h3>
+
+<h4>Human Causes</h4>
+<ul>
+<li>Deforestation.</li>
+<li>Overgrazing.</li>
+<li>Construction.</li>
+<li>Mining.</li>
+<li>Defective farming methods.</li>
+<li>Ploughing up and down the slope.</li>
+</ul>
+
+<h4>Natural Causes</h4>
+<ul>
+<li>Running water.</li>
+<li>Wind.</li>
+<li>Glaciers.</li>
+</ul>
+
+<h3>12.3 Types of Soil Erosion</h3>
+
+<h4>A. Gully Erosion</h4>
+<ul>
+<li>Running water cuts through clayey soils.</li>
+<li>It creates deep channels called gullies.</li>
+<li>The land becomes unsuitable for cultivation.</li>
+<li>Such land is called bad land.</li>
+<li>In the Chambal basin, these lands are called ravines.</li>
+</ul>
+
+<figure class="study-image">
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Gully_erosion.jpg"
+alt="Gully erosion"
+onerror="this.style.display='none'">
+<figcaption>Gully erosion</figcaption>
+</figure>
+
+<h4>B. Sheet Erosion</h4>
+<ul>
+<li>Water flows as a sheet over large areas down a slope.</li>
+<li>The upper layer of soil is washed away.</li>
+</ul>
+
+<h4>C. Wind Erosion</h4>
+<ul>
+<li>Wind blows away loose soil from flat or sloping land.</li>
+<li>It commonly affects dry and arid regions.</li>
+</ul>
+
+<h3>12.4 Methods of Soil Conservation</h3>
+
+<h4>1. Contour Ploughing</h4>
+<ul>
+<li>Ploughing along contour lines.</li>
+<li>Slows down the flow of water.</li>
+<li>Reduces soil erosion on slopes.</li>
+</ul>
+
+<h4>2. Terrace Cultivation</h4>
+<ul>
+<li>Steps are cut out on slopes.</li>
+<li>Reduces the speed of flowing water.</li>
+<li>Restricts soil erosion.</li>
+<li>Common in the Western and Central Himalayas.</li>
+</ul>
+
+<h4>3. Strip Cropping</h4>
+<ul>
+<li>Large fields are divided into strips.</li>
+<li>Grass strips are left between crops.</li>
+<li>These strips reduce the force of wind.</li>
+</ul>
+
+<h4>4. Shelter Belts</h4>
+<ul>
+<li>Rows of trees are planted to create shelter.</li>
+<li>Reduce wind speed.</li>
+<li>Help stabilise sand dunes.</li>
+<li>Have contributed to desert stabilisation in western India.</li>
+</ul>
+
+<div class="image-row">
+    <div>
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Terraced_farming.jpg"
+        alt="Terrace cultivation"
+        onerror="this.style.display='none'">
+        <p><b>Terrace Cultivation</b></p>
+    </div>
+    <div>
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Contour_ploughing.jpg"
+        alt="Contour ploughing"
+        onerror="this.style.display='none'">
+        <p><b>Contour Ploughing</b></p>
+    </div>
+    <div>
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Shelterbelt.jpg"
+        alt="Shelter belts"
+        onerror="this.style.display='none'">
+        <p><b>Shelter Belts</b></p>
+    </div>
+</div>
+
+<h3>12.5 Soil Erosion – Complete Flowchart</h3>
+
+<div class="flow">
+    <div class="flow-box">SOIL EROSION</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-grid">
+        <div class="flow-box orange">
+            <b>CAUSES</b><br>
+            Deforestation<br>
+            Overgrazing<br>
+            Mining<br>
+            Construction
+        </div>
+        <div class="flow-box">
+            <b>TYPES</b><br>
+            Gully<br>
+            Sheet<br>
+            Wind
+        </div>
+        <div class="flow-box green">
+            <b>CONSERVATION</b><br>
+            Contour Ploughing<br>
+            Terrace Cultivation<br>
+            Strip Cropping<br>
+            Shelter Belts
+        </div>
+    </div>
+</div>
+
+</div>
+</details>
+
+<!-- 13 -->
+
+<details class="section" id="s13">
+<summary>13. IMPORTANT DEFINITIONS – QUICK REVISION</summary>
+<div class="section-body">
+
+<div class="table-wrap">
+<table>
+<tr><th>Term</th><th>Definition</th></tr>
+<tr><td>Resource</td><td>Anything available in the environment that satisfies human needs and is technologically accessible, economically feasible and culturally acceptable.</td></tr>
+<tr><td>Biotic Resource</td><td>Resource obtained from the biosphere.</td></tr>
+<tr><td>Abiotic Resource</td><td>Resource composed of non-living things.</td></tr>
+<tr><td>Renewable Resource</td><td>Resource that can be replenished.</td></tr>
+<tr><td>Non-Renewable Resource</td><td>Resource that takes a very long geological time to form.</td></tr>
+<tr><td>Potential Resource</td><td>Resource found in a region but not fully utilised.</td></tr>
+<tr><td>Developed Resource</td><td>Resource whose quantity and quality have been surveyed.</td></tr>
+<tr><td>Stock</td><td>Material that can satisfy human needs but cannot be used due to lack of appropriate technology.</td></tr>
+<tr><td>Reserves</td><td>Part of stock that can be used with existing technology but is preserved for future use.</td></tr>
+<tr><td>Sustainable Development</td><td>Development that meets present needs without compromising future generations.</td></tr>
+<tr><td>Agenda 21</td><td>Global sustainable development agenda adopted in 1992.</td></tr>
+<tr><td>Net Sown Area</td><td>Physical extent of land on which crops are sown and harvested.</td></tr>
+<tr><td>Gross Cropped Area</td><td>Net sown area plus area sown more than once.</td></tr>
+<tr><td>Culturable Waste Land</td><td>Land left uncultivated for more than five agricultural years.</td></tr>
+<tr><td>Current Fallow</td><td>Land left uncultivated for one or less than one agricultural year.</td></tr>
+<tr><td>Land Degradation</td><td>Deterioration of land quality and productivity.</td></tr>
+<tr><td>Soil Erosion</td><td>Removal and washing away of soil cover.</td></tr>
+<tr><td>Ravines</td><td>Bad lands formed by gully erosion in the Chambal basin.</td></tr>
+<tr><td>Contour Ploughing</td><td>Ploughing along contour lines.</td></tr>
+<tr><td>Strip Cropping</td><td>Growing crops in strips separated by grass strips.</td></tr>
+<tr><td>Shelter Belts</td><td>Rows of trees planted to reduce wind erosion.</td></tr>
+</table>
+</div>
+
+</div>
+</details>
+
+<!-- 14 -->
+
+<details class="section" id="s14">
+<summary>14. IMPORTANT YEARS AND FACTS</summary>
+<div class="section-body">
+
+<div class="table-wrap">
+<table>
+<tr><th>Year/Fact</th><th>Event</th></tr>
+<tr><td>1952</td><td>National Forest Policy outlined the 33% forest area target.</td></tr>
+<tr><td>1968</td><td>Club of Rome advocated resource conservation systematically.</td></tr>
+<tr><td>1974</td><td>Schumacher published Small is Beautiful.</td></tr>
+<tr><td>1987</td><td>Brundtland Commission Report.</td></tr>
+<tr><td>1992</td><td>Rio de Janeiro Earth Summit.</td></tr>
+<tr><td>1992</td><td>Agenda 21 adopted.</td></tr>
+<tr><td>3.28 million sq. km.</td><td>Total geographical area of India.</td></tr>
+<tr><td>93%</td><td>Approximate area for which land-use data is available.</td></tr>
+<tr><td>43%</td><td>Land area under plains.</td></tr>
+<tr><td>30%</td><td>Land area under mountains.</td></tr>
+<tr><td>27%</td><td>Land area under plateaus.</td></tr>
+<tr><td>33%</td><td>Desired forest cover according to the National Forest Policy, 1952.</td></tr>
+</table>
+</div>
+
+</div>
+</details>
+
+<!-- 15 -->
+
+<details class="section" id="s15">
+<summary>15. NCERT EXERCISE – SOLVED ANSWERS</summary>
+<div class="section-body">
+
+<h3>A. Multiple Choice Questions</h3>
+
+<div class="question">
+<b>Q1. Which one of the following is the main cause of land degradation in Punjab?</b>
+<p>(a) Intensive cultivation<br>(b) Deforestation<br>(c) Over-irrigation<br>(d) Overgrazing</p>
+<div class="answer"><b>Answer: (c) Over-irrigation</b></div>
+</div>
+
+<div class="question">
+<b>Q2. In which one of the following states is terrace cultivation practised?</b>
+<p>(a) Punjab<br>(b) Plains of Uttar Pradesh<br>(c) Haryana<br>(d) Uttarakhand</p>
+<div class="answer"><b>Answer: (d) Uttarakhand</b></div>
+</div>
+
+<div class="question">
+<b>Q3. In which of the following states is black soil predominantly found?</b>
+<p>(a) Uttar Pradesh<br>(b) Maharashtra<br>(c) Rajasthan<br>(d) Jharkhand</p>
+<div class="answer"><b>Answer: (b) Maharashtra</b></div>
+</div>
+
+<h3>B. Short Answer Questions – About 30 Words</h3>
+
+<div class="question">
+<b>Q1. Name three states having black soil and the crop which is mainly grown in it.</b>
+<div class="answer">
+Maharashtra, Madhya Pradesh and Chhattisgarh have extensive black
+soil areas. Cotton is the main crop grown in black soil because
+it has a high moisture-retaining capacity.
+</div>
+</div>
+
+<div class="question">
+<b>Q2. What type of soil is found in the river deltas of the eastern coast? Give three main features of this type of soil.</b>
+<div class="answer">
+Alluvial soil is found in the river deltas of the eastern coast.
+
+Three features:
+<ol>
+<li>It is generally very fertile.</li>
+<li>It contains potash, phosphoric acid and lime.</li>
+<li>It is suitable for crops such as paddy, wheat and sugarcane.</li>
+</ol>
+</div>
+</div>
+
+<div class="question">
+<b>Q3. What steps can be taken to control soil erosion in hilly areas?</b>
+<div class="answer">
+Soil erosion in hilly areas can be controlled through contour
+ploughing, terrace cultivation, afforestation and planting
+shelter belts. These methods reduce the speed of flowing water
+and wind.
+</div>
+</div>
+
+<h3>C. Long Answer Questions – About 120 Words</h3>
+
+<div class="question">
+<b>Q1. Explain land-use pattern in India and why has the land under forest not increased much since 1960–61?</b>
+
+<div class="answer">
+Land in India is used for several purposes, including forests,
+agriculture, grazing, buildings, roads, industries and other
+non-agricultural activities.
+
+Major land-use categories include:
+
+<ol>
+<li>Forests.</li>
+<li>Barren and waste land.</li>
+<li>Land under non-agricultural uses.</li>
+<li>Permanent pastures and grazing land.</li>
+<li>Miscellaneous tree crops and groves.</li>
+<li>Culturable waste land.</li>
+<li>Fallow lands.</li>
+<li>Net sown area.</li>
+</ol>
+
+Land use is influenced by physical factors such as topography,
+climate and soil, and human factors such as population density,
+technology, culture and traditions.
+
+Forest area has not increased sufficiently because land is also
+required for agriculture, industries, settlements, transport and
+other developmental activities. The National Forest Policy,
+1952, outlined a target of 33% forest cover for maintaining
+ecological balance.
+</div>
+</div>
+
+<div class="question">
+<b>Q2. How have technical and economic development led to more consumption of resources?</b>
+
+<div class="answer">
+Technical and economic development have increased the consumption
+of resources in several ways.
+
+<ol>
+<li>Modern technology has made it possible to extract resources on a large scale.</li>
+<li>Industrial development has increased demand for minerals, coal and petroleum.</li>
+<li>Agricultural development has increased the use of water, machinery and other resources.</li>
+<li>Urbanisation has increased demand for land, electricity, transport and construction materials.</li>
+<li>Economic growth has increased production and consumption.</li>
+</ol>
+
+However, indiscriminate utilisation of resources has also caused
+depletion, environmental pollution, global warming and land
+degradation.
+
+Therefore, resource planning, conservation and sustainable
+development are essential to ensure that resources remain
+available for future generations.
+</div>
+</div>
+
+</div>
+</details>
+
+<!-- 16 -->
+
+<details class="section" id="s16">
+<summary>16. NCERT PROJECT AND ACTIVITY QUESTIONS</summary>
+<div class="section-body">
+
+<h3>Activity 1: Resource Conservation in Your Locality</h3>
+
+<div class="table-wrap">
+<table>
+<tr><th>Resource</th><th>Uses</th><th>Conservation Method</th></tr>
+<tr><td>Water</td><td>Drinking, irrigation</td><td>Rainwater harvesting</td></tr>
+<tr><td>Electricity</td><td>Lighting, machines</td><td>Switch off unused appliances</td></tr>
+<tr><td>Soil</td><td>Agriculture</td><td>Prevent erosion</td></tr>
+<tr><td>Trees</td><td>Oxygen, timber</td><td>Afforestation</td></tr>
+<tr><td>Minerals</td><td>Industries</td><td>Recycling and judicious use</td></tr>
+<tr><td>Fuel</td><td>Transport</td><td>Use energy-efficient alternatives</td></tr>
+</table>
+</div>
+
+<h3>Activity 2: Conservation of Resources in School</h3>
+<ol>
+<li>Avoid wastage of water.</li>
+<li>Switch off lights and fans when not needed.</li>
+<li>Reduce paper wastage.</li>
+<li>Plant trees.</li>
+<li>Maintain school gardens.</li>
+<li>Separate biodegradable and non-biodegradable waste.</li>
+<li>Encourage reuse and recycling.</li>
+</ol>
+
+<h3>Activity 3: What If Oil Supplies Get Exhausted?</h3>
+<ul>
+<li>Transport systems dependent on petroleum would be affected.</li>
+<li>Industries using petroleum would face difficulties.</li>
+<li>Agriculture using diesel-powered machinery would be affected.</li>
+<li>Prices of goods and transportation could increase.</li>
+<li>Countries would need to adopt alternative energy sources.</li>
+<li>Solar, wind, hydroelectric and other energy sources would become more important.</li>
+</ul>
+
+<h3>Activity 4: NCERT Word Puzzle Answers</h3>
+<div class="table-wrap">
+<table>
+<tr><th>Clue</th><th>Answer</th></tr>
+<tr><td>Natural endowments in the form of land, water, vegetation and minerals.</td><td>Resources</td></tr>
+<tr><td>A type of non-renewable resource.</td><td>Fossil Fuel</td></tr>
+<tr><td>Soil with high water-retaining capacity.</td><td>Black Soil</td></tr>
+<tr><td>Intensively leached soils of the monsoon climate.</td><td>Laterite</td></tr>
+<tr><td>Plantation of trees on a large scale to check soil erosion.</td><td>Afforestation</td></tr>
+<tr><td>The Great Plains of India are made up of these soils.</td><td>Alluvial Soil</td></tr>
+</table>
+</div>
+
+</div>
+</details>
+
+<!-- 17 -->
+
+<details class="section" id="s17">
+<summary>17. MOST IMPORTANT EXAM POINTS</summary>
+<div class="section-body">
+
+<h3>Resource Classification</h3>
+<ul>
+<li>Four bases: Origin, Exhaustibility, Ownership and Status of Development.</li>
+<li>Biotic and Abiotic.</li>
+<li>Renewable and Non-renewable.</li>
+<li>Individual, Community, National and International.</li>
+<li>Potential, Developed, Stock and Reserves.</li>
+</ul>
+
+<h3>Sustainable Development</h3>
+<ul>
+<li>Rio de Janeiro Earth Summit – 1992.</li>
+<li>Agenda 21 – 1992.</li>
+<li>Brundtland Commission – 1987.</li>
+<li>Our Common Future.</li>
+</ul>
+
+<h3>Land Resources</h3>
+<ul>
+<li>Plains – 43%.</li>
+<li>Mountains – 30%.</li>
+<li>Plateaus – 27%.</li>
+<li>National Forest Policy – 1952.</li>
+<li>Desired forest cover – 33%.</li>
+</ul>
+
+<h3>Land Degradation</h3>
+<ul>
+<li>Punjab, Haryana and western UP – Over-irrigation.</li>
+<li>Gujarat, Rajasthan, MP and Maharashtra – Overgrazing.</li>
+<li>Jharkhand, Chhattisgarh, MP and Odisha – Mining-related deforestation.</li>
+</ul>
+
+<h3>Soils</h3>
+<ul>
+<li>Alluvial – Northern Plains.</li>
+<li>Black – Regur, cotton.</li>
+<li>Red and Yellow – Iron content.</li>
+<li>Laterite – Intense leaching.</li>
+<li>Arid – Sandy and saline.</li>
+<li>Forest – Hilly and mountainous regions.</li>
+</ul>
+
+<h3>Soil Conservation</h3>
+<ul>
+<li>Gully erosion – Ravines in Chambal.</li>
+<li>Contour ploughing.</li>
+<li>Terrace cultivation.</li>
+<li>Strip cropping.</li>
+<li>Shelter belts.</li>
+</ul>
+
+</div>
+</details>
+
+<!-- 18 -->
+
+<details class="section" id="s18">
+<summary>18. COMPLETE CHAPTER MIND MAP AND FLOWCHART</summary>
+<div class="section-body">
+
+<div class="mindmap">
+<div class="mind-center">RESOURCES AND DEVELOPMENT</div>
+<div class="mind-grid">
+<div class="mind-item"><b>1. Resources</b><br>Meaning and Classification</div>
+<div class="mind-item"><b>2. Development</b><br>Depletion and Inequality</div>
+<div class="mind-item"><b>3. Sustainable Development</b><br>Rio Summit and Agenda 21</div>
+<div class="mind-item"><b>4. Resource Planning</b><br>Three Stages</div>
+<div class="mind-item"><b>5. Conservation</b><br>Gandhi and Brundtland</div>
+<div class="mind-item"><b>6. Land Resources</b><br>Relief and Land Use</div>
+<div class="mind-item"><b>7. Land Degradation</b><br>Causes and Control</div>
+<div class="mind-item"><b>8. Soil</b><br>Formation and Profile</div>
+<div class="mind-item"><b>9. Soil Types</b><br>Six Major Types</div>
+<div class="mind-item"><b>10. Soil Erosion</b><br>Gully, Sheet, Wind</div>
+<div class="mind-item"><b>11. Soil Conservation</b><br>Contour, Terrace, Strip, Shelter</div>
+</div>
+</div>
+
+<h3>Complete Chapter Sequence</h3>
+
+<div class="flow">
+<div class="flow-box">RESOURCES</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-box">CLASSIFICATION OF RESOURCES</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-box">DEVELOPMENT AND CONSERVATION</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-box">SUSTAINABLE DEVELOPMENT</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-box">RESOURCE PLANNING</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-box">LAND RESOURCES AND LAND USE</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-box">LAND DEGRADATION</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-box">SOIL FORMATION AND SOIL PROFILE</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-box">SIX MAJOR SOIL TYPES</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-box green">SOIL EROSION AND SOIL CONSERVATION</div>
+</div>
+
+</div>
+</details>
+
+<!-- 19 -->
+
+<details class="section" id="s19">
+<summary>19. SOURCE AND IMAGE REFERENCES</summary>
+<div class="section-body">
+
+<p>
+These notes are based on the uploaded NCERT Class 10 Geography
+chapter, <b>Resources and Development</b> (12 pages, Reprint 2025–26).
+</p>
+
+<p>
+External images are loaded from Wikimedia Commons using file
+references. Internet availability and exact file naming can affect
+whether an individual image loads. If an image does not load, its
+space is hidden automatically.
+</p>
+
+<p>
+Map and image reference:
+<a href="https://commons.wikimedia.org/wiki/File:Major_soil_types_in_India.jpg"
+target="_blank" rel="noopener">Major Soil Types in India – Wikimedia Commons</a>
+</p>
+
+<p>
+For additional visual references:
+<a href="https://commons.wikimedia.org/wiki/Category:Soil"
+target="_blank" rel="noopener">Wikimedia Commons – Soil photographs</a>
+</p>
+
+<p>
+<a href="https://www.ncert.nic.in/"
+target="_blank" rel="noopener">NCERT Official Website</a>
+</p>
+
+<div class="note orange-note">
+Some online photographs are illustrative. The chapter's factual
+content and classifications are based on the uploaded NCERT PDF.
+</div>
+
+</div>
+</details>
+
+</main>
+</div>
+
+<footer class="footer">
+    <b>RESOURCES AND DEVELOPMENT</b><br>
+    Class 10 Geography | Contemporary India – II<br>
+    Classified Study Notes
+</footer>
+
+<button class="top-button" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
+
+<div class="image-modal" id="imageModal" onclick="closeImage()">
+    <span>×</span>
+    <img id="modalImage" src="" alt="Enlarged study image">
+</div>
+
+<script>
+
+/* GENERATE TABLE OF CONTENTS */
+
+const sections = document.querySelectorAll("details.section");
+const toc = document.getElementById("toc");
+
+sections.forEach((section,index)=>{
+    const title = section.querySelector("summary").innerText;
+    const link = document.createElement("a");
+
+    link.href = "#" + section.id;
+    link.textContent = title;
+
+    link.addEventListener("click",function(event){
+        event.preventDefault();
+
+        section.open = true;
+
+        section.scrollIntoView({
+            behavior:"smooth",
+            block:"start"
+        });
+
+        history.replaceState(null,"","#"+section.id);
+    });
+
+    toc.appendChild(link);
+});
+
+/* SHOW / HIDE SIDEBAR */
+
+function toggleSidebar(){
+    document.getElementById("sidebar").classList.toggle("hidden");
+}
+
+/* EXPAND ALL */
+
+function expandAll(){
+    document.querySelectorAll("details.section").forEach(section=>{
+        section.open = true;
+    });
+}
+
+/* COLLAPSE ALL */
+
+function collapseAll(){
+    document.querySelectorAll("details.section").forEach(section=>{
+        section.open = false;
+    });
+}
+
+/* SEARCH AND YELLOW HIGHLIGHT */
+
+let originalHTML = [];
+
+function saveOriginalContent(){
+    document.querySelectorAll(".section-body,.intro").forEach((element,index)=>{
+        originalHTML[index] = element.innerHTML;
+    });
+}
+
+saveOriginalContent();
+
+function escapeRegExp(string){
+    return string.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+}
+
+function searchContent(){
+
+    const input = document.getElementById("searchInput").value.trim();
+    const count = document.getElementById("searchCount");
+
+    const containers = document.querySelectorAll(".section-body,.intro");
+
+    containers.forEach((element,index)=>{
+        element.innerHTML = originalHTML[index];
+    });
+
+    if(!input){
+        count.textContent = "";
+        return;
+    }
+
+    const regex = new RegExp(escapeRegExp(input),"gi");
+    let total = 0;
+
+    containers.forEach(element=>{
+
+        const walker = document.createTreeWalker(
+            element,
+            NodeFilter.SHOW_TEXT,
+            {
+                acceptNode(node){
+                    if(!node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+
+                    const parent = node.parentElement;
+
+                    if(parent.closest("script,style,mark,button")) {
+                        return NodeFilter.FILTER_REJECT;
+                    }
+
+                    return NodeFilter.FILTER_ACCEPT;
+                }
+            }
+        );
+
+        const textNodes = [];
+
+        while(walker.nextNode()){
+            textNodes.push(walker.currentNode);
+        }
+
+        textNodes.forEach(node=>{
+            const text = node.nodeValue;
+            const matches = [...text.matchAll(regex)];
+
+            if(matches.length===0) return;
+
+            total += matches.length;
+
+            const fragment = document.createDocumentFragment();
+            let lastIndex = 0;
+
+            matches.forEach(match=>{
+                fragment.appendChild(
+                    document.createTextNode(
+                        text.slice(lastIndex,match.index)
+                    )
+                );
+
+                const mark = document.createElement("mark");
+                mark.className = "search-highlight";
+                mark.textContent = match[0];
+
+                fragment.appendChild(mark);
+                lastIndex = match.index + match[0].length;
+            });
+
+            fragment.appendChild(
+                document.createTextNode(text.slice(lastIndex))
+            );
+
+            node.parentNode.replaceChild(fragment,node);
+        });
+    });
+
+    count.textContent = total + " matches found";
+
+    if(total>0){
+        const first = document.querySelector("mark.search-highlight");
+        const section = first?.closest("details.section");
+
+        if(section){
+            section.open = true;
+            setTimeout(()=>{
+                first.scrollIntoView({
+                    behavior:"smooth",
+                    block:"center"
+                });
+            },100);
+        }
+    }
+}
+
+/* IMAGE ZOOM */
+
+document.addEventListener("click",function(event){
+
+    if(event.target.tagName==="IMG" &&
+       event.target.closest(".study-image,.image-row")){
+
+        const modal = document.getElementById("imageModal");
+        const modalImage = document.getElementById("modalImage");
+
+        modalImage.src = event.target.src;
+        modal.style.display = "flex";
+    }
+
+});
+
+function closeImage(){
+    document.getElementById("imageModal").style.display = "none";
+}
+
+/* ESCAPE KEY */
+
+document.addEventListener("keydown",function(event){
+    if(event.key==="Escape"){
+        closeImage();
+    }
+});
+
+/* OPEN SECTION WHEN LOADING DIRECT HASH */
+
+window.addEventListener("load",function(){
+
+    if(location.hash){
+        const target = document.querySelector(location.hash);
+
+        if(target && target.matches("details.section")){
+            target.open = true;
+
+            setTimeout(()=>{
+                target.scrollIntoView({
+                    behavior:"smooth",
+                    block:"start"
+                });
+            },300);
+        }
+    }
+
+});
+
+</script>
+
+</body>
+</html>
