@@ -4,254 +4,619 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BPSC File Explorer</title>
+<title>BPSC Study Explorer</title>
 
 <style>
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#101318;
-  color:#e8eaf0;
+:root {
+    --bg: #10151e;
+    --sidebar: #151c27;
+    --header: #1b2431;
+    --hover: #25344a;
+    --active: #204c7c;
+    --border: #303d4e;
+    --text: #e5edf7;
+    --muted: #91a2b8;
+    --blue: #60a5fa;
+    --yellow: #f5c451;
 }
-header{
-  height:65px;
-  background:#191e27;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 18px;
-  border-bottom:1px solid #303744;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
-.brand{font-size:20px;font-weight:bold}
-.header-right{display:flex;gap:10px}
-button{
-  border:0;
-  border-radius:7px;
-  padding:10px 14px;
-  background:#2879dc;
-  color:white;
-  cursor:pointer;
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    height: 100vh;
+    overflow: hidden;
 }
-button:hover{background:#1765bf}
-.search{
-  width:100%;
-  padding:12px;
-  background:#202630;
-  color:white;
-  border:1px solid #394353;
-  border-radius:7px;
-  outline:none;
+
+/* HEADER */
+
+header {
+    height: 62px;
+    background: var(--header);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 17px;
 }
-.app{
-  display:flex;
-  height:calc(100vh - 65px);
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 19px;
+    font-weight: bold;
 }
-.sidebar{
-  width:310px;
-  min-width:250px;
-  background:#171c24;
-  border-right:1px solid #303744;
-  display:flex;
-  flex-direction:column;
+
+.brand-icon {
+    font-size: 25px;
 }
-.side-top{padding:15px}
-.stats{
-  color:#9ca8ba;
-  font-size:12px;
-  margin-top:12px;
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
-.tree{
-  overflow:auto;
-  padding:5px 10px 20px;
-  flex:1;
+
+button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 7px;
+    padding: 10px 13px;
+    background: #2877cf;
+    color: white;
+    font-size: 13px;
+    transition: .2s;
 }
-.node{
-  margin:2px 0;
+
+button:hover {
+    background: #1763b5;
 }
-.node-row{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  padding:9px 8px;
-  border-radius:6px;
-  cursor:pointer;
-  font-size:14px;
-  word-break:break-word;
+
+.github-btn {
+    background: #343f50;
 }
-.node-row:hover{background:#293443}
-.node-row.active{background:#214b7b}
-.children{
-  margin-left:16px;
-  padding-left:9px;
-  border-left:1px solid #3a4554;
+
+.menu-btn {
+    display: none;
+    background: #343f50;
 }
-.hidden{display:none!important}
-.icon{width:19px;flex-shrink:0}
-.main{
-  flex:1;
-  min-width:0;
-  display:flex;
-  flex-direction:column;
+
+/* MAIN LAYOUT */
+
+.app {
+    display: flex;
+    height: calc(100vh - 62px);
 }
-.toolbar{
-  min-height:52px;
-  background:#171c24;
-  border-bottom:1px solid #303744;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:8px 15px;
-  gap:10px;
+
+/* LEFT SIDEBAR */
+
+.sidebar {
+    width: 310px;
+    min-width: 270px;
+    background: var(--sidebar);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
 }
-.path{
-  color:#a9b6c9;
-  font-size:13px;
-  overflow-wrap:anywhere;
+
+.sidebar-heading {
+    padding: 17px 15px 12px;
 }
-.viewer{
-  flex:1;
-  overflow:auto;
-  background:#fff;
-  color:#222;
-  position:relative;
+
+.heading-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
 }
-.viewer iframe{
-  width:100%;
-  height:100%;
-  border:0;
-  background:white;
+
+.heading-row h3 {
+    font-size: 12px;
+    letter-spacing: 1.3px;
+    color: #b8c7db;
 }
-.viewer pre{
-  margin:0;
-  padding:20px;
-  white-space:pre-wrap;
-  overflow-wrap:anywhere;
-  font-size:14px;
-  line-height:1.6;
-  background:#fff;
-  color:#222;
+
+.online {
+    color: #4ade80;
+    font-size: 10px;
+    background: #183b31;
+    padding: 5px 8px;
+    border-radius: 20px;
 }
-.welcome{
-  height:100%;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:20px;
-  color:#526174;
+
+.search-box {
+    position: relative;
 }
-.welcome h2{color:#24364c}
-.status{
-  font-size:12px;
-  color:#9ca8ba;
-  padding:10px 15px;
-  border-top:1px solid #303744;
+
+.search-box input {
+    width: 100%;
+    padding: 12px 12px 12px 35px;
+    border-radius: 8px;
+    background: #202b3a;
+    color: white;
+    border: 1px solid #37475c;
+    outline: none;
+    font-size: 13px;
 }
-.error{color:#d33}
-.mobile-menu{display:none}
-@media(max-width:700px){
-  .sidebar{
-    position:absolute;
-    top:65px;
-    bottom:0;
-    left:0;
-    z-index:10;
-    width:82%;
-    max-width:320px;
-    box-shadow:5px 0 20px #0008;
-  }
-  .sidebar.closed{display:none}
-  .mobile-menu{display:block}
-  .brand{font-size:16px}
-  .toolbar{align-items:flex-start;flex-direction:column}
+
+.search-box input:focus {
+    border-color: #5298e9;
+}
+
+.search-icon {
+    position: absolute;
+    left: 12px;
+    top: 11px;
+    color: #9aabc1;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 13px;
+    color: var(--muted);
+    font-size: 11px;
+}
+
+/* TREE */
+
+.tree {
+    flex: 1;
+    overflow: auto;
+    padding: 8px 10px 20px;
+}
+
+.tree::-webkit-scrollbar,
+.viewer::-webkit-scrollbar {
+    width: 6px;
+}
+
+.tree::-webkit-scrollbar-thumb,
+.viewer::-webkit-scrollbar-thumb {
+    background: #39485c;
+    border-radius: 10px;
+}
+
+.node {
+    margin: 2px 0;
+}
+
+.node-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 36px;
+    padding: 7px 9px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background .18s, border-color .18s;
+    font-size: 13px;
+    color: #d9e3f0;
+}
+
+.node-row:hover {
+    background: var(--hover);
+    border-color: #344861;
+}
+
+.node-row.active {
+    background: linear-gradient(110deg,#204d7c,#19375a);
+    border-color: #3b76ad;
+    color: #fff;
+}
+
+.arrow {
+    width: 12px;
+    flex-shrink: 0;
+    font-size: 11px;
+    color: #91a8c3;
+    text-align: center;
+}
+
+.icon {
+    width: 21px;
+    flex-shrink: 0;
+    text-align: center;
+    font-size: 17px;
+}
+
+.folder-name {
+    font-weight: 600;
+}
+
+.file-name {
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.folder-count {
+    margin-left: auto;
+    font-size: 10px;
+    color: #aec5e2;
+    background: #293e58;
+    border-radius: 12px;
+    padding: 3px 7px;
+}
+
+.node-row.active .folder-count {
+    background: #38699a;
+    color: white;
+}
+
+.children {
+    margin-left: 15px;
+    padding-left: 9px;
+    border-left: 1px solid #39495e;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.file-row {
+    min-height: 33px;
+}
+
+.file-row:hover {
+    background: #202f42;
+}
+
+.file-row.active {
+    background: #244f7b;
+}
+
+/* SIDEBAR FOOTER */
+
+.sidebar-footer {
+    padding: 11px 14px;
+    border-top: 1px solid var(--border);
+    color: #8799b0;
+    font-size: 11px;
+}
+
+/* RIGHT PANEL */
+
+.main {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.toolbar {
+    min-height: 51px;
+    padding: 8px 15px;
+    background: #19222f;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.breadcrumb {
+    font-size: 12px;
+    color: #a9bbd1;
+    overflow-wrap: anywhere;
+}
+
+.toolbar-actions {
+    display: flex;
+    gap: 7px;
+    flex-shrink: 0;
+}
+
+.small-btn {
+    background: #34445a;
+    padding: 8px 10px;
+    font-size: 11px;
+}
+
+/* CONTENT VIEWER */
+
+.viewer {
+    flex: 1;
+    min-height: 0;
+    overflow: auto;
+    background: #fff;
+    color: #222;
+}
+
+.viewer iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    border: none;
+    display: block;
+    background: white;
+}
+
+.viewer pre {
+    margin: 0;
+    padding: 22px;
+    color: #263445;
+    background: white;
+    font-size: 13px;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.welcome {
+    height: 100%;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 25px;
+    color: #6c7e94;
+    background: #f5f7fa;
+}
+
+.welcome-icon {
+    font-size: 65px;
+    margin-bottom: 17px;
+}
+
+.welcome h2 {
+    color: #25364b;
+    margin-bottom: 10px;
+}
+
+.welcome p {
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.preview-image {
+    max-width: 95%;
+    max-height: 95%;
+    display: block;
+    margin: 15px auto;
+    object-fit: contain;
+}
+
+.error {
+    padding: 20px;
+    color: #e66;
+    font-size: 13px;
+}
+
+.loading {
+    padding: 30px;
+    color: #387ec4;
+    text-align: center;
+}
+
+.empty {
+    color: #8da0b8;
+    padding: 20px;
+    text-align: center;
+    font-size: 13px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:750px) {
+
+    .sidebar {
+        width: 43%;
+        min-width: 0;
+    }
+
+    .node-row {
+        gap: 5px;
+        padding: 7px 5px;
+        font-size: 11px;
+    }
+
+    .folder-count {
+        font-size: 9px;
+        padding: 2px 5px;
+    }
+
+    .toolbar {
+        flex-wrap: wrap;
+    }
+
+    .brand {
+        font-size: 16px;
+    }
+
+}
+
+@media(max-width:520px) {
+
+    .menu-btn {
+        display: block;
+    }
+
+    .sidebar {
+        position: absolute;
+        z-index: 20;
+        top: 62px;
+        bottom: 0;
+        left: 0;
+        width: 82%;
+        max-width: 320px;
+        box-shadow: 5px 0 25px #0008;
+    }
+
+    .sidebar.closed {
+        display: none;
+    }
+
+    .brand {
+        font-size: 15px;
+    }
+
+    header {
+        padding: 0 10px;
+    }
+
+    .github-btn {
+        display: none;
+    }
+
+    .toolbar {
+        padding: 9px;
+    }
+
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <div style="display:flex;align-items:center;gap:12px">
-    <button class="mobile-menu" onclick="toggleSidebar()">☰</button>
-    <div class="brand">📚 BPSC Explorer</div>
-  </div>
+<!-- HEADER -->
 
-  <div class="header-right">
-    <button onclick="loadRepository()">↻ Refresh</button>
-    <button onclick="window.open('https://github.com/premji321/public_html','_blank')">
-      GitHub ↗
-    </button>
-  </div>
+<header>
+
+    <div style="display:flex;align-items:center;gap:10px">
+
+        <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+
+        <div class="brand">
+            <span class="brand-icon">📚</span>
+            BPSC Explorer
+        </div>
+
+    </div>
+
+    <div class="header-actions">
+
+        <button onclick="loadRepository()">↻ Refresh</button>
+
+        <button class="github-btn"
+        onclick="window.open('https://github.com/premji321/public_html','_blank')">
+            GitHub ↗
+        </button>
+
+    </div>
+
 </header>
+
 
 <div class="app">
 
-  <!-- LEFT PANEL -->
-  <aside class="sidebar" id="sidebar">
+    <!-- LEFT PANEL -->
 
-    <div class="side-top">
-      <input
-        class="search"
-        id="search"
-        placeholder="🔍 Search folders and files..."
-        oninput="searchTree(this.value)"
-      >
+    <aside class="sidebar" id="sidebar">
 
-      <div class="stats" id="stats">
-        Connecting to GitHub...
-      </div>
-    </div>
+        <div class="sidebar-heading">
 
-    <div class="tree" id="tree">
-      Loading repository...
-    </div>
+            <div class="heading-row">
 
-    <div class="status" id="status">
-      Initializing...
-    </div>
+                <h3>BPSC STUDY LIBRARY</h3>
 
-  </aside>
+                <span class="online" id="onlineStatus">
+                    CONNECTING
+                </span>
 
-  <!-- RIGHT PANEL -->
-  <main class="main">
+            </div>
 
-    <div class="toolbar">
-      <div class="path" id="filePath">BPSC / Home</div>
+            <div class="search-box">
 
-      <div>
-        <button onclick="openOriginal()" style="background:#444f60">
-          Open Original ↗
-        </button>
-      </div>
-    </div>
+                <span class="search-icon">⌕</span>
 
-    <div class="viewer" id="viewer">
+                <input
+                    type="search"
+                    id="search"
+                    placeholder="Search folders and files..."
+                    oninput="searchTree(this.value)"
+                >
 
-      <div class="welcome">
-        <h2>📚 BPSC Study Explorer</h2>
-        <p>Select any folder or file from the left panel.</p>
-        <p>Your selected content will appear here.</p>
-      </div>
+            </div>
 
-    </div>
+            <div class="stats">
 
-  </main>
+                <span id="folderStats">0 FOLDERS</span>
+
+                <span id="fileStats">0 FILES</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="tree" id="tree">
+
+            <div class="loading">Loading GitHub Repository...</div>
+
+        </div>
+
+
+        <div class="sidebar-footer" id="status">
+            Connecting to GitHub...
+        </div>
+
+    </aside>
+
+
+    <!-- RIGHT CONTENT PANEL -->
+
+    <main class="main">
+
+        <div class="toolbar">
+
+            <div class="breadcrumb" id="filePath">
+                BPSC / Home
+            </div>
+
+            <div class="toolbar-actions">
+
+                <button class="small-btn" onclick="openOriginal()">
+                    ↗ Original
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="viewer" id="viewer">
+
+            <div class="welcome">
+
+                <div class="welcome-icon">📂</div>
+
+                <h2>Welcome to BPSC Library</h2>
+
+                <p>
+                    Your complete study material is organized here.
+                    <br>
+                    Select a folder or file from the left panel.
+                </p>
+
+            </div>
+
+        </div>
+
+    </main>
 
 </div>
 
+
 <script>
 
-// ======================================
+// ===========================================
 // GITHUB CONFIGURATION
-// ======================================
+// ===========================================
 
 const OWNER = "premji321";
 const REPO = "public_html";
 const BRANCH = "main";
-
-// IMPORTANT: BPSC folder name is lowercase
 const ROOT_FOLDER = "bpsc";
 
 const API_URL =
@@ -260,470 +625,661 @@ const API_URL =
 const RAW_URL =
 `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/`;
 
-let repositoryTree = {};
+let repositoryTree = null;
 let selectedFile = null;
-let allFiles = [];
 let fileCount = 0;
 let folderCount = 0;
 
 
-// ======================================
-// LOAD GITHUB REPOSITORY
-// ======================================
+// ===========================================
+// LOAD REPOSITORY
+// ===========================================
 
-async function loadRepository(){
+async function loadRepository() {
 
-  const treeElement = document.getElementById("tree");
-  const status = document.getElementById("status");
-
-  treeElement.innerHTML = "Loading GitHub files...";
-  status.textContent = "Connecting to GitHub API...";
-
-  try{
-
-    const response = await fetch(API_URL);
-
-    if(!response.ok){
-      throw new Error("GitHub API Error: " + response.status);
-    }
-
-    const data = await response.json();
-
-    if(data.truncated){
-      throw new Error(
-        "GitHub returned an incomplete file tree. Please contact support."
-      );
-    }
-
-    repositoryTree = {
-      name: ROOT_FOLDER,
-      type: "dir",
-      path: ROOT_FOLDER,
-      children: {}
-    };
-
-    allFiles = [];
-    fileCount = 0;
-    folderCount = 0;
-
-    // Filter only BPSC directory
-    const items = data.tree.filter(item =>
-      item.path.startsWith(ROOT_FOLDER + "/")
-    );
-
-    if(items.length === 0){
-      throw new Error("BPSC folder not found in repository.");
-    }
-
-    items.sort((a,b)=>a.path.localeCompare(b.path));
-
-    items.forEach(item=>{
-
-      const parts = item.path.split("/");
-
-      if(parts[0] !== ROOT_FOLDER) return;
-
-      let current = repositoryTree;
-
-      for(let i=1;i<parts.length;i++){
-
-        const name = parts[i];
-        const isLast = i === parts.length-1;
-
-        if(!current.children[name]){
-
-          current.children[name] = {
-            name:name,
-            path:parts.slice(0,i+1).join("/"),
-            type:isLast && item.type === "blob"
-              ? "file"
-              : "dir",
-            children:{}
-          };
-
-          if(!isLast || item.type !== "blob"){
-            folderCount++;
-          }
-
-        }
-
-        current = current.children[name];
-
-        if(isLast && item.type === "blob"){
-          current.type = "file";
-          current.sha = item.sha;
-          current.size = item.size;
-          current.url = item.url;
-          current.children = undefined;
-          allFiles.push(current);
-          fileCount++;
-        }
-      }
-
-    });
-
-    renderTree(repositoryTree,treeElement);
-
-    document.getElementById("stats").textContent =
-      `${folderCount} folders • ${fileCount} files`;
-
-    status.textContent =
-      "✓ Connected to GitHub • Branch: " + BRANCH;
-
-  }
-  catch(error){
+    const treeElement = document.getElementById("tree");
 
     treeElement.innerHTML =
-      `<p class="error">${escapeHTML(error.message)}</p>`;
+        '<div class="loading">⏳ Fetching GitHub folders...</div>';
 
-    status.textContent = "Connection failed";
+    document.getElementById("status").textContent =
+        "Loading repository data...";
 
-  }
+    document.getElementById("onlineStatus").textContent =
+        "CONNECTING";
 
-}
+    try {
 
+        const response = await fetch(API_URL);
 
-// ======================================
-// DISPLAY HIERARCHICAL TREE
-// ======================================
-
-function renderTree(node,container){
-
-  container.innerHTML = "";
-
-  const root = document.createElement("div");
-
-  root.appendChild(createNode(node,true));
-
-  container.appendChild(root);
-
-}
-
-
-function createNode(node,isRoot=false){
-
-  const wrapper = document.createElement("div");
-  wrapper.className = "node";
-
-  const row = document.createElement("div");
-  row.className = "node-row";
-
-  const isFolder = node.type === "dir";
-
-  const icon = document.createElement("span");
-  icon.className = "icon";
-  icon.textContent = isFolder ? "📁" : getIcon(node.name);
-
-  const name = document.createElement("span");
-  name.textContent = node.name;
-
-  const arrow = document.createElement("span");
-  arrow.textContent = isFolder ? "▸" : "";
-
-  row.append(arrow,icon,name);
-
-  wrapper.appendChild(row);
-
-  if(isFolder){
-
-    const children = document.createElement("div");
-    children.className = "children hidden";
-
-    const childNodes = Object.values(node.children || {})
-      .sort((a,b)=>{
-
-        if(a.type !== b.type){
-          return a.type === "dir" ? -1 : 1;
+        if (!response.ok) {
+            throw new Error("GitHub API Error: " + response.status);
         }
 
-        return a.name.localeCompare(b.name);
-      });
-
-    childNodes.forEach(child=>{
-      children.appendChild(createNode(child));
-    });
-
-    wrapper.appendChild(children);
-
-    row.onclick = ()=>{
-
-      const closed = children.classList.toggle("hidden");
-
-      arrow.textContent = closed ? "▸" : "▾";
-      icon.textContent = closed ? "📁" : "📂";
-
-      if(isRoot && !closed){
-        row.classList.add("active");
-      }
-    };
-
-    if(isRoot){
-      children.classList.remove("hidden");
-      arrow.textContent = "▾";
-      icon.textContent = "📂";
-    }
-
-  }else{
-
-    row.onclick = ()=>{
-
-      document.querySelectorAll(".node-row.active")
-        .forEach(el=>el.classList.remove("active"));
-
-      row.classList.add("active");
-
-      openFile(node);
-    };
-
-  }
-
-  return wrapper;
-
-}
-
-
-// ======================================
-// FILE ICONS
-// ======================================
-
-function getIcon(name){
-
-  const ext = name.split(".").pop().toLowerCase();
-
-  const icons = {
-    html:"🌐",
-    htm:"🌐",
-    pdf:"📕",
-    txt:"📄",
-    md:"📝",
-    json:"⚙️",
-    js:"📜",
-    css:"🎨",
-    png:"🖼️",
-    jpg:"🖼️",
-    jpeg:"🖼️",
-    webp:"🖼️",
-    svg:"🖼️"
-  };
-
-  return icons[ext] || "📄";
-
-}
-
-
-// ======================================
-// OPEN SELECTED FILE
-// ======================================
-
-async function openFile(file){
-
-  selectedFile = file;
-
-  document.getElementById("filePath").textContent =
-    file.path;
-
-  const viewer = document.getElementById("viewer");
-
-  const ext = file.name.split(".").pop().toLowerCase();
-
-  const url = RAW_URL +
-    file.path.split("/").map(encodeURIComponent).join("/");
-
-  viewer.innerHTML =
-    `<div class="welcome"><h2>Loading...</h2></div>`;
-
-  // PDF
-  if(ext === "pdf"){
-
-    viewer.innerHTML =
-      `<iframe src="${url}#toolbar=1"></iframe>`;
-
-    return;
-  }
-
-  // Images
-  if(["png","jpg","jpeg","gif","webp","svg"].includes(ext)){
-
-    const img = document.createElement("img");
-
-    img.src = url;
-    img.style.cssText =
-      "max-width:100%;max-height:100%;display:block;margin:auto";
-
-    viewer.innerHTML = "";
-    viewer.appendChild(img);
-
-    return;
-  }
-
-  try{
-
-    const response = await fetch(url);
-
-    if(!response.ok){
-      throw new Error("Unable to load file");
-    }
-
-    const content = await response.text();
-
-    // HTML PREVIEW
-    if(ext === "html" || ext === "htm"){
-
-      const frame = document.createElement("iframe");
-
-      // Isolated preview of repository HTML
-      frame.setAttribute("sandbox","allow-scripts allow-forms");
-      frame.srcdoc = content;
-
-      viewer.innerHTML = "";
-      viewer.appendChild(frame);
-
-    }
-
-    // TEXT AND SOURCE FILES
-    else{
-
-      const pre = document.createElement("pre");
-
-      pre.textContent = content;
-
-      viewer.innerHTML = "";
-      viewer.appendChild(pre);
-
-    }
-
-  }
-  catch(error){
-
-    viewer.innerHTML =
-      `<div class="welcome error">${escapeHTML(error.message)}</div>`;
-
-  }
-
-}
-
-
-// ======================================
-// OPEN ORIGINAL FILE
-// ======================================
-
-function openOriginal(){
-
-  if(!selectedFile) return;
-
-  const url =
-    `https://github.com/${OWNER}/${REPO}/blob/${BRANCH}/${selectedFile.path}`;
-
-  window.open(url,"_blank");
-
-}
-
-
-// ======================================
-// SEARCH FILES AND FOLDERS
-// ======================================
-
-function searchTree(query){
-
-  query = query.toLowerCase().trim();
-
-  const nodes = document.querySelectorAll(".node");
-
-  nodes.forEach(node=>{
-    node.classList.remove("search-hide");
-  });
-
-  if(!query) return;
-
-  nodes.forEach(node=>{
-
-    const row = node.querySelector(":scope > .node-row");
-
-    if(!row) return;
-
-    const name = row.innerText.toLowerCase();
-
-    if(!name.includes(query)){
-
-      const descendants =
-        node.querySelectorAll(".node-row");
-
-      const hasMatch =
-        [...descendants].some(el=>
-          el.innerText.toLowerCase().includes(query)
+        const data = await response.json();
+
+        if (data.truncated) {
+            throw new Error("GitHub returned an incomplete file tree.");
+        }
+
+        repositoryTree = {
+            name: ROOT_FOLDER,
+            path: ROOT_FOLDER,
+            type: "dir",
+            children: {}
+        };
+
+        fileCount = 0;
+        folderCount = 0;
+
+        const files = data.tree.filter(item =>
+            item.path.startsWith(ROOT_FOLDER + "/")
         );
 
-      if(!hasMatch){
-        node.classList.add("search-hide");
-      }
-
-    }
-
-  });
-
-  document.querySelectorAll(".node.search-hide")
-    .forEach(node=>node.style.display="none");
-
-  document.querySelectorAll(".node:not(.search-hide)")
-    .forEach(node=>node.style.display="block");
-
-  // Ensure parent folders are visible
-  document.querySelectorAll(".node").forEach(node=>{
-
-    const child = node.querySelector(".node-row");
-
-    if(child && child.innerText.toLowerCase().includes(query)){
-      let parent = node.parentElement;
-
-      while(parent){
-
-        if(parent.classList.contains("node")){
-          parent.style.display="block";
-
-          const children =
-            parent.querySelector(":scope > .children");
-
-          if(children) children.classList.remove("hidden");
+        if (files.length === 0) {
+            throw new Error("BPSC folder not found.");
         }
 
-        parent = parent.parentElement;
-      }
+        files.sort((a,b) => a.path.localeCompare(b.path));
+
+        files.forEach(item => {
+
+            const parts = item.path.split("/");
+
+            let current = repositoryTree;
+
+            for (let i = 1; i < parts.length; i++) {
+
+                const name = parts[i];
+
+                const isLast = i === parts.length - 1;
+
+                if (!current.children[name]) {
+
+                    const type =
+                        isLast && item.type === "blob"
+                        ? "file"
+                        : "dir";
+
+                    current.children[name] = {
+                        name: name,
+                        path: parts.slice(0,i+1).join("/"),
+                        type: type,
+                        children: type === "dir" ? {} : undefined,
+                        sha: isLast ? item.sha : undefined,
+                        size: isLast ? item.size : undefined
+                    };
+
+                    if (type === "dir") {
+                        folderCount++;
+                    }
+
+                    if (type === "file") {
+                        fileCount++;
+                    }
+
+                }
+
+                current = current.children[name];
+
+            }
+
+        });
+
+
+        // DISPLAY TREE
+
+        renderTree();
+
+        document.getElementById("folderStats").textContent =
+            folderCount + " FOLDERS";
+
+        document.getElementById("fileStats").textContent =
+            fileCount + " FILES";
+
+        document.getElementById("onlineStatus").textContent =
+            "● ONLINE";
+
+        document.getElementById("status").textContent =
+            "✓ Connected to GitHub • Branch: " + BRANCH;
 
     }
 
-  });
+    catch(error) {
+
+        treeElement.innerHTML =
+            `<div class="error">${escapeHTML(error.message)}</div>`;
+
+        document.getElementById("status").textContent =
+            "Repository connection failed";
+
+        document.getElementById("onlineStatus").textContent =
+            "OFFLINE";
+
+    }
 
 }
 
 
-// ======================================
-// UTILITY FUNCTIONS
-// ======================================
+// ===========================================
+// RENDER ROOT TREE
+// ===========================================
 
-function escapeHTML(text){
+function renderTree() {
 
-  return String(text).replace(/[&<>"']/g,char=>({
-    "&":"&amp;",
-    "<":"&lt;",
-    ">":"&gt;",
-    '"':"&quot;",
-    "'":"&#39;"
-  }[char]));
+    const container = document.getElementById("tree");
 
-}
+    container.innerHTML = "";
 
+    if (!repositoryTree) return;
 
-function toggleSidebar(){
-
-  document.getElementById("sidebar")
-    .classList.toggle("closed");
+    container.appendChild(createNode(repositoryTree, true));
 
 }
 
 
-// ======================================
+// ===========================================
+// COUNT FILES INSIDE A FOLDER
+// ===========================================
+
+function countFiles(node) {
+
+    if (node.type === "file") {
+        return 1;
+    }
+
+    let count = 0;
+
+    Object.values(node.children || {}).forEach(child => {
+        count += countFiles(child);
+    });
+
+    return count;
+
+}
+
+
+// ===========================================
+// CREATE BEAUTIFUL TREE NODES
+// ===========================================
+
+function createNode(node, isRoot = false) {
+
+    const wrapper = document.createElement("div");
+
+    wrapper.className = "node";
+
+    const row = document.createElement("div");
+
+    row.className = "node-row";
+
+    const isFolder = node.type === "dir";
+
+    const arrow = document.createElement("span");
+
+    arrow.className = "arrow";
+
+    const icon = document.createElement("span");
+
+    icon.className = "icon";
+
+    const name = document.createElement("span");
+
+    name.className = isFolder ? "folder-name" : "file-name";
+
+    name.textContent = node.name;
+
+    row.append(arrow, icon, name);
+
+
+    if (isFolder) {
+
+        icon.textContent = "📁";
+
+        arrow.textContent = "▸";
+
+        const count = document.createElement("span");
+
+        count.className = "folder-count";
+
+        count.textContent = countFiles(node);
+
+        row.appendChild(count);
+
+
+        const children = document.createElement("div");
+
+        children.className = "children hidden";
+
+        const childNodes = Object.values(node.children || {})
+            .sort((a,b) => {
+
+                if (a.type !== b.type) {
+                    return a.type === "dir" ? -1 : 1;
+                }
+
+                return a.name.localeCompare(b.name);
+
+            });
+
+
+        childNodes.forEach(child => {
+
+            children.appendChild(createNode(child));
+
+        });
+
+
+        row.onclick = () => {
+
+            const closed = children.classList.toggle("hidden");
+
+            arrow.textContent = closed ? "▸" : "▾";
+
+            icon.textContent = closed ? "📁" : "📂";
+
+            row.classList.toggle("active", !closed);
+
+        };
+
+
+        wrapper.append(row, children);
+
+
+        if (isRoot) {
+
+            children.classList.remove("hidden");
+
+            arrow.textContent = "▾";
+
+            icon.textContent = "📂";
+
+            row.classList.add("active");
+
+        }
+
+    }
+
+    else {
+
+        icon.textContent = getFileIcon(node.name);
+
+        row.classList.add("file-row");
+
+        row.onclick = () => {
+
+            document.querySelectorAll(".node-row.active")
+                .forEach(element => {
+                    element.classList.remove("active");
+                });
+
+            row.classList.add("active");
+
+            openFile(node);
+
+            if (window.innerWidth <= 520) {
+
+                document.getElementById("sidebar")
+                    .classList.add("closed");
+
+            }
+
+        };
+
+        wrapper.appendChild(row);
+
+    }
+
+    return wrapper;
+
+}
+
+
+// ===========================================
+// FILE ICONS
+// ===========================================
+
+function getFileIcon(filename) {
+
+    const ext = filename.split(".").pop().toLowerCase();
+
+    const icons = {
+
+        html: "🌐",
+        htm: "🌐",
+        pdf: "📕",
+        txt: "📄",
+        md: "📝",
+        css: "🎨",
+        js: "⚙️",
+        json: "📋",
+        jpg: "🖼️",
+        jpeg: "🖼️",
+        png: "🖼️",
+        gif: "🖼️",
+        webp: "🖼️",
+        svg: "🖼️"
+
+    };
+
+    return icons[ext] || "📄";
+
+}
+
+
+// ===========================================
+// OPEN FILE IN RIGHT PANEL
+// ===========================================
+
+async function openFile(file) {
+
+    selectedFile = file;
+
+    document.getElementById("filePath").textContent =
+        file.path.replaceAll("/", "  /  ");
+
+    const viewer = document.getElementById("viewer");
+
+    const ext = file.name.split(".").pop().toLowerCase();
+
+    const url = RAW_URL +
+        file.path.split("/")
+        .map(part => encodeURIComponent(part))
+        .join("/");
+
+    viewer.innerHTML =
+        '<div class="loading">⏳ Loading file content...</div>';
+
+
+    // PDF PREVIEW
+
+    if (ext === "pdf") {
+
+        const frame = document.createElement("iframe");
+
+        frame.src = url + "#toolbar=1";
+
+        viewer.replaceChildren(frame);
+
+        return;
+
+    }
+
+
+    // IMAGE PREVIEW
+
+    if (["jpg","jpeg","png","gif","webp","svg"].includes(ext)) {
+
+        const image = document.createElement("img");
+
+        image.src = url;
+
+        image.className = "preview-image";
+
+        viewer.replaceChildren(image);
+
+        return;
+
+    }
+
+
+    try {
+
+        const response = await fetch(url);
+
+        if (!response.ok) {
+            throw new Error("Unable to load selected file.");
+        }
+
+        const content = await response.text();
+
+
+        // HTML PAGE PREVIEW
+
+        if (["html","htm"].includes(ext)) {
+
+            const frame = document.createElement("iframe");
+
+            // Preserve relative links to GitHub-hosted assets.
+            // Scripts remain disabled for safety.
+            frame.setAttribute("sandbox","allow-same-origin");
+
+            frame.srcdoc = addBaseURL(content, url);
+
+            viewer.replaceChildren(frame);
+
+        }
+
+
+        // TEXT / CODE PREVIEW
+
+        else {
+
+            const pre = document.createElement("pre");
+
+            pre.textContent = content;
+
+            viewer.replaceChildren(pre);
+
+        }
+
+    }
+
+    catch(error) {
+
+        viewer.innerHTML =
+            `<div class="error">${escapeHTML(error.message)}</div>`;
+
+    }
+
+}
+
+
+// ===========================================
+// RESOLVE RELATIVE HTML ASSETS
+// ===========================================
+
+function addBaseURL(html, url) {
+
+    const baseURL = url.substring(0, url.lastIndexOf("/") + 1);
+
+    const baseTag =
+        `<base href="${escapeHTML(baseURL)}">`;
+
+    if (/<head[^>]*>/i.test(html)) {
+
+        return html.replace(
+            /<head[^>]*>/i,
+            match => match + baseTag
+        );
+
+    }
+
+    return baseTag + html;
+
+}
+
+
+// ===========================================
+// OPEN ORIGINAL GITHUB FILE
+// ===========================================
+
+function openOriginal() {
+
+    if (!selectedFile) {
+        alert("Please select a file first.");
+        return;
+    }
+
+    const url =
+        `https://github.com/${OWNER}/${REPO}/blob/${BRANCH}/${selectedFile.path}`;
+
+    window.open(url, "_blank");
+
+}
+
+
+// ===========================================
+// SEARCH TREE
+// ===========================================
+
+function searchTree(query) {
+
+    query = query.trim().toLowerCase();
+
+    const nodes = document.querySelectorAll(".node");
+
+    nodes.forEach(node => {
+
+        node.style.display = "";
+
+        const row = node.querySelector(":scope > .node-row");
+
+        if (!row) return;
+
+        const name = row.querySelector(
+            ".folder-name, .file-name"
+        );
+
+        node.dataset.match =
+            name.textContent.toLowerCase().includes(query)
+            ? "yes"
+            : "no";
+
+    });
+
+
+    if (!query) {
+
+        document.querySelectorAll(".children")
+            .forEach(child => child.classList.add("hidden"));
+
+        const rootChildren =
+            document.querySelector("#tree > .node > .children");
+
+        if (rootChildren) {
+            rootChildren.classList.remove("hidden");
+        }
+
+        document.querySelectorAll(".arrow").forEach(arrow => {
+            const node = arrow.closest(".node");
+            const child = node?.querySelector(":scope > .children");
+
+            arrow.textContent =
+                child && !child.classList.contains("hidden")
+                ? "▾"
+                : "▸";
+        });
+
+        document.querySelectorAll(".icon").forEach(icon => {
+            const node = icon.closest(".node");
+            const child = node?.querySelector(":scope > .children");
+
+            if (child) {
+                icon.textContent =
+                    child.classList.contains("hidden")
+                    ? "📁"
+                    : "📂";
+            }
+        });
+
+        return;
+
+    }
+
+
+    // Hide nonmatching nodes and folders without matching descendants
+
+    function filterNode(node) {
+
+        const row = node.querySelector(":scope > .node-row");
+
+        const children =
+            node.querySelector(":scope > .children");
+
+        let descendantMatch = false;
+
+        if (children) {
+
+            const childNodes =
+                children.querySelectorAll(":scope > .node");
+
+            childNodes.forEach(child => {
+
+                if (filterNode(child)) {
+                    descendantMatch = true;
+                }
+
+            });
+
+        }
+
+        const ownMatch = node.dataset.match === "yes";
+
+        const visible = ownMatch || descendantMatch;
+
+        node.style.display = visible ? "" : "none";
+
+        if (children && descendantMatch) {
+
+            children.classList.remove("hidden");
+
+            const arrow = row.querySelector(".arrow");
+            const icon = row.querySelector(".icon");
+
+            arrow.textContent = "▾";
+            icon.textContent = "📂";
+
+        }
+
+        return visible;
+
+    }
+
+
+    const root = document.querySelector("#tree > .node");
+
+    if (root) {
+        filterNode(root);
+    }
+
+}
+
+
+// ===========================================
+// SAFE HTML OUTPUT
+// ===========================================
+
+function escapeHTML(value) {
+
+    return String(value).replace(/[&<>"']/g, char => ({
+
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+
+    })[char]);
+
+}
+
+
+// ===========================================
+// MOBILE SIDEBAR
+// ===========================================
+
+function toggleSidebar() {
+
+    document.getElementById("sidebar")
+        .classList.toggle("closed");
+
+}
+
+
+// ===========================================
 // START APPLICATION
-// ======================================
+// ===========================================
 
 loadRepository();
 
