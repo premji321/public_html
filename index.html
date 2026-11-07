@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BPSC Study Explorer</title>
+<title>Study Library Explorer</title>
 
 <style>
 :root {
@@ -16,7 +16,6 @@
     --primary: #4968dc;
     --primary-light: #edf1ff;
     --hover: #f5f7fc;
-    --sidebar-width: 330px;
 }
 
 * {
@@ -33,19 +32,17 @@ body {
     overflow: hidden;
 }
 
-/* Main layout */
-
 .app {
     display: flex;
     height: 100vh;
     width: 100%;
 }
 
-/* Sidebar */
+/* SIDEBAR */
 
 .sidebar {
-    width: var(--sidebar-width);
-    min-width: var(--sidebar-width);
+    width: 330px;
+    min-width: 330px;
     background: var(--panel);
     border-right: 1px solid var(--border);
     display: flex;
@@ -136,8 +133,6 @@ body {
     cursor: pointer;
 }
 
-/* Tree container */
-
 .tree-container {
     flex: 1;
     overflow-y: auto;
@@ -153,26 +148,61 @@ body {
     border-radius: 10px;
 }
 
-/* Root folder */
+/* ROOT FOLDERS */
 
-.root-label {
+.root-section {
+    margin-bottom: 10px;
+}
+
+.root-row {
     display: flex;
     align-items: center;
     gap: 9px;
-    padding: 11px 10px;
-    margin-bottom: 7px;
+    padding: 12px 10px;
     border-radius: 10px;
     background: #f1f4ff;
     color: #3d59c7;
     font-size: 13px;
     font-weight: 750;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.2s;
 }
 
-.root-label .root-icon {
+.root-row:hover {
+    background: #e9eeff;
+}
+
+.root-arrow {
+    width: 15px;
+    font-size: 20px;
+    line-height: 15px;
+    color: #4968dc;
+    transition: transform 0.25s ease;
+}
+
+.root-row.expanded .root-arrow {
+    transform: rotate(90deg);
+}
+
+.root-icon {
     font-size: 18px;
 }
 
-/* Tree nodes */
+.root-name {
+    flex: 1;
+}
+
+.root-count {
+    font-size: 10px;
+    font-weight: 600;
+    background: #e1e8ff;
+    color: #4968dc;
+    padding: 4px 7px;
+    border-radius: 6px;
+}
+
+/* TREE NODES */
 
 .node {
     width: 100%;
@@ -188,7 +218,6 @@ body {
     cursor: pointer;
     user-select: none;
     transition: background 0.2s ease, color 0.2s ease;
-    position: relative;
 }
 
 .node-row:hover {
@@ -214,7 +243,6 @@ body {
     color: #9aa3b5;
     font-size: 20px;
     line-height: 15px;
-    transform: rotate(0deg);
     transition: transform 0.25s ease;
 }
 
@@ -257,7 +285,7 @@ body {
     color: #4968dc;
 }
 
-/* Animated dropdown */
+/* ANIMATED DROPDOWN */
 
 .children {
     display: grid;
@@ -278,13 +306,13 @@ body {
     overflow: hidden;
 }
 
-/* Indentation guide */
-
 .children-inner > .node {
     margin-left: 15px;
     padding-left: 8px;
     border-left: 1px solid #e8ebf3;
 }
+
+/* STATUS */
 
 .loading,
 .empty-state {
@@ -314,7 +342,7 @@ body {
     margin-right: 5px;
 }
 
-/* Main content */
+/* MAIN CONTENT */
 
 .main {
     flex: 1;
@@ -378,7 +406,7 @@ body {
     display: none;
 }
 
-/* Preview */
+/* PREVIEW */
 
 .preview {
     flex: 1;
@@ -490,9 +518,10 @@ body {
     font-size: 13px;
 }
 
-/* Mobile */
+/* MOBILE */
 
 @media(max-width: 700px) {
+
     .sidebar {
         position: fixed;
         top: 0;
@@ -552,8 +581,8 @@ body {
             <div class="brand">
                 <div class="brand-icon">📚</div>
                 <div>
-                    <h2>BPSC Explorer</h2>
-                    <p>Study Notes & Resources</p>
+                    <h2>Study Library</h2>
+                    <p>BPSC & NCERT Resources</p>
                 </div>
             </div>
 
@@ -577,8 +606,7 @@ body {
         <div class="tree-container" id="treeContainer">
 
             <div class="loading">
-                <div>⏳</div>
-                Loading your GitHub folders...
+                ⏳ Connecting to GitHub...
             </div>
 
         </div>
@@ -604,7 +632,7 @@ body {
                 >☰</button>
 
                 <div>
-                    <h3 id="currentTitle">Welcome to BPSC Explorer</h3>
+                    <h3 id="currentTitle">Welcome to Study Library</h3>
                     <p id="currentPath">Select a file from the folder navigation</p>
                 </div>
 
@@ -633,6 +661,7 @@ body {
 
                 <div class="preview-header">
                     <span id="previewTitle">Content Preview</span>
+
                     <button
                         class="action-btn"
                         id="openFileBtn"
@@ -646,17 +675,13 @@ body {
                 <div class="preview-content" id="previewContent">
 
                     <div class="welcome">
-
                         <div class="welcome-icon">📖</div>
-
-                        <h2>BPSC Study Library</h2>
-
+                        <h2>Welcome to Study Library</h2>
                         <p>
-                            Select any subject, chapter, HTML note,
-                            PDF or image from the left navigation panel
-                            to view its content here.
+                            Explore BPSC notes and NCERT textbooks.
+                            Select any subject, class, chapter, PDF,
+                            HTML note or image from the left panel.
                         </p>
-
                     </div>
 
                 </div>
@@ -669,6 +694,7 @@ body {
 
 </div>
 
+
 <script>
 
 /* ==================================
@@ -679,7 +705,23 @@ const OWNER = "premji321";
 const REPO = "public_html";
 const BRANCH = "main";
 
-const ROOT_FOLDER = "bpsc";
+/*
+  Both main folders are managed here.
+  GitHub folder paths are case-sensitive.
+*/
+
+const ROOT_FOLDERS = [
+    {
+        name: "BPSC",
+        path: "bpsc",
+        icon: "📚"
+    },
+    {
+        name: "NCERT Textbooks",
+        path: "NCERT Textbooks",
+        icon: "📖"
+    }
+];
 
 const API_URL =
 `https://api.github.com/repos/${OWNER}/${REPO}/git/trees/${BRANCH}?recursive=1`;
@@ -688,14 +730,14 @@ const RAW_URL =
 `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/`;
 
 const GITHUB_URL =
-`https://github.com/${OWNER}/${REPO}/tree/${BRANCH}/${ROOT_FOLDER}`;
+`https://github.com/${OWNER}/${REPO}/tree/${BRANCH}`;
 
 
 /* ==================================
    GLOBAL VARIABLES
 ================================== */
 
-let repositoryTree = null;
+let repositoryTrees = [];
 let selectedFile = null;
 let allFoldersExpanded = false;
 
@@ -705,6 +747,7 @@ let allFoldersExpanded = false;
 ================================== */
 
 function escapeHTML(value) {
+
     return String(value).replace(/[&<>"']/g, char => ({
         "&": "&amp;",
         "<": "&lt;",
@@ -712,65 +755,99 @@ function escapeHTML(value) {
         '"': "&quot;",
         "'": "&#39;"
     })[char]);
+
 }
 
 function getRawURL(path) {
+
     return RAW_URL + path
         .split("/")
         .map(part => encodeURIComponent(part))
         .join("/");
+
 }
 
 function getFileExtension(name) {
+
     return name.includes(".")
         ? name.split(".").pop().toLowerCase()
         : "";
+
 }
 
 
 /* ==================================
-   BUILD TREE FROM GITHUB
+   CREATE TREE OBJECTS
 ================================== */
 
-function createFolder(name, path) {
+function createFolder(name, path, icon = "📁") {
+
     return {
         name,
         path,
+        icon,
         type: "folder",
         children: {}
     };
+
 }
 
 function createFile(name, path, size = 0) {
+
     return {
         name,
         path,
         type: "file",
         size
     };
+
 }
 
-function buildRepositoryTree(items) {
 
-    const root = createFolder(ROOT_FOLDER, ROOT_FOLDER);
+/* ==================================
+   BUILD BOTH REPOSITORY TREES
+================================== */
+
+function buildRepositoryTrees(items) {
+
+    const roots = ROOT_FOLDERS.map(config => ({
+        config,
+        tree: createFolder(
+            config.name,
+            config.path,
+            config.icon
+        )
+    }));
 
     items.forEach(item => {
 
-        if (!item.path.startsWith(ROOT_FOLDER + "/")) {
-            return;
-        }
+        const rootEntry = roots.find(entry =>
+            item.path === entry.config.path ||
+            item.path.startsWith(entry.config.path + "/")
+        );
 
-        const parts = item.path.split("/");
+        if (!rootEntry) return;
 
-        let current = root;
+        if (item.path === rootEntry.config.path) return;
 
-        for (let i = 1; i < parts.length; i++) {
+        const relativePath = item.path.slice(
+            rootEntry.config.path.length + 1
+        );
+
+        if (!relativePath) return;
+
+        const parts = relativePath.split("/");
+
+        let current = rootEntry.tree;
+
+        for (let i = 0; i < parts.length; i++) {
 
             const part = parts[i];
 
-            const currentPath = parts
-                .slice(0, i + 1)
-                .join("/");
+            const currentPath = [
+                rootEntry.config.path,
+                ...parts.slice(0, i + 1)
+            ].join("/");
 
             const isLast = i === parts.length - 1;
 
@@ -782,22 +859,27 @@ function buildRepositoryTree(items) {
             } else {
 
                 if (!current.children[part]) {
+
                     current.children[part] =
                         createFolder(part, currentPath);
+
                 }
 
                 current = current.children[part];
+
             }
+
         }
 
     });
 
-    return root;
+    return roots;
+
 }
 
 
 /* ==================================
-   COUNT FILES INSIDE FOLDERS
+   COUNT FILES
 ================================== */
 
 function countFiles(folder) {
@@ -815,6 +897,16 @@ function countFiles(folder) {
     });
 
     return total;
+
+}
+
+function getTotalFiles() {
+
+    return repositoryTrees.reduce(
+        (sum, entry) => sum + countFiles(entry.tree),
+        0
+    );
+
 }
 
 
@@ -832,7 +924,9 @@ function sortedChildren(folder) {
             }
 
             return a.name.localeCompare(b.name);
+
         });
+
 }
 
 
@@ -845,34 +939,44 @@ function getFileIcon(name) {
     const ext = getFileExtension(name);
 
     const icons = {
+
         html: "🌐",
         htm: "🌐",
+
         pdf: "📕",
+
         jpg: "🖼️",
         jpeg: "🖼️",
         png: "🖼️",
         webp: "🖼️",
         gif: "🖼️",
         svg: "🖼️",
+
         txt: "📄",
         md: "📝",
+
         css: "🎨",
         js: "⚙️",
         json: "📋",
+
         doc: "📘",
         docx: "📘",
+
         xls: "📗",
         xlsx: "📗",
+
         ppt: "📙",
         pptx: "📙"
+
     };
 
     return icons[ext] || "📄";
+
 }
 
 
 /* ==================================
-   RENDER ROOT AND TREE
+   RENDER BOTH ROOT FOLDERS
 ================================== */
 
 function renderTree() {
@@ -882,35 +986,71 @@ function renderTree() {
 
     container.innerHTML = "";
 
-    if (!repositoryTree) {
-        container.innerHTML =
-            `<div class="empty-state">No folders available.</div>`;
+    if (!repositoryTrees.length) {
+
+        container.innerHTML = `
+            <div class="empty-state">
+                No folders available.
+            </div>
+        `;
+
         return;
+
     }
 
-    const rootLabel = document.createElement("div");
+    repositoryTrees.forEach(entry => {
 
-    rootLabel.className = "root-label";
+        const root = entry.tree;
 
-    rootLabel.innerHTML = `
-        <span class="root-icon">📚</span>
-        <span>${escapeHTML(ROOT_FOLDER.toUpperCase())}</span>
-        <span style="margin-left:auto;font-size:10px">
-            ${countFiles(repositoryTree)} files
-        </span>
-    `;
+        const section = document.createElement("div");
 
-    container.appendChild(rootLabel);
+        section.className = "root-section";
 
-    const rootChildren = document.createElement("div");
+        const row = document.createElement("div");
 
-    rootChildren.className = "root-children";
+        row.className = "root-row";
 
-    sortedChildren(repositoryTree).forEach(item => {
-        rootChildren.appendChild(createNode(item, false));
+        row.innerHTML = `
+            <span class="root-arrow">›</span>
+            <span class="root-icon">${entry.config.icon}</span>
+            <span class="root-name">${escapeHTML(root.name)}</span>
+            <span class="root-count">${countFiles(root)}</span>
+        `;
+
+        const children = document.createElement("div");
+
+        children.className = "children";
+
+        const inner = document.createElement("div");
+
+        inner.className = "children-inner";
+
+        sortedChildren(root).forEach(item => {
+
+            inner.appendChild(createNode(item));
+
+        });
+
+        children.appendChild(inner);
+
+        row.addEventListener("click", () => {
+
+            const isOpen =
+                children.classList.toggle("open");
+
+            row.classList.toggle("expanded", isOpen);
+
+            row.querySelector(".root-icon").textContent =
+                isOpen ? "📂" : entry.config.icon;
+
+        });
+
+        section.appendChild(row);
+        section.appendChild(children);
+
+        container.appendChild(section);
+
     });
-
-    container.appendChild(rootChildren);
 
 }
 
@@ -919,7 +1059,7 @@ function renderTree() {
    CREATE FOLDER / FILE NODE
 ================================== */
 
-function createNode(item, initiallyOpen = false) {
+function createNode(item) {
 
     const node = document.createElement("div");
 
@@ -929,9 +1069,7 @@ function createNode(item, initiallyOpen = false) {
 
     row.className = "node-row";
 
-    const isFolder = item.type === "folder";
-
-    if (isFolder) {
+    if (item.type === "folder") {
 
         const total = countFiles(item);
 
@@ -951,16 +1089,12 @@ function createNode(item, initiallyOpen = false) {
         inner.className = "children-inner";
 
         sortedChildren(item).forEach(child => {
+
             inner.appendChild(createNode(child));
+
         });
 
         children.appendChild(inner);
-
-        if (initiallyOpen) {
-            children.classList.add("open");
-            row.classList.add("expanded");
-            row.querySelector(".node-icon").textContent = "📂";
-        }
 
         row.addEventListener("click", () => {
 
@@ -986,7 +1120,9 @@ function createNode(item, initiallyOpen = false) {
         `;
 
         row.addEventListener("click", () => {
+
             openFile(item, row);
+
         });
 
         node.appendChild(row);
@@ -994,11 +1130,12 @@ function createNode(item, initiallyOpen = false) {
     }
 
     return node;
+
 }
 
 
 /* ==================================
-   OPEN FILE IN PREVIEW
+   OPEN FILE
 ================================== */
 
 async function openFile(file, clickedRow) {
@@ -1013,14 +1150,25 @@ async function openFile(file, clickedRow) {
 
     clickedRow.classList.add("selected-file");
 
-    const title = document.getElementById("currentTitle");
-    const path = document.getElementById("currentPath");
-    const previewTitle = document.getElementById("previewTitle");
-    const preview = document.getElementById("previewContent");
-    const openButton = document.getElementById("openFileBtn");
+    const title =
+        document.getElementById("currentTitle");
+
+    const path =
+        document.getElementById("currentPath");
+
+    const previewTitle =
+        document.getElementById("previewTitle");
+
+    const preview =
+        document.getElementById("previewContent");
+
+    const openButton =
+        document.getElementById("openFileBtn");
 
     title.textContent = file.name;
+
     path.textContent = file.path;
+
     previewTitle.textContent = file.name;
 
     openButton.style.display = "block";
@@ -1032,11 +1180,16 @@ async function openFile(file, clickedRow) {
     `;
 
     const ext = getFileExtension(file.name);
+
     const url = getRawURL(file.path);
 
     try {
 
-        if (["jpg", "jpeg", "png", "gif", "webp", "svg"].includes(ext)) {
+        /* IMAGE */
+
+        if ([
+            "jpg", "jpeg", "png", "gif", "webp", "svg"
+        ].includes(ext)) {
 
             preview.innerHTML = `
                 <div style="
@@ -1047,22 +1200,32 @@ async function openFile(file, clickedRow) {
                     justify-content:center;
                     padding:20px;
                 ">
-                    <img src="${url}" alt="${escapeHTML(file.name)}">
+                    <img
+                        src="${url}"
+                        alt="${escapeHTML(file.name)}"
+                    >
                 </div>
             `;
 
         }
 
+        /* PDF */
+
         else if (ext === "pdf") {
 
-            preview.innerHTML = `
-                <iframe
-                    src="${url}"
-                    title="${escapeHTML(file.name)}">
-                </iframe>
-            `;
+            const frame = document.createElement("iframe");
+
+            frame.src = url;
+
+            frame.title = file.name;
+
+            preview.innerHTML = "";
+
+            preview.appendChild(frame);
 
         }
+
+        /* HTML */
 
         else if (["html", "htm"].includes(ext)) {
 
@@ -1075,7 +1238,10 @@ async function openFile(file, clickedRow) {
             let html = await response.text();
 
             const baseURL =
-                RAW_URL + file.path.split("/").slice(0, -1).join("/") + "/";
+                RAW_URL +
+                file.path.split("/").slice(0, -1)
+                    .map(part => encodeURIComponent(part))
+                    .join("/") + "/";
 
             const baseTag =
                 `<base href="${escapeHTML(baseURL)}">`;
@@ -1111,9 +1277,11 @@ async function openFile(file, clickedRow) {
 
         }
 
-        else if (
-            ["txt", "md", "css", "js", "json", "xml", "csv"].includes(ext)
-        ) {
+        /* TEXT FILES */
+
+        else if ([
+            "txt", "md", "css", "js", "json", "xml", "csv"
+        ].includes(ext)) {
 
             const response = await fetch(url);
 
@@ -1131,15 +1299,19 @@ async function openFile(file, clickedRow) {
 
         }
 
+        /* OTHER FILES */
+
         else {
 
             preview.innerHTML = `
                 <div class="welcome">
                     <div class="welcome-icon">📄</div>
+
                     <h2>${escapeHTML(file.name)}</h2>
+
                     <p>
                         Preview is not available for this file type.
-                        You can open the original file from GitHub.
+                        Open the original file from GitHub.
                     </p>
                 </div>
             `;
@@ -1147,8 +1319,11 @@ async function openFile(file, clickedRow) {
         }
 
         if (window.innerWidth <= 700) {
-            document.getElementById("sidebar")
+
+            document
+                .getElementById("sidebar")
                 .classList.remove("mobile-open");
+
         }
 
     } catch (error) {
@@ -1157,9 +1332,6 @@ async function openFile(file, clickedRow) {
             <div class="preview-message">
                 <h3>Unable to display this file</h3>
                 <p>${escapeHTML(error.message)}</p>
-                <p style="margin-top:10px">
-                    Check the GitHub file and try again.
-                </p>
             </div>
         `;
 
@@ -1184,25 +1356,23 @@ function openOriginalFile() {
 }
 
 function openOnGitHub() {
+
     window.open(GITHUB_URL, "_blank");
+
 }
 
 
 /* ==================================
-   SEARCH TREE
+   SEARCH BOTH ROOT FOLDERS
 ================================== */
 
 function searchTree(query) {
 
     const value = query.trim().toLowerCase();
 
-    const nodes = document.querySelectorAll(
-        "#treeContainer .node"
+    const sections = document.querySelectorAll(
+        "#treeContainer .root-section"
     );
-
-    nodes.forEach(node => {
-        node.style.display = "";
-    });
 
     if (!value) {
 
@@ -1213,29 +1383,49 @@ function searchTree(query) {
         });
 
         document.querySelectorAll(
-            "#treeContainer .node-row.expanded"
+            "#treeContainer .root-row, #treeContainer .node-row"
         ).forEach(row => {
+
             row.classList.remove("expanded");
 
-            const icon = row.querySelector(".node-icon");
+            const icon = row.querySelector(
+                ".node-icon, .root-icon"
+            );
 
-            if (icon) icon.textContent = "📁";
+            if (icon) {
+                icon.textContent =
+                    row.classList.contains("root-row")
+                        ? (row.closest(".root-section")?.dataset.icon || "📁")
+                        : "📁";
+            }
+
+        });
+
+        sections.forEach(section => {
+            section.style.display = "";
+        });
+
+        document.querySelectorAll(
+            "#treeContainer .node"
+        ).forEach(node => {
+            node.style.display = "";
         });
 
         return;
+
     }
 
     function filterNode(node) {
 
-        const row = node.querySelector(":scope > .node-row");
+        const row =
+            node.querySelector(":scope > .node-row");
 
         if (!row) return false;
 
-        const nameElement =
-            row.querySelector(".node-name");
+        const name =
+            row.querySelector(".node-name").textContent.toLowerCase();
 
-        const ownMatch =
-            nameElement.textContent.toLowerCase().includes(value);
+        const ownMatch = name.includes(value);
 
         const children =
             node.querySelector(":scope > .children");
@@ -1249,21 +1439,20 @@ function searchTree(query) {
 
             Array.from(inner.children).forEach(child => {
 
-                const matched = filterNode(child);
-
-                if (matched) childMatch = true;
+                if (filterNode(child)) {
+                    childMatch = true;
+                }
 
             });
 
-            const shouldOpen = childMatch;
+            children.classList.toggle("open", childMatch);
 
-            children.classList.toggle("open", shouldOpen);
-            row.classList.toggle("expanded", shouldOpen);
+            row.classList.toggle("expanded", childMatch);
 
             const icon = row.querySelector(".node-icon");
 
             if (icon) {
-                icon.textContent = shouldOpen ? "📂" : "📁";
+                icon.textContent = childMatch ? "📂" : "📁";
             }
 
         }
@@ -1273,16 +1462,49 @@ function searchTree(query) {
         node.style.display = visible ? "" : "none";
 
         return visible;
+
     }
 
-    const rootChildren =
-        document.querySelector(".root-children");
+    sections.forEach(section => {
 
-    if (rootChildren) {
-        Array.from(rootChildren.children).forEach(node => {
-            filterNode(node);
+        const rootRow =
+            section.querySelector(":scope > .root-row");
+
+        const rootChildren =
+            section.querySelector(":scope > .children");
+
+        const inner =
+            rootChildren.querySelector(":scope > .children-inner");
+
+        const rootName =
+            rootRow.querySelector(".root-name")
+                .textContent.toLowerCase();
+
+        let childMatch = false;
+
+        Array.from(inner.children).forEach(node => {
+
+            if (filterNode(node)) {
+                childMatch = true;
+            }
+
         });
-    }
+
+        const ownMatch = rootName.includes(value);
+
+        const visible = ownMatch || childMatch;
+
+        section.style.display = visible ? "" : "none";
+
+        rootChildren.classList.toggle("open", childMatch);
+
+        rootRow.classList.toggle("expanded", childMatch);
+
+        rootRow.querySelector(".root-icon").textContent =
+            childMatch ? "📂" :
+            section.dataset.icon || "📁";
+
+    });
 
 }
 
@@ -1307,12 +1529,17 @@ function toggleAll() {
     });
 
     document.querySelectorAll(
-        "#treeContainer .node-row"
+        "#treeContainer .root-row, #treeContainer .node-row"
     ).forEach(row => {
 
-        const arrow = row.querySelector(".arrow");
+        const arrow = row.querySelector(".arrow, .root-arrow");
 
-        if (!arrow || arrow.style.visibility === "hidden") {
+        if (!arrow) return;
+
+        if (
+            row.classList.contains("node-row") &&
+            arrow.style.visibility === "hidden"
+        ) {
             return;
         }
 
@@ -1321,11 +1548,31 @@ function toggleAll() {
             allFoldersExpanded
         );
 
-        const icon = row.querySelector(".node-icon");
+        const icon = row.querySelector(
+            ".node-icon, .root-icon"
+        );
 
         if (icon) {
-            icon.textContent =
-                allFoldersExpanded ? "📂" : "📁";
+
+            if (row.classList.contains("root-row")) {
+
+                const section =
+                    row.closest(".root-section");
+
+                const rootName =
+                    section.querySelector(".root-name").textContent;
+
+                icon.textContent =
+                    allFoldersExpanded ? "📂" :
+                    (rootName === "BPSC" ? "📚" : "📖");
+
+            } else {
+
+                icon.textContent =
+                    allFoldersExpanded ? "📂" : "📁";
+
+            }
+
         }
 
     });
@@ -1364,32 +1611,38 @@ async function loadRepository() {
     try {
 
         const response = await fetch(API_URL, {
+
             headers: {
                 "Accept": "application/vnd.github+json"
             }
+
         });
 
         if (!response.ok) {
+
             throw new Error(
                 "GitHub API error: " + response.status
             );
+
         }
 
         const data = await response.json();
 
         if (data.truncated) {
+
             throw new Error(
                 "Repository tree is too large for one GitHub response."
             );
+
         }
 
         const items = data.tree || [];
 
-        repositoryTree = buildRepositoryTree(items);
+        repositoryTrees = buildRepositoryTrees(items);
 
         renderTree();
 
-        const totalFiles = countFiles(repositoryTree);
+        const totalFiles = getTotalFiles();
 
         document.getElementById("fileStats").textContent =
             totalFiles + " files";
@@ -1400,11 +1653,16 @@ async function loadRepository() {
 
         container.innerHTML = `
             <div class="empty-state">
-                <div style="font-size:25px;margin-bottom:10px">⚠️</div>
+                <div style="font-size:25px;margin-bottom:10px">
+                    ⚠️
+                </div>
+
                 <strong>Unable to load folders</strong>
+
                 <p style="margin-top:8px">
                     ${escapeHTML(error.message)}
                 </p>
+
                 <button
                     class="action-btn"
                     style="margin-top:15px"
