@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,8 +16,6 @@
     --primary-light:#eaf0ff;
     --border:#dce3ef;
     --yellow:#fff176;
-    --green:#e8f5e9;
-    --red:#ffebee;
     --shadow:0 4px 18px rgba(20,40,80,.07);
 }
 
@@ -24,7 +23,7 @@
 
 html{
     scroll-behavior:smooth;
-    scroll-padding-top:90px;
+    scroll-padding-top:75px;
 }
 
 body{
@@ -42,8 +41,8 @@ body{
     z-index:1000;
     display:flex;
     align-items:center;
-    gap:12px;
-    padding:12px 18px;
+    gap:10px;
+    padding:12px 16px;
     background:#172b4d;
     color:white;
     box-shadow:0 3px 12px rgba(0,0,0,.18);
@@ -51,26 +50,24 @@ body{
 
 .topbar h1{
     margin:0;
-    font-size:17px;
+    font-size:16px;
     flex:1;
 }
 
 .top-button{
     border:none;
     border-radius:7px;
-    padding:9px 13px;
+    padding:9px 12px;
     cursor:pointer;
-    background:#ffffff;
+    background:white;
     color:#172b4d;
     font-weight:bold;
-    font-size:13px;
+    font-size:12px;
 }
 
-.top-button:hover{
-    background:#dce7ff;
-}
+.top-button:hover{background:#dce7ff}
 
-/* MAIN LAYOUT */
+/* LAYOUT */
 .layout{
     display:flex;
     min-height:calc(100vh - 55px);
@@ -78,21 +75,19 @@ body{
 
 /* SIDEBAR */
 .sidebar{
-    width:300px;
-    min-width:300px;
+    width:290px;
+    min-width:290px;
     height:calc(100vh - 55px);
     position:sticky;
     top:55px;
     overflow-y:auto;
-    background:var(--panel);
+    background:white;
     border-right:1px solid var(--border);
     padding:17px;
     transition:all .3s ease;
 }
 
-.sidebar.hidden{
-    display:none;
-}
+.sidebar.hidden{display:none}
 
 .sidebar h2{
     font-size:19px;
@@ -107,7 +102,7 @@ body{
     border-radius:8px;
     outline:none;
     font-size:14px;
-    margin-bottom:12px;
+    margin-bottom:10px;
 }
 
 .search-box:focus{
@@ -118,7 +113,7 @@ body{
 .search-info{
     font-size:12px;
     color:var(--muted);
-    margin-bottom:12px;
+    margin-bottom:14px;
 }
 
 .sidebar-controls{
@@ -139,48 +134,22 @@ body{
     font-size:12px;
 }
 
-.toc-list{
-    list-style:none;
-    padding:0;
-    margin:0;
-}
-
-.toc-list li{
-    margin-bottom:4px;
-}
-
-.toc-list a{
-    display:block;
-    text-decoration:none;
-    color:var(--text);
-    padding:8px 10px;
-    border-radius:6px;
-    font-size:13px;
-    border-left:3px solid transparent;
-}
-
-.toc-list a:hover,
-.toc-list a.active{
-    background:var(--primary-light);
-    color:var(--primary);
-    border-left-color:var(--primary);
-}
-
-/* CONTENT */
+/* MAIN CONTENT */
 .content{
     flex:1;
     min-width:0;
-    max-width:1200px;
+    max-width:1250px;
     margin:auto;
     padding:25px;
 }
 
+/* HERO */
 .hero{
     background:linear-gradient(135deg,#183b72,#2874c7);
     color:white;
     padding:35px 28px;
     border-radius:14px;
-    margin-bottom:24px;
+    margin-bottom:22px;
     box-shadow:var(--shadow);
 }
 
@@ -190,10 +159,7 @@ body{
     line-height:1.3;
 }
 
-.hero p{
-    margin:6px 0;
-    color:#e5edff;
-}
+.hero p{margin:6px 0;color:#e5edff}
 
 .hero img{
     width:100%;
@@ -217,15 +183,80 @@ body{
     font-size:12px;
 }
 
+/* TABLE OF CONTENTS AT PAGE START */
+.toc-container{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:12px;
+    margin-bottom:22px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+}
+
+.toc-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:15px 20px;
+    background:#eaf0ff;
+}
+
+.toc-header h2{
+    margin:0;
+    color:#244d8d;
+    font-size:19px;
+}
+
+.toc-header button{
+    border:none;
+    background:var(--primary);
+    color:white;
+    width:34px;
+    height:34px;
+    border-radius:7px;
+    font-size:21px;
+    cursor:pointer;
+}
+
+.toc-content{padding:18px}
+
+.toc-content.hidden{display:none}
+
+.toc-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:9px;
+}
+
+.toc-grid a{
+    display:block;
+    text-decoration:none;
+    color:#263b5e;
+    background:#f5f8ff;
+    padding:10px 12px;
+    border-radius:7px;
+    border-left:3px solid #3976d7;
+    font-size:14px;
+    transition:.2s;
+}
+
+.toc-grid a:hover,
+.toc-grid a.active{
+    background:#dce8ff;
+    color:#1749a5;
+    border-left-color:#1749a5;
+    transform:translateX(2px);
+}
+
 /* SECTIONS */
 .section{
-    background:var(--panel);
+    background:white;
     border:1px solid var(--border);
     border-radius:11px;
     margin-bottom:17px;
     overflow:hidden;
     box-shadow:var(--shadow);
-    scroll-margin-top:80px;
+    scroll-margin-top:75px;
 }
 
 .section-heading{
@@ -259,13 +290,8 @@ body{
     flex-shrink:0;
 }
 
-.section-body{
-    padding:20px;
-}
-
-.section-body.collapsed{
-    display:none;
-}
+.section-body{padding:20px}
+.section-body.collapsed{display:none}
 
 .section-body h3{
     color:#244d8d;
@@ -274,45 +300,30 @@ body{
     margin-bottom:8px;
 }
 
-.section-body h3:first-child{
-    margin-top:0;
-}
+.section-body h3:first-child{margin-top:0}
+.section-body p{margin:9px 0}
+.section-body ul,.section-body ol{padding-left:25px}
+.section-body li{margin-bottom:7px}
 
-.section-body p{
-    margin:9px 0;
-}
-
-.section-body ul,
-.section-body ol{
-    padding-left:25px;
-}
-
-.section-body li{
-    margin-bottom:7px;
+.info-box,.green-box,.warning-box{
+    padding:13px 15px;
+    margin:15px 0;
+    border-radius:5px;
 }
 
 .info-box{
     background:#edf4ff;
     border-left:4px solid #3976d7;
-    padding:13px 15px;
-    margin:15px 0;
-    border-radius:5px;
 }
 
 .green-box{
-    background:var(--green);
+    background:#e8f5e9;
     border-left:4px solid #3c9a51;
-    padding:13px 15px;
-    margin:15px 0;
-    border-radius:5px;
 }
 
 .warning-box{
     background:#fff5e5;
     border-left:4px solid #e5a12b;
-    padding:13px 15px;
-    margin:15px 0;
-    border-radius:5px;
 }
 
 .note-image{
@@ -346,24 +357,8 @@ th,td{
     vertical-align:top;
 }
 
-th{
-    background:#eaf0ff;
-    color:#1c3f78;
-}
-
-tr:nth-child(even){
-    background:#fafcff;
-}
-
-.tag{
-    display:inline-block;
-    background:#eaf0ff;
-    color:#2457c5;
-    padding:3px 8px;
-    border-radius:5px;
-    font-size:12px;
-    font-weight:bold;
-}
+th{background:#eaf0ff;color:#1c3f78}
+tr:nth-child(even){background:#fafcff}
 
 hr{
     border:none;
@@ -402,10 +397,9 @@ mark.search-highlight{
     border-radius:2px;
 }
 
-.search-current{
+mark.search-current{
     outline:3px solid #f0a000;
     outline-offset:2px;
-    border-radius:3px;
 }
 
 /* RESPONSIVE */
@@ -419,69 +413,35 @@ mark.search-highlight{
         box-shadow:5px 0 20px rgba(0,0,0,.12);
     }
 
-    .sidebar.hidden{
-        display:none;
-    }
+    .sidebar.hidden{display:none}
 
-    .content{
-        padding:13px;
-    }
-
-    .hero{
-        padding:24px 18px;
-    }
-
-    .hero h2{
-        font-size:23px;
-    }
-
-    .section-heading h2{
-        font-size:16px;
-    }
-
-    .section-body{
-        padding:15px;
-    }
-
-    .topbar h1{
-        font-size:13px;
-    }
-
-    .top-button{
-        padding:8px;
-        font-size:11px;
-    }
+    .content{padding:13px}
+    .hero{padding:24px 18px}
+    .hero h2{font-size:23px}
+    .section-heading h2{font-size:16px}
+    .section-body{padding:15px}
+    .topbar h1{font-size:12px}
+    .top-button{padding:8px;font-size:10px}
+    .toc-grid{grid-template-columns:1fr}
 
     table{
         display:block;
         overflow-x:auto;
-        white-space:normal;
     }
 }
 
 /* PRINT */
 @media print{
-    body{
-        background:white;
-        color:black;
-    }
+    body{background:white;color:black}
 
-    .topbar,
-    .sidebar,
-    .back-top,
-    .sidebar-controls,
-    .toggle-icon{
+    .topbar,.sidebar,.back-top,
+    .sidebar-controls,.toggle-icon,
+    .toc-header button{
         display:none!important;
     }
 
-    .layout{
-        display:block;
-    }
-
-    .content{
-        max-width:100%;
-        padding:0;
-    }
+    .layout{display:block}
+    .content{max-width:100%;padding:0}
 
     .section{
         box-shadow:none;
@@ -490,13 +450,12 @@ mark.search-highlight{
     }
 
     .section-body,
-    .section-body.collapsed{
+    .section-body.collapsed,
+    .toc-content.hidden{
         display:block!important;
     }
 
-    .section-heading{
-        background:#eee!important;
-    }
+    .section-heading{background:#eee!important}
 
     .hero{
         background:#eee!important;
@@ -504,14 +463,10 @@ mark.search-highlight{
         box-shadow:none;
     }
 
-    .hero p{
-        color:black;
-    }
+    .hero p{color:black}
 
-    mark.search-highlight{
-        background:transparent;
-        color:black;
-    }
+    .toc-container{box-shadow:none}
+    mark.search-highlight{background:transparent;color:black}
 }
 </style>
 </head>
@@ -519,7 +474,7 @@ mark.search-highlight{
 <body>
 
 <header class="topbar">
-    <button class="top-button" id="sidebarToggle" onclick="toggleSidebar()">☰ Menu</button>
+    <button class="top-button" onclick="toggleSidebar()">☰ Search</button>
     <h1>CLASS 10 GEOGRAPHY | WATER RESOURCES</h1>
     <button class="top-button" onclick="expandAll()">Expand All</button>
     <button class="top-button" onclick="collapseAll()">Collapse All</button>
@@ -528,10 +483,10 @@ mark.search-highlight{
 
 <div class="layout">
 
-<!-- LEFT SIDEBAR -->
+<!-- SIDEBAR: SEARCH ONLY -->
 <aside class="sidebar" id="sidebar">
 
-    <h2>Chapter Contents</h2>
+    <h2>Search Content</h2>
 
     <input
         type="search"
@@ -547,40 +502,59 @@ mark.search-highlight{
     </div>
 
     <div class="sidebar-controls">
-        <button class="small-button" onclick="expandAll()">Expand All</button>
-        <button class="small-button" onclick="collapseAll()">Collapse All</button>
-        <button class="small-button" onclick="clearSearch()">Clear Search</button>
+        <button class="small-button" onclick="nextSearchResult()">Next</button>
+        <button class="small-button" onclick="clearSearch()">Clear</button>
     </div>
 
-    <ul class="toc-list" id="tocList">
-        <li><a href="#section1">1. Introduction</a></li>
-        <li><a href="#section2">2. Importance of Water</a></li>
-        <li><a href="#section3">3. Water Scarcity</a></li>
-        <li><a href="#section4">4. Causes of Water Scarcity</a></li>
-        <li><a href="#section5">5. Water Resources in India</a></li>
-        <li><a href="#section6">6. Availability of Fresh Water</a></li>
-        <li><a href="#section7">7. Multipurpose River Projects</a></li>
-        <li><a href="#section8">8. Dams and Their Uses</a></li>
-        <li><a href="#section9">9. Historical Background of Dams</a></li>
-        <li><a href="#section10">10. Jawaharlal Nehru's View</a></li>
-        <li><a href="#section11">11. Benefits of Multipurpose Projects</a></li>
-        <li><a href="#section12">12. Problems Associated with Dams</a></li>
-        <li><a href="#section13">13. Social and Environmental Impact</a></li>
-        <li><a href="#section14">14. Opposition to Large Dams</a></li>
-        <li><a href="#section15">15. Rainwater Harvesting</a></li>
-        <li><a href="#section16">16. Traditional Water Harvesting</a></li>
-        <li><a href="#section17">17. Rooftop Rainwater Harvesting</a></li>
-        <li><a href="#section18">18. Rainwater Harvesting in Rajasthan</a></li>
-        <li><a href="#section19">19. Tamil Nadu and Other Examples</a></li>
-        <li><a href="#section20">20. Important Questions and Revision</a></li>
-        <li><a href="#exercise">NCERT Exercise Answers</a></li>
-    </ul>
+    <div class="info-box">
+        <strong>Search Instructions</strong>
+        <p>Type any keyword. Matching words will be highlighted in yellow in the notes.</p>
+        <p>Press Enter or Next to move between matching results.</p>
+    </div>
 
 </aside>
 
 <!-- MAIN CONTENT -->
 <main class="content">
 
+<!-- TABLE OF CONTENTS AT THE BEGINNING -->
+<div class="toc-container" id="tocContainer">
+
+    <div class="toc-header">
+        <h2>📚 Table of Contents</h2>
+        <button id="tocToggle" onclick="toggleTOC()">−</button>
+    </div>
+
+    <div class="toc-content" id="tocContent">
+        <div class="toc-grid">
+
+            <a href="#section1">1. Introduction</a>
+            <a href="#section2">2. Importance of Water</a>
+            <a href="#section3">3. Water Scarcity</a>
+            <a href="#section4">4. Causes of Water Scarcity</a>
+            <a href="#section5">5. Water Resources in India</a>
+            <a href="#section6">6. Availability of Fresh Water</a>
+            <a href="#section7">7. Multipurpose River Projects</a>
+            <a href="#section8">8. Dams and Their Uses</a>
+            <a href="#section9">9. Historical Background of Dams</a>
+            <a href="#section10">10. Jawaharlal Nehru's View</a>
+            <a href="#section11">11. Benefits of Multipurpose Projects</a>
+            <a href="#section12">12. Problems Associated with Dams</a>
+            <a href="#section13">13. Social and Environmental Impact</a>
+            <a href="#section14">14. Opposition to Large Dams</a>
+            <a href="#section15">15. Rainwater Harvesting</a>
+            <a href="#section16">16. Traditional Water Harvesting</a>
+            <a href="#section17">17. Rooftop Rainwater Harvesting</a>
+            <a href="#section18">18. Rainwater Harvesting in Rajasthan</a>
+            <a href="#section19">19. Tamil Nadu and Other Examples</a>
+            <a href="#section20">20. Important Questions and Revision</a>
+            <a href="#exercise">21. NCERT Exercise Answers</a>
+
+        </div>
+    </div>
+</div>
+
+<!-- CHAPTER BANNER -->
 <div class="hero">
     <h2>Chapter 3: Water Resources</h2>
     <p><strong>Class 10 – Contemporary India II</strong></p>
@@ -602,955 +576,849 @@ mark.search-highlight{
 
 <!-- SECTION 1 -->
 <section class="section" id="section1">
-    <div class="section-heading" onclick="toggleSection(this)">
-        <h2>1. Introduction to Water Resources</h2>
-        <span class="toggle-icon">−</span>
-    </div>
+<div class="section-heading" onclick="toggleSection(this)">
+    <h2>1. Introduction to Water Resources</h2>
+    <span class="toggle-icon">−</span>
+</div>
+<div class="section-body">
 
-    <div class="section-body">
-        <p>Water is one of the most important natural resources on Earth. All living organisms require water for their survival. Human beings depend on water for drinking, agriculture, industries, transportation and several other activities.</p>
+<p>Water is one of the most important natural resources on Earth. All living organisms require water for their survival. Human beings depend on water for drinking, agriculture, industries, transportation and several other activities.</p>
 
-        <p>Although approximately three-fourths of the Earth's surface is covered with water, only a small proportion of it is available as usable freshwater.</p>
+<p>Although approximately three-fourths of the Earth's surface is covered with water, only a small proportion of it is available as usable freshwater.</p>
 
-        <div class="info-box">
-            <strong>Important Concept:</strong> Water is a renewable resource because it is continuously replenished through the hydrological cycle. However, freshwater availability is limited and unevenly distributed.
-        </div>
+<div class="info-box">
+<strong>Important Concept:</strong> Water is a renewable resource because it is continuously replenished through the hydrological cycle. However, freshwater availability is limited and unevenly distributed.
+</div>
 
-        <h3>Major Sources of Water</h3>
-        <ul>
-            <li>Rivers and streams</li>
-            <li>Lakes and ponds</li>
-            <li>Groundwater</li>
-            <li>Glaciers and snowfields</li>
-            <li>Rainwater</li>
-            <li>Reservoirs and tanks</li>
-        </ul>
+<h3>Major Sources of Water</h3>
+<ul>
+<li>Rivers and streams</li>
+<li>Lakes and ponds</li>
+<li>Groundwater</li>
+<li>Glaciers and snowfields</li>
+<li>Rainwater</li>
+<li>Reservoirs and tanks</li>
+</ul>
 
-        <h3>Hydrological Cycle</h3>
-        <p>The continuous movement of water between the oceans, atmosphere and land is known as the hydrological cycle or water cycle.</p>
+<h3>Hydrological Cycle</h3>
+<p>The continuous movement of water between the oceans, atmosphere and land is known as the hydrological cycle or water cycle.</p>
 
-        <img class="note-image"
-             src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Water_cycle.png"
-             alt="Hydrological cycle">
+<img class="note-image" src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Water_cycle.png" alt="Hydrological cycle">
 
-        <h3>Main Processes of the Water Cycle</h3>
-        <ol>
-            <li><strong>Evaporation:</strong> Water changes into water vapour due to the heat of the Sun.</li>
-            <li><strong>Transpiration:</strong> Plants release water vapour into the atmosphere.</li>
-            <li><strong>Condensation:</strong> Water vapour cools and forms tiny water droplets and clouds.</li>
-            <li><strong>Precipitation:</strong> Water falls to the Earth's surface as rain, snow or hail.</li>
-            <li><strong>Runoff:</strong> Water flows over the land into rivers, lakes and oceans.</li>
-            <li><strong>Infiltration:</strong> Some water enters the soil and replenishes groundwater.</li>
-        </ol>
-    </div>
+<h3>Main Processes of the Water Cycle</h3>
+<ol>
+<li><strong>Evaporation:</strong> Water changes into water vapour due to the heat of the Sun.</li>
+<li><strong>Transpiration:</strong> Plants release water vapour into the atmosphere.</li>
+<li><strong>Condensation:</strong> Water vapour cools and forms tiny water droplets and clouds.</li>
+<li><strong>Precipitation:</strong> Water falls to the Earth's surface as rain, snow or hail.</li>
+<li><strong>Runoff:</strong> Water flows over the land into rivers, lakes and oceans.</li>
+<li><strong>Infiltration:</strong> Some water enters the soil and replenishes groundwater.</li>
+</ol>
+
+</div>
 </section>
 
 <!-- SECTION 2 -->
 <section class="section" id="section2">
-    <div class="section-heading" onclick="toggleSection(this)">
-        <h2>2. Importance of Water Resources</h2>
-        <span class="toggle-icon">−</span>
-    </div>
+<div class="section-heading" onclick="toggleSection(this)">
+    <h2>2. Importance of Water Resources</h2>
+    <span class="toggle-icon">−</span>
+</div>
+<div class="section-body">
 
-    <div class="section-body">
-        <p>Water plays a significant role in the development of human society and the economy. It is essential for both natural ecosystems and human activities.</p>
+<p>Water plays a significant role in the development of human society and the economy. It is essential for both natural ecosystems and human activities.</p>
 
-        <h3>A. Domestic Uses</h3>
-        <ul>
-            <li>Drinking and cooking</li>
-            <li>Bathing and washing</li>
-            <li>Cleaning and sanitation</li>
-            <li>Household gardening</li>
-        </ul>
+<h3>A. Domestic Uses</h3>
+<ul>
+<li>Drinking and cooking</li>
+<li>Bathing and washing</li>
+<li>Cleaning and sanitation</li>
+<li>Household gardening</li>
+</ul>
 
-        <h3>B. Agricultural Uses</h3>
-        <ul>
-            <li>Irrigation of agricultural fields</li>
-            <li>Growing food crops</li>
-            <li>Maintaining livestock</li>
-            <li>Supporting agricultural productivity</li>
-        </ul>
+<h3>B. Agricultural Uses</h3>
+<ul>
+<li>Irrigation of agricultural fields</li>
+<li>Growing food crops</li>
+<li>Maintaining livestock</li>
+<li>Supporting agricultural productivity</li>
+</ul>
 
-        <h3>C. Industrial Uses</h3>
-        <ul>
-            <li>Manufacturing and processing</li>
-            <li>Cooling industrial machinery</li>
-            <li>Generating electricity</li>
-            <li>Cleaning and production processes</li>
-        </ul>
+<h3>C. Industrial Uses</h3>
+<ul>
+<li>Manufacturing and processing</li>
+<li>Cooling industrial machinery</li>
+<li>Generating electricity</li>
+<li>Cleaning and production processes</li>
+</ul>
 
-        <h3>D. Other Uses</h3>
-        <ul>
-            <li>Hydroelectric power generation</li>
-            <li>Navigation and transportation</li>
-            <li>Fishing and aquaculture</li>
-            <li>Tourism and recreation</li>
-            <li>Maintaining ecological balance</li>
-        </ul>
+<h3>D. Other Uses</h3>
+<ul>
+<li>Hydroelectric power generation</li>
+<li>Navigation and transportation</li>
+<li>Fishing and aquaculture</li>
+<li>Tourism and recreation</li>
+<li>Maintaining ecological balance</li>
+</ul>
 
-        <div class="green-box">
-            <strong>Key Point:</strong> Water is not only necessary for human survival but also for economic development and the maintenance of ecosystems.
-        </div>
-    </div>
+<div class="green-box">
+<strong>Key Point:</strong> Water is necessary for human survival, economic development and the maintenance of ecosystems.
+</div>
+
+</div>
 </section>
 
 <!-- SECTION 3 -->
 <section class="section" id="section3">
-    <div class="section-heading" onclick="toggleSection(this)">
-        <h2>3. Water Scarcity and the Need for Water Conservation</h2>
-        <span class="toggle-icon">−</span>
-    </div>
+<div class="section-heading" onclick="toggleSection(this)">
+    <h2>3. Water Scarcity and the Need for Water Conservation</h2>
+    <span class="toggle-icon">−</span>
+</div>
+<div class="section-body">
 
-    <div class="section-body">
-        <h3>Meaning of Water Scarcity</h3>
-        <p>Water scarcity refers to a situation in which the availability of water is insufficient to meet the demands of people, agriculture, industries and ecosystems.</p>
+<h3>Meaning of Water Scarcity</h3>
+<p>Water scarcity refers to a situation in which the availability of water is insufficient to meet the demands of people, agriculture, industries and ecosystems.</p>
 
-        <p>Water scarcity may occur due to insufficient rainfall, excessive use of water, pollution, population growth and unequal distribution of water resources.</p>
+<p>Water scarcity may occur due to insufficient rainfall, excessive use of water, pollution, population growth and unequal distribution of water resources.</p>
 
-        <h3>Why is Water Scarcity Increasing?</h3>
-        <ul>
-            <li>Rapid population growth</li>
-            <li>Urbanisation and industrialisation</li>
-            <li>Increasing demand for irrigation</li>
-            <li>Over-exploitation of groundwater</li>
-            <li>Water pollution</li>
-            <li>Unequal distribution of water resources</li>
-            <li>Changing rainfall patterns and droughts</li>
-        </ul>
+<h3>Why is Water Scarcity Increasing?</h3>
+<ul>
+<li>Rapid population growth</li>
+<li>Urbanisation and industrialisation</li>
+<li>Increasing demand for irrigation</li>
+<li>Over-exploitation of groundwater</li>
+<li>Water pollution</li>
+<li>Unequal distribution of water resources</li>
+<li>Changing rainfall patterns and droughts</li>
+</ul>
 
-        <img class="note-image"
-             src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80"
-             alt="Dry agricultural land">
+<img class="note-image" src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80" alt="Agricultural landscape">
 
-        <h3>Need for Water Conservation</h3>
-        <ol>
-            <li>To ensure water availability for future generations.</li>
-            <li>To protect ecosystems and biodiversity.</li>
-            <li>To reduce the effects of droughts.</li>
-            <li>To maintain agricultural productivity.</li>
-            <li>To prevent the depletion of groundwater.</li>
-            <li>To support sustainable development.</li>
-        </ol>
+<h3>Need for Water Conservation</h3>
+<ol>
+<li>To ensure water availability for future generations.</li>
+<li>To protect ecosystems and biodiversity.</li>
+<li>To reduce the effects of droughts.</li>
+<li>To maintain agricultural productivity.</li>
+<li>To prevent the depletion of groundwater.</li>
+<li>To support sustainable development.</li>
+</ol>
 
-        <div class="warning-box">
-            Water scarcity is not always caused by the absence of rainfall. It can also result from poor management, pollution and excessive consumption.
-        </div>
-    </div>
+<div class="warning-box">
+Water scarcity is not always caused by the absence of rainfall. It can also result from poor management, pollution and excessive consumption.
+</div>
+
+</div>
 </section>
 
 <!-- SECTION 4 -->
 <section class="section" id="section4">
-    <div class="section-heading" onclick="toggleSection(this)">
-        <h2>4. Major Causes of Water Scarcity</h2>
-        <span class="toggle-icon">−</span>
-    </div>
+<div class="section-heading" onclick="toggleSection(this)">
+    <h2>4. Major Causes of Water Scarcity</h2>
+    <span class="toggle-icon">−</span>
+</div>
+<div class="section-body">
 
-    <div class="section-body">
-        <h3>1. Population Growth</h3>
-        <p>As population increases, the demand for drinking water, food production, sanitation and other services also increases.</p>
+<h3>1. Population Growth</h3>
+<p>As population increases, the demand for drinking water, food production, sanitation and other services also increases.</p>
 
-        <h3>2. Intensive Irrigation</h3>
-        <p>Agriculture is a major consumer of freshwater. Intensive irrigation in water-intensive crops can place heavy pressure on water resources.</p>
+<h3>2. Intensive Irrigation</h3>
+<p>Agriculture is a major consumer of freshwater. Intensive irrigation in water-intensive crops can place heavy pressure on water resources.</p>
 
-        <h3>3. Industrialisation</h3>
-        <p>Industries require large quantities of water for manufacturing, cooling and processing. Industrial waste may also contaminate water sources.</p>
+<h3>3. Industrialisation</h3>
+<p>Industries require large quantities of water for manufacturing, cooling and processing. Industrial waste may also contaminate water sources.</p>
 
-        <h3>4. Urbanisation</h3>
-        <p>Growing towns and cities require more water for households, commercial establishments and infrastructure.</p>
+<h3>4. Urbanisation</h3>
+<p>Growing towns and cities require more water for households, commercial establishments and infrastructure.</p>
 
-        <h3>5. Over-exploitation of Groundwater</h3>
-        <p>Excessive extraction of groundwater through tube wells and pumps lowers the groundwater table.</p>
+<h3>5. Over-exploitation of Groundwater</h3>
+<p>Excessive extraction of groundwater through tube wells and pumps lowers the groundwater table.</p>
 
-        <h3>6. Water Pollution</h3>
-        <p>Industrial effluents, domestic sewage, agricultural chemicals and other pollutants reduce the availability of safe water.</p>
+<h3>6. Water Pollution</h3>
+<p>Industrial effluents, domestic sewage, agricultural chemicals and other pollutants reduce the availability of safe water.</p>
 
-        <h3>7. Unequal Distribution</h3>
-        <p>Water resources are not evenly distributed across regions. Some areas receive abundant rainfall while others experience drought conditions.</p>
+<h3>7. Unequal Distribution</h3>
+<p>Water resources are not evenly distributed across regions. Some areas receive abundant rainfall while others experience drought conditions.</p>
 
-        <table>
-            <tr>
-                <th>Cause</th>
-                <th>Effect</th>
-            </tr>
-            <tr>
-                <td>Population growth</td>
-                <td>Higher domestic demand</td>
-            </tr>
-            <tr>
-                <td>Intensive irrigation</td>
-                <td>Excessive groundwater extraction</td>
-            </tr>
-            <tr>
-                <td>Industrialisation</td>
-                <td>Higher consumption and pollution</td>
-            </tr>
-            <tr>
-                <td>Urbanisation</td>
-                <td>Increasing pressure on urban water supply</td>
-            </tr>
-            <tr>
-                <td>Water pollution</td>
-                <td>Reduction in usable freshwater</td>
-            </tr>
-        </table>
-    </div>
+<table>
+<tr><th>Cause</th><th>Effect</th></tr>
+<tr><td>Population growth</td><td>Higher domestic demand</td></tr>
+<tr><td>Intensive irrigation</td><td>Excessive groundwater extraction</td></tr>
+<tr><td>Industrialisation</td><td>Higher consumption and pollution</td></tr>
+<tr><td>Urbanisation</td><td>Increasing pressure on urban water supply</td></tr>
+<tr><td>Water pollution</td><td>Reduction in usable freshwater</td></tr>
+</table>
+
+</div>
 </section>
 
 <!-- SECTION 5 -->
 <section class="section" id="section5">
-    <div class="section-heading" onclick="toggleSection(this)">
-        <h2>5. Water Resources in India</h2>
-        <span class="toggle-icon">−</span>
-    </div>
+<div class="section-heading" onclick="toggleSection(this)">
+    <h2>5. Water Resources in India</h2>
+    <span class="toggle-icon">−</span>
+</div>
+<div class="section-body">
 
-    <div class="section-body">
-        <p>India has a large network of rivers, lakes, groundwater resources and glaciers. However, water availability differs from one region to another and from one season to another.</p>
+<p>India has a large network of rivers, lakes, groundwater resources and glaciers. However, water availability differs from one region to another and from one season to another.</p>
 
-        <h3>Major River Systems of India</h3>
-        <ul>
-            <li><strong>Himalayan Rivers:</strong> Indus, Ganga and Brahmaputra river systems.</li>
-            <li><strong>Peninsular Rivers:</strong> Godavari, Krishna, Kaveri, Mahanadi, Narmada and Tapi.</li>
-        </ul>
+<h3>Major River Systems of India</h3>
+<ul>
+<li><strong>Himalayan Rivers:</strong> Indus, Ganga and Brahmaputra river systems.</li>
+<li><strong>Peninsular Rivers:</strong> Godavari, Krishna, Kaveri, Mahanadi, Narmada and Tapi.</li>
+</ul>
 
-        <img class="note-image"
-             src="https://upload.wikimedia.org/wikipedia/commons/4/4a/India_rivers_and_lakes_map.svg"
-             alt="Map of rivers of India">
+<img class="note-image" src="https://upload.wikimedia.org/wikipedia/commons/4/4a/India_rivers_and_lakes_map.svg" alt="Map of rivers of India">
 
-        <h3>Factors Affecting Water Availability in India</h3>
-        <ul>
-            <li>Monsoon rainfall and its distribution</li>
-            <li>Physical features and relief</li>
-            <li>River systems and drainage patterns</li>
-            <li>Groundwater availability</li>
-            <li>Population distribution</li>
-            <li>Water consumption patterns</li>
-        </ul>
+<h3>Factors Affecting Water Availability in India</h3>
+<ul>
+<li>Monsoon rainfall and its distribution</li>
+<li>Physical features and relief</li>
+<li>River systems and drainage patterns</li>
+<li>Groundwater availability</li>
+<li>Population distribution</li>
+<li>Water consumption patterns</li>
+</ul>
 
-        <div class="info-box">
-            <strong>Remember:</strong> India receives most of its annual rainfall during the monsoon season. Therefore, seasonal and regional variations in water availability are important challenges.
-        </div>
-    </div>
+<div class="info-box">
+<strong>Remember:</strong> India receives most of its annual rainfall during the monsoon season. Therefore, seasonal and regional variations in water availability are important challenges.
+</div>
+
+</div>
 </section>
 
 <!-- SECTION 6 -->
 <section class="section" id="section6">
-    <div class="section-heading" onclick="toggleSection(this)">
-        <h2>6. Availability of Fresh Water</h2>
-        <span class="toggle-icon">−</span>
-    </div>
+<div class="section-heading" onclick="toggleSection(this)">
+    <h2>6. Availability of Fresh Water</h2>
+    <span class="toggle-icon">−</span>
+</div>
+<div class="section-body">
 
-    <div class="section-body">
-        <p>Most of the Earth's water is saline and is found in oceans and seas. Only a small portion is freshwater.</p>
+<p>Most of the Earth's water is saline and is found in oceans and seas. Only a small portion is freshwater.</p>
 
-        <h3>Distribution of Earth's Water</h3>
-        <ul>
-            <li>Approximately 97.5% of the Earth's water is saline.</li>
-            <li>Approximately 2.5% is freshwater.</li>
-            <li>A large proportion of freshwater is stored in glaciers and ice caps or underground.</li>
-            <li>Only a very small amount is available in rivers and lakes for direct human use.</li>
-        </ul>
+<h3>Distribution of Earth's Water</h3>
+<ul>
+<li>Approximately 97.5% of the Earth's water is saline.</li>
+<li>Approximately 2.5% is freshwater.</li>
+<li>A large proportion of freshwater is stored in glaciers and ice caps or underground.</li>
+<li>Only a very small amount is available in rivers and lakes for direct human use.</li>
+</ul>
 
-        <div class="info-box">
-            These are approximate global estimates. The exact percentages may vary slightly depending on the source and classification.
-        </div>
+<div class="info-box">
+These are approximate global estimates. The exact percentages may vary slightly depending on the source and classification.
+</div>
 
-        <h3>Freshwater Sources</h3>
-        <ol>
-            <li>Surface water – rivers, lakes and reservoirs.</li>
-            <li>Groundwater – water stored beneath the Earth's surface.</li>
-            <li>Glaciers and snow – frozen freshwater reserves.</li>
-            <li>Rainwater – precipitation that can be collected and stored.</li>
-        </ol>
+<h3>Freshwater Sources</h3>
+<ol>
+<li>Surface water – rivers, lakes and reservoirs.</li>
+<li>Groundwater – water stored beneath the Earth's surface.</li>
+<li>Glaciers and snow – frozen freshwater reserves.</li>
+<li>Rainwater – precipitation that can be collected and stored.</li>
+</ol>
 
-        <h3>Why is Freshwater Limited?</h3>
-        <p>Most freshwater is not immediately accessible because it is stored in glaciers, ice caps and deep underground aquifers. The accessible surface water is limited and unevenly distributed.</p>
-    </div>
+<h3>Why is Freshwater Limited?</h3>
+<p>Most freshwater is not immediately accessible because it is stored in glaciers, ice caps and deep underground aquifers. The accessible surface water is limited and unevenly distributed.</p>
+
+</div>
 </section>
 
 <!-- SECTION 7 -->
 <section class="section" id="section7">
-    <div class="section-heading" onclick="toggleSection(this)">
-        <h2>7. Multipurpose River Projects</h2>
-        <span class="toggle-icon">−</span>
-    </div>
+<div class="section-heading" onclick="toggleSection(this)">
+    <h2>7. Multipurpose River Projects</h2>
+    <span class="toggle-icon">−</span>
+</div>
+<div class="section-body">
 
-    <div class="section-body">
-        <h3>Meaning</h3>
-        <p>Multipurpose river projects are projects designed to use river water for several purposes simultaneously, such as irrigation, electricity generation, flood control, water supply and navigation.</p>
+<h3>Meaning</h3>
+<p>Multipurpose river projects are projects designed to use river water for several purposes simultaneously, such as irrigation, electricity generation, flood control, water supply and navigation.</p>
 
-        <p>These projects generally involve the construction of dams and reservoirs across rivers.</p>
+<p>These projects generally involve the construction of dams and reservoirs across rivers.</p>
 
-        <img class="note-image"
-             src="https://images.unsplash.com/photo-1530053969600-caed2596d242?auto=format&fit=crop&w=1200&q=85"
-             alt="Dam and reservoir">
+<img class="note-image" src="https://images.unsplash.com/photo-1530053969600-caed2596d242?auto=format&fit=crop&w=1200&q=85" alt="Dam and reservoir">
 
-        <h3>Major Objectives</h3>
-        <ul>
-            <li>Irrigation</li>
-            <li>Hydroelectricity generation</li>
-            <li>Flood control</li>
-            <li>Water supply for domestic and industrial use</li>
-            <li>Inland navigation</li>
-            <li>Fish breeding</li>
-            <li>Recreation and tourism</li>
-        </ul>
+<h3>Major Objectives</h3>
+<ul>
+<li>Irrigation</li>
+<li>Hydroelectricity generation</li>
+<li>Flood control</li>
+<li>Water supply for domestic and industrial use</li>
+<li>Inland navigation</li>
+<li>Fish breeding</li>
+<li>Recreation and tourism</li>
+</ul>
 
-        <div class="green-box">
-            A multipurpose project is intended to serve more than one objective through the planned use and management of river water.
-        </div>
-    </div>
+<div class="green-box">
+A multipurpose project is intended to serve more than one objective through the planned use and management of river water.
+</div>
+
+</div>
 </section>
 
 <!-- SECTION 8 -->
 <section class="section" id="section8">
-    <div class="section-heading" onclick="toggleSection(this)">
-        <h2>8. Dams and Their Uses</h2>
-        <span class="toggle-icon">−</span>
-    </div>
+<div class="section-heading" onclick="toggleSection(this)">
+    <h2>8. Dams and Their Uses</h2>
+    <span class="toggle-icon">−</span>
+</div>
+<div class="section-body">
 
-    <div class="section-body">
-        <h3>What is a Dam?</h3>
-        <p>A dam is a barrier constructed across a river or stream to control, store or divert water. The water stored behind a dam forms a reservoir.</p>
+<h3>What is a Dam?</h3>
+<p>A dam is a barrier constructed across a river or stream to control, store or divert water. The water stored behind a dam forms a reservoir.</p>
 
-        <h3>Major Uses of Dams</h3>
-        <ol>
-            <li><strong>Irrigation:</strong> Stored water is supplied to agricultural fields.</li>
-            <li><strong>Electricity:</strong> Flowing water is used to generate hydroelectric power.</li>
-            <li><strong>Flood Control:</strong> Reservoirs can regulate the flow of water during periods of high discharge.</li>
-            <li><strong>Water Supply:</strong> Water is supplied to towns, cities and industries.</li>
-            <li><strong>Navigation:</strong> Water storage and regulation may support inland navigation.</li>
-            <li><strong>Recreation:</strong> Reservoirs may support tourism and recreational activities.</li>
-            <li><strong>Fisheries:</strong> Reservoirs can support fish production.</li>
-        </ol>
+<h3>Major Uses of Dams</h3>
+<ol>
+<li><strong>Irrigation:</strong> Stored water is supplied to agricultural fields.</li>
+<li><strong>Electricity:</strong> Flowing water is used to generate hydroelectric power.</li>
+<li><strong>Flood Control:</strong> Reservoirs can regulate the flow of water during periods of high discharge.</li>
+<li><strong>Water Supply:</strong> Water is supplied to towns, cities and industries.</li>
+<li><strong>Navigation:</strong> Water storage and regulation may support inland navigation.</li>
+<li><strong>Recreation:</strong> Reservoirs may support tourism and recreational activities.</li>
+<li><strong>Fisheries:</strong> Reservoirs can support fish production.</li>
+</ol>
 
-        <h3>Types of Dams on the Basis of Height</h3>
-        <ul>
-            <li><strong>Low dams:</strong> Relatively small structures.</li>
-            <li><strong>Medium dams:</strong> Dams of intermediate height.</li>
-            <li><strong>High dams:</strong> Large structures that can store substantial quantities of water.</li>
-        </ul>
+<h3>Types of Dams on the Basis of Height</h3>
+<ul>
+<li><strong>Low dams:</strong> Relatively small structures.</li>
+<li><strong>Medium dams:</strong> Dams of intermediate height.</li>
+<li><strong>High dams:</strong> Large structures that can store substantial quantities of water.</li>
+</ul>
 
-        <p><strong>Note:</strong> Dams can also be classified according to their construction material and structural design, such as gravity dams, arch dams and embankment dams.</p>
-    </div>
+<p><strong>Note:</strong> Dams can also be classified according to their construction material and structural design, such as gravity dams, arch dams and embankment dams.</p>
+
+</div>
 </section>
 
 <!-- SECTION 9 -->
 <section class="section" id="section9">
-    <div class="section-heading" onclick="toggleSection(this)">
-        <h2>9. Historical Background of Dams in India</h2>
-        <span class="toggle-icon">−</span>
-    </div>
+<div class="section-heading" onclick="toggleSection(this)">
+    <h2>9. Historical Background of Dams in India</h2>
+    <span class="toggle-icon">−</span>
+</div>
+<div class="section-body">
 
-    <div class="section-body">
-        <p>India has a long history of water storage and management. Traditional societies constructed tanks, reservoirs, embankments and other structures to conserve water.</p>
+<p>India has a long history of water storage and management. Traditional societies constructed tanks, reservoirs, embankments and other structures to conserve water.</p>
 
-        <h3>Ancient Water Management</h3>
-        <ul>
-            <li>People constructed tanks and reservoirs to store rainwater.</li>
-            <li>Small dams and embankments were used to regulate water flow.</li>
-            <li>Traditional irrigation systems supported agriculture in different regions.</li>
-        </ul>
+<h3>Ancient Water Management</h3>
+<ul>
+<li>People constructed tanks and reservoirs to store rainwater.</li>
+<li>Small dams and embankments were used to regulate water flow.</li>
+<li>Traditional irrigation systems supported agriculture in different regions.</li>
+</ul>
 
-        <h3>Modern River Valley Projects</h3>
-        <p>After independence, India undertook several large river valley projects to support agricultural and industrial development.</p>
+<h3>Modern River Valley Projects</h3>
+<p>After independence, India undertook several large river valley projects to support agricultural and industrial development.</p>
 
-        <h3>Examples of Major Projects</h3>
-        <table>
-            <tr>
-                <th>Project</th>
-                <th>River</th>
-                <th>State / Region</th>
-            </tr>
-            <tr>
-                <td>Bhakra Nangal</td>
-                <td>Sutlej</td>
-                <td>Himachal Pradesh and Punjab region</td>
-            </tr>
-            <tr>
-                <td>Hirakud</td>
-                <td>Mahanadi</td>
-                <td>Odisha</td>
-            </tr>
-            <tr>
-                <td>Damodar Valley Project</td>
-                <td>Damodar</td>
-                <td>Jharkhand and West Bengal</td>
-            </tr>
-            <tr>
-                <td>Nagarjuna Sagar</td>
-                <td>Krishna</td>
-                <td>Telangana and Andhra Pradesh region</td>
-            </tr>
-            <tr>
-                <td>Sardar Sarovar</td>
-                <td>Narmada</td>
-                <td>Gujarat</td>
-            </tr>
-            <tr>
-                <td>Tehri Dam</td>
-                <td>Bhagirathi</td>
-                <td>Uttarakhand</td>
-            </tr>
-        </table>
-    </div>
+<h3>Examples of Major Projects</h3>
+<table>
+<tr><th>Project</th><th>River</th><th>State / Region</th></tr>
+<tr><td>Bhakra Nangal</td><td>Sutlej</td><td>Himachal Pradesh and Punjab region</td></tr>
+<tr><td>Hirakud</td><td>Mahanadi</td><td>Odisha</td></tr>
+<tr><td>Damodar Valley Project</td><td>Damodar</td><td>Jharkhand and West Bengal</td></tr>
+<tr><td>Nagarjuna Sagar</td><td>Krishna</td><td>Telangana and Andhra Pradesh region</td></tr>
+<tr><td>Sardar Sarovar</td><td>Narmada</td><td>Gujarat</td></tr>
+<tr><td>Tehri Dam</td><td>Bhagirathi</td><td>Uttarakhand</td></tr>
+</table>
+
+</div>
 </section>
 
 <!-- SECTION 10 -->
 <section class="section" id="section10">
-    <div class="section-heading" onclick="toggleSection(this)">
-        <h2>10. Jawaharlal Nehru's View on Dams</h2>
-        <span class="toggle-icon">−</span>
-    </div>
+<div class="section-heading" onclick="toggleSection(this)">
+    <h2>10. Jawaharlal Nehru's View on Dams</h2>
+    <span class="toggle-icon">−</span>
+</div>
+<div class="section-body">
 
-    <div class="section-body">
-        <p>Jawaharlal Nehru, India's first Prime Minister, supported large multipurpose river valley projects in the early years after independence.</p>
+<p>Jawaharlal Nehru, India's first Prime Minister, supported large multipurpose river valley projects in the early years after independence.</p>
 
-        <p>He considered dams important for agricultural development, electricity generation and the modernisation of the country.</p>
+<p>He considered dams important for agricultural development, electricity generation and the modernisation of the country.</p>
 
-        <div class="info-box">
-            <strong>Famous Expression:</strong> Nehru described dams as the "temples of modern India".
-        </div>
+<div class="info-box">
+<strong>Famous Expression:</strong> Nehru described dams as the "temples of modern India".
+</div>
 
-        <h3>Why Were Dams Called Temples of Modern India?</h3>
-        <ul>
-            <li>They were expected to support agricultural development.</li>
-            <li>They could generate electricity for industries and households.</li>
-            <li>They could help control floods.</li>
-            <li>They could provide water for domestic and industrial purposes.</li>
-            <li>They symbolised modern scientific and technological progress.</li>
-        </ul>
+<h3>Why Were Dams Called Temples of Modern India?</h3>
+<ul>
+<li>They were expected to support agricultural development.</li>
+<li>They could generate electricity for industries and households.</li>
+<li>They could help control floods.</li>
+<li>They could provide water for domestic and industrial purposes.</li>
+<li>They symbolised modern scientific and technological progress.</li>
+</ul>
 
-        <p>Over time, however, the social and environmental costs of large dams also became a subject of debate.</p>
-    </div>
+<p>Over time, however, the social and environmental costs of large dams also became a subject of debate.</p>
+
+</div>
 </section>
 
 <!-- SECTION 11 -->
 <section class="section" id="section11">
-    <div class="section-heading" onclick="toggleSection(this)">
-        <h2>11. Benefits of Multipurpose River Projects</h2>
-        <span class="toggle-icon">−</span>
-    </div>
+<div class="section-heading" onclick="toggleSection(this)">
+    <h2>11. Benefits of Multipurpose River Projects</h2>
+    <span class="toggle-icon">−</span>
+</div>
+<div class="section-body">
 
-    <div class="section-body">
-        <h3>1. Agricultural Development</h3>
-        <p>Canals and irrigation networks provide water to agricultural fields and help farmers cultivate crops in areas where rainfall is insufficient.</p>
+<h3>1. Agricultural Development</h3>
+<p>Canals and irrigation networks provide water to agricultural fields and help farmers cultivate crops in areas where rainfall is insufficient.</p>
 
-        <h3>2. Hydroelectricity</h3>
-        <p>Water stored in reservoirs can be released through turbines to generate electricity.</p>
+<h3>2. Hydroelectricity</h3>
+<p>Water stored in reservoirs can be released through turbines to generate electricity.</p>
 
-        <h3>3. Flood Control</h3>
-        <p>Reservoirs can store excess water and regulate river discharge, reducing flood risk under suitable operating conditions.</p>
+<h3>3. Flood Control</h3>
+<p>Reservoirs can store excess water and regulate river discharge, reducing flood risk under suitable operating conditions.</p>
 
-        <h3>4. Drinking Water Supply</h3>
-        <p>Stored water can be treated and supplied to households and urban areas.</p>
+<h3>4. Drinking Water Supply</h3>
+<p>Stored water can be treated and supplied to households and urban areas.</p>
 
-        <h3>5. Industrial Development</h3>
-        <p>Industries require water for production, cooling and other processes. River valley projects can support industrial water requirements.</p>
+<h3>5. Industrial Development</h3>
+<p>Industries require water for production, cooling and other processes. River valley projects can support industrial water requirements.</p>
 
-        <h3>6. Inland Navigation</h3>
-        <p>Regulated river flow may support transportation through navigable waterways.</p>
+<h3>6. Inland Navigation</h3>
+<p>Regulated river flow may support transportation through navigable waterways.</p>
 
-        <h3>7. Fisheries and Tourism</h3>
-        <p>Reservoirs may support fish production, boating, recreation and tourism.</p>
+<h3>7. Fisheries and Tourism</h3>
+<p>Reservoirs may support fish production, boating, recreation and tourism.</p>
 
-        <div class="green-box">
-            Multipurpose river projects can contribute to economic development when they are properly planned, managed and monitored.
-        </div>
-    </div>
+<div class="green-box">
+Multipurpose river projects can contribute to economic development when they are properly planned, managed and monitored.
+</div>
+
+</div>
 </section>
 
 <!-- SECTION 12 -->
 <section class="section" id="section12">
-    <div class="section-heading" onclick="toggleSection(this)">
-        <h2>12. Problems Associated with Large Dams</h2>
-        <span class="toggle-icon">−</span>
-    </div>
+<div class="section-heading" onclick="toggleSection(this)">
+    <h2>12. Problems Associated with Large Dams</h2>
+    <span class="toggle-icon">−</span>
+</div>
+<div class="section-body">
 
-    <div class="section-body">
-        <p>Although dams provide several benefits, large dam projects may also create serious social, economic and environmental problems.</p>
+<p>Although dams provide several benefits, large dam projects may also create serious social, economic and environmental problems.</p>
 
-        <h3>Major Problems</h3>
+<h3>1. Displacement of People</h3>
+<p>Large reservoirs may submerge villages, agricultural land and forests. People living in these areas may be forced to relocate.</p>
 
-        <h3>1. Displacement of People</h3>
-        <p>Large reservoirs may submerge villages, agricultural land and forests. People living in these areas may be forced to relocate.</p>
+<h3>2. Loss of Agricultural Land</h3>
+<p>Land used for farming may be submerged under reservoir water.</p>
 
-        <h3>2. Loss of Agricultural Land</h3>
-        <p>Land used for farming may be submerged under reservoir water.</p>
+<h3>3. Destruction of Forests</h3>
+<p>Construction and reservoir formation may lead to the loss of forest areas and natural habitats.</p>
 
-        <h3>3. Destruction of Forests</h3>
-        <p>Construction and reservoir formation may lead to the loss of forest areas and natural habitats.</p>
+<h3>4. Disturbance of Aquatic Ecosystems</h3>
+<p>Dams change the natural flow of rivers and can affect fish migration and aquatic biodiversity.</p>
 
-        <h3>4. Disturbance of Aquatic Ecosystems</h3>
-        <p>Dams change the natural flow of rivers and can affect fish migration and aquatic biodiversity.</p>
+<h3>5. Sedimentation</h3>
+<p>Reservoirs may accumulate sediments carried by rivers. This can reduce storage capacity over time.</p>
 
-        <h3>5. Sedimentation</h3>
-        <p>Reservoirs may accumulate sediments carried by rivers. This can reduce storage capacity over time.</p>
+<h3>6. Unequal Distribution of Benefits</h3>
+<p>The benefits of irrigation, electricity and water supply may not be shared equally among all communities and regions.</p>
 
-        <h3>6. Unequal Distribution of Benefits</h3>
-        <p>The benefits of irrigation, electricity and water supply may not be shared equally among all communities and regions.</p>
+<h3>7. Waterlogging and Salinisation</h3>
+<p>Excessive irrigation without proper drainage may cause waterlogging and the accumulation of salts in soil.</p>
 
-        <h3>7. Waterlogging and Salinisation</h3>
-        <p>Excessive irrigation without proper drainage may cause waterlogging and the accumulation of salts in soil.</p>
+<div class="warning-box">
+Large dam projects must be evaluated not only on the basis of their economic benefits but also on their social and environmental consequences.
+</div>
 
-        <div class="warning-box">
-            Large dam projects must be evaluated not only on the basis of their economic benefits but also on their social and environmental consequences.
-        </div>
-    </div>
+</div>
 </section>
 
 <!-- SECTION 13 -->
 <section class="section" id="section13">
-    <div class="section-heading" onclick="toggleSection(this)">
-        <h2>13. Social and Environmental Impact of Dams</h2>
-        <span class="toggle-icon">−</span>
-    </div>
+<div class="section-heading" onclick="toggleSection(this)">
+    <h2>13. Social and Environmental Impact of Dams</h2>
+    <span class="toggle-icon">−</span>
+</div>
+<div class="section-body">
 
-    <div class="section-body">
-        <h3>Social Impacts</h3>
-        <ul>
-            <li>Displacement of local communities.</li>
-            <li>Loss of houses and agricultural land.</li>
-            <li>Disruption of traditional livelihoods.</li>
-            <li>Loss of cultural and religious sites.</li>
-            <li>Problems related to rehabilitation and compensation.</li>
-        </ul>
+<h3>Social Impacts</h3>
+<ul>
+<li>Displacement of local communities.</li>
+<li>Loss of houses and agricultural land.</li>
+<li>Disruption of traditional livelihoods.</li>
+<li>Loss of cultural and religious sites.</li>
+<li>Problems related to rehabilitation and compensation.</li>
+</ul>
 
-        <h3>Environmental Impacts</h3>
-        <ul>
-            <li>Submergence of forests and wildlife habitats.</li>
-            <li>Changes in river flow and sediment movement.</li>
-            <li>Effects on aquatic organisms.</li>
-            <li>Changes in local ecosystems.</li>
-            <li>Possible changes in water quality.</li>
-        </ul>
+<h3>Environmental Impacts</h3>
+<ul>
+<li>Submergence of forests and wildlife habitats.</li>
+<li>Changes in river flow and sediment movement.</li>
+<li>Effects on aquatic organisms.</li>
+<li>Changes in local ecosystems.</li>
+<li>Possible changes in water quality.</li>
+</ul>
 
-        <h3>Impact on River Ecosystems</h3>
-        <p>Rivers transport water, sediments and nutrients. They also provide habitats for numerous plants and animals. Dams alter the natural movement of water and sediments, which may affect river ecosystems.</p>
+<h3>Impact on River Ecosystems</h3>
+<p>Rivers transport water, sediments and nutrients. They also provide habitats for numerous plants and animals. Dams alter the natural movement of water and sediments, which may affect river ecosystems.</p>
 
-        <h3>Need for Sustainable Planning</h3>
-        <ol>
-            <li>Conduct environmental impact assessments.</li>
-            <li>Ensure fair rehabilitation and resettlement.</li>
-            <li>Protect forests and wildlife habitats.</li>
-            <li>Maintain environmental flows in rivers.</li>
-            <li>Encourage public participation.</li>
-            <li>Monitor the long-term performance of projects.</li>
-        </ol>
-    </div>
+<h3>Need for Sustainable Planning</h3>
+<ol>
+<li>Conduct environmental impact assessments.</li>
+<li>Ensure fair rehabilitation and resettlement.</li>
+<li>Protect forests and wildlife habitats.</li>
+<li>Maintain environmental flows in rivers.</li>
+<li>Encourage public participation.</li>
+<li>Monitor the long-term performance of projects.</li>
+</ol>
+
+</div>
 </section>
 
 <!-- SECTION 14 -->
 <section class="section" id="section14">
-    <div class="section-heading" onclick="toggleSection(this)">
-        <h2>14. Opposition to Large Dams and Narmada Bachao Andolan</h2>
-        <span class="toggle-icon">−</span>
-    </div>
+<div class="section-heading" onclick="toggleSection(this)">
+    <h2>14. Opposition to Large Dams and Narmada Bachao Andolan</h2>
+    <span class="toggle-icon">−</span>
+</div>
+<div class="section-body">
 
-    <div class="section-body">
-        <h3>Why Did People Oppose Large Dams?</h3>
-        <p>Opposition to large dams developed because of concerns about displacement, inadequate rehabilitation, environmental damage and unequal distribution of benefits.</p>
+<h3>Why Did People Oppose Large Dams?</h3>
+<p>Opposition to large dams developed because of concerns about displacement, inadequate rehabilitation, environmental damage and unequal distribution of benefits.</p>
 
-        <h3>Narmada Bachao Andolan</h3>
-        <p>The Narmada Bachao Andolan is a social movement associated with concerns regarding large dam projects in the Narmada Valley, especially the Sardar Sarovar Project.</p>
+<h3>Narmada Bachao Andolan</h3>
+<p>The Narmada Bachao Andolan is a social movement associated with concerns regarding large dam projects in the Narmada Valley, especially the Sardar Sarovar Project.</p>
 
-        <h3>Major Concerns Raised</h3>
-        <ul>
-            <li>Displacement of people living in the Narmada Valley.</li>
-            <li>Submergence of villages and agricultural land.</li>
-            <li>Environmental damage and loss of forests.</li>
-            <li>Questions about rehabilitation and compensation.</li>
-            <li>Debate over who receives the benefits of the project.</li>
-        </ul>
+<h3>Major Concerns Raised</h3>
+<ul>
+<li>Displacement of people living in the Narmada Valley.</li>
+<li>Submergence of villages and agricultural land.</li>
+<li>Environmental damage and loss of forests.</li>
+<li>Questions about rehabilitation and compensation.</li>
+<li>Debate over who receives the benefits of the project.</li>
+</ul>
 
-        <h3>Important Objective</h3>
-        <p>The movement raised questions about development, environmental protection, the rights of affected communities and the need for fair rehabilitation.</p>
+<h3>Important Objective</h3>
+<p>The movement raised questions about development, environmental protection, the rights of affected communities and the need for fair rehabilitation.</p>
 
-        <div class="info-box">
-            <strong>Exam Point:</strong> Narmada Bachao Andolan is associated with opposition to large dam projects and concerns regarding displacement and environmental consequences.
-        </div>
-    </div>
+<div class="info-box">
+<strong>Exam Point:</strong> Narmada Bachao Andolan is associated with opposition to large dam projects and concerns regarding displacement and environmental consequences.
+</div>
+
+</div>
 </section>
 
 <!-- SECTION 15 -->
 <section class="section" id="section15">
-    <div class="section-heading" onclick="toggleSection(this)">
-        <h2>15. Rainwater Harvesting</h2>
-        <span class="toggle-icon">−</span>
-    </div>
+<div class="section-heading" onclick="toggleSection(this)">
+    <h2>15. Rainwater Harvesting</h2>
+    <span class="toggle-icon">−</span>
+</div>
+<div class="section-body">
 
-    <div class="section-body">
-        <h3>Meaning</h3>
-        <p>Rainwater harvesting is the process of collecting and storing rainwater for future use instead of allowing it to flow away as surface runoff.</p>
+<h3>Meaning</h3>
+<p>Rainwater harvesting is the process of collecting and storing rainwater for future use instead of allowing it to flow away as surface runoff.</p>
 
-        <img class="note-image"
-             src="https://images.unsplash.com/photo-1599685315640-7ec7b9d9c2b8?auto=format&fit=crop&w=1200&q=85"
-             alt="Rainwater harvesting">
+<img class="note-image" src="https://images.unsplash.com/photo-1599685315640-7ec7b9d9c2b8?auto=format&fit=crop&w=1200&q=85" alt="Rainwater harvesting">
 
-        <h3>Objectives of Rainwater Harvesting</h3>
-        <ul>
-            <li>To conserve rainwater.</li>
-            <li>To recharge groundwater.</li>
-            <li>To reduce surface runoff.</li>
-            <li>To reduce dependence on external water supplies.</li>
-            <li>To improve water availability during dry periods.</li>
-            <li>To support sustainable water management.</li>
-        </ul>
+<h3>Objectives of Rainwater Harvesting</h3>
+<ul>
+<li>To conserve rainwater.</li>
+<li>To recharge groundwater.</li>
+<li>To reduce surface runoff.</li>
+<li>To reduce dependence on external water supplies.</li>
+<li>To improve water availability during dry periods.</li>
+<li>To support sustainable water management.</li>
+</ul>
 
-        <h3>Methods of Rainwater Harvesting</h3>
-        <ol>
-            <li>Rooftop rainwater harvesting.</li>
-            <li>Construction of recharge pits.</li>
-            <li>Recharge wells and trenches.</li>
-            <li>Storage tanks and underground tanks.</li>
-            <li>Check dams and small barriers.</li>
-            <li>Traditional ponds and tanks.</li>
-        </ol>
+<h3>Methods of Rainwater Harvesting</h3>
+<ol>
+<li>Rooftop rainwater harvesting.</li>
+<li>Construction of recharge pits.</li>
+<li>Recharge wells and trenches.</li>
+<li>Storage tanks and underground tanks.</li>
+<li>Check dams and small barriers.</li>
+<li>Traditional ponds and tanks.</li>
+</ol>
 
-        <h3>Advantages</h3>
-        <ul>
-            <li>Reduces pressure on groundwater.</li>
-            <li>Helps recharge aquifers.</li>
-            <li>Can provide water for domestic uses after suitable treatment.</li>
-            <li>Reduces urban flooding caused by runoff.</li>
-            <li>Provides a decentralised source of water.</li>
-        </ul>
-    </div>
+<h3>Advantages</h3>
+<ul>
+<li>Reduces pressure on groundwater.</li>
+<li>Helps recharge aquifers.</li>
+<li>Can provide water for domestic uses after suitable treatment.</li>
+<li>Reduces urban flooding caused by runoff.</li>
+<li>Provides a decentralised source of water.</li>
+</ul>
+
+</div>
 </section>
 
 <!-- SECTION 16 -->
 <section class="section" id="section16">
-    <div class="section-heading" onclick="toggleSection(this)">
-        <h2>16. Traditional Water Harvesting Systems in India</h2>
-        <span class="toggle-icon">−</span>
-    </div>
+<div class="section-heading" onclick="toggleSection(this)">
+    <h2>16. Traditional Water Harvesting Systems in India</h2>
+    <span class="toggle-icon">−</span>
+</div>
+<div class="section-body">
 
-    <div class="section-body">
-        <p>Different regions of India developed traditional methods of collecting, storing and distributing water according to their climate, topography and local requirements.</p>
+<p>Different regions of India developed traditional methods of collecting, storing and distributing water according to their climate, topography and local requirements.</p>
 
-        <h3>Important Traditional Systems</h3>
+<h3>Important Traditional Systems</h3>
 
-        <table>
-            <tr>
-                <th>Traditional System</th>
-                <th>Region</th>
-                <th>Purpose / Feature</th>
-            </tr>
-            <tr>
-                <td>Guls / Kuls</td>
-                <td>Western Himalayas</td>
-                <td>Diversion channels for agricultural irrigation</td>
-            </tr>
-            <tr>
-                <td>Khadins</td>
-                <td>Rajasthan</td>
-                <td>Collecting surface runoff for agriculture</td>
-            </tr>
-            <tr>
-                <td>Johads</td>
-                <td>Rajasthan</td>
-                <td>Small earthen structures that collect rainwater</td>
-            </tr>
-            <tr>
-                <td>Tankas</td>
-                <td>Rajasthan</td>
-                <td>Underground tanks for storing rainwater</td>
-            </tr>
-            <tr>
-                <td>Ahar-Pyne</td>
-                <td>Bihar</td>
-                <td>Traditional system of channels and reservoirs</td>
-            </tr>
-            <tr>
-                <td>Bamboo Drip Irrigation</td>
-                <td>Meghalaya</td>
-                <td>Traditional system for carrying water through bamboo pipes</td>
-            </tr>
-            <tr>
-                <td>Surangams</td>
-                <td>Kerala and Karnataka</td>
-                <td>Horizontal tunnels used to collect groundwater</td>
-            </tr>
-        </table>
+<table>
+<tr><th>Traditional System</th><th>Region</th><th>Purpose / Feature</th></tr>
+<tr><td>Guls / Kuls</td><td>Western Himalayas</td><td>Diversion channels for agricultural irrigation</td></tr>
+<tr><td>Khadins</td><td>Rajasthan</td><td>Collecting surface runoff for agriculture</td></tr>
+<tr><td>Johads</td><td>Rajasthan</td><td>Small earthen structures that collect rainwater</td></tr>
+<tr><td>Tankas</td><td>Rajasthan</td><td>Underground tanks for storing rainwater</td></tr>
+<tr><td>Ahar-Pyne</td><td>Bihar</td><td>Traditional system of channels and reservoirs</td></tr>
+<tr><td>Bamboo Drip Irrigation</td><td>Meghalaya</td><td>Traditional system for carrying water through bamboo pipes</td></tr>
+<tr><td>Surangams</td><td>Kerala and Karnataka</td><td>Horizontal tunnels used to collect groundwater</td></tr>
+</table>
 
-        <h3>Guls and Kuls</h3>
-        <p>In the Western Himalayas, people developed diversion channels called guls or kuls to carry water from mountain streams to agricultural fields.</p>
+<h3>Guls and Kuls</h3>
+<p>In the Western Himalayas, people developed diversion channels called guls or kuls to carry water from mountain streams to agricultural fields.</p>
 
-        <h3>Khadins</h3>
-        <p>Khadins are traditional water-harvesting structures in Rajasthan. They help collect surface runoff and conserve soil moisture for cultivation.</p>
+<h3>Khadins</h3>
+<p>Khadins are traditional water-harvesting structures in Rajasthan. They help collect surface runoff and conserve soil moisture for cultivation.</p>
 
-        <h3>Johads</h3>
-        <p>Johads are small earthen check dams or water-storage structures used to collect rainwater and improve groundwater recharge.</p>
+<h3>Johads</h3>
+<p>Johads are small earthen check dams or water-storage structures used to collect rainwater and improve groundwater recharge.</p>
 
-        <h3>Ahar-Pyne System</h3>
-        <p>The Ahar-Pyne system is a traditional water-management system found in Bihar. Ahars are reservoirs or embanked water bodies, while pynes are channels that carry water to agricultural fields.</p>
+<h3>Ahar-Pyne System</h3>
+<p>The Ahar-Pyne system is a traditional water-management system found in Bihar. Ahars are reservoirs or embanked water bodies, while pynes are channels that carry water to agricultural fields.</p>
 
-        <h3>Bamboo Drip Irrigation</h3>
-        <p>In Meghalaya, bamboo pipes are traditionally used to transport water from streams to fields and plantations.</p>
-    </div>
+<h3>Bamboo Drip Irrigation</h3>
+<p>In Meghalaya, bamboo pipes are traditionally used to transport water from streams to fields and plantations.</p>
+
+</div>
 </section>
 
 <!-- SECTION 17 -->
 <section class="section" id="section17">
-    <div class="section-heading" onclick="toggleSection(this)">
-        <h2>17. Rooftop Rainwater Harvesting</h2>
-        <span class="toggle-icon">−</span>
-    </div>
+<div class="section-heading" onclick="toggleSection(this)">
+    <h2>17. Rooftop Rainwater Harvesting</h2>
+    <span class="toggle-icon">−</span>
+</div>
+<div class="section-body">
 
-    <div class="section-body">
-        <h3>Meaning</h3>
-        <p>Rooftop rainwater harvesting is a method of collecting rainwater from the roofs of buildings and storing it in tanks or directing it into groundwater recharge structures.</p>
+<h3>Meaning</h3>
+<p>Rooftop rainwater harvesting is a method of collecting rainwater from the roofs of buildings and storing it in tanks or directing it into groundwater recharge structures.</p>
 
-        <img class="note-image"
-             src="https://upload.wikimedia.org/wikipedia/commons/0/09/Rainwater_harvesting_system.png"
-             alt="Rooftop rainwater harvesting system">
+<img class="note-image" src="https://upload.wikimedia.org/wikipedia/commons/0/09/Rainwater_harvesting_system.png" alt="Rooftop rainwater harvesting system">
 
-        <h3>Main Components</h3>
-        <ol>
-            <li><strong>Catchment Area:</strong> The roof surface on which rainwater falls.</li>
-            <li><strong>Gutters:</strong> Channels that collect water from the roof.</li>
-            <li><strong>Downpipes:</strong> Pipes that carry water from the roof to the storage or filtration system.</li>
-            <li><strong>Filter:</strong> Removes leaves, dust and other impurities.</li>
-            <li><strong>Storage Tank:</strong> Stores collected rainwater.</li>
-            <li><strong>Recharge Structure:</strong> Allows water to enter the ground and replenish groundwater.</li>
-        </ol>
+<h3>Main Components</h3>
+<ol>
+<li><strong>Catchment Area:</strong> The roof surface on which rainwater falls.</li>
+<li><strong>Gutters:</strong> Channels that collect water from the roof.</li>
+<li><strong>Downpipes:</strong> Pipes that carry water from the roof to the storage or filtration system.</li>
+<li><strong>Filter:</strong> Removes leaves, dust and other impurities.</li>
+<li><strong>Storage Tank:</strong> Stores collected rainwater.</li>
+<li><strong>Recharge Structure:</strong> Allows water to enter the ground and replenish groundwater.</li>
+</ol>
 
-        <h3>Working Process</h3>
-        <ol>
-            <li>Rain falls on the rooftop.</li>
-            <li>Gutters collect the rainwater.</li>
-            <li>Downpipes carry water to a filter.</li>
-            <li>Filtered water is stored in a tank or directed into a recharge pit.</li>
-            <li>Stored water is used when required, after appropriate treatment.</li>
-        </ol>
+<h3>Working Process</h3>
+<ol>
+<li>Rain falls on the rooftop.</li>
+<li>Gutters collect the rainwater.</li>
+<li>Downpipes carry water to a filter.</li>
+<li>Filtered water is stored in a tank or directed into a recharge pit.</li>
+<li>Stored water is used when required, after appropriate treatment.</li>
+</ol>
 
-        <div class="info-box">
-            Rainwater intended for drinking must be properly filtered, disinfected and tested for safety. Untreated rooftop runoff should not automatically be considered potable.
-        </div>
-    </div>
+<div class="info-box">
+Rainwater intended for drinking must be properly filtered, disinfected and tested for safety. Untreated rooftop runoff should not automatically be considered potable.
+</div>
+
+</div>
 </section>
 
 <!-- SECTION 18 -->
 <section class="section" id="section18">
-    <div class="section-heading" onclick="toggleSection(this)">
-        <h2>18. Rainwater Harvesting in Rajasthan</h2>
-        <span class="toggle-icon">−</span>
-    </div>
+<div class="section-heading" onclick="toggleSection(this)">
+    <h2>18. Rainwater Harvesting in Rajasthan</h2>
+    <span class="toggle-icon">−</span>
+</div>
+<div class="section-body">
 
-    <div class="section-body">
-        <p>Rajasthan is a largely arid and semi-arid region. Many areas receive low and irregular rainfall. Therefore, traditional communities developed different methods of collecting and storing rainwater.</p>
+<p>Rajasthan is a largely arid and semi-arid region. Many areas receive low and irregular rainfall. Therefore, traditional communities developed different methods of collecting and storing rainwater.</p>
 
-        <h3>Tankas</h3>
-        <p>Tankas are underground tanks used to store rainwater. They are traditionally found in parts of Rajasthan, especially in areas where water is scarce.</p>
+<h3>Tankas</h3>
+<p>Tankas are underground tanks used to store rainwater. They are traditionally found in parts of Rajasthan, especially in areas where water is scarce.</p>
 
-        <h3>Features of Tankas</h3>
-        <ul>
-            <li>They are generally constructed underground.</li>
-            <li>They collect and store rainwater.</li>
-            <li>They may be connected to rooftops or courtyards through pipes and channels.</li>
-            <li>They help households store water for dry periods.</li>
-        </ul>
+<h3>Features of Tankas</h3>
+<ul>
+<li>They are generally constructed underground.</li>
+<li>They collect and store rainwater.</li>
+<li>They may be connected to rooftops or courtyards through pipes and channels.</li>
+<li>They help households store water for dry periods.</li>
+</ul>
 
-        <h3>Khadins and Johads</h3>
-        <p>Khadins and johads are traditional structures that help conserve runoff and improve local water availability.</p>
+<h3>Khadins and Johads</h3>
+<p>Khadins and johads are traditional structures that help conserve runoff and improve local water availability.</p>
 
-        <div class="green-box">
-            Traditional rainwater harvesting systems demonstrate how communities adapted their water-management practices to local climatic conditions.
-        </div>
-    </div>
+<div class="green-box">
+Traditional rainwater harvesting systems demonstrate how communities adapted their water-management practices to local climatic conditions.
+</div>
+
+</div>
 </section>
 
 <!-- SECTION 19 -->
 <section class="section" id="section19">
-    <div class="section-heading" onclick="toggleSection(this)">
-        <h2>19. Rainwater Harvesting in Tamil Nadu and Other Regions</h2>
-        <span class="toggle-icon">−</span>
-    </div>
+<div class="section-heading" onclick="toggleSection(this)">
+    <h2>19. Rainwater Harvesting in Tamil Nadu and Other Regions</h2>
+    <span class="toggle-icon">−</span>
+</div>
+<div class="section-body">
 
-    <div class="section-body">
-        <h3>Tamil Nadu</h3>
-        <p>Tamil Nadu has promoted rooftop rainwater harvesting as an important method of water conservation. Rainwater harvesting structures are used to collect rainwater and recharge groundwater.</p>
+<h3>Tamil Nadu</h3>
+<p>Tamil Nadu has promoted rooftop rainwater harvesting as an important method of water conservation. Rainwater harvesting structures are used to collect rainwater and recharge groundwater.</p>
 
-        <h3>Importance</h3>
-        <ul>
-            <li>Improves groundwater recharge.</li>
-            <li>Helps reduce water scarcity.</li>
-            <li>Reduces surface runoff.</li>
-            <li>Encourages conservation at household and institutional levels.</li>
-        </ul>
+<h3>Importance</h3>
+<ul>
+<li>Improves groundwater recharge.</li>
+<li>Helps reduce water scarcity.</li>
+<li>Reduces surface runoff.</li>
+<li>Encourages conservation at household and institutional levels.</li>
+</ul>
 
-        <h3>Other Regional Examples</h3>
-        <table>
-            <tr>
-                <th>Region</th>
-                <th>Traditional Method</th>
-            </tr>
-            <tr>
-                <td>Western Himalayas</td>
-                <td>Guls and Kuls</td>
-            </tr>
-            <tr>
-                <td>Rajasthan</td>
-                <td>Khadins, Johads and Tankas</td>
-            </tr>
-            <tr>
-                <td>Bihar</td>
-                <td>Ahar-Pyne system</td>
-            </tr>
-            <tr>
-                <td>Meghalaya</td>
-                <td>Bamboo Drip Irrigation</td>
-            </tr>
-            <tr>
-                <td>Kerala and Karnataka</td>
-                <td>Surangams</td>
-            </tr>
-            <tr>
-                <td>Tamil Nadu</td>
-                <td>Rooftop Rainwater Harvesting</td>
-            </tr>
-        </table>
-    </div>
+<h3>Other Regional Examples</h3>
+<table>
+<tr><th>Region</th><th>Traditional Method</th></tr>
+<tr><td>Western Himalayas</td><td>Guls and Kuls</td></tr>
+<tr><td>Rajasthan</td><td>Khadins, Johads and Tankas</td></tr>
+<tr><td>Bihar</td><td>Ahar-Pyne system</td></tr>
+<tr><td>Meghalaya</td><td>Bamboo Drip Irrigation</td></tr>
+<tr><td>Kerala and Karnataka</td><td>Surangams</td></tr>
+<tr><td>Tamil Nadu</td><td>Rooftop Rainwater Harvesting</td></tr>
+</table>
+
+</div>
 </section>
 
 <!-- SECTION 20 -->
 <section class="section" id="section20">
-    <div class="section-heading" onclick="toggleSection(this)">
-        <h2>20. Important Questions and Quick Revision</h2>
-        <span class="toggle-icon">−</span>
-    </div>
+<div class="section-heading" onclick="toggleSection(this)">
+    <h2>20. Important Questions and Quick Revision</h2>
+    <span class="toggle-icon">−</span>
+</div>
+<div class="section-body">
 
-    <div class="section-body">
-        <h3>Important Definitions</h3>
+<h3>Important Definitions</h3>
 
-        <p><strong>1. Water Scarcity:</strong> A situation in which available water is insufficient to meet demand.</p>
+<p><strong>1. Water Scarcity:</strong> A situation in which available water is insufficient to meet demand.</p>
 
-        <p><strong>2. Dam:</strong> A barrier constructed across a river or stream to store, control or divert water.</p>
+<p><strong>2. Dam:</strong> A barrier constructed across a river or stream to store, control or divert water.</p>
 
-        <p><strong>3. Multipurpose River Project:</strong> A project designed to use river water for several purposes, such as irrigation, electricity generation and flood control.</p>
+<p><strong>3. Multipurpose River Project:</strong> A project designed to use river water for several purposes, such as irrigation, electricity generation and flood control.</p>
 
-        <p><strong>4. Rainwater Harvesting:</strong> Collection and storage of rainwater for future use.</p>
+<p><strong>4. Rainwater Harvesting:</strong> Collection and storage of rainwater for future use.</p>
 
-        <p><strong>5. Groundwater:</strong> Water stored beneath the Earth's surface in soil and rock formations.</p>
+<p><strong>5. Groundwater:</strong> Water stored beneath the Earth's surface in soil and rock formations.</p>
 
-        <h3>Important One-Liners</h3>
-        <ul>
-            <li>Dams were called the "temples of modern India" by Jawaharlal Nehru.</li>
-            <li>Guls and Kuls are found in the Western Himalayas.</li>
-            <li>Khadins and Johads are traditional water-harvesting structures of Rajasthan.</li>
-            <li>Ahar-Pyne is a traditional water-management system of Bihar.</li>
-            <li>Bamboo Drip Irrigation is associated with Meghalaya.</li>
-            <li>Rooftop rainwater harvesting is an important method of water conservation.</li>
-            <li>Narmada Bachao Andolan raised concerns about large dams and displacement.</li>
-            <li>Hydroelectricity is generated using the energy of flowing or falling water.</li>
-        </ul>
+<h3>Important One-Liners</h3>
+<ul>
+<li>Dams were called the "temples of modern India" by Jawaharlal Nehru.</li>
+<li>Guls and Kuls are found in the Western Himalayas.</li>
+<li>Khadins and Johads are traditional water-harvesting structures of Rajasthan.</li>
+<li>Ahar-Pyne is a traditional water-management system of Bihar.</li>
+<li>Bamboo Drip Irrigation is associated with Meghalaya.</li>
+<li>Rooftop rainwater harvesting is an important method of water conservation.</li>
+<li>Narmada Bachao Andolan raised concerns about large dams and displacement.</li>
+<li>Hydroelectricity is generated using the energy of flowing or falling water.</li>
+</ul>
 
-        <h3>Important Differences</h3>
+<h3>Important Differences</h3>
+<table>
+<tr><th>Multipurpose Project</th><th>Traditional Water Harvesting</th></tr>
+<tr><td>Generally involves large-scale infrastructure.</td><td>Often involves local and community-based structures.</td></tr>
+<tr><td>May serve irrigation, electricity and flood control.</td><td>Generally focuses on collecting, storing or distributing water locally.</td></tr>
+<tr><td>Can affect large areas and communities.</td><td>Often adapted to local climate and geography.</td></tr>
+</table>
 
-        <table>
-            <tr>
-                <th>Multipurpose Project</th>
-                <th>Traditional Water Harvesting</th>
-            </tr>
-            <tr>
-                <td>Generally involves large-scale infrastructure.</td>
-                <td>Often involves local and community-based structures.</td>
-            </tr>
-            <tr>
-                <td>May serve irrigation, electricity and flood control.</td>
-                <td>Generally focuses on collecting, storing or distributing water locally.</td>
-            </tr>
-            <tr>
-                <td>Can affect large areas and communities.</td>
-                <td>Often adapted to local climate and geography.</td>
-            </tr>
-        </table>
+<h3>Important Long-Answer Topics</h3>
+<ol>
+<li>Explain the major causes of water scarcity.</li>
+<li>Describe the importance of water conservation.</li>
+<li>Explain the advantages and disadvantages of multipurpose river projects.</li>
+<li>Discuss the social and environmental consequences of large dams.</li>
+<li>Explain the importance of rainwater harvesting.</li>
+<li>Describe traditional water-harvesting systems in India.</li>
+</ol>
 
-        <h3>Important Long-Answer Topics</h3>
-        <ol>
-            <li>Explain the major causes of water scarcity.</li>
-            <li>Describe the importance of water conservation.</li>
-            <li>Explain the advantages and disadvantages of multipurpose river projects.</li>
-            <li>Discuss the social and environmental consequences of large dams.</li>
-            <li>Explain the importance of rainwater harvesting.</li>
-            <li>Describe traditional water-harvesting systems in India.</li>
-        </ol>
-    </div>
+</div>
 </section>
 
 <!-- NCERT EXERCISE -->
 <section class="section" id="exercise">
-    <div class="section-heading" onclick="toggleSection(this)">
-        <h2>NCERT Exercise – Important Questions and Answers</h2>
-        <span class="toggle-icon">−</span>
-    </div>
+<div class="section-heading" onclick="toggleSection(this)">
+    <h2>21. NCERT Exercise – Important Questions and Answers</h2>
+    <span class="toggle-icon">−</span>
+</div>
+<div class="section-body">
 
-    <div class="section-body">
+<h3>Q1. Explain how water becomes a renewable resource.</h3>
+<p><strong>Answer:</strong> Water becomes a renewable resource through the hydrological cycle. Water evaporates from oceans, rivers and other water bodies, condenses to form clouds and returns to the Earth's surface through precipitation. This continuous circulation replenishes water resources.</p>
 
-        <h3>Q1. Explain how water becomes a renewable resource.</h3>
-        <p><strong>Answer:</strong> Water becomes a renewable resource through the hydrological cycle. Water evaporates from oceans, rivers and other water bodies, condenses to form clouds and returns to the Earth's surface through precipitation. This continuous circulation replenishes water resources.</p>
+<hr>
 
-        <hr>
+<h3>Q2. What is water scarcity and what are its main causes?</h3>
+<p><strong>Answer:</strong> Water scarcity refers to the shortage of sufficient water to meet the needs of people and other users. Its main causes include population growth, urbanisation, industrialisation, intensive irrigation, over-exploitation of groundwater, water pollution and uneven distribution of rainfall.</p>
 
-        <h3>Q2. What is water scarcity and what are its main causes?</h3>
-        <p><strong>Answer:</strong> Water scarcity refers to the shortage of sufficient water to meet the needs of people and other users. Its main causes include population growth, urbanisation, industrialisation, intensive irrigation, over-exploitation of groundwater, water pollution and uneven distribution of rainfall.</p>
+<hr>
 
-        <hr>
+<h3>Q3. Compare the advantages and disadvantages of multipurpose river projects.</h3>
+<p><strong>Answer:</strong></p>
 
-        <h3>Q3. Compare the advantages and disadvantages of multipurpose river projects.</h3>
-        <p><strong>Answer:</strong></p>
-        <p><strong>Advantages:</strong></p>
-        <ul>
-            <li>Provide irrigation facilities.</li>
-            <li>Generate hydroelectricity.</li>
-            <li>Help regulate floods.</li>
-            <li>Provide water for domestic and industrial purposes.</li>
-            <li>May support navigation, fisheries and tourism.</li>
-        </ul>
+<p><strong>Advantages:</strong></p>
+<ul>
+<li>Provide irrigation facilities.</li>
+<li>Generate hydroelectricity.</li>
+<li>Help regulate floods.</li>
+<li>Provide water for domestic and industrial purposes.</li>
+<li>May support navigation, fisheries and tourism.</li>
+</ul>
 
-        <p><strong>Disadvantages:</strong></p>
-        <ul>
-            <li>Displace people from their homes.</li>
-            <li>Submerge agricultural land and forests.</li>
-            <li>Disturb natural river ecosystems.</li>
-            <li>May cause waterlogging and soil salinity.</li>
-            <li>May result in unequal distribution of benefits.</li>
-        </ul>
+<p><strong>Disadvantages:</strong></p>
+<ul>
+<li>Displace people from their homes.</li>
+<li>Submerge agricultural land and forests.</li>
+<li>Disturb natural river ecosystems.</li>
+<li>May cause waterlogging and soil salinity.</li>
+<li>May result in unequal distribution of benefits.</li>
+</ul>
 
-        <hr>
+<hr>
 
-        <h3>Q4. What is rainwater harvesting? Explain its importance.</h3>
-        <p><strong>Answer:</strong> Rainwater harvesting is the process of collecting and storing rainwater for future use or groundwater recharge. It helps conserve water, replenish groundwater, reduce surface runoff and improve water availability during dry periods.</p>
+<h3>Q4. What is rainwater harvesting? Explain its importance.</h3>
+<p><strong>Answer:</strong> Rainwater harvesting is the process of collecting and storing rainwater for future use or groundwater recharge. It helps conserve water, replenish groundwater, reduce surface runoff and improve water availability during dry periods.</p>
 
-        <hr>
+<hr>
 
-        <h3>Q5. Describe traditional rainwater harvesting systems in India.</h3>
-        <p><strong>Answer:</strong> Different parts of India developed traditional water-harvesting methods according to local conditions. Guls and Kuls are found in the Western Himalayas; Khadins, Johads and Tankas are associated with Rajasthan; the Ahar-Pyne system is found in Bihar; and Bamboo Drip Irrigation is practised in Meghalaya.</p>
+<h3>Q5. Describe traditional rainwater harvesting systems in India.</h3>
+<p><strong>Answer:</strong> Different parts of India developed traditional water-harvesting methods according to local conditions. Guls and Kuls are found in the Western Himalayas; Khadins, Johads and Tankas are associated with Rajasthan; the Ahar-Pyne system is found in Bihar; and Bamboo Drip Irrigation is practised in Meghalaya.</p>
 
-        <hr>
+<hr>
 
-        <h3>Q6. Why are dams called multipurpose projects?</h3>
-        <p><strong>Answer:</strong> Dams are called multipurpose projects because the water stored in reservoirs can be used for several purposes, including irrigation, hydroelectricity generation, flood control, domestic water supply, industrial use, navigation, fisheries and recreation.</p>
+<h3>Q6. Why are dams called multipurpose projects?</h3>
+<p><strong>Answer:</strong> Dams are called multipurpose projects because the water stored in reservoirs can be used for several purposes, including irrigation, hydroelectricity generation, flood control, domestic water supply, industrial use, navigation, fisheries and recreation.</p>
 
-        <hr>
+<hr>
 
-        <h3>Q7. Why is water conservation necessary?</h3>
-        <p><strong>Answer:</strong> Water conservation is necessary because usable freshwater is limited and unevenly distributed. Increasing population, agricultural demand, industrialisation and pollution put pressure on water resources. Conservation helps protect ecosystems and ensures water availability for future generations.</p>
+<h3>Q7. Why is water conservation necessary?</h3>
+<p><strong>Answer:</strong> Water conservation is necessary because usable freshwater is limited and unevenly distributed. Increasing population, agricultural demand, industrialisation and pollution put pressure on water resources. Conservation helps protect ecosystems and ensures water availability for future generations.</p>
 
-        <hr>
+<hr>
 
-        <h3>Q8. Why did movements develop against large dams?</h3>
-        <p><strong>Answer:</strong> Movements developed because large dams can displace communities, submerge forests and agricultural land, disturb ecosystems and create problems related to rehabilitation and unequal distribution of benefits. Such movements demand fair treatment of affected people and sustainable development.</p>
+<h3>Q8. Why did movements develop against large dams?</h3>
+<p><strong>Answer:</strong> Movements developed because large dams can displace communities, submerge forests and agricultural land, disturb ecosystems and create problems related to rehabilitation and unequal distribution of benefits. Such movements demand fair treatment of affected people and sustainable development.</p>
 
-        <div class="info-box">
-            <strong>Study Tip:</strong> For examination preparation, practise writing answers in clear points. Use examples such as Bhakra Nangal, Hirakud, Sardar Sarovar, Tankas, Johads and Ahar-Pyne wherever relevant.
-        </div>
+<div class="info-box">
+<strong>Study Tip:</strong> For examination preparation, practise writing answers in clear points. Use examples such as Bhakra Nangal, Hirakud, Sardar Sarovar, Tankas, Johads and Ahar-Pyne wherever relevant.
+</div>
 
-    </div>
+</div>
 </section>
 
 <div class="footer">
-    <p><strong>Class 10 Geography – Chapter 3: Water Resources</strong></p>
-    <p>Prepared for educational and examination revision purposes.</p>
+<p><strong>Class 10 Geography – Chapter 3: Water Resources</strong></p>
+<p>Prepared for educational and examination revision purposes.</p>
 </div>
 
 </main>
@@ -1565,7 +1433,18 @@ function toggleSidebar(){
     document.getElementById("sidebar").classList.toggle("hidden");
 }
 
-/* INDIVIDUAL SECTION EXPAND / COLLAPSE */
+/* TOC SHOW / HIDE */
+function toggleTOC(){
+    const content = document.getElementById("tocContent");
+    const button = document.getElementById("tocToggle");
+
+    content.classList.toggle("hidden");
+
+    button.textContent =
+        content.classList.contains("hidden") ? "+" : "−";
+}
+
+/* INDIVIDUAL SECTION TOGGLE */
 function toggleSection(heading){
     const section = heading.closest(".section");
     const body = section.querySelector(".section-body");
@@ -1573,11 +1452,8 @@ function toggleSection(heading){
 
     body.classList.toggle("collapsed");
 
-    if(body.classList.contains("collapsed")){
-        icon.textContent = "+";
-    }else{
-        icon.textContent = "−";
-    }
+    icon.textContent =
+        body.classList.contains("collapsed") ? "+" : "−";
 }
 
 /* EXPAND ALL */
@@ -1602,8 +1478,8 @@ function collapseAll(){
     });
 }
 
-/* TABLE OF CONTENTS SCROLL */
-document.querySelectorAll(".toc-list a").forEach(link=>{
+/* TABLE OF CONTENTS NAVIGATION */
+document.querySelectorAll(".toc-grid a").forEach(link=>{
     link.addEventListener("click",function(event){
         event.preventDefault();
 
@@ -1620,7 +1496,7 @@ document.querySelectorAll(".toc-list a").forEach(link=>{
             if(icon) icon.textContent = "−";
         }
 
-        document.querySelectorAll(".toc-list a").forEach(a=>{
+        document.querySelectorAll(".toc-grid a").forEach(a=>{
             a.classList.remove("active");
         });
 
@@ -1630,15 +1506,10 @@ document.querySelectorAll(".toc-list a").forEach(link=>{
             behavior:"smooth",
             block:"start"
         });
-
-        /* Close sidebar on small screens after selection */
-        if(window.innerWidth <= 800){
-            document.getElementById("sidebar").classList.add("hidden");
-        }
     });
 });
 
-/* SEARCH HIGHLIGHT */
+/* SEARCH SYSTEM */
 let searchMatches = [];
 let currentSearchIndex = -1;
 
@@ -1659,12 +1530,12 @@ function clearHighlights(){
     currentSearchIndex = -1;
 }
 
+/* SEARCH CONTENT AND HIGHLIGHT */
 function searchContent(){
     clearHighlights();
 
     const input = document.getElementById("searchInput");
     const query = input.value.trim();
-
     const info = document.getElementById("searchInfo");
 
     if(query.length === 0){
@@ -1684,11 +1555,15 @@ function searchContent(){
         NodeFilter.SHOW_TEXT,
         {
             acceptNode:function(node){
-                if(!node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+                if(!node.nodeValue.trim()){
+                    return NodeFilter.FILTER_REJECT;
+                }
 
                 const parent = node.parentElement;
 
-                if(!parent) return NodeFilter.FILTER_REJECT;
+                if(!parent){
+                    return NodeFilter.FILTER_REJECT;
+                }
 
                 if(
                     parent.closest("script") ||
@@ -1728,6 +1603,7 @@ function searchContent(){
         let match;
 
         while((match = regex.exec(text)) !== null){
+
             fragment.appendChild(
                 document.createTextNode(
                     text.substring(lastIndex,match.index)
@@ -1755,14 +1631,16 @@ function searchContent(){
 
     if(count > 0){
         currentSearchIndex = 0;
+        info.textContent =
+            count + " matching result(s) found. Press Enter or Next.";
+
         focusSearchResult(0);
-        info.textContent = count + " matching result(s) found. Press Enter for next result.";
     }else{
         info.textContent = "No matching content found.";
     }
 }
 
-/* MOVE BETWEEN SEARCH RESULTS */
+/* FOCUS SEARCH RESULT */
 function focusSearchResult(index){
     document.querySelectorAll(".search-current").forEach(item=>{
         item.classList.remove("search-current");
@@ -1774,6 +1652,8 @@ function focusSearchResult(index){
         (index + searchMatches.length) % searchMatches.length;
 
     const mark = searchMatches[currentSearchIndex];
+
+    if(!mark || !mark.isConnected) return;
 
     mark.classList.add("search-current");
 
@@ -1795,29 +1675,34 @@ function focusSearchResult(index){
     });
 }
 
-/* ENTER KEY - NEXT SEARCH RESULT */
+/* NEXT SEARCH RESULT */
+function nextSearchResult(){
+    if(searchMatches.length > 0){
+        focusSearchResult(currentSearchIndex + 1);
+    }else{
+        searchContent();
+    }
+}
+
+/* ENTER KEY */
 function searchEnter(event){
     if(event.key === "Enter"){
         event.preventDefault();
-
-        if(searchMatches.length > 0){
-            focusSearchResult(currentSearchIndex + 1);
-        }else{
-            searchContent();
-        }
+        nextSearchResult();
     }
 }
 
 /* CLEAR SEARCH */
 function clearSearch(){
     document.getElementById("searchInput").value = "";
+
     clearHighlights();
 
     document.getElementById("searchInfo").textContent =
         "Search any word to highlight it in yellow.";
 }
 
-/* INITIAL STATE */
+/* INITIAL PAGE STATE */
 document.addEventListener("DOMContentLoaded",function(){
     expandAll();
 });
