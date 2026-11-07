@@ -2,1279 +2,198 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#102b50">
-
-<title>BPSC Notes Library | Orient Classes</title>
-
-<meta name="description" content="Explore automatic subject-wise, topic-wise and chapter-wise BPSC notes at Orient Classes.">
+<meta name="theme-color" content="#123c69">
+<title>Orient Classes | Learning Portal</title>
 
 <style>
-
-/* =====================================
-   GLOBAL DESIGN
-===================================== */
-
-:root {
-  --navy:#102b50;
-  --blue:#2864ad;
-  --blue-light:#edf4ff;
-  --gold:#ffc928;
-  --bg:#f3f6fb;
-  --text:#24344b;
-  --muted:#68778b;
-  --border:#e2e9f3;
-  --white:#ffffff;
-  --green:#16866e;
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,sans-serif;background:#f4f7fb;color:#263445;line-height:1.6}
+header{background:linear-gradient(120deg,#123c69,#1e6091);color:white}
+.navbar{max-width:1200px;margin:auto;padding:17px 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px}
+.logo{font-size:25px;font-weight:bold}
+.nav-links{display:flex;gap:20px;align-items:center}
+.nav-links a{color:white;text-decoration:none;font-weight:600}
+.nav-links a:hover{color:#ffd166}
+.menu-button{display:none;background:transparent;border:1px solid white;color:white;padding:7px 12px;border-radius:5px;font-size:18px}
+.hero{text-align:center;padding:75px 15px 85px}
+.hero h1{font-size:clamp(32px,5vw,48px);margin-bottom:15px}
+.hero p{max-width:680px;margin:auto;font-size:18px}
+.hero-button{display:inline-block;margin-top:25px;padding:12px 25px;background:#ffd166;color:#123c69;text-decoration:none;border-radius:6px;font-weight:bold}
+.container{width:90%;max-width:1150px;margin:auto}
+.section{padding:45px 0}
+.section-title{text-align:center;color:#123c69;font-size:29px;margin-bottom:28px}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:20px}
+.card{background:white;padding:25px 18px;border-radius:12px;box-shadow:0 3px 14px #00000012;text-align:center;transition:.2s}
+.card:hover{transform:translateY(-5px);box-shadow:0 7px 20px #0000001c}
+.card h3{color:#123c69;margin-bottom:10px}
+.card p{color:#667085;font-size:14px}
+.card a{display:inline-block;margin-top:15px;background:#1e6091;color:white;padding:9px 17px;border-radius:5px;text-decoration:none}
+.card a:hover{background:#123c69}
+.feature-icon{font-size:35px;margin-bottom:10px}
+.bpsc-section{background:#eaf2f8;padding:45px 0}
+.bpsc-card{background:white;border-left:5px solid #1e6091;border-radius:10px;padding:28px;max-width:850px;margin:auto;text-align:center}
+.bpsc-card h2{color:#123c69;margin-bottom:10px}
+.bpsc-card a{display:inline-block;margin-top:18px;background:#123c69;color:white;text-decoration:none;padding:11px 22px;border-radius:6px}
+.about{max-width:850px;margin:auto;text-align:center;color:#566273}
+footer{background:#102c46;color:white;text-align:center;padding:25px 10px;margin-top:30px}
+@media(max-width:700px){
+.menu-button{display:block}
+.navbar{align-items:center}
+.nav-links{display:none;width:100%;flex-direction:column;align-items:flex-start;padding:15px 0}
+.nav-links.show{display:flex}
+.hero{padding:55px 15px}
 }
-
-* {
-  box-sizing:border-box;
-}
-
-html {
-  scroll-behavior:smooth;
-}
-
-body {
-  margin:0;
-  font-family:Arial,Helvetica,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.6;
-}
-
-a {
-  text-decoration:none;
-}
-
-/* =====================================
-   HEADER
-===================================== */
-
-.header {
-  background:linear-gradient(120deg,#102b50,#245b99);
-  color:white;
-  padding:24px 5%;
-}
-
-.header-inner {
-  max-width:1150px;
-  margin:auto;
-}
-
-.home-link {
-  color:#dce9fa;
-  font-size:12px;
-}
-
-.home-link:hover {
-  color:var(--gold);
-}
-
-.header h1 {
-  font-size:clamp(25px,4vw,36px);
-  margin:12px 0 3px;
-}
-
-.header p {
-  color:#dce9fa;
-  font-size:12px;
-  margin:0;
-}
-
-/* =====================================
-   MAIN CONTAINER
-===================================== */
-
-.container {
-  width:min(1150px,94%);
-  margin:25px auto;
-}
-
-/* =====================================
-   BREADCRUMB
-===================================== */
-
-.breadcrumb {
-  display:flex;
-  flex-wrap:wrap;
-  align-items:center;
-  gap:7px;
-  margin-bottom:15px;
-  color:var(--muted);
-  font-size:11px;
-}
-
-.breadcrumb a {
-  color:var(--blue);
-  font-weight:bold;
-}
-
-/* =====================================
-   TOOLBAR
-===================================== */
-
-.toolbar {
-  background:white;
-  border:1px solid var(--border);
-  border-radius:13px;
-  padding:18px;
-  margin-bottom:17px;
-}
-
-.search-box {
-  position:relative;
-}
-
-.search-box input {
-  width:100%;
-  padding:14px 15px;
-  border:1px solid var(--border);
-  border-radius:9px;
-  outline:none;
-  font-size:13px;
-  background:#fbfdff;
-}
-
-.search-box input:focus {
-  border-color:var(--blue);
-  box-shadow:0 0 0 3px #2864ad15;
-}
-
-.toolbar-actions {
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin-top:13px;
-}
-
-.action-btn {
-  border:0;
-  border-radius:7px;
-  padding:10px 13px;
-  background:var(--blue-light);
-  color:var(--navy);
-  font-size:11px;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-.action-btn:hover {
-  background:#dceaff;
-}
-
-.action-btn.primary {
-  background:var(--navy);
-  color:white;
-}
-
-.action-btn.primary:hover {
-  background:var(--blue);
-}
-
-.status {
-  margin-top:12px;
-  color:var(--muted);
-  font-size:11px;
-}
-
-.status.success {
-  color:var(--green);
-}
-
-.status.error {
-  color:#b91c1c;
-}
-
-/* =====================================
-   STATISTICS
-===================================== */
-
-.stats {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:10px;
-  margin-bottom:17px;
-}
-
-.stat-card {
-  background:white;
-  border:1px solid var(--border);
-  border-radius:11px;
-  padding:13px;
-  text-align:center;
-}
-
-.stat-card strong {
-  display:block;
-  color:var(--navy);
-  font-size:23px;
-}
-
-.stat-card span {
-  font-size:10px;
-  color:var(--muted);
-}
-
-/* =====================================
-   DIRECTORY PANEL
-===================================== */
-
-.directory {
-  background:white;
-  border:1px solid var(--border);
-  border-radius:13px;
-  padding:20px;
-}
-
-.directory-heading {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-  padding-bottom:13px;
-  margin-bottom:14px;
-  border-bottom:1px solid var(--border);
-}
-
-.directory-heading h2 {
-  color:var(--navy);
-  font-size:17px;
-  margin:0;
-}
-
-.root-label {
-  font-size:10px;
-  color:var(--blue);
-  background:var(--blue-light);
-  border-radius:5px;
-  padding:5px 8px;
-}
-
-/* =====================================
-   TREE STRUCTURE
-===================================== */
-
-.tree-list {
-  list-style:none;
-  padding-left:19px;
-  margin:0;
-  border-left:1px solid var(--border);
-}
-
-.tree-list.root {
-  padding:0;
-  border:0;
-}
-
-.tree-item {
-  margin:5px 0;
-  min-width:0;
-}
-
-.tree-row {
-  display:flex;
-  align-items:center;
-  gap:7px;
-  min-height:36px;
-  padding:5px 7px;
-  border-radius:7px;
-  min-width:0;
-}
-
-.tree-row:hover {
-  background:#f0f5fc;
-}
-
-/* FOLDER BUTTON */
-
-.folder-toggle {
-  display:flex;
-  flex:1;
-  min-width:0;
-  align-items:center;
-  gap:8px;
-  padding:4px;
-  border:0;
-  background:transparent;
-  color:var(--navy);
-  font-size:13px;
-  text-align:left;
-  cursor:pointer;
-}
-
-.arrow {
-  width:13px;
-  flex-shrink:0;
-  color:var(--muted);
-  transition:transform .2s;
-}
-
-.folder-toggle[aria-expanded="true"] .arrow {
-  transform:rotate(90deg);
-}
-
-.folder-icon {
-  font-size:17px;
-  flex-shrink:0;
-}
-
-.folder-name {
-  overflow-wrap:anywhere;
-}
-
-/* FILE LINKS */
-
-.file-link {
-  display:flex;
-  align-items:center;
-  gap:8px;
-  flex:1;
-  min-width:0;
-  color:var(--blue);
-  font-size:12px;
-  overflow-wrap:anywhere;
-}
-
-.file-link:hover {
-  text-decoration:underline;
-}
-
-.file-icon {
-  flex-shrink:0;
-  font-size:16px;
-}
-
-/* ITEM COUNTS */
-
-.item-count {
-  color:var(--muted);
-  font-size:9px;
-  white-space:nowrap;
-  margin-left:auto;
-}
-
-/* EMPTY AND LOADING */
-
-.message {
-  padding:30px 12px;
-  text-align:center;
-  color:var(--muted);
-  font-size:12px;
-}
-
-.message strong {
-  color:var(--navy);
-}
-
-/* =====================================
-   FOOTER
-===================================== */
-
-.footer {
-  margin-top:35px;
-  background:#091b32;
-  color:#bdcde2;
-  padding:18px;
-  text-align:center;
-  font-size:11px;
-}
-
-/* =====================================
-   MOBILE RESPONSIVE
-===================================== */
-
-@media(max-width:600px) {
-
-  .header {
-    padding:20px 5%;
-  }
-
-  .container {
-    width:94%;
-    margin:18px auto;
-  }
-
-  .toolbar,
-  .directory {
-    padding:13px;
-  }
-
-  .tree-list {
-    padding-left:13px;
-  }
-
-  .tree-row {
-    padding:5px 2px;
-  }
-
-  .folder-toggle {
-    font-size:12px;
-    gap:5px;
-  }
-
-  .file-link {
-    font-size:11px;
-  }
-
-  .item-count {
-    font-size:8px;
-  }
-
-  .stats {
-    gap:6px;
-  }
-
-  .stat-card {
-    padding:10px 4px;
-  }
-
-  .stat-card strong {
-    font-size:20px;
-  }
-
-  .stat-card span {
-    font-size:9px;
-  }
-
-}
-
-@media(prefers-reduced-motion:reduce) {
-
-  *,
-  *::before,
-  *::after {
-    scroll-behavior:auto!important;
-    transition:none!important;
-  }
-
-}
-
 </style>
 </head>
 
 <body>
 
-<!-- =====================================
-     HEADER
-===================================== -->
+<header>
+<nav class="navbar">
+    <div class="logo">Orient Classes</div>
+    <button class="menu-button" onclick="toggleMenu()" aria-label="Open menu">☰</button>
+    <div class="nav-links" id="navLinks">
+        <a href="#home" onclick="closeMenu()">Home</a>
+        <a href="#classes" onclick="closeMenu()">Study</a>
+        <a href="#features" onclick="closeMenu()">Features</a>
+        <a href="#bpsc" onclick="closeMenu()">BPSC</a>
+        <a href="#about" onclick="closeMenu()">About</a>
+    </div>
+</nav>
 
-<header class="header">
-
-  <div class="header-inner">
-
-    <a href="/index.html" class="home-link">
-      ← Back to Orient Classes
-    </a>
-
-    <h1>📚 BPSC Subject Notes</h1>
-
-    <p>
-      Complete Subject-wise and Chapter-wise Digital Library
-    </p>
-
-  </div>
-
+<div class="hero" id="home">
+    <h1>Welcome to Orient Classes</h1>
+    <p>Your path to success begins here! Explore quality study materials, chapter-wise notes, MCQs and examination resources.</p>
+    <a class="hero-button" href="#classes">Explore Study Materials</a>
+</div>
 </header>
 
-<main class="container">
+<main>
 
-  <!-- BREADCRUMB -->
+<section class="section" id="classes">
+<div class="container">
+    <h2 class="section-title">Study Materials – Classes 6 to 12</h2>
+    <div class="card-grid">
 
-  <div class="breadcrumb">
+        <div class="card">
+            <h3>Class 6</h3>
+            <p>NCERT Notes, Questions and Study Materials</p>
+            <a href="/Classes/Class-6/index.html">Explore</a>
+        </div>
 
-    <a href="/index.html">Home</a>
+        <div class="card">
+            <h3>Class 7</h3>
+            <p>NCERT Notes, Questions and Study Materials</p>
+            <a href="/Classes/Class-7/index.html">Explore</a>
+        </div>
 
-    <span>›</span>
+        <div class="card">
+            <h3>Class 8</h3>
+            <p>NCERT Notes, Questions and Study Materials</p>
+            <a href="/Classes/Class-8/index.html">Explore</a>
+        </div>
 
-    <span>BPSC</span>
+        <div class="card">
+            <h3>Class 9</h3>
+            <p>NCERT Notes, Questions and Study Materials</p>
+            <a href="/Classes/Class-9/index.html">Explore</a>
+        </div>
 
-    <span>›</span>
+        <div class="card">
+            <h3>Class 10</h3>
+            <p>NCERT Notes, Questions and Study Materials</p>
+            <a href="/Classes/Class-10/index.html">Explore</a>
+        </div>
 
-    <span>Subject Notes</span>
+        <div class="card">
+            <h3>Class 11</h3>
+            <p>Study Materials and Subject Resources</p>
+            <a href="/Classes/Class-11/index.html">Explore</a>
+        </div>
 
-  </div>
-
-  <!-- SEARCH AND TOOLBAR -->
-
-  <section class="toolbar">
-
-    <div class="search-box">
-
-      <input
-        type="search"
-        id="searchInput"
-        placeholder="🔍 Search Subject, Folder or Chapter..."
-        autocomplete="off"
-        aria-label="Search folders and notes">
-
-    </div>
-
-    <div class="toolbar-actions">
-
-      <button class="action-btn" id="expandBtn">
-        ＋ Expand All
-      </button>
-
-      <button class="action-btn" id="collapseBtn">
-        − Collapse All
-      </button>
-
-      <button class="action-btn primary" id="refreshBtn">
-        ↻ Refresh Library
-      </button>
-
-    </div>
-
-    <div class="status" id="status">
-      Connecting to GitHub Repository...
-    </div>
-
-  </section>
-
-  <!-- STATISTICS -->
-
-  <section class="stats">
-
-    <div class="stat-card">
-      <strong id="folderCount">0</strong>
-      <span>Total Folders</span>
-    </div>
-
-    <div class="stat-card">
-      <strong id="pageCount">0</strong>
-      <span>HTML Pages</span>
-    </div>
-
-    <div class="stat-card">
-      <strong id="subjectCount">0</strong>
-      <span>Subjects</span>
-    </div>
-
-  </section>
-
-  <!-- DIRECTORY -->
-
-  <section class="directory">
-
-    <div class="directory-heading">
-
-      <h2>📂 Complete Notes Directory</h2>
-
-      <span class="root-label">
-        BPSC / Subject-notes
-      </span>
+        <div class="card">
+            <h3>Class 12</h3>
+            <p>Study Materials and Subject Resources</p>
+            <a href="/Classes/Class-12/index.html">Explore</a>
+        </div>
 
     </div>
+</div>
+</section>
 
-    <div id="tree">
+<section class="section" id="features">
+<div class="container">
+    <h2 class="section-title">Learning Resources</h2>
+    <div class="card-grid">
 
-      <div class="message">
-        Loading folders and notes...
-      </div>
+        <div class="card">
+            <div class="feature-icon">📚</div>
+            <h3>Study Notes</h3>
+            <p>Chapter-wise notes for effective learning.</p>
+            <a href="#bpsc">Explore Notes</a>
+        </div>
+
+        <div class="card">
+            <div class="feature-icon">📝</div>
+            <h3>MCQ Practice</h3>
+            <p>Practice objective questions for examinations.</p>
+            <a href="/Tests/index.html">Practice</a>
+        </div>
+
+        <div class="card">
+            <div class="feature-icon">📄</div>
+            <h3>Downloads</h3>
+            <p>Access available PDFs and learning materials.</p>
+            <a href="/Downloads/index.html">Downloads</a>
+        </div>
+
+        <div class="card">
+            <div class="feature-icon">🎥</div>
+            <h3>Video Learning</h3>
+            <p>Learn important topics through educational videos.</p>
+            <a href="/Videos/index.html">Watch Videos</a>
+        </div>
 
     </div>
+</div>
+</section>
 
-  </section>
+<section class="bpsc-section" id="bpsc">
+<div class="container">
+    <div class="bpsc-card">
+        <h2>BPSC Preparation Portal</h2>
+        <p>Explore all BPSC study materials, nested folders, HTML notes, PDFs and other files through one automatically generated library.</p>
+        <a href="/BPSC-Explorer.html">Open Complete BPSC Library</a>
+    </div>
+</div>
+</section>
+
+<section class="section" id="about">
+<div class="container">
+    <h2 class="section-title">About Orient Classes</h2>
+    <div class="about">
+        <p>Orient Classes is a learning platform designed to provide organised educational resources for school students and competitive examination aspirants. Our aim is to make learning systematic, accessible and effective through notes, practice questions and study materials.</p>
+    </div>
+</div>
+</section>
 
 </main>
 
-<!-- FOOTER -->
-
-<footer class="footer">
-
-  © <span id="year"></span>
-  Orient Classes. All Rights Reserved.
-
-  <br>
-  Learn • Practise • Succeed
-
+<footer>
+    <p>© <span id="year"></span> Orient Classes. All Rights Reserved.</p>
+    <p>Learn • Practice • Achieve</p>
 </footer>
 
-
 <script>
-
-/* ==========================================
-   1. GITHUB CONFIGURATION
-========================================== */
-
-/*
-  GitHub Repository:
-  premji321/public_html
-
-  Automatic retrieval starts from:
-  BPSC/Subject-notes/
-
-  No individual subject or chapter paths
-  need to be entered manually.
-*/
-
-const GITHUB_OWNER = "premji321";
-
-const GITHUB_REPO = "public_html";
-
-const NOTES_ROOT = "BPSC/Subject-notes";
-
-const EXPLORER_PATH =
-  "BPSC/Subject-notes/index.html";
-
-
-/* ==========================================
-   2. ELEMENT REFERENCES
-========================================== */
-
-const treeElement =
-  document.getElementById("tree");
-
-const searchInput =
-  document.getElementById("searchInput");
-
-const statusElement =
-  document.getElementById("status");
-
-let originalTree = null;
-
-let allEntries = [];
-
-let folderTotal = 0;
-
-let pageTotal = 0;
-
-
-/* ==========================================
-   3. CURRENT YEAR
-========================================== */
-
-document.getElementById("year").textContent =
-  new Date().getFullYear();
-
-
-/* ==========================================
-   4. GITHUB API CONNECTION
-========================================== */
-
-async function fetchGitHubTree() {
-
-  const repositoryURL =
-    `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}`;
-
-  // Detect the default branch automatically.
-
-  const repoResponse = await fetch(repositoryURL);
-
-  if (!repoResponse.ok) {
-
-    throw new Error(
-      "GitHub Repository access failed. Check repository visibility."
-    );
-
-  }
-
-  const repoData = await repoResponse.json();
-
-  const branch = repoData.default_branch;
-
-  // Retrieve the complete repository folder tree.
-
-  const treeURL =
-    `${repositoryURL}/git/trees/${encodeURIComponent(branch)}?recursive=1`;
-
-  const treeResponse = await fetch(treeURL);
-
-  if (!treeResponse.ok) {
-
-    throw new Error(
-      "Unable to retrieve GitHub folder structure."
-    );
-
-  }
-
-  const treeData = await treeResponse.json();
-
-  if (treeData.truncated) {
-
-    throw new Error(
-      "GitHub returned a truncated file tree. A paginated retrieval system is needed for this very large repository."
-    );
-
-  }
-
-  return treeData.tree;
-
+function toggleMenu(){
+    document.getElementById("navLinks").classList.toggle("show");
 }
-
-
-/* ==========================================
-   5. BUILD AUTOMATIC FOLDER TREE
-========================================== */
-
-function buildFolderTree(entries) {
-
-  const root = {
-
-    name:"Subject Notes",
-
-    folders:{},
-
-    files:[]
-
-  };
-
-  const prefix = NOTES_ROOT + "/";
-
-  // Select HTML files located inside BPSC/Subject-notes.
-
-  const htmlFiles = entries.filter(entry => {
-
-    if (entry.type !== "blob") return false;
-
-    if (!entry.path.startsWith(prefix)) return false;
-
-    if (!entry.path.toLowerCase().endsWith(".html")) {
-      return false;
-    }
-
-    // Avoid listing this Explorer itself.
-
-    if (
-      entry.path.toLowerCase() ===
-      EXPLORER_PATH.toLowerCase()
-    ) {
-      return false;
-    }
-
-    return true;
-
-  });
-
-  htmlFiles.forEach(entry => {
-
-    const relativePath =
-      entry.path.substring(prefix.length);
-
-    const parts = relativePath.split("/");
-
-    const filename = parts.pop();
-
-    let current = root;
-
-    // Automatically create every nested folder.
-
-    parts.forEach(folderName => {
-
-      if (!current.folders[folderName]) {
-
-        current.folders[folderName] = {
-
-          name:folderName,
-
-          folders:{},
-
-          files:[]
-
-        };
-
-      }
-
-      current = current.folders[folderName];
-
-    });
-
-    // Add HTML page to its actual folder.
-
-    current.files.push({
-
-      name:filename,
-
-      path:entry.path
-
-    });
-
-  });
-
-  return root;
-
+function closeMenu(){
+    document.getElementById("navLinks").classList.remove("show");
 }
-
-
-/* ==========================================
-   6. COUNT ALL FOLDERS AND HTML PAGES
-========================================== */
-
-function countItems(node) {
-
-  let folders = 0;
-
-  let files = node.files.length;
-
-  Object.values(node.folders).forEach(folder => {
-
-    const result = countItems(folder);
-
-    folders += 1 + result.folders;
-
-    files += result.files;
-
-  });
-
-  return {
-
-    folders,
-
-    files
-
-  };
-
-}
-
-
-/* ==========================================
-   7. SORT FOLDER AND FILE NAMES
-========================================== */
-
-function sortNames(a,b) {
-
-  return a.localeCompare(
-    b,
-    undefined,
-    {
-      numeric:true,
-      sensitivity:"base"
-    }
-  );
-
-}
-
-
-/* ==========================================
-   8. CREATE FOLDER TREE UI
-========================================== */
-
-function renderTree(node,isRoot=false,forceOpen=false,query="") {
-
-  const list = document.createElement("ul");
-
-  list.className = isRoot
-    ? "tree-list root"
-    : "tree-list";
-
-  const folderNames =
-    Object.keys(node.folders).sort(sortNames);
-
-  folderNames.forEach(folderName => {
-
-    const folder = node.folders[folderName];
-
-    const child = renderTree(
-      folder,
-      false,
-      forceOpen,
-      query
-    );
-
-    const hasFiles = folder.files.length > 0;
-
-    const matchesFolder =
-      query &&
-      folderName.toLowerCase().includes(query);
-
-    const hasMatchingChildren =
-      child.children.length > 0;
-
-    // During search, show matching folders
-    // and their matching descendants.
-
-    if (
-      query &&
-      !matchesFolder &&
-      !hasMatchingChildren
-    ) {
-      return;
-    }
-
-    const li = document.createElement("li");
-
-    li.className = "tree-item";
-
-    const row = document.createElement("div");
-
-    row.className = "tree-row";
-
-    const button = document.createElement("button");
-
-    button.type = "button";
-
-    button.className = "folder-toggle";
-
-    const arrow = document.createElement("span");
-
-    arrow.className = "arrow";
-
-    arrow.textContent = "▶";
-
-    const icon = document.createElement("span");
-
-    icon.className = "folder-icon";
-
-    icon.textContent =
-      forceOpen || matchesFolder || query
-        ? "📂"
-        : "📁";
-
-    const name = document.createElement("span");
-
-    name.className = "folder-name";
-
-    name.textContent = folderName;
-
-    button.append(arrow,icon,name);
-
-    const stats = countItems(folder);
-
-    const count = document.createElement("span");
-
-    count.className = "item-count";
-
-    count.textContent =
-      `${stats.files} pages`;
-
-    const openInitially =
-      forceOpen || Boolean(query);
-
-    button.setAttribute(
-      "aria-expanded",
-      String(openInitially)
-    );
-
-    child.hidden = !openInitially;
-
-    button.addEventListener("click",() => {
-
-      const isOpen = child.hidden;
-
-      child.hidden = !isOpen;
-
-      button.setAttribute(
-        "aria-expanded",
-        String(isOpen)
-      );
-
-      icon.textContent =
-        isOpen ? "📂" : "📁";
-
-    });
-
-    row.append(button,count);
-
-    li.append(row,child);
-
-    list.append(li);
-
-  });
-
-
-  // Add all HTML pages in the current folder.
-
-  const files = [...node.files].sort(
-    (a,b) => sortNames(a.name,b.name)
-  );
-
-  files.forEach(file => {
-
-    const matchesFile =
-      !query ||
-      file.name.toLowerCase().includes(query);
-
-    if (!matchesFile) return;
-
-    const li = document.createElement("li");
-
-    li.className = "tree-item";
-
-    const row = document.createElement("div");
-
-    row.className = "tree-row";
-
-    const link = document.createElement("a");
-
-    link.className = "file-link";
-
-    // Encode each path segment separately.
-
-    const encodedPath = file.path
-      .split("/")
-      .map(segment => encodeURIComponent(segment))
-      .join("/");
-
-    link.href = "/" + encodedPath;
-
-    const icon = document.createElement("span");
-
-    icon.className = "file-icon";
-
-    icon.textContent = "📄";
-
-    const name = document.createElement("span");
-
-    name.textContent = file.name;
-
-    link.append(icon,name);
-
-    row.append(link);
-
-    li.append(row);
-
-    list.append(li);
-
-  });
-
-  return list;
-
-}
-
-
-/* ==========================================
-   9. LOAD THE COMPLETE LIBRARY
-========================================== */
-
-async function loadLibrary() {
-
-  statusElement.className = "status";
-
-  statusElement.textContent =
-    "Reading BPSC Folder from GitHub...";
-
-  treeElement.innerHTML = "";
-
-  const loading = document.createElement("div");
-
-  loading.className = "message";
-
-  loading.textContent =
-    "Please wait, loading your Notes Library...";
-
-  treeElement.append(loading);
-
-  try {
-
-    // Read repository automatically.
-
-    allEntries = await fetchGitHubTree();
-
-    // Build the Subject-notes folder hierarchy.
-
-    originalTree = buildFolderTree(allEntries);
-
-    // Calculate statistics.
-
-    const totals = countItems(originalTree);
-
-    folderTotal = totals.folders;
-
-    pageTotal = totals.files;
-
-    const subjectTotal =
-      Object.keys(originalTree.folders).length;
-
-    document.getElementById("folderCount").textContent =
-      folderTotal;
-
-    document.getElementById("pageCount").textContent =
-      pageTotal;
-
-    document.getElementById("subjectCount").textContent =
-      subjectTotal;
-
-    // Display folder tree.
-
-    displayLibrary();
-
-    statusElement.className = "status success";
-
-    statusElement.textContent =
-      "✓ Library successfully retrieved from GitHub.";
-
-  } catch(error) {
-
-    console.error(error);
-
-    treeElement.innerHTML = "";
-
-    const message = document.createElement("div");
-
-    message.className = "message";
-
-    const heading = document.createElement("strong");
-
-    heading.textContent =
-      "Unable to load Notes Library.";
-
-    const details = document.createElement("p");
-
-    details.textContent = error.message;
-
-    message.append(heading,details);
-
-    treeElement.append(message);
-
-    statusElement.className = "status error";
-
-    statusElement.textContent =
-      "Library loading failed. Check GitHub connection.";
-
-  }
-
-}
-
-
-/* ==========================================
-   10. DISPLAY LIBRARY
-========================================== */
-
-function displayLibrary() {
-
-  if (!originalTree) return;
-
-  const query =
-    searchInput.value.trim().toLowerCase();
-
-  const tree = renderTree(
-    originalTree,
-    true,
-    false,
-    query
-  );
-
-  treeElement.replaceChildren(tree);
-
-  if (pageTotal === 0) {
-
-    const message = document.createElement("div");
-
-    message.className = "message";
-
-    message.textContent =
-      "No HTML Notes found inside BPSC/Subject-notes.";
-
-    treeElement.append(message);
-
-  }
-
-  if (
-    query &&
-    tree.children.length === 0
-  ) {
-
-    const message = document.createElement("div");
-
-    message.className = "message";
-
-    message.textContent =
-      "No matching folders or HTML pages found.";
-
-    treeElement.append(message);
-
-  }
-
-}
-
-
-/* ==========================================
-   11. SEARCH
-========================================== */
-
-searchInput.addEventListener("input",function() {
-
-  displayLibrary();
-
-});
-
-
-/* ==========================================
-   12. EXPAND ALL
-========================================== */
-
-document.getElementById("expandBtn")
-  .addEventListener("click",function() {
-
-    treeElement.querySelectorAll(".folder-toggle")
-      .forEach(button => {
-
-        const child =
-          button.closest(".tree-item")
-          .querySelector(":scope > .tree-list");
-
-        if (!child) return;
-
-        child.hidden = false;
-
-        button.setAttribute(
-          "aria-expanded",
-          "true"
-        );
-
-        button.querySelector(".folder-icon")
-          .textContent = "📂";
-
-      });
-
-  });
-
-
-/* ==========================================
-   13. COLLAPSE ALL
-========================================== */
-
-document.getElementById("collapseBtn")
-  .addEventListener("click",function() {
-
-    treeElement.querySelectorAll(".folder-toggle")
-      .forEach(button => {
-
-        const child =
-          button.closest(".tree-item")
-          .querySelector(":scope > .tree-list");
-
-        if (!child) return;
-
-        child.hidden = true;
-
-        button.setAttribute(
-          "aria-expanded",
-          "false"
-        );
-
-        button.querySelector(".folder-icon")
-          .textContent = "📁";
-
-      });
-
-  });
-
-
-/* ==========================================
-   14. REFRESH LIBRARY
-========================================== */
-
-document.getElementById("refreshBtn")
-  .addEventListener("click",function() {
-
-    searchInput.value = "";
-
-    loadLibrary();
-
-  });
-
-
-/* ==========================================
-   15. START AUTOMATIC RETRIEVAL
-========================================== */
-
-loadLibrary();
-
+document.getElementById("year").textContent=new Date().getFullYear();
 </script>
 
 </body>
