@@ -205,39 +205,178 @@ tr:nth-child(even){background:#f6f8fc}
  .topbar button{padding:8px;font-size:11px}
 }
 
-/* PRINT / SAVE AS PDF */
-@page{size:A4;margin:13mm}
+/* PRINT / SAVE AS PDF - UPDATED */
+@page{
+ size:A4;
+ margin:13mm;
+}
+
 @media print{
- body{background:white!important;color:black!important;font-size:10pt}
- .header{background:white!important;color:black!important;
-  border-bottom:2px solid #333;padding:12px}
- .header p{color:black}
- .topbar,.sidebar,.searchbox,#backtop,.btnrow,
- .quiz-controls,.no-print{display:none!important}
- .layout{display:block;padding:0;max-width:none}
- .content{width:100%}
- .hero,.section,.accordion{
-  box-shadow:none!important;border:1px solid #bbb;
-  break-inside:auto;page-break-inside:auto
+
+ html,body{
+  width:100%!important;
+  height:auto!important;
+  overflow:visible!important;
+  background:white!important;
+  color:black!important;
+  font-size:10pt!important;
+  -webkit-print-color-adjust:exact!important;
+  print-color-adjust:exact!important;
  }
- .section{margin-bottom:12px;padding:12px}
- .section-title h2{color:black}
- .accordion{break-inside:avoid}
- .acc-head{background:#eee!important;color:black!important}
- .acc-body{display:block!important}
- .acc-inner{overflow:visible!important}
- .profile{grid-template-columns:125px 1fr;gap:12px;padding:10px}
- .profile-image{position:static}
- .profile-image img{height:160px;object-fit:contain}
- .profile-text{font-size:9pt}
- .profile-text li{margin:2px 0}
- .table-wrap{overflow:visible}
- table{font-size:8pt;min-width:0}
- th,td{padding:5px}
- .question{break-inside:avoid}
- .footer{background:white!important;color:black!important}
- a{color:black;text-decoration:none}
- img{max-width:100%;print-color-adjust:exact;-webkit-print-color-adjust:exact}
+
+ body{
+  margin:0!important;
+  padding:0!important;
+ }
+
+ .header{
+  background:white!important;
+  color:black!important;
+  border-bottom:2px solid #333;
+  padding:12px;
+ }
+
+ .header p{color:black!important}
+
+ .topbar,
+ .sidebar,
+ .searchbox,
+ #backtop,
+ .btnrow,
+ .quiz-controls,
+ .no-print{
+  display:none!important;
+ }
+
+ .layout{
+  display:block!important;
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:0!important;
+ }
+
+ .content{
+  display:block!important;
+  width:100%!important;
+  min-width:0!important;
+ }
+
+ .hero,
+ .section,
+ .accordion{
+  box-shadow:none!important;
+  border:1px solid #bbb!important;
+  break-inside:auto!important;
+  page-break-inside:auto!important;
+ }
+
+ .section{
+  display:block!important;
+  margin-bottom:12px!important;
+  padding:12px!important;
+ }
+
+ .section-title h2{color:black!important}
+
+ .accordion{
+  display:block!important;
+  overflow:visible!important;
+  break-inside:auto!important;
+  page-break-inside:auto!important;
+ }
+
+ .acc-head{
+  background:#eee!important;
+  color:black!important;
+  display:flex!important;
+ }
+
+ .acc-body,
+ .accordion .acc-body{
+  display:block!important;
+  grid-template-rows:1fr!important;
+  height:auto!important;
+  overflow:visible!important;
+ }
+
+ .acc-inner{
+  display:block!important;
+  overflow:visible!important;
+  height:auto!important;
+ }
+
+ .profile{
+  display:grid!important;
+  grid-template-columns:125px minmax(0,1fr)!important;
+  gap:12px!important;
+  padding:10px!important;
+  align-items:start!important;
+ }
+
+ .profile-image{
+  position:static!important;
+  width:100%!important;
+  overflow:visible!important;
+ }
+
+ .profile-image img{
+  width:100%!important;
+  height:160px!important;
+  object-fit:contain!important;
+ }
+
+ .profile-text{
+  display:block!important;
+  font-size:9pt!important;
+ }
+
+ .profile-text li{margin:2px 0!important}
+
+ .table-wrap{
+  overflow:visible!important;
+  width:100%!important;
+ }
+
+ table{
+  width:100%!important;
+  min-width:0!important;
+  font-size:8pt!important;
+  border-collapse:collapse!important;
+ }
+
+ th,td{padding:5px!important}
+
+ .question{
+  display:block!important;
+  break-inside:avoid!important;
+  page-break-inside:avoid!important;
+ }
+
+ .footer{
+  background:white!important;
+  color:black!important;
+ }
+
+ a{
+  color:black!important;
+  text-decoration:none!important;
+ }
+
+ img{
+  max-width:100%!important;
+  print-color-adjust:exact!important;
+  -webkit-print-color-adjust:exact!important;
+ }
+
+ /* Restore content hidden by search while printing */
+ body.print-mode .accordion.hidden,
+ body.print-mode .section.hidden,
+ body.print-mode .table-wrap tbody tr.hidden,
+ body.print-mode #factsList li.hidden{
+  display:revert!important;
+ }
+
 }
 </style>
 </head>
@@ -1056,28 +1195,45 @@ function searchContent(){
  });
 }
 
-/* PRINT / PDF FUNCTION */
+/* PRINT / PDF FUNCTION - UPDATED */
 
 function printPDF(){
- // Save which accordions were open before printing
- const accordions=[...document.querySelectorAll(".accordion")];
- const previous=accordions.map(a=>a.classList.contains("active"));
 
- // Open every section so the complete notes are printed
+ // Remember the current accordion open/close state
+ const accordions=[...document.querySelectorAll(".accordion")];
+ const previousStates=accordions.map(a=>a.classList.contains("active"));
+
+ // Activate print mode so search-hidden content is also included
+ document.body.classList.add("print-mode");
+
+ // Expand all accordion notes before printing
  expandAll();
 
- // Give accordion animations time to finish, then open print dialogue
- setTimeout(()=>{
-  window.print();
- },450);
+ // Restore the original state after the print window closes
+ const restorePrintState=function(){
 
- // Restore previous state after the print dialogue closes
- window.onafterprint=function(){
-  accordions.forEach((a,i)=>{
-   a.classList.toggle("active",previous[i]);
+  accordions.forEach((accordion,index)=>{
+   accordion.classList.toggle("active",previousStates[index]);
   });
-  window.onafterprint=null;
+
+  document.body.classList.remove("print-mode");
+
+  window.removeEventListener("afterprint",restorePrintState);
  };
+
+ // Register the restore handler before opening the print dialog
+ window.addEventListener("afterprint",restorePrintState);
+
+ // Open the browser's native print dialog directly
+ // Android Chrome: choose "Save as PDF"
+ try{
+  window.focus();
+  window.print();
+ }catch(error){
+  restorePrintState();
+  alert("Printing is not supported in this viewer. Please open this HTML page in Google Chrome and try again.");
+ }
+
 }
 
 </script>
