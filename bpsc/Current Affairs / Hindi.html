@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>सिंधु/हड़प्पा सभ्यता — 40 MCQ टेस्ट</title>
+  <style>
+    :root{font-family: 'Noto Sans', Arial, sans-serif;color:#222}
+    body{max-width:980px;margin:20px auto;padding:20px;background:#f9f9fb;border-radius:10px}
+    h1{font-size:28px;margin-bottom:6px}
+    p.lead{color:#555;margin-top:0}
+    .card{background:#fff;padding:14px;border-radius:8px;box-shadow:0 6px 18px rgba(20,20,50,0.06);margin:12px 0}
+    .question{margin-bottom:12px}
+    .options{list-style:none;padding-left:0}
+    .options li{margin:8px 0}
+    label.opt{display:block;padding:10px;border-radius:6px;border:1px solid #e6e6ee;cursor:pointer}
+    input[type=radio]{margin-right:10px}
+    .label-correct{border-color:#2e7d32;background:#e8f5e9}
+    .label-wrong{border-color:#c62828;background:#ffebee}
+    .feedback{margin-top:8px;font-weight:600}
+    .controls{display:flex;gap:10px;flex-wrap:wrap}
+    button{padding:10px 14px;border-radius:8px;border:0;cursor:pointer}
+    button.primary{background:#1565c0;color:#fff}
+    button.ghost{background:#fff;border:1px solid #ccc}
+    .result{font-size:18px;margin-top:12px}
+    .certificate{display:none;margin-top:16px;padding:14px;border-radius:8px;background:linear-gradient(135deg,#fff8e1,#fff)}
+    .cert-box{border:2px solid #ffd54f;padding:18px;border-radius:6px;text-align:center}
+    @media (max-width:640px){body{padding:12px}}
+  </style>
+</head>
+<body>
+ <h1 style="color: red;">Speedy Publication</h1>
+  <a href="https://t.me/speedy_publication">Click here to Join Our Telegram Channel</a>
+  <h2>सिंधु/हड़प्पा सभ्यता — 40 MCQ टेस्ट</h2>
+  <p class="lead">नीचे दिए गए प्रश्नों का उत्तर दीजिए — प्रत्येक प्रश्न पर क्लिक करने पर तुरंत सही/गलत दिखाई देगा। अंत में पूरा स्कोर और प्रमाणपत्र डाउनलोड करें।</p>
+
+  <div id="quiz"></div>
+
+  <div class="card">
+    <div class="controls">
+      <button id="submitAll" class="primary">सबमिट करें और स्कोर देखें</button>
+      <button id="reset" class="ghost">रीसेट</button>
+      <input id="username" placeholder="अपना नाम दर्ज करें (प्रमाणपत्र के लिए)" style="padding:10px;border-radius:8px;border:1px solid #ddd;flex:1;min-width:200px" />
+      <button id="downloadCert" class="primary" style="display:none">प्रमाणपत्र डाउनलोड करें</button>
+    </div>
+    <div id="score" class="result"></div>
+
+    <div id="cert" class="certificate">
+      <div class="cert-box">
+        <h2>प्रमाणपत्र</h2>
+        <p id="certName" style="font-size:20px;margin:6px 0;font-weight:700"></p>
+        <p id="certText"></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const questions = [
+      {q:'सिंधु सभ्यता का काल क्या है?', opts:['1500-1000 ई॰ पू॰','3000-2500 ई॰ पू॰','2500-1750 ई॰ पू॰','1000-500 ई॰ पू॰'], a:2},
+      {q:'सिंधु घाटी सभ्यता किस प्रकार की थी?', opts:['माध्यमिक प्रागैतिहासिक','आद्य ऐतिहासिक','शहरी-औद्योगिक','लौह युगीन'], a:1},
+      {q:'सिंधु सभ्यता किस चीज़ के लिये प्रसिद्ध थी?', opts:['लोहे के उपकरण','नगर नियोजन','धार्मिक निर्देश','महाराजा शासन'], a:1},
+      {q:'सिंधु सभ्यता की लिपि किस प्रकार की थी?', opts:['ध्वन्यात्मक','भाषाई','भाव-चित्रात्मक','रैखिक'], a:2},
+      {q:'सिंधुवासियों का मुख्य व्यवसाय क्या था?', opts:['व्यवसाय','कला और शिल्प','कृषि','व्यापार'], a:2},
+      {q:'सिंधुवासियों की प्रमुख फसलें कौन‑सी थीं?', opts:['धान और मकई','जौ और गेहूँ','चावल और ज्वार','गन्ना और कपास'], a:1},
+      {q:'कपास की खेती किसने प्रारंभ की?', opts:['मेसोपोटामिया के लोगों ने','सिंधु वासियों ने','मिस्रवासियों ने','आर्य लोगों ने'], a:1},
+      {q:'सिंधु सभ्यता का प्रमुख बंदरगाह कौन‑सा था?', opts:['दरोडा','लोथल','सुरकोटदा','धौलावीरा'], a:1},
+      {q:'लोथल किस नदी के किनारे स्थित है?', opts:['घग्घर नदी','भोगवा नदी','रावी नदी','सिंधु नदी'], a:1},
+      {q:'भारत में हड़प्पा का वृहद् स्थल कौन सा है?', opts:['लूटोदा','राखीगढ़ी','मोहनजोदड़ो','हड़प्पा'], a:1},
+      {q:'राखीगढ़ी किस नदी के तट पर स्थित है?', opts:['घग्घर नदी','सिन्धु नदी','रावी नदी','चिनाब नदी'], a:0},
+      {q:'सिंधुवासी किसकी पूजा करते थे?', opts:['विष्णु','सूर्य','पशुपति','इंद्र'], a:2},
+      {q:'हड़प्पा/सिंधु सभ्यता के बारे में सबसे पहले जानकारी किसने दी?', opts:['सर जॉन मार्शल','चार्ल्स मैसन','दयाराम साहनी','रिक्समैन'], a:1},
+      {q:'हड़प्पा कहाँ स्थित है?', opts:['भारत के हरियाणा में','पाकिस्तान के सिंध प्रांत में','पाकिस्तान के पंजाब प्रांत के मोंटगोमरी जिला में','भारत के गुजरात में'], a:2},
+      {q:'हड़प्पा की खोज किसने की?', opts:['सिर जॉन मार्शल','राखलदास बनर्जी','दयाराम साहनी','चार्ल्स मैसन'], a:2},
+      {q:'हड़प्पा की सभ्यता किस युग से संबंधित थी?', opts:['पाषाण युग','कांस्ययुगीन','लौह युग','प्राचीन ऐतिहासिक'], a:1},
+      {q:'हड़प्पाई समाज किस प्रकार का माना जाता है?', opts:['पितृसत्तात्मक','मातृसत्तात्मक','तांत्रिक','राजतंत्र'], a:1},
+      {q:'स्वास्तिक चिन्ह किस सभ्यता से जुड़ा है?', opts:['मेसोपोटामिया','मिस्र','हड़प्पा','रोमन'], a:2},
+      {q:'हड़प्पा निवासियों को किस खेल में रूचि बताई जाती है?', opts:['कबड्डी','शतरंज','पासा','दौरना'], a:1},
+      {q:'धौलावीरा कहाँ स्थित है?', opts:['हरियाणा','गुजरात (कच्छ जिला)','महाराष्ट्र','पंजाब'], a:1},
+      {q:'धौलावीरा में किस प्रकार के उन्नत अवशेष मिले हैं?', opts:['सैनिक किले','जल प्रबंधन प्रणाली','धातु कार्यालय','धार्मिक मंदिर'], a:1},
+      {q:'R-37 कब्रिस्तान किस स्थान से मिला?', opts:['मोहनजोदड़ो','हड़प्पा','धौलावीरा','लोथल'], a:1},
+      {q:'हड़प्पा के लोग किस धातु के बारे में अनभिज्ञ माने जाते हैं?', opts:['सोना','चाँदी','लोहा','तांबा'], a:2},
+      {q:'हड़प्पा की मुहरें किससे बनी थीं?', opts:['पथर से','सेलखड़ी से','पीतल से','दूधिया पत्थर से'], a:1},
+      {q:'हड़प्पा में मिट्टी के बर्तन पर प्रयुक्त मुख्य रंग कौन‑सा था?', opts:['नीला','हरा','लाल','पीला'], a:2},
+      {q:'मोहनजोदड़ो एवं हड़प्पा की पुरातात्विक खुदाई के प्रभारी कौन थे?', opts:['सर जॉन मार्शल','राखलदास बनर्जी','दयाराम साहनी','चार्ल्स मैसन'], a:0},
+      {q:'लिपिस्तिक के साक्ष्य किस स्थल से मिले हैं?', opts:['चन्हूदड़ो','लोथल','कालीबंगा','राखीगढ़ी'], a:0},
+      {q:'चावल के साक्ष्य किन स्थानों से मिले हैं?', opts:['लोथल एवं रंगपुर','मोहनजोदड़ो एवं हड़प्पा','धौलावीरा एवं सुरकोटदा','कालीबंगा व बनावली'], a:0},
+      {q:'जूते हुए खेत के साक्ष्य किस स्थान से मिले हैं?', opts:['कालीबंगा','धौलावीरा','लोथल','मोहनजोदड़ो'], a:0},
+      {q:'कालीबंगा का नाम क्या अर्थ रखता है?', opts:['काली मिट्टी का शहर','काले रंग की चूड़ियाँ','काली नदी के किनारे','काले पत्थर का टीला'], a:1},
+      {q:'अग्निकुंड के अवशेष किस स्थान से प्राप्त हुए हैं?', opts:['लोथल/कालीबंगा','धौलावीरा','मोहनजोदड़ो','हड़प्पा'], a:0},
+      {q:'हल का टेराकोटा किस स्थल से मिला है?', opts:['राखीगढ़ी','बनावली','सुरकोटदा','चन्हूदड़ो'], a:1},
+      {q:'घोड़े की हड्डियों के अवशेष किस स्थल से मिले हैं?', opts:['लोथल','सुरकोटदा','धौलावीरा','कालीबंगा'], a:1},
+      {q:'सिंधु सभ्यता की सबसे बड़ी इमारत कौन‑सी मानी जाती है?', opts:['स्नानागार','अन्नागार','महल','किले'], a:1},
+      {q:'मोहनजोदड़ो की खोज किसने की?', opts:['दयाराम साहनी','राखलदास बनर्जी','सर जॉन मार्शल','चार्ल्स मैसन'], a:1},
+      {q:'मोहनजोदड़ो का अर्थ क्या है?', opts:['जीवंत नगर','मृतकों का टीला','सागर का तट','पुरातन नगर'], a:1},
+      {q:'मोहनजोदड़ो से कौन‑सा प्रमुख स्मारक मिला?', opts:['वृहत स्नानागार','महाविद्यालय','राजमहल','मंदिर'], a:0},
+      {q:'मेसोपोटामिया का आधुनिक नाम क्या है और अर्थ क्या है?', opts:['इजिप्ट — नदी का देश','इराक — दो नदियों के बीच की भूमि','सिरिया — रेगिस्तान देश','तुर्की — पर्वतीय क्षेत्र'], a:1},
+      {q:'मेसोपोटामिया सभ्यता दजला‑फरात किनारे विकसित हुई थी?', opts:['सही','गलत','कभी‑कभी','लिखित नहीं'], a:0}
+    ];
+
+    const quizDiv = document.getElementById('quiz');
+
+    function renderQuiz(){
+      quizDiv.innerHTML = '';
+      questions.forEach((item, idx) =>{
+        const card = document.createElement('div');
+        card.className = 'card question';
+        card.innerHTML = `<div style="font-weight:700;margin-bottom:8px">Q${idx+1}. ${item.q}</div>`;
+        const ul = document.createElement('ul');
+        ul.className = 'options';
+        item.opts.forEach((opt, oi)=>{
+          const li = document.createElement('li');
+          const id = `q${idx}_opt${oi}`;
+          li.innerHTML = `<label class="opt" for="${id}"><input type="radio" name="q${idx}" id="${id}" value="${oi}" /> ${opt}</label>`;
+          ul.appendChild(li);
+        });
+        card.appendChild(ul);
+        const fb = document.createElement('div');
+        fb.className = 'feedback';
+        fb.id = `fb${idx}`;
+        card.appendChild(fb);
+        quizDiv.appendChild(card);
+      });
+      questions.forEach((item, idx)=>{
+        const radios = document.getElementsByName('q'+idx);
+        radios.forEach(r => r.addEventListener('change', (e)=>{
+          const val = Number(e.target.value);
+          showFeedback(idx, val);
+        }));
+      });
+    }
+
+    function showFeedback(qIdx, chosen){
+      const correct = questions[qIdx].a;
+      const fb = document.getElementById('fb'+qIdx);
+      const opts = document.querySelectorAll(`input[name='q${qIdx}']`);
+      opts.forEach(inp =>{
+        const lab = inp.closest('label');
+        lab.classList.remove('label-correct','label-wrong');
+        if(Number(inp.value) === correct){ lab.classList.add('label-correct'); }
+        if(inp.checked && Number(inp.value) !== correct){ lab.classList.add('label-wrong'); }
+      });
+      if(chosen === correct){ fb.textContent = 'सही ✅'; fb.style.color = '#2e7d32'; }
+      else { fb.textContent = 'गलत ❌ (सही उत्तर: ' + questions[qIdx].opts[correct] + ')'; fb.style.color = '#c62828'; }
+    }
+
+    document.getElementById('submitAll').addEventListener('click', ()=>{
+      let score = 0;
+      questions.forEach((item, idx)=>{
+        const sel = document.querySelector(`input[name='q${idx}']:checked`);
+        if(sel && Number(sel.value) === item.a) score += 1;
+        if(!sel){
+          const opts = document.querySelectorAll(`input[name='q${idx}']`);
+          opts.forEach(inp =>{
+            const lab = inp.closest('label');
+            lab.classList.remove('label-correct','label-wrong');
+            if(Number(inp.value) === item.a) lab.classList.add('label-correct');
+          });
+          const fb = document.getElementById('fb'+idx);
+          fb.textContent = 'अनुत्तरित — सही उत्तर: ' + item.opts[item.a]; fb.style.color = '#555';
+        }
+      });
+      const scoreDiv = document.getElementById('score');
+      scoreDiv.innerHTML = `आपका स्कोर: <strong>${score} / ${questions.length}</strong>`;
+      const certArea = document.getElementById('cert');
+      const downloadBtn = document.getElementById('downloadCert');
+      if(score >= 20){
+        certArea.style.display = 'block';
+        const name = document.getElementById('username').value || 'प्रवेशकर्ता';
+        document.getElementById('certName').textContent = name;
+        document.getElementById('certText').textContent = `ने सिंधु/हड़प्पा सभ्यता टेस्ट में ${score} / ${questions.length} अंक प्राप्त किए।`;
+        downloadBtn.style.display = 'inline-block';
+      } else {
+        certArea.style.display = 'none';
+        downloadBtn.style.display = 'none';
+      }
+    });
+
+    document.getElementById('reset').addEventListener('click', ()=>{
+      renderQuiz();
+      document.getElementById('score').innerHTML = '';
+      document.getElementById('cert').style.display = 'none';
+      document.getElementById('downloadCert').style.display = 'none';
+    });
+
+    document.getElementById('downloadCert').addEventListener('click', ()=>{
+      const name = document.getElementById('username').value || 'प्रवेशकर्ता';
+      const scoreText = document.getElementById('score').innerText || '';
+      const win = window.open('','_blank','width=800,height=600');
+      const html = `<!doctype html><html><head><meta charset="utf-8"><title>प्रमाणपत्र</title><style>body{font-family:Arial;text-align:center;padding:40px} .box{border:6px solid #ffd54f;padding:30px;border-radius:10px} h1{margin:6px} .name{font-size:24px;font-weight:700;margin:8px 0}</style></head><body><div class="box"><h1>प्रमाणपत्र</h1><div class="name">${name}</div><p>${scoreText} — सिंधु/हड़प्पा सभ्यता टेस्ट</p><p>तारीख: ${new Date().toLocaleDateString('hi-IN')}</p></div></body></html>`;
+      win.document.write(html);
+      win.document.close();
+      win.print();
+    });
+
+    renderQuiz();
+  </script>
+</body>
+</html>
