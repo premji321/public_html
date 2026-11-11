@@ -1,0 +1,702 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vedic Age - ऋग्वेद के 10 मंडल</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, "Noto Sans Devanagari", sans-serif;
+    background: #f1f4f9;
+    color: #202b3c;
+    line-height: 1.7;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Main Heading */
+
+.header {
+    background: linear-gradient(135deg, #172554, #6d28d9);
+    color: white;
+    text-align: center;
+    padding: 35px 15px;
+    border-radius: 15px;
+    margin-bottom: 22px;
+}
+
+.header h1 {
+    font-size: 36px;
+    letter-spacing: 2px;
+}
+
+.header h2 {
+    font-size: 24px;
+    margin-top: 8px;
+    color: #fde68a;
+}
+
+.header p {
+    margin-top: 8px;
+    color: #e0e7ff;
+}
+
+/* Common Cards */
+
+.card {
+    background: white;
+    padding: 22px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.06);
+}
+
+.card h2 {
+    color: #4c1d95;
+    border-bottom: 2px solid #ddd6fe;
+    padding-bottom: 9px;
+    margin-bottom: 15px;
+}
+
+/* Index */
+
+.index-list {
+    padding-left: 25px;
+    columns: 2;
+}
+
+.index-list li {
+    padding: 5px 0;
+    break-inside: avoid;
+}
+
+.index-list a {
+    text-decoration: none;
+    color: #5b21b6;
+    font-weight: 600;
+}
+
+.index-list a:hover {
+    color: #ea580c;
+    text-decoration: underline;
+}
+
+/* Buttons */
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 18px 0;
+}
+
+button {
+    border: none;
+    padding: 10px 18px;
+    border-radius: 7px;
+    background: #5b21b6;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #7c3aed;
+}
+
+button.close {
+    background: #374151;
+}
+
+/* Expand Collapse */
+
+details {
+    background: white;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #ddd6fe;
+    overflow: hidden;
+    scroll-margin-top: 15px;
+}
+
+summary {
+    padding: 15px 18px;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: bold;
+    color: #312e81;
+    background: #ede9fe;
+    list-style: none;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+summary::before {
+    content: "+";
+    display: inline-block;
+    margin-right: 12px;
+    font-size: 20px;
+    color: #7c3aed;
+}
+
+details[open] summary::before {
+    content: "−";
+}
+
+.content {
+    padding: 18px;
+}
+
+.content p {
+    margin-bottom: 10px;
+}
+
+.content ul {
+    padding-left: 25px;
+    margin-bottom: 12px;
+}
+
+/* Tables */
+
+.table-wrap {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 650px;
+    margin-top: 12px;
+}
+
+th, td {
+    border: 1px solid #d1d5db;
+    padding: 11px;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background: #312e81;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background: #f5f3ff;
+}
+
+.highlight {
+    background: #fef3c7;
+    padding: 12px;
+    border-left: 4px solid #d97706;
+    margin: 12px 0;
+    border-radius: 5px;
+}
+
+.footer {
+    text-align: center;
+    padding: 25px;
+    color: #6b7280;
+}
+
+/* Mobile */
+
+@media(max-width:650px) {
+    .container {
+        padding: 10px;
+    }
+
+    .header h1 {
+        font-size: 27px;
+    }
+
+    .header h2 {
+        font-size: 20px;
+    }
+
+    .index-list {
+        columns: 1;
+    }
+
+    .card {
+        padding: 15px;
+    }
+}
+
+@media print {
+    .controls {
+        display: none;
+    }
+
+    details:not([open]) > .content {
+        display: block;
+    }
+
+    body {
+        background: white;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- MAIN HEADING -->
+
+<header class="header">
+    <h1>VEDIC AGE</h1>
+    <h2>वैदिक काल</h2>
+    <p>ऋग्वेद : दस मंडलों का विषयवार अध्ययन</p>
+</header>
+
+<!-- INDEX -->
+
+<section class="card" id="index">
+
+<h2>विषय-सूची (INDEX)</h2>
+
+<ol class="index-list">
+    <li><a href="#intro">ऋग्वेद का परिचय</a></li>
+    <li><a href="#overview">10 मंडलों का संक्षिप्त परिचय</a></li>
+    <li><a href="#mandal1">प्रथम से दशम मंडल का विवरण</a></li>
+    <li><a href="#important">महत्वपूर्ण सूक्त</a></li>
+    <li><a href="#social">सामाजिक एवं राजनीतिक विषय</a></li>
+    <li><a href="#rishi">मंडल एवं ऋषि परिवार</a></li>
+    <li><a href="#facts">परीक्षा उपयोगी महत्वपूर्ण तथ्य</a></li>
+    <li><a href="#revision">त्वरित पुनरावृत्ति</a></li>
+</ol>
+
+</section>
+
+<!-- BUTTONS -->
+
+<div class="controls">
+    <button onclick="expandAll()">सभी खोलें</button>
+    <button class="close" onclick="collapseAll()">सभी बंद करें</button>
+</div>
+
+<!-- INTRODUCTION -->
+
+<section class="card" id="intro">
+
+<h2>1. ऋग्वेद का परिचय</h2>
+
+<p>
+ऋग्वेद चारों वेदों में सबसे प्राचीन माना जाता है।
+यह वैदिक सभ्यता, धार्मिक जीवन, सामाजिक व्यवस्था,
+राजनीतिक संगठन और आर्थिक गतिविधियों की जानकारी
+प्रदान करता है।
+</p>
+
+<ul>
+    <li>कुल मंडल - 10</li>
+    <li>कुल सूक्त - 1028</li>
+    <li>मंत्रों की प्रचलित गणना - लगभग 10,552</li>
+    <li>भाषा - वैदिक संस्कृत</li>
+    <li>मुख्य विषय - देवताओं की स्तुति, प्रार्थना एवं दार्शनिक विचार</li>
+</ul>
+
+<div class="highlight">
+    ऋग्वेद के द्वितीय से सप्तम मंडल को परिवार मंडल
+    (Family Books) कहा जाता है।
+</div>
+
+</section>
+
+<!-- OVERVIEW -->
+
+<section class="card" id="overview">
+
+<h2>2. ऋग्वेद के 10 मंडलों का संक्षिप्त परिचय</h2>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>मंडल</th>
+<th>प्रमुख विषय</th>
+<th>प्रमुख ऋषि परिवार</th>
+</tr>
+</thead>
+
+<tbody>
+<tr><td>प्रथम</td><td>विभिन्न देवताओं की स्तुति</td><td>विविध ऋषि</td></tr>
+<tr><td>द्वितीय</td><td>इंद्र एवं अग्नि</td><td>गृत्समद</td></tr>
+<tr><td>तृतीय</td><td>गायत्री मंत्र, सविता</td><td>विश्वामित्र</td></tr>
+<tr><td>चतुर्थ</td><td>इंद्र एवं अग्नि</td><td>वामदेव</td></tr>
+<tr><td>पंचम</td><td>मित्र, वरुण एवं आदित्य</td><td>अत्रि</td></tr>
+<tr><td>षष्ठ</td><td>इंद्र, अग्नि एवं सरस्वती</td><td>भरद्वाज</td></tr>
+<tr><td>सप्तम</td><td>दशराज्ञ युद्ध</td><td>वशिष्ठ</td></tr>
+<tr><td>अष्टम</td><td>इंद्र स्तुति एवं दान स्तुति</td><td>कण्व आदि</td></tr>
+<tr><td>नवम</td><td>सोम पवमान</td><td>विभिन्न ऋषि</td></tr>
+<tr><td>दशम</td><td>सृष्टि, समाज एवं दर्शन</td><td>विविध ऋषि</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<!-- ALL MANDALS -->
+
+<section class="card" id="mandal1">
+<h2>3. ऋग्वेद के प्रत्येक मंडल का विस्तृत विवरण</h2>
+
+<details>
+<summary>प्रथम मंडल (First Mandala)</summary>
+<div class="content">
+<p><b>मुख्य विषय:</b> विभिन्न देवताओं की स्तुति।</p>
+<ul>
+<li>अग्नि, इंद्र और मरुत की स्तुति।</li>
+<li>अश्विन कुमारों का उल्लेख।</li>
+<li>उषा अर्थात प्रातःकालीन प्रकाश का वर्णन।</li>
+<li>प्रकृति एवं धार्मिक अनुष्ठानों का वर्णन।</li>
+<li>विभिन्न ऋषियों द्वारा रचित सूक्त।</li>
+</ul>
+<p><b>विशेष:</b> ऋग्वेद का पहला मंत्र अग्नि की स्तुति में है।</p>
+<span class="highlight">ऋग्वेद 1.1.1 - अग्निमीळे पुरोहितम्</span>
+</div>
+</details>
+
+<details>
+<summary>द्वितीय मंडल (Second Mandala)</summary>
+<div class="content">
+<p><b>प्रमुख ऋषि:</b> गृत्समद एवं उनका परिवार।</p>
+<ul>
+<li>इंद्र की वीरता और शक्ति का वर्णन।</li>
+<li>अग्नि देवता की स्तुति।</li>
+<li>यज्ञ एवं धार्मिक अनुष्ठान।</li>
+<li>प्राकृतिक शक्तियों का वर्णन।</li>
+</ul>
+<p><b>विशेष:</b> यह परिवार मंडलों में शामिल है।</p>
+</div>
+</details>
+
+<details>
+<summary>तृतीय मंडल (Third Mandala)</summary>
+<div class="content">
+<p><b>प्रमुख ऋषि:</b> विश्वामित्र।</p>
+<ul>
+<li>इंद्र और अग्नि की स्तुति।</li>
+<li>सविता देवता का वर्णन।</li>
+<li>गायत्री मंत्र इसी मंडल में मिलता है।</li>
+</ul>
+<div class="highlight">
+<b>गायत्री मंत्र - ऋग्वेद 3.62.10</b><br>
+ॐ भूर्भुवः स्वः।<br>
+तत्सवितुर्वरेण्यं भर्गो देवस्य धीमहि।<br>
+धियो यो नः प्रचोदयात्॥
+</div>
+<p><b>विशेष:</b> गायत्री मंत्र सविता देवता को समर्पित है।</p>
+</div>
+</details>
+
+<details>
+<summary>चतुर्थ मंडल (Fourth Mandala)</summary>
+<div class="content">
+<p><b>प्रमुख ऋषि:</b> वामदेव।</p>
+<ul>
+<li>इंद्र की स्तुति।</li>
+<li>अग्नि देवता का वर्णन।</li>
+<li>अन्य वैदिक देवताओं की प्रार्थना।</li>
+<li>धार्मिक एवं प्राकृतिक शक्तियों का उल्लेख।</li>
+</ul>
+<p><b>विशेष:</b> यह परिवार मंडल का हिस्सा है।</p>
+</div>
+</details>
+
+<details>
+<summary>पंचम मंडल (Fifth Mandala)</summary>
+<div class="content">
+<p><b>प्रमुख ऋषि:</b> अत्रि एवं उनका परिवार।</p>
+<ul>
+<li>मित्र और वरुण की स्तुति।</li>
+<li>अश्विन कुमारों का उल्लेख।</li>
+<li>आदित्य देवताओं का वर्णन।</li>
+<li>उषा की स्तुति।</li>
+</ul>
+<p><b>विशेष:</b> धार्मिक जीवन एवं देवताओं के प्रति प्रार्थनाओं का वर्णन।</p>
+</div>
+</details>
+
+<details>
+<summary>षष्ठ मंडल (Sixth Mandala)</summary>
+<div class="content">
+<p><b>प्रमुख ऋषि:</b> भरद्वाज।</p>
+<ul>
+<li>इंद्र एवं अग्नि की स्तुति।</li>
+<li>पूषन देवता का वर्णन।</li>
+<li>सरस्वती नदी की स्तुति।</li>
+<li>धन, पशुधन एवं समृद्धि की कामना।</li>
+</ul>
+<p><b>महत्वपूर्ण सूक्त:</b> सरस्वती सूक्त 6.61।</p>
+</div>
+</details>
+
+<details>
+<summary>सप्तम मंडल (Seventh Mandala)</summary>
+<div class="content">
+<p><b>प्रमुख ऋषि:</b> वशिष्ठ।</p>
+<ul>
+<li>इंद्र एवं वरुण की स्तुति।</li>
+<li>सरस्वती नदी का उल्लेख।</li>
+<li>दशराज्ञ युद्ध का वर्णन।</li>
+<li>मंडूक सूक्त का उल्लेख।</li>
+</ul>
+<div class="highlight">
+<b>दशराज्ञ युद्ध - ऋग्वेद 7.18</b><br>
+यह युद्ध राजा सुदास और दस राजाओं के संघ के बीच
+परुष्णी नदी (वर्तमान रावी) के निकट हुआ था।
+</div>
+<p><b>मंडूक सूक्त:</b> 7.103 - मेंढकों का वर्णन।</p>
+</div>
+</details>
+
+<details>
+<summary>अष्टम मंडल (Eighth Mandala)</summary>
+<div class="content">
+<p><b>प्रमुख ऋषि:</b> कण्व एवं अन्य ऋषि।</p>
+<ul>
+<li>इंद्र की स्तुति।</li>
+<li>अश्विन देवताओं का वर्णन।</li>
+<li>दान स्तुतियाँ।</li>
+<li>राजाओं द्वारा दिए गए उपहारों का उल्लेख।</li>
+</ul>
+<p><b>विशेष:</b> दान एवं धार्मिक संरक्षण की जानकारी मिलती है।</p>
+</div>
+</details>
+
+<details>
+<summary>नवम मंडल (Ninth Mandala)</summary>
+<div class="content">
+<p><b>मुख्य विषय:</b> सोम पवमान।</p>
+<ul>
+<li>सोमरस की स्तुति।</li>
+<li>सोम को छानने एवं शुद्ध करने की प्रक्रिया।</li>
+<li>सोमरस का यज्ञ में उपयोग।</li>
+<li>सोम को पवित्र एवं शक्तिशाली माना गया।</li>
+</ul>
+<div class="highlight">
+<b>विशेष:</b> नवम मंडल को सोम मंडल कहा जाता है।
+इसके सभी सूक्त सोम पवमान से संबंधित हैं।
+</div>
+</div>
+</details>
+
+<details>
+<summary>दशम मंडल (Tenth Mandala)</summary>
+<div class="content">
+<p><b>मुख्य विषय:</b> सामाजिक, राजनीतिक एवं दार्शनिक विचार।</p>
+<ul>
+<li>पुरुष सूक्त - वर्ण व्यवस्था का उल्लेख।</li>
+<li>नासदीय सूक्त - सृष्टि की उत्पत्ति पर चिंतन।</li>
+<li>विवाह सूक्त - विवाह परंपराएँ।</li>
+<li>अक्ष सूक्त - जुआ खेलने के दुष्परिणाम।</li>
+<li>नदी सूक्त - नदियों का वर्णन।</li>
+<li>वाक् सूक्त - वाणी की शक्ति।</li>
+<li>अंत्येष्टि एवं मृत्यु संबंधी मंत्र।</li>
+</ul>
+<div class="highlight">
+<b>विशेष:</b> पुरुष सूक्त 10.90, नासदीय सूक्त 10.129,
+विवाह सूक्त 10.85 और अक्ष सूक्त 10.34।
+</div>
+</div>
+</details>
+
+</section>
+
+<!-- IMPORTANT SUKTAS -->
+
+<section class="card" id="important">
+<h2>4. ऋग्वेद के महत्वपूर्ण सूक्त</h2>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>सूक्त</th>
+<th>मंडल एवं सूक्त संख्या</th>
+<th>विषय</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>अग्नि सूक्त</td><td>1.1</td><td>अग्नि देवता की स्तुति</td></tr>
+<tr><td>गायत्री मंत्र</td><td>3.62.10</td><td>सविता देवता की प्रार्थना</td></tr>
+<tr><td>सरस्वती सूक्त</td><td>6.61</td><td>सरस्वती की स्तुति</td></tr>
+<tr><td>दशराज्ञ युद्ध</td><td>7.18</td><td>सुदास एवं दस राजाओं का संघर्ष</td></tr>
+<tr><td>मंडूक सूक्त</td><td>7.103</td><td>मेंढकों का वर्णन</td></tr>
+<tr><td>अक्ष सूक्त</td><td>10.34</td><td>जुआ एवं उसके दुष्परिणाम</td></tr>
+<tr><td>विवाह सूक्त</td><td>10.85</td><td>विवाह परंपराएँ</td></tr>
+<tr><td>पुरुष सूक्त</td><td>10.90</td><td>वर्ण व्यवस्था एवं विराट पुरुष</td></tr>
+<tr><td>नासदीय सूक्त</td><td>10.129</td><td>सृष्टि की उत्पत्ति</td></tr>
+<tr><td>नदी सूक्त</td><td>10.75</td><td>नदियों का वर्णन</td></tr>
+<tr><td>वाक् सूक्त</td><td>10.125</td><td>वाणी की शक्ति</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<!-- SOCIAL AND POLITICAL -->
+
+<section class="card" id="social">
+<h2>5. सामाजिक एवं राजनीतिक विषय</h2>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>विषय</th>
+<th>ऋग्वैदिक संदर्भ</th>
+<th>विशेष जानकारी</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>वर्ण व्यवस्था</td><td>10.90</td><td>ब्राह्मण, राजन्य, वैश्य एवं शूद्र</td></tr>
+<tr><td>राजनीतिक संघर्ष</td><td>7.18</td><td>दशराज्ञ युद्ध</td></tr>
+<tr><td>विवाह</td><td>10.85</td><td>वैदिक विवाह मंत्र</td></tr>
+<tr><td>जुआ</td><td>10.34</td><td>जुए के दुष्परिणाम</td></tr>
+<tr><td>सृष्टि</td><td>10.129</td><td>सृष्टि की उत्पत्ति पर विचार</td></tr>
+<tr><td>नदी</td><td>10.75</td><td>विभिन्न नदियों का उल्लेख</td></tr>
+<tr><td>सरस्वती</td><td>6.61</td><td>सरस्वती की स्तुति</td></tr>
+<tr><td>अंत्येष्टि</td><td>10.14–10.18</td><td>मृत्यु एवं अंतिम संस्कार</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<!-- RISHI -->
+
+<section class="card" id="rishi">
+<h2>6. मंडल एवं ऋषि परिवार</h2>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>मंडल</th>
+<th>ऋषि</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>द्वितीय</td><td>गृत्समद</td></tr>
+<tr><td>तृतीय</td><td>विश्वामित्र</td></tr>
+<tr><td>चतुर्थ</td><td>वामदेव</td></tr>
+<tr><td>पंचम</td><td>अत्रि</td></tr>
+<tr><td>षष्ठ</td><td>भरद्वाज</td></tr>
+<tr><td>सप्तम</td><td>वशिष्ठ</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="highlight">
+द्वितीय से सप्तम मंडल को परिवार मंडल (Family Books)
+कहा जाता है। ये ऋग्वेद के अपेक्षाकृत प्राचीन भाग हैं।
+</div>
+</section>
+
+<!-- EXAM FACTS -->
+
+<section class="card" id="facts">
+<h2>7. BPSC एवं UPSC के लिए महत्वपूर्ण तथ्य</h2>
+
+<details>
+<summary>ऋग्वेद से संबंधित सामान्य प्रश्न</summary>
+<div class="content">
+<ul>
+<li>ऋग्वेद में कुल 10 मंडल हैं।</li>
+<li>ऋग्वेद में 1028 सूक्त हैं।</li>
+<li>गायत्री मंत्र तृतीय मंडल में है।</li>
+<li>गायत्री मंत्र के ऋषि विश्वामित्र हैं।</li>
+<li>नवम मंडल सोम मंडल है।</li>
+<li>दशराज्ञ युद्ध सप्तम मंडल में है।</li>
+<li>पुरुष सूक्त दशम मंडल में है।</li>
+<li>नासदीय सूक्त दशम मंडल में है।</li>
+<li>विवाह सूक्त दशम मंडल में है।</li>
+<li>अक्ष सूक्त दशम मंडल में है।</li>
+<li>परिवार मंडल द्वितीय से सप्तम तक हैं।</li>
+</ul>
+</div>
+</details>
+
+<details>
+<summary>महत्वपूर्ण अवधारणाएँ</summary>
+<div class="content">
+<ul>
+<li><b>सोम:</b> वैदिक यज्ञों में प्रयुक्त पवित्र पेय तथा देवता।</li>
+<li><b>इंद्र:</b> ऋग्वेद में प्रमुखता से स्तुत देवता।</li>
+<li><b>अग्नि:</b> देवताओं और मनुष्यों के बीच मध्यस्थ।</li>
+<li><b>सविता:</b> गायत्री मंत्र में स्तुत देवता।</li>
+<li><b>परुष्णी:</b> वर्तमान रावी नदी का प्राचीन नाम।</li>
+<li><b>पुरुष सूक्त:</b> विराट पुरुष के शरीर से चार वर्णों की उत्पत्ति का वर्णन।</li>
+</ul>
+</div>
+</details>
+</section>
+
+<!-- REVISION -->
+
+<section class="card" id="revision">
+<h2>8. त्वरित पुनरावृत्ति (Quick Revision)</h2>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>याद रखने का क्रम</th>
+<th>उत्तर</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>3</td><td>गायत्री मंत्र - विश्वामित्र</td></tr>
+<tr><td>7</td><td>दशराज्ञ युद्ध - सुदास</td></tr>
+<tr><td>9</td><td>सोम मंडल</td></tr>
+<tr><td>10</td><td>पुरुष, नासदीय, विवाह, अक्ष एवं नदी सूक्त</td></tr>
+<tr><td>2 से 7</td><td>परिवार मंडल</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="highlight">
+परीक्षा की दृष्टि से सबसे पहले तृतीय, सप्तम, नवम और
+दशम मंडल के महत्वपूर्ण विषयों को अच्छी तरह याद करें।
+</div>
+</section>
+
+<footer class="footer">
+    <p><b>VEDIC AGE | वैदिक काल</b></p>
+    <p>अध्ययन सामग्री - प्राचीन भारतीय इतिहास</p>
+</footer>
+
+</div>
+
+<script>
+function expandAll() {
+    document.querySelectorAll("details").forEach(item => {
+        item.open = true;
+    });
+}
+
+function collapseAll() {
+    document.querySelectorAll("details").forEach(item => {
+        item.open = false;
+    });
+}
+</script>
+
+</body>
+</html>
